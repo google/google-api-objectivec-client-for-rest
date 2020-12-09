@@ -233,7 +233,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 @implementation GTLRServiceNetworking_AddSubnetworkRequest
 @dynamic consumer, consumerNetwork, descriptionProperty, ipPrefixLength, region,
-         requestedAddress, secondaryIpRangeSpecs, subnetwork, subnetworkUsers;
+         requestedAddress, requestedRanges, secondaryIpRangeSpecs, subnetwork,
+         subnetworkUsers;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -241,6 +242,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"requestedRanges" : [NSString class],
     @"secondaryIpRangeSpecs" : [GTLRServiceNetworking_SecondaryIpRangeSpec class],
     @"subnetworkUsers" : [NSString class]
   };
@@ -1281,10 +1283,11 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_RangeReservation
-@dynamic ipPrefixLength, secondaryRangeIpPrefixLengths;
+@dynamic ipPrefixLength, requestedRanges, secondaryRangeIpPrefixLengths;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"requestedRanges" : [NSString class],
     @"secondaryRangeIpPrefixLengths" : [NSNumber class]
   };
   return map;

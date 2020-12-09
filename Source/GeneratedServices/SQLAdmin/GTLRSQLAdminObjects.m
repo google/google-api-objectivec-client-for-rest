@@ -233,6 +233,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlr
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
@@ -279,6 +280,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @dynamic backupRetentionSettings, binaryLogEnabled, enabled, kind, location,
          pointInTimeRecoveryEnabled, replicationLogArchivingEnabled, startTime,
          transactionLogRetentionDays;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_BackupContext
+//
+
+@implementation GTLRSQLAdmin_BackupContext
+@dynamic backupId, kind;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -773,6 +791,17 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InsightsConfig
+//
+
+@implementation GTLRSQLAdmin_InsightsConfig
+@dynamic queryInsightsEnabled, queryStringLength, recordApplicationTags,
+         recordClientAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesCloneRequest
 //
 
@@ -1009,9 +1038,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_Operation
-@dynamic endTime, error, exportContext, importContext, insertTime, kind, name,
-         operationType, selfLink, startTime, status, targetId, targetLink,
-         targetProject, user;
+@dynamic backupContext, endTime, error, exportContext, importContext,
+         insertTime, kind, name, operationType, selfLink, startTime, status,
+         targetId, targetLink, targetProject, user;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1157,9 +1186,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @dynamic activationPolicy, activeDirectoryConfig, authorizedGaeApplications,
          availabilityType, backupConfiguration, collation,
          crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
-         dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, ipConfiguration,
-         kind, locationPreference, maintenanceWindow, pricingPlan,
-         replicationType, settingsVersion, storageAutoResize,
+         dataDiskSizeGb, dataDiskType, denyMaintenancePeriods, insightsConfig,
+         ipConfiguration, kind, locationPreference, maintenanceWindow,
+         pricingPlan, replicationType, settingsVersion, storageAutoResize,
          storageAutoResizeLimit, tier, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

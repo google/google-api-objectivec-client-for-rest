@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Talent Solution API (jobs/v3)
+//   Cloud Talent Solution API (jobs/v4)
 // Description:
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
@@ -44,11 +44,11 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsClientEventsCreate
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsClientEventsCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateClientEventRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_ClientEvent *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -57,25 +57,25 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/clientEvents";
-  GTLRCloudTalentSolutionQuery_ProjectsClientEventsCreate *query =
+  NSString *pathURITemplate = @"v4/{+parent}/clientEvents";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsClientEventsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_ClientEvent class];
-  query.loggingName = @"jobs.projects.clientEvents.create";
+  query.loggingName = @"jobs.projects.tenants.clientEvents.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsCompaniesCreate
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateCompanyRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Company *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -84,82 +84,82 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/companies";
-  GTLRCloudTalentSolutionQuery_ProjectsCompaniesCreate *query =
+  NSString *pathURITemplate = @"v4/{+parent}/companies";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Company class];
-  query.loggingName = @"jobs.projects.companies.create";
+  query.loggingName = @"jobs.projects.tenants.companies.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsCompaniesDelete
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsCompaniesDelete *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Empty class];
-  query.loggingName = @"jobs.projects.companies.delete";
+  query.loggingName = @"jobs.projects.tenants.companies.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsCompaniesGet
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsCompaniesGet *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Company class];
-  query.loggingName = @"jobs.projects.companies.get";
+  query.loggingName = @"jobs.projects.tenants.companies.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsCompaniesList
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesList
 
 @dynamic pageSize, pageToken, parent, requireOpenJobs;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/companies";
-  GTLRCloudTalentSolutionQuery_ProjectsCompaniesList *query =
+  NSString *pathURITemplate = @"v4/{+parent}/companies";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_ListCompaniesResponse class];
-  query.loggingName = @"jobs.projects.companies.list";
+  query.loggingName = @"jobs.projects.tenants.companies.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsCompaniesPatch
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRCloudTalentSolution_UpdateCompanyRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Company *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -168,24 +168,23 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsCompaniesPatch *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompaniesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Company class];
-  query.loggingName = @"jobs.projects.companies.patch";
+  query.loggingName = @"jobs.projects.tenants.companies.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsComplete
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCompleteQuery
 
-@dynamic companyName, languageCode, languageCodes, name, pageSize, query, scope,
-         type;
+@dynamic company, languageCodes, pageSize, query, scope, tenant, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -194,22 +193,114 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
   return map;
 }
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}:complete";
-  GTLRCloudTalentSolutionQuery_ProjectsComplete *query =
++ (instancetype)queryWithTenant:(NSString *)tenant {
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"v4/{+tenant}:completeQuery";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCompleteQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
-  query.name = name;
+  query.tenant = tenant;
   query.expectedObjectClass = [GTLRCloudTalentSolution_CompleteQueryResponse class];
-  query.loggingName = @"jobs.projects.complete";
+  query.loggingName = @"jobs.projects.tenants.completeQuery";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsBatchDelete
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Tenant *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/tenants";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Tenant class];
+  query.loggingName = @"jobs.projects.tenants.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Empty class];
+  query.loggingName = @"jobs.projects.tenants.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Tenant class];
+  query.loggingName = @"jobs.projects.tenants.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_BatchCreateJobsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/jobs:batchCreate";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Operation class];
+  query.loggingName = @"jobs.projects.tenants.jobs.batchCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchDelete
 
 @dynamic parent;
 
@@ -222,25 +313,25 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/jobs:batchDelete";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsBatchDelete *query =
+  NSString *pathURITemplate = @"v4/{+parent}/jobs:batchDelete";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudTalentSolution_Empty class];
-  query.loggingName = @"jobs.projects.jobs.batchDelete";
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Operation class];
+  query.loggingName = @"jobs.projects.tenants.jobs.batchDelete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsCreate
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchUpdate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRCloudTalentSolution_CreateJobRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_BatchUpdateJobsRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -249,82 +340,109 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/jobs";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsCreate *query =
+  NSString *pathURITemplate = @"v4/{+parent}/jobs:batchUpdate";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsBatchUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Operation class];
+  query.loggingName = @"jobs.projects.tenants.jobs.batchUpdate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Job *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/jobs";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Job class];
-  query.loggingName = @"jobs.projects.jobs.create";
+  query.loggingName = @"jobs.projects.tenants.jobs.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsDelete
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsDelete *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Empty class];
-  query.loggingName = @"jobs.projects.jobs.delete";
+  query.loggingName = @"jobs.projects.tenants.jobs.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsGet
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsGet *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Job class];
-  query.loggingName = @"jobs.projects.jobs.get";
+  query.loggingName = @"jobs.projects.tenants.jobs.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsList
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsList
 
 @dynamic filter, jobView, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/jobs";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsList *query =
+  NSString *pathURITemplate = @"v4/{+parent}/jobs";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_ListJobsResponse class];
-  query.loggingName = @"jobs.projects.jobs.list";
+  query.loggingName = @"jobs.projects.tenants.jobs.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsPatch
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRCloudTalentSolution_UpdateJobRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Job *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -333,21 +451,21 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsPatch *query =
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudTalentSolution_Job class];
-  query.loggingName = @"jobs.projects.jobs.patch";
+  query.loggingName = @"jobs.projects.tenants.jobs.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsSearch
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearch
 
 @dynamic parent;
 
@@ -360,21 +478,21 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/jobs:search";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsSearch *query =
+  NSString *pathURITemplate = @"v4/{+parent}/jobs:search";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_SearchJobsResponse class];
-  query.loggingName = @"jobs.projects.jobs.search";
+  query.loggingName = @"jobs.projects.tenants.jobs.search";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudTalentSolutionQuery_ProjectsJobsSearchForAlert
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearchForAlert
 
 @dynamic parent;
 
@@ -387,15 +505,61 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v3/{+parent}/jobs:searchForAlert";
-  GTLRCloudTalentSolutionQuery_ProjectsJobsSearchForAlert *query =
+  NSString *pathURITemplate = @"v4/{+parent}/jobs:searchForAlert";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsJobsSearchForAlert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudTalentSolution_SearchJobsResponse class];
-  query.loggingName = @"jobs.projects.jobs.searchForAlert";
+  query.loggingName = @"jobs.projects.tenants.jobs.searchForAlert";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v4/{+parent}/tenants";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_ListTenantsResponse class];
+  query.loggingName = @"jobs.projects.tenants.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudTalentSolution_Tenant *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsTenantsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Tenant class];
+  query.loggingName = @"jobs.projects.tenants.patch";
   return query;
 }
 

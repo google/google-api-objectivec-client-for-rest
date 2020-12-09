@@ -1453,6 +1453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDataCostUsd;
 /** Value: "METRIC_DBM_ENGAGEMENT_RATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDbmEngagementRate;
+/** Value: "METRIC_DEMO_COMPOSITION_IMPRESSION" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoCompositionImpression;
+/** Value: "METRIC_DEMO_CORRECTED_CLICKS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoCorrectedClicks;
+/** Value: "METRIC_DEMO_POPULATION" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoPopulation;
 /** Value: "METRIC_ENGAGEMENTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagements;
 /**
@@ -1619,6 +1625,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGmailPostViewConversions;
 /** Value: "METRIC_GMAIL_POTENTIAL_VIEWS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGmailPotentialViews;
+/** Value: "METRIC_GRP_CORRECTED_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedImpressions;
 /** Value: "METRIC_IMPRESSION_CUSTOM_VALUE_COST" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionCustomValueCost;
 /** Value: "METRIC_IMPRESSIONS" */
@@ -1903,6 +1911,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitConversions;
 /** Value: "METRIC_STORE_VISITS_ADX_ONLY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricStoreVisitsAdxOnly;
+/** Value: "METRIC_TARGET_RATING_POINTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTargetRatingPoints;
 /** Value: "METRIC_TEA_TRUEVIEW_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricTeaTrueviewImpressions;
 /** Value: "METRIC_TEA_TRUEVIEW_UNIQUE_COOKIES" */
@@ -2057,6 +2067,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricUniqueVisitorsCookies;
 /** Value: "METRIC_UNKNOWN" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricUnknown;
+/** Value: "METRIC_VENDOR_BLOCKED_ADS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVendorBlockedAds;
 /** Value: "METRIC_VERIFIABLE_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVerifiableImpressions;
 /** Value: "METRIC_VIDEO_CLIENT_COST_ECPCV_ADVERTISER_CURRENCY" */
@@ -2069,6 +2081,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoCompletionRate;
 /** Value: "METRIC_VIEWABLE_BID_REQUESTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableBidRequests;
+/** Value: "METRIC_VIRTUAL_PEOPLE_AVERAGE_IMPRESSION_FREQUENCY_BY_DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleAverageImpressionFrequencyByDemo;
+/** Value: "METRIC_VIRTUAL_PEOPLE_CLICK_REACH_BY_DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleClickReachByDemo;
+/** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_BY_DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachByDemo;
+/** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachPercent;
+/** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_SHARE_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachSharePercent;
 /** Value: "METRIC_WATCH_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWatchTime;
 

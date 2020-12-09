@@ -2824,7 +2824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsCreateWithObject:packageName:versionCode:]
 
-/** Unique identifier of the Android app. */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The version code of the App Bundle. */
@@ -2837,7 +2837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  already uploaded Android App Bundle.
  *
  *  @param object The @c GTLRAndroidPublisher_Variant to include in the query.
- *  @param packageName Unique identifier of the Android app.
+ *  @param packageName Package name of the app.
  *  @param versionCode The version code of the App Bundle.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsCreate
@@ -2861,7 +2861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsDownloadWithpackageName:versionCode:variantId:]
 
-/** Unique identifier of the Android app. */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The ID of a previously created system APK variant. */
@@ -2876,7 +2876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Downloads a previously created system APK which is suitable for inclusion in
  *  a system image.
  *
- *  @param packageName Unique identifier of the Android app.
+ *  @param packageName Package name of the app.
  *  @param versionCode The version code of the App Bundle.
  *  @param variantId The ID of a previously created system APK variant.
  *
@@ -2900,7 +2900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsGetWithpackageName:versionCode:variantId:]
 
-/** Unique identifier of the Android app. */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The ID of a previously created system APK variant. */
@@ -2914,7 +2914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Returns a previously created system APK variant.
  *
- *  @param packageName Unique identifier of the Android app.
+ *  @param packageName Package name of the app.
  *  @param versionCode The version code of the App Bundle.
  *  @param variantId The ID of a previously created system APK variant.
  *
@@ -2938,7 +2938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 // Previous library name was
 //   +[GTLQueryAndroidPublisher queryForSystemapksVariantsListWithpackageName:versionCode:]
 
-/** Unique identifier of the Android app. */
+/** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
 /** The version code of the App Bundle. */
@@ -2949,7 +2949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *
  *  Returns the list of previously created system APK variants.
  *
- *  @param packageName Unique identifier of the Android app.
+ *  @param packageName Package name of the app.
  *  @param versionCode The version code of the App Bundle.
  *
  *  @return GTLRAndroidPublisherQuery_SystemapksVariantsList

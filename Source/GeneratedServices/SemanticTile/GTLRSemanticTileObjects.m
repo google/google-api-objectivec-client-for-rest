@@ -64,8 +64,8 @@ NSString * const kGTLRSemanticTile_Relation_RelationType_RelationTypeUnspecified
 //
 
 @implementation GTLRSemanticTile_Area
-@dynamic hasExternalEdges, internalEdges, loopBreaks, triangleIndices, type,
-         vertexOffsets, zOrder;
+@dynamic basemapZOrder, hasExternalEdges, internalEdges, loopBreaks,
+         triangleIndices, type, vertexOffsets, zOrder;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -76,6 +76,16 @@ NSString * const kGTLRSemanticTile_Relation_RelationType_RelationTypeUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSemanticTile_BasemapZOrder
+//
+
+@implementation GTLRSemanticTile_BasemapZOrder
+@dynamic zGrade, zPlane, zWithinGrade;
 @end
 
 
@@ -171,7 +181,7 @@ NSString * const kGTLRSemanticTile_Relation_RelationType_RelationTypeUnspecified
 //
 
 @implementation GTLRSemanticTile_Line
-@dynamic vertexOffsets, zOrder;
+@dynamic basemapZOrder, vertexOffsets, zOrder;
 @end
 
 

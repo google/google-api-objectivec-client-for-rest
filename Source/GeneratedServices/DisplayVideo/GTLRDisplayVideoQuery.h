@@ -48,6 +48,7 @@
 @class GTLRDisplayVideo_ManualTrigger;
 @class GTLRDisplayVideo_NegativeKeyword;
 @class GTLRDisplayVideo_NegativeKeywordList;
+@class GTLRDisplayVideo_SearchTargetingOptionsRequest;
 @class GTLRDisplayVideo_Site;
 @class GTLRDisplayVideo_User;
 
@@ -634,20 +635,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  expressions are made up of one or more restrictions. * Restrictions can be
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
- *  {value}`. * The operator must be `EQUALS (=)`. * Supported fields: -
- *  `campaignId` - `displayName` - `entityStatus` Examples: * All
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an
+ *  {value}`. * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
+ *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator must be `EQUALS
+ *  (=)`. * Supported fields: - `campaignId` - `displayName` - `entityStatus` -
+ *  `updateTime` (input in ISO 8601 format, or YYYY-MM-DDTHH:MM:SSZ) Examples: *
+ *  All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` campaigns under an
  *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
- *  entityStatus="ENTITY_STATUS_PAUSED")` The length of this field should be no
+ *  entityStatus="ENTITY_STATUS_PAUSED")` * All campaigns with an update time
+ *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  `updateTime<="2020-11-04T18:54:47Z"` * All campaigns with an update time
+ *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
  *  more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field by which to sort the list. Acceptable values are: * `displayName`
- *  (default) * `entityStatus` The default sorting order is ascending. To
- *  specify descending order for a field, a suffix "desc" should be added to the
- *  field name. Example: `displayName desc`.
+ *  (default) * `entityStatus` * `updateTime` The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix "desc" should
+ *  be added to the field name. Example: `displayName desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1572,24 +1579,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
  *  {value}`. * The operator used on
  *  `budget.budget_segments.date_range.end_date` must be LESS THAN (<). * The
- *  operators used on all other fields must be `EQUALS (=)`. * Supported fields:
- *  - `campaignId` - `displayName` - `entityStatus` -
- *  `budget.budget_segments.date_range.end_date` (input as YYYY-MM-DD) Examples:
- *  * All insertion orders under a campaign: `campaignId="1234"` * All
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` insertion orders under an
- *  advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
- *  entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders whose budget
+ *  operator used on `updateTime` must be `GREATER THAN OR EQUAL TO (>=)` or
+ *  `LESS THAN OR EQUAL TO (<=)`. * The operators used on all other fields must
+ *  be `EQUALS (=)`. * Supported fields: - `campaignId` - `displayName` -
+ *  `entityStatus` - `budget.budget_segments.date_range.end_date` (input as
+ *  YYYY-MM-DD) - `updateTime` (input in ISO 8601 format, or
+ *  YYYY-MM-DDTHH:MM:SSZ) Examples: * All insertion orders under a campaign:
+ *  `campaignId="1234"` * All `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED`
+ *  insertion orders under an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE"
+ *  OR entityStatus="ENTITY_STATUS_PAUSED")` * All insertion orders whose budget
  *  segments' dates end before March 28, 2019:
- *  `budget.budget_segments.date_range.end_date<"2019-03-28"` The length of this
- *  field should be no more than 500 characters.
+ *  `budget.budget_segments.date_range.end_date<"2019-03-28"` * All insertion
+ *  orders with an update time less than or equal to `2020-11-04T18:54:47Z
+ *  (format of ISO 8601)`: `updateTime<="2020-11-04T18:54:47Z"` * All insertion
+ *  orders with an update time greater than or equal to `2020-11-04T18:54:47Z
+ *  (format of ISO 8601)`: `updateTime>="2020-11-04T18:54:47Z"` The length of
+ *  this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field by which to sort the list. Acceptable values are: * "displayName"
- *  (default) * "entityStatus" The default sorting order is ascending. To
- *  specify descending order for a field, a suffix "desc" should be added to the
- *  field name. Example: `displayName desc`.
+ *  (default) * "entityStatus" * "updateTime" The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix "desc" should
+ *  be added to the field name. Example: `displayName desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1936,12 +1949,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  combined by `AND` or `OR` logical operators. A sequence of restrictions
  *  implicitly uses `AND`. * A restriction has the form of `{field} {operator}
  *  {value}`. * The operator used on `flight.dateRange.endDate` must be LESS
- *  THAN (<). * The operator used on `warningMessages` must be `HAS (:)`. * The
- *  operators used on all other fields must be `EQUALS (=)`. * Supported fields:
- *  - `campaignId` - `displayName` - `insertionOrderId` - `entityStatus` -
- *  `lineItemId` - `lineItemType` - `flight.dateRange.endDate` (input formatted
- *  as YYYY-MM-DD) - `warningMessages` - `flight.triggerId` Examples: * All line
- *  items under an insertion order: `insertionOrderId="1234"` * All
+ *  THAN (<). * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
+ *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator used on
+ *  `warningMessages` must be `HAS (:)`. * The operators used on all other
+ *  fields must be `EQUALS (=)`. * Supported fields: - `campaignId` -
+ *  `displayName` - `insertionOrderId` - `entityStatus` - `lineItemId` -
+ *  `lineItemType` - `flight.dateRange.endDate` (input formatted as YYYY-MM-DD)
+ *  - `warningMessages` - `flight.triggerId` - `updateTime` (input in ISO 8601
+ *  format, or YYYY-MM-DDTHH:MM:SSZ) * The operator can be `NO LESS THAN (>=)`
+ *  or `NO GREATER THAN (<=)`. - `updateTime` (format of ISO 8601) Examples: *
+ *  All line items under an insertion order: `insertionOrderId="1234"` * All
  *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
  *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser:
  *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
@@ -1949,16 +1966,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items whose flight
  *  dates end before March 28, 2019: `flight.dateRange.endDate<"2019-03-28"` *
  *  All line items that have `NO_VALID_CREATIVE` in `warningMessages`:
- *  `warningMessages:"NO_VALID_CREATIVE"` The length of this field should be no
+ *  `warningMessages:"NO_VALID_CREATIVE"` * All line items with an update time
+ *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  `updateTime<="2020-11-04T18:54:47Z"` * All line items with an update time
+ *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
+ *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
  *  more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Field by which to sort the list. Acceptable values are: * "displayName"
- *  (default) * "entityStatus" * “flight.dateRange.endDate” The default sorting
- *  order is ascending. To specify descending order for a field, a suffix "desc"
- *  should be added to the field name. Example: `displayName desc`.
+ *  (default) * "entityStatus" * “flight.dateRange.endDate” * "updateTime" The
+ *  default sorting order is ascending. To specify descending order for a field,
+ *  a suffix "desc" should be added to the field name. Example: `displayName
+ *  desc`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4475,7 +4497,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, assign) long long advertiserId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -4607,7 +4632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    the query.
  *  @param advertiserId Required. The ID of the advertiser.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -4754,7 +4781,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -4883,7 +4913,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  @param advertiserId Required. The ID of the advertiser.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
  *    option to delete.
  *
@@ -5035,7 +5067,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 @property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
 
 /**
- *  Required. Identifies the type of this assigned targeting option.
+ *  Required. Identifies the type of this assigned targeting option. Supported
+ *  targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5164,7 +5199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  @param advertiserId Required. The ID of the advertiser.
  *  @param targetingType Required. Identifies the type of this assigned
- *    targeting option.
+ *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *  @param assignedTargetingOptionId Required. An identifier unique to the
  *    targeting type in this advertiser that identifies the assigned targeting
  *    option being requested.
@@ -5346,6 +5383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 
 /**
  *  Required. Identifies the type of assigned targeting options to list.
+ *  Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -5475,7 +5515,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *
  *  @param advertiserId Required. The ID of the advertiser.
  *  @param targetingType Required. Identifies the type of assigned targeting
- *    options to list.
+ *    options to list. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
+ *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` *
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -9206,6 +9248,279 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *        information.
  */
 + (instancetype)queryWithTargetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Searches for targeting options of a given type based on the given search
+ *  terms.
+ *
+ *  Method: displayvideo.targetingTypes.targetingOptions.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch : GTLRDisplayVideoQuery
+// Previous library name was
+//   +[GTLQueryDisplayVideo queryForTargetingTypesTargetingOptionsSearchWithObject:targetingType:]
+
+/**
+ *  Required. The type of targeting options to retrieve. Accepted values are: *
+ *  `TARGETING_TYPE_GEO_REGION`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ */
+@property(nonatomic, copy, nullable) NSString *targetingType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_SearchTargetingOptionsResponse.
+ *
+ *  Searches for targeting options of a given type based on the given search
+ *  terms.
+ *
+ *  @param object The @c GTLRDisplayVideo_SearchTargetingOptionsRequest to
+ *    include in the query.
+ *  @param targetingType Required. The type of targeting options to retrieve.
+ *    Accepted values are: * `TARGETING_TYPE_GEO_REGION`
+ *
+ *  Likely values for @c targetingType:
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
+ *        value when type is not specified or is unknown in this version.
+ *        (Value: "TARGETING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeChannel Target a
+ *        channel (a custom group of related websites or apps). (Value:
+ *        "TARGETING_TYPE_CHANNEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAppCategory Target an
+ *        app category (for example, education or puzzle games). (Value:
+ *        "TARGETING_TYPE_APP_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeApp Target a specific
+ *        app (for example, Angry Birds). (Value: "TARGETING_TYPE_APP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUrl Target a specific
+ *        url (for example, quora.com). (Value: "TARGETING_TYPE_URL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDayAndTime Target ads
+ *        during a chosen time period on a specific day. (Value:
+ *        "TARGETING_TYPE_DAY_AND_TIME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange Target ads to
+ *        a specific age range (for example, 18-24). (Value:
+ *        "TARGETING_TYPE_AGE_RANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeRegionalLocationList
+ *        Target ads to the specified regions on a regional location list.
+ *        (Value: "TARGETING_TYPE_REGIONAL_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeProximityLocationList
+ *        Target ads to the specified points of interest on a proximity location
+ *        list. (Value: "TARGETING_TYPE_PROXIMITY_LOCATION_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGender Target ads to a
+ *        specific gender (for example, female or male). (Value:
+ *        "TARGETING_TYPE_GENDER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeVideoPlayerSize Target
+ *        a specific video player size for video ads. (Value:
+ *        "TARGETING_TYPE_VIDEO_PLAYER_SIZE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUserRewardedContent
+ *        Target user rewarded content for video ads. (Value:
+ *        "TARGETING_TYPE_USER_REWARDED_CONTENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeParentalStatus Target
+ *        ads to a specific parental status (for example, parent or not a
+ *        parent). (Value: "TARGETING_TYPE_PARENTAL_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentInstreamPosition
+ *        Target video or audio ads in a specific content instream position (for
+ *        example, pre-roll, mid-roll, or post-roll). (Value:
+ *        "TARGETING_TYPE_CONTENT_INSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeContentOutstreamPosition
+ *        Target ads in a specific content outstream position. (Value:
+ *        "TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceType Target ads
+ *        to a specific device type (for example, tablet or connected TV).
+ *        (Value: "TARGETING_TYPE_DEVICE_TYPE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAudienceGroup Target
+ *        ads to an audience or groups of audiences. Singleton field, at most
+ *        one can exist on a single Lineitem at a time. (Value:
+ *        "TARGETING_TYPE_AUDIENCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeBrowser Target ads to
+ *        specific web browsers (for example, Chrome). (Value:
+ *        "TARGETING_TYPE_BROWSER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeHouseholdIncome Target
+ *        ads to a specific household income range (for example, top 10%).
+ *        (Value: "TARGETING_TYPE_HOUSEHOLD_INCOME")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition Target
+ *        ads in a specific on screen position. (Value:
+ *        "TARGETING_TYPE_ON_SCREEN_POSITION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeThirdPartyVerifier
+ *        Filter web sites through third party verification (for example, IAS or
+ *        DoubleVerify). (Value: "TARGETING_TYPE_THIRD_PARTY_VERIFIER")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDigitalContentLabelExclusion
+ *        Filter web sites by specific digital content label ratings (for
+ *        example, DL-MA: suitable only for mature audiences). (Value:
+ *        "TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSensitiveCategoryExclusion
+ *        Filter website content by sensitive categories (for example, adult).
+ *        (Value: "TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeEnvironment Target ads
+ *        to a specific environment (for example, web or app). (Value:
+ *        "TARGETING_TYPE_ENVIRONMENT")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCarrierAndIsp Target
+ *        ads to a specific network carrier or internet service provider (ISP)
+ *        (for example, Comcast or Orange). (Value:
+ *        "TARGETING_TYPE_CARRIER_AND_ISP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem Target
+ *        ads to a specific operating system (for example, macOS). (Value:
+ *        "TARGETING_TYPE_OPERATING_SYSTEM")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeDeviceMakeModel Target
+ *        ads to a specific device make or model (for example, Roku or Samsung).
+ *        (Value: "TARGETING_TYPE_DEVICE_MAKE_MODEL")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword Target ads to a
+ *        specific keyword (for example, dog or retriever). (Value:
+ *        "TARGETING_TYPE_KEYWORD")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList
+ *        Target ads to a specific negative keyword list. (Value:
+ *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeViewability Target ads
+ *        to a specific viewability (for example, 80% viewable). (Value:
+ *        "TARGETING_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeCategory Target ads to
+ *        a specific content category (for example, arts & entertainment).
+ *        (Value: "TARGETING_TYPE_CATEGORY")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource
+ *        Purchase impressions from specific deals and auction packages. (Value:
+ *        "TARGETING_TYPE_INVENTORY_SOURCE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage Target ads to
+ *        a specific language (for example, English or Japanese). (Value:
+ *        "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeAuthorizedSellerStatus
+ *        Target ads to ads.txt authorized sellers. (Value:
+ *        "TARGETING_TYPE_AUTHORIZED_SELLER_STATUS")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeGeoRegion Target ads to
+ *        a specific regional location (for example, a city or state). (Value:
+ *        "TARGETING_TYPE_GEO_REGION")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup
+ *        Purchase impressions from a group of deals and auction packages.
+ *        (Value: "TARGETING_TYPE_INVENTORY_SOURCE_GROUP")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeExchange Purchase
+ *        impressions from specific exchanges. (Value:
+ *        "TARGETING_TYPE_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
+ *        impressions from specific sub-exchanges. (Value:
+ *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *
+ *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_SearchTargetingOptionsRequest *)object
+                  targetingType:(NSString *)targetingType;
 
 @end
 

@@ -131,7 +131,7 @@
 
 @implementation GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic includePastReleases, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

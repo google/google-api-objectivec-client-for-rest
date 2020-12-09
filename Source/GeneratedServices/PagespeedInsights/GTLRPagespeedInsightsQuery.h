@@ -125,7 +125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  */
 @interface GTLRPagespeedInsightsQuery_PagespeedapiRunpagespeed : GTLRPagespeedInsightsQuery
 // Previous library name was
-//   +[GTLQueryPagespeedInsights queryForPagespeedapiRunpagespeed]
+//   +[GTLQueryPagespeedInsights queryForPagespeedapiRunpagespeedWithurl:]
 
 /** The captcha token passed when filling out a captcha. */
 @property(nonatomic, copy, nullable) NSString *captchaToken;
@@ -186,9 +186,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  *  PageSpeed scores, a list of suggestions to make that page faster, and other
  *  information.
  *
+ *  @param url Required. The URL to fetch and analyze
+ *
  *  @return GTLRPagespeedInsightsQuery_PagespeedapiRunpagespeed
  */
-+ (instancetype)query;
++ (instancetype)queryWithUrl:(NSString *)url;
 
 @end
 

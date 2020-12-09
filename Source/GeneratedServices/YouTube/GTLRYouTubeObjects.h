@@ -8076,8 +8076,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) GTLRYouTube_LocalizedProperty *backgroundImageUrl;
 
 /**
- *  This is used only in update requests; if it's set, we use this URL to
- *  generate all of the above banner URLs.
+ *  This is generated when a ChannelBanner.Insert request has succeeded for the
+ *  given channel.
  */
 @property(nonatomic, copy, nullable) NSString *bannerExternalUrl;
 

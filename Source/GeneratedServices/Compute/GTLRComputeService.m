@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
   if (self) {
     // From discovery.
     self.rootURLString = @"https://compute.googleapis.com/";
-    self.servicePath = @"compute/v1/projects/";
+    self.servicePath = @"compute/v1/";
     self.batchPath = @"batch/compute/v1";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

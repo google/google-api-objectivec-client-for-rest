@@ -208,6 +208,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
+
+/**
+ *  This feature is not generally available.
+ *
+ *  Value: "AUTO_UPDATE_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
+/**
+ *  This feature is not generally available.
+ *
+ *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority;
+/**
+ *  This feature is not generally available.
+ *
+ *  Value: "AUTO_UPDATE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified;
+/**
+ *  This feature is not generally available.
+ *
+ *  Value: "AUTO_UPDATE_POSTPONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ApplicationPolicy.connectedWorkAndPersonalApp
 
 /**
@@ -1542,6 +1570,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePo
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.autoDateAndTimeZone
+
+/**
+ *  Enforce auto date, time, and time zone on the device.
+ *
+ *  Value: "AUTO_DATE_AND_TIME_ZONE_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneEnforced;
+/**
+ *  Unspecified. Defaults to AUTO_DATE_AND_TIME_ZONE_USER_CHOICE.
+ *
+ *  Value: "AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified;
+/**
+ *  Auto date, time, and time zone are left to user's choice.
+ *
+ *  Value: "AUTO_DATE_AND_TIME_ZONE_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 
 /**
@@ -1666,32 +1716,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_KeyguardDisable
 // GTLRAndroidManagement_Policy.locationMode
 
 /**
- *  Only the network location provider is enabled.
+ *  On Android 8 and below, only the network location provider is enabled. On
+ *  Android 9 and above, this is equivalent to LOCATION_ENFORCED.
  *
  *  Value: "BATTERY_SAVING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving;
 /**
- *  All location detection methods are enabled, including GPS, networks, and
- *  other sensors.
+ *  On Android 8 and below, all location detection methods are enabled,
+ *  including GPS, networks, and other sensors. On Android 9 and above, this is
+ *  equivalent to LOCATION_ENFORCED.
  *
  *  Value: "HIGH_ACCURACY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy;
 /**
- *  The current device value is not modified.
+ *  Disable location setting on the device.
+ *
+ *  Value: "LOCATION_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled;
+/**
+ *  Enable location setting on the device.
+ *
+ *  Value: "LOCATION_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationEnforced;
+/**
+ *  Defaults to LOCATION_USER_CHOICE.
  *
  *  Value: "LOCATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified;
 /**
- *  Location detection is disabled.
+ *  Location setting is not restricted on the device. No specific behavior is
+ *  set or enforced.
+ *
+ *  Value: "LOCATION_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice;
+/**
+ *  On Android 8 and below, location setting and accuracy are disabled. On
+ *  Android 9 and above, this is equivalent to LOCATION_DISABLED.
  *
  *  Value: "OFF"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off;
 /**
- *  Only GPS and other sensors are enabled.
+ *  On Android 8 and below, only GPS and other sensors are enabled. On Android 9
+ *  and above, this is equivalent to LOCATION_ENFORCED.
  *
  *  Value: "SENSORS_ONLY"
  */
@@ -2232,6 +2305,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  each track are available in AppTrackInfo.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
+
+/**
+ *  This feature is not generally available.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault
+ *        This feature is not generally available. (Value:
+ *        "AUTO_UPDATE_DEFAULT")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
+ *        This feature is not generally available. (Value:
+ *        "AUTO_UPDATE_HIGH_PRIORITY")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
+ *        This feature is not generally available. (Value:
+ *        "AUTO_UPDATE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed
+ *        This feature is not generally available. (Value:
+ *        "AUTO_UPDATE_POSTPONED")
+ */
+@property(nonatomic, copy, nullable) NSString *autoUpdateMode;
 
 /**
  *  Controls whether the app can communicate with itself across a device’s work
@@ -4635,8 +4727,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationPolicy *> *applications;
 
 /**
+ *  Whether auto date, time, and time zone are enabled on a company-owned
+ *  device. If this is set, then autoTimeRequired is ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneEnforced
+ *        Enforce auto date, time, and time zone on the device. (Value:
+ *        "AUTO_DATE_AND_TIME_ZONE_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified
+ *        Unspecified. Defaults to AUTO_DATE_AND_TIME_ZONE_USER_CHOICE. (Value:
+ *        "AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice
+ *        Auto date, time, and time zone are left to user's choice. (Value:
+ *        "AUTO_DATE_AND_TIME_ZONE_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *autoDateAndTimeZone;
+
+/**
  *  Whether auto time is required, which prevents the user from manually setting
- *  the date and time.
+ *  the date and time. If autoDateAndTimeZone is set, this field is ignored.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4842,22 +4951,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *kioskCustomLauncherEnabled;
 
 /**
- *  The degree of location detection enabled. The user may change the value
- *  unless the user is otherwise blocked from accessing device settings.
+ *  The degree of location detection enabled.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_BatterySaving Only the
- *        network location provider is enabled. (Value: "BATTERY_SAVING")
- *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy All
- *        location detection methods are enabled, including GPS, networks, and
- *        other sensors. (Value: "HIGH_ACCURACY")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_BatterySaving On
+ *        Android 8 and below, only the network location provider is enabled. On
+ *        Android 9 and above, this is equivalent to LOCATION_ENFORCED. (Value:
+ *        "BATTERY_SAVING")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy On Android
+ *        8 and below, all location detection methods are enabled, including
+ *        GPS, networks, and other sensors. On Android 9 and above, this is
+ *        equivalent to LOCATION_ENFORCED. (Value: "HIGH_ACCURACY")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled
+ *        Disable location setting on the device. (Value: "LOCATION_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationEnforced Enable
+ *        location setting on the device. (Value: "LOCATION_ENFORCED")
  *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified
- *        The current device value is not modified. (Value:
- *        "LOCATION_MODE_UNSPECIFIED")
- *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_Off Location detection
- *        is disabled. (Value: "OFF")
- *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly Only GPS
- *        and other sensors are enabled. (Value: "SENSORS_ONLY")
+ *        Defaults to LOCATION_USER_CHOICE. (Value: "LOCATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice
+ *        Location setting is not restricted on the device. No specific behavior
+ *        is set or enforced. (Value: "LOCATION_USER_CHOICE")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_Off On Android 8 and
+ *        below, location setting and accuracy are disabled. On Android 9 and
+ *        above, this is equivalent to LOCATION_DISABLED. (Value: "OFF")
+ *    @arg @c kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly On Android
+ *        8 and below, only GPS and other sensors are enabled. On Android 9 and
+ *        above, this is equivalent to LOCATION_ENFORCED. (Value:
+ *        "SENSORS_ONLY")
  */
 @property(nonatomic, copy, nullable) NSString *locationMode;
 

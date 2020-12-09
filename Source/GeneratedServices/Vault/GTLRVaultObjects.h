@@ -43,6 +43,7 @@
 @class GTLRVault_HeldHangoutsChatQuery;
 @class GTLRVault_HeldMailQuery;
 @class GTLRVault_HeldOrgUnit;
+@class GTLRVault_HeldVoiceQuery;
 @class GTLRVault_Hold;
 @class GTLRVault_MailCountResult;
 @class GTLRVault_MailExportOptions;
@@ -60,6 +61,8 @@
 @class GTLRVault_Status_Details_Item;
 @class GTLRVault_TeamDriveInfo;
 @class GTLRVault_UserInfo;
+@class GTLRVault_VoiceExportOptions;
+@class GTLRVault_VoiceOptions;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -236,6 +239,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFo
 FOUNDATION_EXTERN NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst;
 
 // ----------------------------------------------------------------------------
+// GTLRVault_HeldVoiceQuery.coveredData
+
+/**
+ *  Call logs will be covered.
+ *
+ *  Value: "CALL_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CallLogs;
+/**
+ *  Covered data unspecified.
+ *
+ *  Value: "COVERED_DATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CoveredDataUnspecified;
+/**
+ *  Voice text message will be covered.
+ *
+ *  Value: "TEXT_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_TextMessages;
+/**
+ *  Voicemail will be covered.
+ *
+ *  Value: "VOICEMAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_Voicemails;
+
+// ----------------------------------------------------------------------------
 // GTLRVault_Hold.corpus
 
 /**
@@ -268,6 +299,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_HangoutsChat;
  *  Value: "MAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Mail;
+/**
+ *  Google Voice.
+ *
+ *  Value: "VOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Hold_Corpus_Voice;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_MailExportOptions.exportFormat
@@ -374,6 +411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_HangoutsChat;
  *  Value: "MAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Mail;
+/**
+ *  Google Voice.
+ *
+ *  Value: "VOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Corpus_Voice;
 
 // ----------------------------------------------------------------------------
 // GTLRVault_Query.dataScope
@@ -500,6 +543,56 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_SharedDrive;
  *  Value: "TEAM_DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
+
+// ----------------------------------------------------------------------------
+// GTLRVault_VoiceExportOptions.exportFormat
+
+/**
+ *  No export format specified.
+ *
+ *  Value: "EXPORT_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified;
+/**
+ *  MBOX as export format.
+ *
+ *  Value: "MBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox;
+/**
+ *  PST as export format
+ *
+ *  Value: "PST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst;
+
+// ----------------------------------------------------------------------------
+// GTLRVault_VoiceOptions.coveredData
+
+/**
+ *  Call logs will be covered.
+ *
+ *  Value: "CALL_LOGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_CallLogs;
+/**
+ *  Covered data unspecified.
+ *
+ *  Value: "COVERED_DATA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_CoveredDataUnspecified;
+/**
+ *  Voice text message will be covered.
+ *
+ *  Value: "TEXT_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_TextMessages;
+/**
+ *  Voicemail will be covered.
+ *
+ *  Value: "VOICEMAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails;
 
 /**
  *  Count number for each account.
@@ -723,6 +816,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 /** Details pertaining to mail holds. If set, corpus must be mail. */
 @property(nonatomic, strong, nullable) GTLRVault_HeldMailQuery *mailQuery;
 
+/** Details pertaining to Voice holds. If set, corpus must be Voice. */
+@property(nonatomic, strong, nullable) GTLRVault_HeldVoiceQuery *voiceQuery;
+
 @end
 
 
@@ -933,6 +1029,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *    @arg @c kGTLRVault_ExportOptions_Region_Us US region. (Value: "US")
  */
 @property(nonatomic, copy, nullable) NSString *region;
+
+/** Option available for voice export. */
+@property(nonatomic, strong, nullable) GTLRVault_VoiceExportOptions *voiceOptions;
 
 @end
 
@@ -1196,6 +1295,20 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 
 /**
+ *  Query options for Voice holds.
+ */
+@interface GTLRVault_HeldVoiceQuery : GTLRObject
+
+/**
+ *  Data covered by this rule. Should be non-empty. Order does not matter and
+ *  duplicates will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *coveredData;
+
+@end
+
+
+/**
  *  Represents a hold within Vault. A hold restricts purging of artifacts based
  *  on the combination of the query and accounts restrictions. A hold can be
  *  configured to either apply to an explicitly configured set of accounts, or
@@ -1220,6 +1333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *    @arg @c kGTLRVault_Hold_Corpus_HangoutsChat Hangouts Chat. (Value:
  *        "HANGOUTS_CHAT")
  *    @arg @c kGTLRVault_Hold_Corpus_Mail Mail. (Value: "MAIL")
+ *    @arg @c kGTLRVault_Hold_Corpus_Voice Google Voice. (Value: "VOICE")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
 
@@ -1646,6 +1760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *    @arg @c kGTLRVault_Query_Corpus_HangoutsChat Hangouts Chat. (Value:
  *        "HANGOUTS_CHAT")
  *    @arg @c kGTLRVault_Query_Corpus_Mail Mail. (Value: "MAIL")
+ *    @arg @c kGTLRVault_Query_Corpus_Voice Google Voice. (Value: "VOICE")
  */
 @property(nonatomic, copy, nullable) NSString *corpus;
 
@@ -1771,6 +1886,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
  *  "America/Los_Angeles". For more information, see Time Zone.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** For voice search, specify more options in this field. */
+@property(nonatomic, strong, nullable) GTLRVault_VoiceOptions *voiceOptions;
 
 @end
 
@@ -1945,6 +2063,38 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_TeamDrive;
 
 /** The email address of the user. */
 @property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  The options for voice export.
+ */
+@interface GTLRVault_VoiceExportOptions : GTLRObject
+
+/**
+ *  The export format for voice export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified
+ *        No export format specified. (Value: "EXPORT_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Mbox MBOX as export
+ *        format. (Value: "MBOX")
+ *    @arg @c kGTLRVault_VoiceExportOptions_ExportFormat_Pst PST as export
+ *        format (Value: "PST")
+ */
+@property(nonatomic, copy, nullable) NSString *exportFormat;
+
+@end
+
+
+/**
+ *  Voice search options
+ */
+@interface GTLRVault_VoiceOptions : GTLRObject
+
+/** Datatypes to search */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *coveredData;
 
 @end
 

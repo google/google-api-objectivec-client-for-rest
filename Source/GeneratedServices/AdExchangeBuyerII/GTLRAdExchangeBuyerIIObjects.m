@@ -1788,7 +1788,7 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
          displayName, isRenegotiating, isSetupComplete,
          lastUpdaterOrCommentorRole, notes, originatorRole, privateAuctionId,
          proposalId, proposalRevision, proposalState, seller, sellerContacts,
-         updateTime;
+         termsAndConditions, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

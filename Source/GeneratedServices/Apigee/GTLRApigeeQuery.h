@@ -25,6 +25,7 @@
 #endif
 
 @class GTLRApigee_GoogleApiHttpBody;
+@class GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
@@ -48,6 +49,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1Keystore;
 @class GTLRApigee_GoogleCloudApigeeV1KeyValueMap;
+@class GTLRApigee_GoogleCloudApigeeV1NatAddress;
 @class GTLRApigee_GoogleCloudApigeeV1Organization;
 @class GTLRApigee_GoogleCloudApigeeV1ProvisionOrganizationRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Query;
@@ -1435,12 +1437,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsDatacollectorsCreateWithObject:parent:]
 
 /**
- *  ID of the Data Collector. Overrides any ID in the Data Collector resource.
+ *  ID of the data collector. Overrides any ID in the data collector resource.
+ *  Must begin with `dc_`.
  */
 @property(nonatomic, copy, nullable) NSString *dataCollectorId;
 
 /**
- *  Required. Name of the organization in which to create the Data Collector in
+ *  Required. Name of the organization in which to create the data collector in
  *  the following format: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1452,8 +1455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DataCollector to include
  *    in the query.
- *  @param parent Required. Name of the organization in which to create the Data
- *    Collector in the following format: `organizations/{org}`.
+ *  @param parent Required. Name of the organization in which to create the data
+ *    collector in the following format: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDatacollectorsCreate
  */
@@ -1475,7 +1478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsDatacollectorsDeleteWithname:]
 
 /**
- *  Required. Name of the Data Collector in the following format:
+ *  Required. Name of the data collector in the following format:
  *  `organizations/{org}/datacollectors/{data_collector_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1485,7 +1488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Deletes a data collector.
  *
- *  @param name Required. Name of the Data Collector in the following format:
+ *  @param name Required. Name of the data collector in the following format:
  *    `organizations/{org}/datacollectors/{data_collector_id}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDatacollectorsDelete
@@ -1507,7 +1510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsDatacollectorsGetWithname:]
 
 /**
- *  Required. Name of the Data Collector in the following format:
+ *  Required. Name of the data collector in the following format:
  *  `organizations/{org}/datacollectors/{data_collector_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1517,7 +1520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Gets a data collector.
  *
- *  @param name Required. Name of the Data Collector in the following format:
+ *  @param name Required. Name of the data collector in the following format:
  *    `organizations/{org}/datacollectors/{data_collector_id}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDatacollectorsGet
@@ -1539,7 +1542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsDatacollectorsListWithparent:]
 
 /**
- *  Maximum number of Data Collectors to return. The page size defaults to 25.
+ *  Maximum number of data collectors to return. The page size defaults to 25.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1550,7 +1553,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Name of the organization for which to list Data Collectors in the
+ *  Required. Name of the organization for which to list data collectors in the
  *  following format: `organizations/{org}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1560,8 +1563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Lists all data collectors.
  *
- *  @param parent Required. Name of the organization for which to list Data
- *    Collectors in the following format: `organizations/{org}`.
+ *  @param parent Required. Name of the organization for which to list data
+ *    collectors in the following format: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDatacollectorsList
  *
@@ -1586,7 +1589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsDatacollectorsPatchWithObject:name:]
 
 /**
- *  Required. Name of the Data Collector in the following format:
+ *  Required. Name of the data collector in the following format:
  *  `organizations/{org}/datacollectors/{data_collector_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1605,13 +1608,45 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DataCollector to include
  *    in the query.
- *  @param name Required. Name of the Data Collector in the following format:
+ *  @param name Required. Name of the data collector in the following format:
  *    `organizations/{org}/datacollectors/{data_collector_id}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsDatacollectorsPatch
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DataCollector *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Delete an Apigee organization. Only supported for SubscriptionType TRIAL.
+ *
+ *  Method: apigee.organizations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsDeleteWithname:]
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Delete an Apigee organization. Only supported for SubscriptionType TRIAL.
+ *
+ *  @param name Required. Name of the organization. Use the following structure
+ *    in your request: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -7203,6 +7238,207 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    structure in your request: `organizations/{org}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsInstancesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Activates the NAT address. The Apigee instance can now use this for Internet
+ *  egress traffic. **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.natAddresses.activate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesActivate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesActivateWithObject:name:]
+
+/**
+ *  Required. Name of the nat address. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instances}/natAddresses/{nataddress}``
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Activates the NAT address. The Apigee instance can now use this for Internet
+ *  egress traffic. **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest
+ *    to include in the query.
+ *  @param name Required. Name of the nat address. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/instances/{instances}/natAddresses/{nataddress}``
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesNatAddressesActivate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a NAT address. The address is created in the RESERVED state and a
+ *  static external IP address will be provisioned. At this time, the instance
+ *  will not use this IP address for Internet egress traffic. The address can be
+ *  activated for use once any required firewall IP whitelisting has been
+ *  completed. **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.natAddresses.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesCreateWithObject:parent:]
+
+/**
+ *  Required. Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates a NAT address. The address is created in the RESERVED state and a
+ *  static external IP address will be provisioned. At this time, the instance
+ *  will not use this IP address for Internet egress traffic. The address can be
+ *  activated for use once any required firewall IP whitelisting has been
+ *  completed. **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1NatAddress to include in
+ *    the query.
+ *  @param parent Required. Name of the instance. Use the following structure in
+ *    your request: `organizations/{org}/instances/{instance}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesNatAddressesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1NatAddress *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the NAT address. Connections that are actively using the address are
+ *  drained before it is removed. **Note:** Not supported for Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.natAddresses.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesDeleteWithname:]
+
+/**
+ *  Required. Name of the nat address. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instances}/natAddresses/{nataddress}``
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes the NAT address. Connections that are actively using the address are
+ *  drained before it is removed. **Note:** Not supported for Apigee hybrid.
+ *
+ *  @param name Required. Name of the nat address. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/instances/{instances}/natAddresses/{nataddress}``
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesNatAddressesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a NAT address. **Note:** Not supported for Apigee
+ *  hybrid.
+ *
+ *  Method: apigee.organizations.instances.natAddresses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesGetWithname:]
+
+/**
+ *  Required. Name of the nat address. Use the following structure in your
+ *  request:
+ *  `organizations/{org}/instances/{instances}/natAddresses/{nataddress}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1NatAddress.
+ *
+ *  Gets the details of a NAT address. **Note:** Not supported for Apigee
+ *  hybrid.
+ *
+ *  @param name Required. Name of the nat address. Use the following structure
+ *    in your request:
+ *    `organizations/{org}/instances/{instances}/natAddresses/{nataddress}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesNatAddressesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the NAT addresses for an Apigee instance. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.natAddresses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesListWithparent:]
+
+/** Maximum number of natAddresses to return. Defaults to 25. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token, returned from a previous ListNatAddresses call, that you can use
+ *  to retrieve the next page of content.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListNatAddressesResponse.
+ *
+ *  Lists the NAT addresses for an Apigee instance. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  @param parent Required. Name of the instance. Use the following structure in
+ *    your request: `organizations/{org}/instances/{instance}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesNatAddressesList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

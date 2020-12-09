@@ -2925,6 +2925,7 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaP4VwsGpus = @"PREEMP
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus = @"PREEMPTIBLE_NVIDIA_T4_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus = @"PREEMPTIBLE_NVIDIA_T4_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus = @"PREEMPTIBLE_NVIDIA_V100_GPUS";
+NSString * const kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork = @"PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK";
 NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes = @"PUBLIC_ADVERTISED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes = @"PUBLIC_DELEGATED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
@@ -9884,11 +9885,11 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_InterconnectAttachment
 @dynamic adminEnabled, bandwidth, candidateSubnets, cloudRouterIpAddress,
-         creationTimestamp, customerRouterIpAddress, descriptionProperty,
-         edgeAvailabilityDomain, googleReferenceId, identifier, interconnect,
-         kind, name, operationalStatus, pairingKey, partnerAsn, partnerMetadata,
-         privateInterconnectInfo, region, router, selfLink, state, type,
-         vlanTag8021q;
+         creationTimestamp, customerRouterIpAddress, dataplaneVersion,
+         descriptionProperty, edgeAvailabilityDomain, googleReferenceId,
+         identifier, interconnect, kind, name, operationalStatus, pairingKey,
+         partnerAsn, partnerMetadata, privateInterconnectInfo, region, router,
+         selfLink, state, type, vlanTag8021q;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

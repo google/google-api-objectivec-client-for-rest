@@ -61,6 +61,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit = @"DOCKER_INVALID_ULIMIT";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError = @"DOCKER_LOGIN_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError = @"DOCKER_PREPARELAYER_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerTooManySymbolicLinkLevels = @"DOCKER_TOO_MANY_SYMBOLIC_LINK_LEVELS";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable = @"DOCKER_UNAVAILABLE";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownCapability = @"DOCKER_UNKNOWN_CAPABILITY";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnknownError = @"DOCKER_UNKNOWN_ERROR";
@@ -980,16 +981,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig
-//
-
-@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig
-@dynamic nodesZone, nodeType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest
 //
 
@@ -1016,7 +1007,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig
 @dynamic accelerator, diskSizeGb, diskType, labels, machineType,
          maxConcurrentActions, minCpuPlatform, networkAccess, reserved,
-         soleTenancy, vmImage;
+         soleTenantNodeType, vmImage;
 @end
 
 

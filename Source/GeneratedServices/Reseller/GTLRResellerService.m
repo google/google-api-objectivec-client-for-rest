@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workspace Reseller API (reseller/v1)
+//   Google Workspace Reseller API (reseller/v1)
 // Description:
-//   Creates and manages your customers and their subscriptions.
+//   Perform common functions that are available on the Channel Services console
+//   at scale, like placing orders and viewing customer information
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
@@ -26,9 +27,8 @@ NSString * const kGTLRAuthScopeResellerAppsOrderReadonly = @"https://www.googlea
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
-    self.servicePath = @"apps/reseller/v1/";
-    self.batchPath = @"batch/reseller/v1";
+    self.rootURLString = @"https://reseller.googleapis.com/";
+    self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }
   return self;

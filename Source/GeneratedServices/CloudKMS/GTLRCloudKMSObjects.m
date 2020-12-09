@@ -228,7 +228,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

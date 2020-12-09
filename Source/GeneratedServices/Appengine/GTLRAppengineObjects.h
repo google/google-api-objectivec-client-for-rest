@@ -332,6 +332,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Resident
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_Availability_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAppengine_Instance.vmLiveness
+
+/**
+ *  The instance is being drained. The existing connections to the instance have
+ *  time to complete, but the new ones are being refused.
+ *
+ *  Value: "DRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_Draining;
+/**
+ *  The instance is reachable i.e. a connection to the application health
+ *  checking endpoint can be established, and conforms to the requirements
+ *  defined by the health check.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_Healthy;
+/**
+ *  There is no liveness health check for the instance. Only applicable for
+ *  instances in App Engine standard environment.
+ *
+ *  Value: "LIVENESS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_LivenessStateUnspecified;
+/**
+ *  The instance is unreachable i.e. a connection to the application health
+ *  checking endpoint cannot be established, or the server does not respond
+ *  within the specified timeout.
+ *
+ *  Value: "TIMEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_Timeout;
+/**
+ *  The instance is reachable, but does not conform to the requirements defined
+ *  by the health check.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_Unhealthy;
+/**
+ *  The health checking system is aware of the instance but its health is not
+ *  known at the moment.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_Instance_VmLiveness_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRAppengine_ManagedCertificate.status
 
 /**
@@ -1800,6 +1848,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  in App Engine flexible environment.
  */
 @property(nonatomic, copy, nullable) NSString *vmIp;
+
+/**
+ *  Output only. The liveness health check of this instance. Only applicable for
+ *  instances in App Engine flexible environment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_Draining The instance is being
+ *        drained. The existing connections to the instance have time to
+ *        complete, but the new ones are being refused. (Value: "DRAINING")
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_Healthy The instance is
+ *        reachable i.e. a connection to the application health checking
+ *        endpoint can be established, and conforms to the requirements defined
+ *        by the health check. (Value: "HEALTHY")
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_LivenessStateUnspecified There
+ *        is no liveness health check for the instance. Only applicable for
+ *        instances in App Engine standard environment. (Value:
+ *        "LIVENESS_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_Timeout The instance is
+ *        unreachable i.e. a connection to the application health checking
+ *        endpoint cannot be established, or the server does not respond within
+ *        the specified timeout. (Value: "TIMEOUT")
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_Unhealthy The instance is
+ *        reachable, but does not conform to the requirements defined by the
+ *        health check. (Value: "UNHEALTHY")
+ *    @arg @c kGTLRAppengine_Instance_VmLiveness_Unknown The health checking
+ *        system is aware of the instance but its health is not known at the
+ *        moment. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *vmLiveness;
 
 /**
  *  Output only. Name of the virtual machine where this instance lives. Only

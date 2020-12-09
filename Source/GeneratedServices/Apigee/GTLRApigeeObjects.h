@@ -79,6 +79,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
+@class GTLRApigee_GoogleCloudApigeeV1NatAddress;
 @class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
@@ -345,6 +346,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1NatAddress.state
+
+/**
+ *  The NAT address is active and used for Internet egress.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active;
+/**
+ *  The NAT address is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Creating;
+/**
+ *  The NAT address is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Deleting;
+/**
+ *  The NAT address is reserved but not yet used for Internet egress.
+ *
+ *  Value: "RESERVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Reserved;
+/**
+ *  The resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
@@ -796,6 +831,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 @property(nonatomic, copy, nullable) NSString *value;
 
+@end
+
+
+/**
+ *  Request for ActivateNatAddressRequest. Activate the nat address request.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest : GTLRObject
 @end
 
 
@@ -1791,12 +1833,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Data Collector configuration.
+ *  Data collector configuration.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DataCollector : GTLRObject
 
 /**
- *  Output only. The time at which the Data Collector was created in
+ *  Output only. The time at which the data collector was created in
  *  milliseconds since the epoch.
  *
  *  Uses NSNumber of longLongValue.
@@ -1804,7 +1846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *createdAt;
 
 /**
- *  A description of the Data Collector.
+ *  A description of the data collector.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1818,11 +1860,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
 
-/** ID of the Data Collector. */
+/** ID of the data collector. Must begin with `dc_`. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Immutable. The type of data this DataCollector will collect.
+ *  Immutable. The type of data this data collector will collect.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1DataCollector_Type_Boolean For
@@ -3113,7 +3155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  The current routes deployed in the ingress routing table. A route which is
- *  missing will be shown with no destination environment.
+ *  missing will appear in missing_routes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute *> *deployedRoutes;
 
@@ -3323,7 +3365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1ListDataCollectorsResponse : GTLRCollectionObject
 
 /**
- *  Data Collectors in the specified organization.
+ *  Data collectors in the specified organization.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3542,6 +3584,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListNatAddresses.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "natAddresses" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListNatAddressesResponse : GTLRCollectionObject
+
+/**
+ *  List of NAT Addresses for the instance.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1NatAddress *> *natAddresses;
+
+/**
+ *  Page token that you can include in a ListNatAddresses request to retrieve
+ *  the next page of content. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListOfDevelopersResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListOfDevelopersResponse : GTLRObject
@@ -3611,6 +3680,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *values;
+
+@end
+
+
+/**
+ *  Apigee NAT(network address translation) address. A NAT address is a static
+ *  external IP address used for Internet egress traffic.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1NatAddress : GTLRObject
+
+/** Required. The static IPV4 address. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Required. Resource ID of the NAT address. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. State of the nat address.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active The NAT
+ *        address is active and used for Internet egress. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Creating The NAT
+ *        address is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Deleting The NAT
+ *        address is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Reserved The NAT
+ *        address is reserved but not yet used for Internet egress. (Value:
+ *        "RESERVED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_StateUnspecified
+ *        The resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 

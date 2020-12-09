@@ -667,6 +667,70 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new custom Role.
  *
  *  Method: iam.projects.roles.create

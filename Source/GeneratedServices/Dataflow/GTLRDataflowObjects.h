@@ -82,6 +82,7 @@
 @class GTLRDataflow_LaunchFlexTemplateParameter;
 @class GTLRDataflow_LaunchFlexTemplateParameter_LaunchOptions;
 @class GTLRDataflow_LaunchFlexTemplateParameter_Parameters;
+@class GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings;
 @class GTLRDataflow_LaunchTemplateParameters_Parameters;
 @class GTLRDataflow_LaunchTemplateParameters_TransformNameMapping;
 @class GTLRDataflow_LeaseWorkItemRequest_UnifiedWorkerRequest;
@@ -3898,7 +3899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** The runtime environment for the FlexTemplate job */
 @property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment *environment;
 
-/** Required. The job name to use for the created job. */
+/**
+ *  Required. The job name to use for the created job. For update job request,
+ *  job name should be same as the existing running job.
+ */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
@@ -3910,6 +3914,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** The parameters for FlexTemplate. Ex. {"num_workers":"5"} */
 @property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_Parameters *parameters;
+
+/**
+ *  Users need to set transform_name_mappings
+ *  Ex:{"oldTransformName":"newTransformName",...}'
+ */
+@property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings *transformNameMappings;
+
+/**
+ *  Set this to true if you are sending a request to update a running streaming
+ *  job. When set, the job name should be the same as the running job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *update;
 
 @end
 
@@ -3937,6 +3955,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        fetch them all at once.
  */
 @interface GTLRDataflow_LaunchFlexTemplateParameter_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Users need to set transform_name_mappings
+ *  Ex:{"oldTransformName":"newTransformName",...}'
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings : GTLRObject
 @end
 
 

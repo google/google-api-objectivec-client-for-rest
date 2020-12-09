@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Input configurations. The total number of files matched should be
- *  <= 1000. The total content size should be <= 100M Unicode codepoints. The
+ *  <= 100. The total content size should be <= 100M Unicode codepoints. The
  *  files must use UTF-8 encoding.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_InputConfig *> *inputConfigs;

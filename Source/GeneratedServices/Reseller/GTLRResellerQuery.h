@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workspace Reseller API (reseller/v1)
+//   Google Workspace Reseller API (reseller/v1)
 // Description:
-//   Creates and manages your customers and their subscriptions.
+//   Perform common functions that are available on the Channel Services console
+//   at scale, like placing orders and viewing customer information
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
@@ -46,6 +47,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "cancel"
  */
 FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeCancel;
+/** Value: "deletion_type_undefined" */
+FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeDeletionTypeUndefined;
 /**
  *  Transfers a subscription directly to Google. The customer is immediately
  *  transferred to a direct billing relationship with Google and is given a
@@ -143,7 +146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 @end
 
 /**
- *  Update a customer account's settings. This method supports patch semantics.
+ *  Patch a customer account's settings via Apiary Patch Orchestration
  *
  *  Method: reseller.customers.patch
  *
@@ -165,7 +168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  Fetches a @c GTLRReseller_Customer.
  *
- *  Update a customer account's settings. This method supports patch semantics.
+ *  Patch a customer account's settings via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRReseller_Customer to include in the query.
  *  @param customerId Either the customer's primary domain name or the
@@ -535,6 +538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *  suspension of a subscription.
  *
  *  Likely values:
+ *    @arg @c kGTLRResellerDeletionTypeDeletionTypeUndefined Value
+ *        "deletion_type_undefined"
  *    @arg @c kGTLRResellerDeletionTypeCancel Cancels the subscription
  *        immediately. This does not apply to a G Suite subscription. (Value:
  *        "cancel")
@@ -575,6 +580,8 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    downgrade, or suspension of a subscription.
  *
  *  Likely values for @c deletionType:
+ *    @arg @c kGTLRResellerDeletionTypeDeletionTypeUndefined Value
+ *        "deletion_type_undefined"
  *    @arg @c kGTLRResellerDeletionTypeCancel Cancels the subscription
  *        immediately. This does not apply to a G Suite subscription. (Value:
  *        "cancel")
@@ -727,11 +734,11 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
 /**
  *  When retrieving all of your subscriptions and filtering for specific
  *  customers, you can enter a prefix for a customer name. Using an example
- *  customer group that includes exam.com, example20.com and example.com:
- *  - exa -- Returns all customer names that start with 'exa' which could
- *  include exam.com, example20.com, and example.com. A name prefix is similar
- *  to using a regular expression's asterisk, exa*.
- *  - example -- Returns example20.com and example.com.
+ *  customer group that includes exam.com, example20.com and example.com: - exa
+ *  -- Returns all customer names that start with 'exa' which could include
+ *  exam.com, example20.com, and example.com. A name prefix is similar to using
+ *  a regular expression's asterisk, exa*. - example -- Returns example20.com
+ *  and example.com.
  */
 @property(nonatomic, copy, nullable) NSString *customerNamePrefix;
 

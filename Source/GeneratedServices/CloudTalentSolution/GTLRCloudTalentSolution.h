@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Talent Solution API (jobs/v3)
+//   Cloud Talent Solution API (jobs/v4)
 // Description:
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.

@@ -1191,20 +1191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  Runtime operation information for undeleting a TagKey.
- */
-@interface GTLRCloudResourceManager_UndeleteTagKeyMetadata : GTLRObject
-@end
-
-
-/**
- *  Runtime operation information for deleting a TagValue.
- */
-@interface GTLRCloudResourceManager_UndeleteTagValueMetadata : GTLRObject
-@end
-
-
-/**
  *  A status object which is used as the `metadata` field for the Operation
  *  returned by UpdateFolder.
  */

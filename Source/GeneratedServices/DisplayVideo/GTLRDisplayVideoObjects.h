@@ -109,6 +109,7 @@
 @class GTLRDisplayVideo_GenderAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_GenderTargetingOptionDetails;
 @class GTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_GeoRegionSearchTerms;
 @class GTLRDisplayVideo_GeoRegionTargetingOptionDetails;
 @class GTLRDisplayVideo_GoogleAudience;
 @class GTLRDisplayVideo_GoogleAudienceGroup;
@@ -6636,6 +6637,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_Pa
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_PendingFlight;
 /**
+ *  This line item targets a geo target that is deprecated.
+ *
+ *  Value: "TARGETING_DEPRECATED_GEO_TARGET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_TargetingDeprecatedGeoTarget;
+/**
  *  This line item targets one or more user lists that are no longer available.
  *  In the future, this will prevent the line item from serving, so consider
  *  removing these lists from your targeting.
@@ -10339,13 +10346,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The assigned targeting options to create in batch, specified as a list of
- *  `CreateAssignedTargetingOptionsRequest`.
+ *  `CreateAssignedTargetingOptionsRequest`. Supported targeting types: *
+ *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
+ *  * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
 /**
  *  The assigned targeting options to delete in batch, specified as a list of
- *  `DeleteAssignedTargetingOptionsRequest`.
+ *  `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: *
+ *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
+ *  * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -14336,6 +14347,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Search terms for geo region targeting options.
+ */
+@interface GTLRDisplayVideo_GeoRegionSearchTerms : GTLRObject
+
+/**
+ *  The search query for the desired geo region. The query can be a prefix, e.g.
+ *  "New Yor", "Seattle", "USA", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *geoRegionQuery;
+
+@end
+
+
+/**
  *  Represents a targetable geographic region. This will be populated in the
  *  geo_region_details field when targeting_type is `TARGETING_TYPE_GEO_REGION`.
  */
@@ -15621,7 +15646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
- *  A single line item. Next id: 24
+ *  A single line item.
  */
 @interface GTLRDisplayVideo_LineItem : GTLRObject
 
@@ -18183,6 +18208,73 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Request message for SearchTargetingOptions.
+ */
+@interface GTLRDisplayVideo_SearchTargetingOptionsRequest : GTLRObject
+
+/**
+ *  Required. The Advertiser this request is being made in the context of.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/**
+ *  Search terms for geo region targeting options. Can only be used when
+ *  targeting_type is `TARGETING_TYPE_GEO_REGION`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_GeoRegionSearchTerms *geoRegionSearchTerms;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `SearchTargetingOptions` method. If not specified, the first page of results
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  Response message for SearchTargetingOptionsResponse.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "targetingOptions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDisplayVideo_SearchTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `SearchTargetingOptions` method
+ *  to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of targeting options that match the search criteria. This list will
+ *  be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_TargetingOption *> *targetingOptions;
 
 @end
 

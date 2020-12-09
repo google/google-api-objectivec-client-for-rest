@@ -61,6 +61,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesSpreadsheets;
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesSpreadsheetsReadonly;
+/**
+ *  Authorization scope: See, edit, create, and delete your tables in Tables by
+ *  Area 120
+ *
+ *  Value "https://www.googleapis.com/auth/tables"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeArea120TablesTables;
 
 // ----------------------------------------------------------------------------
 //   GTLRArea120TablesService

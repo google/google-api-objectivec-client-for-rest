@@ -6,7 +6,7 @@
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
-//   https://developers.google.com/analytics/trusted-testing/analytics-data/
+//   https://developers.google.com/analytics/devguides/reporting/data/v1/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  specified in the URL path and not URL parameters. Property is a numeric
  *  Google Analytics GA4 Property identifier. To learn more, see [where to find
  *  your Property
- *  ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *  Example: properties/1234/metadata Set the Property ID to 0 for dimensions
  *  and metrics common to all properties. In this special mode, this method will
  *  not return custom dimensions and metrics.
@@ -91,7 +91,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    name field is specified in the URL path and not URL parameters. Property
  *    is a numeric Google Analytics GA4 Property identifier. To learn more, see
  *    [where to find your Property
- *    ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *    Example: properties/1234/metadata Set the Property ID to 0 for dimensions
  *    and metrics common to all properties. In this special mode, this method
  *    will not return custom dimensions and metrics.
@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  A Google Analytics GA4 property identifier whose events are tracked.
  *  Specified in the URL path and not the body. To learn more, see [where to
  *  find your Property
- *  ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *  Example: properties/1234
  */
 @property(nonatomic, copy, nullable) NSString *property;
@@ -138,7 +138,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param property A Google Analytics GA4 property identifier whose events are
  *    tracked. Specified in the URL path and not the body. To learn more, see
  *    [where to find your Property
- *    ID](https://developers.google.com/analytics/trusted-testing/analytics-data/property-id).
+ *    ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
  *    Example: properties/1234
  *
  *  @return GTLRAnalyticsDataQuery_PropertiesRunRealtimeReport

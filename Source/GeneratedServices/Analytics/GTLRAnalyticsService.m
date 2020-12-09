@@ -31,7 +31,7 @@ NSString * const kGTLRAuthScopeAnalyticsUserDeletion        = @"https://www.goog
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://www.googleapis.com/";
+    self.rootURLString = @"https://analytics.googleapis.com/";
     self.servicePath = @"analytics/v3/";
     self.resumableUploadPath = @"resumable/upload/";
     self.simpleUploadPath = @"upload/";

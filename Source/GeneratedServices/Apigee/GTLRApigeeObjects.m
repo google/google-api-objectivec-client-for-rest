@@ -66,6 +66,13 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating = @"CREA
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1NatAddress.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Reserved = @"RESERVED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1OperationMetadata.operationType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_OperationType_Insert = @"INSERT";
@@ -198,6 +205,15 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1AccessSet
 @dynamic name, success, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest
 @end
 
 
@@ -1602,6 +1618,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListNatAddressesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListNatAddressesResponse
+@dynamic natAddresses, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"natAddresses" : [GTLRApigee_GoogleCloudApigeeV1NatAddress class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"natAddresses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListOfDevelopersResponse
 //
 
@@ -1688,6 +1726,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1NatAddress
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1NatAddress
+@dynamic ipAddress, name, state;
 @end
 
 

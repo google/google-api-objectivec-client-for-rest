@@ -4,7 +4,7 @@
 // API:
 //   Traffic Director API (trafficdirector/v2)
 // Documentation:
-//   https://www.envoyproxy.io/docs/envoy/latest/configuration/overview/v2_overview#management-server
+//   https://cloud.google.com/traffic-director
 
 #import "GTLRTrafficDirectorServiceQuery.h"
 

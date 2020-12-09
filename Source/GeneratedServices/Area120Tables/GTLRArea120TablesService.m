@@ -16,6 +16,7 @@ NSString * const kGTLRAuthScopeArea120TablesDriveFile          = @"https://www.g
 NSString * const kGTLRAuthScopeArea120TablesDriveReadonly      = @"https://www.googleapis.com/auth/drive.readonly";
 NSString * const kGTLRAuthScopeArea120TablesSpreadsheets       = @"https://www.googleapis.com/auth/spreadsheets";
 NSString * const kGTLRAuthScopeArea120TablesSpreadsheetsReadonly = @"https://www.googleapis.com/auth/spreadsheets.readonly";
+NSString * const kGTLRAuthScopeArea120TablesTables             = @"https://www.googleapis.com/auth/tables";
 
 // ----------------------------------------------------------------------------
 //   GTLRArea120TablesService

@@ -249,6 +249,44 @@ NSString * const kGTLRIamViewFull  = @"FULL";
 
 @end
 
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRIam_Operation class];
+  query.loggingName = @"iam.projects.locations.workloadIdentityPools.providers.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRIamQuery_ProjectsRolesCreate
 
 @dynamic parent;

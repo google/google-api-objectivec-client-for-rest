@@ -73,6 +73,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesGet : GTLRArea120TablesQuery
 // Previous library name was
@@ -106,6 +107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesList : GTLRArea120TablesQuery
 // Previous library name was
@@ -149,6 +151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDrive
  *    @c kGTLRAuthScopeArea120TablesDriveFile
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsBatchCreate : GTLRArea120TablesQuery
 // Previous library name was
@@ -186,6 +189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDrive
  *    @c kGTLRAuthScopeArea120TablesDriveFile
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsBatchUpdate : GTLRArea120TablesQuery
 // Previous library name was
@@ -223,6 +227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDrive
  *    @c kGTLRAuthScopeArea120TablesDriveFile
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsCreate : GTLRArea120TablesQuery
 // Previous library name was
@@ -271,6 +276,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDrive
  *    @c kGTLRAuthScopeArea120TablesDriveFile
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsDelete : GTLRArea120TablesQuery
 // Previous library name was
@@ -306,6 +312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsGet : GTLRArea120TablesQuery
 // Previous library name was
@@ -353,6 +360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsList : GTLRArea120TablesQuery
 // Previous library name was
@@ -413,6 +421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDrive
  *    @c kGTLRAuthScopeArea120TablesDriveFile
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsPatch : GTLRArea120TablesQuery
 // Previous library name was
@@ -470,6 +479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_WorkspacesGet : GTLRArea120TablesQuery
 // Previous library name was
@@ -506,6 +516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesDriveReadonly
  *    @c kGTLRAuthScopeArea120TablesSpreadsheets
  *    @c kGTLRAuthScopeArea120TablesSpreadsheetsReadonly
+ *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_WorkspacesList : GTLRArea120TablesQuery
 // Previous library name was

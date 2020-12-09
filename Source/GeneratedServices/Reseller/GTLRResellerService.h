@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workspace Reseller API (reseller/v1)
+//   Google Workspace Reseller API (reseller/v1)
 // Description:
-//   Creates and manages your customers and their subscriptions.
+//   Perform common functions that are available on the Channel Services console
+//   at scale, like placing orders and viewing customer information
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
@@ -48,9 +49,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeResellerAppsOrderReadonly;
 //
 
 /**
- *  Service for executing Workspace Reseller API queries.
+ *  Service for executing Google Workspace Reseller API queries.
  *
- *  Creates and manages your customers and their subscriptions.
+ *  Perform common functions that are available on the Channel Services console
+ *  at scale, like placing orders and viewing customer information
  */
 @interface GTLRResellerService : GTLRService
 

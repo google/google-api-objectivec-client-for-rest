@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin SDK (admin/directory_v1)
+//   Admin SDK API (admin/directory_v1)
 // Description:
 //   Admin SDK lets administrators of enterprise domains to view and manage
 //   resources like user, groups etc. It also provides audit and usage reports
@@ -36,7 +36,6 @@
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item;
-@class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
 @class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
 @class GTLRDirectory_ChromeosdevicesCommandResult;
@@ -50,6 +49,7 @@
 @class GTLRDirectory_MobileDevice_Applications_Item;
 @class GTLRDirectory_OrgUnit;
 @class GTLRDirectory_Privilege;
+@class GTLRDirectory_RecentUsers;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_Role_RolePrivileges_Item;
 @class GTLRDirectory_RoleAssignment;
@@ -285,7 +285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  The template that returns individual ASP (Access Code) data.
+ *  An application-specific password (ASP) is used with applications that do not
+ *  accept a verification code when logging into the application on certain
+ *  devices. The ASP access code is used instead of the login and password you
+ *  commonly use when accessing an application through a browser. For more
+ *  information about ASPs and how to create one, see the [help
+ *  center](//http://support.google.com/a/bin/answer.py?amp;answer=1032419).
  */
 @interface GTLRDirectory_Asp : GTLRObject
 
@@ -297,7 +302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) NSNumber *codeId;
 
 /**
- *  The time when the ASP was created. Expressed in Unix time format.
+ *  The time when the ASP was created. Expressed in [Unix
+ *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -306,18 +312,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** ETag of the ASP. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** The type of the API resource. This is always admin#directory#asp. */
+/** The type of the API resource. This is always `admin#directory#asp`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The time when the ASP was last used. Expressed in Unix time format.
+ *  The time when the ASP was last used. Expressed in [Unix
+ *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lastTimeUsed;
 
 /**
- *  The name of the application that the user, represented by their userId,
+ *  The name of the application that the user, represented by their `userId`,
  *  entered when the ASP was created.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -347,7 +354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Asp *> *items;
 
-/** The type of the API resource. This is always admin#directory#aspList. */
+/** The type of the API resource. This is always `admin#directory#aspList`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -359,8 +366,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @interface GTLRDirectory_Building : GTLRObject
 
 /**
- *  The postal address of the building. See PostalAddress for details. Note that
- *  only a single address line and region code are required.
+ *  The postal address of the building. See
+ *  [`PostalAddress`](/my-business/reference/rest/v4/PostalAddress) for details.
+ *  Note that only a single address line and region code are required.
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_BuildingAddress *address;
 
@@ -539,7 +547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The type of the resource. For calendar resources, the value is
- *  admin#directory#resources#calendars#CalendarResource.
+ *  `admin#directory#resources#calendars#CalendarResource`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -596,7 +604,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Identifies this as a collection of CalendarResources. This is always
- *  admin#directory#resources#calendars#calendarResourcesList.
+ *  `admin#directory#resources#calendars#calendarResourcesList`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -634,7 +642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
- *  resource, which is "api#channel".
+ *  resource, which is `api#channel`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -682,20 +690,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_ChromeOsDevice
+ *  Google Chrome devices run on the [Chrome
+ *  OS](http://support.google.com/chromeos). For more information about common
+ *  API tasks, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices).
  */
 @interface GTLRDirectory_ChromeOsDevice : GTLRObject
 
-/** List of active time ranges (Read-only) */
+/** List of active time ranges (Read-only). */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item *> *activeTimeRanges;
 
-/** AssetId specified during enrollment or through later annotation */
+/**
+ *  The asset identifier as noted by an administrator or specified during
+ *  enrollment.
+ */
 @property(nonatomic, copy, nullable) NSString *annotatedAssetId;
 
-/** Address or location of the device as noted by the administrator */
+/**
+ *  The address or location of the device as noted by the administrator. Maximum
+ *  length is `200` characters. Empty values are allowed.
+ */
 @property(nonatomic, copy, nullable) NSString *annotatedLocation;
 
-/** User of the device */
+/**
+ *  The user of the device as noted by the administrator. Maximum length is 100
+ *  characters. Empty values are allowed.
+ */
 @property(nonatomic, copy, nullable) NSString *annotatedUser;
 
 /**
@@ -706,7 +726,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *autoUpdateExpiration;
 
-/** Chromebook boot mode (Read-only) */
+/**
+ *  The boot mode for the device. The possible values are: * `Verified`: The
+ *  device is running a valid version of the Chrome OS. * `Dev`: The devices's
+ *  developer hardware switch is enabled. When booted, the device has a command
+ *  line shell. For an example of a developer switch, see the [Chromebook
+ *  developer
+ *  information](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
+ */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
 /** Reports of CPU utilization and temperature (Read-only) */
@@ -715,7 +742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** List of device files to download (Read-only) */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_DeviceFiles_Item *> *deviceFiles;
 
-/** Unique identifier of Chrome OS Device (Read-only) */
+/** The unique ID of the Chrome device. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** Reports of disk space and other info about mounted/connected volumes. */
@@ -733,7 +760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Chromebook Mac Address on ethernet network interface (Read-only) */
+/** The device's MAC address on the ethernet network interface. */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress;
 
 /**
@@ -744,10 +771,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, copy, nullable) NSString *ethernetMacAddress0;
 
-/** Chromebook firmware version (Read-only) */
+/** The Chrome device's firmware version. */
 @property(nonatomic, copy, nullable) NSString *firmwareVersion;
 
-/** Kind of resource this is. */
+/**
+ *  The type of resource. For the Chromeosdevices resource, the value is
+ *  `admin#directory#chromeosdevice`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Date and time the device was last enrolled (Read-only) */
@@ -762,47 +792,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
-/** Chromebook Mac Address on wifi network interface (Read-only) */
+/**
+ *  The device's wireless MAC address. If the device does not have this
+ *  information, it is not included in the response.
+ */
 @property(nonatomic, copy, nullable) NSString *macAddress;
 
 /** (Read-only) The date the device was manufactured in yyyy-mm-dd format. */
 @property(nonatomic, copy, nullable) NSString *manufactureDate;
 
 /**
- *  Contains either the Mobile Equipment identifier (MEID) or the International
- *  Mobile Equipment Identity (IMEI) for the 3G mobile card in the Chromebook
- *  (Read-only)
+ *  The Mobile Equipment Identifier (MEID) or the International Mobile Equipment
+ *  Identity (IMEI) for the 3G mobile card in a mobile device. A MEID/IMEI is
+ *  typically used when adding a device to a wireless carrier's post-pay service
+ *  plan. If the device does not have this information, this property is not
+ *  included in the response. For more information on how to export a MEID/IMEI
+ *  list, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices.html#export_meid).
  */
 @property(nonatomic, copy, nullable) NSString *meid;
 
-/** Chromebook Model (Read-only) */
+/**
+ *  The device's model information. If the device does not have this
+ *  information, this property is not included in the response.
+ */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/** Notes added by the administrator */
+/**
+ *  Notes about this device added by the administrator. This property can be
+ *  [searched](http://support.google.com/chromeos/a/bin/answer.py?answer=1698333)
+ *  with the [list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *  method's `query` parameter. Maximum length is 500 characters. Empty values
+ *  are allowed.
+ */
 @property(nonatomic, copy, nullable) NSString *notes;
 
-/** Chromebook order number (Read-only) */
+/**
+ *  The device's order number. Only devices directly purchased from Google have
+ *  an order number.
+ */
 @property(nonatomic, copy, nullable) NSString *orderNumber;
 
-/** OrgUnit of the device */
+/**
+ *  The full parent path with the organizational unit's name associated with the
+ *  device. Path names are case insensitive. If the parent organizational unit
+ *  is the top-level organization, it is represented as a forward slash, `/`.
+ *  This property can be
+ *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#update_chrome_device)
+ *  using the API. For more information about how to create an organizational
+ *  structure for your device, see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=182433).
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
-/** Chromebook Os Version (Read-only) */
+/** The Chrome device's operating system version. */
 @property(nonatomic, copy, nullable) NSString *osVersion;
 
-/** Chromebook platform version (Read-only) */
+/** The Chrome device's platform version. */
 @property(nonatomic, copy, nullable) NSString *platformVersion;
 
-/**
- *  List of recent device users, in descending order by last login time
- *  (Read-only)
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_RecentUsers_Item *> *recentUsers;
+/** List of recent device users, in descending order, by last login time. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RecentUsers *> *recentUsers;
 
-/** Chromebook serial number (Read-only) */
+/**
+ *  The Chrome device serial number entered when the device was enabled. This
+ *  value is the same as the Admin console's *Serial Number* in the *Chrome OS
+ *  Devices* tab.
+ */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
-/** status of the device (Read-only) */
+/** The status of the device. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /** Final date the device will be supported (Read-only) */
@@ -822,7 +881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) GTLRDirectory_ChromeOsDevice_TpmVersionInfo *tpmVersionInfo;
 
 /**
- *  Will Chromebook auto renew after support end date (Read-only)
+ *  Determines if the device will auto renew its support after the support end
+ *  date. This is a read-only property.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -837,7 +897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @interface GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item : GTLRObject
 
 /**
- *  Duration in milliseconds
+ *  Duration of usage in milliseconds.
  *
  *  Uses NSNumber of intValue.
  */
@@ -920,20 +980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_ChromeOsDevice_RecentUsers_Item
- */
-@interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
-
-/** Email address of the user. Present only if the user type is managed */
-@property(nonatomic, copy, nullable) NSString *email;
-
-/** The type of the user */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
  *  GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item
  */
 @interface GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item : GTLRObject
@@ -956,7 +1002,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_ChromeOsDevice_TpmVersionInfo : GTLRObject
 
-/** TPM family. */
+/**
+ *  TPM family. We use the TPM 2.0 style encoding, e.g.: TPM 1.2: "1.2" ->
+ *  312e3200 TPM 2.0: "2.0" -> 322e3000
+ */
 @property(nonatomic, copy, nullable) NSString *family;
 
 /** TPM firmware version. */
@@ -965,7 +1014,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** TPM manufacturer code. */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
-/** TPM specification level. */
+/**
+ *  TPM specification level. See Library Specification for TPM 2.0 and Main
+ *  Specification for TPM 1.2.
+ */
 @property(nonatomic, copy, nullable) NSString *specLevel;
 
 /** TPM model number. */
@@ -1025,9 +1077,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_ChromeOsDeviceAction : GTLRObject
 
-/** Action to be taken on the ChromeOs Device */
+/** Action to be taken on the Chrome OS device. */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/**
+ *  Only used when the action is `deprovision`. With the `deprovision` action,
+ *  this field is required. *Note*: The deprovision reason is audited because it
+ *  might have implications on licenses for perpetual subscription customers.
+ */
 @property(nonatomic, copy, nullable) NSString *deprovisionReason;
 
 @end
@@ -1057,7 +1114,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Token used to access next page of this result. */
+/**
+ *  Token used to access the next page of this result. To access the next page,
+ *  use this token's value in the `pageToken` query string of this request.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -1244,7 +1304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_ChromeOsMoveDevicesToOu : GTLRObject
 
-/** ChromeOs Devices to be moved to OU */
+/** Chrome OS devices to be moved to OU */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *deviceIds;
 
 @end
@@ -1257,7 +1317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The customer's secondary contact email address. This email address cannot be
- *  on the same domain as the customerDomain
+ *  on the same domain as the `customerDomain`
  */
 @property(nonatomic, copy, nullable) NSString *alternateEmail;
 
@@ -1265,7 +1325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) GTLRDateTime *customerCreationTime;
 
 /**
- *  The customer's primary domain name string. Do not include the www prefix
+ *  The customer's primary domain name string. Do not include the `www` prefix
  *  when creating a new customer.
  */
 @property(nonatomic, copy, nullable) NSString *customerDomain;
@@ -1280,13 +1340,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Identifies the resource as a customer. Value: admin#directory#customer */
+/**
+ *  Identifies the resource as a customer. Value: `admin#directory#customer`
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** The customer's ISO 639-2 language code. The default value is en-US */
+/**
+ *  The customer's ISO 639-2 language code. See the [Language
+ *  Codes](/admin-sdk/directory/v1/languages) page for the list of supported
+ *  codes. Valid language codes outside the supported set will be accepted by
+ *  the API but may lead to unexpected behavior. The default value is `en`.
+ */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/** The customer's contact phone number in E.164 format. */
+/**
+ *  The customer's contact phone number in
+ *  [E.164](http://en.wikipedia.org/wiki/E.164) format.
+ */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 /** The customer's postal address information. */
@@ -1316,14 +1386,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *contactName;
 
 /**
- *  This is a required property. For countryCode information see the ISO 3166
- *  country code elements.
+ *  This is a required property. For `countryCode` information see the [ISO 3166
+ *  country code elements](http://www.iso.org/iso/country_codes.htm).
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /**
- *  Name of the locality. An example of a locality value is the city of San
- *  Francisco.
+ *  Name of the locality. An example of a locality value is the city of `San
+ *  Francisco`.
  */
 @property(nonatomic, copy, nullable) NSString *locality;
 
@@ -1331,15 +1401,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *organizationName;
 
 /**
- *  The postal code. A postalCode example is a postal zip code such as 10009.
+ *  The postal code. A postalCode example is a postal zip code such as `10009`.
  *  This is in accordance with - http:
  *  //portablecontacts.net/draft-spec.html#address_element.
  */
 @property(nonatomic, copy, nullable) NSString *postalCode;
 
 /**
- *  Name of the region. An example of a region value is NY for the state of New
- *  York.
+ *  Name of the region. An example of a region value is `NY` for the state of
+ *  New York.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -1406,7 +1476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @interface GTLRDirectory_Domains : GTLRObject
 
 /**
- *  Creation time of the domain. (Read-only).
+ *  Creation time of the domain. Expressed in [Unix
+ *  time](http://en.wikipedia.org/wiki/Epoch_time) format. (Read-only).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1534,54 +1605,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_Group
+ *  Google Groups provide your users the ability to send messages to groups of
+ *  people using the group's email address. For more information about common
+ *  tasks, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-groups).
  */
 @interface GTLRDirectory_Group : GTLRObject
 
 /**
- *  Is the group created by admin (Read-only) *
+ *  Value is `true` if this group was created by an administrator rather than a
+ *  user.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adminCreated;
 
-/** List of aliases (Read-only) */
+/** List of a group's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
- *  Description of the group
+ *  An extended description to help users determine the purpose of a group. For
+ *  example, you can include information about who should join the group, the
+ *  types of messages to send to the group, links to FAQs about the group, or
+ *  related groups. Maximum length is `4,096` characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Group direct members count
+ *  The number of users that are direct members of the group. If a group is a
+ *  member (child) of this group (the parent), members of the child group are
+ *  not counted in the `directMembersCount` property of the parent group.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *directMembersCount;
 
-/** Email of Group */
+/**
+ *  The group's email address. If your account has multiple domains, select the
+ *  appropriate domain for the email address. The `email` must be unique. This
+ *  property is required when creating a group. Group email addresses are
+ *  subject to the same character usage rules as usernames, see the
+ *  [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=33386) for the
+ *  details.
+ */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Unique identifier of Group (Read-only)
+ *  The unique ID of a group. A group `id` can be used as a group request URI's
+ *  `groupKey`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Groups resources, the value is
+ *  `admin#directory#group`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Group name */
+/** The group's display name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** List of non editable aliases (Read-only) */
+/**
+ *  List of the group's non-editable alias email addresses that are outside of
+ *  the account's primary domain or subdomains. These are functioning email
+ *  addresses used by the group. This is a read-only property returned in the
+ *  API's response for a group. If edited in a group's POST or PUT request, the
+ *  edit is ignored by the API service.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
 @end
@@ -1618,38 +1716,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_Member
+ *  A Google Groups member can be a user or another group. This member can be
+ *  inside or outside of your account's domains. For more information about
+ *  common group member tasks, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-group-members).
  */
 @interface GTLRDirectory_Member : GTLRObject
 
-/** Delivery settings of member */
+/**
+ *  Defines mail delivery preferences of member. This is only supported by
+ *  create/update/get.
+ */
 @property(nonatomic, copy, nullable) NSString *deliverySettings;
 
-/** Email of member (Read-only) */
+/**
+ *  The member's email address. A member can be a user or another group. This
+ *  property is required when adding a member to a group. The `email` must be
+ *  unique and cannot be an alias of another group. If the email address is
+ *  changed, the API automatically reflects the email address changes.
+ */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Unique identifier of group (Read-only) Unique identifier of member
- *  (Read-only) The unique ID of the group member. A member id can be used as a
- *  member request URI's memberKey.
+ *  The unique ID of the group member. A member `id` can be used as a member
+ *  request URI's `memberKey`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Members resources, the value is
+ *  `admin#directory#member`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Role of member */
+/**
+ *  The member's role in a group. The API returns an error for cycles in group
+ *  memberships. For example, if `group1` is a member of `group2`, `group2`
+ *  cannot be a member of `group1`. For more information about a member's role,
+ *  see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=167094).
+ */
 @property(nonatomic, copy, nullable) NSString *role;
 
 /** Status of member (Immutable) */
 @property(nonatomic, copy, nullable) NSString *status;
 
-/** Type of member (Immutable) */
+/** The type of group member. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -1702,7 +1819,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  GTLRDirectory_MobileDevice
+ *  G Suite Mobile Management includes Android, [Google
+ *  Sync](http://support.google.com/a/bin/answer.py?answer=135937), and iOS
+ *  devices. For more information about common group mobile device API tasks,
+ *  see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices.html).
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
 
@@ -1713,10 +1834,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *adbStatus;
 
-/** List of applications installed on Mobile Device */
+/**
+ *  The list of applications installed on an Android mobile device. It is not
+ *  applicable to Google Sync and iOS devices. The list includes any Android
+ *  applications that access G Suite data. When updating an applications list,
+ *  it is important to note that updates replace the existing list. If the
+ *  Android device has two existing applications and the API updates the list
+ *  with five applications, the is now the updated list of five applications.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDevice_Applications_Item *> *applications;
 
-/** Mobile Device Baseband version (Read-only) */
+/** The device's baseband version. */
 @property(nonatomic, copy, nullable) NSString *basebandVersion;
 
 /** Mobile Device Bootloader version (Read-only) */
@@ -1725,10 +1853,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** Mobile Device Brand (Read-only) */
 @property(nonatomic, copy, nullable) NSString *brand;
 
-/** Mobile Device Build number (Read-only) */
+/** The device's operating system build number. */
 @property(nonatomic, copy, nullable) NSString *buildNumber;
 
-/** The default locale used on the Mobile Device (Read-only) */
+/** The default locale used on the device. */
 @property(nonatomic, copy, nullable) NSString *defaultLanguage;
 
 /**
@@ -1738,16 +1866,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *developerOptionsStatus;
 
-/** Mobile Device compromised status (Read-only) */
+/** The compromised device status. */
 @property(nonatomic, copy, nullable) NSString *deviceCompromisedStatus;
 
-/** Mobile Device serial number (Read-only) */
+/**
+ *  The serial number for a Google Sync mobile device. For Android and iOS
+ *  devices, this is a software generated unique identifier.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /** DevicePasswordStatus (Read-only) */
 @property(nonatomic, copy, nullable) NSString *devicePasswordStatus;
 
-/** List of owner user's email addresses (Read-only) */
+/**
+ *  List of owner's email addresses. If your application needs the current list
+ *  of user emails, use the
+ *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
+ *  additional information, see the [retrieve a
+ *  user](/admin-sdk/directory/v1/guides/manage-users#get_user) method.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *email;
 
 /** Mobile Device Encryption Status (Read-only) */
@@ -1765,16 +1902,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** Mobile Device Hardware (Read-only) */
 @property(nonatomic, copy, nullable) NSString *hardware;
 
-/** Mobile Device Hardware Id (Read-only) */
+/**
+ *  The IMEI/MEID unique identifier for Android hardware. It is not applicable
+ *  to Google Sync devices. When adding an Android mobile device, this is an
+ *  optional property. When updating one of these devices, this is a read-only
+ *  property.
+ */
 @property(nonatomic, copy, nullable) NSString *hardwareId;
 
-/** Mobile Device IMEI number (Read-only) */
+/** The device's IMEI number. */
 @property(nonatomic, copy, nullable) NSString *imei;
 
-/** Mobile Device Kernel version (Read-only) */
+/** The device's kernel version. */
 @property(nonatomic, copy, nullable) NSString *kernelVersion;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Mobiledevices resources, the value is
+ *  `admin#directory#mobiledevice`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1784,8 +1929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSync;
 
 /**
- *  Boolean indicating if this account is on owner/primary profile or not
- *  (Read-only)
+ *  Boolean indicating if this account is on owner/primary profile or not.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1794,19 +1938,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** Mobile Device manufacturer (Read-only) */
 @property(nonatomic, copy, nullable) NSString *manufacturer;
 
-/** Mobile Device MEID number (Read-only) */
+/** The device's MEID number. */
 @property(nonatomic, copy, nullable) NSString *meid;
 
-/** Name of the model of the device */
+/**
+ *  The mobile device's model name, for example Nexus S. This property can be
+ *  [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For
+ *  more information, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-mobile=devices#update_mobile_device).
+ */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/** List of owner user's names (Read-only) */
+/**
+ *  List of the owner's user names. If your application needs the current list
+ *  of device owner names, use the
+ *  [get](/admin-sdk/directory/v1/reference/mobiledevices/get.html) method. For
+ *  more information about retrieving mobile device user information, see the
+ *  [Developer's Guide](/admin-sdk/directory/v1/guides/manage-users#get_user).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *name;
 
 /** Mobile Device mobile or network operator (if available) (Read-only) */
 @property(nonatomic, copy, nullable) NSString *networkOperator;
 
-/** Name of the mobile operating system */
+/**
+ *  The mobile device's operating system, for example IOS 4.3 or Android 2.3.5.
+ *  This property can be
+ *  [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html). For
+ *  more information, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device).
+ */
 @property(nonatomic, copy, nullable) NSString *os;
 
 /** List of accounts added on device (Read-only) */
@@ -1818,7 +1979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** Mobile Device release version version (Read-only) */
 @property(nonatomic, copy, nullable) NSString *releaseVersion;
 
-/** Unique identifier of Mobile Device (Read-only) */
+/** The unique ID the API service uses to identify the mobile device. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
@@ -1828,10 +1989,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *securityPatchLevel;
 
-/** Mobile Device SSN or Serial Number (Read-only) */
+/** The device's serial number. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
-/** Status of the device (Read-only) */
+/** The device's status. */
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
@@ -1841,7 +2002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *supportsWorkProfile;
 
-/** The type of device (Read-only) */
+/** The type of mobile device. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
@@ -1851,10 +2012,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *unknownSourcesStatus;
 
-/** Mobile Device user agent */
+/**
+ *  Gives information about the device such as `os` version. This property can
+ *  be [updated](/admin-sdk/directory/v1/reference/mobiledevices/update.html).
+ *  For more information, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices#update_mobile_device).
+ */
 @property(nonatomic, copy, nullable) NSString *userAgent;
 
-/** Mobile Device WiFi MAC address (Read-only) */
+/** The device's MAC address on Wi-Fi networks. */
 @property(nonatomic, copy, nullable) NSString *wifiMacAddress;
 
 @end
@@ -1865,23 +2031,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_MobileDevice_Applications_Item : GTLRObject
 
-/** Display name of application */
+/** The application's display name. An example is `Browser`. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Package name of application */
+/** The application's package name. An example is `com.android.browser`. */
 @property(nonatomic, copy, nullable) NSString *packageName;
 
-/** List of Permissions for application */
+/**
+ *  The list of permissions of this application. These can be either a standard
+ *  Android permission or one defined by the application, and are found in an
+ *  application's [Android
+ *  manifest](http://developer.android.com/guide/topics/manifest/uses-permission-element.html).
+ *  Examples of a Calendar application's permissions are `READ_CALENDAR`, or
+ *  `MANAGE_ACCOUNTS`.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permission;
 
 /**
- *  Version code of application
+ *  The application's version code. An example is `13`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *versionCode;
 
-/** Version name of application */
+/** The application's version name. An example is `3.2-140714`. */
 @property(nonatomic, copy, nullable) NSString *versionName;
 
 @end
@@ -1892,7 +2065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_MobileDeviceAction : GTLRObject
 
-/** Action to be taken on the Mobile Device */
+/** The action to be performed on the device. */
 @property(nonatomic, copy, nullable) NSString *action;
 
 @end
@@ -1929,19 +2102,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  JSON template for Org Unit resource in Directory API.
+ *  Managing your account's organizational units allows you to configure your
+ *  users' access to services and custom settings. For more information about
+ *  common organizational unit tasks, see the [Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-org-units.html).
  */
 @interface GTLRDirectory_OrgUnit : GTLRObject
 
 /**
- *  Should block inheritance
+ *  Determines if a sub-organizational unit can inherit the settings of the
+ *  parent organization. The default value is `false`, meaning a
+ *  sub-organizational unit inherits the settings of the nearest parent
+ *  organizational unit. For more information on inheritance and users in an
+ *  organization structure, see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=182442&topic=1227584&ctx=topic).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *blockInheritance;
 
 /**
- *  Description of OrgUnit
+ *  Description of the organizational unit.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -1950,40 +2131,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Orgunits resources, the value is
+ *  `admin#directory#orgUnit`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Name of OrgUnit */
+/**
+ *  The organizational unit's path name. For example, an organizational unit's
+ *  name within the /corp/support/sales_support parent path is sales_support.
+ *  Required.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Id of OrgUnit */
+/** The unique ID of the organizational unit. */
 @property(nonatomic, copy, nullable) NSString *orgUnitId;
 
-/** Path of OrgUnit */
+/**
+ *  The full path to the organizational unit. The `orgUnitPath` is a derived
+ *  property. When listed, it is derived from `parentOrgunitPath` and
+ *  organizational unit's `name`. For example, for an organizational unit named
+ *  'apps' under parent organization '/engineering', the orgUnitPath is
+ *  '/engineering/apps'. In order to edit an `orgUnitPath`, either update the
+ *  name of the organization or the `parentOrgunitPath`. A user's organizational
+ *  unit determines which G Suite services the user has access to. If the user
+ *  is moved to a new organization, the user's access changes. For more
+ *  information about organization structures, see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=182433&topic=1227584&ctx=topic).
+ *  For more information about moving a user to a different organization, see
+ *  [Update a
+ *  user](/admin-sdk/directory/v1/guides/manage-users.html#update_user).
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
-/** Id of parent OrgUnit */
+/**
+ *  The unique ID of the parent organizational unit. Required, unless
+ *  `parentOrgUnitPath` is set.
+ */
 @property(nonatomic, copy, nullable) NSString *parentOrgUnitId;
 
-/** Path of parent OrgUnit */
+/**
+ *  The organizational unit's parent path. For example, /corp/sales is the
+ *  parent path for /corp/sales/sales_support organizational unit. Required,
+ *  unless `parentOrgUnitId` is set.
+ */
 @property(nonatomic, copy, nullable) NSString *parentOrgUnitPath;
 
 @end
 
 
 /**
- *  JSON response template for List Organization Units operation in Directory
- *  API.
+ *  GTLRDirectory_OrgUnits
  */
 @interface GTLRDirectory_OrgUnits : GTLRObject
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Org Unit resources, the type is
+ *  `admin#directory#orgUnits`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** List of user objects. */
+/** List of organizational unit objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_OrgUnit *> *organizationUnits;
 
 @end
@@ -2011,7 +2222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *isOuScopable;
 
-/** The type of the API resource. This is always admin#directory#privilege. */
+/**
+ *  The type of the API resource. This is always `admin#directory#privilege`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The name of the privilege. */
@@ -2019,7 +2232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The obfuscated ID of the service this privilege is for. This value is
- *  returned with Privileges.list().
+ *  returned with
+ *  [`Privileges.list()`](/admin-sdk/directory/v1/reference/privileges/list).
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -2049,9 +2263,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Privilege *> *items;
 
 /**
- *  The type of the API resource. This is always admin#directory#privileges.
+ *  The type of the API resource. This is always `admin#directory#privileges`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  List of recent device users, in descending order, by last login time.
+ */
+@interface GTLRDirectory_RecentUsers : GTLRObject
+
+/**
+ *  The user's email address. This is only present if the user type is
+ *  `USER_TYPE_MANAGED`.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The type of the user. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -2065,20 +2296,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Returns true if the role is a super admin role.
+ *  Returns `true` if the role is a super admin role.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSuperAdminRole;
 
 /**
- *  Returns true if this is a pre-defined system role.
+ *  Returns `true` if this is a pre-defined system role.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isSystemRole;
 
-/** The type of the API resource. This is always admin#directory#role. */
+/** The type of the API resource. This is always `admin#directory#role`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** A short description of the role. */
@@ -2110,7 +2341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The obfuscated ID of the service this privilege is for. This value is
- *  returned with Privileges.list().
+ *  returned with
+ *  [`Privileges.list()`](/admin-sdk/directory/v1/reference/privileges/list).
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -2129,7 +2361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The type of the API resource. This is always admin#directory#roleAssignment.
+ *  The type of the API resource. This is always
+ *  `admin#directory#roleAssignment`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2153,10 +2386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *roleId;
 
-/**
- *  The scope in which this role is assigned. Possible values are: - CUSTOMER -
- *  ORG_UNIT
- */
+/** The scope in which this role is assigned. */
 @property(nonatomic, copy, nullable) NSString *scopeType;
 
 @end
@@ -2184,8 +2414,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RoleAssignment *> *items;
 
 /**
- *  The type of the API resource. This is always admin#directory#roleAssignments
- *  .
+ *  The type of the API resource. This is always
+ *  `admin#directory#roleAssignments`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -2215,7 +2445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Role *> *items;
 
-/** The type of the API resource. This is always admin#directory#roles. */
+/** The type of the API resource. This is always `admin#directory#roles`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -2224,63 +2454,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  JSON template for Schema resource in Directory API.
+ *  The type of API resource. For Schema resources, this is always
+ *  `admin#directory#schema`.
  */
 @interface GTLRDirectory_Schema : GTLRObject
 
 /** Display name for the schema. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** ETag of the resource. */
+/** The ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Fields of Schema */
+/** A list of fields in the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_SchemaFieldSpec *> *fields;
 
 /** Kind of resource this is. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Unique identifier of Schema (Read-only) */
+/** The unique identifier of the schema (Read-only) */
 @property(nonatomic, copy, nullable) NSString *schemaId;
 
-/** Schema name */
+/** The schema's name. */
 @property(nonatomic, copy, nullable) NSString *schemaName;
 
 @end
 
 
 /**
- *  JSON template for FieldSpec resource for Schemas in Directory API.
+ *  You can use schemas to add custom fields to user profiles. You can use these
+ *  fields to store information such as the projects your users work on, their
+ *  physical locations, their hire dates, or whatever else fits your business
+ *  needs. For more information, see [Custom User
+ *  Fields](/admin-sdk/directory/v1/guides/manage-schemas).
  */
 @interface GTLRDirectory_SchemaFieldSpec : GTLRObject
 
 /** Display Name of the field. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** ETag of the resource. */
+/** The ETag of the field. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Unique identifier of Field (Read-only) */
+/** The unique identifier of the field (Read-only) */
 @property(nonatomic, copy, nullable) NSString *fieldId;
 
-/** Name of the field. */
+/** The name of the field. */
 @property(nonatomic, copy, nullable) NSString *fieldName;
 
-/** Type of the field. */
+/** The type of the field. */
 @property(nonatomic, copy, nullable) NSString *fieldType;
 
 /**
- *  Boolean specifying whether the field is indexed or not.
+ *  Boolean specifying whether the field is indexed or not. Default: `true`.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *indexed;
 
-/** Kind of resource this is. */
+/**
+ *  The kind of resource this is. For schema fields this is always
+ *  `admin#directory#schema#fieldspec`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Boolean specifying whether this is a multi-valued field or not.
+ *  A boolean specifying whether this is a multi-valued field or not. Default:
+ *  `false`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2288,14 +2527,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Indexing spec for a numeric field. By default, only exact match queries will
- *  be supported for numeric fields. Setting the numericIndexingSpec allows
+ *  be supported for numeric fields. Setting the `numericIndexingSpec` allows
  *  range queries to be supported.
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec *numericIndexingSpec;
 
 /**
- *  Read ACLs on the field specifying who can view values of this field. Valid
- *  values are "ALL_DOMAIN_USERS" and "ADMINS_AND_SELF".
+ *  Specifies who can view values of this field. See [Retrieve users as a
+ *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin)
+ *  for more information. Note: It may take up to 24 hours for changes to this
+ *  field to be reflected.
  */
 @property(nonatomic, copy, nullable) NSString *readAccessType;
 
@@ -2304,7 +2545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Indexing spec for a numeric field. By default, only exact match queries will
- *  be supported for numeric fields. Setting the numericIndexingSpec allows
+ *  be supported for numeric fields. Setting the `numericIndexingSpec` allows
  *  range queries to be supported.
  */
 @interface GTLRDirectory_SchemaFieldSpec_NumericIndexingSpec : GTLRObject
@@ -2353,8 +2594,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @interface GTLRDirectory_Token : GTLRObject
 
 /**
- *  Whether the application is registered with Google. The value is true if the
- *  application has an anonymous Client ID.
+ *  Whether the application is registered with Google. The value is `true` if
+ *  the application has an anonymous Client ID.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2369,11 +2610,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** The type of the API resource. This is always admin#directory#token. */
+/** The type of the API resource. This is always `admin#directory#token`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Whether the token is issued to an installed application. The value is true
+ *  Whether the token is issued to an installed application. The value is `true`
  *  if the application is installed to a desktop or mobile device.
  *
  *  Uses NSNumber of boolValue.
@@ -2408,32 +2649,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_Token *> *items;
 
-/** The type of the API resource. This is always admin#directory#tokenList. */
+/**
+ *  The type of the API resource. This is always `admin#directory#tokenList`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  GTLRDirectory_User
+ *  The Directory API allows you to create and manage your account's users, user
+ *  aliases, and user Gmail chat profile photos. For more information about
+ *  common tasks, see the [User Accounts Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-users.html) and the [User
+ *  Aliases Developer's
+ *  Guide](/admin-sdk/directory/v1/guides/manage-user-aliases.html).
  */
 @interface GTLRDirectory_User : GTLRObject
 
 /**
- *  Addresses of User
+ *  A list of the user's addresses. The maximum allowed data size for this field
+ *  is 10Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id addresses;
 
 /**
- *  Output only. Indicates if user has agreed to terms (Read-only)
+ *  Output only. This property is `true` if the user has completed an initial
+ *  login and accepted the Terms of Service agreement.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
-/** Output only. List of aliases (Read-only) */
+/** Output only. List of the user's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
@@ -2444,7 +2694,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) NSNumber *archived;
 
 /**
- *  Boolean indicating if the user should change password in next login
+ *  Indicates if the user is forced to change their password at next login. This
+ *  setting doesn't apply when [the user signs in via a third-party identity
+ *  provider](https://support.google.com/a/answer/60224).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2453,7 +2705,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /** User's G Suite account creation time. (Read-only) */
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTime;
 
-/** Output only. CustomerId of User (Read-only) */
+/**
+ *  Output only. The customer ID to [retrieve all account
+ *  users](/admin-sdk/directory/v1/guides/manage-users.html#get_all_users). You
+ *  can use the alias `my_customer` to represent your account's `customerId`. As
+ *  a reseller administrator, you can use the resold customer account's
+ *  `customerId`. To get a `customerId`, use the account's primary domain in the
+ *  `domain` parameter of a
+ *  [users.list](/admin-sdk/directory/v1/reference/users/list) request.
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Custom fields of the user. */
@@ -2462,7 +2722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTime;
 
 /**
- *  Emails of User
+ *  A list of the user's email addresses. The maximum allowed data size for this
+ *  field is 10Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -2472,59 +2733,86 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The external Ids of User *
+ *  A list of external IDs for the user, such as an employee or network ID. The
+ *  maximum allowed data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id externalIds;
 
 /**
- *  Gender of User
+ *  The user's gender. The maximum allowed data size for this field is 1Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id gender;
 
-/** Hash function name for password. Supported are MD5, SHA-1 and crypt */
+/**
+ *  Stores the hash format of the password property. We recommend sending the
+ *  `password` property value as a base 16 bit hexadecimal-encoded hash value.
+ *  Set the `hashFunction` values as either the
+ *  [SHA-1](http://wikipedia.org/wiki/SHA-1),
+ *  [MD5](http://wikipedia.org/wiki/MD5), or
+ *  [crypt](https://en.wikipedia.org/wiki/Crypt_(C)) hash format.
+ */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 
 /**
- *  Unique identifier of User (Read-only)
+ *  The unique ID for the user. A user `id` can be used as a user request URI's
+ *  `userKey`.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  User's Instant Messenger
+ *  The user's Instant Messenger (IM) accounts. A user account can have multiple
+ *  ims properties. But, only one of these ims properties can be the primary IM
+ *  contact. The maximum allowed data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id ims;
 
 /**
- *  Boolean indicating if user is included in Global Address List
+ *  Indicates if the user's profile is visible in the G Suite global address
+ *  list when the contact sharing feature is enabled for the domain. For more
+ *  information about excluding user profiles, see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=1285988).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeInGlobalAddressList;
 
 /**
- *  Boolean indicating if ip is whitelisted
+ *  If `true`, the user's IP address is [white
+ *  listed](http://support.google.com/a/bin/answer.py?answer=60752).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ipWhitelisted;
 
 /**
- *  Output only. Boolean indicating if the user is admin (Read-only)
+ *  Output only. Indicates a user with super admininistrator privileges. The
+ *  `isAdmin` property can only be edited in the [Make a user an
+ *  administrator](/admin-sdk/directory/v1/guides/manage-users.html#make_admin)
+ *  operation (
+ *  [makeAdmin](/admin-sdk/directory/v1/reference/users/makeAdmin.html) method).
+ *  If edited in the user
+ *  [insert](/admin-sdk/directory/v1/reference/users/insert.html) or
+ *  [update](/admin-sdk/directory/v1/reference/users/update.html) methods, the
+ *  edit is ignored by the API service.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isAdmin;
 
 /**
- *  Output only. Boolean indicating if the user is delegated admin (Read-only)
+ *  Output only. Indicates if the user is a delegated administrator. Delegated
+ *  administrators are supported by the API but cannot create or undelete users,
+ *  or make users administrators. These requests are ignored by the API service.
+ *  Roles and privileges for administrators are assigned using the [Admin
+ *  console](http://support.google.com/a/bin/answer.py?answer=33325).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2545,24 +2833,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) NSNumber *isEnrolledIn2Sv;
 
 /**
- *  Output only. Is mailbox setup (Read-only)
+ *  Output only. Indicates if the user's Google mailbox is created. This
+ *  property is only applicable if the user has been assigned a Gmail license.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isMailboxSetup;
 
 /**
- *  Keywords of User
+ *  The user's keywords. The maximum allowed data size for this field is 1Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id keywords;
 
-/** Output only. Kind of resource this is. */
+/**
+ *  Output only. The type of the API resource. For Users resources, the value is
+ *  `admin#directory#user`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Languages of User
+ *  The user's languages. The maximum allowed data size for this field is 1Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -2572,53 +2864,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) GTLRDateTime *lastLoginTime;
 
 /**
- *  Locations of User
+ *  The user's locations. The maximum allowed data size for this field is 10Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id locations;
 
-/** User's name */
+/**
+ *  Holds the given and family names of the user, and the read-only `fullName`
+ *  value. The maximum number of characters in the `givenName` and in the
+ *  `familyName` values is 60. In addition, name values support unicode/UTF-8
+ *  characters, and can contain spaces, letters (a-z), numbers (0-9), dashes
+ *  (-), forward slashes (/), and periods (.). For more information about
+ *  character usage rules, see the [administration help
+ *  center](http://support.google.com/a/bin/answer.py?answer=33386). Maximum
+ *  allowed data size for this field is 1Kb.
+ */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
-/** Output only. List of non editable aliases (Read-only) */
+/**
+ *  Output only. List of the user's non-editable alias email addresses. These
+ *  are typically outside the account's primary domain or sub-domain.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nonEditableAliases;
 
 /**
- *  Notes of User
+ *  Notes for the user.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id notes;
 
 /**
- *  Organizations of User
+ *  A list of organizations the user belongs to. The maximum allowed data size
+ *  for this field is 10Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id organizations;
 
-/** OrgUnit of User */
+/**
+ *  The full path of the parent organization associated with the user. If the
+ *  parent organization is the top-level, it is represented as a forward slash
+ *  (`/`).
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /** User's password */
 @property(nonatomic, copy, nullable) NSString *password;
 
 /**
- *  Phone numbers of User
+ *  A list of the user's phone numbers. The maximum allowed data size for this
+ *  field is 1Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id phones;
 
 /**
- *  The POSIX accounts of User
+ *  A list of [POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
+ *  account information for the user.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id posixAccounts;
 
-/** username of User */
+/**
+ *  The user's primary email address. This property is required in a request to
+ *  create a user account. The `primaryEmail` must be unique and cannot be an
+ *  alias of another user.
+ */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 /** Recovery email of the user. */
@@ -2631,14 +2946,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *recoveryPhone;
 
 /**
- *  The Relations of User *
+ *  A list of the user's relationships to other users. The maximum allowed data
+ *  size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id relations;
 
 /**
- *  The SSH public keys of User
+ *  A list of SSH public keys.
  *
  *  Can be any valid JSON type.
  */
@@ -2651,7 +2967,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @property(nonatomic, strong, nullable) NSNumber *suspended;
 
-/** Output only. Suspension reason if user is suspended (Read-only) */
+/**
+ *  Output only. Has the reason a user account is suspended either by the
+ *  administrator or by Google at the time of suspension. The property is
+ *  returned only if the `suspended` property is `true`.
+ */
 @property(nonatomic, copy, nullable) NSString *suspensionReason;
 
 /** Output only. ETag of the user's photo (Read-only) */
@@ -2661,7 +2981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *thumbnailPhotoUrl;
 
 /**
- *  Websites of User
+ *  The user's websites. The maximum allowed data size for this field is 2Kb.
  *
  *  Can be any valid JSON type.
  */
@@ -2972,7 +3292,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @interface GTLRDirectory_UserMakeAdmin : GTLRObject
 
 /**
- *  Boolean indicating new admin status of the user
+ *  Indicates the administrator status of the user.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2986,13 +3306,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  */
 @interface GTLRDirectory_UserName : GTLRObject
 
-/** Last Name */
+/** The user's last name. Required when creating a user account. */
 @property(nonatomic, copy, nullable) NSString *familyName;
 
-/** Full Name */
+/**
+ *  The user's full name formed by concatenating the first and last name values.
+ */
 @property(nonatomic, copy, nullable) NSString *fullName;
 
-/** First Name */
+/** The user's first name. Required when creating a user account. */
 @property(nonatomic, copy, nullable) NSString *givenName;
 
 @end
@@ -3098,38 +3420,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Height in pixels of the photo
+ *  Height of the photo in pixels.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
 /**
- *  Unique identifier of User (Read-only)
+ *  The ID the API uses to uniquely identify the user.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Kind of resource this is. */
+/**
+ *  The type of the API resource. For Photo resources, this is
+ *  `admin#directory#user#photo`.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Mime Type of the photo */
+/**
+ *  The MIME type of the photo. Allowed values are `JPEG`, `PNG`, `GIF`, `BMP`,
+ *  `TIFF`, and web-safe base64 encoding.
+ */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  Base64 encoded photo data
+ *  The user photo's upload data in [web-safe
+ *  Base64](https://code.google.com/p/stringencoders/wiki/WebSafeBase64) format
+ *  in bytes. This means: * The slash (/) character is replaced with the
+ *  underscore (_) character. * The plus sign (+) character is replaced with the
+ *  hyphen (-) character. * The equals sign (=) character is replaced with the
+ *  asterisk (*). * For padding, the period (.) character is used instead of the
+ *  RFC-4648 baseURL definition which uses the equals sign (=) for padding. This
+ *  is done to simplify URL-parsing. * Whatever the size of the photo being
+ *  uploaded, the API downsizes it to 96x96 pixels.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *photoData;
 
-/** Primary email of User (Read-only) */
+/** The user's primary email address. */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
 /**
- *  Width in pixels of the photo
+ *  Width of the photo in pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3303,7 +3639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  JSON template for verification codes in Directory API.
+ *  The Directory API allows you to view, generate, and invalidate backup
+ *  verification codes for a user.
  */
 @interface GTLRDirectory_VerificationCode : GTLRObject
 
@@ -3311,7 +3648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The type of the resource. This is always admin#directory#verificationCode.
+ *  The type of the resource. This is always `admin#directory#verificationCode`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -3349,7 +3686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The type of the resource. This is always
- *  admin#directory#verificationCodesList.
+ *  `admin#directory#verificationCodesList`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 

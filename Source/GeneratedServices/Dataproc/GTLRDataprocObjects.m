@@ -178,7 +178,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -483,7 +483,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_GceClusterConfig
 @dynamic internalIpOnly, metadata, networkUri, nodeGroupAffinity,
          privateIpv6GoogleAccess, reservationAffinity, serviceAccount,
-         serviceAccountScopes, subnetworkUri, tags, zoneUri;
+         serviceAccountScopes, shieldedInstanceConfig, subnetworkUri, tags,
+         zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -651,7 +652,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceReference
-@dynamic instanceId, instanceName;
+@dynamic instanceId, instanceName, publicKey;
 @end
 
 
@@ -1273,6 +1274,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ShieldedInstanceConfig
+//
+
+@implementation GTLRDataproc_ShieldedInstanceConfig
+@dynamic enableIntegrityMonitoring, enableSecureBoot, enableVtpm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SoftwareConfig
 //
 
@@ -1562,8 +1573,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_WorkflowMetadata
-@dynamic clusterName, clusterUuid, createCluster, deleteCluster, endTime, graph,
-         parameters, startTime, state, templateProperty, version;
+@dynamic clusterName, clusterUuid, createCluster, dagEndTime, dagStartTime,
+         dagTimeout, deleteCluster, endTime, graph, parameters, startTime,
+         state, templateProperty, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"templateProperty" : @"template" };
@@ -1610,8 +1622,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_WorkflowTemplate
-@dynamic createTime, identifier, jobs, labels, name, parameters, placement,
-         updateTime, version;
+@dynamic createTime, dagTimeout, identifier, jobs, labels, name, parameters,
+         placement, updateTime, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

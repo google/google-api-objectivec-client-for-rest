@@ -36,6 +36,12 @@ NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Replaced = @"
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Restarted = @"RESTARTED";
 NSString * const kGTLRAndroidManagement_ApplicationEvent_EventType_Unpinned = @"UNPINNED";
 
+// GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault = @"AUTO_UPDATE_DEFAULT";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority = @"AUTO_UPDATE_HIGH_PRIORITY";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified = @"AUTO_UPDATE_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed = @"AUTO_UPDATE_POSTPONED";
+
 // GTLRAndroidManagement_ApplicationPolicy.connectedWorkAndPersonalApp
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppAllowed = @"CONNECTED_WORK_AND_PERSONAL_APP_ALLOWED";
 NSString * const kGTLRAndroidManagement_ApplicationPolicy_ConnectedWorkAndPersonalApp_ConnectedWorkAndPersonalAppDisallowed = @"CONNECTED_WORK_AND_PERSONAL_APP_DISALLOWED";
@@ -298,6 +304,11 @@ NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_ChoiceToTheUs
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Never = @"NEVER";
 NSString * const kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_WifiOnly = @"WIFI_ONLY";
 
+// GTLRAndroidManagement_Policy.autoDateAndTimeZone
+NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneEnforced = @"AUTO_DATE_AND_TIME_ZONE_ENFORCED";
+NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified = @"AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice = @"AUTO_DATE_AND_TIME_ZONE_USER_CHOICE";
+
 // GTLRAndroidManagement_Policy.defaultPermissionPolicy
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Deny = @"DENY";
 NSString * const kGTLRAndroidManagement_Policy_DefaultPermissionPolicy_Grant = @"GRANT";
@@ -325,7 +336,10 @@ NSString * const kGTLRAndroidManagement_Policy_KeyguardDisabledFeatures_Unredact
 // GTLRAndroidManagement_Policy.locationMode
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_BatterySaving = @"BATTERY_SAVING";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_HighAccuracy = @"HIGH_ACCURACY";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationDisabled = @"LOCATION_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationEnforced = @"LOCATION_ENFORCED";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationModeUnspecified = @"LOCATION_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_LocationMode_LocationUserChoice = @"LOCATION_USER_CHOICE";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_Off = @"OFF";
 NSString * const kGTLRAndroidManagement_Policy_LocationMode_SensorsOnly = @"SENSORS_ONLY";
 
@@ -478,7 +492,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_ApplicationPolicy
-@dynamic accessibleTrackIds, connectedWorkAndPersonalApp,
+@dynamic accessibleTrackIds, autoUpdateMode, connectedWorkAndPersonalApp,
          defaultPermissionPolicy, delegatedScopes, disabled, installType,
          lockTaskAllowed, managedConfiguration, managedConfigurationTemplate,
          minimumVersionCode, packageName, permissionGrants;
@@ -1186,10 +1200,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
          adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
          androidDevicePolicyTracks, appAutoUpdatePolicy, applications,
-         autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
-         bluetoothContactSharingDisabled, bluetoothDisabled, cameraDisabled,
-         cellBroadcastsConfigDisabled, choosePrivateKeyRules, complianceRules,
-         createWindowsDisabled, credentialsConfigDisabled, dataRoamingDisabled,
+         autoDateAndTimeZone, autoTimeRequired, blockApplicationsEnabled,
+         bluetoothConfigDisabled, bluetoothContactSharingDisabled,
+         bluetoothDisabled, cameraDisabled, cellBroadcastsConfigDisabled,
+         choosePrivateKeyRules, complianceRules, createWindowsDisabled,
+         credentialsConfigDisabled, dataRoamingDisabled,
          debuggingFeaturesAllowed, defaultPermissionPolicy,
          deviceOwnerLockScreenInfo, encryptionPolicy, ensureVerifyAppsEnabled,
          factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,

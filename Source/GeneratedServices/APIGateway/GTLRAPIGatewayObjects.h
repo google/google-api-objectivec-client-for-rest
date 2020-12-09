@@ -99,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Api_State_Updating;
 
 /**
  *  API Config settings are being activated in downstream systems. API Configs
- *  in this state cannot be used by Gateways..
+ *  in this state cannot be used by Gateways.
  *
  *  Value: "ACTIVATING"
  */
@@ -332,7 +332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 
 /**
  *  Optional. OpenAPI specification documents. If specified, grpc_services and
- *  managed_service_config must not be included.
+ *  managed_service_configs must not be included.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIGateway_ApiConfigOpenApiDocument *> *openapiDocuments;
 
@@ -348,7 +348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *  Likely values:
  *    @arg @c kGTLRAPIGateway_ApiConfig_State_Activating API Config settings are
  *        being activated in downstream systems. API Configs in this state
- *        cannot be used by Gateways.. (Value: "ACTIVATING")
+ *        cannot be used by Gateways. (Value: "ACTIVATING")
  *    @arg @c kGTLRAPIGateway_ApiConfig_State_Active API Config is ready for use
  *        by Gateways. (Value: "ACTIVE")
  *    @arg @c kGTLRAPIGateway_ApiConfig_State_Creating API Config is being
@@ -508,7 +508,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 
 
 /**
- *  Configuration for a backend.
+ *  Configuration for all backends.
  */
 @interface GTLRAPIGateway_BackendConfig : GTLRObject
 
@@ -536,8 +536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *  Associates `members` with a `role`.
  */
 @interface GTLRAPIGateway_Binding : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition

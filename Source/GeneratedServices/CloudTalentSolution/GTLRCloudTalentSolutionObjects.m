@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Talent Solution API (jobs/v3)
+//   Cloud Talent Solution API (jobs/v4)
 // Description:
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
@@ -13,6 +13,15 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRCloudTalentSolution_BatchOperationMetadata.state
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Processing = @"PROCESSING";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
 // GTLRCloudTalentSolution_CommuteFilter.commuteMethod
 NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified = @"COMMUTE_METHOD_UNSPECIFIED";
@@ -72,23 +81,20 @@ NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_OtherCompensa
 NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Weekly = @"WEEKLY";
 NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Yearly = @"YEARLY";
 
-// GTLRCloudTalentSolution_CompensationHistogramRequest.type
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedBase = @"ANNUALIZED_BASE";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedTotal = @"ANNUALIZED_TOTAL";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_Base = @"BASE";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_CompensationHistogramRequestTypeUnspecified = @"COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED";
-
-// GTLRCloudTalentSolution_CompensationHistogramResult.type
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedBase = @"ANNUALIZED_BASE";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedTotal = @"ANNUALIZED_TOTAL";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_Base = @"BASE";
-NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_CompensationHistogramRequestTypeUnspecified = @"COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED";
-
 // GTLRCloudTalentSolution_CompletionResult.type
 NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_Combined = @"COMBINED";
 NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompanyName = @"COMPANY_NAME";
 NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified = @"COMPLETION_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle = @"JOB_TITLE";
+
+// GTLRCloudTalentSolution_CustomRankingInfo.importanceLevel
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Extreme = @"EXTREME";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_High = @"HIGH";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_ImportanceLevelUnspecified = @"IMPORTANCE_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Low = @"LOW";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Medium = @"MEDIUM";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Mild = @"MILD";
+NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_None = @"NONE";
 
 // GTLRCloudTalentSolution_DeviceInfo.deviceType
 NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Android = @"ANDROID";
@@ -98,183 +104,6 @@ NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Ios = @"IOS";
 NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_MobileWeb = @"MOBILE_WEB";
 NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Other = @"OTHER";
 NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web = @"WEB";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata.state
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelled = @"CANCELLED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelling = @"CANCELLING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Failed = @"FAILED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Initializing = @"INITIALIZING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Processing = @"PROCESSING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Succeeded = @"SUCCEEDED";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry.type
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Base = @"BASE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Bonus = @"BONUS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Commissions = @"COMMISSIONS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_CompensationTypeUnspecified = @"COMPENSATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Equity = @"EQUITY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_OtherCompensationType = @"OTHER_COMPENSATION_TYPE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_ProfitSharing = @"PROFIT_SHARING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_SigningBonus = @"SIGNING_BONUS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Tips = @"TIPS";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry.unit
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_CompensationUnitUnspecified = @"COMPENSATION_UNIT_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Daily = @"DAILY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Hourly = @"HOURLY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Monthly = @"MONTHLY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OneTime = @"ONE_TIME";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OtherCompensationUnit = @"OTHER_COMPENSATION_UNIT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Weekly = @"WEEKLY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Yearly = @"YEARLY";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.degreeTypes
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_AdultRemedialEducation = @"ADULT_REMEDIAL_EDUCATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_AssociatesOrEquivalent = @"ASSOCIATES_OR_EQUIVALENT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_BachelorsOrEquivalent = @"BACHELORS_OR_EQUIVALENT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_DegreeTypeUnspecified = @"DEGREE_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_DoctoralOrEquivalent = @"DOCTORAL_OR_EQUIVALENT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_LowerSecondaryEducation = @"LOWER_SECONDARY_EDUCATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_MastersOrEquivalent = @"MASTERS_OR_EQUIVALENT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_PrimaryEducation = @"PRIMARY_EDUCATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_UpperSecondaryEducation = @"UPPER_SECONDARY_EDUCATION";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.employmentTypes
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Contractor = @"CONTRACTOR";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_ContractToHire = @"CONTRACT_TO_HIRE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_EmploymentTypeUnspecified = @"EMPLOYMENT_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_FlyInFlyOut = @"FLY_IN_FLY_OUT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_FullTime = @"FULL_TIME";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Intern = @"INTERN";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_OtherEmploymentType = @"OTHER_EMPLOYMENT_TYPE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_PartTime = @"PART_TIME";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_PerDiem = @"PER_DIEM";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Temporary = @"TEMPORARY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Volunteer = @"VOLUNTEER";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.jobBenefits
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_ChildCare = @"CHILD_CARE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Dental = @"DENTAL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_DomesticPartner = @"DOMESTIC_PARTNER";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_FlexibleHours = @"FLEXIBLE_HOURS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_JobBenefitUnspecified = @"JOB_BENEFIT_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_LifeInsurance = @"LIFE_INSURANCE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Medical = @"MEDICAL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_ParentalLeave = @"PARENTAL_LEAVE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_RetirementPlan = @"RETIREMENT_PLAN";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_SickDays = @"SICK_DAYS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Vacation = @"VACATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Vision = @"VISION";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.jobLevel
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Director = @"DIRECTOR";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_EntryLevel = @"ENTRY_LEVEL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Executive = @"EXECUTIVE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Experienced = @"EXPERIENCED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_JobLevelUnspecified = @"JOB_LEVEL_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Manager = @"MANAGER";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.postingRegion
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_AdministrativeArea = @"ADMINISTRATIVE_AREA";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Nation = @"NATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_PostingRegionUnspecified = @"POSTING_REGION_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Telecommute = @"TELECOMMUTE";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.visibility
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_AccountOnly = @"ACCOUNT_ONLY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithGoogle = @"SHARED_WITH_GOOGLE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithPublic = @"SHARED_WITH_PUBLIC";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo.jobCategories
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AccountingAndFinance = @"ACCOUNTING_AND_FINANCE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AdministrativeAndOffice = @"ADMINISTRATIVE_AND_OFFICE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AdvertisingAndMarketing = @"ADVERTISING_AND_MARKETING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AnimalCare = @"ANIMAL_CARE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ArtFashionAndDesign = @"ART_FASHION_AND_DESIGN";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_BusinessOperations = @"BUSINESS_OPERATIONS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_CleaningAndFacilities = @"CLEANING_AND_FACILITIES";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ComputerAndIt = @"COMPUTER_AND_IT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Construction = @"CONSTRUCTION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_CustomerService = @"CUSTOMER_SERVICE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Education = @"EDUCATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_EntertainmentAndTravel = @"ENTERTAINMENT_AND_TRAVEL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_FarmingAndOutdoors = @"FARMING_AND_OUTDOORS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Healthcare = @"HEALTHCARE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_HumanResources = @"HUMAN_RESOURCES";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_InstallationMaintenanceAndRepair = @"INSTALLATION_MAINTENANCE_AND_REPAIR";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_JobCategoryUnspecified = @"JOB_CATEGORY_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Legal = @"LEGAL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Management = @"MANAGEMENT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ManufacturingAndWarehouse = @"MANUFACTURING_AND_WAREHOUSE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_MediaCommunicationsAndWriting = @"MEDIA_COMMUNICATIONS_AND_WRITING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_OilGasAndMining = @"OIL_GAS_AND_MINING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_PersonalCareAndServices = @"PERSONAL_CARE_AND_SERVICES";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ProtectiveServices = @"PROTECTIVE_SERVICES";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_RealEstate = @"REAL_ESTATE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_RestaurantAndHospitality = @"RESTAURANT_AND_HOSPITALITY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SalesAndRetail = @"SALES_AND_RETAIL";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ScienceAndEngineering = @"SCIENCE_AND_ENGINEERING";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SocialServicesAndNonProfit = @"SOCIAL_SERVICES_AND_NON_PROFIT";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SportsFitnessAndRecreation = @"SPORTS_FITNESS_AND_RECREATION";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_TransportationAndLogistics = @"TRANSPORTATION_AND_LOGISTICS";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions.htmlSanitization
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled = @"HTML_SANITIZATION_DISABLED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified = @"HTML_SANITIZATION_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly = @"SIMPLE_FORMATTING_ONLY";
-
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Location.locationType
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_AdministrativeArea = @"ADMINISTRATIVE_AREA";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Country = @"COUNTRY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Locality = @"LOCALITY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_LocationTypeUnspecified = @"LOCATION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Neighborhood = @"NEIGHBORHOOD";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_PostalCode = @"POSTAL_CODE";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_StreetAddress = @"STREET_ADDRESS";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubAdministrativeArea = @"SUB_ADMINISTRATIVE_AREA";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality = @"SUB_LOCALITY";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality1 = @"SUB_LOCALITY_1";
-NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality2 = @"SUB_LOCALITY_2";
-
-// GTLRCloudTalentSolution_HistogramFacets.simpleHistogramFacets
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1 = @"ADMIN_1";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1Country = @"ADMIN_1_COUNTRY";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_BaseCompensationUnit = @"BASE_COMPENSATION_UNIT";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Category = @"CATEGORY";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_City = @"CITY";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CityCoordinate = @"CITY_COORDINATE";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyDisplayName = @"COMPANY_DISPLAY_NAME";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyId = @"COMPANY_ID";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanySize = @"COMPANY_SIZE";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Country = @"COUNTRY";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_DatePublished = @"DATE_PUBLISHED";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EducationLevel = @"EDUCATION_LEVEL";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EmploymentType = @"EMPLOYMENT_TYPE";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_ExperienceLevel = @"EXPERIENCE_LEVEL";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Language = @"LANGUAGE";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Locale = @"LOCALE";
-NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_SearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
-
-// GTLRCloudTalentSolution_HistogramResult.searchType
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1 = @"ADMIN_1";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1Country = @"ADMIN_1_COUNTRY";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_BaseCompensationUnit = @"BASE_COMPENSATION_UNIT";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Category = @"CATEGORY";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_City = @"CITY";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CityCoordinate = @"CITY_COORDINATE";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyDisplayName = @"COMPANY_DISPLAY_NAME";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyId = @"COMPANY_ID";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanySize = @"COMPANY_SIZE";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Country = @"COUNTRY";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_DatePublished = @"DATE_PUBLISHED";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EducationLevel = @"EDUCATION_LEVEL";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EmploymentType = @"EMPLOYMENT_TYPE";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_ExperienceLevel = @"EXPERIENCE_LEVEL";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Language = @"LANGUAGE";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Locale = @"LOCALE";
-NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_SearchTypeUnspecified = @"SEARCH_TYPE_UNSPECIFIED";
 
 // GTLRCloudTalentSolution_Job.degreeTypes
 NSString * const kGTLRCloudTalentSolution_Job_DegreeTypes_AdultRemedialEducation = @"ADULT_REMEDIAL_EDUCATION";
@@ -381,7 +210,6 @@ NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Impression = @"IMPRESSIO
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_InterviewGranted = @"INTERVIEW_GRANTED";
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEventTypeUnspecified = @"JOB_EVENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification = @"NOTIFICATION";
-NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested = @"NOT_INTERESTED";
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_SentCv = @"SENT_CV";
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_View   = @"VIEW";
 NSString * const kGTLRCloudTalentSolution_JobEvent_Type_ViewRedirect = @"VIEW_REDIRECT";
@@ -493,31 +321,120 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTalentSolution_BatchCreateJobsRequest
+//
+
+@implementation GTLRCloudTalentSolution_BatchCreateJobsRequest
+@dynamic jobs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [GTLRCloudTalentSolution_Job class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_BatchCreateJobsResponse
+//
+
+@implementation GTLRCloudTalentSolution_BatchCreateJobsResponse
+@dynamic jobResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobResults" : [GTLRCloudTalentSolution_JobResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTalentSolution_BatchDeleteJobsRequest
 //
 
 @implementation GTLRCloudTalentSolution_BatchDeleteJobsRequest
-@dynamic filter;
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_BucketizedCount
+//   GTLRCloudTalentSolution_BatchDeleteJobsResponse
 //
 
-@implementation GTLRCloudTalentSolution_BucketizedCount
-@dynamic count, range;
+@implementation GTLRCloudTalentSolution_BatchDeleteJobsResponse
+@dynamic jobResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobResults" : [GTLRCloudTalentSolution_JobResult class]
+  };
+  return map;
+}
+
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_BucketRange
+//   GTLRCloudTalentSolution_BatchOperationMetadata
 //
 
-@implementation GTLRCloudTalentSolution_BucketRange
-@dynamic from, to;
+@implementation GTLRCloudTalentSolution_BatchOperationMetadata
+@dynamic createTime, endTime, failureCount, state, stateDescription,
+         successCount, totalCount, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_BatchUpdateJobsRequest
+//
+
+@implementation GTLRCloudTalentSolution_BatchUpdateJobsRequest
+@dynamic jobs, updateMask;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobs" : [GTLRCloudTalentSolution_Job class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_BatchUpdateJobsResponse
+//
+
+@implementation GTLRCloudTalentSolution_BatchUpdateJobsResponse
+@dynamic jobResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobResults" : [GTLRCloudTalentSolution_JobResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -527,21 +444,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_ClientEvent
-@dynamic createTime, eventId, extraInfo, jobEvent, parentEventId, requestId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_ClientEvent_ExtraInfo
-//
-
-@implementation GTLRCloudTalentSolution_ClientEvent_ExtraInfo
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
+@dynamic createTime, eventId, eventNotes, jobEvent, requestId;
 @end
 
 
@@ -632,26 +535,6 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_CompensationHistogramRequest
-//
-
-@implementation GTLRCloudTalentSolution_CompensationHistogramRequest
-@dynamic bucketingOption, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_CompensationHistogramResult
-//
-
-@implementation GTLRCloudTalentSolution_CompensationHistogramResult
-@dynamic result, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTalentSolution_CompensationInfo
 //
 
@@ -709,41 +592,11 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_CreateClientEventRequest
-//
-
-@implementation GTLRCloudTalentSolution_CreateClientEventRequest
-@dynamic clientEvent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_CreateCompanyRequest
-//
-
-@implementation GTLRCloudTalentSolution_CreateCompanyRequest
-@dynamic company;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_CreateJobRequest
-//
-
-@implementation GTLRCloudTalentSolution_CreateJobRequest
-@dynamic job;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudTalentSolution_CustomAttribute
 //
 
 @implementation GTLRCloudTalentSolution_CustomAttribute
-@dynamic filterable, longValues, stringValues;
+@dynamic filterable, keywordSearchable, longValues, stringValues;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -758,35 +611,11 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_CustomAttributeHistogramRequest
+//   GTLRCloudTalentSolution_CustomRankingInfo
 //
 
-@implementation GTLRCloudTalentSolution_CustomAttributeHistogramRequest
-@dynamic key, longValueHistogramBucketingOption, stringValueHistogram;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_CustomAttributeHistogramResult
-//
-
-@implementation GTLRCloudTalentSolution_CustomAttributeHistogramResult
-@dynamic key, longValueHistogramResult, stringValueHistogramResult;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_CustomAttributeHistogramResult_StringValueHistogramResult
-//
-
-@implementation GTLRCloudTalentSolution_CustomAttributeHistogramResult_StringValueHistogramResult
-
-+ (Class)classForAdditionalProperties {
-  return [NSNumber class];
-}
-
+@implementation GTLRCloudTalentSolution_CustomRankingInfo
+@dynamic importanceLevel, rankingExpression;
 @end
 
 
@@ -816,306 +645,33 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4BatchCreateJobsResponse
+//   GTLRCloudTalentSolution_HistogramQuery
 //
 
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4BatchCreateJobsResponse
-@dynamic jobResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"jobResults" : [GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudTalentSolution_HistogramQuery
+@dynamic histogramQuery;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4BatchDeleteJobsResponse
+//   GTLRCloudTalentSolution_HistogramQueryResult
 //
 
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4BatchDeleteJobsResponse
-@dynamic jobResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"jobResults" : [GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult class]
-  };
-  return map;
-}
-
+@implementation GTLRCloudTalentSolution_HistogramQueryResult
+@dynamic histogram, histogramQuery;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata
+//   GTLRCloudTalentSolution_HistogramQueryResult_Histogram
 //
 
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata
-@dynamic createTime, endTime, failureCount, state, stateDescription,
-         successCount, totalCount, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4BatchUpdateJobsResponse
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4BatchUpdateJobsResponse
-@dynamic jobResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"jobResults" : [GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfo
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfo
-@dynamic annualizedBaseCompensationRange, annualizedTotalCompensationRange,
-         entries;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"entries" : [GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry
-@dynamic amount, descriptionProperty, expectedUnitsPerYear, range, type, unit;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange
-@dynamic maxCompensation, minCompensation;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute
-@dynamic filterable, keywordSearchable, longValues, stringValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"longValues" : [NSNumber class],
-    @"stringValues" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4Job
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4Job
-@dynamic addresses, applicationInfo, company, companyDisplayName,
-         compensationInfo, customAttributes, degreeTypes, department,
-         derivedInfo, descriptionProperty, employmentTypes, incentives,
-         jobBenefits, jobEndTime, jobLevel, jobStartTime, languageCode, name,
-         postingCreateTime, postingExpireTime, postingPublishTime,
-         postingRegion, postingUpdateTime, processingOptions, promotionValue,
-         qualifications, requisitionId, responsibilities, title, visibility;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"addresses" : [NSString class],
-    @"degreeTypes" : [NSString class],
-    @"employmentTypes" : [NSString class],
-    @"jobBenefits" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4Job_CustomAttributes
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4Job_CustomAttributes
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4JobApplicationInfo
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4JobApplicationInfo
-@dynamic emails, instruction, uris;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"emails" : [NSString class],
-    @"uris" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo
-@dynamic jobCategories, locations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"jobCategories" : [NSString class],
-    @"locations" : [GTLRCloudTalentSolution_GoogleCloudTalentV4Location class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions
-@dynamic disableStreetAddressResolution, htmlSanitization;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult
-@dynamic job, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_GoogleCloudTalentV4Location
-//
-
-@implementation GTLRCloudTalentSolution_GoogleCloudTalentV4Location
-@dynamic latLng, locationType, postalAddress, radiusMiles;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_HistogramFacets
-//
-
-@implementation GTLRCloudTalentSolution_HistogramFacets
-@dynamic compensationHistogramFacets, customAttributeHistogramFacets,
-         simpleHistogramFacets;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"compensationHistogramFacets" : [GTLRCloudTalentSolution_CompensationHistogramRequest class],
-    @"customAttributeHistogramFacets" : [GTLRCloudTalentSolution_CustomAttributeHistogramRequest class],
-    @"simpleHistogramFacets" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_HistogramResult
-//
-
-@implementation GTLRCloudTalentSolution_HistogramResult
-@dynamic searchType, values;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_HistogramResult_Values
-//
-
-@implementation GTLRCloudTalentSolution_HistogramResult_Values
+@implementation GTLRCloudTalentSolution_HistogramQueryResult_Histogram
 
 + (Class)classForAdditionalProperties {
   return [NSNumber class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_HistogramResults
-//
-
-@implementation GTLRCloudTalentSolution_HistogramResults
-@dynamic compensationHistogramResults, customAttributeHistogramResults,
-         simpleHistogramResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"compensationHistogramResults" : [GTLRCloudTalentSolution_CompensationHistogramResult class],
-    @"customAttributeHistogramResults" : [GTLRCloudTalentSolution_CustomAttributeHistogramResult class],
-    @"simpleHistogramResults" : [GTLRCloudTalentSolution_HistogramResult class]
-  };
-  return map;
 }
 
 @end
@@ -1127,7 +683,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_Job
-@dynamic addresses, applicationInfo, companyDisplayName, companyName,
+@dynamic addresses, applicationInfo, company, companyDisplayName,
          compensationInfo, customAttributes, degreeTypes, department,
          derivedInfo, descriptionProperty, employmentTypes, incentives,
          jobBenefits, jobEndTime, jobLevel, jobStartTime, languageCode, name,
@@ -1209,16 +765,17 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_JobQuery
-@dynamic commuteFilter, companyDisplayNames, companyNames, compensationFilter,
+@dynamic commuteFilter, companies, companyDisplayNames, compensationFilter,
          customAttributeFilter, disableSpellCheck, employmentTypes,
-         jobCategories, languageCodes, locationFilters, publishTimeRange, query,
-         queryLanguageCode;
+         excludedJobs, jobCategories, languageCodes, locationFilters,
+         publishTimeRange, query, queryLanguageCode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"companies" : [NSString class],
     @"companyDisplayNames" : [NSString class],
-    @"companyNames" : [NSString class],
     @"employmentTypes" : [NSString class],
+    @"excludedJobs" : [NSString class],
     @"jobCategories" : [NSString class],
     @"languageCodes" : [NSString class],
     @"locationFilters" : [GTLRCloudTalentSolution_LocationFilter class]
@@ -1226,6 +783,16 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_JobResult
+//
+
+@implementation GTLRCloudTalentSolution_JobResult
+@dynamic job, status;
 @end
 
 
@@ -1285,11 +852,33 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTalentSolution_ListTenantsResponse
+//
+
+@implementation GTLRCloudTalentSolution_ListTenantsResponse
+@dynamic metadata, nextPageToken, tenants;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tenants" : [GTLRCloudTalentSolution_Tenant class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tenants";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTalentSolution_Location
 //
 
 @implementation GTLRCloudTalentSolution_Location
-@dynamic latLng, locationType, postalAddress, radiusInMiles;
+@dynamic latLng, locationType, postalAddress, radiusMiles;
 @end
 
 
@@ -1408,17 +997,23 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_NumericBucketingOption
+//   GTLRCloudTalentSolution_Operation
 //
 
-@implementation GTLRCloudTalentSolution_NumericBucketingOption
-@dynamic bucketBounds, requiresMinMax;
+@implementation GTLRCloudTalentSolution_Operation
+@dynamic done, error, metadata, name, response;
+@end
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bucketBounds" : [NSNumber class]
-  };
-  return map;
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudTalentSolution_Operation_Metadata
+//
+
+@implementation GTLRCloudTalentSolution_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1426,17 +1021,13 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudTalentSolution_NumericBucketingResult
+//   GTLRCloudTalentSolution_Operation_Response
 //
 
-@implementation GTLRCloudTalentSolution_NumericBucketingResult
-@dynamic counts, maxValue, minValue;
+@implementation GTLRCloudTalentSolution_Operation_Response
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"counts" : [GTLRCloudTalentSolution_BucketizedCount class]
-  };
-  return map;
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1478,7 +1069,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_RequestMetadata
-@dynamic deviceInfo, domain, sessionId, userId;
+@dynamic allowMissingIds, deviceInfo, domain, sessionId, userId;
 @end
 
 
@@ -1498,9 +1089,17 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_SearchJobsRequest
-@dynamic disableKeywordMatch, diversificationLevel, enableBroadening,
-         histogramFacets, jobQuery, jobView, offset, orderBy, pageSize,
-         pageToken, requestMetadata, requirePreciseResultSize, searchMode;
+@dynamic customRankingInfo, disableKeywordMatch, diversificationLevel,
+         enableBroadening, histogramQueries, jobQuery, jobView, maxPageSize,
+         offset, orderBy, pageToken, requestMetadata, searchMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"histogramQueries" : [GTLRCloudTalentSolution_HistogramQuery class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1510,12 +1109,12 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_SearchJobsResponse
-@dynamic broadenedQueryJobsCount, estimatedTotalSize, histogramResults,
-         locationFilters, matchingJobs, metadata, nextPageToken,
-         spellCorrection, totalSize;
+@dynamic broadenedQueryJobsCount, histogramQueryResults, locationFilters,
+         matchingJobs, metadata, nextPageToken, spellCorrection, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"histogramQueryResults" : [GTLRCloudTalentSolution_HistogramQueryResult class],
     @"locationFilters" : [GTLRCloudTalentSolution_Location class],
     @"matchingJobs" : [GTLRCloudTalentSolution_MatchingJob class]
   };
@@ -1531,7 +1130,7 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 //
 
 @implementation GTLRCloudTalentSolution_SpellingCorrection
-@dynamic corrected, correctedText;
+@dynamic corrected, correctedHtml, correctedText;
 @end
 
 
@@ -1569,6 +1168,16 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudTalentSolution_Tenant
+//
+
+@implementation GTLRCloudTalentSolution_Tenant
+@dynamic externalId, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudTalentSolution_TimeOfDay
 //
 
@@ -1584,24 +1193,4 @@ NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_SearchMod
 
 @implementation GTLRCloudTalentSolution_TimestampRange
 @dynamic endTime, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_UpdateCompanyRequest
-//
-
-@implementation GTLRCloudTalentSolution_UpdateCompanyRequest
-@dynamic company, updateMask;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudTalentSolution_UpdateJobRequest
-//
-
-@implementation GTLRCloudTalentSolution_UpdateJobRequest
-@dynamic job, updateMask;
 @end

@@ -1245,6 +1245,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
+ *  Container for a URL end point of the requested type.
+ */
+@interface GTLRGames_EndPoint : GTLRObject
+
+/** A URL suitable for loading in a web browser for the requested endpoint. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  A batch update failure resource.
  */
 @interface GTLRGames_EventBatchRecordFailure : GTLRObject
@@ -2823,11 +2834,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 /**
  *  Output only. Hash-like weak identifier of the uploaded image bytes,
- *  consistent per player per application. Within the context of a single
- *  player/application, it's guaranteed that two identical blobs coming from two
- *  different uploads will have the same content hash. It's extremely likely,
- *  though not guaranteed, that if two content hashes are equal, the images are
- *  identical.
+ *  consistent per player per application. The content hash for a given resource
+ *  will not change if the binary data hasn't changed. Except in very rare
+ *  circumstances, the content_hash for matching binary data will be the same
+ *  within a given player and application.
  */
 @property(nonatomic, copy, nullable) NSString *contentHash;
 
@@ -2839,13 +2849,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *downloadUrl;
 
 /**
- *  Output only. The height of the image in pixels.
+ *  The height of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** Output only. The MIME type of the image. */
+/** The MIME type of the image. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
@@ -2860,7 +2870,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
- *  Output only. The width of the image in pixels.
+ *  The width of the image in pixels.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2875,11 +2885,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @interface GTLRGames_SnapshotDataResource : GTLRObject
 
 /**
- *  Output only. Hash-like weak identifier of the uploaded blob, consistent per
- *  player per application. Within the context of a single player/application,
- *  it's guaranteed that two identical blobs coming from two different uploads
- *  will have the same content hash. It's extremely likely, though not
- *  guaranteed, that if two content hashes are equal, the blobs are identical.
+ *  Output only. Hash-like weak identifier of the uploaded blob bytes,
+ *  consistent per player per application. The content hash for a given resource
+ *  will not change if the binary data hasn't changed. Except in very rare
+ *  circumstances, the content_hash for matching binary data will be the same
+ *  within a given player and application.
  */
 @property(nonatomic, copy, nullable) NSString *contentHash;
 
@@ -2902,7 +2912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
- *  Size of the saved game blob in bytes.
+ *  Output only. Size of the saved game blob in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2913,13 +2923,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 /**
  *  A snapshot represents a saved game state referred to using the
- *  developer-provided snapshot_id (think of it as a file's path). The set of
- *  attributes and binary data for a specific state is called a revision. Each
- *  revision is itself immutable, and referred to by a snapshot_revision_id. At
- *  any time, a snapshot has a "head" revision, and updates are made against
- *  that revision. If a snapshot update is received that isn't against the
- *  current head revision, then instead of changing the head revision it will
- *  result in a conflicting revision that must be specifically resolved.
+ *  developer-provided snapshot_name. The set of attributes and binary data for
+ *  a specific state is called a revision. Each revision is itself immutable,
+ *  and referred to by a snapshot revision id. At any time, a snapshot has a
+ *  "head" revision, and updates are made against that revision. If a snapshot
+ *  update is received that isn't against the current head revision, then
+ *  instead of changing the head revision it will result in a conflicting
+ *  revision that must be specifically resolved.
  */
 @interface GTLRGames_SnapshotExtended : GTLRObject
 
@@ -2948,8 +2958,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  */
 @property(nonatomic, strong, nullable) GTLRGames_SnapshotRevision *headRevision;
 
-/** An identifier of the snapshot,developer-specified. */
-@property(nonatomic, copy, nullable) NSString *name;
+/**
+ *  An identifier of the snapshot, developer-specified. It must match the
+ *  pattern [0-9a-zA-Z-._~]{1,100}.
+ */
+@property(nonatomic, copy, nullable) NSString *snapshotName;
 
 @end
 
@@ -3044,12 +3057,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  The duration associated with this snapshot. Values with sub-millisecond
  *  precision can be rounded or trimmed to the closest millisecond.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
+@property(nonatomic, strong, nullable) GTLRDuration *gameplayDuration;
 
 /**
- *  The timestamp of the last modification to this snapshot. Values with
- *  sub-millisecond precision can be rounded or trimmed to the closest
- *  millisecond.
+ *  The timestamp of the last modification to this snapshot as provided by the
+ *  client. Values with sub-millisecond precision can be rounded or trimmed to
+ *  the closest millisecond.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifyTime;
 
@@ -3060,9 +3073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *progressValue;
-
-/** The title of this snapshot. */
-@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

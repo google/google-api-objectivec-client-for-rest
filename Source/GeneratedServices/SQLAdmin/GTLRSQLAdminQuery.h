@@ -1473,7 +1473,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  External sync mode
+ *  External sync mode.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Unknown external

@@ -193,7 +193,7 @@ NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRAPIGateway_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

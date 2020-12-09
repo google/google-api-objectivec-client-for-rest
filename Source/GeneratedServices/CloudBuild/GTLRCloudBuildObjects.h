@@ -1068,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  The name of the `Build` to retrieve. Format:
+ *  The name of the `Build` to cancel. Format:
  *  `projects/{project}/locations/{location}/builds/{build}`
  */
 @property(nonatomic, copy, nullable) NSString *name;

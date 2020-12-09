@@ -1730,7 +1730,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 
 /**
- *  A description of an iOS device tests may be run on. Next tag: 13
+ *  A description of an iOS device tests may be run on.
  */
 @interface GTLRTesting_IosModel : GTLRObject
 

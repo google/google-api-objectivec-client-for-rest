@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workspace Reseller API (reseller/v1)
+//   Google Workspace Reseller API (reseller/v1)
 // Description:
-//   Creates and manages your customers and their subscriptions.
+//   Perform common functions that are available on the Channel Services console
+//   at scale, like placing orders and viewing customer information
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
@@ -110,13 +111,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The planName property is required. This is the name of the subscription's
  *  payment plan. For more information about the Google payment plans, see API
- *  concepts.
- *  Possible values are:
- *  - ANNUAL_MONTHLY_PAY - The annual commitment plan with monthly payments
- *  Caution: ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses.
- *  - ANNUAL_YEARLY_PAY - The annual commitment plan with yearly payments
- *  - FLEXIBLE - The flexible plan
- *  - TRIAL - The 30-day free trial plan
+ *  concepts. Possible values are: - ANNUAL_MONTHLY_PAY - The annual commitment
+ *  plan with monthly payments *Caution: *ANNUAL_MONTHLY_PAY is returned as
+ *  ANNUAL in all API responses. - ANNUAL_YEARLY_PAY - The annual commitment
+ *  plan with yearly payments - FLEXIBLE - The flexible plan - TRIAL - The
+ *  30-day free trial plan
  */
 @property(nonatomic, copy, nullable) NSString *planName;
 
@@ -146,7 +145,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Like the "Customer email" in the reseller tools, this email is the secondary
  *  contact used if something happens to the customer's service such as service
  *  outage or a security issue. This property is required when creating a new
- *  customer and should not use the same domain as customerDomain.
+ *  customer and should not use the same domain as customerDomain .
  */
 @property(nonatomic, copy, nullable) NSString *alternateEmail;
 
@@ -269,8 +268,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  or TRIAL plans. This property sets the maximum number of licensed users
  *  allowed on a subscription. This quantity can be increased up to the maximum
  *  limit defined in the reseller's contract. The minimum quantity is the
- *  current number of users in the customer account. Note: G Suite subscriptions
- *  automatically assign a license to every user.
+ *  current number of users in the customer account. *Note: *G Suite
+ *  subscriptions automatically assign a license to every user.
  *
  *  Uses NSNumber of intValue.
  */
@@ -282,7 +281,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  maximum number of licenses assignable to users on a subscription. The
  *  reseller can add more licenses, but once set, the numberOfSeats cannot be
  *  reduced until renewal. The reseller is invoiced based on the numberOfSeats
- *  value regardless of how many of these user licenses are assigned. Note: G
+ *  value regardless of how many of these user licenses are assigned. *Note: *G
  *  Suite subscriptions automatically assign a license to every user.
  *
  *  Uses NSNumber of intValue.
@@ -398,16 +397,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Read-only field containing an enumerable of all the current suspension
  *  reasons for a subscription. It is possible for a subscription to have many
  *  concurrent, overlapping suspension reasons. A subscription's STATUS is
- *  SUSPENDED until all pending suspensions are removed.
- *  Possible options include:
- *  - PENDING_TOS_ACCEPTANCE - The customer has not logged in and accepted the G
- *  Suite Resold Terms of Services.
- *  - RENEWAL_WITH_TYPE_CANCEL - The customer's commitment ended and their
- *  service was cancelled at the end of their term.
- *  - RESELLER_INITIATED - A manual suspension invoked by a Reseller.
- *  - TRIAL_ENDED - The customer's trial expired without a plan selected.
- *  - OTHER - The customer is suspended for an internal Google reason (e.g.
- *  abuse or otherwise).
+ *  SUSPENDED until all pending suspensions are removed. Possible options
+ *  include: - PENDING_TOS_ACCEPTANCE - The customer has not logged in and
+ *  accepted the G Suite Resold Terms of Services. - RENEWAL_WITH_TYPE_CANCEL -
+ *  The customer's commitment ended and their service was cancelled at the end
+ *  of their term. - RESELLER_INITIATED - A manual suspension invoked by a
+ *  Reseller. - TRIAL_ENDED - The customer's trial expired without a plan
+ *  selected. - OTHER - The customer is suspended for an internal Google reason
+ *  (e.g. abuse or otherwise).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *suspensionReasons;
 
@@ -436,16 +433,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  In this version of the API, annual commitment plan's interval is one year.
- *  Note: When billingMethod value is OFFLINE, the subscription property object
- *  plan.commitmentInterval is omitted in all API responses.
+ *  *Note: *When billingMethod value is OFFLINE, the subscription property
+ *  object plan.commitmentInterval is omitted in all API responses.
  */
 @property(nonatomic, strong, nullable) GTLRReseller_Subscription_Plan_CommitmentInterval *commitmentInterval;
 
 /**
  *  The isCommitmentPlan property's boolean value identifies the plan as an
- *  annual commitment plan:
- *  - true — The subscription's plan is an annual commitment plan.
- *  - false — The plan is not an annual commitment plan.
+ *  annual commitment plan: - true — The subscription's plan is an annual
+ *  commitment plan. - false — The plan is not an annual commitment plan.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -454,19 +450,16 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  The planName property is required. This is the name of the subscription's
  *  plan. For more information about the Google payment plans, see the API
- *  concepts.
- *  Possible values are:
- *  - ANNUAL_MONTHLY_PAY — The annual commitment plan with monthly payments.
- *  Caution: ANNUAL_MONTHLY_PAY is returned as ANNUAL in all API responses.
- *  - ANNUAL_YEARLY_PAY — The annual commitment plan with yearly payments
- *  - FLEXIBLE — The flexible plan
- *  - TRIAL — The 30-day free trial plan. A subscription in trial will be
- *  suspended after the 30th free day if no payment plan is assigned. Calling
- *  changePlan will assign a payment plan to a trial but will not activate the
- *  plan. A trial will automatically begin its assigned payment plan after its
- *  30th free day or immediately after calling startPaidService.
- *  - FREE — The free plan is exclusive to the Cloud Identity SKU and does not
- *  incur any billing.
+ *  concepts. Possible values are: - ANNUAL_MONTHLY_PAY — The annual commitment
+ *  plan with monthly payments. *Caution: *ANNUAL_MONTHLY_PAY is returned as
+ *  ANNUAL in all API responses. - ANNUAL_YEARLY_PAY — The annual commitment
+ *  plan with yearly payments - FLEXIBLE — The flexible plan - TRIAL — The
+ *  30-day free trial plan. A subscription in trial will be suspended after the
+ *  30th free day if no payment plan is assigned. Calling changePlan will assign
+ *  a payment plan to a trial but will not activate the plan. A trial will
+ *  automatically begin its assigned payment plan after its 30th free day or
+ *  immediately after calling startPaidService. - FREE — The free plan is
+ *  exclusive to the Cloud Identity SKU and does not incur any billing.
  */
 @property(nonatomic, copy, nullable) NSString *planName;
 
@@ -507,9 +500,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReseller_Subscription_TrialSettings : GTLRObject
 
 /**
- *  Determines if a subscription's plan is in a 30-day free trial or not:
- *  - true — The plan is in trial.
- *  - false — The plan is not in trial.
+ *  Determines if a subscription's plan is in a 30-day free trial or not: - true
+ *  — The plan is in trial. - false — The plan is not in trial.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -528,8 +520,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  In this version of the API, annual commitment plan's interval is one year.
- *  Note: When billingMethod value is OFFLINE, the subscription property object
- *  plan.commitmentInterval is omitted in all API responses.
+ *  *Note: *When billingMethod value is OFFLINE, the subscription property
+ *  object plan.commitmentInterval is omitted in all API responses.
  */
 @interface GTLRReseller_Subscription_Plan_CommitmentInterval : GTLRObject
 

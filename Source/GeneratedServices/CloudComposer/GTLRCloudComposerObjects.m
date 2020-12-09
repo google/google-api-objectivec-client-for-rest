@@ -37,6 +37,31 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_AllowedIpRange
+//
+
+@implementation GTLRCloudComposer_AllowedIpRange
+@dynamic descriptionProperty, value;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_Date
+//
+
+@implementation GTLRCloudComposer_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_Empty
 //
 
@@ -75,7 +100,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 @implementation GTLRCloudComposer_EnvironmentConfig
 @dynamic airflowUri, dagGcsPrefix, gkeCluster, nodeConfig, nodeCount,
-         privateEnvironmentConfig, softwareConfig;
+         privateEnvironmentConfig, softwareConfig,
+         webServerNetworkAccessControl;
 @end
 
 
@@ -85,7 +111,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_ImageVersion
-@dynamic imageVersionId, isDefault, supportedPythonVersions;
+@dynamic creationDisabled, imageVersionId, isDefault, releaseDate,
+         supportedPythonVersions, upgradeDisabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -343,6 +370,24 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_WebServerNetworkAccessControl
+//
+
+@implementation GTLRCloudComposer_WebServerNetworkAccessControl
+@dynamic allowedIpRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedIpRanges" : [GTLRCloudComposer_AllowedIpRange class]
+  };
+  return map;
 }
 
 @end

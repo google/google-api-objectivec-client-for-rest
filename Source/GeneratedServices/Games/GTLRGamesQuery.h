@@ -99,6 +99,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionSocial;
 FOUNDATION_EXTERN NSString * const kGTLRGamesCollectionVisible;
 
 // ----------------------------------------------------------------------------
+// endPointType
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "END_POINT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGamesEndPointTypeEndPointTypeUnspecified;
+/**
+ *  Request a URL to create a new profile.
+ *
+ *  Value: "PROFILE_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGamesEndPointTypeProfileCreation;
+/**
+ *  Request a URL for the Settings view.
+ *
+ *  Value: "PROFILE_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGamesEndPointTypeProfileSettings;
+
+// ----------------------------------------------------------------------------
 // includeRankType
 
 /**
@@ -547,6 +569,45 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesTimeSpanWeekly;
  *  @return GTLRGamesQuery_ApplicationsGet
  */
 + (instancetype)queryWithApplicationId:(NSString *)applicationId;
+
+@end
+
+/**
+ *  Returns a URL for the requested end point type.
+ *
+ *  Method: games.applications.getEndPoint
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGames
+ */
+@interface GTLRGamesQuery_ApplicationsGetEndPoint : GTLRGamesQuery
+// Previous library name was
+//   +[GTLQueryGames queryForApplicationsGetEndPoint]
+
+/** The application ID from the Google Play developer console. */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/**
+ *  Type of endpoint being requested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGamesEndPointTypeEndPointTypeUnspecified Default value. This
+ *        value is unused. (Value: "END_POINT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGamesEndPointTypeProfileCreation Request a URL to create a
+ *        new profile. (Value: "PROFILE_CREATION")
+ *    @arg @c kGTLRGamesEndPointTypeProfileSettings Request a URL for the
+ *        Settings view. (Value: "PROFILE_SETTINGS")
+ */
+@property(nonatomic, copy, nullable) NSString *endPointType;
+
+/**
+ *  Fetches a @c GTLRGames_EndPoint.
+ *
+ *  Returns a URL for the requested end point type.
+ *
+ *  @return GTLRGamesQuery_ApplicationsGetEndPoint
+ */
++ (instancetype)query;
 
 @end
 

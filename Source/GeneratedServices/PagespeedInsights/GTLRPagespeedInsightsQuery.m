@@ -60,12 +60,13 @@ NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspecified = @"STRATEGY_
   return map;
 }
 
-+ (instancetype)query {
++ (instancetype)queryWithUrl:(NSString *)url {
   NSString *pathURITemplate = @"pagespeedonline/v5/runPagespeed";
   GTLRPagespeedInsightsQuery_PagespeedapiRunpagespeed *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
+  query.url = url;
   query.expectedObjectClass = [GTLRPagespeedInsights_PagespeedApiPagespeedResponseV5 class];
   query.loggingName = @"pagespeedonline.pagespeedapi.runpagespeed";
   return query;

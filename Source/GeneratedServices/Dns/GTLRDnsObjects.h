@@ -32,6 +32,8 @@
 @class GTLRDns_ManagedZonePrivateVisibilityConfig;
 @class GTLRDns_ManagedZonePrivateVisibilityConfigNetwork;
 @class GTLRDns_ManagedZoneReverseLookupConfig;
+@class GTLRDns_ManagedZoneServiceDirectoryConfig;
+@class GTLRDns_ManagedZoneServiceDirectoryConfigNamespace;
 @class GTLRDns_Operation;
 @class GTLRDns_OperationDnsKeyContext;
 @class GTLRDns_OperationManagedZoneContext;
@@ -585,6 +587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneReverseLookupConfig *reverseLookupConfig;
 
 /**
+ *  This field links to the associated service directory namespace. This field
+ *  should not be set for public zones or forwarding zones.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZoneServiceDirectoryConfig *serviceDirectoryConfig;
+
+/**
  *  The zone's visibility: public zones are exposed to the Internet, while
  *  private zones are visible only to Virtual Private Cloud resources.
  *
@@ -805,6 +813,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ManagedZoneReverseLookupConfig : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Contains information about Service Directory-backed zones.
+ */
+@interface GTLRDns_ManagedZoneServiceDirectoryConfig : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Contains information about the namespace associated with the zone.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, strong, nullable) GTLRDns_ManagedZoneServiceDirectoryConfigNamespace *namespaceProperty;
+
+@end
+
+
+/**
+ *  GTLRDns_ManagedZoneServiceDirectoryConfigNamespace
+ */
+@interface GTLRDns_ManagedZoneServiceDirectoryConfigNamespace : GTLRObject
+
+/**
+ *  The time that the namespace backing this zone was deleted, empty string if
+ *  it still exists. This is in RFC3339 text format. Output only.
+ */
+@property(nonatomic, copy, nullable) NSString *deletionTime;
+
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The fully qualified URL of the namespace associated with the zone. This
+ *  should be formatted like
+ *  https://servicedirectory.googleapis.com/v1/projects/{project}/locations/{location}/namespaces/{namespace}
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceUrl;
 
 @end
 
@@ -1161,6 +1209,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dnsKeysPerManagedZone;
+
+/**
+ *  Maximum allowed number of GKE clusters per policy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gkeClustersPerPolicy;
 
 @property(nonatomic, copy, nullable) NSString *kind;
 

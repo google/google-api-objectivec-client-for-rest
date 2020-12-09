@@ -576,7 +576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed;
 /**
  *  Indicates suppression occurred due to relevant entries being received in
- *  excess of rate limits.
+ *  excess of rate limits. For quotas and limits, see Logging API quotas and
+ *  limits (https://cloud.google.com/logging/quotas#api-limits).
  *
  *  Value: "RATE_LIMIT"
  */
@@ -1356,7 +1357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *locked;
 
 /**
- *  The resource name of the bucket. For example:
+ *  Output only. The resource name of the bucket. For example:
  *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id The
  *  supported locations are: "global"For the location of global it is
  *  unspecified where logs are actually stored. Once a bucket has been created,
@@ -2774,7 +2775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        enough. (Value: "NOT_CONSUMED")
  *    @arg @c kGTLRLogging_SuppressionInfo_Reason_RateLimit Indicates
  *        suppression occurred due to relevant entries being received in excess
- *        of rate limits. (Value: "RATE_LIMIT")
+ *        of rate limits. For quotas and limits, see Logging API quotas and
+ *        limits (https://cloud.google.com/logging/quotas#api-limits). (Value:
+ *        "RATE_LIMIT")
  *    @arg @c kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified Unexpected
  *        default. (Value: "REASON_UNSPECIFIED")
  */

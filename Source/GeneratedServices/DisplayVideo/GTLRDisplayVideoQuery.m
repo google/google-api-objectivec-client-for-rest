@@ -2800,6 +2800,33 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
+
+@dynamic targetingType;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_SearchTargetingOptionsRequest *)object
+                  targetingType:(NSString *)targetingType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"targetingType" ];
+  NSString *pathURITemplate = @"v1/targetingTypes/{+targetingType}/targetingOptions:search";
+  GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_SearchTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.targetingTypes.targetingOptions.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_UsersBulkEditAssignedUserRoles
 
 @dynamic userId;

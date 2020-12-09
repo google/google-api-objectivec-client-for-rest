@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Directory API (servicedirectory/v1beta1)
+//   Service Directory API (servicedirectory/v1)
 // Description:
 //   Service Directory is a platform for discovering, publishing, and connecting
 //   services.
@@ -44,16 +44,16 @@
 //
 
 @implementation GTLRServiceDirectory_Endpoint
-@dynamic address, metadata, name, port;
+@dynamic address, annotations, name, port;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceDirectory_Endpoint_Metadata
+//   GTLRServiceDirectory_Endpoint_Annotations
 //
 
-@implementation GTLRServiceDirectory_Endpoint_Metadata
+@implementation GTLRServiceDirectory_Endpoint_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -295,7 +295,7 @@
 //
 
 @implementation GTLRServiceDirectory_Service
-@dynamic endpoints, metadata, name;
+@dynamic annotations, endpoints, name;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -309,10 +309,10 @@
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceDirectory_Service_Metadata
+//   GTLRServiceDirectory_Service_Annotations
 //
 
-@implementation GTLRServiceDirectory_Service_Metadata
+@implementation GTLRServiceDirectory_Service_Annotations
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

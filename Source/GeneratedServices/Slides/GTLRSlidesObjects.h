@@ -6634,7 +6634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  `SLIDE_IMAGE` placeholder shape contains the slide thumbnail, and a `BODY`
  *  placeholder shape contains the speaker notes. - The notes master page
  *  properties define the common page properties inherited by all notes pages. -
- *  Any other shapes on the notes master appears on all notes pages. The notes
+ *  Any other shapes on the notes master appear on all notes pages. The notes
  *  master is read-only.
  */
 @property(nonatomic, strong, nullable) GTLRSlides_Page *notesMaster;
@@ -7834,7 +7834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The properties of a Shape. If the shape is a placeholder shape as determined
  *  by the placeholder field, then these properties may be inherited from a
  *  parent placeholder shape. Determining the rendered value of the property
- *  depends on the corresponding property_state field value.
+ *  depends on the corresponding property_state field value. Any text autofit
+ *  settings on the shape are automatically deactivated by requests that can
+ *  impact how text fits in the shape.
  */
 @interface GTLRSlides_ShapeProperties : GTLRObject
 

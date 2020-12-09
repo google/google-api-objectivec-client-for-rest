@@ -313,6 +313,23 @@ NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Columns = @"COL
 NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_DimensionUnspecified = @"DIMENSION_UNSPECIFIED";
 NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows = @"ROWS";
 
+// GTLRSheets_DataLabel.placement
+NSString * const kGTLRSheets_DataLabel_Placement_Above         = @"ABOVE";
+NSString * const kGTLRSheets_DataLabel_Placement_Below         = @"BELOW";
+NSString * const kGTLRSheets_DataLabel_Placement_Center        = @"CENTER";
+NSString * const kGTLRSheets_DataLabel_Placement_DataLabelPlacementUnspecified = @"DATA_LABEL_PLACEMENT_UNSPECIFIED";
+NSString * const kGTLRSheets_DataLabel_Placement_InsideBase    = @"INSIDE_BASE";
+NSString * const kGTLRSheets_DataLabel_Placement_InsideEnd     = @"INSIDE_END";
+NSString * const kGTLRSheets_DataLabel_Placement_Left          = @"LEFT";
+NSString * const kGTLRSheets_DataLabel_Placement_OutsideEnd    = @"OUTSIDE_END";
+NSString * const kGTLRSheets_DataLabel_Placement_Right         = @"RIGHT";
+
+// GTLRSheets_DataLabel.type
+NSString * const kGTLRSheets_DataLabel_Type_Custom             = @"CUSTOM";
+NSString * const kGTLRSheets_DataLabel_Type_Data               = @"DATA";
+NSString * const kGTLRSheets_DataLabel_Type_DataLabelTypeUnspecified = @"DATA_LABEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRSheets_DataLabel_Type_None               = @"NONE";
+
 // GTLRSheets_DataSourceRefreshSchedule.refreshScope
 NSString * const kGTLRSheets_DataSourceRefreshSchedule_RefreshScope_AllDataSources = @"ALL_DATA_SOURCES";
 NSString * const kGTLRSheets_DataSourceRefreshSchedule_RefreshScope_DataSourceRefreshScopeUnspecified = @"DATA_SOURCE_REFRESH_SCOPE_UNSPECIFIED";
@@ -505,6 +522,17 @@ NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Stdevp = @"STDEVP";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Sum  = @"SUM";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var  = @"VAR";
 NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp = @"VARP";
+
+// GTLRSheets_PointStyle.shape
+NSString * const kGTLRSheets_PointStyle_Shape_Circle           = @"CIRCLE";
+NSString * const kGTLRSheets_PointStyle_Shape_Diamond          = @"DIAMOND";
+NSString * const kGTLRSheets_PointStyle_Shape_Hexagon          = @"HEXAGON";
+NSString * const kGTLRSheets_PointStyle_Shape_Pentagon         = @"PENTAGON";
+NSString * const kGTLRSheets_PointStyle_Shape_PointShapeUnspecified = @"POINT_SHAPE_UNSPECIFIED";
+NSString * const kGTLRSheets_PointStyle_Shape_Square           = @"SQUARE";
+NSString * const kGTLRSheets_PointStyle_Shape_Star             = @"STAR";
+NSString * const kGTLRSheets_PointStyle_Shape_Triangle         = @"TRIANGLE";
+NSString * const kGTLRSheets_PointStyle_Shape_XMark            = @"X_MARK";
 
 // GTLRSheets_ScorecardChartSpec.aggregateType
 NSString * const kGTLRSheets_ScorecardChartSpec_AggregateType_Average = @"AVERAGE";
@@ -904,7 +932,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_BasicChartSeries
-@dynamic color, colorStyle, lineStyle, series, targetAxis, type;
+@dynamic color, colorStyle, dataLabel, lineStyle, pointStyle, series,
+         styleOverrides, targetAxis, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"styleOverrides" : [GTLRSheets_BasicSeriesDataPointStyleOverride class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -915,7 +952,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_BasicChartSpec
 @dynamic axis, chartType, compareMode, domains, headerCount, interpolateNulls,
-         legendPosition, lineSmoothing, series, stackedType, threeDimensional;
+         legendPosition, lineSmoothing, series, stackedType, threeDimensional,
+         totalDataLabel;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -959,6 +997,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
   return [GTLRSheets_FilterCriteria class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_BasicSeriesDataPointStyleOverride
+//
+
+@implementation GTLRSheets_BasicSeriesDataPointStyleOverride
+@dynamic color, colorStyle, index, pointStyle;
 @end
 
 
@@ -1641,6 +1689,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_DataLabel
+//
+
+@implementation GTLRSheets_DataLabel
+@dynamic customLabelData, placement, textFormat, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_DataSource
 //
 
@@ -2217,7 +2275,17 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_EmbeddedChart
-@dynamic chartId, position, spec;
+@dynamic border, chartId, position, spec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSheets_EmbeddedObjectBorder
+//
+
+@implementation GTLRSheets_EmbeddedObjectBorder
+@dynamic color, colorStyle;
 @end
 
 
@@ -2833,6 +2901,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_PointStyle
+//
+
+@implementation GTLRSheets_PointStyle
+@dynamic shape, size;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_ProtectedRange
 //
 
@@ -2934,9 +3012,9 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
          updateBorders, updateCells, updateChartSpec,
          updateConditionalFormatRule, updateDataSource, updateDeveloperMetadata,
          updateDimensionGroup, updateDimensionProperties,
-         updateEmbeddedObjectPosition, updateFilterView, updateNamedRange,
-         updateProtectedRange, updateSheetProperties, updateSlicerSpec,
-         updateSpreadsheetProperties;
+         updateEmbeddedObjectBorder, updateEmbeddedObjectPosition,
+         updateFilterView, updateNamedRange, updateProtectedRange,
+         updateSheetProperties, updateSlicerSpec, updateSpreadsheetProperties;
 @end
 
 
@@ -3465,6 +3543,16 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSheets_UpdateEmbeddedObjectBorderRequest
+//
+
+@implementation GTLRSheets_UpdateEmbeddedObjectBorderRequest
+@dynamic border, fields, objectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSheets_UpdateEmbeddedObjectPositionRequest
 //
 
@@ -3619,8 +3707,8 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 //
 
 @implementation GTLRSheets_WaterfallChartSeries
-@dynamic customSubtotals, data, hideTrailingSubtotal, negativeColumnsStyle,
-         positiveColumnsStyle, subtotalColumnsStyle;
+@dynamic customSubtotals, data, dataLabel, hideTrailingSubtotal,
+         negativeColumnsStyle, positiveColumnsStyle, subtotalColumnsStyle;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3639,7 +3727,7 @@ NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_WaterfallStackedType
 
 @implementation GTLRSheets_WaterfallChartSpec
 @dynamic connectorLineStyle, domain, firstValueIsTotal, hideConnectorLines,
-         series, stackedType;
+         series, stackedType, totalDataLabel;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

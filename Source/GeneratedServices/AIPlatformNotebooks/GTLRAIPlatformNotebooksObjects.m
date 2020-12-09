@@ -93,7 +93,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

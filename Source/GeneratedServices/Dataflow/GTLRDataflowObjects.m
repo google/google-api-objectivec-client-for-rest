@@ -1211,7 +1211,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_LaunchFlexTemplateParameter
 @dynamic containerSpec, containerSpecGcsPath, environment, jobName,
-         launchOptions, parameters;
+         launchOptions, parameters, transformNameMappings, update;
 @end
 
 
@@ -1235,6 +1235,20 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_LaunchFlexTemplateParameter_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings
+//
+
+@implementation GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

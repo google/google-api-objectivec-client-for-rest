@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dialogflow API (dialogflow/v2)
+//   Dialogflow API (dialogflow/v3)
 // Description:
 //   Builds conversational interfaces (for example, chatbots, and voice-powered
 //   apps and devices).
