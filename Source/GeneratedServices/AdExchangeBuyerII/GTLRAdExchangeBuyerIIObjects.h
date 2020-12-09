@@ -3614,7 +3614,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) GTLRDateTime *availableEndTime;
 
 /**
- *  Optional proposed flight start time of the deal. This will generally be
+ *  Optional. Proposed flight start time of the deal. This will generally be
  *  stored in the granularity of one second since deal serving starts at seconds
  *  boundary. Any time specified with more granularity (e.g., in milliseconds)
  *  will be truncated towards the start of time in seconds.
@@ -3632,8 +3632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, copy, nullable) NSString *createProductId;
 
 /**
- *  Optional revision number of the product that the deal was created from. If
- *  present on create, and the server `product_revision` has advanced sinced the
+ *  Optional. Revision number of the product that the deal was created from. If
+ *  present on create, and the server `product_revision` has advanced since the
  *  passed-in `create_product_revision`, an `ABORTED` error will be returned.
  *  Note: This field may be set only when creating the resource. Modifying this
  *  field while updating the resource will result in an error.
@@ -5873,6 +5873,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /** Output only. Contact information for the seller. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyerII_ContactInformation *> *sellerContacts;
+
+/**
+ *  Output only. The terms and conditions set by the publisher for this
+ *  proposal.
+ */
+@property(nonatomic, copy, nullable) NSString *termsAndConditions;
 
 /** Output only. The time when the proposal was last revised. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

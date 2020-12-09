@@ -237,7 +237,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -894,7 +896,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1100,7 +1104,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1284,7 +1290,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1491,7 +1499,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1601,7 +1611,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2261,7 +2273,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2307,7 +2321,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Omitted fields will not be updated.
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -37,6 +37,8 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Action
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleActivate = @"RULE_ACTIVATE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
 
 // GTLRAlertCenter_RuleViolationInfo.trigger
 NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare = @"DRIVE_SHARE";
@@ -47,6 +49,8 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionT
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleActivate = @"RULE_ACTIVATE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
 
 // ----------------------------------------------------------------------------
 //

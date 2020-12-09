@@ -52,6 +52,7 @@
 @class GTLRSheets_BasicChartSpec;
 @class GTLRSheets_BasicFilter;
 @class GTLRSheets_BasicFilter_Criteria;
+@class GTLRSheets_BasicSeriesDataPointStyleOverride;
 @class GTLRSheets_BigQueryDataSourceSpec;
 @class GTLRSheets_BigQueryQuerySpec;
 @class GTLRSheets_BigQueryTableSpec;
@@ -86,6 +87,7 @@
 @class GTLRSheets_DataExecutionStatus;
 @class GTLRSheets_DataFilter;
 @class GTLRSheets_DataFilterValueRange;
+@class GTLRSheets_DataLabel;
 @class GTLRSheets_DataSource;
 @class GTLRSheets_DataSourceChartProperties;
 @class GTLRSheets_DataSourceColumn;
@@ -133,6 +135,7 @@
 @class GTLRSheets_DuplicateSheetResponse;
 @class GTLRSheets_Editors;
 @class GTLRSheets_EmbeddedChart;
+@class GTLRSheets_EmbeddedObjectBorder;
 @class GTLRSheets_EmbeddedObjectPosition;
 @class GTLRSheets_ErrorValue;
 @class GTLRSheets_ExtendedValue;
@@ -180,6 +183,7 @@
 @class GTLRSheets_PivotTable;
 @class GTLRSheets_PivotTable_Criteria;
 @class GTLRSheets_PivotValue;
+@class GTLRSheets_PointStyle;
 @class GTLRSheets_ProtectedRange;
 @class GTLRSheets_RandomizeRangeRequest;
 @class GTLRSheets_RefreshDataSourceObjectExecutionStatus;
@@ -226,6 +230,7 @@
 @class GTLRSheets_UpdateDeveloperMetadataResponse;
 @class GTLRSheets_UpdateDimensionGroupRequest;
 @class GTLRSheets_UpdateDimensionPropertiesRequest;
+@class GTLRSheets_UpdateEmbeddedObjectBorderRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionRequest;
 @class GTLRSheets_UpdateEmbeddedObjectPositionResponse;
 @class GTLRSheets_UpdateFilterViewRequest;
@@ -1903,6 +1908,94 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimensi
 FOUNDATION_EXTERN NSString * const kGTLRSheets_DataFilterValueRange_MajorDimension_Rows;
 
 // ----------------------------------------------------------------------------
+// GTLRSheets_DataLabel.placement
+
+/**
+ *  Above a data point.
+ *
+ *  Value: "ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_Above;
+/**
+ *  Below a data point.
+ *
+ *  Value: "BELOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_Below;
+/**
+ *  Center within a bar or column, both horizontally and vertically.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_Center;
+/**
+ *  The positioning is determined automatically by the renderer.
+ *
+ *  Value: "DATA_LABEL_PLACEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_DataLabelPlacementUnspecified;
+/**
+ *  Inside a bar or column at the base.
+ *
+ *  Value: "INSIDE_BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_InsideBase;
+/**
+ *  Inside a bar or column at the end (top if positive, bottom if negative).
+ *
+ *  Value: "INSIDE_END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_InsideEnd;
+/**
+ *  To the left of a data point.
+ *
+ *  Value: "LEFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_Left;
+/**
+ *  Outside a bar or column at the end.
+ *
+ *  Value: "OUTSIDE_END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_OutsideEnd;
+/**
+ *  To the right of a data point.
+ *
+ *  Value: "RIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Placement_Right;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_DataLabel.type
+
+/**
+ *  The data label is displayed using values from a custom data source indicated
+ *  by customLabelData.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Type_Custom;
+/**
+ *  The data label is displayed using values from the series data.
+ *
+ *  Value: "DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Type_Data;
+/**
+ *  The data label type is not specified and will be interpreted depending on
+ *  the context of the data label within the chart.
+ *
+ *  Value: "DATA_LABEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Type_DataLabelTypeUnspecified;
+/**
+ *  The data label is not displayed.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_DataLabel_Type_None;
+
+// ----------------------------------------------------------------------------
 // GTLRSheets_DataSourceRefreshSchedule.refreshScope
 
 /**
@@ -2892,6 +2985,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Var;
  *  Value: "VARP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PivotValue_SummarizeFunction_Varp;
+
+// ----------------------------------------------------------------------------
+// GTLRSheets_PointStyle.shape
+
+/**
+ *  A circle shape.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Circle;
+/**
+ *  A diamond shape.
+ *
+ *  Value: "DIAMOND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Diamond;
+/**
+ *  A hexagon shape.
+ *
+ *  Value: "HEXAGON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Hexagon;
+/**
+ *  A pentagon shape.
+ *
+ *  Value: "PENTAGON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Pentagon;
+/**
+ *  Default value.
+ *
+ *  Value: "POINT_SHAPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_PointShapeUnspecified;
+/**
+ *  A square shape.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Square;
+/**
+ *  A star shape.
+ *
+ *  Value: "STAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Star;
+/**
+ *  A triangle shape.
+ *
+ *  Value: "TRIANGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_Triangle;
+/**
+ *  An x-mark shape.
+ *
+ *  Value: "X_MARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSheets_PointStyle_Shape_XMark;
 
 // ----------------------------------------------------------------------------
 // GTLRSheets_ScorecardChartSpec.aggregateType
@@ -3923,6 +4074,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
+/** Information about the data labels for this series. */
+@property(nonatomic, strong, nullable) GTLRSheets_DataLabel *dataLabel;
+
 /**
  *  The line style of this series. Valid only if the chartType is AREA, LINE, or
  *  SCATTER. COMBO charts are also supported if the series chart type is AREA or
@@ -3930,8 +4084,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_LineStyle *lineStyle;
 
+/**
+ *  The style for points associated with this series. Valid only if the
+ *  chartType is AREA, LINE, or SCATTER. COMBO charts are also supported if the
+ *  series chart type is AREA, LINE, or SCATTER. If empty, a default point style
+ *  is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_PointStyle *pointStyle;
+
 /** The data being visualized in this chart series. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
+
+/** Style override settings for series data points. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSheets_BasicSeriesDataPointStyleOverride *> *styleOverrides;
 
 /**
  *  The minor axis that will specify the range of values for this series. For
@@ -4112,6 +4277,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) NSNumber *threeDimensional;
 
+/**
+ *  Controls whether to display additional data labels on stacked charts which
+ *  sum the total value of all stacked values at each value along the domain
+ *  axis. These data labels can only be set when chart_type is one of AREA, BAR,
+ *  COLUMN, COMBO or STEPPED_AREA and stacked_type is either STACKED or
+ *  PERCENT_STACKED. In addition, for COMBO, this will only be supported if
+ *  there is only one type of stackable series type or one type has more series
+ *  than the others and each of the other types have no more than one series.
+ *  For example, if a chart has two stacked bar series and one area series, the
+ *  total data labels will be supported. If it has three bar series and two area
+ *  series, total data labels are not allowed. Neither CUSTOM nor placement can
+ *  be set on the total_data_label.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DataLabel *totalDataLabel;
+
 @end
 
 
@@ -4157,6 +4337,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRSheets_BasicFilter_Criteria : GTLRObject
+@end
+
+
+/**
+ *  Style override settings for a single series data point.
+ */
+@interface GTLRSheets_BasicSeriesDataPointStyleOverride : GTLRObject
+
+/** Color of the series data point. If empty, the series default is used. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/**
+ *  Color of the series data point. If empty, the series default is used. If
+ *  color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
+
+/**
+ *  Zero based index of the series data point.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Point style of the series data point. Valid only if the chartType is AREA,
+ *  LINE, or SCATTER. COMBO charts are also supported if the series chart type
+ *  is AREA, LINE, or SCATTER. If empty, the series default is used.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_PointStyle *pointStyle;
+
 @end
 
 
@@ -6224,6 +6435,75 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  Settings for one set of data labels. Data labels are annotations that appear
+ *  next to a set of data, such as the points on a line chart, and provide
+ *  additional information about what the data represents, such as a text
+ *  representation of the value behind that point on the graph.
+ */
+@interface GTLRSheets_DataLabel : GTLRObject
+
+/**
+ *  Data to use for custom labels. Only used if type is set to CUSTOM. This data
+ *  must be the same length as the series or other element this data label is
+ *  applied to. In addition, if the series is split into multiple source ranges,
+ *  this source data must come from the next column in the source data. For
+ *  example, if the series is B2:B4,E6:E8 then this data must come from
+ *  C2:C4,F6:F8.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ChartData *customLabelData;
+
+/**
+ *  The placement of the data label relative to the labeled data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DataLabel_Placement_Above Above a data point. (Value:
+ *        "ABOVE")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_Below Below a data point. (Value:
+ *        "BELOW")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_Center Center within a bar or
+ *        column, both horizontally and vertically. (Value: "CENTER")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_DataLabelPlacementUnspecified The
+ *        positioning is determined automatically by the renderer. (Value:
+ *        "DATA_LABEL_PLACEMENT_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_InsideBase Inside a bar or column
+ *        at the base. (Value: "INSIDE_BASE")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_InsideEnd Inside a bar or column
+ *        at the end (top if positive, bottom if negative). (Value:
+ *        "INSIDE_END")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_Left To the left of a data point.
+ *        (Value: "LEFT")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_OutsideEnd Outside a bar or column
+ *        at the end. (Value: "OUTSIDE_END")
+ *    @arg @c kGTLRSheets_DataLabel_Placement_Right To the right of a data
+ *        point. (Value: "RIGHT")
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/** The text format used for the data label. */
+@property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
+
+/**
+ *  The type of the data label.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_DataLabel_Type_Custom The data label is displayed
+ *        using values from a custom data source indicated by customLabelData.
+ *        (Value: "CUSTOM")
+ *    @arg @c kGTLRSheets_DataLabel_Type_Data The data label is displayed using
+ *        values from the series data. (Value: "DATA")
+ *    @arg @c kGTLRSheets_DataLabel_Type_DataLabelTypeUnspecified The data label
+ *        type is not specified and will be interpreted depending on the context
+ *        of the data label within the chart. (Value:
+ *        "DATA_LABEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_DataLabel_Type_None The data label is not displayed.
+ *        (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Information about an external data source in the spreadsheet.
  */
 @interface GTLRSheets_DataSource : GTLRObject
@@ -7361,6 +7641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @interface GTLRSheets_EmbeddedChart : GTLRObject
 
+/** The border of the chart. */
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectBorder *border;
+
 /**
  *  The ID of the chart.
  *
@@ -7373,6 +7656,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /** The specification of the chart. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartSpec *spec;
+
+@end
+
+
+/**
+ *  A border along an embedded object.
+ */
+@interface GTLRSheets_EmbeddedObjectBorder : GTLRObject
+
+/** The color of the border. */
+@property(nonatomic, strong, nullable) GTLRSheets_Color *color;
+
+/**
+ *  The color of the border. If color is also set, this field takes precedence.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *colorStyle;
 
 @end
 
@@ -9143,6 +9442,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  The style of a point on the chart.
+ */
+@interface GTLRSheets_PointStyle : GTLRObject
+
+/**
+ *  The point shape. If empty or unspecified, a default shape is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Circle A circle shape. (Value:
+ *        "CIRCLE")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Diamond A diamond shape. (Value:
+ *        "DIAMOND")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Hexagon A hexagon shape. (Value:
+ *        "HEXAGON")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Pentagon A pentagon shape. (Value:
+ *        "PENTAGON")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_PointShapeUnspecified Default value.
+ *        (Value: "POINT_SHAPE_UNSPECIFIED")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Square A square shape. (Value:
+ *        "SQUARE")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Star A star shape. (Value: "STAR")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_Triangle A triangle shape. (Value:
+ *        "TRIANGLE")
+ *    @arg @c kGTLRSheets_PointStyle_Shape_XMark An x-mark shape. (Value:
+ *        "X_MARK")
+ */
+@property(nonatomic, copy, nullable) NSString *shape;
+
+/**
+ *  The point size. If empty, a default size is used.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+@end
+
+
+/**
  *  A protected range.
  */
 @interface GTLRSheets_ProtectedRange : GTLRObject
@@ -9500,6 +9838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /** Updates dimensions' properties. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateDimensionPropertiesRequest *updateDimensionProperties;
+
+/** Updates an embedded object's border. */
+@property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectBorderRequest *updateEmbeddedObjectBorder;
 
 /** Updates an embedded object's (e.g. chart, image) position. */
 @property(nonatomic, strong, nullable) GTLRSheets_UpdateEmbeddedObjectPositionRequest *updateEmbeddedObjectPosition;
@@ -10958,6 +11299,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  Updates an embedded object's border property.
+ */
+@interface GTLRSheets_UpdateEmbeddedObjectBorderRequest : GTLRObject
+
+/** The border that applies to the embedded object. */
+@property(nonatomic, strong, nullable) GTLRSheets_EmbeddedObjectBorder *border;
+
+/**
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root `border` is implied and should not be specified. A single `"*"` can be
+ *  used as short-hand for listing every field.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/**
+ *  The ID of the embedded object to update.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectId;
+
+@end
+
+
+/**
  *  Update an embedded object's position (such as a moving or resizing a chart
  *  or image).
  */
@@ -11348,6 +11716,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** The data being visualized in this series. */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *data;
 
+/** Information about the data labels for this series. */
+@property(nonatomic, strong, nullable) GTLRSheets_DataLabel *dataLabel;
+
 /**
  *  True to hide the subtotal column from the end of the series. By default, a
  *  subtotal column will appear at the end of each series. Setting this field to
@@ -11411,6 +11782,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        "WATERFALL_STACKED_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *stackedType;
+
+/**
+ *  Controls whether to display additional data labels on stacked charts which
+ *  sum the total value of all stacked values at each value along the domain
+ *  axis. stacked_type must be STACKED and neither CUSTOM nor placement can be
+ *  set on the total_data_label.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_DataLabel *totalDataLabel;
 
 @end
 

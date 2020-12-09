@@ -498,6 +498,16 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGames_EndPoint
+//
+
+@implementation GTLRGames_EndPoint
+@dynamic url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGames_EventBatchRecordFailure
 //
 
@@ -1362,7 +1372,8 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 //
 
 @implementation GTLRGames_SnapshotExtended
-@dynamic conflictingRevisions, hasConflictingRevisions, headRevision, name;
+@dynamic conflictingRevisions, hasConflictingRevisions, headRevision,
+         snapshotName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1425,8 +1436,8 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 //
 
 @implementation GTLRGames_SnapshotMetadata
-@dynamic descriptionProperty, deviceName, duration, lastModifyTime,
-         progressValue, title;
+@dynamic descriptionProperty, deviceName, gameplayDuration, lastModifyTime,
+         progressValue;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

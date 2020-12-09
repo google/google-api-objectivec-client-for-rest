@@ -379,7 +379,7 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 //
 
 @implementation GTLRContainerAnalysis_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

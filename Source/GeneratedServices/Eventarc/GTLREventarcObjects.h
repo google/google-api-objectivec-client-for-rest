@@ -147,6 +147,8 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  */
 @interface GTLREventarc_Binding : GTLRObject
 
+@property(nonatomic, copy, nullable) NSString *bindingId;
+
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If

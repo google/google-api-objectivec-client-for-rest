@@ -5810,6 +5810,163 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Deletes the specified Operations resource.
+ *
+ *  Method: compute.globalOrganizationOperations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalOrganizationOperationsDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalOrganizationOperationsDeleteWithoperation:]
+
+/** Name of the Operations resource to delete. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes the specified Operations resource.
+ *
+ *  @param operation Name of the Operations resource to delete.
+ *
+ *  @return GTLRComputeQuery_GlobalOrganizationOperationsDelete
+ */
++ (instancetype)queryWithOperation:(NSString *)operation;
+
+@end
+
+/**
+ *  Retrieves the specified Operations resource. Gets a list of operations by
+ *  making a `list()` request.
+ *
+ *  Method: compute.globalOrganizationOperations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalOrganizationOperationsGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalOrganizationOperationsGetWithoperation:]
+
+/** Name of the Operations resource to return. */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Retrieves the specified Operations resource. Gets a list of operations by
+ *  making a `list()` request.
+ *
+ *  @param operation Name of the Operations resource to return.
+ *
+ *  @return GTLRComputeQuery_GlobalOrganizationOperationsGet
+ */
++ (instancetype)queryWithOperation:(NSString *)operation;
+
+@end
+
+/**
+ *  Retrieves a list of Operation resources contained within the specified
+ *  organization.
+ *
+ *  Method: compute.globalOrganizationOperations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalOrganizationOperationsList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalOrganizationOperationsList]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false and the logic is the same as today.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_OperationList.
+ *
+ *  Retrieves a list of Operation resources contained within the specified
+ *  organization.
+ *
+ *  @return GTLRComputeQuery_GlobalOrganizationOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Retrieves the list of all HealthCheck resources, regional and global,
  *  available to the specified project.
  *
@@ -28334,7 +28491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Patches the specified subnetwork with the data included in the request. Only
- *  certain fields can up updated with a patch request as indicated in the field
+ *  certain fields can be updated with a patch request as indicated in the field
  *  descriptions. You must specify the current fingerprint of the subnetwork
  *  resource being patched.
  *
@@ -28387,7 +28544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified subnetwork with the data included in the request. Only
- *  certain fields can up updated with a patch request as indicated in the field
+ *  certain fields can be updated with a patch request as indicated in the field
  *  descriptions. You must specify the current fingerprint of the subnetwork
  *  resource being patched.
  *

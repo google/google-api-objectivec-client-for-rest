@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Directory API (servicedirectory/v1beta1)
+//   Service Directory API (servicedirectory/v1)
 // Description:
 //   Service Directory is a platform for discovering, publishing, and connecting
 //   services.
@@ -23,7 +23,7 @@
 
 @class GTLRServiceDirectory_Binding;
 @class GTLRServiceDirectory_Endpoint;
-@class GTLRServiceDirectory_Endpoint_Metadata;
+@class GTLRServiceDirectory_Endpoint_Annotations;
 @class GTLRServiceDirectory_Expr;
 @class GTLRServiceDirectory_GetPolicyOptions;
 @class GTLRServiceDirectory_Location;
@@ -33,7 +33,7 @@
 @class GTLRServiceDirectory_Namespace_Labels;
 @class GTLRServiceDirectory_Policy;
 @class GTLRServiceDirectory_Service;
-@class GTLRServiceDirectory_Service_Metadata;
+@class GTLRServiceDirectory_Service_Annotations;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -124,22 +124,25 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  Optional. Metadata for the endpoint. This data can be consumed by service
- *  clients. Restrictions: - The entire metadata dictionary may contain up to
- *  512 characters, spread accoss all key-value pairs. Metadata that goes beyond
- *  any these limits will be rejected. - Valid metadata keys have two segments:
- *  an optional prefix and name, separated by a slash (/). The name segment is
- *  required and must be 63 characters or less, beginning and ending with an
- *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
- *  (.), and alphanumerics between. The prefix is optional. If specified, the
- *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
- *  (.), not longer than 253 characters in total, followed by a slash (/).
- *  Metadata that fails to meet these requirements will be rejected. - The
- *  '(*.)google.com/' and '(*.)googleapis.com/' prefixes are reserved for system
- *  metadata managed by Service Directory. If the user tries to write to these
- *  keyspaces, those entries will be silently ignored by the system.
+ *  Optional. Annotations for the endpoint. This data can be consumed by service
+ *  clients. Restrictions: - The entire annotations dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Annotations that goes
+ *  beyond any these limits will be rejected. - Valid annotation keys have two
+ *  segments: an optional prefix and name, separated by a slash (/). The name
+ *  segment is required and must be 63 characters or less, beginning and ending
+ *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
+ *  (_), dots (.), and alphanumerics between. The prefix is optional. If
+ *  specified, the prefix must be a DNS subdomain: a series of DNS labels
+ *  separated by dots (.), not longer than 253 characters in total, followed by
+ *  a slash (/). Annotations that fails to meet these requirements will be
+ *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
+ *  reserved for system annotations managed by Service Directory. If the user
+ *  tries to write to these keyspaces, those entries will be silently ignored by
+ *  the system. Note: This field is equivalent to the 'metadata' field in the
+ *  v1beta1 API. They have the same syntax and read/write to the same location
+ *  in Service Directory.
  */
-@property(nonatomic, strong, nullable) GTLRServiceDirectory_Endpoint_Metadata *metadata;
+@property(nonatomic, strong, nullable) GTLRServiceDirectory_Endpoint_Annotations *annotations;
 
 /**
  *  Immutable. The resource name for the endpoint in the format 'projects/ *
@@ -158,27 +161,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. Metadata for the endpoint. This data can be consumed by service
- *  clients. Restrictions: - The entire metadata dictionary may contain up to
- *  512 characters, spread accoss all key-value pairs. Metadata that goes beyond
- *  any these limits will be rejected. - Valid metadata keys have two segments:
- *  an optional prefix and name, separated by a slash (/). The name segment is
- *  required and must be 63 characters or less, beginning and ending with an
- *  alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots
- *  (.), and alphanumerics between. The prefix is optional. If specified, the
- *  prefix must be a DNS subdomain: a series of DNS labels separated by dots
- *  (.), not longer than 253 characters in total, followed by a slash (/).
- *  Metadata that fails to meet these requirements will be rejected. - The
- *  '(*.)google.com/' and '(*.)googleapis.com/' prefixes are reserved for system
- *  metadata managed by Service Directory. If the user tries to write to these
- *  keyspaces, those entries will be silently ignored by the system.
+ *  Optional. Annotations for the endpoint. This data can be consumed by service
+ *  clients. Restrictions: - The entire annotations dictionary may contain up to
+ *  512 characters, spread accoss all key-value pairs. Annotations that goes
+ *  beyond any these limits will be rejected. - Valid annotation keys have two
+ *  segments: an optional prefix and name, separated by a slash (/). The name
+ *  segment is required and must be 63 characters or less, beginning and ending
+ *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
+ *  (_), dots (.), and alphanumerics between. The prefix is optional. If
+ *  specified, the prefix must be a DNS subdomain: a series of DNS labels
+ *  separated by dots (.), not longer than 253 characters in total, followed by
+ *  a slash (/). Annotations that fails to meet these requirements will be
+ *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
+ *  reserved for system annotations managed by Service Directory. If the user
+ *  tries to write to these keyspaces, those entries will be silently ignored by
+ *  the system. Note: This field is equivalent to the 'metadata' field in the
+ *  v1beta1 API. They have the same syntax and read/write to the same location
+ *  in Service Directory.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRServiceDirectory_Endpoint_Metadata : GTLRObject
+@interface GTLRServiceDirectory_Endpoint_Annotations : GTLRObject
 @end
 
 
@@ -599,30 +605,32 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceDirectory_Service : GTLRObject
 
 /**
- *  Output only. Endpoints associated with this service. Returned on
- *  LookupService.Resolve. Control plane clients should use
- *  RegistrationService.ListEndpoints.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceDirectory_Endpoint *> *endpoints;
-
-/**
- *  Optional. Metadata for the service. This data can be consumed by service
- *  clients. Restrictions: - The entire metadata dictionary may contain up to
- *  2000 characters, spread accoss all key-value pairs. Metadata that goes
- *  beyond any these limits will be rejected. - Valid metadata keys have two
+ *  Optional. Annotations for the service. This data can be consumed by service
+ *  clients. Restrictions: - The entire annotations dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Annotations that goes
+ *  beyond any these limits will be rejected. - Valid annotation keys have two
  *  segments: an optional prefix and name, separated by a slash (/). The name
  *  segment is required and must be 63 characters or less, beginning and ending
  *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
  *  (_), dots (.), and alphanumerics between. The prefix is optional. If
  *  specified, the prefix must be a DNS subdomain: a series of DNS labels
  *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Metadata that fails to meet these requirements will be
+ *  a slash (/). Annotations that fails to meet these requirements will be
  *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system metadata managed by Service Directory. If the user tries
- *  to write to these keyspaces, those entries will be silently ignored by the
- *  system.
+ *  reserved for system annotations managed by Service Directory. If the user
+ *  tries to write to these keyspaces, those entries will be silently ignored by
+ *  the system. Note: This field is equivalent to the 'metadata' field in the
+ *  v1beta1 API. They have the same syntax and read/write to the same location
+ *  in Service Directory.
  */
-@property(nonatomic, strong, nullable) GTLRServiceDirectory_Service_Metadata *metadata;
+@property(nonatomic, strong, nullable) GTLRServiceDirectory_Service_Annotations *annotations;
+
+/**
+ *  Output only. Endpoints associated with this service. Returned on
+ *  LookupService.Resolve. Control plane clients should use
+ *  RegistrationService.ListEndpoints.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceDirectory_Endpoint *> *endpoints;
 
 /**
  *  Immutable. The resource name for the service in the format 'projects/ *
@@ -634,28 +642,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Optional. Metadata for the service. This data can be consumed by service
- *  clients. Restrictions: - The entire metadata dictionary may contain up to
- *  2000 characters, spread accoss all key-value pairs. Metadata that goes
- *  beyond any these limits will be rejected. - Valid metadata keys have two
+ *  Optional. Annotations for the service. This data can be consumed by service
+ *  clients. Restrictions: - The entire annotations dictionary may contain up to
+ *  2000 characters, spread accoss all key-value pairs. Annotations that goes
+ *  beyond any these limits will be rejected. - Valid annotation keys have two
  *  segments: an optional prefix and name, separated by a slash (/). The name
  *  segment is required and must be 63 characters or less, beginning and ending
  *  with an alphanumeric character ([a-z0-9A-Z]) with dashes (-), underscores
  *  (_), dots (.), and alphanumerics between. The prefix is optional. If
  *  specified, the prefix must be a DNS subdomain: a series of DNS labels
  *  separated by dots (.), not longer than 253 characters in total, followed by
- *  a slash (/). Metadata that fails to meet these requirements will be
+ *  a slash (/). Annotations that fails to meet these requirements will be
  *  rejected. - The '(*.)google.com/' and '(*.)googleapis.com/' prefixes are
- *  reserved for system metadata managed by Service Directory. If the user tries
- *  to write to these keyspaces, those entries will be silently ignored by the
- *  system.
+ *  reserved for system annotations managed by Service Directory. If the user
+ *  tries to write to these keyspaces, those entries will be silently ignored by
+ *  the system. Note: This field is equivalent to the 'metadata' field in the
+ *  v1beta1 API. They have the same syntax and read/write to the same location
+ *  in Service Directory.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRServiceDirectory_Service_Metadata : GTLRObject
+@interface GTLRServiceDirectory_Service_Annotations : GTLRObject
 @end
 
 

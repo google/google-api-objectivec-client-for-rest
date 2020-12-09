@@ -1079,6 +1079,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation : GTLRObject
 
+/**
+ *  The thumbnail of a person's face.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+/** The face tracks with attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Track *> *tracks;
+
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -1911,6 +1922,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation : GTLRObject
 
+/**
+ *  The thumbnail of a person's face.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+/** The face tracks with attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Track *> *tracks;
+
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -2464,6 +2486,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Face detection annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation : GTLRObject
+
+/**
+ *  The thumbnail of a person's face.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+/** The face tracks with attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Track *> *tracks;
 
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -3308,6 +3341,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Face detection annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation : GTLRObject
+
+/**
+ *  The thumbnail of a person's face.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+/** The face tracks with attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Track *> *tracks;
 
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;
@@ -4211,6 +4255,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideoi
  *  Face detection annotation.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation : GTLRObject
+
+/**
+ *  The thumbnail of a person's face.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnail;
+
+/** The face tracks with attributes. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track *> *tracks;
 
 /** Feature version. */
 @property(nonatomic, copy, nullable) NSString *version;

@@ -388,7 +388,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsCancelWithObject:name:]
 
 /**
- *  The name of the `Build` to retrieve. Format:
+ *  The name of the `Build` to cancel. Format:
  *  `projects/{project}/locations/{location}/builds/{build}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -400,7 +400,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudBuild_CancelBuildRequest to include in the
  *    query.
- *  @param name The name of the `Build` to retrieve. Format:
+ *  @param name The name of the `Build` to cancel. Format:
  *    `projects/{project}/locations/{location}/builds/{build}`
  *
  *  @return GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel

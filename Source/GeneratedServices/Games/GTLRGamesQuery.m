@@ -28,6 +28,11 @@ NSString * const kGTLRGamesCollectionScoreCollectionUnspecified = @"SCORE_COLLEC
 NSString * const kGTLRGamesCollectionSocial                    = @"SOCIAL";
 NSString * const kGTLRGamesCollectionVisible                   = @"VISIBLE";
 
+// endPointType
+NSString * const kGTLRGamesEndPointTypeEndPointTypeUnspecified = @"END_POINT_TYPE_UNSPECIFIED";
+NSString * const kGTLRGamesEndPointTypeProfileCreation         = @"PROFILE_CREATION";
+NSString * const kGTLRGamesEndPointTypeProfileSettings         = @"PROFILE_SETTINGS";
+
 // includeRankType
 NSString * const kGTLRGamesIncludeRankTypeAll                  = @"ALL";
 NSString * const kGTLRGamesIncludeRankTypeFriends              = @"FRIENDS";
@@ -216,6 +221,23 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
   query.applicationId = applicationId;
   query.expectedObjectClass = [GTLRGames_Application class];
   query.loggingName = @"games.applications.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGamesQuery_ApplicationsGetEndPoint
+
+@dynamic applicationId, endPointType;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"games/v1/applications/getEndPoint";
+  GTLRGamesQuery_ApplicationsGetEndPoint *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGames_EndPoint class];
+  query.loggingName = @"games.applications.getEndPoint";
   return query;
 }
 

@@ -1010,6 +1010,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_OperationMetadataV1_Request *request;
 
+/** A field for Firebase function deployments */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
+
 /**
  *  Target of the operation - for example
  *  projects/project-1/locations/region-1/functions/function-1

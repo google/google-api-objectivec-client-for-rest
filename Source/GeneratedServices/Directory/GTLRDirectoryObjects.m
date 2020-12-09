@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin SDK (admin/directory_v1)
+//   Admin SDK API (admin/directory_v1)
 // Description:
 //   Admin SDK lets administrators of enterprise domains to view and manage
 //   resources like user, groups etc. It also provides audit and usage reports
@@ -293,7 +293,7 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
     @"lastKnownNetwork" : [GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item class],
-    @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
+    @"recentUsers" : [GTLRDirectory_RecentUsers class],
     @"systemRamFreeReports" : [GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item class]
   };
   return map;
@@ -366,16 +366,6 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
 
 @implementation GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
 @dynamic ipAddress, wanIpAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDirectory_ChromeOsDevice_RecentUsers_Item
-//
-
-@implementation GTLRDirectory_ChromeOsDevice_RecentUsers_Item
-@dynamic email, type;
 @end
 
 
@@ -974,6 +964,16 @@ NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandRequest_CommandType_W
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_RecentUsers
+//
+
+@implementation GTLRDirectory_RecentUsers
+@dynamic email, type;
 @end
 
 

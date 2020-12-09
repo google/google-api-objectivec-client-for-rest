@@ -6493,6 +6493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus;
 /** Value: "PREEMPTIBLE_NVIDIA_V100_GPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
+/** Value: "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork;
 /** Value: "PUBLIC_ADVERTISED_PREFIXES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes;
 /** Value: "PUBLIC_DELEGATED_PREFIXES" */
@@ -14155,10 +14157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_Binding : GTLRObject
 
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
 @property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
@@ -25187,6 +25185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *customerRouterIpAddress;
 
 /**
+ *  [Output Only] Dataplane version for this InterconnectAttachment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataplaneVersion;
+
+/**
  *  An optional description of this resource.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -33717,6 +33722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PREEMPTIBLE_NVIDIA_T4_VWS_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus Value
  *        "PREEMPTIBLE_NVIDIA_V100_GPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork
+ *        Value "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK"
  *    @arg @c kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes Value
  *        "PUBLIC_ADVERTISED_PREFIXES"
  *    @arg @c kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes Value

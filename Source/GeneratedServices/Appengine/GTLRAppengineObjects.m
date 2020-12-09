@@ -65,6 +65,14 @@ NSString * const kGTLRAppengine_Instance_Availability_Dynamic  = @"DYNAMIC";
 NSString * const kGTLRAppengine_Instance_Availability_Resident = @"RESIDENT";
 NSString * const kGTLRAppengine_Instance_Availability_Unspecified = @"UNSPECIFIED";
 
+// GTLRAppengine_Instance.vmLiveness
+NSString * const kGTLRAppengine_Instance_VmLiveness_Draining   = @"DRAINING";
+NSString * const kGTLRAppengine_Instance_VmLiveness_Healthy    = @"HEALTHY";
+NSString * const kGTLRAppengine_Instance_VmLiveness_LivenessStateUnspecified = @"LIVENESS_STATE_UNSPECIFIED";
+NSString * const kGTLRAppengine_Instance_VmLiveness_Timeout    = @"TIMEOUT";
+NSString * const kGTLRAppengine_Instance_VmLiveness_Unhealthy  = @"UNHEALTHY";
+NSString * const kGTLRAppengine_Instance_VmLiveness_Unknown    = @"UNKNOWN";
+
 // GTLRAppengine_ManagedCertificate.status
 NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedPermanent = @"FAILED_PERMANENT";
 NSString * const kGTLRAppengine_ManagedCertificate_Status_FailedRetryingCaaChecking = @"FAILED_RETRYING_CAA_CHECKING";
@@ -522,7 +530,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 @implementation GTLRAppengine_Instance
 @dynamic appEngineRelease, availability, averageLatency, errors, identifier,
          memoryUsage, name, qps, requests, startTime, vmDebugEnabled, vmId,
-         vmIp, vmName, vmStatus, vmZoneName;
+         vmIp, vmLiveness, vmName, vmStatus, vmZoneName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

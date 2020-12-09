@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin SDK (admin/reports_v1)
+//   Admin SDK API (admin/reports_v1)
 // Description:
 //   Admin SDK lets administrators of enterprise domains to view and manage
 //   resources like user, groups etc. It also provides audit and usage reports
@@ -68,13 +68,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of API resource. For an activity report, the value is
- *  reports#activities.
+ *  `reports#activities`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Token for retrieving the follow-on next page of the report. The
- *  nextPageToken value is used in the request's pageToken query string.
+ *  `nextPageToken` value is used in the request's `pageToken` query string.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of API resource. For an activity report, the value is
- *  audit#activity.
+ *  `audit#activity`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -141,7 +141,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  Only present when callerType is KEY. Can be the consumer_key of the
+ *  Only present when `callerType` is `KEY`. Can be the `consumer_key` of the
  *  requestor for OAuth 2LO API requests or an identifier for robot accounts.
  */
 @property(nonatomic, copy, nullable) NSString *key;
@@ -162,30 +162,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Name of the event. This is the specific name of the activity reported by the
- *  API. And each eventName is related to a specific G Suite service or feature
- *  which the API organizes into types of events. For eventName request
- *  parameters in general: - If no eventName is given, the report returns all
- *  possible instances of an eventName. - When you request an eventName, the
- *  API's response returns all activities which contain that eventName. It is
- *  possible that the returned activities will have other eventName properties
- *  in addition to the one requested. For more information about eventName
- *  properties, see the list of event names for various applications above in
- *  applicationName.
+ *  API. And each `eventName` is related to a specific G Suite service or
+ *  feature which the API organizes into types of events. For `eventName`
+ *  request parameters in general: - If no `eventName` is given, the report
+ *  returns all possible instances of an `eventName`. - When you request an
+ *  `eventName`, the API's response returns all activities which contain that
+ *  `eventName`. It is possible that the returned activities will have other
+ *  `eventName` properties in addition to the one requested. For more
+ *  information about `eventName` properties, see the list of event names for
+ *  various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Parameter value pairs for various applications. For more information about
- *  eventName parameters, see the list of event names for various applications
- *  above in applicationName.
+ *  `eventName` parameters, see the list of event names for various applications
+ *  above in `applicationName`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item *> *parameters;
 
 /**
  *  Type of event. The G Suite service or feature that an administrator changes
- *  is identified in the type property which identifies an event using the
- *  eventName property. For a full list of the API's type categories, see the
- *  list of event names for various applications above in applicationName.
+ *  is identified in the `type` property which identifies an event using the
+ *  `eventName` property. For a full list of the API's `type` categories, see
+ *  the list of event names for various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -199,7 +199,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Application name to which the event belongs. For possible values see the
- *  list of applications above in applicationName.
+ *  list of applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -243,8 +243,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Nested parameter value pairs associated with this parameter. Complex value
  *  type for a parameter are returned as a list of parameter values. For
- *  example, the address parameter may have a value as [{parameter: [{name:
- *  city, value: abc}]}]
+ *  example, the address parameter may have a value as `[{parameter: [{name:
+ *  city, value: abc}]}]`
  */
 @property(nonatomic, strong, nullable) GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue *messageValue;
 
@@ -255,7 +255,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiIntValue;
 
-/** List of messageValue objects. */
+/** List of `messageValue` objects. */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item *> *multiMessageValue;
 
 /** String values of the parameter. */
@@ -273,8 +273,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Nested parameter value pairs associated with this parameter. Complex value
  *  type for a parameter are returned as a list of parameter values. For
- *  example, the address parameter may have a value as [{parameter: [{name:
- *  city, value: abc}]}]
+ *  example, the address parameter may have a value as `[{parameter: [{name:
+ *  city, value: abc}]}]`
  */
 @interface GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue : GTLRObject
 
@@ -320,7 +320,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Identifies this as a notification channel used to watch for changes to a
- *  resource, which is "api#channel".
+ *  resource, which is "`api#channel`".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -349,7 +349,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
-/** The type of delivery mechanism used for this channel. */
+/**
+ *  The type of delivery mechanism used for this channel. The value should be
+ *  set to `"web_hook"`.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -428,14 +431,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of API resource. For a usage report, the value is
- *  admin#reports#usageReport.
+ *  `admin#reports#usageReport`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Output only. Parameter value pairs for various applications. For the
- *  Customers usage report parameters and values, see the customer usage
- *  parameters reference.
+ *  Output only. Parameter value pairs for various applications. For the Entity
+ *  Usage Report parameters and values, see [the Entity Usage parameters
+ *  reference](/admin-sdk/reports/v1/reference/usage-ref-appendix-a/entities).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item *> *parameters;
 
@@ -459,7 +462,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. The user's immutable G Suite profile identifier. */
 @property(nonatomic, copy, nullable) NSString *profileId;
 
-/** Output only. The type of item. The value is customer. */
+/** Output only. The type of item. The value is `user`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
@@ -498,7 +501,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Output only. Nested message value of the parameter. */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_UsageReport_Parameters_Item_MsgValue_Item *> *msgValue;
 
-/** Name of the parameter. */
+/**
+ *  The name of the parameter. For the User Usage Report parameter names, see
+ *  the User Usage parameters reference.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. String value of the parameter. */
@@ -529,14 +535,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The type of API resource. For a usage report, the value is
- *  admin#reports#usageReports.
+ *  `admin#reports#usageReports`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Token to specify next page. A report with multiple pages has a nextPageToken
- *  property in the response. For your follow-on requests getting all of the
- *  report's pages, enter the nextPageToken value in the pageToken query string.
+ *  Token to specify next page. A report with multiple pages has a
+ *  `nextPageToken` property in the response. For your follow-on requests
+ *  getting all of the report's pages, enter the `nextPageToken` value in the
+ *  `pageToken` query string.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -554,7 +561,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRReports_UsageReports_Warnings_Item : GTLRObject
 
-/** Machine readable code or warning type. The warning code value is 200. */
+/** Machine readable code or warning type. The warning code value is `200`. */
 @property(nonatomic, copy, nullable) NSString *code;
 
 /** Key-value pairs to give detailed information on the warning. */
@@ -562,9 +569,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The human readable messages for a warning are: - Data is not available
- *  warning - Sorry, data for date yyyy-mm-dd for application "application name"
- *  is not available. - Partial data is available warning - Data for date
- *  yyyy-mm-dd for application "application name" is not available right now,
+ *  warning - Sorry, data for date yyyy-mm-dd for application "`application
+ *  name`" is not available. - Partial data is available warning - Data for date
+ *  yyyy-mm-dd for application "`application name`" is not available right now,
  *  please try again after a few hours.
  */
 @property(nonatomic, copy, nullable) NSString *message;

@@ -48,7 +48,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/acceleratorTypes";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/acceleratorTypes";
   GTLRComputeQuery_AcceleratorTypesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -75,7 +75,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"acceleratorType", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/acceleratorTypes/{acceleratorType}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/acceleratorTypes/{acceleratorType}";
   GTLRComputeQuery_AcceleratorTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -104,7 +104,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/acceleratorTypes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/acceleratorTypes";
   GTLRComputeQuery_AcceleratorTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -125,7 +125,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/addresses";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/addresses";
   GTLRComputeQuery_AddressesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -148,7 +148,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"address", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/addresses/{address}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/addresses/{address}";
   GTLRComputeQuery_AddressesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -173,7 +173,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"address", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/addresses/{address}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/addresses/{address}";
   GTLRComputeQuery_AddressesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -204,7 +204,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/addresses";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/addresses";
   GTLRComputeQuery_AddressesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -229,7 +229,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/addresses";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/addresses";
   GTLRComputeQuery_AddressesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -250,7 +250,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/autoscalers";
   GTLRComputeQuery_AutoscalersAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -277,7 +277,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"autoscaler", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers/{autoscaler}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers/{autoscaler}";
   GTLRComputeQuery_AutoscalersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -306,7 +306,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"autoscaler", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers/{autoscaler}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers/{autoscaler}";
   GTLRComputeQuery_AutoscalersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -341,7 +341,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers";
   GTLRComputeQuery_AutoscalersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -370,7 +370,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers";
   GTLRComputeQuery_AutoscalersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -404,7 +404,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers";
   GTLRComputeQuery_AutoscalersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -439,7 +439,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/autoscalers";
   GTLRComputeQuery_AutoscalersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -470,7 +470,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}/addSignedUrlKey";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}/addSignedUrlKey";
   GTLRComputeQuery_BackendBucketsAddSignedUrlKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -494,7 +494,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}";
   GTLRComputeQuery_BackendBucketsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -518,7 +518,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}/deleteSignedUrlKey";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}/deleteSignedUrlKey";
   GTLRComputeQuery_BackendBucketsDeleteSignedUrlKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -542,7 +542,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}";
   GTLRComputeQuery_BackendBucketsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -569,7 +569,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets";
   GTLRComputeQuery_BackendBucketsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -589,7 +589,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets";
   GTLRComputeQuery_BackendBucketsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -618,7 +618,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}";
   GTLRComputeQuery_BackendBucketsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -649,7 +649,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendBucket", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendBuckets/{backendBucket}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendBuckets/{backendBucket}";
   GTLRComputeQuery_BackendBucketsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -680,7 +680,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}/addSignedUrlKey";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}/addSignedUrlKey";
   GTLRComputeQuery_BackendServicesAddSignedUrlKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -702,7 +702,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/backendServices";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/backendServices";
   GTLRComputeQuery_BackendServicesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -724,7 +724,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}";
   GTLRComputeQuery_BackendServicesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -748,7 +748,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}/deleteSignedUrlKey";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}/deleteSignedUrlKey";
   GTLRComputeQuery_BackendServicesDeleteSignedUrlKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -772,7 +772,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}";
   GTLRComputeQuery_BackendServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -802,7 +802,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}/getHealth";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}/getHealth";
   GTLRComputeQuery_BackendServicesGetHealth *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -830,7 +830,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/backendServices";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices";
   GTLRComputeQuery_BackendServicesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -850,7 +850,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/backendServices";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices";
   GTLRComputeQuery_BackendServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -879,7 +879,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}";
   GTLRComputeQuery_BackendServicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -910,7 +910,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}/setSecurityPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}/setSecurityPolicy";
   GTLRComputeQuery_BackendServicesSetSecurityPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -941,7 +941,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/global/backendServices/{backendService}";
   GTLRComputeQuery_BackendServicesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -977,7 +977,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/addResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}/addResourcePolicies";
   GTLRComputeQuery_DisksAddResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1000,7 +1000,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/disks";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/disks";
   GTLRComputeQuery_DisksAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1034,7 +1034,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/createSnapshot";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}/createSnapshot";
   GTLRComputeQuery_DisksCreateSnapshot *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1064,7 +1064,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}";
   GTLRComputeQuery_DisksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1093,7 +1093,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}";
   GTLRComputeQuery_DisksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1122,7 +1122,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{resource}/getIamPolicy";
   GTLRComputeQuery_DisksGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1157,7 +1157,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks";
   GTLRComputeQuery_DisksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1186,7 +1186,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks";
   GTLRComputeQuery_DisksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1221,7 +1221,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/removeResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}/removeResourcePolicies";
   GTLRComputeQuery_DisksRemoveResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1258,7 +1258,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{disk}/resize";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{disk}/resize";
   GTLRComputeQuery_DisksResize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1295,7 +1295,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{resource}/setIamPolicy";
   GTLRComputeQuery_DisksSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1332,7 +1332,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{resource}/setLabels";
   GTLRComputeQuery_DisksSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1369,7 +1369,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/disks/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/disks/{resource}/testIamPermissions";
   GTLRComputeQuery_DisksTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1392,7 +1392,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/diskTypes";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/diskTypes";
   GTLRComputeQuery_DiskTypesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1419,7 +1419,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"diskType", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/diskTypes/{diskType}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/diskTypes/{diskType}";
   GTLRComputeQuery_DiskTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1448,7 +1448,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/diskTypes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/diskTypes";
   GTLRComputeQuery_DiskTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1471,7 +1471,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"externalVpnGateway", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways/{externalVpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways/{externalVpnGateway}";
   GTLRComputeQuery_ExternalVpnGatewaysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1494,7 +1494,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"externalVpnGateway", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways/{externalVpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways/{externalVpnGateway}";
   GTLRComputeQuery_ExternalVpnGatewaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1521,7 +1521,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways";
   GTLRComputeQuery_ExternalVpnGatewaysInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1541,7 +1541,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways";
   GTLRComputeQuery_ExternalVpnGatewaysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1570,7 +1570,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways/{resource}/setLabels";
   GTLRComputeQuery_ExternalVpnGatewaysSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1601,7 +1601,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/externalVpnGateways/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/externalVpnGateways/{resource}/testIamPermissions";
   GTLRComputeQuery_ExternalVpnGatewaysTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1625,7 +1625,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"firewall", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/firewalls/{firewall}";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls/{firewall}";
   GTLRComputeQuery_FirewallsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1648,7 +1648,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"firewall", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/firewalls/{firewall}";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls/{firewall}";
   GTLRComputeQuery_FirewallsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1675,7 +1675,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/firewalls";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls";
   GTLRComputeQuery_FirewallsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1695,7 +1695,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/firewalls";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls";
   GTLRComputeQuery_FirewallsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1724,7 +1724,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"firewall", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/firewalls/{firewall}";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls/{firewall}";
   GTLRComputeQuery_FirewallsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1755,7 +1755,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"firewall", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/firewalls/{firewall}";
+  NSString *pathURITemplate = @"projects/{project}/global/firewalls/{firewall}";
   GTLRComputeQuery_FirewallsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1777,7 +1777,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/forwardingRules";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/forwardingRules";
   GTLRComputeQuery_ForwardingRulesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1800,7 +1800,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_ForwardingRulesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1825,7 +1825,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_ForwardingRulesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1856,7 +1856,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules";
   GTLRComputeQuery_ForwardingRulesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1881,7 +1881,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules";
   GTLRComputeQuery_ForwardingRulesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1912,7 +1912,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_ForwardingRulesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1945,7 +1945,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/forwardingRules/{forwardingRule}/setTarget";
   GTLRComputeQuery_ForwardingRulesSetTarget *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1970,7 +1970,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"address", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/addresses/{address}";
+  NSString *pathURITemplate = @"projects/{project}/global/addresses/{address}";
   GTLRComputeQuery_GlobalAddressesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1993,7 +1993,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"address", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/addresses/{address}";
+  NSString *pathURITemplate = @"projects/{project}/global/addresses/{address}";
   GTLRComputeQuery_GlobalAddressesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2020,7 +2020,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/addresses";
+  NSString *pathURITemplate = @"projects/{project}/global/addresses";
   GTLRComputeQuery_GlobalAddressesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2040,7 +2040,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/addresses";
+  NSString *pathURITemplate = @"projects/{project}/global/addresses";
   GTLRComputeQuery_GlobalAddressesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2062,7 +2062,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_GlobalForwardingRulesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2085,7 +2085,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_GlobalForwardingRulesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2112,7 +2112,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules";
   GTLRComputeQuery_GlobalForwardingRulesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2132,7 +2132,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules";
   GTLRComputeQuery_GlobalForwardingRulesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2161,7 +2161,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules/{forwardingRule}";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules/{forwardingRule}";
   GTLRComputeQuery_GlobalForwardingRulesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2192,7 +2192,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"forwardingRule", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/forwardingRules/{forwardingRule}/setTarget";
+  NSString *pathURITemplate = @"projects/{project}/global/forwardingRules/{forwardingRule}/setTarget";
   GTLRComputeQuery_GlobalForwardingRulesSetTarget *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2223,7 +2223,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsAttachNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2247,7 +2247,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2277,7 +2277,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsDetachNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2301,7 +2301,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2328,7 +2328,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2348,7 +2348,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2371,7 +2371,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/global/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
   GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2392,7 +2392,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/operations";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/operations";
   GTLRComputeQuery_GlobalOperationsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2414,7 +2414,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/global/operations/{operation}";
   GTLRComputeQuery_GlobalOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2436,7 +2436,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/global/operations/{operation}";
   GTLRComputeQuery_GlobalOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2456,7 +2456,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/operations";
+  NSString *pathURITemplate = @"projects/{project}/global/operations";
   GTLRComputeQuery_GlobalOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2478,7 +2478,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/operations/{operation}/wait";
+  NSString *pathURITemplate = @"projects/{project}/global/operations/{operation}/wait";
   GTLRComputeQuery_GlobalOperationsWait *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2492,6 +2492,60 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_GlobalOrganizationOperationsDelete
+
+@dynamic operation, parentId;
+
++ (instancetype)queryWithOperation:(NSString *)operation {
+  NSArray *pathParams = @[ @"operation" ];
+  NSString *pathURITemplate = @"locations/global/operations/{operation}";
+  GTLRComputeQuery_GlobalOrganizationOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.operation = operation;
+  query.loggingName = @"compute.globalOrganizationOperations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalOrganizationOperationsGet
+
+@dynamic operation, parentId;
+
++ (instancetype)queryWithOperation:(NSString *)operation {
+  NSArray *pathParams = @[ @"operation" ];
+  NSString *pathURITemplate = @"locations/global/operations/{operation}";
+  GTLRComputeQuery_GlobalOrganizationOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.operation = operation;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalOrganizationOperations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalOrganizationOperationsList
+
+@dynamic filter, maxResults, orderBy, pageToken, parentId, returnPartialSuccess;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"locations/global/operations";
+  GTLRComputeQuery_GlobalOrganizationOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCompute_OperationList class];
+  query.loggingName = @"compute.globalOrganizationOperations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
@@ -2499,7 +2553,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/healthChecks";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/healthChecks";
   GTLRComputeQuery_HealthChecksAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2521,7 +2575,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks/{healthCheck}";
   GTLRComputeQuery_HealthChecksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2544,7 +2598,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks/{healthCheck}";
   GTLRComputeQuery_HealthChecksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2571,7 +2625,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks";
   GTLRComputeQuery_HealthChecksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2591,7 +2645,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks";
   GTLRComputeQuery_HealthChecksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2620,7 +2674,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks/{healthCheck}";
   GTLRComputeQuery_HealthChecksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2651,7 +2705,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/healthChecks/{healthCheck}";
   GTLRComputeQuery_HealthChecksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2675,7 +2729,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks/{httpHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks/{httpHealthCheck}";
   GTLRComputeQuery_HttpHealthChecksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2698,7 +2752,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks/{httpHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks/{httpHealthCheck}";
   GTLRComputeQuery_HttpHealthChecksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2725,7 +2779,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks";
   GTLRComputeQuery_HttpHealthChecksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2745,7 +2799,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks";
   GTLRComputeQuery_HttpHealthChecksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2774,7 +2828,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks/{httpHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks/{httpHealthCheck}";
   GTLRComputeQuery_HttpHealthChecksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2805,7 +2859,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpHealthChecks/{httpHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpHealthChecks/{httpHealthCheck}";
   GTLRComputeQuery_HttpHealthChecksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2829,7 +2883,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpsHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks/{httpsHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}";
   GTLRComputeQuery_HttpsHealthChecksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2852,7 +2906,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpsHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks/{httpsHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}";
   GTLRComputeQuery_HttpsHealthChecksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2879,7 +2933,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks";
   GTLRComputeQuery_HttpsHealthChecksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2899,7 +2953,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks";
   GTLRComputeQuery_HttpsHealthChecksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2928,7 +2982,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpsHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks/{httpsHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}";
   GTLRComputeQuery_HttpsHealthChecksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2959,7 +3013,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"httpsHealthCheck", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/httpsHealthChecks/{httpsHealthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/global/httpsHealthChecks/{httpsHealthCheck}";
   GTLRComputeQuery_HttpsHealthChecksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2983,7 +3037,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"image", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{image}";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{image}";
   GTLRComputeQuery_ImagesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3013,7 +3067,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"image", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{image}/deprecate";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{image}/deprecate";
   GTLRComputeQuery_ImagesDeprecate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3037,7 +3091,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"image", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{image}";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{image}";
   GTLRComputeQuery_ImagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3060,7 +3114,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"family", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/family/{family}";
+  NSString *pathURITemplate = @"projects/{project}/global/images/family/{family}";
   GTLRComputeQuery_ImagesGetFromFamily *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3083,7 +3137,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{resource}/getIamPolicy";
   GTLRComputeQuery_ImagesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3110,7 +3164,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/images";
+  NSString *pathURITemplate = @"projects/{project}/global/images";
   GTLRComputeQuery_ImagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3130,7 +3184,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/images";
+  NSString *pathURITemplate = @"projects/{project}/global/images";
   GTLRComputeQuery_ImagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3159,7 +3213,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"image", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{image}";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{image}";
   GTLRComputeQuery_ImagesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3190,7 +3244,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{resource}/setIamPolicy";
   GTLRComputeQuery_ImagesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3221,7 +3275,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{resource}/setLabels";
   GTLRComputeQuery_ImagesSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3252,7 +3306,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/images/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/images/{resource}/testIamPermissions";
   GTLRComputeQuery_ImagesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3288,7 +3342,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/abandonInstances";
   GTLRComputeQuery_InstanceGroupManagersAbandonInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3311,7 +3365,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/instanceGroupManagers";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/instanceGroupManagers";
   GTLRComputeQuery_InstanceGroupManagersAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3345,7 +3399,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
   GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3382,7 +3436,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/createInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/createInstances";
   GTLRComputeQuery_InstanceGroupManagersCreateInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3412,7 +3466,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_InstanceGroupManagersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -3448,7 +3502,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deleteInstances";
   GTLRComputeQuery_InstanceGroupManagersDeleteInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3485,7 +3539,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
   GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3515,7 +3569,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_InstanceGroupManagersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3550,7 +3604,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers";
   GTLRComputeQuery_InstanceGroupManagersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3579,7 +3633,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers";
   GTLRComputeQuery_InstanceGroupManagersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3608,7 +3662,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listErrors";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listErrors";
   GTLRComputeQuery_InstanceGroupManagersListErrors *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3638,7 +3692,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances";
   GTLRComputeQuery_InstanceGroupManagersListManagedInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3668,7 +3722,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
   GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3704,7 +3758,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_InstanceGroupManagersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3741,7 +3795,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
   GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3778,7 +3832,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/recreateInstances";
   GTLRComputeQuery_InstanceGroupManagersRecreateInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3809,7 +3863,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/resize";
   GTLRComputeQuery_InstanceGroupManagersResize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3846,7 +3900,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate";
   GTLRComputeQuery_InstanceGroupManagersSetInstanceTemplate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3883,7 +3937,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/setTargetPools";
   GTLRComputeQuery_InstanceGroupManagersSetTargetPools *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3920,7 +3974,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
   GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3957,7 +4011,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/addInstances";
   GTLRComputeQuery_InstanceGroupsAddInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3980,7 +4034,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/instanceGroups";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/instanceGroups";
   GTLRComputeQuery_InstanceGroupsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4007,7 +4061,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}";
   GTLRComputeQuery_InstanceGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -4036,7 +4090,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}";
   GTLRComputeQuery_InstanceGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4071,7 +4125,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups";
   GTLRComputeQuery_InstanceGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4100,7 +4154,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups";
   GTLRComputeQuery_InstanceGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4136,7 +4190,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/listInstances";
   GTLRComputeQuery_InstanceGroupsListInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4173,7 +4227,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/removeInstances";
   GTLRComputeQuery_InstanceGroupsRemoveInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4210,7 +4264,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instanceGroups/{instanceGroup}/setNamedPorts";
   GTLRComputeQuery_InstanceGroupsSetNamedPorts *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4248,7 +4302,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/addAccessConfig";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/addAccessConfig";
   GTLRComputeQuery_InstancesAddAccessConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4286,7 +4340,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/addResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/addResourcePolicies";
   GTLRComputeQuery_InstancesAddResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4309,7 +4363,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/instances";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/instances";
   GTLRComputeQuery_InstancesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4343,7 +4397,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/attachDisk";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/attachDisk";
   GTLRComputeQuery_InstancesAttachDisk *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4373,7 +4427,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}";
   GTLRComputeQuery_InstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -4405,7 +4459,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/deleteAccessConfig";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/deleteAccessConfig";
   GTLRComputeQuery_InstancesDeleteAccessConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4437,7 +4491,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/detachDisk";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/detachDisk";
   GTLRComputeQuery_InstancesDetachDisk *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4467,7 +4521,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}";
   GTLRComputeQuery_InstancesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4496,7 +4550,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/getGuestAttributes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/getGuestAttributes";
   GTLRComputeQuery_InstancesGetGuestAttributes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4525,7 +4579,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{resource}/getIamPolicy";
   GTLRComputeQuery_InstancesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4554,7 +4608,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/screenshot";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/screenshot";
   GTLRComputeQuery_InstancesGetScreenshot *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4583,7 +4637,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/serialPort";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/serialPort";
   GTLRComputeQuery_InstancesGetSerialPortOutput *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4612,7 +4666,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/getShieldedInstanceIdentity";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/getShieldedInstanceIdentity";
   GTLRComputeQuery_InstancesGetShieldedInstanceIdentity *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4647,7 +4701,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances";
   GTLRComputeQuery_InstancesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4676,7 +4730,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances";
   GTLRComputeQuery_InstancesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4705,7 +4759,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/referrers";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/referrers";
   GTLRComputeQuery_InstancesListReferrers *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4741,7 +4795,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/removeResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/removeResourcePolicies";
   GTLRComputeQuery_InstancesRemoveResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4771,7 +4825,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/reset";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/reset";
   GTLRComputeQuery_InstancesReset *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4800,7 +4854,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/setDeletionProtection";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{resource}/setDeletionProtection";
   GTLRComputeQuery_InstancesSetDeletionProtection *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4831,7 +4885,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setDiskAutoDelete";
   GTLRComputeQuery_InstancesSetDiskAutoDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4869,7 +4923,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{resource}/setIamPolicy";
   GTLRComputeQuery_InstancesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4906,7 +4960,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setLabels";
   GTLRComputeQuery_InstancesSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4943,7 +4997,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setMachineResources";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setMachineResources";
   GTLRComputeQuery_InstancesSetMachineResources *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4980,7 +5034,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setMachineType";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setMachineType";
   GTLRComputeQuery_InstancesSetMachineType *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5017,7 +5071,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setMetadata";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setMetadata";
   GTLRComputeQuery_InstancesSetMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5054,7 +5108,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setMinCpuPlatform";
   GTLRComputeQuery_InstancesSetMinCpuPlatform *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5091,7 +5145,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setScheduling";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setScheduling";
   GTLRComputeQuery_InstancesSetScheduling *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5128,7 +5182,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setServiceAccount";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setServiceAccount";
   GTLRComputeQuery_InstancesSetServiceAccount *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5165,7 +5219,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setShieldedInstanceIntegrityPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setShieldedInstanceIntegrityPolicy";
   GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5202,7 +5256,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/setTags";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/setTags";
   GTLRComputeQuery_InstancesSetTags *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5232,7 +5286,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/simulateMaintenanceEvent";
   GTLRComputeQuery_InstancesSimulateMaintenanceEvent *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5261,7 +5315,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/start";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/start";
   GTLRComputeQuery_InstancesStart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5297,7 +5351,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/startWithEncryptionKey";
   GTLRComputeQuery_InstancesStartWithEncryptionKey *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5327,7 +5381,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/stop";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/stop";
   GTLRComputeQuery_InstancesStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5363,7 +5417,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{resource}/testIamPermissions";
   GTLRComputeQuery_InstancesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5401,7 +5455,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}";
   GTLRComputeQuery_InstancesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -5439,7 +5493,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateAccessConfig";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/updateAccessConfig";
   GTLRComputeQuery_InstancesUpdateAccessConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5477,7 +5531,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateDisplayDevice";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/updateDisplayDevice";
   GTLRComputeQuery_InstancesUpdateDisplayDevice *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5515,7 +5569,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateNetworkInterface";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/updateNetworkInterface";
   GTLRComputeQuery_InstancesUpdateNetworkInterface *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5553,7 +5607,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instance", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/instances/{instance}/updateShieldedInstanceConfig";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/updateShieldedInstanceConfig";
   GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5578,7 +5632,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceTemplate", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{instanceTemplate}";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates/{instanceTemplate}";
   GTLRComputeQuery_InstanceTemplatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -5601,7 +5655,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceTemplate", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{instanceTemplate}";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates/{instanceTemplate}";
   GTLRComputeQuery_InstanceTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5624,7 +5678,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates/{resource}/getIamPolicy";
   GTLRComputeQuery_InstanceTemplatesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5651,7 +5705,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates";
   GTLRComputeQuery_InstanceTemplatesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5671,7 +5725,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates";
   GTLRComputeQuery_InstanceTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5700,7 +5754,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates/{resource}/setIamPolicy";
   GTLRComputeQuery_InstanceTemplatesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5731,7 +5785,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/instanceTemplates/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/instanceTemplates/{resource}/testIamPermissions";
   GTLRComputeQuery_InstanceTemplatesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5753,7 +5807,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/interconnectAttachments";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/interconnectAttachments";
   GTLRComputeQuery_InterconnectAttachmentsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5776,7 +5830,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnectAttachment", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
   GTLRComputeQuery_InterconnectAttachmentsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -5801,7 +5855,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnectAttachment", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
   GTLRComputeQuery_InterconnectAttachmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5832,7 +5886,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/interconnectAttachments";
   GTLRComputeQuery_InterconnectAttachmentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5857,7 +5911,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/interconnectAttachments";
   GTLRComputeQuery_InterconnectAttachmentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5888,7 +5942,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnectAttachment", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/interconnectAttachments/{interconnectAttachment}";
   GTLRComputeQuery_InterconnectAttachmentsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5913,7 +5967,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnectLocation", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/interconnectLocations/{interconnectLocation}";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnectLocations/{interconnectLocation}";
   GTLRComputeQuery_InterconnectLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5933,7 +5987,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/interconnectLocations";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnectLocations";
   GTLRComputeQuery_InterconnectLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5955,7 +6009,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnect", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}";
   GTLRComputeQuery_InterconnectsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -5978,7 +6032,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnect", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}";
   GTLRComputeQuery_InterconnectsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6001,7 +6055,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnect", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}/getDiagnostics";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}/getDiagnostics";
   GTLRComputeQuery_InterconnectsGetDiagnostics *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6028,7 +6082,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/interconnects";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects";
   GTLRComputeQuery_InterconnectsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6048,7 +6102,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/interconnects";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects";
   GTLRComputeQuery_InterconnectsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6077,7 +6131,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"interconnect", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/interconnects/{interconnect}";
+  NSString *pathURITemplate = @"projects/{project}/global/interconnects/{interconnect}";
   GTLRComputeQuery_InterconnectsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -6101,7 +6155,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"licenseCode", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenseCodes/{licenseCode}";
+  NSString *pathURITemplate = @"projects/{project}/global/licenseCodes/{licenseCode}";
   GTLRComputeQuery_LicenseCodesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6131,7 +6185,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenseCodes/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/licenseCodes/{resource}/testIamPermissions";
   GTLRComputeQuery_LicenseCodesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6155,7 +6209,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"license", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenses/{license}";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses/{license}";
   GTLRComputeQuery_LicensesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -6178,7 +6232,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"license", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenses/{license}";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses/{license}";
   GTLRComputeQuery_LicensesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6201,7 +6255,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenses/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses/{resource}/getIamPolicy";
   GTLRComputeQuery_LicensesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6228,7 +6282,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/licenses";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses";
   GTLRComputeQuery_LicensesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6248,7 +6302,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/licenses";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses";
   GTLRComputeQuery_LicensesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6277,7 +6331,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenses/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses/{resource}/setIamPolicy";
   GTLRComputeQuery_LicensesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6308,7 +6362,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/licenses/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/licenses/{resource}/testIamPermissions";
   GTLRComputeQuery_LicensesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6330,7 +6384,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/machineTypes";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/machineTypes";
   GTLRComputeQuery_MachineTypesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6357,7 +6411,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"machineType", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/machineTypes/{machineType}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/machineTypes/{machineType}";
   GTLRComputeQuery_MachineTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6386,7 +6440,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/machineTypes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/machineTypes";
   GTLRComputeQuery_MachineTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6407,7 +6461,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/networkEndpointGroups";
   GTLRComputeQuery_NetworkEndpointGroupsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6441,7 +6495,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/attachNetworkEndpoints";
   GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6471,7 +6525,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_NetworkEndpointGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -6507,7 +6561,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/detachNetworkEndpoints";
   GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6537,7 +6591,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_NetworkEndpointGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6572,7 +6626,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups";
   GTLRComputeQuery_NetworkEndpointGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6601,7 +6655,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups";
   GTLRComputeQuery_NetworkEndpointGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6637,7 +6691,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{networkEndpointGroup}/listNetworkEndpoints";
   GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6674,7 +6728,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/networkEndpointGroups/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/networkEndpointGroups/{resource}/testIamPermissions";
   GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6706,7 +6760,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}/addPeering";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/addPeering";
   GTLRComputeQuery_NetworksAddPeering *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6730,7 +6784,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}";
   GTLRComputeQuery_NetworksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -6753,7 +6807,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}";
   GTLRComputeQuery_NetworksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6780,7 +6834,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/networks";
+  NSString *pathURITemplate = @"projects/{project}/global/networks";
   GTLRComputeQuery_NetworksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6800,7 +6854,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/networks";
+  NSString *pathURITemplate = @"projects/{project}/global/networks";
   GTLRComputeQuery_NetworksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6823,7 +6877,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}/listPeeringRoutes";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/listPeeringRoutes";
   GTLRComputeQuery_NetworksListPeeringRoutes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -6853,7 +6907,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}";
   GTLRComputeQuery_NetworksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -6884,7 +6938,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}/removePeering";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/removePeering";
   GTLRComputeQuery_NetworksRemovePeering *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6908,7 +6962,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}/switchToCustomMode";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/switchToCustomMode";
   GTLRComputeQuery_NetworksSwitchToCustomMode *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6938,7 +6992,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"network", @"project"
   ];
-  NSString *pathURITemplate = @"{project}/global/networks/{network}/updatePeering";
+  NSString *pathURITemplate = @"projects/{project}/global/networks/{network}/updatePeering";
   GTLRComputeQuery_NetworksUpdatePeering *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -6974,7 +7028,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/addNodes";
   GTLRComputeQuery_NodeGroupsAddNodes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -6997,7 +7051,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/nodeGroups";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/nodeGroups";
   GTLRComputeQuery_NodeGroupsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7024,7 +7078,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}";
   GTLRComputeQuery_NodeGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -7060,7 +7114,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/deleteNodes";
   GTLRComputeQuery_NodeGroupsDeleteNodes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7090,7 +7144,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}";
   GTLRComputeQuery_NodeGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7119,7 +7173,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{resource}/getIamPolicy";
   GTLRComputeQuery_NodeGroupsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7155,7 +7209,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups";
   GTLRComputeQuery_NodeGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7185,7 +7239,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups";
   GTLRComputeQuery_NodeGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7214,7 +7268,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/listNodes";
   GTLRComputeQuery_NodeGroupsListNodes *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7250,7 +7304,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}";
   GTLRComputeQuery_NodeGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -7287,7 +7341,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{resource}/setIamPolicy";
   GTLRComputeQuery_NodeGroupsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7324,7 +7378,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeGroup", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{nodeGroup}/setNodeTemplate";
   GTLRComputeQuery_NodeGroupsSetNodeTemplate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7361,7 +7415,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeGroups/{resource}/testIamPermissions";
   GTLRComputeQuery_NodeGroupsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7384,7 +7438,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/nodeTemplates";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/nodeTemplates";
   GTLRComputeQuery_NodeTemplatesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7407,7 +7461,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeTemplate", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
   GTLRComputeQuery_NodeTemplatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -7432,7 +7486,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeTemplate", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates/{nodeTemplate}";
   GTLRComputeQuery_NodeTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7457,7 +7511,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates/{resource}/getIamPolicy";
   GTLRComputeQuery_NodeTemplatesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7488,7 +7542,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates";
   GTLRComputeQuery_NodeTemplatesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7513,7 +7567,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates";
   GTLRComputeQuery_NodeTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7544,7 +7598,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates/{resource}/setIamPolicy";
   GTLRComputeQuery_NodeTemplatesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7577,7 +7631,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/nodeTemplates/{resource}/testIamPermissions";
   GTLRComputeQuery_NodeTemplatesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7600,7 +7654,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/nodeTypes";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/nodeTypes";
   GTLRComputeQuery_NodeTypesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7627,7 +7681,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"nodeType", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeTypes/{nodeType}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeTypes/{nodeType}";
   GTLRComputeQuery_NodeTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7656,7 +7710,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/nodeTypes";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/nodeTypes";
   GTLRComputeQuery_NodeTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7677,7 +7731,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/packetMirrorings";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/packetMirrorings";
   GTLRComputeQuery_PacketMirroringsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7700,7 +7754,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"packetMirroring", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}";
   GTLRComputeQuery_PacketMirroringsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -7725,7 +7779,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"packetMirroring", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}";
   GTLRComputeQuery_PacketMirroringsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7756,7 +7810,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings";
   GTLRComputeQuery_PacketMirroringsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7781,7 +7835,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings";
   GTLRComputeQuery_PacketMirroringsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7812,7 +7866,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"packetMirroring", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{packetMirroring}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings/{packetMirroring}";
   GTLRComputeQuery_PacketMirroringsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -7845,7 +7899,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/packetMirrorings/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/packetMirrorings/{resource}/testIamPermissions";
   GTLRComputeQuery_PacketMirroringsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7867,7 +7921,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/disableXpnHost";
+  NSString *pathURITemplate = @"projects/{project}/disableXpnHost";
   GTLRComputeQuery_ProjectsDisableXpnHost *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7893,7 +7947,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/disableXpnResource";
+  NSString *pathURITemplate = @"projects/{project}/disableXpnResource";
   GTLRComputeQuery_ProjectsDisableXpnResource *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7913,7 +7967,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/enableXpnHost";
+  NSString *pathURITemplate = @"projects/{project}/enableXpnHost";
   GTLRComputeQuery_ProjectsEnableXpnHost *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7939,7 +7993,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/enableXpnResource";
+  NSString *pathURITemplate = @"projects/{project}/enableXpnResource";
   GTLRComputeQuery_ProjectsEnableXpnResource *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -7959,7 +8013,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}";
+  NSString *pathURITemplate = @"projects/{project}";
   GTLRComputeQuery_ProjectsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7978,7 +8032,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/getXpnHost";
+  NSString *pathURITemplate = @"projects/{project}/getXpnHost";
   GTLRComputeQuery_ProjectsGetXpnHost *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -7997,7 +8051,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/getXpnResources";
+  NSString *pathURITemplate = @"projects/{project}/getXpnResources";
   GTLRComputeQuery_ProjectsGetXpnResources *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8023,7 +8077,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/listXpnHosts";
+  NSString *pathURITemplate = @"projects/{project}/listXpnHosts";
   GTLRComputeQuery_ProjectsListXpnHosts *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8050,7 +8104,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/moveDisk";
+  NSString *pathURITemplate = @"projects/{project}/moveDisk";
   GTLRComputeQuery_ProjectsMoveDisk *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8077,7 +8131,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/moveInstance";
+  NSString *pathURITemplate = @"projects/{project}/moveInstance";
   GTLRComputeQuery_ProjectsMoveInstance *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8104,7 +8158,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/setCommonInstanceMetadata";
+  NSString *pathURITemplate = @"projects/{project}/setCommonInstanceMetadata";
   GTLRComputeQuery_ProjectsSetCommonInstanceMetadata *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8131,7 +8185,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/setDefaultNetworkTier";
+  NSString *pathURITemplate = @"projects/{project}/setDefaultNetworkTier";
   GTLRComputeQuery_ProjectsSetDefaultNetworkTier *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8158,7 +8212,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/setUsageExportBucket";
+  NSString *pathURITemplate = @"projects/{project}/setUsageExportBucket";
   GTLRComputeQuery_ProjectsSetUsageExportBucket *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8182,7 +8236,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"autoscaler", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers/{autoscaler}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers/{autoscaler}";
   GTLRComputeQuery_RegionAutoscalersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -8207,7 +8261,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"autoscaler", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers/{autoscaler}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers/{autoscaler}";
   GTLRComputeQuery_RegionAutoscalersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8238,7 +8292,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers";
   GTLRComputeQuery_RegionAutoscalersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8263,7 +8317,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers";
   GTLRComputeQuery_RegionAutoscalersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8293,7 +8347,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers";
   GTLRComputeQuery_RegionAutoscalersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -8324,7 +8378,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/autoscalers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/autoscalers";
   GTLRComputeQuery_RegionAutoscalersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -8349,7 +8403,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}";
   GTLRComputeQuery_RegionBackendServicesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -8374,7 +8428,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}";
   GTLRComputeQuery_RegionBackendServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8406,7 +8460,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices/{backendService}/getHealth";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}/getHealth";
   GTLRComputeQuery_RegionBackendServicesGetHealth *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8438,7 +8492,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices";
   GTLRComputeQuery_RegionBackendServicesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8463,7 +8517,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices";
   GTLRComputeQuery_RegionBackendServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8494,7 +8548,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}";
   GTLRComputeQuery_RegionBackendServicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -8527,7 +8581,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"backendService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/backendServices/{backendService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/backendServices/{backendService}";
   GTLRComputeQuery_RegionBackendServicesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -8550,7 +8604,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/commitments";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/commitments";
   GTLRComputeQuery_RegionCommitmentsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8573,7 +8627,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"commitment", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/commitments/{commitment}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/commitments/{commitment}";
   GTLRComputeQuery_RegionCommitmentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8604,7 +8658,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/commitments";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/commitments";
   GTLRComputeQuery_RegionCommitmentsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8629,7 +8683,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/commitments";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/commitments";
   GTLRComputeQuery_RegionCommitmentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8660,7 +8714,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/addResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}/addResourcePolicies";
   GTLRComputeQuery_RegionDisksAddResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8693,7 +8747,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/createSnapshot";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}/createSnapshot";
   GTLRComputeQuery_RegionDisksCreateSnapshot *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8719,7 +8773,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}";
   GTLRComputeQuery_RegionDisksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -8744,7 +8798,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}";
   GTLRComputeQuery_RegionDisksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8769,7 +8823,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{resource}/getIamPolicy";
   GTLRComputeQuery_RegionDisksGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8800,7 +8854,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks";
   GTLRComputeQuery_RegionDisksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8825,7 +8879,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks";
   GTLRComputeQuery_RegionDisksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -8856,7 +8910,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/removeResourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}/removeResourcePolicies";
   GTLRComputeQuery_RegionDisksRemoveResourcePolicies *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8889,7 +8943,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"disk", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{disk}/resize";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{disk}/resize";
   GTLRComputeQuery_RegionDisksResize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8922,7 +8976,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{resource}/setIamPolicy";
   GTLRComputeQuery_RegionDisksSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8955,7 +9009,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{resource}/setLabels";
   GTLRComputeQuery_RegionDisksSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -8988,7 +9042,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/disks/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/disks/{resource}/testIamPermissions";
   GTLRComputeQuery_RegionDisksTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9014,7 +9068,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"diskType", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/diskTypes/{diskType}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/diskTypes/{diskType}";
   GTLRComputeQuery_RegionDiskTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9039,7 +9093,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/diskTypes";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/diskTypes";
   GTLRComputeQuery_RegionDiskTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9063,7 +9117,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks/{healthCheck}";
   GTLRComputeQuery_RegionHealthChecksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -9088,7 +9142,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheckService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}";
   GTLRComputeQuery_RegionHealthCheckServicesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -9113,7 +9167,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheckService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}";
   GTLRComputeQuery_RegionHealthCheckServicesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9144,7 +9198,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthCheckServices";
   GTLRComputeQuery_RegionHealthCheckServicesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9169,7 +9223,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthCheckServices";
   GTLRComputeQuery_RegionHealthCheckServicesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9200,7 +9254,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheckService", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthCheckServices/{healthCheckService}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthCheckServices/{healthCheckService}";
   GTLRComputeQuery_RegionHealthCheckServicesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -9226,7 +9280,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks/{healthCheck}";
   GTLRComputeQuery_RegionHealthChecksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9257,7 +9311,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks";
   GTLRComputeQuery_RegionHealthChecksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9282,7 +9336,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks";
   GTLRComputeQuery_RegionHealthChecksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9313,7 +9367,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks/{healthCheck}";
   GTLRComputeQuery_RegionHealthChecksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -9346,7 +9400,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"healthCheck", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/healthChecks/{healthCheck}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/healthChecks/{healthCheck}";
   GTLRComputeQuery_RegionHealthChecksUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -9379,7 +9433,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/abandonInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/abandonInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9412,7 +9466,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/applyUpdatesToInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9445,7 +9499,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/createInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/createInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersCreateInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9471,7 +9525,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_RegionInstanceGroupManagersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -9503,7 +9557,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deleteInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deleteInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9536,7 +9590,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/deletePerInstanceConfigs";
   GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9562,7 +9616,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_RegionInstanceGroupManagersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9593,7 +9647,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers";
   GTLRComputeQuery_RegionInstanceGroupManagersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9618,7 +9672,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers";
   GTLRComputeQuery_RegionInstanceGroupManagersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9643,7 +9697,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listErrors";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listErrors";
   GTLRComputeQuery_RegionInstanceGroupManagersListErrors *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9669,7 +9723,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listManagedInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9695,7 +9749,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/listPerInstanceConfigs";
   GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9727,7 +9781,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}";
   GTLRComputeQuery_RegionInstanceGroupManagersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -9760,7 +9814,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/patchPerInstanceConfigs";
   GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9793,7 +9847,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/recreateInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/recreateInstances";
   GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9820,7 +9874,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/resize";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/resize";
   GTLRComputeQuery_RegionInstanceGroupManagersResize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9853,7 +9907,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setInstanceTemplate";
   GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9886,7 +9940,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setTargetPools";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/setTargetPools";
   GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9919,7 +9973,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroupManager", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroupManagers/{instanceGroupManager}/updatePerInstanceConfigs";
   GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -9945,7 +9999,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroups/{instanceGroup}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroups/{instanceGroup}";
   GTLRComputeQuery_RegionInstanceGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -9970,7 +10024,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroups";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroups";
   GTLRComputeQuery_RegionInstanceGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10002,7 +10056,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroups/{instanceGroup}/listInstances";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroups/{instanceGroup}/listInstances";
   GTLRComputeQuery_RegionInstanceGroupsListInstances *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10035,7 +10089,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"instanceGroup", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/instanceGroups/{instanceGroup}/setNamedPorts";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/instanceGroups/{instanceGroup}/setNamedPorts";
   GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10061,7 +10115,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_RegionNetworkEndpointGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10086,7 +10140,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"networkEndpointGroup", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups/{networkEndpointGroup}";
   GTLRComputeQuery_RegionNetworkEndpointGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10117,7 +10171,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups";
   GTLRComputeQuery_RegionNetworkEndpointGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10142,7 +10196,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/networkEndpointGroups";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/networkEndpointGroups";
   GTLRComputeQuery_RegionNetworkEndpointGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10166,7 +10220,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"notificationEndpoint", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
   GTLRComputeQuery_RegionNotificationEndpointsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10191,7 +10245,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"notificationEndpoint", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/notificationEndpoints/{notificationEndpoint}";
   GTLRComputeQuery_RegionNotificationEndpointsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10222,7 +10276,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/notificationEndpoints";
   GTLRComputeQuery_RegionNotificationEndpointsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10247,7 +10301,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/notificationEndpoints";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/notificationEndpoints";
   GTLRComputeQuery_RegionNotificationEndpointsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10271,7 +10325,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/operations/{operation}";
   GTLRComputeQuery_RegionOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10295,7 +10349,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/operations/{operation}";
   GTLRComputeQuery_RegionOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10320,7 +10374,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/operations";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/operations";
   GTLRComputeQuery_RegionOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10344,7 +10398,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/operations/{operation}/wait";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/operations/{operation}/wait";
   GTLRComputeQuery_RegionOperationsWait *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10368,7 +10422,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}";
   GTLRComputeQuery_RegionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10388,7 +10442,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/regions";
+  NSString *pathURITemplate = @"projects/{project}/regions";
   GTLRComputeQuery_RegionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10411,7 +10465,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"sslCertificate"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/sslCertificates/{sslCertificate}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslCertificates/{sslCertificate}";
   GTLRComputeQuery_RegionSslCertificatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10436,7 +10490,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"sslCertificate"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/sslCertificates/{sslCertificate}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslCertificates/{sslCertificate}";
   GTLRComputeQuery_RegionSslCertificatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10467,7 +10521,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/sslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslCertificates";
   GTLRComputeQuery_RegionSslCertificatesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10492,7 +10546,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/sslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/sslCertificates";
   GTLRComputeQuery_RegionSslCertificatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10516,7 +10570,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}";
   GTLRComputeQuery_RegionTargetHttpProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10541,7 +10595,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}";
   GTLRComputeQuery_RegionTargetHttpProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10572,7 +10626,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpProxies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpProxies";
   GTLRComputeQuery_RegionTargetHttpProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10597,7 +10651,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpProxies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpProxies";
   GTLRComputeQuery_RegionTargetHttpProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10628,7 +10682,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}/setUrlMap";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpProxies/{targetHttpProxy}/setUrlMap";
   GTLRComputeQuery_RegionTargetHttpProxiesSetUrlMap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10654,7 +10708,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}";
   GTLRComputeQuery_RegionTargetHttpsProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10679,7 +10733,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}";
   GTLRComputeQuery_RegionTargetHttpsProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10710,7 +10764,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies";
   GTLRComputeQuery_RegionTargetHttpsProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10735,7 +10789,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies";
   GTLRComputeQuery_RegionTargetHttpsProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10766,7 +10820,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates";
   GTLRComputeQuery_RegionTargetHttpsProxiesSetSslCertificates *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10799,7 +10853,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap";
   GTLRComputeQuery_RegionTargetHttpsProxiesSetUrlMap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10825,7 +10879,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps/{urlMap}";
   GTLRComputeQuery_RegionUrlMapsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -10850,7 +10904,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps/{urlMap}";
   GTLRComputeQuery_RegionUrlMapsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10881,7 +10935,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps";
   GTLRComputeQuery_RegionUrlMapsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -10906,7 +10960,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps";
   GTLRComputeQuery_RegionUrlMapsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -10937,7 +10991,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps/{urlMap}";
   GTLRComputeQuery_RegionUrlMapsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -10970,7 +11024,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps/{urlMap}";
   GTLRComputeQuery_RegionUrlMapsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -11003,7 +11057,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/urlMaps/{urlMap}/validate";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/urlMaps/{urlMap}/validate";
   GTLRComputeQuery_RegionUrlMapsValidate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11026,7 +11080,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/reservations";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/reservations";
   GTLRComputeQuery_ReservationsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11053,7 +11107,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"reservation", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{reservation}";
   GTLRComputeQuery_ReservationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -11082,7 +11136,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"reservation", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{reservation}";
   GTLRComputeQuery_ReservationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11111,7 +11165,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{resource}/getIamPolicy";
   GTLRComputeQuery_ReservationsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11146,7 +11200,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations";
   GTLRComputeQuery_ReservationsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11175,7 +11229,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations";
   GTLRComputeQuery_ReservationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11210,7 +11264,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"reservation", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{reservation}/resize";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{reservation}/resize";
   GTLRComputeQuery_ReservationsResize *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11247,7 +11301,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{resource}/setIamPolicy";
   GTLRComputeQuery_ReservationsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11284,7 +11338,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/reservations/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/reservations/{resource}/testIamPermissions";
   GTLRComputeQuery_ReservationsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11307,7 +11361,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/resourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/resourcePolicies";
   GTLRComputeQuery_ResourcePoliciesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11330,7 +11384,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resourcePolicy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
   GTLRComputeQuery_ResourcePoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -11355,7 +11409,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resourcePolicy"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resourcePolicy}";
   GTLRComputeQuery_ResourcePoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11380,7 +11434,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resource}/getIamPolicy";
   GTLRComputeQuery_ResourcePoliciesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11411,7 +11465,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies";
   GTLRComputeQuery_ResourcePoliciesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11436,7 +11490,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies";
   GTLRComputeQuery_ResourcePoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11467,7 +11521,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resource}/setIamPolicy";
   GTLRComputeQuery_ResourcePoliciesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11500,7 +11554,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/resourcePolicies/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/resourcePolicies/{resource}/testIamPermissions";
   GTLRComputeQuery_ResourcePoliciesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11523,7 +11577,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/routers";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/routers";
   GTLRComputeQuery_RoutersAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11546,7 +11600,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}";
   GTLRComputeQuery_RoutersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -11571,7 +11625,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}";
   GTLRComputeQuery_RoutersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11597,7 +11651,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}/getNatMappingInfo";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/getNatMappingInfo";
   GTLRComputeQuery_RoutersGetNatMappingInfo *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11622,7 +11676,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}/getRouterStatus";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/getRouterStatus";
   GTLRComputeQuery_RoutersGetRouterStatus *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11653,7 +11707,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers";
   GTLRComputeQuery_RoutersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11678,7 +11732,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers";
   GTLRComputeQuery_RoutersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11709,7 +11763,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}";
   GTLRComputeQuery_RoutersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -11742,7 +11796,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}/preview";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}/preview";
   GTLRComputeQuery_RoutersPreview *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11775,7 +11829,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"router"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/routers/{router}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/routers/{router}";
   GTLRComputeQuery_RoutersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -11800,7 +11854,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"route"
   ];
-  NSString *pathURITemplate = @"{project}/global/routes/{route}";
+  NSString *pathURITemplate = @"projects/{project}/global/routes/{route}";
   GTLRComputeQuery_RoutesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -11823,7 +11877,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"route"
   ];
-  NSString *pathURITemplate = @"{project}/global/routes/{route}";
+  NSString *pathURITemplate = @"projects/{project}/global/routes/{route}";
   GTLRComputeQuery_RoutesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11850,7 +11904,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/routes";
+  NSString *pathURITemplate = @"projects/{project}/global/routes";
   GTLRComputeQuery_RoutesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11870,7 +11924,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/routes";
+  NSString *pathURITemplate = @"projects/{project}/global/routes";
   GTLRComputeQuery_RoutesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11899,7 +11953,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/addRule";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}/addRule";
   GTLRComputeQuery_SecurityPoliciesAddRule *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -11923,7 +11977,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}";
   GTLRComputeQuery_SecurityPoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -11946,7 +12000,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}";
   GTLRComputeQuery_SecurityPoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11969,7 +12023,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/getRule";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}/getRule";
   GTLRComputeQuery_SecurityPoliciesGetRule *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -11996,7 +12050,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies";
   GTLRComputeQuery_SecurityPoliciesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12016,7 +12070,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies";
   GTLRComputeQuery_SecurityPoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12035,7 +12089,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/listPreconfiguredExpressionSets";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/listPreconfiguredExpressionSets";
   GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12064,7 +12118,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}";
   GTLRComputeQuery_SecurityPoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -12095,7 +12149,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/patchRule";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}/patchRule";
   GTLRComputeQuery_SecurityPoliciesPatchRule *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12119,7 +12173,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"securityPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/securityPolicies/{securityPolicy}/removeRule";
+  NSString *pathURITemplate = @"projects/{project}/global/securityPolicies/{securityPolicy}/removeRule";
   GTLRComputeQuery_SecurityPoliciesRemoveRule *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12142,7 +12196,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"snapshot"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{snapshot}";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{snapshot}";
   GTLRComputeQuery_SnapshotsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -12165,7 +12219,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"snapshot"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{snapshot}";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{snapshot}";
   GTLRComputeQuery_SnapshotsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12188,7 +12242,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{resource}/getIamPolicy";
   GTLRComputeQuery_SnapshotsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12208,7 +12262,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/snapshots";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots";
   GTLRComputeQuery_SnapshotsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12237,7 +12291,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{resource}/setIamPolicy";
   GTLRComputeQuery_SnapshotsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12268,7 +12322,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{resource}/setLabels";
   GTLRComputeQuery_SnapshotsSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12299,7 +12353,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/global/snapshots/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/global/snapshots/{resource}/testIamPermissions";
   GTLRComputeQuery_SnapshotsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12321,7 +12375,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/sslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/sslCertificates";
   GTLRComputeQuery_SslCertificatesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12343,7 +12397,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"sslCertificate"
   ];
-  NSString *pathURITemplate = @"{project}/global/sslCertificates/{sslCertificate}";
+  NSString *pathURITemplate = @"projects/{project}/global/sslCertificates/{sslCertificate}";
   GTLRComputeQuery_SslCertificatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -12366,7 +12420,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"sslCertificate"
   ];
-  NSString *pathURITemplate = @"{project}/global/sslCertificates/{sslCertificate}";
+  NSString *pathURITemplate = @"projects/{project}/global/sslCertificates/{sslCertificate}";
   GTLRComputeQuery_SslCertificatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12393,7 +12447,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/sslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/global/sslCertificates";
   GTLRComputeQuery_SslCertificatesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12413,7 +12467,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/sslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/global/sslCertificates";
   GTLRComputeQuery_SslCertificatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12435,7 +12489,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"sslPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies/{sslPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{sslPolicy}";
   GTLRComputeQuery_SslPoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -12458,7 +12512,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"sslPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies/{sslPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{sslPolicy}";
   GTLRComputeQuery_SslPoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12485,7 +12539,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies";
   GTLRComputeQuery_SslPoliciesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12505,7 +12559,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies";
   GTLRComputeQuery_SslPoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12524,7 +12578,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies/listAvailableFeatures";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/listAvailableFeatures";
   GTLRComputeQuery_SslPoliciesListAvailableFeatures *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12553,7 +12607,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"sslPolicy"
   ];
-  NSString *pathURITemplate = @"{project}/global/sslPolicies/{sslPolicy}";
+  NSString *pathURITemplate = @"projects/{project}/global/sslPolicies/{sslPolicy}";
   GTLRComputeQuery_SslPoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -12575,7 +12629,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/subnetworks";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/subnetworks";
   GTLRComputeQuery_SubnetworksAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12598,7 +12652,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"subnetwork"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{subnetwork}";
   GTLRComputeQuery_SubnetworksDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -12630,7 +12684,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"subnetwork"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{subnetwork}/expandIpCidrRange";
   GTLRComputeQuery_SubnetworksExpandIpCidrRange *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12656,7 +12710,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"subnetwork"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{subnetwork}";
   GTLRComputeQuery_SubnetworksGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12681,7 +12735,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/getIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{resource}/getIamPolicy";
   GTLRComputeQuery_SubnetworksGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12712,7 +12766,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks";
   GTLRComputeQuery_SubnetworksInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12737,7 +12791,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks";
   GTLRComputeQuery_SubnetworksList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12757,7 +12811,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/subnetworks/listUsable";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/subnetworks/listUsable";
   GTLRComputeQuery_SubnetworksListUsable *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12787,7 +12841,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"subnetwork"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{subnetwork}";
   GTLRComputeQuery_SubnetworksPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -12820,7 +12874,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/setIamPolicy";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{resource}/setIamPolicy";
   GTLRComputeQuery_SubnetworksSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12853,7 +12907,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"subnetwork"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{subnetwork}/setPrivateIpGoogleAccess";
   GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12886,7 +12940,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/subnetworks/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/subnetworks/{resource}/testIamPermissions";
   GTLRComputeQuery_SubnetworksTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12911,7 +12965,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetGrpcProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}";
   GTLRComputeQuery_TargetGrpcProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -12934,7 +12988,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetGrpcProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}";
   GTLRComputeQuery_TargetGrpcProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -12961,7 +13015,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetGrpcProxies";
   GTLRComputeQuery_TargetGrpcProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -12981,7 +13035,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetGrpcProxies";
   GTLRComputeQuery_TargetGrpcProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13010,7 +13064,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetGrpcProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetGrpcProxies/{targetGrpcProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetGrpcProxies/{targetGrpcProxy}";
   GTLRComputeQuery_TargetGrpcProxiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -13032,7 +13086,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/targetHttpProxies";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetHttpProxies";
   GTLRComputeQuery_TargetHttpProxiesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13054,7 +13108,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpProxies/{targetHttpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpProxies/{targetHttpProxy}";
   GTLRComputeQuery_TargetHttpProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -13077,7 +13131,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpProxies/{targetHttpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpProxies/{targetHttpProxy}";
   GTLRComputeQuery_TargetHttpProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13104,7 +13158,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpProxies";
   GTLRComputeQuery_TargetHttpProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13124,7 +13178,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpProxies";
   GTLRComputeQuery_TargetHttpProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13153,7 +13207,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpProxies/{targetHttpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpProxies/{targetHttpProxy}";
   GTLRComputeQuery_TargetHttpProxiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -13184,7 +13238,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/targetHttpProxies/{targetHttpProxy}/setUrlMap";
+  NSString *pathURITemplate = @"projects/{project}/targetHttpProxies/{targetHttpProxy}/setUrlMap";
   GTLRComputeQuery_TargetHttpProxiesSetUrlMap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13206,7 +13260,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/targetHttpsProxies";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetHttpsProxies";
   GTLRComputeQuery_TargetHttpsProxiesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13228,7 +13282,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies/{targetHttpsProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}";
   GTLRComputeQuery_TargetHttpsProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -13251,7 +13305,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies/{targetHttpsProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}";
   GTLRComputeQuery_TargetHttpsProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13278,7 +13332,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies";
   GTLRComputeQuery_TargetHttpsProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13298,7 +13352,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies";
   GTLRComputeQuery_TargetHttpsProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13327,7 +13381,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies/{targetHttpsProxy}/setQuicOverride";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setQuicOverride";
   GTLRComputeQuery_TargetHttpsProxiesSetQuicOverride *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13358,7 +13412,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/targetHttpsProxies/{targetHttpsProxy}/setSslCertificates";
   GTLRComputeQuery_TargetHttpsProxiesSetSslCertificates *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13389,7 +13443,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetHttpsProxies/{targetHttpsProxy}/setSslPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/targetHttpsProxies/{targetHttpsProxy}/setSslPolicy";
   GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13420,7 +13474,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetHttpsProxy"
   ];
-  NSString *pathURITemplate = @"{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap";
+  NSString *pathURITemplate = @"projects/{project}/targetHttpsProxies/{targetHttpsProxy}/setUrlMap";
   GTLRComputeQuery_TargetHttpsProxiesSetUrlMap *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13442,7 +13496,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/targetInstances";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetInstances";
   GTLRComputeQuery_TargetInstancesAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13469,7 +13523,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetInstance", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/targetInstances/{targetInstance}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/targetInstances/{targetInstance}";
   GTLRComputeQuery_TargetInstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -13498,7 +13552,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetInstance", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/targetInstances/{targetInstance}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/targetInstances/{targetInstance}";
   GTLRComputeQuery_TargetInstancesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13533,7 +13587,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/targetInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/targetInstances";
   GTLRComputeQuery_TargetInstancesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13562,7 +13616,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/targetInstances";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/targetInstances";
   GTLRComputeQuery_TargetInstancesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13593,7 +13647,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/addHealthCheck";
   GTLRComputeQuery_TargetPoolsAddHealthCheck *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13626,7 +13680,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/addInstance";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/addInstance";
   GTLRComputeQuery_TargetPoolsAddInstance *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13649,7 +13703,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/targetPools";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetPools";
   GTLRComputeQuery_TargetPoolsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13672,7 +13726,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}";
   GTLRComputeQuery_TargetPoolsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -13697,7 +13751,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}";
   GTLRComputeQuery_TargetPoolsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13729,7 +13783,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/getHealth";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/getHealth";
   GTLRComputeQuery_TargetPoolsGetHealth *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13761,7 +13815,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools";
   GTLRComputeQuery_TargetPoolsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13786,7 +13840,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools";
   GTLRComputeQuery_TargetPoolsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13817,7 +13871,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/removeHealthCheck";
   GTLRComputeQuery_TargetPoolsRemoveHealthCheck *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13850,7 +13904,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/removeInstance";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/removeInstance";
   GTLRComputeQuery_TargetPoolsRemoveInstance *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13883,7 +13937,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetPool"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetPools/{targetPool}/setBackup";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetPools/{targetPool}/setBackup";
   GTLRComputeQuery_TargetPoolsSetBackup *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13908,7 +13962,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}";
   GTLRComputeQuery_TargetSslProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -13931,7 +13985,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}";
   GTLRComputeQuery_TargetSslProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -13958,7 +14012,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies";
   GTLRComputeQuery_TargetSslProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -13978,7 +14032,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies";
   GTLRComputeQuery_TargetSslProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14007,7 +14061,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setBackendService";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}/setBackendService";
   GTLRComputeQuery_TargetSslProxiesSetBackendService *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14038,7 +14092,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}/setProxyHeader";
   GTLRComputeQuery_TargetSslProxiesSetProxyHeader *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14069,7 +14123,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}/setSslCertificates";
   GTLRComputeQuery_TargetSslProxiesSetSslCertificates *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14100,7 +14154,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetSslProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetSslProxies/{targetSslProxy}/setSslPolicy";
+  NSString *pathURITemplate = @"projects/{project}/global/targetSslProxies/{targetSslProxy}/setSslPolicy";
   GTLRComputeQuery_TargetSslProxiesSetSslPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14124,7 +14178,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetTcpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies/{targetTcpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies/{targetTcpProxy}";
   GTLRComputeQuery_TargetTcpProxiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -14147,7 +14201,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetTcpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies/{targetTcpProxy}";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies/{targetTcpProxy}";
   GTLRComputeQuery_TargetTcpProxiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14174,7 +14228,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies";
   GTLRComputeQuery_TargetTcpProxiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14194,7 +14248,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies";
   GTLRComputeQuery_TargetTcpProxiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14223,7 +14277,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetTcpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies/{targetTcpProxy}/setBackendService";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies/{targetTcpProxy}/setBackendService";
   GTLRComputeQuery_TargetTcpProxiesSetBackendService *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14254,7 +14308,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"targetTcpProxy"
   ];
-  NSString *pathURITemplate = @"{project}/global/targetTcpProxies/{targetTcpProxy}/setProxyHeader";
+  NSString *pathURITemplate = @"projects/{project}/global/targetTcpProxies/{targetTcpProxy}/setProxyHeader";
   GTLRComputeQuery_TargetTcpProxiesSetProxyHeader *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14276,7 +14330,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/targetVpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/targetVpnGateways";
   GTLRComputeQuery_TargetVpnGatewaysAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14299,7 +14353,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetVpnGateway"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}";
   GTLRComputeQuery_TargetVpnGatewaysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -14324,7 +14378,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"targetVpnGateway"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetVpnGateways/{targetVpnGateway}";
   GTLRComputeQuery_TargetVpnGatewaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14355,7 +14409,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetVpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetVpnGateways";
   GTLRComputeQuery_TargetVpnGatewaysInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14380,7 +14434,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/targetVpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/targetVpnGateways";
   GTLRComputeQuery_TargetVpnGatewaysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14401,7 +14455,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/urlMaps";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/urlMaps";
   GTLRComputeQuery_UrlMapsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14423,7 +14477,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}";
   GTLRComputeQuery_UrlMapsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -14446,7 +14500,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}";
   GTLRComputeQuery_UrlMapsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14473,7 +14527,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps";
   GTLRComputeQuery_UrlMapsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14503,7 +14557,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}/invalidateCache";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}/invalidateCache";
   GTLRComputeQuery_UrlMapsInvalidateCache *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14524,7 +14578,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps";
   GTLRComputeQuery_UrlMapsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14553,7 +14607,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}";
   GTLRComputeQuery_UrlMapsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -14584,7 +14638,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}";
   GTLRComputeQuery_UrlMapsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -14615,7 +14669,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"urlMap"
   ];
-  NSString *pathURITemplate = @"{project}/global/urlMaps/{urlMap}/validate";
+  NSString *pathURITemplate = @"projects/{project}/global/urlMaps/{urlMap}/validate";
   GTLRComputeQuery_UrlMapsValidate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14637,7 +14691,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/vpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/vpnGateways";
   GTLRComputeQuery_VpnGatewaysAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14660,7 +14714,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"vpnGateway"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways/{vpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways/{vpnGateway}";
   GTLRComputeQuery_VpnGatewaysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -14685,7 +14739,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"vpnGateway"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways/{vpnGateway}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways/{vpnGateway}";
   GTLRComputeQuery_VpnGatewaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14710,7 +14764,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"vpnGateway"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways/{vpnGateway}/getStatus";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways/{vpnGateway}/getStatus";
   GTLRComputeQuery_VpnGatewaysGetStatus *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14741,7 +14795,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways";
   GTLRComputeQuery_VpnGatewaysInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14766,7 +14820,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways";
   GTLRComputeQuery_VpnGatewaysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14797,7 +14851,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways/{resource}/setLabels";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways/{resource}/setLabels";
   GTLRComputeQuery_VpnGatewaysSetLabels *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14830,7 +14884,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"resource"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnGateways/{resource}/testIamPermissions";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnGateways/{resource}/testIamPermissions";
   GTLRComputeQuery_VpnGatewaysTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14853,7 +14907,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/aggregated/vpnTunnels";
+  NSString *pathURITemplate = @"projects/{project}/aggregated/vpnTunnels";
   GTLRComputeQuery_VpnTunnelsAggregatedList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14876,7 +14930,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"vpnTunnel"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnTunnels/{vpnTunnel}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnTunnels/{vpnTunnel}";
   GTLRComputeQuery_VpnTunnelsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -14901,7 +14955,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region", @"vpnTunnel"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnTunnels/{vpnTunnel}";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnTunnels/{vpnTunnel}";
   GTLRComputeQuery_VpnTunnelsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14932,7 +14986,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnTunnels";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnTunnels";
   GTLRComputeQuery_VpnTunnelsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -14957,7 +15011,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"region"
   ];
-  NSString *pathURITemplate = @"{project}/regions/{region}/vpnTunnels";
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/vpnTunnels";
   GTLRComputeQuery_VpnTunnelsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -14985,7 +15039,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/operations/{operation}";
   GTLRComputeQuery_ZoneOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -15013,7 +15067,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/operations/{operation}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/operations/{operation}";
   GTLRComputeQuery_ZoneOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -15042,7 +15096,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/operations";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/operations";
   GTLRComputeQuery_ZoneOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -15070,7 +15124,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"operation", @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}/operations/{operation}/wait";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/operations/{operation}/wait";
   GTLRComputeQuery_ZoneOperationsWait *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -15098,7 +15152,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   NSArray *pathParams = @[
     @"project", @"zone"
   ];
-  NSString *pathURITemplate = @"{project}/zones/{zone}";
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}";
   GTLRComputeQuery_ZonesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -15118,7 +15172,7 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"{project}/zones";
+  NSString *pathURITemplate = @"projects/{project}/zones";
   GTLRComputeQuery_ZonesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

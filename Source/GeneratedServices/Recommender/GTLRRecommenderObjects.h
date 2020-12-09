@@ -616,9 +616,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  tested/modified. This is intended to be an exact match per filter. To
  *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
  *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
- *  "/bindings/ * /role": "roles/admin" "/bindings/ * /condition" : null } *
- *  Example: { "/bindings/ * /role": "roles/admin" "/bindings/ * /members/ *" :
- *  ["x\@google.com", "y\@google.com"] } When both path_filters and
+ *  "/bindings/ * /role": "roles/owner" "/bindings/ * /condition" : null } *
+ *  Example: { "/bindings/ * /role": "roles/owner" "/bindings/ * /members/ *" :
+ *  ["x\@example.com", "y\@example.com"] } When both path_filters and
  *  path_value_matchers are set, an implicit AND must be performed.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Operation_PathFilters *pathFilters;
@@ -683,9 +683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  tested/modified. This is intended to be an exact match per filter. To
  *  perform advanced matching, use path_value_matchers. * Example: { "/versions/
  *  * /name" : "it-123" "/versions/ * /targetSize/percent": 20 } * Example: {
- *  "/bindings/ * /role": "roles/admin" "/bindings/ * /condition" : null } *
- *  Example: { "/bindings/ * /role": "roles/admin" "/bindings/ * /members/ *" :
- *  ["x\@google.com", "y\@google.com"] } When both path_filters and
+ *  "/bindings/ * /role": "roles/owner" "/bindings/ * /condition" : null } *
+ *  Example: { "/bindings/ * /role": "roles/owner" "/bindings/ * /members/ *" :
+ *  ["x\@example.com", "y\@example.com"] } When both path_filters and
  *  path_value_matchers are set, an implicit AND must be performed.
  *
  *  @note This class is documented as having more properties of any valid JSON

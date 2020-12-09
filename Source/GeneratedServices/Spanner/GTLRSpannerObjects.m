@@ -1373,7 +1373,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_UpdateDatabaseDdlMetadata
-@dynamic commitTimestamps, database, statements;
+@dynamic commitTimestamps, database, statements, throttled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

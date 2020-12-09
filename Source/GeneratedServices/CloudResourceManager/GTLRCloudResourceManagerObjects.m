@@ -544,24 +544,6 @@ NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1Fold
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudResourceManager_UndeleteTagKeyMetadata
-//
-
-@implementation GTLRCloudResourceManager_UndeleteTagKeyMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudResourceManager_UndeleteTagValueMetadata
-//
-
-@implementation GTLRCloudResourceManager_UndeleteTagValueMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudResourceManager_UpdateFolderMetadata
 //
 

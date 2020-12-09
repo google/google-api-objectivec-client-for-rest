@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Talent Solution API (jobs/v3)
+//   Cloud Talent Solution API (jobs/v4)
 // Description:
 //   Cloud Talent Solution provides the capability to create, read, update, and
 //   delete job postings, as well as search jobs based on keywords and filters.
@@ -22,46 +22,27 @@
 #endif
 
 @class GTLRCloudTalentSolution_ApplicationInfo;
-@class GTLRCloudTalentSolution_BucketizedCount;
-@class GTLRCloudTalentSolution_BucketRange;
-@class GTLRCloudTalentSolution_ClientEvent;
-@class GTLRCloudTalentSolution_ClientEvent_ExtraInfo;
 @class GTLRCloudTalentSolution_CommuteFilter;
 @class GTLRCloudTalentSolution_CommuteInfo;
 @class GTLRCloudTalentSolution_Company;
 @class GTLRCloudTalentSolution_CompanyDerivedInfo;
 @class GTLRCloudTalentSolution_CompensationEntry;
 @class GTLRCloudTalentSolution_CompensationFilter;
-@class GTLRCloudTalentSolution_CompensationHistogramRequest;
-@class GTLRCloudTalentSolution_CompensationHistogramResult;
 @class GTLRCloudTalentSolution_CompensationInfo;
 @class GTLRCloudTalentSolution_CompensationRange;
 @class GTLRCloudTalentSolution_CompletionResult;
 @class GTLRCloudTalentSolution_CustomAttribute;
-@class GTLRCloudTalentSolution_CustomAttributeHistogramRequest;
-@class GTLRCloudTalentSolution_CustomAttributeHistogramResult;
-@class GTLRCloudTalentSolution_CustomAttributeHistogramResult_StringValueHistogramResult;
+@class GTLRCloudTalentSolution_CustomRankingInfo;
 @class GTLRCloudTalentSolution_DeviceInfo;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfo;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4Job;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4Job_CustomAttributes;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4JobApplicationInfo;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult;
-@class GTLRCloudTalentSolution_GoogleCloudTalentV4Location;
-@class GTLRCloudTalentSolution_HistogramFacets;
-@class GTLRCloudTalentSolution_HistogramResult;
-@class GTLRCloudTalentSolution_HistogramResult_Values;
-@class GTLRCloudTalentSolution_HistogramResults;
+@class GTLRCloudTalentSolution_HistogramQuery;
+@class GTLRCloudTalentSolution_HistogramQueryResult;
+@class GTLRCloudTalentSolution_HistogramQueryResult_Histogram;
 @class GTLRCloudTalentSolution_Job;
 @class GTLRCloudTalentSolution_Job_CustomAttributes;
 @class GTLRCloudTalentSolution_JobDerivedInfo;
 @class GTLRCloudTalentSolution_JobEvent;
 @class GTLRCloudTalentSolution_JobQuery;
+@class GTLRCloudTalentSolution_JobResult;
 @class GTLRCloudTalentSolution_LatLng;
 @class GTLRCloudTalentSolution_Location;
 @class GTLRCloudTalentSolution_LocationFilter;
@@ -71,8 +52,8 @@
 @class GTLRCloudTalentSolution_NamespacedDebugInput;
 @class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedFlags;
 @class GTLRCloudTalentSolution_NamespacedDebugInput_ForcedRollouts;
-@class GTLRCloudTalentSolution_NumericBucketingOption;
-@class GTLRCloudTalentSolution_NumericBucketingResult;
+@class GTLRCloudTalentSolution_Operation_Metadata;
+@class GTLRCloudTalentSolution_Operation_Response;
 @class GTLRCloudTalentSolution_PostalAddress;
 @class GTLRCloudTalentSolution_ProcessingOptions;
 @class GTLRCloudTalentSolution_RequestMetadata;
@@ -80,6 +61,7 @@
 @class GTLRCloudTalentSolution_SpellingCorrection;
 @class GTLRCloudTalentSolution_Status;
 @class GTLRCloudTalentSolution_Status_Details_Item;
+@class GTLRCloudTalentSolution_Tenant;
 @class GTLRCloudTalentSolution_TimeOfDay;
 @class GTLRCloudTalentSolution_TimestampRange;
 
@@ -94,10 +76,60 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_BatchOperationMetadata.state
+
+/**
+ *  The batch operation is done after
+ *  google.longrunning.Operations.CancelOperation is called. Any items processed
+ *  before cancelling are returned in the response.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelled;
+/**
+ *  The batch operation is in the process of cancelling after
+ *  google.longrunning.Operations.CancelOperation is called.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelling;
+/**
+ *  The batch operation is done and no item has been successfully processed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Failed;
+/**
+ *  The batch operation is being prepared for processing.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Initializing;
+/**
+ *  The batch operation is actively being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Processing;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_StateUnspecified;
+/**
+ *  The batch operation is processed, and at least one item has been
+ *  successfully processed.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CommuteFilter.commuteMethod
 
 /**
- *  Commute method is not specified.
+ *  Commute method isn't specified.
  *
  *  Value: "COMMUTE_METHOD_UNSPECIFIED"
  */
@@ -110,7 +142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_Commut
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving;
 /**
  *  Commute time is calculated based on public transit including bus, metro,
- *  subway, etc.
+ *  subway, and so on.
  *
  *  Value: "TRANSIT"
  */
@@ -126,7 +158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_Commut
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour;
 /**
- *  Road traffic situation is not specified.
+ *  Road traffic situation isn't specified.
  *
  *  Value: "ROAD_TRAFFIC_UNSPECIFIED"
  */
@@ -154,7 +186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Big;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Company_Size_Bigger;
 /**
- *  Default value if the size is not specified.
+ *  Default value if the size isn't specified.
  *
  *  Value: "COMPANY_SIZE_UNSPECIFIED"
  */
@@ -329,10 +361,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_T
 /**
  *  Filter by `base compensation entry's` unit and amount / range. A job is a
  *  match if and only if the job contains a base CompensationEntry, and the base
- *  entry's unit matches provided compensation_units and amount or range
- *  overlaps with provided compensation_range. See
- *  CompensationInfo.CompensationEntry for definition of base compensation
- *  entry. Set exactly one units and populate range.
+ *  entry's unit matches provided CompensationUnit and amount or range overlaps
+ *  with provided CompensationRange. See CompensationInfo.CompensationEntry for
+ *  definition of base compensation entry. Set exactly one units and populate
+ *  range.
  *
  *  Value: "UNIT_AND_AMOUNT"
  */
@@ -401,78 +433,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_U
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationFilter_Units_Yearly;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_CompensationHistogramRequest.type
-
-/**
- *  Histogram by job's annualized base compensation. See CompensationEntry for
- *  definition of annualized base compensation.
- *
- *  Value: "ANNUALIZED_BASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedBase;
-/**
- *  Histogram by job's annualized total compensation. See CompensationEntry for
- *  definition of annualized total compensation.
- *
- *  Value: "ANNUALIZED_TOTAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedTotal;
-/**
- *  Histogram by job's base compensation. See CompensationEntry for definition
- *  of base compensation.
- *
- *  Value: "BASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_Base;
-/**
- *  Default value. Invalid.
- *
- *  Value: "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_CompensationHistogramRequestTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_CompensationHistogramResult.type
-
-/**
- *  Histogram by job's annualized base compensation. See CompensationEntry for
- *  definition of annualized base compensation.
- *
- *  Value: "ANNUALIZED_BASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedBase;
-/**
- *  Histogram by job's annualized total compensation. See CompensationEntry for
- *  definition of annualized total compensation.
- *
- *  Value: "ANNUALIZED_TOTAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedTotal;
-/**
- *  Histogram by job's base compensation. See CompensationEntry for definition
- *  of base compensation.
- *
- *  Value: "BASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_Base;
-/**
- *  Default value. Invalid.
- *
- *  Value: "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompensationHistogramResult_Type_CompensationHistogramRequestTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CompletionResult.type
 
 /**
- *  Suggest both job titles and company names.
+ *  Suggest both job titles and company names for jobs autocomplete. For
+ *  CompletionType.COMBINED type, only open jobs with the same language_codes or
+ *  companies having open jobs with the same language_codes are returned.
  *
  *  Value: "COMBINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_Combined;
 /**
- *  Only suggest company names.
+ *  Suggest company names for jobs autocomplete. For CompletionType.COMPANY_NAME
+ *  type, only companies having open jobs with the same language_codes are
+ *  returned.
  *
  *  Value: "COMPANY_NAME"
  */
@@ -484,11 +458,69 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified;
 /**
- *  Only suggest job titles.
+ *  Suggest job titles for jobs autocomplete. For CompletionType.JOB_TITLE type,
+ *  only open jobs with the same language_codes are returned.
  *
  *  Value: "JOB_TITLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudTalentSolution_CustomRankingInfo.importanceLevel
+
+/**
+ *  The given ranking expression is of Extreme importance, and dominates job's
+ *  final ranking position with existing relevance score (determined by API
+ *  algorithm) ignored.
+ *
+ *  Value: "EXTREME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Extreme;
+/**
+ *  The given ranking expression is of High importance in terms of job's final
+ *  ranking position compared to existing relevance score (determined by API
+ *  algorithm).
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_High;
+/**
+ *  Default value if the importance level isn't specified.
+ *
+ *  Value: "IMPORTANCE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_ImportanceLevelUnspecified;
+/**
+ *  The given ranking expression is of Low importance in terms of job's final
+ *  ranking position compared to existing relevance score (determined by API
+ *  algorithm).
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Low;
+/**
+ *  The given ranking expression is of Medium importance in terms of job's final
+ *  ranking position compared to existing relevance score (determined by API
+ *  algorithm).
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Medium;
+/**
+ *  The given ranking expression is of Mild importance in terms of job's final
+ *  ranking position compared to existing relevance score (determined by API
+ *  algorithm).
+ *
+ *  Value: "MILD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Mild;
+/**
+ *  The given ranking expression is of None importance, existing relevance score
+ *  (determined by API algorithm) dominates job's final ranking position.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_None;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_DeviceInfo.deviceType
@@ -538,1046 +570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceTyp
  *  Value: "WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata.state
-
-/**
- *  The batch operation is done after
- *  google.longrunning.Operations.CancelOperation is called. Any items processed
- *  before cancelling are returned in the response.
- *
- *  Value: "CANCELLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelled;
-/**
- *  The batch operation is in the process of cancelling after
- *  google.longrunning.Operations.CancelOperation is called.
- *
- *  Value: "CANCELLING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelling;
-/**
- *  The batch operation is done and no item has been successfully processed.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Failed;
-/**
- *  The batch operation is being prepared for processing.
- *
- *  Value: "INITIALIZING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Initializing;
-/**
- *  The batch operation is actively being processed.
- *
- *  Value: "PROCESSING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Processing;
-/**
- *  Default value.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_StateUnspecified;
-/**
- *  The batch operation is processed, and at least one item has been
- *  successfully processed.
- *
- *  Value: "SUCCEEDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Succeeded;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry.type
-
-/**
- *  Base compensation: Refers to the fixed amount of money paid to an employee
- *  by an employer in return for work performed. Base compensation does not
- *  include benefits, bonuses or any other potential compensation from an
- *  employer.
- *
- *  Value: "BASE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Base;
-/**
- *  Bonus.
- *
- *  Value: "BONUS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Bonus;
-/**
- *  Commission.
- *
- *  Value: "COMMISSIONS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Commissions;
-/**
- *  Default value.
- *
- *  Value: "COMPENSATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_CompensationTypeUnspecified;
-/**
- *  Equity.
- *
- *  Value: "EQUITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Equity;
-/**
- *  Other compensation type.
- *
- *  Value: "OTHER_COMPENSATION_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_OtherCompensationType;
-/**
- *  Profit sharing.
- *
- *  Value: "PROFIT_SHARING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_ProfitSharing;
-/**
- *  Signing bonus.
- *
- *  Value: "SIGNING_BONUS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_SigningBonus;
-/**
- *  Tips.
- *
- *  Value: "TIPS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Tips;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry.unit
-
-/**
- *  Default value.
- *
- *  Value: "COMPENSATION_UNIT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_CompensationUnitUnspecified;
-/**
- *  Daily.
- *
- *  Value: "DAILY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Daily;
-/**
- *  Hourly.
- *
- *  Value: "HOURLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Hourly;
-/**
- *  Monthly.
- *
- *  Value: "MONTHLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Monthly;
-/**
- *  One time.
- *
- *  Value: "ONE_TIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OneTime;
-/**
- *  Other compensation units.
- *
- *  Value: "OTHER_COMPENSATION_UNIT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OtherCompensationUnit;
-/**
- *  Weekly
- *
- *  Value: "WEEKLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Weekly;
-/**
- *  Yearly.
- *
- *  Value: "YEARLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Yearly;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.degreeTypes
-
-/**
- *  Adult Remedial Education; Programmes providing learning experiences that
- *  build on secondary education and prepare for labour market entry and/or
- *  tertiary education. The content is broader than secondary but not as complex
- *  as tertiary education. ISCED code 4.
- *
- *  Value: "ADULT_REMEDIAL_EDUCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_AdultRemedialEducation;
-/**
- *  Associate's or equivalent; Short first tertiary programmes that are
- *  typically practically-based, occupationally-specific and prepare for labour
- *  market entry. These programmes may also provide a pathway to other tertiary
- *  programmes. ISCED code 5.
- *
- *  Value: "ASSOCIATES_OR_EQUIVALENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_AssociatesOrEquivalent;
-/**
- *  Bachelor's or equivalent; Programmes designed to provide intermediate
- *  academic and/or professional knowledge, skills and competencies leading to a
- *  first tertiary degree or equivalent qualification. ISCED code 6.
- *
- *  Value: "BACHELORS_OR_EQUIVALENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_BachelorsOrEquivalent;
-/**
- *  Default value. Represents no degree, or early childhood education. Maps to
- *  ISCED code 0. Ex) Kindergarten
- *
- *  Value: "DEGREE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_DegreeTypeUnspecified;
-/**
- *  Doctoral or equivalent; Programmes designed primarily to lead to an advanced
- *  research qualification, usually concluding with the submission and defense
- *  of a substantive dissertation of publishable quality based on original
- *  research. ISCED code 8.
- *
- *  Value: "DOCTORAL_OR_EQUIVALENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_DoctoralOrEquivalent;
-/**
- *  Lower secondary education; First stage of secondary education building on
- *  primary education, typically with a more subject-oriented curriculum. ISCED
- *  code 2. Ex) Middle school
- *
- *  Value: "LOWER_SECONDARY_EDUCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_LowerSecondaryEducation;
-/**
- *  Master's or equivalent; Programmes designed to provide advanced academic
- *  and/or professional knowledge, skills and competencies leading to a second
- *  tertiary degree or equivalent qualification. ISCED code 7.
- *
- *  Value: "MASTERS_OR_EQUIVALENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_MastersOrEquivalent;
-/**
- *  Primary education which is typically the first stage of compulsory
- *  education. ISCED code 1. Ex) Elementary school
- *
- *  Value: "PRIMARY_EDUCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_PrimaryEducation;
-/**
- *  Middle education; Second/final stage of secondary education preparing for
- *  tertiary education and/or providing skills relevant to employment. Usually
- *  with an increased range of subject options and streams. ISCED code 3. Ex)
- *  High school
- *
- *  Value: "UPPER_SECONDARY_EDUCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_DegreeTypes_UpperSecondaryEducation;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.employmentTypes
-
-/**
- *  The job is offered as a contracted, as opposed to a salaried employee,
- *  position.
- *
- *  Value: "CONTRACTOR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Contractor;
-/**
- *  The job is offered as a contracted position with the understanding that it's
- *  converted into a full-time position at the end of the contract. Jobs of this
- *  type are also returned by a search for EmploymentType.CONTRACTOR jobs.
- *
- *  Value: "CONTRACT_TO_HIRE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_ContractToHire;
-/**
- *  The default value if the employment type isn't specified.
- *
- *  Value: "EMPLOYMENT_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_EmploymentTypeUnspecified;
-/**
- *  The job involves employing people in remote areas and flying them
- *  temporarily to the work site instead of relocating employees and their
- *  families permanently.
- *
- *  Value: "FLY_IN_FLY_OUT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_FlyInFlyOut;
-/**
- *  The job requires working a number of hours that constitute full time
- *  employment, typically 40 or more hours per week.
- *
- *  Value: "FULL_TIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_FullTime;
-/**
- *  The job is a fixed-term opportunity for students or entry-level job seekers
- *  to obtain on-the-job training, typically offered as a summer position.
- *
- *  Value: "INTERN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Intern;
-/**
- *  The job does not fit any of the other listed types.
- *
- *  Value: "OTHER_EMPLOYMENT_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_OtherEmploymentType;
-/**
- *  The job entails working fewer hours than a full time job, typically less
- *  than 40 hours a week.
- *
- *  Value: "PART_TIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_PartTime;
-/**
- *  The job requires an employee to work on an as-needed basis with a flexible
- *  schedule.
- *
- *  Value: "PER_DIEM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_PerDiem;
-/**
- *  The job is offered as a temporary employment opportunity, usually a
- *  short-term engagement.
- *
- *  Value: "TEMPORARY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Temporary;
-/**
- *  The is an opportunity for an individual to volunteer, where there's no
- *  expectation of compensation for the provided services.
- *
- *  Value: "VOLUNTEER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_EmploymentTypes_Volunteer;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.jobBenefits
-
-/**
- *  The job includes access to programs that support child care, such as
- *  daycare.
- *
- *  Value: "CHILD_CARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_ChildCare;
-/**
- *  The job includes dental services covered by a dental insurance plan.
- *
- *  Value: "DENTAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Dental;
-/**
- *  The job offers specific benefits to domestic partners.
- *
- *  Value: "DOMESTIC_PARTNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_DomesticPartner;
-/**
- *  The job allows for a flexible work schedule.
- *
- *  Value: "FLEXIBLE_HOURS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_FlexibleHours;
-/**
- *  Default value if the type isn't specified.
- *
- *  Value: "JOB_BENEFIT_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_JobBenefitUnspecified;
-/**
- *  The job includes a life insurance plan provided by the employer or available
- *  for purchase by the employee.
- *
- *  Value: "LIFE_INSURANCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_LifeInsurance;
-/**
- *  The job includes health services covered by a medical insurance plan.
- *
- *  Value: "MEDICAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Medical;
-/**
- *  The job allows for a leave of absence to a parent to care for a newborn
- *  child.
- *
- *  Value: "PARENTAL_LEAVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_ParentalLeave;
-/**
- *  The job includes a workplace retirement plan provided by the employer or
- *  available for purchase by the employee.
- *
- *  Value: "RETIREMENT_PLAN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_RetirementPlan;
-/**
- *  The job allows for paid time off due to illness.
- *
- *  Value: "SICK_DAYS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_SickDays;
-/**
- *  The job includes paid time off for vacation.
- *
- *  Value: "VACATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Vacation;
-/**
- *  The job includes vision services covered by a vision insurance plan.
- *
- *  Value: "VISION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobBenefits_Vision;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.jobLevel
-
-/**
- *  Senior-level managers responsible for managing teams of managers.
- *
- *  Value: "DIRECTOR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Director;
-/**
- *  Entry-level individual contributors, typically with less than 2 years of
- *  experience in a similar role. Includes interns.
- *
- *  Value: "ENTRY_LEVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_EntryLevel;
-/**
- *  Executive-level managers and above, including C-level positions.
- *
- *  Value: "EXECUTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Executive;
-/**
- *  Experienced individual contributors, typically with 2+ years of experience
- *  in a similar role.
- *
- *  Value: "EXPERIENCED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Experienced;
-/**
- *  The default value if the level isn't specified.
- *
- *  Value: "JOB_LEVEL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_JobLevelUnspecified;
-/**
- *  Entry- to mid-level managers responsible for managing a team of people.
- *
- *  Value: "MANAGER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Manager;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.postingRegion
-
-/**
- *  In addition to exact location matching, job posting is returned when the
- *  LocationFilter in the search query is in the same administrative area as the
- *  returned job posting. For example, if a `ADMINISTRATIVE_AREA` job is posted
- *  in "CA, USA", it's returned if LocationFilter has "Mountain View".
- *  Administrative area refers to top-level administrative subdivision of this
- *  country. For example, US state, IT region, UK constituent nation and JP
- *  prefecture.
- *
- *  Value: "ADMINISTRATIVE_AREA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_AdministrativeArea;
-/**
- *  In addition to exact location matching, job is returned when LocationFilter
- *  in search query is in the same country as this job. For example, if a
- *  `NATION_WIDE` job is posted in "USA", it's returned if LocationFilter has
- *  'Mountain View'.
- *
- *  Value: "NATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Nation;
-/**
- *  If the region is unspecified, the job is only returned if it matches the
- *  LocationFilter.
- *
- *  Value: "POSTING_REGION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_PostingRegionUnspecified;
-/**
- *  Job allows employees to work remotely (telecommute). If locations are
- *  provided with this value, the job is considered as having a location, but
- *  telecommuting is allowed.
- *
- *  Value: "TELECOMMUTE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Telecommute;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Job.visibility
-
-/**
- *  The resource is only visible to the GCP account who owns it.
- *
- *  Value: "ACCOUNT_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_AccountOnly;
-/**
- *  The resource is visible to the owner and may be visible to other
- *  applications and processes at Google.
- *
- *  Value: "SHARED_WITH_GOOGLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithGoogle;
-/**
- *  The resource is visible to the owner and may be visible to all other API
- *  clients.
- *
- *  Value: "SHARED_WITH_PUBLIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithPublic;
-/**
- *  Default value.
- *
- *  Value: "VISIBILITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_VisibilityUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo.jobCategories
-
-/**
- *  An accounting and finance job, such as an Accountant.
- *
- *  Value: "ACCOUNTING_AND_FINANCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AccountingAndFinance;
-/**
- *  An administrative and office job, such as an Administrative Assistant.
- *
- *  Value: "ADMINISTRATIVE_AND_OFFICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AdministrativeAndOffice;
-/**
- *  An advertising and marketing job, such as Marketing Manager.
- *
- *  Value: "ADVERTISING_AND_MARKETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AdvertisingAndMarketing;
-/**
- *  An animal care job, such as Veterinarian.
- *
- *  Value: "ANIMAL_CARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_AnimalCare;
-/**
- *  An art, fashion, or design job, such as Designer.
- *
- *  Value: "ART_FASHION_AND_DESIGN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ArtFashionAndDesign;
-/**
- *  A business operations job, such as Business Operations Manager.
- *
- *  Value: "BUSINESS_OPERATIONS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_BusinessOperations;
-/**
- *  A cleaning and facilities job, such as Custodial Staff.
- *
- *  Value: "CLEANING_AND_FACILITIES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_CleaningAndFacilities;
-/**
- *  A computer and IT job, such as Systems Administrator.
- *
- *  Value: "COMPUTER_AND_IT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ComputerAndIt;
-/**
- *  A construction job, such as General Laborer.
- *
- *  Value: "CONSTRUCTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Construction;
-/**
- *  A customer service job, such s Cashier.
- *
- *  Value: "CUSTOMER_SERVICE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_CustomerService;
-/**
- *  An education job, such as School Teacher.
- *
- *  Value: "EDUCATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Education;
-/**
- *  An entertainment and travel job, such as Flight Attendant.
- *
- *  Value: "ENTERTAINMENT_AND_TRAVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_EntertainmentAndTravel;
-/**
- *  A farming or outdoor job, such as Park Ranger.
- *
- *  Value: "FARMING_AND_OUTDOORS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_FarmingAndOutdoors;
-/**
- *  A healthcare job, such as Registered Nurse.
- *
- *  Value: "HEALTHCARE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Healthcare;
-/**
- *  A human resources job, such as Human Resources Director.
- *
- *  Value: "HUMAN_RESOURCES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_HumanResources;
-/**
- *  An installation, maintenance, or repair job, such as Electrician.
- *
- *  Value: "INSTALLATION_MAINTENANCE_AND_REPAIR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_InstallationMaintenanceAndRepair;
-/**
- *  The default value if the category isn't specified.
- *
- *  Value: "JOB_CATEGORY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_JobCategoryUnspecified;
-/**
- *  A legal job, such as Law Clerk.
- *
- *  Value: "LEGAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Legal;
-/**
- *  A management job, often used in conjunction with another category, such as
- *  Store Manager.
- *
- *  Value: "MANAGEMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_Management;
-/**
- *  A manufacturing or warehouse job, such as Assembly Technician.
- *
- *  Value: "MANUFACTURING_AND_WAREHOUSE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ManufacturingAndWarehouse;
-/**
- *  A media, communications, or writing job, such as Media Relations.
- *
- *  Value: "MEDIA_COMMUNICATIONS_AND_WRITING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_MediaCommunicationsAndWriting;
-/**
- *  An oil, gas or mining job, such as Offshore Driller.
- *
- *  Value: "OIL_GAS_AND_MINING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_OilGasAndMining;
-/**
- *  A personal care and services job, such as Hair Stylist.
- *
- *  Value: "PERSONAL_CARE_AND_SERVICES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_PersonalCareAndServices;
-/**
- *  A protective services job, such as Security Guard.
- *
- *  Value: "PROTECTIVE_SERVICES"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ProtectiveServices;
-/**
- *  A real estate job, such as Buyer's Agent.
- *
- *  Value: "REAL_ESTATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_RealEstate;
-/**
- *  A restaurant and hospitality job, such as Restaurant Server.
- *
- *  Value: "RESTAURANT_AND_HOSPITALITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_RestaurantAndHospitality;
-/**
- *  A sales and/or retail job, such Sales Associate.
- *
- *  Value: "SALES_AND_RETAIL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SalesAndRetail;
-/**
- *  A science and engineering job, such as Lab Technician.
- *
- *  Value: "SCIENCE_AND_ENGINEERING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_ScienceAndEngineering;
-/**
- *  A social services or non-profit job, such as Case Worker.
- *
- *  Value: "SOCIAL_SERVICES_AND_NON_PROFIT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SocialServicesAndNonProfit;
-/**
- *  A sports, fitness, or recreation job, such as Personal Trainer.
- *
- *  Value: "SPORTS_FITNESS_AND_RECREATION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_SportsFitnessAndRecreation;
-/**
- *  A transportation or logistics job, such as Truck Driver.
- *
- *  Value: "TRANSPORTATION_AND_LOGISTICS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo_JobCategories_TransportationAndLogistics;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions.htmlSanitization
-
-/**
- *  Disables sanitization on HTML input.
- *
- *  Value: "HTML_SANITIZATION_DISABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled;
-/**
- *  Default value.
- *
- *  Value: "HTML_SANITIZATION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified;
-/**
- *  Sanitizes HTML input, only accepts bold, italic, ordered list, and unordered
- *  list markup tags.
- *
- *  Value: "SIMPLE_FORMATTING_ONLY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_GoogleCloudTalentV4Location.locationType
-
-/**
- *  A state or equivalent level location.
- *
- *  Value: "ADMINISTRATIVE_AREA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_AdministrativeArea;
-/**
- *  A country level location.
- *
- *  Value: "COUNTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Country;
-/**
- *  A city or equivalent level location.
- *
- *  Value: "LOCALITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Locality;
-/**
- *  Default value if the type isn't specified.
- *
- *  Value: "LOCATION_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_LocationTypeUnspecified;
-/**
- *  A neighborhood level location.
- *
- *  Value: "NEIGHBORHOOD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Neighborhood;
-/**
- *  A postal code level location.
- *
- *  Value: "POSTAL_CODE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_PostalCode;
-/**
- *  A street address level location.
- *
- *  Value: "STREET_ADDRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_StreetAddress;
-/**
- *  A county or equivalent level location.
- *
- *  Value: "SUB_ADMINISTRATIVE_AREA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubAdministrativeArea;
-/**
- *  A sublocality is a subdivision of a locality, for example a city borough,
- *  ward, or arrondissement. Sublocalities are usually recognized by a local
- *  political authority. For example, Manhattan and Brooklyn are recognized as
- *  boroughs by the City of New York, and are therefore modeled as
- *  sublocalities.
- *
- *  Value: "SUB_LOCALITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality;
-/**
- *  A district or equivalent level location.
- *
- *  Value: "SUB_LOCALITY_1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality1;
-/**
- *  A smaller district or equivalent level display.
- *
- *  Value: "SUB_LOCALITY_2"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality2;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_HistogramFacets.simpleHistogramFacets
-
-/**
- *  Filter by Admin1, which is a global placeholder for referring to state,
- *  province, or the particular term a country uses to define the geographic
- *  structure below the country level. Examples include states codes such as
- *  "CA", "IL", "NY", and provinces, such as "BC".
- *
- *  Value: "ADMIN_1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1;
-/**
- *  A combination of state or province code with a country code. This field
- *  differs from `JOB_ADMIN1`, which can be used in multiple countries.
- *
- *  Value: "ADMIN_1_COUNTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Admin1Country;
-/**
- *  Base compensation unit.
- *
- *  Value: "BASE_COMPENSATION_UNIT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_BaseCompensationUnit;
-/**
- *  Filter by the Category.
- *
- *  Value: "CATEGORY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Category;
-/**
- *  Filter by the "city name", "Admin1 code", for example, "Mountain View, CA"
- *  or "New York, NY".
- *
- *  Value: "CITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_City;
-/**
- *  Filter by the city center GPS coordinate (latitude and longitude), for
- *  example, 37.4038522,-122.0987765. Since the coordinates of a city center can
- *  change, clients may need to refresh them periodically.
- *
- *  Value: "CITY_COORDINATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CityCoordinate;
-/**
- *  Company display name.
- *
- *  Value: "COMPANY_DISPLAY_NAME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyDisplayName;
-/**
- *  Filter by the company id field.
- *
- *  Value: "COMPANY_ID"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanyId;
-/**
- *  Filter by the company size type field, such as `BIG`, `SMALL` or `BIGGER`.
- *
- *  Value: "COMPANY_SIZE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_CompanySize;
-/**
- *  Filter by the country code of job, such as US, JP, FR.
- *
- *  Value: "COUNTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Country;
-/**
- *  Filter by the date published field. Possible return values are: *
- *  PAST_24_HOURS (The past 24 hours) * PAST_3_DAYS (The past 3 days) *
- *  PAST_WEEK (The past 7 days) * PAST_MONTH (The past 30 days) * PAST_YEAR (The
- *  past 365 days)
- *
- *  Value: "DATE_PUBLISHED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_DatePublished;
-/**
- *  Filter by the required education level of the job.
- *
- *  Value: "EDUCATION_LEVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EducationLevel;
-/**
- *  Filter by the employment type field, such as `FULL_TIME` or `PART_TIME`.
- *
- *  Value: "EMPLOYMENT_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_EmploymentType;
-/**
- *  Filter by the required experience level of the job.
- *
- *  Value: "EXPERIENCE_LEVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_ExperienceLevel;
-/**
- *  Filter by the language code portion of the locale field, such as "en" or
- *  "fr".
- *
- *  Value: "LANGUAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Language;
-/**
- *  Filter by the locale field of a job, such as "en-US", "fr-FR". This is the
- *  BCP-47 language code, such as "en-US" or "sr-Latn". For more information,
- *  see [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
- *
- *  Value: "LOCALE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_Locale;
-/**
- *  The default value if search type is not specified.
- *
- *  Value: "SEARCH_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramFacets_SimpleHistogramFacets_SearchTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudTalentSolution_HistogramResult.searchType
-
-/**
- *  Filter by Admin1, which is a global placeholder for referring to state,
- *  province, or the particular term a country uses to define the geographic
- *  structure below the country level. Examples include states codes such as
- *  "CA", "IL", "NY", and provinces, such as "BC".
- *
- *  Value: "ADMIN_1"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1;
-/**
- *  A combination of state or province code with a country code. This field
- *  differs from `JOB_ADMIN1`, which can be used in multiple countries.
- *
- *  Value: "ADMIN_1_COUNTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1Country;
-/**
- *  Base compensation unit.
- *
- *  Value: "BASE_COMPENSATION_UNIT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_BaseCompensationUnit;
-/**
- *  Filter by the Category.
- *
- *  Value: "CATEGORY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Category;
-/**
- *  Filter by the "city name", "Admin1 code", for example, "Mountain View, CA"
- *  or "New York, NY".
- *
- *  Value: "CITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_City;
-/**
- *  Filter by the city center GPS coordinate (latitude and longitude), for
- *  example, 37.4038522,-122.0987765. Since the coordinates of a city center can
- *  change, clients may need to refresh them periodically.
- *
- *  Value: "CITY_COORDINATE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CityCoordinate;
-/**
- *  Company display name.
- *
- *  Value: "COMPANY_DISPLAY_NAME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyDisplayName;
-/**
- *  Filter by the company id field.
- *
- *  Value: "COMPANY_ID"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyId;
-/**
- *  Filter by the company size type field, such as `BIG`, `SMALL` or `BIGGER`.
- *
- *  Value: "COMPANY_SIZE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanySize;
-/**
- *  Filter by the country code of job, such as US, JP, FR.
- *
- *  Value: "COUNTRY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Country;
-/**
- *  Filter by the date published field. Possible return values are: *
- *  PAST_24_HOURS (The past 24 hours) * PAST_3_DAYS (The past 3 days) *
- *  PAST_WEEK (The past 7 days) * PAST_MONTH (The past 30 days) * PAST_YEAR (The
- *  past 365 days)
- *
- *  Value: "DATE_PUBLISHED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_DatePublished;
-/**
- *  Filter by the required education level of the job.
- *
- *  Value: "EDUCATION_LEVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EducationLevel;
-/**
- *  Filter by the employment type field, such as `FULL_TIME` or `PART_TIME`.
- *
- *  Value: "EMPLOYMENT_TYPE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_EmploymentType;
-/**
- *  Filter by the required experience level of the job.
- *
- *  Value: "EXPERIENCE_LEVEL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_ExperienceLevel;
-/**
- *  Filter by the language code portion of the locale field, such as "en" or
- *  "fr".
- *
- *  Value: "LANGUAGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Language;
-/**
- *  Filter by the locale field of a job, such as "en-US", "fr-FR". This is the
- *  BCP-47 language code, such as "en-US" or "sr-Latn". For more information,
- *  see [Tags for Identifying Languages](https://tools.ietf.org/html/bcp47).
- *
- *  Value: "LOCALE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_Locale;
-/**
- *  The default value if search type is not specified.
- *
- *  Value: "SEARCH_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_HistogramResult_SearchType_SearchTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_Job.degreeTypes
@@ -1676,7 +668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_EmploymentTypes_ContractToHire;
 /**
- *  The default value if the employment type is not specified.
+ *  The default value if the employment type isn't specified.
  *
  *  Value: "EMPLOYMENT_TYPE_UNSPECIFIED"
  */
@@ -1767,7 +759,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_Dome
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobBenefits_FlexibleHours;
 /**
- *  Default value if the type is not specified.
+ *  Default value if the type isn't specified.
  *
  *  Value: "JOB_BENEFIT_UNSPECIFIED"
  */
@@ -1848,7 +840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Executi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Job_JobLevel_Experienced;
 /**
- *  The default value if the level is not specified.
+ *  The default value if the level isn't specified.
  *
  *  Value: "JOB_LEVEL_UNSPECIFIED"
  */
@@ -2235,13 +1227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_JobEve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_Notification;
 /**
- *  The job seeker or other entity interacting with the service showed no
- *  interest in the job.
- *
- *  Value: "NOT_INTERESTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobEvent_Type_NotInterested;
-/**
  *  A recruiter or staffing agency submitted an application on behalf of the
  *  candidate after interacting with the service to identify a suitable job
  *  posting.
@@ -2285,7 +1270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentT
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_JobQuery_EmploymentTypes_ContractToHire;
 /**
- *  The default value if the employment type is not specified.
+ *  The default value if the employment type isn't specified.
  *
  *  Value: "EMPLOYMENT_TYPE_UNSPECIFIED"
  */
@@ -2560,7 +1545,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationTyp
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_Location_LocationType_Locality;
 /**
- *  Default value if the type is not specified.
+ *  Default value if the type isn't specified.
  *
  *  Value: "LOCATION_TYPE_UNSPECIFIED"
  */
@@ -2628,7 +1613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_Telec
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded;
 /**
- *  Default value if the telecommute preference is not specified.
+ *  Default value if the telecommute preference isn't specified.
  *
  *  Value: "TELECOMMUTE_PREFERENCE_UNSPECIFIED"
  */
@@ -2669,15 +1654,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_ProcessingOptions_Ht
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled;
 /**
- *  The diversification level isn't specified. By default, jobs with this enum
- *  are ordered according to SIMPLE diversifying behavior.
+ *  The diversification level isn't specified.
  *
  *  Value: "DIVERSIFICATION_LEVEL_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified;
 /**
  *  Default diversifying behavior. The result list is ordered so that highly
- *  similar results are pushed to the end of the last page of search results.
+ *  similar results are pushed to the end of the last page of search results. If
+ *  you are using pageToken to page through the result set, latency might be
+ *  lower but we can't guarantee that all results are returned. If you are using
+ *  page offset, latency might be higher but all results are returned.
  *
  *  Value: "SIMPLE"
  */
@@ -2701,7 +1688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Jo
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewIdOnly;
 /**
  *  A minimal view of the job, with the following attributes: Job.name,
- *  Job.requisition_id, Job.title, Job.company_name, Job.DerivedInfo.locations,
+ *  Job.requisition_id, Job.title, Job.company, Job.DerivedInfo.locations,
  *  Job.language_code.
  *
  *  Value: "JOB_VIEW_MINIMAL"
@@ -2709,7 +1696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Jo
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal;
 /**
  *  A small view of the job, with the following attributes in the search
- *  results: Job.name, Job.requisition_id, Job.title, Job.company_name,
+ *  results: Job.name, Job.requisition_id, Job.title, Job.company,
  *  Job.DerivedInfo.locations, Job.visibility, Job.language_code,
  *  Job.description.
  *
@@ -2757,14 +1744,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @interface GTLRCloudTalentSolution_ApplicationInfo : GTLRObject
 
 /**
- *  Optional but at least one of uris, emails or instruction must be specified.
  *  Use this field to specify email address(es) to which resumes or applications
  *  can be sent. The maximum number of allowed characters for each entry is 255.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
 
 /**
- *  Optional but at least one of uris, emails or instruction must be specified.
  *  Use this field to provide instructions, such as "Mail your application to
  *  ...", that a candidate can follow to apply for the job. This field accepts
  *  and sanitizes HTML input, and also accepts bold, italic, ordered list, and
@@ -2774,7 +1759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *instruction;
 
 /**
- *  Optional but at least one of uris, emails or instruction must be specified.
  *  Use this URI field to direct an applicant to a website, for example to link
  *  to an online application form. The maximum number of allowed characters for
  *  each entry is 2,000.
@@ -2785,855 +1769,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. Batch delete jobs request.
+ *  Request to create a batch of jobs.
  */
-@interface GTLRCloudTalentSolution_BatchDeleteJobsRequest : GTLRObject
+@interface GTLRCloudTalentSolution_BatchCreateJobsRequest : GTLRObject
 
 /**
- *  Required. The filter string specifies the jobs to be deleted. Supported
- *  operator: =, AND The fields eligible for filtering are: * `companyName`
- *  (Required) * `requisitionId` (Required) Sample Query: companyName =
- *  "projects/api-test-project/companies/123" AND requisitionId = "req-1"
+ *  Required. The jobs to be created. A maximum of 200 jobs can be created in a
+ *  batch.
  */
-@property(nonatomic, copy, nullable) NSString *filter;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_Job *> *jobs;
 
-@end
-
-
-/**
- *  Represents count of jobs within one bucket.
- */
-@interface GTLRCloudTalentSolution_BucketizedCount : GTLRObject
-
-/**
- *  Number of jobs whose numeric field value fall into `range`.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *count;
-
-/**
- *  Bucket range on which histogram was performed for the numeric field, that
- *  is, the count represents number of jobs in this range.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_BucketRange *range;
-
-@end
-
-
-/**
- *  Represents starting and ending value of a range in double.
- */
-@interface GTLRCloudTalentSolution_BucketRange : GTLRObject
-
-/**
- *  Starting value of the bucket range.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *from;
-
-/**
- *  Ending value of the bucket range.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *to;
-
-@end
-
-
-/**
- *  An event issued when an end user interacts with the application that
- *  implements Cloud Talent Solution. Providing this information improves the
- *  quality of search and recommendation for the API clients, enabling the
- *  service to perform optimally. The number of events sent must be consistent
- *  with other calls, such as job searches, issued to the service by the client.
- */
-@interface GTLRCloudTalentSolution_ClientEvent : GTLRObject
-
-/** Required. The timestamp of the event. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Required. A unique identifier, generated by the client application. This
- *  `event_id` is used to establish the relationship between different events
- *  (see parent_event_id).
- */
-@property(nonatomic, copy, nullable) NSString *eventId;
-
-/**
- *  Optional. Extra information about this event. Used for storing information
- *  with no matching field in event payload, for example, user application
- *  specific context or details. At most 20 keys are supported. The maximum
- *  total size of all keys and values is 2 KB.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ClientEvent_ExtraInfo *extraInfo;
-
-/**
- *  A event issued when a job seeker interacts with the application that
- *  implements Cloud Talent Solution.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobEvent *jobEvent;
-
-/**
- *  Optional. The event_id of an event that resulted in the current event. For
- *  example, a Job view event usually follows a parent impression event: A job
- *  seeker first does a search where a list of jobs appears (impression). The
- *  job seeker then selects a result and views the description of a particular
- *  job (Job view).
- */
-@property(nonatomic, copy, nullable) NSString *parentEventId;
-
-/**
- *  Required. A unique ID generated in the API responses. It can be found in
- *  ResponseMetadata.request_id.
- */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-@end
-
-
-/**
- *  Optional. Extra information about this event. Used for storing information
- *  with no matching field in event payload, for example, user application
- *  specific context or details. At most 20 keys are supported. The maximum
- *  total size of all keys and values is 2 KB.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_ClientEvent_ExtraInfo : GTLRObject
-@end
-
-
-/**
- *  Input only. Parameters needed for commute search.
- */
-@interface GTLRCloudTalentSolution_CommuteFilter : GTLRObject
-
-/**
- *  Optional. If true, jobs without "precise" addresses (street level addresses
- *  or GPS coordinates) might also be returned. For city and coarser level
- *  addresses, text matching is used. If this field is set to false or is not
- *  specified, only jobs that include precise addresses are returned by Commute
- *  Search. Note: If `allow_imprecise_addresses` is set to true, Commute Search
- *  is not able to calculate accurate commute times to jobs with city level and
- *  coarser address information. Jobs with imprecise addresses will return a
- *  `travel_duration` time of 0 regardless of distance from the job seeker.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowImpreciseAddresses;
-
-/**
- *  Required. The method of transportation for which to calculate the commute
- *  time.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified
- *        Commute method is not specified. (Value: "COMMUTE_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving
- *        Commute time is calculated based on driving time. (Value: "DRIVING")
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit
- *        Commute time is calculated based on public transit including bus,
- *        metro, subway, etc. (Value: "TRANSIT")
- */
-@property(nonatomic, copy, nullable) NSString *commuteMethod;
-
-/**
- *  Optional. The departure time used to calculate traffic impact, represented
- *  as google.type.TimeOfDay in local time zone. Currently traffic model is
- *  restricted to hour level resolution.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_TimeOfDay *departureTime;
-
-/**
- *  Optional. Specifies the traffic density to use when calculating commute
- *  time.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour
- *        Commute time calculation takes in account the peak traffic impact.
- *        (Value: "BUSY_HOUR")
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_RoadTrafficUnspecified
- *        Road traffic situation is not specified. (Value:
- *        "ROAD_TRAFFIC_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_TrafficFree
- *        Optimal commute time without considering any traffic impact. (Value:
- *        "TRAFFIC_FREE")
- */
-@property(nonatomic, copy, nullable) NSString *roadTraffic;
-
-/**
- *  Required. The latitude and longitude of the location from which to calculate
- *  the commute time.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_LatLng *startCoordinates;
-
-/**
- *  Required. The maximum travel time in seconds. The maximum allowed value is
- *  `3600s` (one hour). Format is `123s`.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *travelDuration;
-
-@end
-
-
-/**
- *  Output only. Commute details related to this job.
- */
-@interface GTLRCloudTalentSolution_CommuteInfo : GTLRObject
-
-/** Location used as the destination in the commute calculation. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Location *jobLocation;
-
-/**
- *  The number of seconds required to travel to the job location from the query
- *  location. A duration of 0 seconds indicates that the job is not reachable
- *  within the requested duration, but was returned as part of an expanded
- *  query.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *travelDuration;
-
-@end
-
-
-/**
- *  A Company resource represents a company in the service. A company is the
- *  entity that owns job postings, that is, the hiring entity responsible for
- *  employing applicants for the job position.
- */
-@interface GTLRCloudTalentSolution_Company : GTLRObject
-
-/**
- *  Optional. The URI to employer's career site or careers page on the
- *  employer's web site, for example, "https://careers.google.com".
- */
-@property(nonatomic, copy, nullable) NSString *careerSiteUri;
-
-/** Output only. Derived details about the company. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompanyDerivedInfo *derivedInfo;
-
-/** Required. The display name of the company, for example, "Google LLC". */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Optional. Equal Employment Opportunity legal disclaimer text to be
- *  associated with all jobs, and typically to be displayed in all roles. The
- *  maximum number of allowed characters is 500.
- */
-@property(nonatomic, copy, nullable) NSString *eeoText;
-
-/**
- *  Required. Client side company identifier, used to uniquely identify the
- *  company. The maximum number of allowed characters is 255.
- */
-@property(nonatomic, copy, nullable) NSString *externalId;
-
-/**
- *  Optional. The street address of the company's main headquarters, which may
- *  be different from the job location. The service attempts to geolocate the
- *  provided address, and populates a more specific location wherever possible
- *  in DerivedInfo.headquarters_location.
- */
-@property(nonatomic, copy, nullable) NSString *headquartersAddress;
-
-/**
- *  Optional. Set to true if it is the hiring agency that post jobs for other
- *  employers. Defaults to false if not provided.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hiringAgency;
-
-/** Optional. A URI that hosts the employer's company logo. */
-@property(nonatomic, copy, nullable) NSString *imageUri;
-
-/**
- *  Optional. A list of keys of filterable Job.custom_attributes, whose
- *  corresponding `string_values` are used in keyword search. Jobs with
- *  `string_values` under these specified field keys are returned if any of the
- *  values matches the search keyword. Custom field values with parenthesis,
- *  brackets and special symbols won't be properly searchable, and those keyword
- *  queries need to be surrounded by quotes.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *keywordSearchableJobCustomAttributes;
-
-/**
- *  Required during company update. The resource name for a company. This is
- *  generated by the service when a company is created. The format is
- *  "projects/{project_id}/companies/{company_id}", for example,
- *  "projects/api-test-project/companies/foo".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The employer's company size.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Big The company has between
- *        1,000 and 4,999 employees. (Value: "BIG")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Bigger The company has
- *        between 5,000 and 9,999 employees. (Value: "BIGGER")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_CompanySizeUnspecified
- *        Default value if the size is not specified. (Value:
- *        "COMPANY_SIZE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Giant The company has 10,000
- *        or more employees. (Value: "GIANT")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Medium The company has
- *        between 500 and 999 employees. (Value: "MEDIUM")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Mini The company has less
- *        than 50 employees. (Value: "MINI")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Small The company has
- *        between 50 and 99 employees. (Value: "SMALL")
- *    @arg @c kGTLRCloudTalentSolution_Company_Size_Smedium The company has
- *        between 100 and 499 employees. (Value: "SMEDIUM")
- */
-@property(nonatomic, copy, nullable) NSString *size;
-
-/**
- *  Output only. Indicates whether a company is flagged to be suspended from
- *  public availability by the service when job content appears suspicious,
- *  abusive, or spammy.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *suspended;
-
-/**
- *  Optional. The URI representing the company's primary web site or home page,
- *  for example, "https://www.google.com". The maximum number of allowed
- *  characters is 255.
- */
-@property(nonatomic, copy, nullable) NSString *websiteUri;
-
-@end
-
-
-/**
- *  Derived details about the company.
- */
-@interface GTLRCloudTalentSolution_CompanyDerivedInfo : GTLRObject
-
-/**
- *  A structured headquarters location of the company, resolved from
- *  Company.hq_location if provided.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Location *headquartersLocation;
-
-@end
-
-
-/**
- *  A compensation entry that represents one component of compensation, such as
- *  base pay, bonus, or other compensation type. Annualization: One compensation
- *  entry can be annualized if - it contains valid amount or range. - and its
- *  expected_units_per_year is set or can be derived. Its annualized range is
- *  determined as (amount or range) times expected_units_per_year.
- */
-@interface GTLRCloudTalentSolution_CompensationEntry : GTLRObject
-
-/** Optional. Compensation amount. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Money *amount;
-
-/**
- *  Optional. Compensation description. For example, could indicate equity terms
- *  or provide additional context to an estimated bonus.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Optional. Expected number of units paid each year. If not specified, when
- *  Job.employment_types is FULLTIME, a default value is inferred based on unit.
- *  Default values: - HOURLY: 2080 - DAILY: 260 - WEEKLY: 52 - MONTHLY: 12 -
- *  ANNUAL: 1
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *expectedUnitsPerYear;
-
-/** Optional. Compensation range. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *range;
-
-/**
- *  Optional. Compensation type. Default is
- *  CompensationUnit.COMPENSATION_TYPE_UNSPECIFIED.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Base Base
- *        compensation: Refers to the fixed amount of money paid to an employee
- *        by an employer in return for work performed. Base compensation does
- *        not include benefits, bonuses or any other potential compensation from
- *        an employer. (Value: "BASE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Bonus Bonus.
- *        (Value: "BONUS")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Commissions
- *        Commission. (Value: "COMMISSIONS")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_CompensationTypeUnspecified
- *        Default value. (Value: "COMPENSATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Equity Equity.
- *        (Value: "EQUITY")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_OtherCompensationType
- *        Other compensation type. (Value: "OTHER_COMPENSATION_TYPE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_ProfitSharing
- *        Profit sharing. (Value: "PROFIT_SHARING")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_SigningBonus
- *        Signing bonus. (Value: "SIGNING_BONUS")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Tips Tips. (Value:
- *        "TIPS")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Optional. Frequency of the specified amount. Default is
- *  CompensationUnit.COMPENSATION_UNIT_UNSPECIFIED.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_CompensationUnitUnspecified
- *        Default value. (Value: "COMPENSATION_UNIT_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Daily Daily.
- *        (Value: "DAILY")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Hourly Hourly.
- *        (Value: "HOURLY")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Monthly Monthly.
- *        (Value: "MONTHLY")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_OneTime One time.
- *        (Value: "ONE_TIME")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_OtherCompensationUnit
- *        Other compensation units. (Value: "OTHER_COMPENSATION_UNIT")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Weekly Weekly
- *        (Value: "WEEKLY")
- *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Yearly Yearly.
- *        (Value: "YEARLY")
- */
-@property(nonatomic, copy, nullable) NSString *unit;
-
-@end
-
-
-/**
- *  Input only. Filter on job compensation type and amount.
- */
-@interface GTLRCloudTalentSolution_CompensationFilter : GTLRObject
-
-/**
- *  Optional. If set to true, jobs with unspecified compensation range fields
- *  are included.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *includeJobsWithUnspecifiedCompensationRange;
-
-/** Optional. Compensation range. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *range;
-
-/**
- *  Required. Type of filter.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedBaseAmount
- *        Filter by annualized base compensation amount and `base compensation
- *        entry's` unit. Populate range and zero or more units. (Value:
- *        "ANNUALIZED_BASE_AMOUNT")
- *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedTotalAmount
- *        Filter by annualized total compensation amount and `base compensation
- *        entry's` unit . Populate range and zero or more units. (Value:
- *        "ANNUALIZED_TOTAL_AMOUNT")
- *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_FilterTypeUnspecified
- *        Filter type unspecified. Position holder, INVALID, should never be
- *        used. (Value: "FILTER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_UnitAndAmount
- *        Filter by `base compensation entry's` unit and amount / range. A job
- *        is a match if and only if the job contains a base CompensationEntry,
- *        and the base entry's unit matches provided compensation_units and
- *        amount or range overlaps with provided compensation_range. See
- *        CompensationInfo.CompensationEntry for definition of base compensation
- *        entry. Set exactly one units and populate range. (Value:
- *        "UNIT_AND_AMOUNT")
- *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_UnitOnly Filter
- *        by `base compensation entry's` unit. A job is a match if and only if
- *        the job contains a base CompensationEntry and the base
- *        CompensationEntry's unit matches provided units. Populate one or more
- *        units. See CompensationInfo.CompensationEntry for definition of base
- *        compensation entry. (Value: "UNIT_ONLY")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Required. Specify desired `base compensation entry's`
- *  CompensationInfo.CompensationUnit.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *units;
-
-@end
-
-
-/**
- *  Input only. Compensation based histogram request.
- */
-@interface GTLRCloudTalentSolution_CompensationHistogramRequest : GTLRObject
-
-/**
- *  Required. Numeric histogram options, like buckets, whether include min or
- *  max value.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NumericBucketingOption *bucketingOption;
-
-/**
- *  Required. Type of the request, representing which field the histogramming
- *  should be performed over. A single request can only specify one histogram of
- *  each `CompensationHistogramRequestType`.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedBase
- *        Histogram by job's annualized base compensation. See CompensationEntry
- *        for definition of annualized base compensation. (Value:
- *        "ANNUALIZED_BASE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_AnnualizedTotal
- *        Histogram by job's annualized total compensation. See
- *        CompensationEntry for definition of annualized total compensation.
- *        (Value: "ANNUALIZED_TOTAL")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_Base
- *        Histogram by job's base compensation. See CompensationEntry for
- *        definition of base compensation. (Value: "BASE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramRequest_Type_CompensationHistogramRequestTypeUnspecified
- *        Default value. Invalid. (Value:
- *        "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Output only. Compensation based histogram result.
- */
-@interface GTLRCloudTalentSolution_CompensationHistogramResult : GTLRObject
-
-/** Histogram result. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NumericBucketingResult *result;
-
-/**
- *  Type of the request, corresponding to CompensationHistogramRequest.type.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedBase
- *        Histogram by job's annualized base compensation. See CompensationEntry
- *        for definition of annualized base compensation. (Value:
- *        "ANNUALIZED_BASE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramResult_Type_AnnualizedTotal
- *        Histogram by job's annualized total compensation. See
- *        CompensationEntry for definition of annualized total compensation.
- *        (Value: "ANNUALIZED_TOTAL")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramResult_Type_Base
- *        Histogram by job's base compensation. See CompensationEntry for
- *        definition of base compensation. (Value: "BASE")
- *    @arg @c kGTLRCloudTalentSolution_CompensationHistogramResult_Type_CompensationHistogramRequestTypeUnspecified
- *        Default value. Invalid. (Value:
- *        "COMPENSATION_HISTOGRAM_REQUEST_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Job compensation details.
- */
-@interface GTLRCloudTalentSolution_CompensationInfo : GTLRObject
-
-/**
- *  Output only. Annualized base compensation range. Computed as base
- *  compensation entry's CompensationEntry.compensation times
- *  CompensationEntry.expected_units_per_year. See CompensationEntry for
- *  explanation on compensation annualization.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *annualizedBaseCompensationRange;
-
-/**
- *  Output only. Annualized total compensation range. Computed as all
- *  compensation entries' CompensationEntry.compensation times
- *  CompensationEntry.expected_units_per_year. See CompensationEntry for
- *  explanation on compensation annualization.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *annualizedTotalCompensationRange;
-
-/**
- *  Optional. Job compensation information. At most one entry can be of type
- *  CompensationInfo.CompensationType.BASE, which is referred as ** base
- *  compensation entry ** for the job.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompensationEntry *> *entries;
-
-@end
-
-
-/**
- *  Compensation range.
- */
-@interface GTLRCloudTalentSolution_CompensationRange : GTLRObject
-
-/**
- *  Optional. The maximum amount of compensation. If left empty, the value is
- *  set to a maximal compensation value and the currency code is set to match
- *  the currency code of min_compensation.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Money *maxCompensation;
-
-/**
- *  Optional. The minimum amount of compensation. If left empty, the value is
- *  set to zero and the currency code is set to match the currency code of
- *  max_compensation.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Money *minCompensation;
-
-@end
-
-
-/**
- *  Output only. Response of auto-complete query.
- */
-@interface GTLRCloudTalentSolution_CompleteQueryResponse : GTLRObject
-
-/** Results of the matching job/company candidates. */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompletionResult *> *completionResults;
-
-/**
- *  Additional information for the API invocation, such as the request tracking
- *  id.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ResponseMetadata *metadata;
-
-@end
-
-
-/**
- *  Output only. Resource that represents completion results.
- */
-@interface GTLRCloudTalentSolution_CompletionResult : GTLRObject
-
-/** The URI of the company image for CompletionType.COMPANY_NAME. */
-@property(nonatomic, copy, nullable) NSString *imageUri;
-
-/** The suggestion for the query. */
-@property(nonatomic, copy, nullable) NSString *suggestion;
-
-/**
- *  The completion topic.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_Combined Suggest
- *        both job titles and company names. (Value: "COMBINED")
- *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_CompanyName Only
- *        suggest company names. (Value: "COMPANY_NAME")
- *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified
- *        Default value. (Value: "COMPLETION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle Only
- *        suggest job titles. (Value: "JOB_TITLE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  The report event request.
- */
-@interface GTLRCloudTalentSolution_CreateClientEventRequest : GTLRObject
-
-/**
- *  Required. Events issued when end user interacts with customer's application
- *  that uses Cloud Talent Solution.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ClientEvent *clientEvent;
-
-@end
-
-
-/**
- *  Input only. The Request of the CreateCompany method.
- */
-@interface GTLRCloudTalentSolution_CreateCompanyRequest : GTLRObject
-
-/** Required. The company to be created. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Company *company;
-
-@end
-
-
-/**
- *  Input only. Create job request.
- */
-@interface GTLRCloudTalentSolution_CreateJobRequest : GTLRObject
-
-/** Required. The Job to be created. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Job *job;
-
-@end
-
-
-/**
- *  Custom attribute values that are either filterable or non-filterable.
- */
-@interface GTLRCloudTalentSolution_CustomAttribute : GTLRObject
-
-/**
- *  Optional. If the `filterable` flag is true, the custom field values may be
- *  used for custom attribute filters JobQuery.custom_attribute_filter. If
- *  false, these values may not be used for custom attribute filters. Default is
- *  false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *filterable;
-
-/**
- *  Optional but exactly one of string_values or long_values must be specified.
- *  This field is used to perform number range search. (`EQ`, `GT`, `GE`, `LE`,
- *  `LT`) over filterable `long_value`. Currently at most 1 long_values is
- *  supported.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *longValues;
-
-/**
- *  Optional but exactly one of string_values or long_values must be specified.
- *  This field is used to perform a string match (`CASE_SENSITIVE_MATCH` or
- *  `CASE_INSENSITIVE_MATCH`) search. For filterable `string_value`s, a maximum
- *  total number of 200 values is allowed, with each `string_value` has a byte
- *  size of no more than 500B. For unfilterable `string_values`, the maximum
- *  total byte size of unfilterable `string_values` is 50KB. Empty string is not
- *  allowed.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *stringValues;
-
-@end
-
-
-/**
- *  Custom attributes histogram request. An error is thrown if neither
- *  string_value_histogram or long_value_histogram_bucketing_option has been
- *  defined.
- */
-@interface GTLRCloudTalentSolution_CustomAttributeHistogramRequest : GTLRObject
-
-/**
- *  Required. Specifies the custom field key to perform a histogram on. If
- *  specified without `long_value_histogram_bucketing_option`, histogram on
- *  string values of the given `key` is triggered, otherwise histogram is
- *  performed on long values.
- */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/**
- *  Optional. Specifies buckets used to perform a range histogram on Job's
- *  filterable long custom field values, or min/max value requirements.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NumericBucketingOption *longValueHistogramBucketingOption;
-
-/**
- *  Optional. If set to true, the response includes the histogram value for each
- *  key as a string.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *stringValueHistogram;
-
-@end
-
-
-/**
- *  Output only. Custom attribute histogram result.
- */
-@interface GTLRCloudTalentSolution_CustomAttributeHistogramResult : GTLRObject
-
-/** Stores the key of custom attribute the histogram is performed on. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/**
- *  Stores bucketed histogram counting result or min/max values for custom
- *  attribute long values associated with `key`.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_NumericBucketingResult *longValueHistogramResult;
-
-/**
- *  Stores a map from the values of string custom field associated with `key` to
- *  the number of jobs with that value in this histogram result.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CustomAttributeHistogramResult_StringValueHistogramResult *stringValueHistogramResult;
-
-@end
-
-
-/**
- *  Stores a map from the values of string custom field associated with `key` to
- *  the number of jobs with that value in this histogram result.
- *
- *  @note This class is documented as having more properties of NSNumber (Uses
- *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_CustomAttributeHistogramResult_StringValueHistogramResult : GTLRObject
-@end
-
-
-/**
- *  Device information collected from the job seeker, candidate, or other entity
- *  conducting the job search. Providing this information improves the quality
- *  of the search results across devices.
- */
-@interface GTLRCloudTalentSolution_DeviceInfo : GTLRObject
-
-/**
- *  Optional. Type of the device.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Android An Android
- *        device native application. (Value: "ANDROID")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Bot A bot, as
- *        opposed to a device operated by human beings, such as a web crawler.
- *        (Value: "BOT")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_DeviceTypeUnspecified
- *        The device type isn't specified. (Value: "DEVICE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Ios An iOS device
- *        native application. (Value: "IOS")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_MobileWeb A mobile
- *        device web browser, such as a phone or tablet with a Chrome browser.
- *        (Value: "MOBILE_WEB")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Other Other devices
- *        types. (Value: "OTHER")
- *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web A desktop web
- *        browser, such as, Chrome, Firefox, Safari, or Internet Explorer)
- *        (Value: "WEB")
- */
-@property(nonatomic, copy, nullable) NSString *deviceType;
-
-/**
- *  Optional. A device-specific ID. The ID must be a unique identifier that
- *  distinguishes the device from other devices.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-@end
-
-
-/**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
- */
-@interface GTLRCloudTalentSolution_Empty : GTLRObject
 @end
 
 
@@ -3641,13 +1786,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  The result of JobService.BatchCreateJobs. It's used to replace
  *  google.longrunning.Operation.response in case of success.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4BatchCreateJobsResponse : GTLRObject
+@interface GTLRCloudTalentSolution_BatchCreateJobsResponse : GTLRObject
 
 /**
  *  List of job mutation results from a batch create operation. It can change
  *  until operation status is FINISHED, FAILED or CANCELLED.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult *> *jobResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_JobResult *> *jobResults;
+
+@end
+
+
+/**
+ *  Request to delete a batch of jobs.
+ */
+@interface GTLRCloudTalentSolution_BatchDeleteJobsRequest : GTLRObject
+
+/**
+ *  The names of the jobs to delete. The format is
+ *  "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}". For example,
+ *  "projects/foo/tenants/bar/jobs/baz". A maximum of 200 jobs can be deleted in
+ *  a batch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
 @end
 
@@ -3656,13 +1817,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  The result of JobService.BatchDeleteJobs. It's used to replace
  *  google.longrunning.Operation.response in case of success.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4BatchDeleteJobsResponse : GTLRObject
+@interface GTLRCloudTalentSolution_BatchDeleteJobsResponse : GTLRObject
 
 /**
  *  List of job mutation results from a batch delete operation. It can change
  *  until operation status is FINISHED, FAILED or CANCELLED.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult *> *jobResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_JobResult *> *jobResults;
 
 @end
 
@@ -3671,7 +1832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Metadata used for long running operations returned by CTS batch APIs. It's
  *  used to replace google.longrunning.Operation.metadata.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata : GTLRObject
+@interface GTLRCloudTalentSolution_BatchOperationMetadata : GTLRObject
 
 /** The time when the batch operation is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3693,26 +1854,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  The state of a long running operation.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelled
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelled
  *        The batch operation is done after
  *        google.longrunning.Operations.CancelOperation is called. Any items
  *        processed before cancelling are returned in the response. (Value:
  *        "CANCELLED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Cancelling
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Cancelling
  *        The batch operation is in the process of cancelling after
  *        google.longrunning.Operations.CancelOperation is called. (Value:
  *        "CANCELLING")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Failed
- *        The batch operation is done and no item has been successfully
- *        processed. (Value: "FAILED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Initializing
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Failed The
+ *        batch operation is done and no item has been successfully processed.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Initializing
  *        The batch operation is being prepared for processing. (Value:
  *        "INITIALIZING")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Processing
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Processing
  *        The batch operation is actively being processed. (Value: "PROCESSING")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_StateUnspecified
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_StateUnspecified
  *        Default value. (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4BatchOperationMetadata_State_Succeeded
+ *    @arg @c kGTLRCloudTalentSolution_BatchOperationMetadata_State_Succeeded
  *        The batch operation is processed, and at least one item has been
  *        successfully processed. (Value: "SUCCEEDED")
  */
@@ -3745,47 +1906,293 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  The result of JobService.BatchUpdateJobs. It's used to replace
- *  google.longrunning.Operation.response in case of success.
+ *  Request to update a batch of jobs.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4BatchUpdateJobsResponse : GTLRObject
+@interface GTLRCloudTalentSolution_BatchUpdateJobsRequest : GTLRObject
 
 /**
- *  List of job mutation results from a batch update operation. It can change
- *  until operation status is FINISHED, FAILED or CANCELLED.
+ *  Required. The jobs to be updated. A maximum of 200 jobs can be updated in a
+ *  batch.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult *> *jobResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_Job *> *jobs;
+
+/**
+ *  Strongly recommended for the best service experience. Be aware that it will
+ *  also increase latency when checking the status of a batch operation. If
+ *  update_mask is provided, only the specified fields in Job are updated.
+ *  Otherwise all the fields are updated. A field mask to restrict the fields
+ *  that are updated. Only top level fields of Job are supported. If update_mask
+ *  is provided, The Job inside JobResult will only contains fields that is
+ *  updated, plus the Id of the Job. Otherwise, Job will include all fields,
+ *  which can yield a very large response.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
 
 /**
- *  Job compensation details.
+ *  The result of JobService.BatchUpdateJobs. It's used to replace
+ *  google.longrunning.Operation.response in case of success.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfo : GTLRObject
+@interface GTLRCloudTalentSolution_BatchUpdateJobsResponse : GTLRObject
 
 /**
- *  Output only. Annualized base compensation range. Computed as base
- *  compensation entry's CompensationEntry.amount times
- *  CompensationEntry.expected_units_per_year. See CompensationEntry for
- *  explanation on compensation annualization.
+ *  List of job mutation results from a batch update operation. It can change
+ *  until operation status is FINISHED, FAILED or CANCELLED.
  */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange *annualizedBaseCompensationRange;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_JobResult *> *jobResults;
+
+@end
+
 
 /**
- *  Output only. Annualized total compensation range. Computed as all
- *  compensation entries' CompensationEntry.amount times
- *  CompensationEntry.expected_units_per_year. See CompensationEntry for
- *  explanation on compensation annualization.
+ *  An event issued when an end user interacts with the application that
+ *  implements Cloud Talent Solution. Providing this information improves the
+ *  quality of results for the API clients, enabling the service to perform
+ *  optimally. The number of events sent must be consistent with other calls,
+ *  such as job searches, issued to the service by the client.
  */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange *annualizedTotalCompensationRange;
+@interface GTLRCloudTalentSolution_ClientEvent : GTLRObject
+
+/** Required. The timestamp of the event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. A unique identifier, generated by the client application. */
+@property(nonatomic, copy, nullable) NSString *eventId;
 
 /**
- *  Job compensation information. At most one entry can be of type
- *  CompensationInfo.CompensationType.BASE, which is referred as **base
- *  compensation entry** for the job.
+ *  Notes about the event provided by recruiters or other users, for example,
+ *  feedback on why a job was bookmarked.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry *> *entries;
+@property(nonatomic, copy, nullable) NSString *eventNotes;
+
+/**
+ *  An event issued when a job seeker interacts with the application that
+ *  implements Cloud Talent Solution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobEvent *jobEvent;
+
+/**
+ *  Strongly recommended for the best service experience. A unique ID generated
+ *  in the API responses. It can be found in ResponseMetadata.request_id.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Parameters needed for commute search.
+ */
+@interface GTLRCloudTalentSolution_CommuteFilter : GTLRObject
+
+/**
+ *  If `true`, jobs without street level addresses may also be returned. For
+ *  city level addresses, the city center is used. For state and coarser level
+ *  addresses, text matching is used. If this field is set to `false` or isn't
+ *  specified, only jobs that include street level addresses will be returned by
+ *  commute search.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowImpreciseAddresses;
+
+/**
+ *  Required. The method of transportation to calculate the commute time for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified
+ *        Commute method isn't specified. (Value: "COMMUTE_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving
+ *        Commute time is calculated based on driving time. (Value: "DRIVING")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit
+ *        Commute time is calculated based on public transit including bus,
+ *        metro, subway, and so on. (Value: "TRANSIT")
+ */
+@property(nonatomic, copy, nullable) NSString *commuteMethod;
+
+/**
+ *  The departure time used to calculate traffic impact, represented as
+ *  google.type.TimeOfDay in local time zone. Currently traffic model is
+ *  restricted to hour level resolution.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_TimeOfDay *departureTime;
+
+/**
+ *  Specifies the traffic density to use when calculating commute time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour
+ *        Commute time calculation takes in account the peak traffic impact.
+ *        (Value: "BUSY_HOUR")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_RoadTrafficUnspecified
+ *        Road traffic situation isn't specified. (Value:
+ *        "ROAD_TRAFFIC_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_TrafficFree
+ *        Optimal commute time without considering any traffic impact. (Value:
+ *        "TRAFFIC_FREE")
+ */
+@property(nonatomic, copy, nullable) NSString *roadTraffic;
+
+/**
+ *  Required. The latitude and longitude of the location to calculate the
+ *  commute time from.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_LatLng *startCoordinates;
+
+/**
+ *  Required. The maximum travel time in seconds. The maximum allowed value is
+ *  `3600s` (one hour). Format is `123s`.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *travelDuration;
+
+@end
+
+
+/**
+ *  Commute details related to this job.
+ */
+@interface GTLRCloudTalentSolution_CommuteInfo : GTLRObject
+
+/** Location used as the destination in the commute calculation. */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Location *jobLocation;
+
+/**
+ *  The number of seconds required to travel to the job location from the query
+ *  location. A duration of 0 seconds indicates that the job isn't reachable
+ *  within the requested duration, but was returned as part of an expanded
+ *  query.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *travelDuration;
+
+@end
+
+
+/**
+ *  A Company resource represents a company in the service. A company is the
+ *  entity that owns job postings, that is, the hiring entity responsible for
+ *  employing applicants for the job position.
+ */
+@interface GTLRCloudTalentSolution_Company : GTLRObject
+
+/**
+ *  The URI to employer's career site or careers page on the employer's web
+ *  site, for example, "https://careers.google.com".
+ */
+@property(nonatomic, copy, nullable) NSString *careerSiteUri;
+
+/** Output only. Derived details about the company. */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompanyDerivedInfo *derivedInfo;
+
+/** Required. The display name of the company, for example, "Google LLC". */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Equal Employment Opportunity legal disclaimer text to be associated with all
+ *  jobs, and typically to be displayed in all roles. The maximum number of
+ *  allowed characters is 500.
+ */
+@property(nonatomic, copy, nullable) NSString *eeoText;
+
+/**
+ *  Required. Client side company identifier, used to uniquely identify the
+ *  company. The maximum number of allowed characters is 255.
+ */
+@property(nonatomic, copy, nullable) NSString *externalId;
+
+/**
+ *  The street address of the company's main headquarters, which may be
+ *  different from the job location. The service attempts to geolocate the
+ *  provided address, and populates a more specific location wherever possible
+ *  in DerivedInfo.headquarters_location.
+ */
+@property(nonatomic, copy, nullable) NSString *headquartersAddress;
+
+/**
+ *  Set to true if it is the hiring agency that post jobs for other employers.
+ *  Defaults to false if not provided.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hiringAgency;
+
+/** A URI that hosts the employer's company logo. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/**
+ *  A list of keys of filterable Job.custom_attributes, whose corresponding
+ *  `string_values` are used in keyword searches. Jobs with `string_values`
+ *  under these specified field keys are returned if any of the values match the
+ *  search keyword. Custom field values with parenthesis, brackets and special
+ *  symbols are not searchable as-is, and those keyword queries must be
+ *  surrounded by quotes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keywordSearchableJobCustomAttributes;
+
+/**
+ *  Required during company update. The resource name for a company. This is
+ *  generated by the service when a company is created. The format is
+ *  "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}", for
+ *  example, "projects/foo/tenants/bar/companies/baz".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The employer's company size.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Big The company has between
+ *        1,000 and 4,999 employees. (Value: "BIG")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Bigger The company has
+ *        between 5,000 and 9,999 employees. (Value: "BIGGER")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_CompanySizeUnspecified
+ *        Default value if the size isn't specified. (Value:
+ *        "COMPANY_SIZE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Giant The company has 10,000
+ *        or more employees. (Value: "GIANT")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Medium The company has
+ *        between 500 and 999 employees. (Value: "MEDIUM")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Mini The company has less
+ *        than 50 employees. (Value: "MINI")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Small The company has
+ *        between 50 and 99 employees. (Value: "SMALL")
+ *    @arg @c kGTLRCloudTalentSolution_Company_Size_Smedium The company has
+ *        between 100 and 499 employees. (Value: "SMEDIUM")
+ */
+@property(nonatomic, copy, nullable) NSString *size;
+
+/**
+ *  Output only. Indicates whether a company is flagged to be suspended from
+ *  public availability by the service when job content appears suspicious,
+ *  abusive, or spammy.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suspended;
+
+/**
+ *  The URI representing the company's primary web site or home page, for
+ *  example, "https://www.google.com". The maximum number of allowed characters
+ *  is 255.
+ */
+@property(nonatomic, copy, nullable) NSString *websiteUri;
+
+@end
+
+
+/**
+ *  Derived details about the company.
+ */
+@interface GTLRCloudTalentSolution_CompanyDerivedInfo : GTLRObject
+
+/**
+ *  A structured headquarters location of the company, resolved from
+ *  Company.headquarters_address if provided.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Location *headquartersLocation;
 
 @end
 
@@ -3797,7 +2204,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  expected_units_per_year is set or can be derived. Its annualized range is
  *  determined as (amount or range) times expected_units_per_year.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry : GTLRObject
+@interface GTLRCloudTalentSolution_CompensationEntry : GTLRObject
 
 /** Compensation amount. */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Money *amount;
@@ -3821,34 +2228,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) NSNumber *expectedUnitsPerYear;
 
 /** Compensation range. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange *range;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *range;
 
 /**
  *  Compensation type. Default is
  *  CompensationType.COMPENSATION_TYPE_UNSPECIFIED.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Base
- *        Base compensation: Refers to the fixed amount of money paid to an
- *        employee by an employer in return for work performed. Base
- *        compensation does not include benefits, bonuses or any other potential
- *        compensation from an employer. (Value: "BASE")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Bonus
- *        Bonus. (Value: "BONUS")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Commissions
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Base Base
+ *        compensation: Refers to the fixed amount of money paid to an employee
+ *        by an employer in return for work performed. Base compensation does
+ *        not include benefits, bonuses or any other potential compensation from
+ *        an employer. (Value: "BASE")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Bonus Bonus.
+ *        (Value: "BONUS")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Commissions
  *        Commission. (Value: "COMMISSIONS")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_CompensationTypeUnspecified
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_CompensationTypeUnspecified
  *        Default value. (Value: "COMPENSATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Equity
- *        Equity. (Value: "EQUITY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_OtherCompensationType
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Equity Equity.
+ *        (Value: "EQUITY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_OtherCompensationType
  *        Other compensation type. (Value: "OTHER_COMPENSATION_TYPE")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_ProfitSharing
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_ProfitSharing
  *        Profit sharing. (Value: "PROFIT_SHARING")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_SigningBonus
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_SigningBonus
  *        Signing bonus. (Value: "SIGNING_BONUS")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Type_Tips
- *        Tips. (Value: "TIPS")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Type_Tips Tips. (Value:
+ *        "TIPS")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3857,22 +2264,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  CompensationUnit.COMPENSATION_UNIT_UNSPECIFIED.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_CompensationUnitUnspecified
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_CompensationUnitUnspecified
  *        Default value. (Value: "COMPENSATION_UNIT_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Daily
- *        Daily. (Value: "DAILY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Hourly
- *        Hourly. (Value: "HOURLY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Monthly
- *        Monthly. (Value: "MONTHLY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OneTime
- *        One time. (Value: "ONE_TIME")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_OtherCompensationUnit
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Daily Daily.
+ *        (Value: "DAILY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Hourly Hourly.
+ *        (Value: "HOURLY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Monthly Monthly.
+ *        (Value: "MONTHLY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_OneTime One time.
+ *        (Value: "ONE_TIME")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_OtherCompensationUnit
  *        Other compensation units. (Value: "OTHER_COMPENSATION_UNIT")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Weekly
- *        Weekly (Value: "WEEKLY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationEntry_Unit_Yearly
- *        Yearly. (Value: "YEARLY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Weekly Weekly
+ *        (Value: "WEEKLY")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationEntry_Unit_Yearly Yearly.
+ *        (Value: "YEARLY")
  */
 @property(nonatomic, copy, nullable) NSString *unit;
 
@@ -3880,9 +2287,97 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
+ *  Filter on job compensation type and amount.
+ */
+@interface GTLRCloudTalentSolution_CompensationFilter : GTLRObject
+
+/**
+ *  If set to true, jobs with unspecified compensation range fields are
+ *  included.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeJobsWithUnspecifiedCompensationRange;
+
+/** Compensation range. */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *range;
+
+/**
+ *  Required. Type of filter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedBaseAmount
+ *        Filter by annualized base compensation amount and `base compensation
+ *        entry's` unit. Populate range and zero or more units. (Value:
+ *        "ANNUALIZED_BASE_AMOUNT")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_AnnualizedTotalAmount
+ *        Filter by annualized total compensation amount and `base compensation
+ *        entry's` unit . Populate range and zero or more units. (Value:
+ *        "ANNUALIZED_TOTAL_AMOUNT")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_FilterTypeUnspecified
+ *        Filter type unspecified. Position holder, INVALID, should never be
+ *        used. (Value: "FILTER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_UnitAndAmount
+ *        Filter by `base compensation entry's` unit and amount / range. A job
+ *        is a match if and only if the job contains a base CompensationEntry,
+ *        and the base entry's unit matches provided CompensationUnit and amount
+ *        or range overlaps with provided CompensationRange. See
+ *        CompensationInfo.CompensationEntry for definition of base compensation
+ *        entry. Set exactly one units and populate range. (Value:
+ *        "UNIT_AND_AMOUNT")
+ *    @arg @c kGTLRCloudTalentSolution_CompensationFilter_Type_UnitOnly Filter
+ *        by `base compensation entry's` unit. A job is a match if and only if
+ *        the job contains a base CompensationEntry and the base
+ *        CompensationEntry's unit matches provided units. Populate one or more
+ *        units. See CompensationInfo.CompensationEntry for definition of base
+ *        compensation entry. (Value: "UNIT_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Required. Specify desired `base compensation entry's`
+ *  CompensationInfo.CompensationUnit.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *units;
+
+@end
+
+
+/**
+ *  Job compensation details.
+ */
+@interface GTLRCloudTalentSolution_CompensationInfo : GTLRObject
+
+/**
+ *  Output only. Annualized base compensation range. Computed as base
+ *  compensation entry's CompensationEntry.amount times
+ *  CompensationEntry.expected_units_per_year. See CompensationEntry for
+ *  explanation on compensation annualization.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *annualizedBaseCompensationRange;
+
+/**
+ *  Output only. Annualized total compensation range. Computed as all
+ *  compensation entries' CompensationEntry.amount times
+ *  CompensationEntry.expected_units_per_year. See CompensationEntry for
+ *  explanation on compensation annualization.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationRange *annualizedTotalCompensationRange;
+
+/**
+ *  Job compensation information. At most one entry can be of type
+ *  CompensationInfo.CompensationType.BASE, which is referred as **base
+ *  compensation entry** for the job.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompensationEntry *> *entries;
+
+@end
+
+
+/**
  *  Compensation range.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfoCompensationRange : GTLRObject
+@interface GTLRCloudTalentSolution_CompensationRange : GTLRObject
 
 /**
  *  The maximum amount of compensation. If left empty, the value is set to a
@@ -3901,9 +2396,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
+ *  Response of auto-complete query.
+ */
+@interface GTLRCloudTalentSolution_CompleteQueryResponse : GTLRObject
+
+/** Results of the matching job/company candidates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompletionResult *> *completionResults;
+
+/**
+ *  Additional information for the API invocation, such as the request tracking
+ *  id.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ResponseMetadata *metadata;
+
+@end
+
+
+/**
+ *  Resource that represents completion results.
+ */
+@interface GTLRCloudTalentSolution_CompletionResult : GTLRObject
+
+/** The URI of the company image for COMPANY_NAME. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+/** The suggestion for the query. */
+@property(nonatomic, copy, nullable) NSString *suggestion;
+
+/**
+ *  The completion topic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_Combined Suggest
+ *        both job titles and company names for jobs autocomplete. For
+ *        CompletionType.COMBINED type, only open jobs with the same
+ *        language_codes or companies having open jobs with the same
+ *        language_codes are returned. (Value: "COMBINED")
+ *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_CompanyName Suggest
+ *        company names for jobs autocomplete. For CompletionType.COMPANY_NAME
+ *        type, only companies having open jobs with the same language_codes are
+ *        returned. (Value: "COMPANY_NAME")
+ *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_CompletionTypeUnspecified
+ *        Default value. (Value: "COMPLETION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CompletionResult_Type_JobTitle Suggest
+ *        job titles for jobs autocomplete. For CompletionType.JOB_TITLE type,
+ *        only open jobs with the same language_codes are returned. (Value:
+ *        "JOB_TITLE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Custom attribute values that are either filterable or non-filterable.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute : GTLRObject
+@interface GTLRCloudTalentSolution_CustomAttribute : GTLRObject
 
 /**
  *  If the `filterable` flag is true, the custom field values may be used for
@@ -3947,11 +2495,179 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
+ *  Custom ranking information for SearchJobsRequest.
+ */
+@interface GTLRCloudTalentSolution_CustomRankingInfo : GTLRObject
+
+/**
+ *  Required. Controls over how important the score of
+ *  CustomRankingInfo.ranking_expression gets applied to job's final ranking
+ *  position. An error is thrown if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Extreme
+ *        The given ranking expression is of Extreme importance, and dominates
+ *        job's final ranking position with existing relevance score (determined
+ *        by API algorithm) ignored. (Value: "EXTREME")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_High
+ *        The given ranking expression is of High importance in terms of job's
+ *        final ranking position compared to existing relevance score
+ *        (determined by API algorithm). (Value: "HIGH")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_ImportanceLevelUnspecified
+ *        Default value if the importance level isn't specified. (Value:
+ *        "IMPORTANCE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Low The
+ *        given ranking expression is of Low importance in terms of job's final
+ *        ranking position compared to existing relevance score (determined by
+ *        API algorithm). (Value: "LOW")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Medium
+ *        The given ranking expression is of Medium importance in terms of job's
+ *        final ranking position compared to existing relevance score
+ *        (determined by API algorithm). (Value: "MEDIUM")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_Mild
+ *        The given ranking expression is of Mild importance in terms of job's
+ *        final ranking position compared to existing relevance score
+ *        (determined by API algorithm). (Value: "MILD")
+ *    @arg @c kGTLRCloudTalentSolution_CustomRankingInfo_ImportanceLevel_None
+ *        The given ranking expression is of None importance, existing relevance
+ *        score (determined by API algorithm) dominates job's final ranking
+ *        position. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *importanceLevel;
+
+/**
+ *  Required. Controls over how job documents get ranked on top of existing
+ *  relevance score (determined by API algorithm). A combination of the ranking
+ *  expression and relevance score is used to determine job's final ranking
+ *  position. The syntax for this expression is a subset of Google SQL syntax.
+ *  Supported operators are: +, -, *, /, where the left and right side of the
+ *  operator is either a numeric Job.custom_attributes key, integer/double value
+ *  or an expression that can be evaluated to a number. Parenthesis are
+ *  supported to adjust calculation precedence. The expression must be < 100
+ *  characters in length. The expression is considered invalid for a job if the
+ *  expression references custom attributes that are not populated on the job or
+ *  if the expression results in a divide by zero. If an expression is invalid
+ *  for a job, that job is demoted to the end of the results. Sample ranking
+ *  expression (year + 25) * 0.25 - (freshness / 0.5)
+ */
+@property(nonatomic, copy, nullable) NSString *rankingExpression;
+
+@end
+
+
+/**
+ *  Device information collected from the job seeker, candidate, or other entity
+ *  conducting the job search. Providing this information improves the quality
+ *  of the search results across devices.
+ */
+@interface GTLRCloudTalentSolution_DeviceInfo : GTLRObject
+
+/**
+ *  Type of the device.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Android An Android
+ *        device native application. (Value: "ANDROID")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Bot A bot, as
+ *        opposed to a device operated by human beings, such as a web crawler.
+ *        (Value: "BOT")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_DeviceTypeUnspecified
+ *        The device type isn't specified. (Value: "DEVICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Ios An iOS device
+ *        native application. (Value: "IOS")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_MobileWeb A mobile
+ *        device web browser, such as a phone or tablet with a Chrome browser.
+ *        (Value: "MOBILE_WEB")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Other Other devices
+ *        types. (Value: "OTHER")
+ *    @arg @c kGTLRCloudTalentSolution_DeviceInfo_DeviceType_Web A desktop web
+ *        browser, such as, Chrome, Firefox, Safari, or Internet Explorer)
+ *        (Value: "WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *deviceType;
+
+/**
+ *  A device-specific ID. The ID must be a unique identifier that distinguishes
+ *  the device from other devices.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudTalentSolution_Empty : GTLRObject
+@end
+
+
+/**
+ *  The histogram request.
+ */
+@interface GTLRCloudTalentSolution_HistogramQuery : GTLRObject
+
+/**
+ *  An expression specifies a histogram request against matching jobs for
+ *  searches. See SearchJobsRequest.histogram_queries for details about syntax.
+ */
+@property(nonatomic, copy, nullable) NSString *histogramQuery;
+
+@end
+
+
+/**
+ *  Histogram result that matches HistogramQuery specified in searches.
+ */
+@interface GTLRCloudTalentSolution_HistogramQueryResult : GTLRObject
+
+/**
+ *  A map from the values of the facet associated with distinct values to the
+ *  number of matching entries with corresponding value. The key format is: *
+ *  (for string histogram) string values stored in the field. * (for named
+ *  numeric bucket) name specified in `bucket()` function, like for `bucket(0,
+ *  MAX, "non-negative")`, the key will be `non-negative`. * (for anonymous
+ *  numeric bucket) range formatted as `-`, for example, `0-1000`, `MIN-0`, and
+ *  `0-MAX`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_HistogramQueryResult_Histogram *histogram;
+
+/** Requested histogram expression. */
+@property(nonatomic, copy, nullable) NSString *histogramQuery;
+
+@end
+
+
+/**
+ *  A map from the values of the facet associated with distinct values to the
+ *  number of matching entries with corresponding value. The key format is: *
+ *  (for string histogram) string values stored in the field. * (for named
+ *  numeric bucket) name specified in `bucket()` function, like for `bucket(0,
+ *  MAX, "non-negative")`, the key will be `non-negative`. * (for anonymous
+ *  numeric bucket) range formatted as `-`, for example, `0-1000`, `MIN-0`, and
+ *  `0-MAX`.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of longLongValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudTalentSolution_HistogramQueryResult_Histogram : GTLRObject
+@end
+
+
+/**
  *  A Job resource represents a job posting (also referred to as a "job listing"
  *  or "job requisition"). A job belongs to a Company, which is the hiring
  *  entity responsible for the job.
  */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4Job : GTLRObject
+@interface GTLRCloudTalentSolution_Job : GTLRObject
 
 /**
  *  Strongly recommended for the best service experience. Location(s) where the
@@ -3970,7 +2686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
 
 /** Job application information. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4JobApplicationInfo *applicationInfo;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ApplicationInfo *applicationInfo;
 
 /**
  *  Required. The resource name of the company listing the job. The format is
@@ -3986,7 +2702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Job compensation information (a.k.a. "pay rate") i.e., the compensation that
  *  will paid to the employee.
  */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4CompensationInfo *compensationInfo;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationInfo *compensationInfo;
 
 /**
  *  A map of fields to hold both filterable and non-filterable custom job
@@ -3998,7 +2714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  than 255 characters. For unfilterable `string_values`, the maximum total
  *  size of `string_values` across all keys is 50KB.
  */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4Job_CustomAttributes *customAttributes;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Job_CustomAttributes *customAttributes;
 
 /** The desired education degrees for the job, such as Bachelors, Masters. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *degreeTypes;
@@ -4010,7 +2726,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *department;
 
 /** Output only. Derived details about the job posting. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo *derivedInfo;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobDerivedInfo *derivedInfo;
 
 /**
  *  Required. The description of the job, which typically includes a
@@ -4048,25 +2764,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  The experience level associated with the job, such as "Entry Level".
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Director
- *        Senior-level managers responsible for managing teams of managers.
- *        (Value: "DIRECTOR")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_EntryLevel
- *        Entry-level individual contributors, typically with less than 2 years
- *        of experience in a similar role. Includes interns. (Value:
- *        "ENTRY_LEVEL")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Executive
- *        Executive-level managers and above, including C-level positions.
- *        (Value: "EXECUTIVE")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Experienced
- *        Experienced individual contributors, typically with 2+ years of
- *        experience in a similar role. (Value: "EXPERIENCED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_JobLevelUnspecified
- *        The default value if the level isn't specified. (Value:
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Director Senior-level
+ *        managers responsible for managing teams of managers. (Value:
+ *        "DIRECTOR")
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_EntryLevel Entry-level
+ *        individual contributors, typically with less than 2 years of
+ *        experience in a similar role. Includes interns. (Value: "ENTRY_LEVEL")
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Executive Executive-level
+ *        managers and above, including C-level positions. (Value: "EXECUTIVE")
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Experienced Experienced
+ *        individual contributors, typically with 2+ years of experience in a
+ *        similar role. (Value: "EXPERIENCED")
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_JobLevelUnspecified The
+ *        default value if the level isn't specified. (Value:
  *        "JOB_LEVEL_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_JobLevel_Manager
- *        Entry- to mid-level managers responsible for managing a team of
- *        people. (Value: "MANAGER")
+ *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Manager Entry- to mid-level
+ *        managers responsible for managing a team of people. (Value: "MANAGER")
  */
 @property(nonatomic, copy, nullable) NSString *jobLevel;
 
@@ -4149,27 +2862,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  location level as this field is strongly recommended.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_AdministrativeArea
- *        In addition to exact location matching, job posting is returned when
- *        the LocationFilter in the search query is in the same administrative
- *        area as the returned job posting. For example, if a
- *        `ADMINISTRATIVE_AREA` job is posted in "CA, USA", it's returned if
- *        LocationFilter has "Mountain View". Administrative area refers to
- *        top-level administrative subdivision of this country. For example, US
- *        state, IT region, UK constituent nation and JP prefecture. (Value:
+ *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_AdministrativeArea In
+ *        addition to exact location matching, job posting is returned when the
+ *        LocationFilter in the search query is in the same administrative area
+ *        as the returned job posting. For example, if a `ADMINISTRATIVE_AREA`
+ *        job is posted in "CA, USA", it's returned if LocationFilter has
+ *        "Mountain View". Administrative area refers to top-level
+ *        administrative subdivision of this country. For example, US state, IT
+ *        region, UK constituent nation and JP prefecture. (Value:
  *        "ADMINISTRATIVE_AREA")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Nation
- *        In addition to exact location matching, job is returned when
- *        LocationFilter in search query is in the same country as this job. For
- *        example, if a `NATION_WIDE` job is posted in "USA", it's returned if
- *        LocationFilter has 'Mountain View'. (Value: "NATION")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_PostingRegionUnspecified
+ *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_Nation In addition to
+ *        exact location matching, job is returned when LocationFilter in search
+ *        query is in the same country as this job. For example, if a
+ *        `NATION_WIDE` job is posted in "USA", it's returned if LocationFilter
+ *        has 'Mountain View'. (Value: "NATION")
+ *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_PostingRegionUnspecified
  *        If the region is unspecified, the job is only returned if it matches
  *        the LocationFilter. (Value: "POSTING_REGION_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_PostingRegion_Telecommute
- *        Job allows employees to work remotely (telecommute). If locations are
- *        provided with this value, the job is considered as having a location,
- *        but telecommuting is allowed. (Value: "TELECOMMUTE")
+ *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_Telecommute Job allows
+ *        employees to work remotely (telecommute). If locations are provided
+ *        with this value, the job is considered as having a location, but
+ *        telecommuting is allowed. (Value: "TELECOMMUTE")
  */
 @property(nonatomic, copy, nullable) NSString *postingRegion;
 
@@ -4177,7 +2890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRDateTime *postingUpdateTime;
 
 /** Options for job processing. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions *processingOptions;
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ProcessingOptions *processingOptions;
 
 /**
  *  A promotion value of the job, as determined by the client. The value
@@ -4230,643 +2943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Defaults to Visibility.ACCOUNT_ONLY if not specified.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_AccountOnly
- *        The resource is only visible to the GCP account who owns it. (Value:
- *        "ACCOUNT_ONLY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithGoogle
- *        The resource is visible to the owner and may be visible to other
- *        applications and processes at Google. (Value: "SHARED_WITH_GOOGLE")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_SharedWithPublic
- *        The resource is visible to the owner and may be visible to all other
- *        API clients. (Value: "SHARED_WITH_PUBLIC")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Job_Visibility_VisibilityUnspecified
- *        Default value. (Value: "VISIBILITY_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *visibility;
-
-@end
-
-
-/**
- *  A map of fields to hold both filterable and non-filterable custom job
- *  attributes that are not covered by the provided structured fields. The keys
- *  of the map are strings up to 64 bytes and must match the pattern: a-zA-Z*.
- *  For example, key0LikeThis or KEY_1_LIKE_THIS. At most 100 filterable and at
- *  most 100 unfilterable keys are supported. For filterable `string_values`,
- *  across all keys at most 200 values are allowed, with each string no more
- *  than 255 characters. For unfilterable `string_values`, the maximum total
- *  size of `string_values` across all keys is 50KB.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudTalentSolution_GoogleCloudTalentV4CustomAttribute. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4Job_CustomAttributes : GTLRObject
-@end
-
-
-/**
- *  Application related details of a job posting.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4JobApplicationInfo : GTLRObject
-
-/**
- *  Use this field to specify email address(es) to which resumes or applications
- *  can be sent. The maximum number of allowed characters for each entry is 255.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *emails;
-
-/**
- *  Use this field to provide instructions, such as "Mail your application to
- *  ...", that a candidate can follow to apply for the job. This field accepts
- *  and sanitizes HTML input, and also accepts bold, italic, ordered list, and
- *  unordered list markup tags. The maximum number of allowed characters is
- *  3,000.
- */
-@property(nonatomic, copy, nullable) NSString *instruction;
-
-/**
- *  Use this URI field to direct an applicant to a website, for example to link
- *  to an online application form. The maximum number of allowed characters for
- *  each entry is 2,000.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
-
-@end
-
-
-/**
- *  Derived details about the job posting.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4JobDerivedInfo : GTLRObject
-
-/** Job categories derived from Job.title and Job.description. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *jobCategories;
-
-/**
- *  Structured locations of the job, resolved from Job.addresses. locations are
- *  exactly matched to Job.addresses in the same order.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_GoogleCloudTalentV4Location *> *locations;
-
-@end
-
-
-/**
- *  Options for job processing.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions : GTLRObject
-
-/**
- *  If set to `true`, the service does not attempt to resolve a more precise
- *  address for the job.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disableStreetAddressResolution;
-
-/**
- *  Option for job HTML content sanitization. Applied fields are: * description
- *  * applicationInfo.instruction * incentives * qualifications *
- *  responsibilities HTML tags in these fields may be stripped if sanitiazation
- *  isn't disabled. Defaults to HtmlSanitization.SIMPLE_FORMATTING_ONLY.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled
- *        Disables sanitization on HTML input. (Value:
- *        "HTML_SANITIZATION_DISABLED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_HtmlSanitizationUnspecified
- *        Default value. (Value: "HTML_SANITIZATION_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4JobProcessingOptions_HtmlSanitization_SimpleFormattingOnly
- *        Sanitizes HTML input, only accepts bold, italic, ordered list, and
- *        unordered list markup tags. (Value: "SIMPLE_FORMATTING_ONLY")
- */
-@property(nonatomic, copy, nullable) NSString *htmlSanitization;
-
-@end
-
-
-/**
- *  Mutation result of a job from a batch operation.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4JobResult : GTLRObject
-
-/**
- *  Here Job only contains basic information including name, company,
- *  language_code and requisition_id, use getJob method to retrieve detailed
- *  information of the created/updated job.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_GoogleCloudTalentV4Job *job;
-
-/**
- *  The status of the job processed. This field is populated if the processing
- *  of the job fails.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Status *status;
-
-@end
-
-
-/**
- *  A resource that represents a location with full geographic information.
- */
-@interface GTLRCloudTalentSolution_GoogleCloudTalentV4Location : GTLRObject
-
-/** An object representing a latitude/longitude pair. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_LatLng *latLng;
-
-/**
- *  The type of a location, which corresponds to the address lines field of
- *  google.type.PostalAddress. For example, "Downtown, Atlanta, GA, USA" has a
- *  type of LocationType.NEIGHBORHOOD, and "Kansas City, KS, USA" has a type of
- *  LocationType.LOCALITY.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_AdministrativeArea
- *        A state or equivalent level location. (Value: "ADMINISTRATIVE_AREA")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Country
- *        A country level location. (Value: "COUNTRY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Locality
- *        A city or equivalent level location. (Value: "LOCALITY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_LocationTypeUnspecified
- *        Default value if the type isn't specified. (Value:
- *        "LOCATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_Neighborhood
- *        A neighborhood level location. (Value: "NEIGHBORHOOD")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_PostalCode
- *        A postal code level location. (Value: "POSTAL_CODE")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_StreetAddress
- *        A street address level location. (Value: "STREET_ADDRESS")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubAdministrativeArea
- *        A county or equivalent level location. (Value:
- *        "SUB_ADMINISTRATIVE_AREA")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality
- *        A sublocality is a subdivision of a locality, for example a city
- *        borough, ward, or arrondissement. Sublocalities are usually recognized
- *        by a local political authority. For example, Manhattan and Brooklyn
- *        are recognized as boroughs by the City of New York, and are therefore
- *        modeled as sublocalities. (Value: "SUB_LOCALITY")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality1
- *        A district or equivalent level location. (Value: "SUB_LOCALITY_1")
- *    @arg @c kGTLRCloudTalentSolution_GoogleCloudTalentV4Location_LocationType_SubLocality2
- *        A smaller district or equivalent level display. (Value:
- *        "SUB_LOCALITY_2")
- */
-@property(nonatomic, copy, nullable) NSString *locationType;
-
-/**
- *  Postal address of the location that includes human readable information,
- *  such as postal delivery and payments addresses. Given a postal address, a
- *  postal service can deliver items to a premises, P.O. Box, or other delivery
- *  location.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_PostalAddress *postalAddress;
-
-/**
- *  Radius in miles of the job location. This value is derived from the location
- *  bounding box in which a circle with the specified radius centered from
- *  google.type.LatLng covers the area associated with the job location. For
- *  example, currently, "Mountain View, CA, USA" has a radius of 6.17 miles.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *radiusMiles;
-
-@end
-
-
-/**
- *  Input only. Histogram facets to be specified in SearchJobsRequest.
- */
-@interface GTLRCloudTalentSolution_HistogramFacets : GTLRObject
-
-/**
- *  Optional. Specifies compensation field-based histogram requests. Duplicate
- *  values of CompensationHistogramRequest.type are not allowed.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompensationHistogramRequest *> *compensationHistogramFacets;
-
-/**
- *  Optional. Specifies the custom attributes histogram requests. Duplicate
- *  values of CustomAttributeHistogramRequest.key are not allowed.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CustomAttributeHistogramRequest *> *customAttributeHistogramFacets;
-
-/**
- *  Optional. Specifies the simple type of histogram facets, for example,
- *  `COMPANY_SIZE`, `EMPLOYMENT_TYPE` etc.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *simpleHistogramFacets;
-
-@end
-
-
-/**
- *  Output only. Result of a histogram call. The response contains the histogram
- *  map for the search type specified by HistogramResult.field. The response is
- *  a map of each filter value to the corresponding count of jobs for that
- *  filter.
- */
-@interface GTLRCloudTalentSolution_HistogramResult : GTLRObject
-
-/**
- *  The Histogram search filters.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1 Filter
- *        by Admin1, which is a global placeholder for referring to state,
- *        province, or the particular term a country uses to define the
- *        geographic structure below the country level. Examples include states
- *        codes such as "CA", "IL", "NY", and provinces, such as "BC". (Value:
- *        "ADMIN_1")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Admin1Country
- *        A combination of state or province code with a country code. This
- *        field differs from `JOB_ADMIN1`, which can be used in multiple
- *        countries. (Value: "ADMIN_1_COUNTRY")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_BaseCompensationUnit
- *        Base compensation unit. (Value: "BASE_COMPENSATION_UNIT")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Category
- *        Filter by the Category. (Value: "CATEGORY")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_City Filter by
- *        the "city name", "Admin1 code", for example, "Mountain View, CA" or
- *        "New York, NY". (Value: "CITY")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_CityCoordinate
- *        Filter by the city center GPS coordinate (latitude and longitude), for
- *        example, 37.4038522,-122.0987765. Since the coordinates of a city
- *        center can change, clients may need to refresh them periodically.
- *        (Value: "CITY_COORDINATE")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyDisplayName
- *        Company display name. (Value: "COMPANY_DISPLAY_NAME")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanyId
- *        Filter by the company id field. (Value: "COMPANY_ID")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_CompanySize
- *        Filter by the company size type field, such as `BIG`, `SMALL` or
- *        `BIGGER`. (Value: "COMPANY_SIZE")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Country Filter
- *        by the country code of job, such as US, JP, FR. (Value: "COUNTRY")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_DatePublished
- *        Filter by the date published field. Possible return values are: *
- *        PAST_24_HOURS (The past 24 hours) * PAST_3_DAYS (The past 3 days) *
- *        PAST_WEEK (The past 7 days) * PAST_MONTH (The past 30 days) *
- *        PAST_YEAR (The past 365 days) (Value: "DATE_PUBLISHED")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_EducationLevel
- *        Filter by the required education level of the job. (Value:
- *        "EDUCATION_LEVEL")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_EmploymentType
- *        Filter by the employment type field, such as `FULL_TIME` or
- *        `PART_TIME`. (Value: "EMPLOYMENT_TYPE")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_ExperienceLevel
- *        Filter by the required experience level of the job. (Value:
- *        "EXPERIENCE_LEVEL")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Language
- *        Filter by the language code portion of the locale field, such as "en"
- *        or "fr". (Value: "LANGUAGE")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_Locale Filter
- *        by the locale field of a job, such as "en-US", "fr-FR". This is the
- *        BCP-47 language code, such as "en-US" or "sr-Latn". For more
- *        information, see [Tags for Identifying
- *        Languages](https://tools.ietf.org/html/bcp47). (Value: "LOCALE")
- *    @arg @c kGTLRCloudTalentSolution_HistogramResult_SearchType_SearchTypeUnspecified
- *        The default value if search type is not specified. (Value:
- *        "SEARCH_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *searchType;
-
-/**
- *  A map from the values of field to the number of jobs with that value in this
- *  search result. Key: search type (filter names, such as the companyName).
- *  Values: the count of jobs that match the filter for this search.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_HistogramResult_Values *values;
-
-@end
-
-
-/**
- *  A map from the values of field to the number of jobs with that value in this
- *  search result. Key: search type (filter names, such as the companyName).
- *  Values: the count of jobs that match the filter for this search.
- *
- *  @note This class is documented as having more properties of NSNumber (Uses
- *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
- *        -additionalPropertyForName: to get the list of properties and then
- *        fetch them; or @c -additionalProperties to fetch them all at once.
- */
-@interface GTLRCloudTalentSolution_HistogramResult_Values : GTLRObject
-@end
-
-
-/**
- *  Output only. Histogram results that match HistogramFacets specified in
- *  SearchJobsRequest.
- */
-@interface GTLRCloudTalentSolution_HistogramResults : GTLRObject
-
-/**
- *  Specifies compensation field-based histogram results that match
- *  HistogramFacets.compensation_histogram_requests.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CompensationHistogramResult *> *compensationHistogramResults;
-
-/**
- *  Specifies histogram results for custom attributes that match
- *  HistogramFacets.custom_attribute_histogram_facets.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_CustomAttributeHistogramResult *> *customAttributeHistogramResults;
-
-/**
- *  Specifies histogram results that matches
- *  HistogramFacets.simple_histogram_facets.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_HistogramResult *> *simpleHistogramResults;
-
-@end
-
-
-/**
- *  A Job resource represents a job posting (also referred to as a "job listing"
- *  or "job requisition"). A job belongs to a Company, which is the hiring
- *  entity responsible for the job.
- */
-@interface GTLRCloudTalentSolution_Job : GTLRObject
-
-/**
- *  Optional but strongly recommended for the best service experience.
- *  Location(s) where the employer is looking to hire for this job posting.
- *  Specifying the full street address(es) of the hiring location enables better
- *  API results, especially job searches by commute time. At most 50 locations
- *  are allowed for best search performance. If a job has more locations, it is
- *  suggested to split it into multiple jobs with unique requisition_ids (e.g.
- *  'ReqA' becomes 'ReqA-1', 'ReqA-2', etc.) as multiple jobs with the same
- *  company_name, language_code and requisition_id are not allowed. If the
- *  original requisition_id must be preserved, a custom field should be used for
- *  storage. It is also suggested to group the locations that close to each
- *  other in the same job for better search experience. The maximum number of
- *  allowed characters is 500.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
-
-/**
- *  Required. At least one field within ApplicationInfo must be specified. Job
- *  application information.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ApplicationInfo *applicationInfo;
-
-/** Output only. Display name of the company listing the job. */
-@property(nonatomic, copy, nullable) NSString *companyDisplayName;
-
-/**
- *  Required. The resource name of the company listing the job, such as
- *  "projects/api-test-project/companies/foo".
- */
-@property(nonatomic, copy, nullable) NSString *companyName;
-
-/** Optional. Job compensation information. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationInfo *compensationInfo;
-
-/**
- *  Optional. A map of fields to hold both filterable and non-filterable custom
- *  job attributes that are not covered by the provided structured fields. The
- *  keys of the map are strings up to 64 bytes and must match the pattern:
- *  a-zA-Z*. For example, key0LikeThis or KEY_1_LIKE_THIS. At most 100
- *  filterable and at most 100 unfilterable keys are supported. For filterable
- *  `string_values`, across all keys at most 200 values are allowed, with each
- *  string no more than 255 characters. For unfilterable `string_values`, the
- *  maximum total size of `string_values` across all keys is 50KB.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Job_CustomAttributes *customAttributes;
-
-/**
- *  Optional. The desired education degrees for the job, such as Bachelors,
- *  Masters.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *degreeTypes;
-
-/**
- *  Optional. The department or functional area within the company with the open
- *  position. The maximum number of allowed characters is 255.
- */
-@property(nonatomic, copy, nullable) NSString *department;
-
-/** Output only. Derived details about the job posting. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobDerivedInfo *derivedInfo;
-
-/**
- *  Required. The description of the job, which typically includes a
- *  multi-paragraph description of the company and related information. Separate
- *  fields are provided on the job object for responsibilities, qualifications,
- *  and other job characteristics. Use of these separate job fields is
- *  recommended. This field accepts and sanitizes HTML input, and also accepts
- *  bold, italic, ordered list, and unordered list markup tags. The maximum
- *  number of allowed characters is 100,000.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Optional. The employment type(s) of a job, for example, full time or part
- *  time.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *employmentTypes;
-
-/**
- *  Optional. A description of bonus, commission, and other compensation
- *  incentives associated with the job not including salary or pay. The maximum
- *  number of allowed characters is 10,000.
- */
-@property(nonatomic, copy, nullable) NSString *incentives;
-
-/** Optional. The benefits included with the job. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *jobBenefits;
-
-/**
- *  Optional. The end timestamp of the job. Typically this field is used for
- *  contracting engagements. Invalid timestamps are ignored.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *jobEndTime;
-
-/**
- *  Optional. The experience level associated with the job, such as "Entry
- *  Level".
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Director Senior-level
- *        managers responsible for managing teams of managers. (Value:
- *        "DIRECTOR")
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_EntryLevel Entry-level
- *        individual contributors, typically with less than 2 years of
- *        experience in a similar role. Includes interns. (Value: "ENTRY_LEVEL")
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Executive Executive-level
- *        managers and above, including C-level positions. (Value: "EXECUTIVE")
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Experienced Experienced
- *        individual contributors, typically with 2+ years of experience in a
- *        similar role. (Value: "EXPERIENCED")
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_JobLevelUnspecified The
- *        default value if the level is not specified. (Value:
- *        "JOB_LEVEL_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_Job_JobLevel_Manager Entry- to mid-level
- *        managers responsible for managing a team of people. (Value: "MANAGER")
- */
-@property(nonatomic, copy, nullable) NSString *jobLevel;
-
-/**
- *  Optional. The start timestamp of the job in UTC time zone. Typically this
- *  field is used for contracting engagements. Invalid timestamps are ignored.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *jobStartTime;
-
-/**
- *  Optional. The language of the posting. This field is distinct from any
- *  requirements for fluency that are associated with the job. Language codes
- *  must be in BCP-47 format, such as "en-US" or "sr-Latn". For more
- *  information, see [Tags for Identifying
- *  Languages](https://tools.ietf.org/html/bcp47){: class="external"
- *  target="_blank" }. If this field is unspecified and Job.description is
- *  present, detected language code based on Job.description is assigned,
- *  otherwise defaults to 'en_US'.
- */
-@property(nonatomic, copy, nullable) NSString *languageCode;
-
-/**
- *  Required during job update. The resource name for the job. This is generated
- *  by the service when a job is created. The format is
- *  "projects/{project_id}/jobs/{job_id}", for example,
- *  "projects/api-test-project/jobs/1234". Use of this field in job queries and
- *  API calls is preferred over the use of requisition_id since this value is
- *  unique.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The timestamp when this job posting was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *postingCreateTime;
-
-/**
- *  Optional but strongly recommended for the best service experience. The
- *  expiration timestamp of the job. After this timestamp, the job is marked as
- *  expired, and it no longer appears in search results. The expired job can't
- *  be deleted or listed by the DeleteJob and ListJobs APIs, but it can be
- *  retrieved with the GetJob API or updated with the UpdateJob API. An expired
- *  job can be updated and opened again by using a future expiration timestamp.
- *  Updating an expired job fails if there is another existing open job with
- *  same company_name, language_code and requisition_id. The expired jobs are
- *  retained in our system for 90 days. However, the overall expired job count
- *  cannot exceed 3 times the maximum of open jobs count over the past week,
- *  otherwise jobs with earlier expire time are cleaned first. Expired jobs are
- *  no longer accessible after they are cleaned out. Invalid timestamps are
- *  ignored, and treated as expire time not provided. Timestamp before the
- *  instant request is made is considered valid, the job will be treated as
- *  expired immediately. If this value is not provided at the time of job
- *  creation or is invalid, the job posting expires after 30 days from the job's
- *  creation time. For example, if the job was created on 2017/01/01 13:00AM UTC
- *  with an unspecified expiration date, the job expires after 2017/01/31
- *  13:00AM UTC. If this value is not provided on job update, it depends on the
- *  field masks set by UpdateJobRequest.update_mask. If the field masks include
- *  expiry_time, or the masks are empty meaning that every field is updated, the
- *  job posting expires after 30 days from the job's last update time. Otherwise
- *  the expiration date isn't updated.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *postingExpireTime;
-
-/**
- *  Optional. The timestamp this job posting was most recently published. The
- *  default value is the time the request arrives at the server. Invalid
- *  timestamps are ignored.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *postingPublishTime;
-
-/**
- *  Optional. The job PostingRegion (for example, state, country) throughout
- *  which the job is available. If this field is set, a LocationFilter in a
- *  search query within the job region finds this job posting if an exact
- *  location match isn't specified. If this field is set to PostingRegion.NATION
- *  or PostingRegion.ADMINISTRATIVE_AREA, setting job Job.addresses to the same
- *  location level as this field is strongly recommended.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_AdministrativeArea In
- *        addition to exact location matching, job posting is returned when the
- *        LocationFilter in the search query is in the same administrative area
- *        as the returned job posting. For example, if a `ADMINISTRATIVE_AREA`
- *        job is posted in "CA, USA", it's returned if LocationFilter has
- *        "Mountain View". Administrative area refers to top-level
- *        administrative subdivision of this country. For example, US state, IT
- *        region, UK constituent nation and JP prefecture. (Value:
- *        "ADMINISTRATIVE_AREA")
- *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_Nation In addition to
- *        exact location matching, job is returned when LocationFilter in search
- *        query is in the same country as this job. For example, if a
- *        `NATION_WIDE` job is posted in "USA", it's returned if LocationFilter
- *        has 'Mountain View'. (Value: "NATION")
- *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_PostingRegionUnspecified
- *        If the region is unspecified, the job is only returned if it matches
- *        the LocationFilter. (Value: "POSTING_REGION_UNSPECIFIED")
- *    @arg @c kGTLRCloudTalentSolution_Job_PostingRegion_Telecommute Job allows
- *        employees to work remotely (telecommute). If locations are provided
- *        with this value, the job is considered as having a location, but
- *        telecommuting is allowed. (Value: "TELECOMMUTE")
- */
-@property(nonatomic, copy, nullable) NSString *postingRegion;
-
-/** Output only. The timestamp when this job posting was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *postingUpdateTime;
-
-/** Optional. Options for job processing. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ProcessingOptions *processingOptions;
-
-/**
- *  Optional. A promotion value of the job, as determined by the client. The
- *  value determines the sort order of the jobs returned when searching for jobs
- *  using the featured jobs search call, with higher promotional values being
- *  returned first and ties being resolved by relevance sort. Only the jobs with
- *  a promotionValue >0 are returned in a FEATURED_JOB_SEARCH. Default value is
- *  0, and negative values are treated as 0.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *promotionValue;
-
-/**
- *  Optional. A description of the qualifications required to perform the job.
- *  The use of this field is recommended as an alternative to using the more
- *  general description field. This field accepts and sanitizes HTML input, and
- *  also accepts bold, italic, ordered list, and unordered list markup tags. The
- *  maximum number of allowed characters is 10,000.
- */
-@property(nonatomic, copy, nullable) NSString *qualifications;
-
-/**
- *  Required. The requisition ID, also referred to as the posting ID, assigned
- *  by the client to identify a job. This field is intended to be used by
- *  clients for client identification and tracking of postings. A job is not
- *  allowed to be created if there is another job with the same [company_name],
- *  language_code and requisition_id. The maximum number of allowed characters
- *  is 255.
- */
-@property(nonatomic, copy, nullable) NSString *requisitionId;
-
-/**
- *  Optional. A description of job responsibilities. The use of this field is
- *  recommended as an alternative to using the more general description field.
- *  This field accepts and sanitizes HTML input, and also accepts bold, italic,
- *  ordered list, and unordered list markup tags. The maximum number of allowed
- *  characters is 10,000.
- */
-@property(nonatomic, copy, nullable) NSString *responsibilities;
-
-/**
- *  Required. The title of the job, such as "Software Engineer" The maximum
- *  number of allowed characters is 500.
- */
-@property(nonatomic, copy, nullable) NSString *title;
-
-/**
- *  Deprecated. The job is only visible to the owner. The visibility of the job.
- *  Defaults to Visibility.ACCOUNT_ONLY if not specified.
- *
- *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_Job_Visibility_AccountOnly The resource
  *        is only visible to the GCP account who owns it. (Value:
  *        "ACCOUNT_ONLY")
@@ -4885,14 +2961,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Optional. A map of fields to hold both filterable and non-filterable custom
- *  job attributes that are not covered by the provided structured fields. The
- *  keys of the map are strings up to 64 bytes and must match the pattern:
- *  a-zA-Z*. For example, key0LikeThis or KEY_1_LIKE_THIS. At most 100
- *  filterable and at most 100 unfilterable keys are supported. For filterable
- *  `string_values`, across all keys at most 200 values are allowed, with each
- *  string no more than 255 characters. For unfilterable `string_values`, the
- *  maximum total size of `string_values` across all keys is 50KB.
+ *  A map of fields to hold both filterable and non-filterable custom job
+ *  attributes that are not covered by the provided structured fields. The keys
+ *  of the map are strings up to 64 bytes and must match the pattern: a-zA-Z*.
+ *  For example, key0LikeThis or KEY_1_LIKE_THIS. At most 100 filterable and at
+ *  most 100 unfilterable keys are supported. For filterable `string_values`,
+ *  across all keys at most 200 values are allowed, with each string no more
+ *  than 255 characters. For unfilterable `string_values`, the maximum total
+ *  size of `string_values` across all keys is 50KB.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudTalentSolution_CustomAttribute. Use @c -additionalJSONKeys
@@ -4905,7 +2981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. Derived details about the job posting.
+ *  Derived details about the job posting.
  */
 @interface GTLRCloudTalentSolution_JobDerivedInfo : GTLRObject
 
@@ -4931,7 +3007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Required. The job name(s) associated with this event. For example, if this
  *  is an impression event, this field contains the identifiers of all jobs
  *  shown to the job seeker. If this was a view event, this field contains the
- *  identifier of the viewed job.
+ *  identifier of the viewed job. The format is
+ *  "projects/{project_id}/tenants/{tenant_id}/jobs/{job_id}", for example,
+ *  "projects/foo/tenants/bar/jobs/baz".
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jobs;
 
@@ -5004,9 +3082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *        or other entity interacting with the service was sent a notification,
  *        such as an email alert or device notification, containing one or more
  *        jobs listings generated by the service. (Value: "NOTIFICATION")
- *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_NotInterested The job
- *        seeker or other entity interacting with the service showed no interest
- *        in the job. (Value: "NOT_INTERESTED")
  *    @arg @c kGTLRCloudTalentSolution_JobEvent_Type_SentCv A recruiter or
  *        staffing agency submitted an application on behalf of the candidate
  *        after interacting with the service to identify a suitable job posting.
@@ -5028,47 +3103,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. The query required to perform a search query.
+ *  The query required to perform a search query.
  */
 @interface GTLRCloudTalentSolution_JobQuery : GTLRObject
 
 /**
- *  Optional. Allows filtering jobs by commute time with different travel
- *  methods (for example, driving or public transit). Note: This only works with
- *  COMMUTE MODE. When specified, [JobQuery.location_filters] is ignored.
- *  Currently we don't support sorting by commute time.
+ *  Allows filtering jobs by commute time with different travel methods (for
+ *  example, driving or public transit). Note: This only works when you specify
+ *  a CommuteMethod. In this case, location_filters is ignored. Currently we
+ *  don't support sorting by commute time.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CommuteFilter *commuteFilter;
 
 /**
- *  Optional. This filter specifies the exact company display name of the jobs
- *  to search against. If a value isn't specified, jobs within the search
- *  results are associated with any company. If multiple values are specified,
- *  jobs within the search results may be associated with any of the specified
+ *  This filter specifies the company entities to search against. If a value
+ *  isn't specified, jobs are searched for against all companies. If multiple
+ *  values are specified, jobs are searched against the companies specified. The
+ *  format is
+ *  "projects/{project_id}/tenants/{tenant_id}/companies/{company_id}". For
+ *  example, "projects/foo/tenants/bar/companies/baz". At most 20 company
+ *  filters are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *companies;
+
+/**
+ *  This filter specifies the exact company Company.display_name of the jobs to
+ *  search against. If a value isn't specified, jobs within the search results
+ *  are associated with any company. If multiple values are specified, jobs
+ *  within the search results may be associated with any of the specified
  *  companies. At most 20 company display name filters are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *companyDisplayNames;
 
 /**
- *  Optional. This filter specifies the company entities to search against. If a
- *  value isn't specified, jobs are searched for against all companies. If
- *  multiple values are specified, jobs are searched against the companies
- *  specified. The format is "projects/{project_id}/companies/{company_id}", for
- *  example, "projects/api-test-project/companies/foo". At most 20 company
- *  filters are allowed.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *companyNames;
-
-/**
- *  Optional. This search filter is applied only to Job.compensation_info. For
- *  example, if the filter is specified as "Hourly job with per-hour
- *  compensation > $15", only jobs meeting these criteria are searched. If a
- *  filter isn't defined, all open jobs are searched.
+ *  This search filter is applied only to Job.compensation_info. For example, if
+ *  the filter is specified as "Hourly job with per-hour compensation > $15",
+ *  only jobs meeting these criteria are searched. If a filter isn't defined,
+ *  all open jobs are searched.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CompensationFilter *compensationFilter;
 
 /**
- *  Optional. This filter specifies a structured syntax to match against the
+ *  This filter specifies a structured syntax to match against the
  *  Job.custom_attributes marked as `filterable`. The syntax for this expression
  *  is a subset of SQL syntax. Supported operators are: `=`, `!=`, `<`, `<=`,
  *  `>`, and `>=` where the left of the operator is a custom field key and the
@@ -5085,47 +3161,53 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *customAttributeFilter;
 
 /**
- *  Optional. This flag controls the spell-check feature. If false, the service
- *  attempts to correct a misspelled query, for example, "enginee" is corrected
- *  to "engineer". Defaults to false: a spell check is performed.
+ *  This flag controls the spell-check feature. If false, the service attempts
+ *  to correct a misspelled query, for example, "enginee" is corrected to
+ *  "engineer". Defaults to false: a spell check is performed.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableSpellCheck;
 
 /**
- *  Optional. The employment type filter specifies the employment type of jobs
- *  to search against, such as EmploymentType.FULL_TIME. If a value is not
- *  specified, jobs in the search results includes any employment type. If
- *  multiple values are specified, jobs in the search results include any of the
- *  specified employment types.
+ *  The employment type filter specifies the employment type of jobs to search
+ *  against, such as EmploymentType.FULL_TIME. If a value isn't specified, jobs
+ *  in the search results includes any employment type. If multiple values are
+ *  specified, jobs in the search results include any of the specified
+ *  employment types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *employmentTypes;
 
 /**
- *  Optional. The category filter specifies the categories of jobs to search
- *  against. See Category for more information. If a value is not specified,
- *  jobs from any category are searched against. If multiple values are
- *  specified, jobs from any of the specified categories are searched against.
+ *  This filter specifies a list of job names to be excluded during search. At
+ *  most 400 excluded job names are allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedJobs;
+
+/**
+ *  The category filter specifies the categories of jobs to search against. See
+ *  JobCategory for more information. If a value isn't specified, jobs from any
+ *  category are searched against. If multiple values are specified, jobs from
+ *  any of the specified categories are searched against.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *jobCategories;
 
 /**
- *  Optional. This filter specifies the locale of jobs to search against, for
- *  example, "en-US". If a value isn't specified, the search results can contain
- *  jobs in any locale. Language codes should be in BCP-47 format, such as
- *  "en-US" or "sr-Latn". For more information, see [Tags for Identifying
+ *  This filter specifies the locale of jobs to search against, for example,
+ *  "en-US". If a value isn't specified, the search results can contain jobs in
+ *  any locale. Language codes should be in BCP-47 format, such as "en-US" or
+ *  "sr-Latn". For more information, see [Tags for Identifying
  *  Languages](https://tools.ietf.org/html/bcp47). At most 10 language code
  *  filters are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /**
- *  Optional. The location filter specifies geo-regions containing the jobs to
- *  search against. See LocationFilter for more information. If a location value
- *  isn't specified, jobs fitting the other search criteria are retrieved
- *  regardless of where they're located. If multiple values are specified, jobs
- *  are retrieved from any of the specified locations. If different values are
+ *  The location filter specifies geo-regions containing the jobs to search
+ *  against. See LocationFilter for more information. If a location value isn't
+ *  specified, jobs fitting the other search criteria are retrieved regardless
+ *  of where they're located. If multiple values are specified, jobs are
+ *  retrieved from any of the specified locations. If different values are
  *  specified for the LocationFilter.distance_in_miles parameter, the maximum
  *  provided distance is used for all locations. At most 5 location filters are
  *  allowed.
@@ -5133,14 +3215,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_LocationFilter *> *locationFilters;
 
 /**
- *  Optional. Jobs published within a range specified by this filter are
- *  searched against.
+ *  Jobs published within a range specified by this filter are searched against.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_TimestampRange *publishTimeRange;
 
 /**
- *  Optional. The query string that matches against the job title, description,
- *  and location fields. The maximum number of allowed characters is 255.
+ *  The query string that matches against the job title, description, and
+ *  location fields. The maximum number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5157,8 +3238,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  Mutation result of a job from a batch operation.
+ */
+@interface GTLRCloudTalentSolution_JobResult : GTLRObject
+
+/**
+ *  Here Job only contains basic information including name, company,
+ *  language_code and requisition_id, use getJob method to retrieve detailed
+ *  information of the created/updated job.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Job *job;
+
+/**
+ *  The status of the job processed. This field is populated if the processing
+ *  of the job fails.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Status *status;
+
+@end
+
+
+/**
+ *  An object that represents a latitude/longitude pair. This is expressed as a
+ *  pair of doubles to represent degrees latitude and degrees longitude. Unless
  *  specified otherwise, this must conform to the WGS84 standard. Values must be
  *  within normalized ranges.
  */
@@ -5182,7 +3284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. The List companies response object.
+ *  The List companies response object.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "companies" property. If returned as the result of a query, it
@@ -5212,7 +3314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. List jobs response.
+ *  List jobs response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "jobs" property. If returned as the result of a query, it should
@@ -5243,8 +3345,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. A resource that represents a location with full geographic
- *  information.
+ *  The List tenants response object.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tenants" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudTalentSolution_ListTenantsResponse : GTLRCollectionObject
+
+/**
+ *  Additional information for the API invocation, such as the request tracking
+ *  id.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_ResponseMetadata *metadata;
+
+/** A token to retrieve the next page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Tenants for the current client.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_Tenant *> *tenants;
+
+@end
+
+
+/**
+ *  A resource that represents a location with full geographic information.
  */
 @interface GTLRCloudTalentSolution_Location : GTLRObject
 
@@ -5253,9 +3384,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 /**
  *  The type of a location, which corresponds to the address lines field of
- *  PostalAddress. For example, "Downtown, Atlanta, GA, USA" has a type of
- *  LocationType#NEIGHBORHOOD, and "Kansas City, KS, USA" has a type of
- *  LocationType#LOCALITY.
+ *  google.type.PostalAddress. For example, "Downtown, Atlanta, GA, USA" has a
+ *  type of LocationType.NEIGHBORHOOD, and "Kansas City, KS, USA" has a type of
+ *  LocationType.LOCALITY.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_Location_LocationType_AdministrativeArea
@@ -5265,7 +3396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *    @arg @c kGTLRCloudTalentSolution_Location_LocationType_Locality A city or
  *        equivalent level location. (Value: "LOCALITY")
  *    @arg @c kGTLRCloudTalentSolution_Location_LocationType_LocationTypeUnspecified
- *        Default value if the type is not specified. (Value:
+ *        Default value if the type isn't specified. (Value:
  *        "LOCATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudTalentSolution_Location_LocationType_Neighborhood A
  *        neighborhood level location. (Value: "NEIGHBORHOOD")
@@ -5301,65 +3432,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 /**
  *  Radius in miles of the job location. This value is derived from the location
  *  bounding box in which a circle with the specified radius centered from
- *  LatLng covers the area associated with the job location. For example,
- *  currently, "Mountain View, CA, USA" has a radius of 6.17 miles.
+ *  google.type.LatLng covers the area associated with the job location. For
+ *  example, currently, "Mountain View, CA, USA" has a radius of 6.17 miles.
  *
  *  Uses NSNumber of doubleValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *radiusInMiles;
+@property(nonatomic, strong, nullable) NSNumber *radiusMiles;
 
 @end
 
 
 /**
- *  Input only. Geographic region of the search.
+ *  Geographic region of the search.
  */
 @interface GTLRCloudTalentSolution_LocationFilter : GTLRObject
 
-/** Optional. The address name, such as "Mountain View" or "Bay Area". */
+/** The address name, such as "Mountain View" or "Bay Area". */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /**
- *  Optional. The distance_in_miles is applied when the location being searched
- *  for is identified as a city or smaller. When the location being searched for
- *  is a state or larger, this field is ignored.
+ *  The distance_in_miles is applied when the location being searched for is
+ *  identified as a city or smaller. This field is ignored if the location being
+ *  searched for is a state or larger.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *distanceInMiles;
 
 /**
- *  Optional. The latitude and longitude of the geographic center from which to
- *  search. This field's ignored if `address` is provided.
+ *  The latitude and longitude of the geographic center to search from. This
+ *  field is ignored if `address` is provided.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_LatLng *latLng;
 
 /**
- *  Optional. CLDR region code of the country/region of the address. This is
- *  used to address ambiguity of the user-input location, for example,
- *  "Liverpool" against "Liverpool, NY, US" or "Liverpool, UK". Set this field
- *  if all the jobs to search against are from a same region, or jobs are
- *  world-wide, but the job seeker is from a specific region. See
- *  http://cldr.unicode.org/ and
- *  http://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
+ *  CLDR region code of the country/region of the address. This is used to
+ *  address ambiguity of the user-input location, for example, "Liverpool"
+ *  against "Liverpool, NY, US" or "Liverpool, UK". Set this field to bias
+ *  location resolution toward a specific country or territory. If this field is
+ *  not set, application behavior is biased toward the United States by default.
+ *  See
+ *  https://www.unicode.org/cldr/charts/30/supplemental/territory_information.html
  *  for details. Example: "CH" for Switzerland.
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
 /**
- *  Optional. Allows the client to return jobs without a set location,
- *  specifically, telecommuting jobs (telecommuting is considered by the service
- *  as a special location. Job.posting_region indicates if a job permits
- *  telecommuting. If this field is set to
- *  TelecommutePreference.TELECOMMUTE_ALLOWED, telecommuting jobs are searched,
- *  and address and lat_lng are ignored. If not set or set to
- *  TelecommutePreference.TELECOMMUTE_EXCLUDED, telecommute job are not
- *  searched. This filter can be used by itself to search exclusively for
- *  telecommuting jobs, or it can be combined with another location filter to
- *  search for a combination of job locations, such as "Mountain View" or
+ *  Allows the client to return jobs without a set location, specifically,
+ *  telecommuting jobs (telecommuting is considered by the service as a special
+ *  location. Job.posting_region indicates if a job permits telecommuting. If
+ *  this field is set to TelecommutePreference.TELECOMMUTE_ALLOWED,
+ *  telecommuting jobs are searched, and address and lat_lng are ignored. If not
+ *  set or set to TelecommutePreference.TELECOMMUTE_EXCLUDED, telecommute job
+ *  are not searched. This filter can be used by itself to search exclusively
+ *  for telecommuting jobs, or it can be combined with another location filter
+ *  to search for a combination of job locations, such as "Mountain View" or
  *  "telecommuting" jobs. However, when used in combination with other location
  *  filters, telecommuting jobs can be treated as less relevant than other jobs
- *  in the search response.
+ *  in the search response. This field is only used for job search requests.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteAllowed
@@ -5367,7 +3497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommuteExcluded
  *        Exclude telecommute jobs. (Value: "TELECOMMUTE_EXCLUDED")
  *    @arg @c kGTLRCloudTalentSolution_LocationFilter_TelecommutePreference_TelecommutePreferenceUnspecified
- *        Default value if the telecommute preference is not specified. (Value:
+ *        Default value if the telecommute preference isn't specified. (Value:
  *        "TELECOMMUTE_PREFERENCE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *telecommutePreference;
@@ -5376,7 +3506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. Job entry with metadata inside SearchJobsResponse.
+ *  Job entry with metadata inside SearchJobsResponse.
  */
 @interface GTLRCloudTalentSolution_MatchingJob : GTLRObject
 
@@ -5395,8 +3525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *jobSummary;
 
 /**
- *  Contains snippets of text from the Job.job_title field most closely matching
- *  a search query's keywords, if available. The matching query keywords are
+ *  Contains snippets of text from the Job.title field most closely matching a
+ *  search query's keywords, if available. The matching query keywords are
  *  enclosed in HTML bold tags.
  */
 @property(nonatomic, copy, nullable) NSString *jobTitleSnippet;
@@ -5458,7 +3588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  */
 @interface GTLRCloudTalentSolution_Money : GTLRObject
 
-/** The 3-letter currency code defined in ISO 4217. */
+/** The three-letter currency code defined in ISO 4217. */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
@@ -5636,59 +3766,82 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. Use this field to specify bucketing option for the histogram
- *  search response.
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
  */
-@interface GTLRCloudTalentSolution_NumericBucketingOption : GTLRObject
+@interface GTLRCloudTalentSolution_Operation : GTLRObject
 
 /**
- *  Required. Two adjacent values form a histogram bucket. Values should be in
- *  ascending order. For example, if [5, 10, 15] are provided, four buckets are
- *  created: (-inf, 5), 5, 10), [10, 15), [15, inf). At most 20 [buckets_bound
- *  is supported.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSArray<NSNumber *> *bucketBounds;
-
-/**
- *  Optional. If set to true, the histogram result includes minimum/maximum
- *  value of the numeric field.
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *requiresMinMax;
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Operation_Response *response;
 
 @end
 
 
 /**
- *  Output only. Custom numeric bucketing result.
- */
-@interface GTLRCloudTalentSolution_NumericBucketingResult : GTLRObject
-
-/**
- *  Count within each bucket. Its size is the length of
- *  NumericBucketingOption.bucket_bounds plus 1.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_BucketizedCount *> *counts;
-
-/**
- *  Stores the maximum value of the numeric field. Is populated only if
- *  [NumericBucketingOption.requires_min_max] is set to true.
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
  *
- *  Uses NSNumber of doubleValue.
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
-@property(nonatomic, strong, nullable) NSNumber *maxValue;
+@interface GTLRCloudTalentSolution_Operation_Metadata : GTLRObject
+@end
+
 
 /**
- *  Stores the minimum value of the numeric field. Will be populated only if
- *  [NumericBucketingOption.requires_min_max] is set to true.
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
  *
- *  Uses NSNumber of doubleValue.
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
  */
-@property(nonatomic, strong, nullable) NSNumber *minValue;
-
+@interface GTLRCloudTalentSolution_Operation_Response : GTLRObject
 @end
 
 
@@ -5812,23 +3965,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. Options for job processing.
+ *  Options for job processing.
  */
 @interface GTLRCloudTalentSolution_ProcessingOptions : GTLRObject
 
 /**
- *  Optional. If set to `true`, the service does not attempt to resolve a more
- *  precise address for the job.
+ *  If set to `true`, the service does not attempt to resolve a more precise
+ *  address for the job.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableStreetAddressResolution;
 
 /**
- *  Optional. Option for job HTML content sanitization. Applied fields are: *
- *  description * applicationInfo.instruction * incentives * qualifications *
+ *  Option for job HTML content sanitization. Applied fields are: * description
+ *  * applicationInfo.instruction * incentives * qualifications *
  *  responsibilities HTML tags in these fields may be stripped if sanitiazation
- *  is not disabled. Defaults to HtmlSanitization.SIMPLE_FORMATTING_ONLY.
+ *  isn't disabled. Defaults to HtmlSanitization.SIMPLE_FORMATTING_ONLY.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_ProcessingOptions_HtmlSanitization_HtmlSanitizationDisabled
@@ -5846,50 +3999,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. Meta information related to the job searcher or entity
- *  conducting the job search. This information is used to improve the
- *  performance of the service.
+ *  Meta information related to the job searcher or entity conducting the job
+ *  search. This information is used to improve the performance of the service.
  */
 @interface GTLRCloudTalentSolution_RequestMetadata : GTLRObject
 
 /**
- *  Optional. The type of device used by the job seeker at the time of the call
- *  to the service.
+ *  Only set when any of domain, session_id and user_id isn't available for some
+ *  reason. It is highly recommended not to set this field and provide accurate
+ *  domain, session_id and user_id for the best service experience.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowMissingIds;
+
+/**
+ *  The type of device used by the job seeker at the time of the call to the
+ *  service.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_DeviceInfo *deviceInfo;
 
 /**
- *  Required. The client-defined scope or source of the service call, which
- *  typically is the domain on which the service has been implemented and is
- *  currently being run. For example, if the service is being run by client
- *  *Foo, Inc.*, on job board www.foo.com and career site www.bar.com, then this
- *  field is set to "foo.com" for use on the job board, and "bar.com" for use on
- *  the career site. If this field isn't available for some reason, send
- *  "UNKNOWN". Any improvements to the model for a particular tenant site rely
- *  on this field being set correctly to a domain. The maximum number of allowed
+ *  Required if allow_missing_ids is unset or `false`. The client-defined scope
+ *  or source of the service call, which typically is the domain on which the
+ *  service has been implemented and is currently being run. For example, if the
+ *  service is being run by client *Foo, Inc.*, on job board www.foo.com and
+ *  career site www.bar.com, then this field is set to "foo.com" for use on the
+ *  job board, and "bar.com" for use on the career site. Note that any
+ *  improvements to the model for a particular tenant site rely on this field
+ *  being set correctly to a unique domain. The maximum number of allowed
  *  characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Required. A unique session identification string. A session is defined as
- *  the duration of an end user's interaction with the service over a certain
- *  period. Obfuscate this field for privacy concerns before providing it to the
- *  service. If this field is not available for some reason, send "UNKNOWN".
- *  Note that any improvements to the model for a particular tenant site, rely
- *  on this field being set correctly to some unique session_id. The maximum
- *  number of allowed characters is 255.
+ *  Required if allow_missing_ids is unset or `false`. A unique session
+ *  identification string. A session is defined as the duration of an end user's
+ *  interaction with the service over a certain period. Obfuscate this field for
+ *  privacy concerns before providing it to the service. Note that any
+ *  improvements to the model for a particular tenant site rely on this field
+ *  being set correctly to a unique session ID. The maximum number of allowed
+ *  characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
 /**
- *  Required. A unique user identification string, as determined by the client.
- *  To have the strongest positive impact on search quality make sure the
- *  client-level is unique. Obfuscate this field for privacy concerns before
- *  providing it to the service. If this field is not available for some reason,
- *  send "UNKNOWN". Note that any improvements to the model for a particular
- *  tenant site, rely on this field being set correctly to a unique user_id. The
- *  maximum number of allowed characters is 255.
+ *  Required if allow_missing_ids is unset or `false`. A unique user
+ *  identification string, as determined by the client. To have the strongest
+ *  positive impact on search quality make sure the client-level is unique.
+ *  Obfuscate this field for privacy concerns before providing it to the
+ *  service. Note that any improvements to the model for a particular tenant
+ *  site rely on this field being set correctly to a unique user ID. The maximum
+ *  number of allowed characters is 255.
  */
 @property(nonatomic, copy, nullable) NSString *userId;
 
@@ -5897,8 +4058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. Additional information returned to client, such as debugging
- *  information.
+ *  Additional information returned to client, such as debugging information.
  */
 @interface GTLRCloudTalentSolution_ResponseMetadata : GTLRObject
 
@@ -5912,38 +4072,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Input only. The Request body of the `SearchJobs` call.
+ *  The Request body of the `SearchJobs` call.
  */
 @interface GTLRCloudTalentSolution_SearchJobsRequest : GTLRObject
 
 /**
- *  Optional. Controls whether to disable exact keyword match on Job.job_title,
- *  Job.description, Job.company_display_name, Job.locations,
+ *  Controls over how job documents get ranked on top of existing relevance
+ *  score (determined by API algorithm).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_CustomRankingInfo *customRankingInfo;
+
+/**
+ *  Controls whether to disable exact keyword match on Job.title,
+ *  Job.description, Job.company_display_name, Job.addresses,
  *  Job.qualifications. When disable keyword match is turned off, a keyword
  *  match returns jobs that do not match given category filters when there are
- *  matching keywords. For example, the query "program manager," a result is
+ *  matching keywords. For example, for the query "program manager," a result is
  *  returned even if the job posting has the title "software developer," which
- *  does not fall into "program manager" ontology, but does have "program
- *  manager" appearing in its description. For queries like "cloud" that does
- *  not contain title or location specific ontology, jobs with "cloud" keyword
- *  matches are returned regardless of this flag's value. Please use
- *  Company.keyword_searchable_custom_fields or
- *  Company.keyword_searchable_custom_attributes if company specific globally
- *  matched custom field/attribute string values is needed. Enabling keyword
- *  match improves recall of subsequent search requests. Defaults to false.
+ *  doesn't fall into "program manager" ontology, but does have "program
+ *  manager" appearing in its description. For queries like "cloud" that don't
+ *  contain title or location specific ontology, jobs with "cloud" keyword
+ *  matches are returned regardless of this flag's value. Use
+ *  Company.keyword_searchable_job_custom_attributes if company-specific
+ *  globally matched custom field/attribute string values are needed. Enabling
+ *  keyword match improves recall of subsequent search requests. Defaults to
+ *  false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableKeywordMatch;
 
 /**
- *  Optional. Controls whether highly similar jobs are returned next to each
- *  other in the search results. Jobs are identified as highly similar based on
- *  their titles, job categories, and locations. Highly similar results are
- *  clustered so that only one representative job of the cluster is displayed to
- *  the job seeker higher up in the results, with the other jobs being displayed
- *  lower down in the results. Defaults to DiversificationLevel.SIMPLE if no
- *  value is specified.
+ *  Controls whether highly similar jobs are returned next to each other in the
+ *  search results. Jobs are identified as highly similar based on their titles,
+ *  job categories, and locations. Highly similar results are clustered so that
+ *  only one representative job of the cluster is displayed to the job seeker
+ *  higher up in the results, with the other jobs being displayed lower down in
+ *  the results. Defaults to DiversificationLevel.SIMPLE if no value is
+ *  specified.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Disabled
@@ -5952,37 +4118,96 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *        highly similar jobs appearing in sequence in the search results.
  *        (Value: "DISABLED")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_DiversificationLevelUnspecified
- *        The diversification level isn't specified. By default, jobs with this
- *        enum are ordered according to SIMPLE diversifying behavior. (Value:
+ *        The diversification level isn't specified. (Value:
  *        "DIVERSIFICATION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_DiversificationLevel_Simple
  *        Default diversifying behavior. The result list is ordered so that
  *        highly similar results are pushed to the end of the last page of
- *        search results. (Value: "SIMPLE")
+ *        search results. If you are using pageToken to page through the result
+ *        set, latency might be lower but we can't guarantee that all results
+ *        are returned. If you are using page offset, latency might be higher
+ *        but all results are returned. (Value: "SIMPLE")
  */
 @property(nonatomic, copy, nullable) NSString *diversificationLevel;
 
 /**
- *  Optional. Controls whether to broaden the search when it produces sparse
- *  results. Broadened queries append results to the end of the matching results
- *  list. Defaults to false.
+ *  Controls whether to broaden the search when it produces sparse results.
+ *  Broadened queries append results to the end of the matching results list.
+ *  Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableBroadening;
 
-/** Optional. Histogram requests for jobs matching JobQuery. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_HistogramFacets *histogramFacets;
+/**
+ *  An expression specifies a histogram request against matching jobs.
+ *  Expression syntax is an aggregation function call with histogram facets and
+ *  other options. Available aggregation function calls are: *
+ *  `count(string_histogram_facet)`: Count the number of matching entities, for
+ *  each distinct attribute value. * `count(numeric_histogram_facet, list of
+ *  buckets)`: Count the number of matching entities within each bucket. Data
+ *  types: * Histogram facet: facet names with format a-zA-Z+. * String: string
+ *  like "any string with backslash escape for quote(\\")." * Number: whole
+ *  number and floating point number like 10, -1 and -0.01. * List: list of
+ *  elements with comma(,) separator surrounded by square brackets, for example,
+ *  [1, 2, 3] and ["one", "two", "three"]. Built-in constants: * MIN (minimum
+ *  number similar to java Double.MIN_VALUE) * MAX (maximum number similar to
+ *  java Double.MAX_VALUE) Built-in functions: * bucket(start, end[, label]):
+ *  bucket built-in function creates a bucket with range of start, end). Note
+ *  that the end is exclusive, for example, bucket(1, MAX, "positive number") or
+ *  bucket(1, 10). Job histogram facets: * company_display_name: histogram by
+ *  [Job.company_display_name. * employment_type: histogram by
+ *  Job.employment_types, for example, "FULL_TIME", "PART_TIME". * company_size:
+ *  histogram by CompanySize, for example, "SMALL", "MEDIUM", "BIG". *
+ *  publish_time_in_month: histogram by the Job.posting_publish_time in months.
+ *  Must specify list of numeric buckets in spec. * publish_time_in_year:
+ *  histogram by the Job.posting_publish_time in years. Must specify list of
+ *  numeric buckets in spec. * degree_types: histogram by the Job.degree_types,
+ *  for example, "Bachelors", "Masters". * job_level: histogram by the
+ *  Job.job_level, for example, "Entry Level". * country: histogram by the
+ *  country code of jobs, for example, "US", "FR". * admin1: histogram by the
+ *  admin1 code of jobs, which is a global placeholder referring to the state,
+ *  province, or the particular term a country uses to define the geographic
+ *  structure below the country level, for example, "CA", "IL". * city:
+ *  histogram by a combination of the "city name, admin1 code". For example,
+ *  "Mountain View, CA", "New York, NY". * admin1_country: histogram by a
+ *  combination of the "admin1 code, country", for example, "CA, US", "IL, US".
+ *  * city_coordinate: histogram by the city center's GPS coordinates (latitude
+ *  and longitude), for example, 37.4038522,-122.0987765. Since the coordinates
+ *  of a city center can change, customers may need to refresh them
+ *  periodically. * locale: histogram by the Job.language_code, for example,
+ *  "en-US", "fr-FR". * language: histogram by the language subtag of the
+ *  Job.language_code, for example, "en", "fr". * category: histogram by the
+ *  JobCategory, for example, "COMPUTER_AND_IT", "HEALTHCARE". *
+ *  base_compensation_unit: histogram by the CompensationInfo.CompensationUnit
+ *  of base salary, for example, "WEEKLY", "MONTHLY". * base_compensation:
+ *  histogram by the base salary. Must specify list of numeric buckets to group
+ *  results by. * annualized_base_compensation: histogram by the base annualized
+ *  salary. Must specify list of numeric buckets to group results by. *
+ *  annualized_total_compensation: histogram by the total annualized salary.
+ *  Must specify list of numeric buckets to group results by. *
+ *  string_custom_attribute: histogram by string Job.custom_attributes. Values
+ *  can be accessed via square bracket notations like
+ *  string_custom_attribute["key1"]. * numeric_custom_attribute: histogram by
+ *  numeric Job.custom_attributes. Values can be accessed via square bracket
+ *  notations like numeric_custom_attribute["key1"]. Must specify list of
+ *  numeric buckets to group results by. Example expressions: * `count(admin1)`
+ *  * `count(base_compensation, [bucket(1000, 10000), bucket(10000, 100000),
+ *  bucket(100000, MAX)])` *
+ *  `count(string_custom_attribute["some-string-custom-attribute"])` *
+ *  `count(numeric_custom_attribute["some-numeric-custom-attribute"],
+ *  [bucket(MIN, 0, "negative"), bucket(0, MAX, "non-negative"])`
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_HistogramQuery *> *histogramQueries;
 
 /**
- *  Optional. Query used to search against jobs, such as keyword, location
- *  filters, etc.
+ *  Query used to search against jobs, such as keyword, location filters, etc.
  */
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_JobQuery *jobQuery;
 
 /**
- *  Optional. The desired job attributes returned for jobs in the search
- *  response. Defaults to JobView.SMALL if no value is specified.
+ *  The desired job attributes returned for jobs in the search response.
+ *  Defaults to JobView.JOB_VIEW_SMALL if no value is specified.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewFull All
@@ -5993,12 +4218,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *        Job.requisition_id, Job.language_code. (Value: "JOB_VIEW_ID_ONLY")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewMinimal
  *        A minimal view of the job, with the following attributes: Job.name,
- *        Job.requisition_id, Job.title, Job.company_name,
- *        Job.DerivedInfo.locations, Job.language_code. (Value:
- *        "JOB_VIEW_MINIMAL")
+ *        Job.requisition_id, Job.title, Job.company, Job.DerivedInfo.locations,
+ *        Job.language_code. (Value: "JOB_VIEW_MINIMAL")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewSmall A
  *        small view of the job, with the following attributes in the search
- *        results: Job.name, Job.requisition_id, Job.title, Job.company_name,
+ *        results: Job.name, Job.requisition_id, Job.title, Job.company,
  *        Job.DerivedInfo.locations, Job.visibility, Job.language_code,
  *        Job.description. (Value: "JOB_VIEW_SMALL")
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_JobView_JobViewUnspecified
@@ -6007,27 +4231,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, copy, nullable) NSString *jobView;
 
 /**
- *  Optional. An integer that specifies the current offset (that is, starting
- *  result location, amongst the jobs deemed by the API as relevant) in search
- *  results. This field is only considered if page_token is unset. The maximum
- *  allowed value is 5000. Otherwise an error is thrown. For example, 0 means to
- *  return results starting from the first matching job, and 10 means to return
- *  from the 11th job. This can be used for pagination, (for example, pageSize =
- *  10 and offset = 10 means to return from the second page).
+ *  A limit on the number of jobs returned in the search results. Increasing
+ *  this value above the default value of 10 can increase search response time.
+ *  The value can be between 1 and 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxPageSize;
+
+/**
+ *  An integer that specifies the current offset (that is, starting result
+ *  location, amongst the jobs deemed by the API as relevant) in search results.
+ *  This field is only considered if page_token is unset. The maximum allowed
+ *  value is 5000. Otherwise an error is thrown. For example, 0 means to return
+ *  results starting from the first matching job, and 10 means to return from
+ *  the 11th job. This can be used for pagination, (for example, pageSize = 10
+ *  and offset = 10 means to return from the second page).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offset;
 
 /**
- *  Optional. The criteria determining how search results are sorted. Default is
- *  "relevance desc". Supported options are: * `"relevance desc"`: By relevance
- *  descending, as determined by the API algorithms. Relevance thresholding of
- *  query results is only available with this ordering. * `"posting_publish_time
- *  desc"`: By Job.posting_publish_time descending. * `"posting_update_time
- *  desc"`: By Job.posting_update_time descending. * `"title"`: By Job.title
- *  ascending. * `"title desc"`: By Job.title descending. *
- *  `"annualized_base_compensation"`: By job's
+ *  The criteria determining how search results are sorted. Default is
+ *  `"relevance desc"`. Supported options are: * `"relevance desc"`: By
+ *  relevance descending, as determined by the API algorithms. Relevance
+ *  thresholding of query results is only available with this ordering. *
+ *  `"posting_publish_time desc"`: By Job.posting_publish_time descending. *
+ *  `"posting_update_time desc"`: By Job.posting_update_time descending. *
+ *  `"title"`: By Job.title ascending. * `"title desc"`: By Job.title
+ *  descending. * `"annualized_base_compensation"`: By job's
  *  CompensationInfo.annualized_base_compensation_range ascending. Jobs whose
  *  annualized base compensation is unspecified are put at the end of search
  *  results. * `"annualized_base_compensation desc"`: By job's
@@ -6039,21 +4272,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  results. * `"annualized_total_compensation desc"`: By job's
  *  CompensationInfo.annualized_total_compensation_range descending. Jobs whose
  *  annualized base compensation is unspecified are put at the end of search
- *  results.
+ *  results. * `"custom_ranking desc"`: By the relevance score adjusted to the
+ *  SearchJobsRequest.CustomRankingInfo.ranking_expression with weight factor
+ *  assigned by SearchJobsRequest.CustomRankingInfo.importance_level in
+ *  descending order. * Location sorting: Use the special syntax to order jobs
+ *  by distance: `"distance_from('Hawaii')"`: Order by distance from Hawaii.
+ *  `"distance_from(19.89, 155.5)"`: Order by distance from a coordinate.
+ *  `"distance_from('Hawaii'), distance_from('Puerto Rico')"`: Order by multiple
+ *  locations. See details below. `"distance_from('Hawaii'),
+ *  distance_from(19.89, 155.5)"`: Order by multiple locations. See details
+ *  below. The string can have a maximum of 256 characters. When multiple
+ *  distance centers are provided, a job that is close to any of the distance
+ *  centers would have a high rank. When a job has multiple locations, the job
+ *  location closest to one of the distance centers will be used. Jobs that
+ *  don't have locations will be ranked at the bottom. Distance is calculated
+ *  with a precision of 11.3 meters (37.4 feet). Diversification strategy is
+ *  still applied unless explicitly disabled in diversification_level.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. A limit on the number of jobs returned in the search results.
- *  Increasing this value above the default value of 10 can increase search
- *  response time. The value can be between 1 and 100.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageSize;
-
-/**
- *  Optional. The token specifying the current offset within search results. See
+ *  The token specifying the current offset within search results. See
  *  SearchJobsResponse.next_page_token for an explanation of how to obtain the
  *  next set of query results.
  */
@@ -6067,14 +4306,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_RequestMetadata *requestMetadata;
 
 /**
- *  This field is deprecated.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requirePreciseResultSize;
-
-/**
- *  Optional. Mode of a search. Defaults to SearchMode.JOB_SEARCH.
+ *  Mode of a search. Defaults to SearchMode.JOB_SEARCH.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_SearchJobsRequest_SearchMode_FeaturedJobSearch
@@ -6098,7 +4330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. Response for SearchJob method.
+ *  Response for SearchJob method.
  */
 @interface GTLRCloudTalentSolution_SearchJobsResponse : GTLRObject
 
@@ -6116,24 +4348,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) NSNumber *broadenedQueryJobsCount;
 
 /**
- *  An estimation of the number of jobs that match the specified query. This
- *  number is not guaranteed to be accurate. For accurate results, see
- *  SearchJobsResponse.total_size.
- *
- *  Uses NSNumber of intValue.
+ *  The histogram results that match with specified
+ *  SearchJobsRequest.histogram_queries.
  */
-@property(nonatomic, strong, nullable) NSNumber *estimatedTotalSize;
-
-/**
- *  The histogram results that match specified
- *  SearchJobsRequest.histogram_facets.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_HistogramResults *histogramResults;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_HistogramQueryResult *> *histogramQueryResults;
 
 /**
  *  The location filters that the service applied to the specified query. If any
- *  filters are lat-lng based, the JobLocation.location_type is
- *  JobLocation.LocationType#LOCATION_TYPE_UNSPECIFIED.
+ *  filters are lat-lng based, the Location.location_type is
+ *  Location.LocationType.LOCATION_TYPE_UNSPECIFIED.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudTalentSolution_Location *> *locationFilters;
 
@@ -6156,7 +4379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 @property(nonatomic, strong, nullable) GTLRCloudTalentSolution_SpellingCorrection *spellCorrection;
 
 /**
- *  The precise result count with limit 100,000.
+ *  Number of jobs that match the specified query. Note: This size is precise
+ *  only if the total is less than 100,000.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6166,7 +4390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
- *  Output only. Spell check result.
+ *  Spell check result.
  */
 @interface GTLRCloudTalentSolution_SpellingCorrection : GTLRObject
 
@@ -6176,6 +4400,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *corrected;
+
+/**
+ *  Corrected output with html tags to highlight the corrected words. Corrected
+ *  words are called out with the "*...*" html tags. For example, the user input
+ *  query is "software enginear", where the second word, "enginear," is
+ *  incorrect. It should be "engineer". When spelling correction is enabled,
+ *  this value is "software *engineer*".
+ */
+@property(nonatomic, copy, nullable) NSString *correctedHtml;
 
 /** Correction output consisting of the corrected keyword string. */
 @property(nonatomic, copy, nullable) NSString *correctedText;
@@ -6229,6 +4462,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
 
 
 /**
+ *  A Tenant resource represents a tenant in the service. A tenant is a group or
+ *  entity that shares common access with specific privileges for resources like
+ *  jobs. Customer may create multiple tenants to provide data isolation for
+ *  different groups.
+ */
+@interface GTLRCloudTalentSolution_Tenant : GTLRObject
+
+/**
+ *  Required. Client side tenant identifier, used to uniquely identify the
+ *  tenant. The maximum number of allowed characters is 255.
+ */
+@property(nonatomic, copy, nullable) NSString *externalId;
+
+/**
+ *  Required during tenant update. The resource name for a tenant. This is
+ *  generated by the service when a tenant is created. The format is
+ *  "projects/{project_id}/tenants/{tenant_id}", for example,
+ *  "projects/foo/tenants/bar".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Represents a time of day. The date and time zone are either not significant
  *  or are specified elsewhere. An API may choose to allow leap seconds. Related
  *  types are google.type.Date and `google.protobuf.Timestamp`.
@@ -6273,56 +4531,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  */
 @interface GTLRCloudTalentSolution_TimestampRange : GTLRObject
 
-/** End of the period. */
+/** End of the period (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Begin of the period. */
+/** Begin of the period (inclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
-
-@end
-
-
-/**
- *  Input only. Request for updating a specified company.
- */
-@interface GTLRCloudTalentSolution_UpdateCompanyRequest : GTLRObject
-
-/**
- *  Required. The company resource to replace the current resource in the
- *  system.
- */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Company *company;
-
-/**
- *  Optional but strongly recommended for the best service experience. If
- *  update_mask is provided, only the specified fields in company are updated.
- *  Otherwise all the fields are updated. A field mask to specify the company
- *  fields to be updated. Only top level fields of Company are supported.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-@end
-
-
-/**
- *  Input only. Update job request.
- */
-@interface GTLRCloudTalentSolution_UpdateJobRequest : GTLRObject
-
-/** Required. The Job to be updated. */
-@property(nonatomic, strong, nullable) GTLRCloudTalentSolution_Job *job;
-
-/**
- *  Optional but strongly recommended to be provided for the best service
- *  experience. If update_mask is provided, only the specified fields in job are
- *  updated. Otherwise all the fields are updated. A field mask to restrict the
- *  fields that are updated. Only top level fields of Job are supported.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

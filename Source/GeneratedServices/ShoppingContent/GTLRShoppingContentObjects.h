@@ -274,6 +274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_Repri
  *  with an "Add to Cart" button. If this rule is chosen, your offer price will
  *  be lowered within the range you set to help increase the likelihood that you
  *  will win the Buy Box. There is no RuleDefinition needed for this type.
+ *  Deprecated: cannot create rules with this type anymore.
  *
  *  Value: "TYPE_WIN_BUY_BOX"
  */
@@ -547,21 +548,21 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 @interface GTLRShoppingContent_AccountLabel : GTLRObject
 
 /**
- *  Output only. Immutable. The ID of account this label belongs to.
+ *  Immutable. The ID of account this label belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *accountId;
 
 /**
- *  Description for this label.
+ *  The description of this label.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Output only. Immutable. The ID of the label.
+ *  Output only. The ID of the label.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -713,7 +714,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
-/** List of provided services. */
+/**
+ *  Provided services. Acceptable values are: - "`shoppingAdsProductManagement`"
+ *  - "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
+ *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 @end
@@ -2910,7 +2915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 /** A list of errors defined if, and only if, the request failed. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Errors *errors;
 
-/** The the list of accessible GMB accounts. */
+/** The list of accessible GMB accounts. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_GmbAccounts *gmbAccounts;
 
 /**
@@ -8267,7 +8272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *        with an "Add to Cart" button. If this rule is chosen, your offer price
  *        will be lowered within the range you set to help increase the
  *        likelihood that you will win the Buy Box. There is no RuleDefinition
- *        needed for this type. (Value: "TYPE_WIN_BUY_BOX")
+ *        needed for this type. Deprecated: cannot create rules with this type
+ *        anymore. (Value: "TYPE_WIN_BUY_BOX")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -8345,6 +8351,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 /** Filter by the offer id. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleEligibleOfferMatcherStringMatcher *offerIdMatcher;
+
+/**
+ *  When true, the rule won't be applied to offers with active promotions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipWhenOnPromotion;
 
 @end
 
@@ -8879,7 +8892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 /**
  *  Type of the return method. Acceptable values are: - "`byMail`" -
- *  "`contactCustomerSupport`" - "`returnless`"
+ *  "`contactCustomerSupport`" - "`returnless`" - "`inStore`"
  */
 @property(nonatomic, copy, nullable) NSString *returnMethodType;
 
@@ -9126,7 +9139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  "`receivedTooLate`" - "`storePackageMissing`" - "`transitPackageMissing`" -
  *  "`unsuccessfulDeliveryUndeliverable`" - "`wrongChargeInStore`" -
  *  "`wrongItem`" - "`returns`" - "`undeliverable`" - "`refundFromMerchant`" -
- *  "`returnLabelShippingFee`"
+ *  "`returnLabelShippingFee`" - "`pspFee`"
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

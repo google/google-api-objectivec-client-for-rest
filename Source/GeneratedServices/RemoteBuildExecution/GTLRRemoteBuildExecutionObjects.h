@@ -54,7 +54,6 @@
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeature;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaInstance;
-@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerPool;
@@ -345,6 +344,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "DOCKER_PREPARELAYER_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError;
+/**
+ *  Docker failed to create an overlay mount because of too many levels of
+ *  symbolic links.
+ *
+ *  Value: "DOCKER_TOO_MANY_SYMBOLIC_LINK_LEVELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerTooManySymbolicLinkLevels;
 /**
  *  There are issues with docker service/runtime.
  *
@@ -2128,6 +2134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError
  *        Docker failed to run containers with hcsshim::PrepareLayer error.
  *        (Value: "DOCKER_PREPARELAYER_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerTooManySymbolicLinkLevels
+ *        Docker failed to create an overlay mount because of too many levels of
+ *        symbolic links. (Value: "DOCKER_TOO_MANY_SYMBOLIC_LINK_LEVELS")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable
  *        There are issues with docker service/runtime. (Value:
  *        "DOCKER_UNAVAILABLE")
@@ -2614,20 +2623,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  SoleTenancyConfig specifies information required to host a pool on STNs.
- */
-@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig : GTLRObject
-
-/** Zone in which STNs are reserved. */
-@property(nonatomic, copy, nullable) NSString *nodesZone;
-
-/** The sole-tenant node type to host the pool's workers on. */
-@property(nonatomic, copy, nullable) NSString *nodeType;
-
-@end
-
-
-/**
  *  The request used for `UpdateInstance`.
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaUpdateInstanceRequest : GTLRObject
@@ -2758,8 +2753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @property(nonatomic, strong, nullable) NSNumber *reserved;
 
-/** Sole-tenant node information for pools hosted on STNs. */
-@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaSoleTenancyConfig *soleTenancy;
+/** The node type name to be used for sole-tenant nodes. */
+@property(nonatomic, copy, nullable) NSString *soleTenantNodeType;
 
 /** The name of the image used by each VM. */
 @property(nonatomic, copy, nullable) NSString *vmImage;

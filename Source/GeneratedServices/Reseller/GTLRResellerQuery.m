@@ -2,9 +2,10 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workspace Reseller API (reseller/v1)
+//   Google Workspace Reseller API (reseller/v1)
 // Description:
-//   Creates and manages your customers and their subscriptions.
+//   Perform common functions that are available on the Channel Services console
+//   at scale, like placing orders and viewing customer information
 // Documentation:
 //   https://developers.google.com/google-apps/reseller/
 
@@ -16,8 +17,9 @@
 // Constants
 
 // deletionType
-NSString * const kGTLRResellerDeletionTypeCancel           = @"cancel";
-NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direct";
+NSString * const kGTLRResellerDeletionTypeCancel               = @"cancel";
+NSString * const kGTLRResellerDeletionTypeDeletionTypeUndefined = @"deletion_type_undefined";
+NSString * const kGTLRResellerDeletionTypeTransferToDirect     = @"transfer_to_direct";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -35,7 +37,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId {
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customers/{customerId}";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}";
   GTLRResellerQuery_CustomersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -59,7 +61,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"customers";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers";
   GTLRResellerQuery_CustomersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -85,7 +87,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customers/{customerId}";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}";
   GTLRResellerQuery_CustomersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -112,7 +114,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customers/{customerId}";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}";
   GTLRResellerQuery_CustomersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -129,7 +131,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 @implementation GTLRResellerQuery_ResellernotifyGetwatchdetails
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"resellernotify/getwatchdetails";
+  NSString *pathURITemplate = @"apps/reseller/v1/resellernotify/getwatchdetails";
   GTLRResellerQuery_ResellernotifyGetwatchdetails *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -146,7 +148,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 @dynamic serviceAccountEmailAddress;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"resellernotify/register";
+  NSString *pathURITemplate = @"apps/reseller/v1/resellernotify/register";
   GTLRResellerQuery_ResellernotifyRegister *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -163,7 +165,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
 @dynamic serviceAccountEmailAddress;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"resellernotify/unregister";
+  NSString *pathURITemplate = @"apps/reseller/v1/resellernotify/unregister";
   GTLRResellerQuery_ResellernotifyUnregister *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -184,7 +186,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/activate";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/activate";
   GTLRResellerQuery_SubscriptionsActivate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -214,7 +216,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/changePlan";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changePlan";
   GTLRResellerQuery_SubscriptionsChangePlan *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -245,7 +247,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeRenewalSettings";
   GTLRResellerQuery_SubscriptionsChangeRenewalSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -276,7 +278,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/changeSeats";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/changeSeats";
   GTLRResellerQuery_SubscriptionsChangeSeats *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -301,7 +303,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}";
   GTLRResellerQuery_SubscriptionsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -324,7 +326,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}";
   GTLRResellerQuery_SubscriptionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -351,7 +353,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
     return nil;
   }
   NSArray *pathParams = @[ @"customerId" ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions";
   GTLRResellerQuery_SubscriptionsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -371,7 +373,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
          pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"subscriptions";
+  NSString *pathURITemplate = @"apps/reseller/v1/subscriptions";
   GTLRResellerQuery_SubscriptionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -392,7 +394,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/startPaidService";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/startPaidService";
   GTLRResellerQuery_SubscriptionsStartPaidService *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -415,7 +417,7 @@ NSString * const kGTLRResellerDeletionTypeTransferToDirect = @"transfer_to_direc
   NSArray *pathParams = @[
     @"customerId", @"subscriptionId"
   ];
-  NSString *pathURITemplate = @"customers/{customerId}/subscriptions/{subscriptionId}/suspend";
+  NSString *pathURITemplate = @"apps/reseller/v1/customers/{customerId}/subscriptions/{subscriptionId}/suspend";
   GTLRResellerQuery_SubscriptionsSuspend *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRSemanticTile_Area;
+@class GTLRSemanticTile_BasemapZOrder;
 @class GTLRSemanticTile_ExtrudedArea;
 @class GTLRSemanticTile_Feature;
 @class GTLRSemanticTile_FirstDerivativeElevationGrid;
@@ -317,8 +318,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
 
 /**
  *  Represents an area. Used to represent regions such as water, parks, etc.
+ *  Next ID: 10
  */
 @interface GTLRSemanticTile_Area : GTLRObject
+
+/**
+ *  The z-order of this geometry when rendered on a flat basemap. Geometry with
+ *  a lower z-order should be rendered beneath geometry with a higher z-order.
+ *  This z-ordering does not imply anything about the altitude of the area
+ *  relative to the ground, but it can be used to prevent z-fighting. Unlike
+ *  Area.z_order this can be used to compare with Line.basemap_z_order, and in
+ *  fact may yield more accurate rendering (where a line may be rendered beneath
+ *  an area).
+ */
+@property(nonatomic, strong, nullable) GTLRSemanticTile_BasemapZOrder *basemapZOrder;
 
 /**
  *  True if the polygon is not entirely internal to the feature that it belongs
@@ -408,11 +421,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
  *  about the altitude of the line relative to the ground, but it can be used to
  *  prevent z-fighting during rendering on the client. This z-ordering can only
  *  be used to compare areas, and cannot be compared with the z_order field in
- *  the Line message. The z-order may be negative or zero.
+ *  the Line message. The z-order may be negative or zero. Prefer
+ *  Area.basemap_z_order.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *zOrder;
+
+@end
+
+
+/**
+ *  Metadata necessary to determine the ordering of a particular basemap element
+ *  relative to others. To render the basemap correctly, sort by z-plane, then
+ *  z-grade, then z-within-grade.
+ */
+@interface GTLRSemanticTile_BasemapZOrder : GTLRObject
+
+/**
+ *  The second most significant component of the ordering of a component to be
+ *  rendered onto the basemap.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zGrade;
+
+/**
+ *  The most significant component of the ordering of a component to be rendered
+ *  onto the basemap.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zPlane;
+
+/**
+ *  The least significant component of the ordering of a component to be
+ *  rendered onto the basemap.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *zWithinGrade;
 
 @end
 
@@ -674,6 +722,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
  */
 @interface GTLRSemanticTile_Line : GTLRObject
 
+/**
+ *  The z-order of this geometry when rendered on a flat basemap. Geometry with
+ *  a lower z-order should be rendered beneath geometry with a higher z-order.
+ *  This z-ordering does not imply anything about the altitude of the area
+ *  relative to the ground, but it can be used to prevent z-fighting. Unlike
+ *  Line.z_order this can be used to compare with Area.basemap_z_order, and in
+ *  fact may yield more accurate rendering (where a line may be rendered beneath
+ *  an area).
+ */
+@property(nonatomic, strong, nullable) GTLRSemanticTile_BasemapZOrder *basemapZOrder;
+
 /** The vertices present in the polyline. */
 @property(nonatomic, strong, nullable) GTLRSemanticTile_Vertex2DList *vertexOffsets;
 
@@ -685,7 +744,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
  *  more important road features will have a higher z-order line associated with
  *  them. This z-ordering can only be used to compare lines, and cannot be
  *  compared with the z_order field in the Area message. The z-order may be
- *  negative or zero.
+ *  negative or zero. Prefer Line.basemap_z_order.
  *
  *  Uses NSNumber of intValue.
  */

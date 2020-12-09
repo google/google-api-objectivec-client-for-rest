@@ -94,7 +94,7 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 //
 
 @implementation GTLRPostmasterTools_IpReputation
-@dynamic numIps, reputation, sampleIps;
+@dynamic ipCount, numIps, reputation, sampleIps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

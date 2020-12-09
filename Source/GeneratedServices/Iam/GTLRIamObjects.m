@@ -360,6 +360,44 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_Operation
+//
+
+@implementation GTLRIam_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Operation_Metadata
+//
+
+@implementation GTLRIam_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Operation_Response
+//
+
+@implementation GTLRIam_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_PatchServiceAccountRequest
 //
 
@@ -641,6 +679,38 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 @implementation GTLRIam_SignJwtResponse
 @dynamic keyId, signedJwt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Status
+//
+
+@implementation GTLRIam_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRIam_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Status_Details_Item
+//
+
+@implementation GTLRIam_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

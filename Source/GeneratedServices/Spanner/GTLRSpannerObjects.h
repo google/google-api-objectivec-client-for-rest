@@ -3298,6 +3298,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;
 
+/**
+ *  Output only. When true, indicates that the operation is throttled e.g due to
+ *  resource constraints. When resources become available the operation will
+ *  resume and this field will be false again.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *throttled;
+
 @end
 
 

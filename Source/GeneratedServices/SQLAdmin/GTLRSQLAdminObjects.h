@@ -23,6 +23,7 @@
 @class GTLRSQLAdmin_AclEntry;
 @class GTLRSQLAdmin_ApiWarning;
 @class GTLRSQLAdmin_BackupConfiguration;
+@class GTLRSQLAdmin_BackupContext;
 @class GTLRSQLAdmin_BackupRetentionSettings;
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_BinLogCoordinates;
@@ -47,6 +48,7 @@
 @class GTLRSQLAdmin_ImportContext_BakImportOptions;
 @class GTLRSQLAdmin_ImportContext_BakImportOptions_EncryptionOptions;
 @class GTLRSQLAdmin_ImportContext_CsvImportOptions;
+@class GTLRSQLAdmin_InsightsConfig;
 @class GTLRSQLAdmin_IpConfiguration;
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
@@ -1185,6 +1187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning;
 /**
+ *  The customer has a definer that will break EM setup.
+ *
+ *  Value: "UNSUPPORTED_DEFINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner;
+/**
  *  Extensions installed are either not supported or having unsupported versions
  *
  *  Value: "UNSUPPORTED_EXTENSIONS"
@@ -1335,6 +1343,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *transactionLogRetentionDays;
+
+@end
+
+
+/**
+ *  Backup context.
+ */
+@interface GTLRSQLAdmin_BackupContext : GTLRObject
+
+/**
+ *  The identifier of the backup.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupId;
+
+/** This is always *sql#backupContext*. */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -2114,7 +2140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
-/** Options for exporting data as CSV. */
+/**
+ *  Options for exporting data as CSV. *MySQL* and *PostgreSQL* instances only.
+ */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
@@ -2131,7 +2159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The file type for the specified uri. *SQL*: The file contains SQL
- *  statements. *CSV*: The file contains CSV data.
+ *  statements. *CSV*: The file contains CSV data. *BAK*: The file contains
+ *  backup data for a SQL Server instance.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExportContext_FileType_Bak Value "BAK"
@@ -2170,7 +2199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Options for exporting data as CSV.
+ *  Options for exporting data as CSV. *MySQL* and *PostgreSQL* instances only.
  */
 @interface GTLRSQLAdmin_ExportContext_CsvExportOptions : GTLRObject
 
@@ -2213,8 +2242,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  Option to include SQL statement required to set up replication. If set to
  *  *1*, the dump file includes a CHANGE MASTER TO statement with the binary log
- *  coordinates. If set to *2*, the CHANGE MASTER TO statement is written as a
- *  SQL comment, and has no effect. All other values are ignored.
+ *  coordinates, and --set-gtid-purged is set to ON. If set to *2*, the CHANGE
+ *  MASTER TO statement is written as a SQL comment and has no effect. If set to
+ *  any value other than *1*, --set-gtid-purged is set to OFF.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2452,6 +2482,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *pvkPath;
+
+@end
+
+
+/**
+ *  Insights configuration. This specifies when Cloud SQL Insights feature is
+ *  enabled and optional configuration.
+ */
+@interface GTLRSQLAdmin_InsightsConfig : GTLRObject
+
+/**
+ *  Whether Query Insights feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryInsightsEnabled;
+
+/**
+ *  Maximum query length stored in bytes. Default value: 1024 bytes. Range:
+ *  256-4500 bytes. Query length more than this field value will be truncated to
+ *  this value. When unset, query length will be the default value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryStringLength;
+
+/**
+ *  Whether Query Insights will record application tags from query when enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordApplicationTags;
+
+/**
+ *  Whether Query Insights will record client address when enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recordClientAddress;
 
 @end
 
@@ -2855,9 +2924,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  An Operation resource. For successful operations that return an Operation
  *  resource, only the fields relevant to the operation are populated in the
- *  resource.
+ *  resource. Next field: 18
  */
 @interface GTLRSQLAdmin_Operation : GTLRObject
+
+/** The context for backup operation, if applicable. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupContext *backupContext;
 
 /**
  *  The time this operation finished in UTC timezone in RFC 3339 format, for
@@ -3291,6 +3363,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Deny maintenance periods */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DenyMaintenancePeriod *> *denyMaintenancePeriods;
 
+/** Insights configuration, for now relevant only for Postgres. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_InsightsConfig *insightsConfig;
+
 /**
  *  The settings for IP Management. This allows to enable or disable the
  *  instance IP and manage which external networks can connect to the instance.
@@ -3478,6 +3553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning
  *        SQL Server Agent is not running. (Value:
  *        "SQLSERVER_AGENT_NOT_RUNNING")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner
+ *        The customer has a definer that will break EM setup. (Value:
+ *        "UNSUPPORTED_DEFINER")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions
  *        Extensions installed are either not supported or having unsupported
  *        versions (Value: "UNSUPPORTED_EXTENSIONS")

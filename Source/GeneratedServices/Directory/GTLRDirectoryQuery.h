@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin SDK (admin/directory_v1)
+//   Admin SDK API (admin/directory_v1)
 // Description:
 //   Admin SDK lets administrators of enterprise domains to view and manage
 //   resources like user, groups etc. It also provides audit and usage reports
@@ -76,8 +76,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSou
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress;
 /**
- *  Defaults to RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
- *  defaults to CLIENT_SPECIFIED if coordinates are provided.
+ *  Defaults to `RESOLVED_FROM_ADDRESS` if postal address is provided.
+ *  Otherwise, defaults to `CLIENT_SPECIFIED` if coordinates are provided.
  *
  *  Value: "SOURCE_UNSPECIFIED"
  */
@@ -117,7 +117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryEventUpdate;
 // orderBy
 
 /**
- *  Chromebook location as annotated by the administrator.
+ *  Chrome device location as annotated by the administrator.
  *
  *  Value: "annotatedLocation"
  */
@@ -129,7 +129,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedLocation;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByAnnotatedUser;
 /**
- *  Mobile Device serial number.
+ *  The serial number for a Google Sync mobile device. For Android devices, this
+ *  is a software generated unique identifier.
  *
  *  Value: "deviceId"
  */
@@ -151,19 +152,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByGivenName;
 /** Value: "lastSync" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByLastSync;
 /**
- *  Mobile Device model.
+ *  The mobile device's model.
  *
  *  Value: "model"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByModel;
 /**
- *  Owner user name.
+ *  The device owner's user name.
  *
  *  Value: "name"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByName;
 /**
- *  Chromebook notes as annotated by the administrator.
+ *  Chrome device notes as annotated by the administrator.
  *
  *  Value: "notes"
  */
@@ -173,13 +174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUndefined;
 /** Value: "orderByUnspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOrderByUnspecified;
 /**
- *  Mobile operating system.
+ *  The device's operating system.
  *
  *  Value: "os"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByOs;
 /**
- *  Chromebook Serial Number.
+ *  The Chrome device serial number entered when the device was enabled.
  *
  *  Value: "serialNumber"
  */
@@ -187,7 +188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderBySerialNumber;
 /** Value: "status" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByStatus;
 /**
- *  Chromebook support end date.
+ *  Chrome device support end date. This is applicable only for devices
+ *  purchased directly from Google.
  *
  *  Value: "supportEndDate"
  */
@@ -204,11 +206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryOrderByType;
 
 /** Value: "basic" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionBasic;
-/**
- *  Include custom fields from schemas mentioned in customFieldMask.
- *
- *  Value: "custom"
- */
+/** Value: "custom" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionCustom;
 /** Value: "full" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryProjectionFull;
@@ -258,14 +256,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryTypeTypeUndefined;
 // ----------------------------------------------------------------------------
 // viewType
 
-/**
- *  Fetches the ADMIN_VIEW of the user.
- *
- *  Value: "admin_view"
- */
+/** Value: "admin_view" */
 FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeAdminView;
 /**
- *  Fetches the DOMAIN_PUBLIC view of the user.
+ *  Results only include fields for the user that are publicly visible to other
+ *  users in the domain.
  *
  *  Value: "domain_public"
  */
@@ -425,7 +420,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Take action on Chrome OS Device
+ *  Takes an action that affects a Chrome OS Device. This includes
+ *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
+ *  Deprovisioning a device will stop device policy syncing and remove
+ *  device-level printers. After a device is deprovisioned, it must be wiped
+ *  before it can be re-enrolled. * Lost or stolen devices should use the
+ *  disable action. * Re-enabling a disabled device will consume a device
+ *  license. If you do not have sufficient licenses available when completing
+ *  the re-enable action, you will receive an error. For more information about
+ *  deprovisioning and disabling devices, visit the [help
+ *  center](https://support.google.com/chrome/a/answer/3523633).
  *
  *  Method: directory.chromeosdevices.action
  *
@@ -436,22 +440,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesActionWithObject:customerId:resourceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Chrome OS Device */
+/**
+ *  The unique ID of the device. The `resourceId`s are returned in the response
+ *  from the
+ *  [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *  method.
+ */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Take action on Chrome OS Device
+ *  Takes an action that affects a Chrome OS Device. This includes
+ *  deprovisioning, disabling, and re-enabling devices. *Warning:* *
+ *  Deprovisioning a device will stop device policy syncing and remove
+ *  device-level printers. After a device is deprovisioned, it must be wiped
+ *  before it can be re-enrolled. * Lost or stolen devices should use the
+ *  disable action. * Re-enabling a disabled device will consume a device
+ *  license. If you do not have sufficient licenses available when completing
+ *  the re-enable action, you will receive an error. For more information about
+ *  deprovisioning and disabling devices, visit the [help
+ *  center](https://support.google.com/chrome/a/answer/3523633).
  *
  *  @param object The @c GTLRDirectory_ChromeOsDeviceAction to include in the
  *    query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param resourceId Immutable ID of Chrome OS Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param resourceId The unique ID of the device. The `resourceId`s are
+ *    returned in the response from the
+ *    [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesAction
  */
@@ -462,7 +491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve Chrome OS Device
+ *  Retrieves a Chrome OS device's properties.
  *
  *  Method: directory.chromeosdevices.get
  *
@@ -474,14 +503,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesGetWithcustomerId:deviceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Chrome OS Device */
+/**
+ *  The unique ID of the device. The `deviceId`s are returned in the response
+ *  from the
+ *  [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *  method.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
- *  Restrict information returned to a set of selected fields.
+ *  Determines whether the response contains the full list of properties or only
+ *  a subset.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryProjectionProjectionUndefined Value
@@ -497,10 +537,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
  *
- *  Retrieve Chrome OS Device
+ *  Retrieves a Chrome OS device's properties.
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param deviceId Immutable ID of Chrome OS Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
+ *    the response from the
+ *    [chromeosdevices.list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
+ *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesGet
  */
@@ -510,7 +556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all Chrome OS Devices of a customer (paginated)
+ *  Retrieves a paginated list of Chrome OS devices within an account.
  *
  *  Method: directory.chromeosdevices.list
  *
@@ -522,7 +568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesListWithcustomerId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -533,30 +584,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Column to use for sorting results
+ *  Device property to use for sorting results.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
- *    @arg @c kGTLRDirectoryOrderByAnnotatedLocation Chromebook location as
+ *    @arg @c kGTLRDirectoryOrderByAnnotatedLocation Chrome device location as
  *        annotated by the administrator. (Value: "annotatedLocation")
  *    @arg @c kGTLRDirectoryOrderByAnnotatedUser Chromebook user as annotated by
  *        administrator. (Value: "annotatedUser")
- *    @arg @c kGTLRDirectoryOrderByLastSync Chromebook last sync. (Value:
- *        "lastSync")
- *    @arg @c kGTLRDirectoryOrderByNotes Chromebook notes as annotated by the
+ *    @arg @c kGTLRDirectoryOrderByLastSync The date and time the Chrome device
+ *        was last synchronized with the policy settings in the Admin console.
+ *        (Value: "lastSync")
+ *    @arg @c kGTLRDirectoryOrderByNotes Chrome device notes as annotated by the
  *        administrator. (Value: "notes")
- *    @arg @c kGTLRDirectoryOrderBySerialNumber Chromebook Serial Number.
- *        (Value: "serialNumber")
- *    @arg @c kGTLRDirectoryOrderByStatus Chromebook status. (Value: "status")
- *    @arg @c kGTLRDirectoryOrderBySupportEndDate Chromebook support end date.
- *        (Value: "supportEndDate")
+ *    @arg @c kGTLRDirectoryOrderBySerialNumber The Chrome device serial number
+ *        entered when the device was enabled. (Value: "serialNumber")
+ *    @arg @c kGTLRDirectoryOrderByStatus Chrome device status. For more
+ *        information, see the <a
+ *        [chromeosdevices](/admin-sdk/directory/v1/reference/chromeosdevices.html).
+ *        (Value: "status")
+ *    @arg @c kGTLRDirectoryOrderBySupportEndDate Chrome device support end
+ *        date. This is applicable only for devices purchased directly from
+ *        Google. (Value: "supportEndDate")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
-/** Full path of the organizational unit or its ID */
+/** The full path of the organizational unit or its unique ID. */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
-/** Token to specify next page in the list */
+/**
+ *  The `pageToken` query parameter is used to request the next page of query
+ *  results. The follow-on request's `pageToken` query parameter is the
+ *  `nextPageToken` from your previous response.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -580,8 +640,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Whether to return results in ascending or descending order. Only of use when
- *  orderBy is also used
+ *  Whether to return results in ascending or descending order. Must be used
+ *  with the `orderBy` parameter.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
@@ -596,9 +656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevices.
  *
- *  Retrieve all Chrome OS Devices of a customer (paginated)
+ *  Retrieves a paginated list of Chrome OS devices within an account.
  *
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesList
  *
@@ -611,7 +674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Move or insert multiple Chrome OS Devices to organizational unit
+ *  Move or insert multiple Chrome OS devices to an organizational unit. You can
+ *  move up to 50 devices at once.
  *
  *  Method: directory.chromeosdevices.moveDevicesToOu
  *
@@ -632,7 +696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Move or insert multiple Chrome OS Devices to organizational unit
+ *  Move or insert multiple Chrome OS devices to an organizational unit. You can
+ *  move up to 50 devices at once.
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
@@ -648,7 +713,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Chrome OS Device
+ *  Updates a device's updatable properties, such as `annotatedUser`,
+ *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This
+ *  method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  Method: directory.chromeosdevices.patch
  *
@@ -659,10 +727,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesPatchWithObject:customerId:deviceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Chrome OS Device */
+/**
+ *  The unique ID of the device. The `deviceId`s are returned in the response
+ *  from the
+ *  [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list) method.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
@@ -682,11 +759,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
  *
- *  Patch Chrome OS Device
+ *  Updates a device's updatable properties, such as `annotatedUser`,
+ *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`. This
+ *  method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param deviceId Immutable ID of Chrome OS Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
+ *    the response from the
+ *    [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list)
+ *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesPatch
  */
@@ -697,7 +783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Update Chrome OS Device
+ *  Updates a device's updatable properties, such as `annotatedUser`,
+ *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`.
  *
  *  Method: directory.chromeosdevices.update
  *
@@ -708,10 +795,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesUpdateWithObject:customerId:deviceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Chrome OS Device */
+/**
+ *  The unique ID of the device. The `deviceId`s are returned in the response
+ *  from the
+ *  [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list) method.
+ */
 @property(nonatomic, copy, nullable) NSString *deviceId;
 
 /**
@@ -731,11 +827,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_ChromeOsDevice.
  *
- *  Update Chrome OS Device
+ *  Updates a device's updatable properties, such as `annotatedUser`,
+ *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`.
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param deviceId Immutable ID of Chrome OS Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
+ *    the response from the
+ *    [chromeosdevices.list](/admin-sdk/v1/reference/chromeosdevices/list)
+ *    method.
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesUpdate
  */
@@ -1167,7 +1270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Remove a alias for the group
+ *  Removes an alias.
  *
  *  Method: directory.groups.aliases.delete
  *
@@ -1181,16 +1284,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /** The alias to be removed */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove a alias for the group
+ *  Removes an alias.
  *
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *  @param alias The alias to be removed
  *
  *  @return GTLRDirectoryQuery_GroupsAliasesDelete
@@ -1201,7 +1308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Add a alias for the group
+ *  Adds an alias for the group.
  *
  *  Method: directory.groups.aliases.insert
  *
@@ -1212,16 +1319,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsAliasesInsertWithObject:groupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Alias.
  *
- *  Add a alias for the group
+ *  Adds an alias for the group.
  *
  *  @param object The @c GTLRDirectory_Alias to include in the query.
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsAliasesInsert
  */
@@ -1231,7 +1342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  List all aliases for a group
+ *  Lists all aliases for a group.
  *
  *  Method: directory.groups.aliases.list
  *
@@ -1243,15 +1354,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsAliasesListWithgroupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Aliases.
  *
- *  List all aliases for a group
+ *  Lists all aliases for a group.
  *
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsAliasesList
  */
@@ -1260,7 +1375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete Group
+ *  Deletes a group.
  *
  *  Method: directory.groups.delete
  *
@@ -1271,16 +1386,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsDeleteWithgroupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete Group
+ *  Deletes a group.
  *
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsDelete
  */
@@ -1289,7 +1408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve Group
+ *  Retrieves a group's properties.
  *
  *  Method: directory.groups.get
  *
@@ -1301,15 +1420,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForGroupsGetWithgroupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
  *
- *  Retrieve Group
+ *  Retrieves a group's properties.
  *
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsGet
  */
@@ -1318,7 +1441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Create Group
+ *  Creates a group.
  *
  *  Method: directory.groups.insert
  *
@@ -1332,7 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Group.
  *
- *  Create Group
+ *  Creates a group.
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
  *
@@ -1356,14 +1479,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForGroupsList]
 
 /**
- *  Immutable ID of the G Suite account. In case of multi-domain, to fetch all
- *  groups for a customer, fill this field instead of domain.
+ *  The unique ID for the customer's G Suite account. In case of a multi-domain
+ *  account, to fetch all groups for a customer, fill this field instead of
+ *  domain. As an account administrator, you can also use the `my_customer`
+ *  alias to represent your account's `customerId`. The `customerId` is also
+ *  returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Name of the domain. Fill this field to get groups from only this domain. To
- *  return all groups in a multi-domain fill customer field instead.
+ *  The domain name. Use this field to get fields from only one domain. To
+ *  return all domains for a customer account, use the `customer` query
+ *  parameter instead.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -1429,7 +1556,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Groups via Apiary Patch Orchestration
+ *  Updates a group's properties. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  Method: directory.groups.patch
  *
@@ -1441,19 +1569,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForGroupsPatchWithObject:groupKey:]
 
 /**
- *  Email or immutable ID of the group. If ID, it should match with id of group
- *  object
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
  *
- *  Patch Groups via Apiary Patch Orchestration
+ *  Updates a group's properties. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
- *  @param groupKey Email or immutable ID of the group. If ID, it should match
- *    with id of group object
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsPatch
  */
@@ -1463,7 +1592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Update Group
+ *  Updates a group's properties.
  *
  *  Method: directory.groups.update
  *
@@ -1475,19 +1604,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForGroupsUpdateWithObject:groupKey:]
 
 /**
- *  Email or immutable ID of the group. If ID, it should match with id of group
- *  object
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Group.
  *
- *  Update Group
+ *  Updates a group's properties.
  *
  *  @param object The @c GTLRDirectory_Group to include in the query.
- *  @param groupKey Email or immutable ID of the group. If ID, it should match
- *    with id of group object
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_GroupsUpdate
  */
@@ -1497,7 +1626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Remove membership.
+ *  Removes a member from a group.
  *
  *  Method: directory.members.delete
  *
@@ -1509,20 +1638,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersDeleteWithgroupKey:memberKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
-/** Email or immutable ID of the member */
+/**
+ *  Identifies the group member in the API request. A group member can be a user
+ *  or another group. The value can be the member's (group or user) primary
+ *  email address, alias, or unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove membership.
+ *  Removes a member from a group.
  *
- *  @param groupKey Email or immutable ID of the group
- *  @param memberKey Email or immutable ID of the member
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
+ *  @param memberKey Identifies the group member in the API request. A group
+ *    member can be a user or another group. The value can be the member's
+ *    (group or user) primary email address, alias, or unique ID.
  *
  *  @return GTLRDirectoryQuery_MembersDelete
  */
@@ -1532,7 +1671,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve Group Member
+ *  Retrieves a group member's properties.
  *
  *  Method: directory.members.get
  *
@@ -1546,19 +1685,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersGetWithgroupKey:memberKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
-/** Email or immutable ID of the member */
+/**
+ *  Identifies the group member in the API request. A group member can be a user
+ *  or another group. The value can be the member's (group or user) primary
+ *  email address, alias, or unique ID.
+ */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
  *
- *  Retrieve Group Member
+ *  Retrieves a group member's properties.
  *
- *  @param groupKey Email or immutable ID of the group
- *  @param memberKey Email or immutable ID of the member
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
+ *  @param memberKey Identifies the group member in the API request. A group
+ *    member can be a user or another group. The value can be the member's
+ *    (group or user) primary email address, alias, or unique ID.
  *
  *  @return GTLRDirectoryQuery_MembersGet
  */
@@ -1614,7 +1763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Add user to the specified group.
+ *  Adds a user to the specified group.
  *
  *  Method: directory.members.insert
  *
@@ -1626,16 +1775,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersInsertWithObject:groupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
  *
- *  Add user to the specified group.
+ *  Adds a user to the specified group.
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_MembersInsert
  */
@@ -1645,7 +1798,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all members in a group (paginated)
+ *  Retrieves a paginated list of all members in a group.
  *
  *  Method: directory.members.list
  *
@@ -1659,7 +1812,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMembersListWithgroupKey:]
 
-/** Email or immutable ID of the group */
+/**
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
+ */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /** Whether to list indirect memberships. Default: false. */
@@ -1672,18 +1828,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
-/** Token to specify next page in the list */
+/** Token to specify next page in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Comma separated role values to filter list results on. */
+/**
+ *  The `roles` query parameter allows you to retrieve group members by role.
+ *  Allowed values are `OWNER`, `MANAGER`, and `MEMBER`.
+ */
 @property(nonatomic, copy, nullable) NSString *roles;
 
 /**
  *  Fetches a @c GTLRDirectory_Members.
  *
- *  Retrieve all members in a group (paginated)
+ *  Retrieves a paginated list of all members in a group.
  *
- *  @param groupKey Email or immutable ID of the group
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
  *
  *  @return GTLRDirectoryQuery_MembersList
  *
@@ -1696,7 +1856,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Member via Apiary Patch Orchestration
+ *  Updates the membership properties of a user in the specified group. This
+ *  method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  Method: directory.members.patch
  *
@@ -1709,27 +1871,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMembersPatchWithObject:groupKey:memberKey:]
 
 /**
- *  Email or immutable ID of the group. If ID, it should match with id of group
- *  object
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
- *  Email or immutable ID of the user. If ID, it should match with id of member
- *  object
+ *  Identifies the group member in the API request. A group member can be a user
+ *  or another group. The value can be the member's (group or user) primary
+ *  email address, alias, or unique ID.
  */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
  *
- *  Patch Member via Apiary Patch Orchestration
+ *  Updates the membership properties of a user in the specified group. This
+ *  method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable ID of the group. If ID, it should match
- *    with id of group object
- *  @param memberKey Email or immutable ID of the user. If ID, it should match
- *    with id of member object
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
+ *  @param memberKey Identifies the group member in the API request. A group
+ *    member can be a user or another group. The value can be the member's
+ *    (group or user) primary email address, alias, or unique ID.
  *
  *  @return GTLRDirectoryQuery_MembersPatch
  */
@@ -1740,7 +1906,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Update membership of a user in the specified group.
+ *  Updates the membership of a user in the specified group.
  *
  *  Method: directory.members.update
  *
@@ -1753,27 +1919,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMembersUpdateWithObject:groupKey:memberKey:]
 
 /**
- *  Email or immutable ID of the group. If ID, it should match with id of group
- *  object
+ *  Identifies the group in the API request. The value can be the group's email
+ *  address, group alias, or the unique group ID.
  */
 @property(nonatomic, copy, nullable) NSString *groupKey;
 
 /**
- *  Email or immutable ID of the user. If ID, it should match with id of member
- *  object
+ *  Identifies the group member in the API request. A group member can be a user
+ *  or another group. The value can be the member's (group or user) primary
+ *  email address, alias, or unique ID.
  */
 @property(nonatomic, copy, nullable) NSString *memberKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Member.
  *
- *  Update membership of a user in the specified group.
+ *  Updates the membership of a user in the specified group.
  *
  *  @param object The @c GTLRDirectory_Member to include in the query.
- *  @param groupKey Email or immutable ID of the group. If ID, it should match
- *    with id of group object
- *  @param memberKey Email or immutable ID of the user. If ID, it should match
- *    with id of member object
+ *  @param groupKey Identifies the group in the API request. The value can be
+ *    the group's email address, group alias, or the unique group ID.
+ *  @param memberKey Identifies the group member in the API request. A group
+ *    member can be a user or another group. The value can be the member's
+ *    (group or user) primary email address, alias, or unique ID.
  *
  *  @return GTLRDirectoryQuery_MembersUpdate
  */
@@ -1784,7 +1952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Take action on Mobile Device
+ *  Takes an action that affects a mobile device. For example, remotely wiping a
+ *  device.
  *
  *  Method: directory.mobiledevices.action
  *
@@ -1796,22 +1965,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMobiledevicesActionWithObject:customerId:resourceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Mobile Device */
+/** The unique ID the API service uses to identify the mobile device. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Take action on Mobile Device
+ *  Takes an action that affects a mobile device. For example, remotely wiping a
+ *  device.
  *
  *  @param object The @c GTLRDirectory_MobileDeviceAction to include in the
  *    query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param resourceId Immutable ID of Mobile Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param resourceId The unique ID the API service uses to identify the mobile
+ *    device.
  *
  *  @return GTLRDirectoryQuery_MobiledevicesAction
  */
@@ -1822,7 +2001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete Mobile Device
+ *  Removes a mobile device.
  *
  *  Method: directory.mobiledevices.delete
  *
@@ -1833,20 +2012,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMobiledevicesDeleteWithcustomerId:resourceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Immutable ID of Mobile Device */
+/** The unique ID the API service uses to identify the mobile device. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete Mobile Device
+ *  Removes a mobile device.
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param resourceId Immutable ID of Mobile Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param resourceId The unique ID the API service uses to identify the mobile
+ *    device.
  *
  *  @return GTLRDirectoryQuery_MobiledevicesDelete
  */
@@ -1856,7 +2044,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve Mobile Device
+ *  Retrieves a mobile device's properties.
  *
  *  Method: directory.mobiledevices.get
  *
@@ -1869,7 +2057,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMobiledevicesGetWithcustomerId:resourceId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -1886,16 +2079,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/** Immutable ID of Mobile Device */
+/** The unique ID the API service uses to identify the mobile device. */
 @property(nonatomic, copy, nullable) NSString *resourceId;
 
 /**
  *  Fetches a @c GTLRDirectory_MobileDevice.
  *
- *  Retrieve Mobile Device
+ *  Retrieves a mobile device's properties.
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param resourceId Immutable ID of Mobile Device
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param resourceId The unique ID the API service uses to identify the mobile
+ *    device.
  *
  *  @return GTLRDirectoryQuery_MobiledevicesGet
  */
@@ -1905,7 +2102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all Mobile Devices of a customer (paginated)
+ *  Retrieves a paginated list of all mobile devices for an account.
  *
  *  Method: directory.mobiledevices.list
  *
@@ -1918,7 +2115,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForMobiledevicesListWithcustomerId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -1930,20 +2132,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Column to use for sorting results
+ *  Device property to use for sorting results.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
- *    @arg @c kGTLRDirectoryOrderByDeviceId Mobile Device serial number. (Value:
- *        "deviceId")
- *    @arg @c kGTLRDirectoryOrderByEmail Owner user email. (Value: "email")
+ *    @arg @c kGTLRDirectoryOrderByDeviceId The serial number for a Google Sync
+ *        mobile device. For Android devices, this is a software generated
+ *        unique identifier. (Value: "deviceId")
+ *    @arg @c kGTLRDirectoryOrderByEmail The device owner's email address.
+ *        (Value: "email")
  *    @arg @c kGTLRDirectoryOrderByLastSync Last policy settings sync date time
  *        of the device. (Value: "lastSync")
- *    @arg @c kGTLRDirectoryOrderByModel Mobile Device model. (Value: "model")
- *    @arg @c kGTLRDirectoryOrderByName Owner user name. (Value: "name")
- *    @arg @c kGTLRDirectoryOrderByOs Mobile operating system. (Value: "os")
- *    @arg @c kGTLRDirectoryOrderByStatus Status of the device. (Value:
- *        "status")
+ *    @arg @c kGTLRDirectoryOrderByModel The mobile device's model. (Value:
+ *        "model")
+ *    @arg @c kGTLRDirectoryOrderByName The device owner's user name. (Value:
+ *        "name")
+ *    @arg @c kGTLRDirectoryOrderByOs The device's operating system. (Value:
+ *        "os")
+ *    @arg @c kGTLRDirectoryOrderByStatus The device status. (Value: "status")
  *    @arg @c kGTLRDirectoryOrderByType Type of the device. (Value: "type")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -1972,8 +2178,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Whether to return results in ascending or descending order. Only of use when
- *  orderBy is also used
+ *  Whether to return results in ascending or descending order. Must be used
+ *  with the `orderBy` parameter.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectorySortOrderSortOrderUndefined Value
@@ -1988,9 +2194,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_MobileDevices.
  *
- *  Retrieve all Mobile Devices of a customer (paginated)
+ *  Retrieves a paginated list of all mobile devices for an account.
  *
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_MobiledevicesList
  *
@@ -2003,7 +2212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Remove organizational unit
+ *  Removes an organizational unit.
  *
  *  Method: directory.orgunits.delete
  *
@@ -2014,20 +2223,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsDeleteWithcustomerId:orgUnitPath:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organizational unit or its ID */
+/** The full path of the organizational unit or its unique ID. */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove organizational unit
+ *  Removes an organizational unit.
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organizational unit or its ID
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param orgUnitPath The full path of the organizational unit or its unique
+ *    ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsDelete
  */
@@ -2037,7 +2255,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve organizational unit
+ *  Retrieves an organizational unit.
  *
  *  Method: directory.orgunits.get
  *
@@ -2049,19 +2267,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsGetWithcustomerId:orgUnitPath:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organizational unit or its ID */
+/** The full path of the organizational unit or its unique ID. */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Retrieve organizational unit
+ *  Retrieves an organizational unit.
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organizational unit or its ID
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param orgUnitPath The full path of the organizational unit or its unique
+ *    ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsGet
  */
@@ -2071,7 +2298,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Add organizational unit
+ *  Adds an organizational unit.
  *
  *  Method: directory.orgunits.insert
  *
@@ -2082,16 +2309,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsInsertWithObject:customerId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Add organizational unit
+ *  Adds an organizational unit.
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_OrgunitsInsert
  */
@@ -2101,7 +2336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve all organizational units
+ *  Retrieves a list of all organizational units for an account.
  *
  *  Method: directory.orgunits.list
  *
@@ -2113,14 +2348,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsListWithcustomerId:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** the URL-encoded organizational unit's path or its ID */
+/**
+ *  The full path to the organizational unit or its unique ID. Returns the
+ *  children of the specified organizational unit.
+ */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
- *  Whether to return all sub-organizations or just immediate children
+ *  Whether to return all sub-organizations or just immediate children.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryTypeTypeUndefined Value "typeUndefined"
@@ -2133,9 +2376,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_OrgUnits.
  *
- *  Retrieve all organizational units
+ *  Retrieves a list of all organizational units for an account.
  *
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
  *  @return GTLRDirectoryQuery_OrgunitsList
  */
@@ -2144,7 +2390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch organization unit via Apiary Patch Orchestration
+ *  Updates an organizational unit. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch)
  *
  *  Method: directory.orgunits.patch
  *
@@ -2155,20 +2402,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsPatchWithObject:customerId:orgUnitPath:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organizational unit or its ID */
+/** The full path of the organizational unit or its unique ID. */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Patch organization unit via Apiary Patch Orchestration
+ *  Updates an organizational unit. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch)
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organizational unit or its ID
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param orgUnitPath The full path of the organizational unit or its unique
+ *    ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsPatch
  */
@@ -2179,7 +2436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Update organizational unit
+ *  Updates an organizational unit.
  *
  *  Method: directory.orgunits.update
  *
@@ -2190,20 +2447,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsUpdateWithObject:customerId:orgUnitPath:]
 
-/** Immutable ID of the G Suite account */
+/**
+ *  The unique ID for the customer's G Suite account. As an account
+ *  administrator, you can also use the `my_customer` alias to represent your
+ *  account's `customerId`. The `customerId` is also returned as part of the
+ *  [Users resource](/admin-sdk/directory/v1/reference/users).
+ */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Full path of the organizational unit or its ID */
+/** The full path of the organizational unit or its unique ID. */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
 /**
  *  Fetches a @c GTLRDirectory_OrgUnit.
  *
- *  Update organizational unit
+ *  Updates an organizational unit.
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId Immutable ID of the G Suite account
- *  @param orgUnitPath Full path of the organizational unit or its ID
+ *  @param customerId The unique ID for the customer's G Suite account. As an
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's `customerId`. The `customerId` is also returned
+ *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
+ *  @param orgUnitPath The full path of the organizational unit or its unique
+ *    ID.
  *
  *  @return GTLRDirectoryQuery_OrgunitsUpdate
  */
@@ -2259,7 +2525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2271,8 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Deletes a building.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param buildingId The id of the building to delete.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsDelete
@@ -2300,7 +2566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2311,8 +2577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a building.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param buildingId The unique ID of the building to retrieve.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsGet
@@ -2347,8 +2613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *        Building.coordinates are automatically populated based on the postal
  *        address. (Value: "RESOLVED_FROM_ADDRESS")
  *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
- *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
- *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        `RESOLVED_FROM_ADDRESS` if postal address is provided. Otherwise,
+ *        defaults to `CLIENT_SPECIFIED` if coordinates are provided. (Value:
  *        "SOURCE_UNSPECIFIED")
  *
  *  @note If not set, the documented server-side default will be
@@ -2358,7 +2624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2370,8 +2636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsInsert
  */
@@ -2395,7 +2661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2416,8 +2682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a list of buildings for an account.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsList
  *
@@ -2457,8 +2723,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *        Building.coordinates are automatically populated based on the postal
  *        address. (Value: "RESOLVED_FROM_ADDRESS")
  *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
- *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
- *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        `RESOLVED_FROM_ADDRESS` if postal address is provided. Otherwise,
+ *        defaults to `CLIENT_SPECIFIED` if coordinates are provided. (Value:
  *        "SOURCE_UNSPECIFIED")
  *
  *  @note If not set, the documented server-side default will be
@@ -2468,7 +2734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2480,8 +2746,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param buildingId The id of the building to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsPatch
@@ -2520,8 +2786,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *        Building.coordinates are automatically populated based on the postal
  *        address. (Value: "RESOLVED_FROM_ADDRESS")
  *    @arg @c kGTLRDirectoryCoordinatesSourceSourceUnspecified Defaults to
- *        RESOLVED_FROM_ADDRESS if postal address is provided. Otherwise,
- *        defaults to CLIENT_SPECIFIED if coordinates are provided. (Value:
+ *        `RESOLVED_FROM_ADDRESS` if postal address is provided. Otherwise,
+ *        defaults to `CLIENT_SPECIFIED` if coordinates are provided. (Value:
  *        "SOURCE_UNSPECIFIED")
  *
  *  @note If not set, the documented server-side default will be
@@ -2531,7 +2797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2543,8 +2809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param buildingId The id of the building to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsUpdate
@@ -2572,7 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2584,8 +2850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Deletes a calendar resource.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to delete.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsDelete
@@ -2613,7 +2879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2624,8 +2890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a calendar resource.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to
  *    retrieve.
  *
@@ -2650,7 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2662,8 +2928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsInsert
  */
@@ -2687,7 +2953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2701,11 +2967,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  Field(s) to sort results by in either ascending or descending order.
- *  Supported fields include resourceId, resourceName, capacity, buildingId, and
- *  floorName. If no order is specified, defaults to ascending. Should be of the
- *  form "field [asc|desc], field [asc|desc], ...". For example buildingId,
- *  capacity desc would return results sorted first by buildingId in ascending
- *  order then by capacity in descending order.
+ *  Supported fields include `resourceId`, `resourceName`, `capacity`,
+ *  `buildingId`, and `floorName`. If no order is specified, defaults to
+ *  ascending. Should be of the form "field [asc|desc], field [asc|desc], ...".
+ *  For example `buildingId, capacity desc` would return results sorted first by
+ *  `buildingId` in ascending order then by `capacity` in descending order.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2719,9 +2985,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  mismatch and ':' for prefix match or HAS match where applicable. For prefix
  *  match, the value should always be followed by a *. Logical operators NOT and
  *  AND are supported (in this order of precedence). Supported fields include
- *  generatedResourceName, name, buildingId, floor_name, capacity,
- *  featureInstances.feature.name. For example buildingId=US-NYC-9TH AND
- *  featureInstances.feature.name:Phone.
+ *  `generatedResourceName`, `name`, `buildingId`, `floor_name`, `capacity`,
+ *  `featureInstances.feature.name`, `resourceEmail`, `resourceCategory`. For
+ *  example `buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone`.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2731,8 +2997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a list of calendar resources for an account.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsList
  *
@@ -2761,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2773,8 +3039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsPatch
@@ -2804,7 +3070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2818,8 +3084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsUpdate
@@ -2844,7 +3110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2859,8 +3125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Deletes a feature.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to delete.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesDelete
@@ -2885,7 +3151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2899,8 +3165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a feature.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to retrieve.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesGet
@@ -2924,7 +3190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2936,8 +3202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesInsert
  */
@@ -2961,7 +3227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -2982,8 +3248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Retrieves a list of features for an account.
  *
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesList
  *
@@ -3009,7 +3275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3024,8 +3290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesPatch
@@ -3050,7 +3316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3066,8 +3332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_FeatureRename to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param oldName The unique ID of the feature to rename.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesRename
@@ -3092,7 +3358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  The unique ID for the customer's G Suite account. As an account
- *  administrator, you can also use the my_customer alias to represent your
+ *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
@@ -3107,8 +3373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the my_customer alias to represent
- *    your account's customer ID.
+ *    account administrator, you can also use the `my_customer` alias to
+ *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to update.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesUpdate
@@ -3495,10 +3761,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasDeleteWithcustomerId:schemaKey:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable ID of the schema */
+/** Name or immutable ID of the schema. */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -3507,8 +3773,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Delete schema
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable ID of the schema
+ *  @param customerId Immutable ID of the G Suite account.
+ *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasDelete
  */
@@ -3530,10 +3796,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasGetWithcustomerId:schemaKey:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
-/** Name or immutable ID of the schema */
+/** Name or immutable ID of the schema. */
 @property(nonatomic, copy, nullable) NSString *schemaKey;
 
 /**
@@ -3541,8 +3807,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieve schema
  *
- *  @param customerId Immutable ID of the G Suite account
- *  @param schemaKey Name or immutable ID of the schema
+ *  @param customerId Immutable ID of the G Suite account.
+ *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasGet
  */
@@ -3563,7 +3829,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasInsertWithObject:customerId:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -3572,7 +3838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Create schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId Immutable ID of the G Suite account.
  *
  *  @return GTLRDirectoryQuery_SchemasInsert
  */
@@ -3594,7 +3860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasListWithcustomerId:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -3602,7 +3868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieve all schemas for a customer
  *
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId Immutable ID of the G Suite account.
  *
  *  @return GTLRDirectoryQuery_SchemasList
  */
@@ -3622,7 +3888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasPatchWithObject:customerId:schemaKey:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3634,7 +3900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patch Schema via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId Immutable ID of the G Suite account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasPatch
@@ -3657,7 +3923,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasUpdateWithObject:customerId:schemaKey:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the G Suite account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3669,7 +3935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Update schema
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId Immutable ID of the G Suite account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasUpdate
@@ -3823,7 +4089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Remove a alias for the user
+ *  Removes an alias.
  *
  *  Method: directory.users.aliases.delete
  *
@@ -3835,20 +4101,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersAliasesDeleteWithuserKey:alias:]
 
-/** The alias to be removed */
+/** The alias to be removed. */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove a alias for the user
+ *  Removes an alias.
  *
- *  @param userKey Email or immutable ID of the user
- *  @param alias The alias to be removed
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
+ *  @param alias The alias to be removed.
  *
  *  @return GTLRDirectoryQuery_UsersAliasesDelete
  */
@@ -3858,7 +4128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Add a alias for the user
+ *  Adds an alias.
  *
  *  Method: directory.users.aliases.insert
  *
@@ -3870,16 +4140,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersAliasesInsertWithObject:userKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Alias.
  *
- *  Add a alias for the user
+ *  Adds an alias.
  *
  *  @param object The @c GTLRDirectory_Alias to include in the query.
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersAliasesInsert
  */
@@ -3889,7 +4163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  List all aliases for a user
+ *  Lists all aliases for a user.
  *
  *  Method: directory.users.aliases.list
  *
@@ -3903,15 +4177,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersAliasesListWithuserKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_Aliases.
  *
- *  List all aliases for a user
+ *  Lists all aliases for a user.
  *
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersAliasesList
  */
@@ -3920,7 +4198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Watch for changes in users list
+ *  Watch for changes in users list.
  *
  *  Method: directory.users.aliases.watch
  *
@@ -3935,7 +4213,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersAliasesWatchWithObject:userKey:]
 
 /**
- *  Event on which subscription is intended (if subscribing)
+ *  Events to watch for.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryEventEventUndefined Value "eventUndefined"
@@ -3950,7 +4228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in users list
+ *  Watch for changes in users list.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *  @param userKey Email or immutable ID of the user
@@ -3963,7 +4241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Delete user
+ *  Deletes a user.
  *
  *  Method: directory.users.delete
  *
@@ -3974,16 +4252,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersDeleteWithuserKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete user
+ *  Deletes a user.
  *
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersDelete
  */
@@ -3992,7 +4274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  retrieve user
+ *  Retrieves a user.
  *
  *  Method: directory.users.get
  *
@@ -4005,8 +4287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersGetWithuserKey:]
 
 /**
- *  Comma-separated list of schema names. All fields from these schemas are
- *  fetched. This should only be set when projection=custom.
+ *  A comma-separated list of schema names. All fields from these schemas are
+ *  fetched. This should only be set when `projection=custom`.
  */
 @property(nonatomic, copy, nullable) NSString *customFieldMask;
 
@@ -4019,7 +4301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
- *        mentioned in customFieldMask. (Value: "custom")
+ *        requested in `customFieldMask`. (Value: "custom")
  *    @arg @c kGTLRDirectoryProjectionFull Include all fields associated with
  *        this user. (Value: "full")
  *
@@ -4028,19 +4310,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  */
 @property(nonatomic, copy, nullable) NSString *projection;
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
- *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
+ *  Whether to fetch the administrator-only or domain-wide public view of the
+ *  user. For more information, see [Retrieve a user as a
+ *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
  *        "view_type_undefined"
- *    @arg @c kGTLRDirectoryViewTypeAdminView Fetches the ADMIN_VIEW of the
- *        user. (Value: "admin_view")
- *    @arg @c kGTLRDirectoryViewTypeDomainPublic Fetches the DOMAIN_PUBLIC view
- *        of the user. (Value: "domain_public")
+ *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
+ *        administrator-only and domain-public fields for the user. (Value:
+ *        "admin_view")
+ *    @arg @c kGTLRDirectoryViewTypeDomainPublic Results only include fields for
+ *        the user that are publicly visible to other users in the domain.
+ *        (Value: "domain_public")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.
@@ -4050,9 +4339,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  retrieve user
+ *  Retrieves a user.
  *
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersGet
  */
@@ -4061,7 +4351,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  create user.
+ *  Creates a user.
  *
  *  Method: directory.users.insert
  *
@@ -4075,7 +4365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  create user.
+ *  Creates a user.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
  *
@@ -4086,7 +4376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve either deleted users or all users in a domain (paginated)
+ *  Retrieves a paginated list of either deleted users or all users in a domain.
  *
  *  Method: directory.users.list
  *
@@ -4100,20 +4390,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersList]
 
 /**
- *  Immutable ID of the G Suite account. In case of multi-domain, to fetch all
- *  users for a customer, fill this field instead of domain.
+ *  The unique ID for the customer's G Suite account. In case of a multi-domain
+ *  account, to fetch all groups for a customer, fill this field instead of
+ *  domain. You can also use the `my_customer` alias to represent your account's
+ *  `customerId`. The `customerId` is also returned as part of the [Users
+ *  resource](/admin-sdk/directory/v1/reference/users). Either the `customer` or
+ *  the `domain` parameter must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Comma-separated list of schema names. All fields from these schemas are
- *  fetched. This should only be set when projection=custom.
+ *  A comma-separated list of schema names. All fields from these schemas are
+ *  fetched. This should only be set when `projection=custom`.
  */
 @property(nonatomic, copy, nullable) NSString *customFieldMask;
 
 /**
- *  Name of the domain. Fill this field to get users from only this domain. To
- *  return all users in a multi-domain fill customer field instead.
+ *  The domain name. Use this field to get fields from only one domain. To
+ *  return all domains for a customer account, use the `customer` query
+ *  parameter instead. Either the `customer` or the `domain` parameter must be
+ *  provided.
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
@@ -4126,7 +4422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Column to use for sorting results
+ *  Property to use for sorting results.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryOrderByOrderByUndefined Value "orderByUndefined"
@@ -4151,7 +4447,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *    @arg @c kGTLRDirectoryProjectionBasic Do not include any custom fields for
  *        the user. (Value: "basic")
  *    @arg @c kGTLRDirectoryProjectionCustom Include custom fields from schemas
- *        mentioned in customFieldMask. (Value: "custom")
+ *        requested in `customFieldMask`. (Value: "custom")
  *    @arg @c kGTLRDirectoryProjectionFull Include all fields associated with
  *        this user. (Value: "full")
  *
@@ -4161,12 +4457,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
- *  Query string search. Should be of the form "". Complete documentation is at
- *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-users
+ *  Query string for searching user fields. For more information on constructing
+ *  user queries, see [Search for
+ *  Users](/admin-sdk/directory/v1/guides/search-users).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
-/** If set to true, retrieves the list of deleted users. (Default: false) */
+/**
+ *  If set to `true`, retrieves the list of deleted users. (Default: `false`)
+ */
 @property(nonatomic, copy, nullable) NSString *showDeleted;
 
 /**
@@ -4183,15 +4482,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
+ *  Whether to fetch the administrator-only or domain-wide public view of the
+ *  user. For more information, see [Retrieve a user as a
+ *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryViewTypeViewTypeUndefined Value
  *        "view_type_undefined"
- *    @arg @c kGTLRDirectoryViewTypeAdminView Fetches the ADMIN_VIEW of the
- *        user. (Value: "admin_view")
- *    @arg @c kGTLRDirectoryViewTypeDomainPublic Fetches the DOMAIN_PUBLIC view
- *        of the user. (Value: "domain_public")
+ *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
+ *        administrator-only and domain-public fields for the user. (Value:
+ *        "admin_view")
+ *    @arg @c kGTLRDirectoryViewTypeDomainPublic Results only include fields for
+ *        the user that are publicly visible to other users in the domain.
+ *        (Value: "domain_public")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.
@@ -4201,7 +4504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /**
  *  Fetches a @c GTLRDirectory_Users.
  *
- *  Retrieve either deleted users or all users in a domain (paginated)
+ *  Retrieves a paginated list of either deleted users or all users in a domain.
  *
  *  @return GTLRDirectoryQuery_UsersList
  *
@@ -4214,7 +4517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  change admin status of a user
+ *  Makes a user a super administrator.
  *
  *  Method: directory.users.makeAdmin
  *
@@ -4225,17 +4528,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersMakeAdminWithObject:userKey:]
 
-/** Email or immutable ID of the user as admin */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  change admin status of a user
+ *  Makes a user a super administrator.
  *
  *  @param object The @c GTLRDirectory_UserMakeAdmin to include in the query.
- *  @param userKey Email or immutable ID of the user as admin
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersMakeAdmin
  */
@@ -4245,7 +4552,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Users via Apiary Patch Orchestration
+ *  Updates a user using patch semantics. The update method should be used
+ *  instead, since it also supports patch semantics and has better performance.
+ *  This method is unable to clear fields that contain repeated objects
+ *  (`addresses`, `phones`, etc). Use the update method instead.
  *
  *  Method: directory.users.patch
  *
@@ -4257,19 +4567,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersPatchWithObject:userKey:]
 
 /**
- *  Email or immutable ID of the user. If ID, it should match with id of user
- *  object
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  Patch Users via Apiary Patch Orchestration
+ *  Updates a user using patch semantics. The update method should be used
+ *  instead, since it also supports patch semantics and has better performance.
+ *  This method is unable to clear fields that contain repeated objects
+ *  (`addresses`, `phones`, etc). Use the update method instead.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
- *  @param userKey Email or immutable ID of the user. If ID, it should match
- *    with id of user object
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersPatch
  */
@@ -4279,7 +4592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Remove photos for the user
+ *  Removes the user's photo.
  *
  *  Method: directory.users.photos.delete
  *
@@ -4290,16 +4603,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosDeleteWithuserKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Remove photos for the user
+ *  Removes the user's photo.
  *
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersPhotosDelete
  */
@@ -4308,7 +4625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Retrieve photo of a user
+ *  Retrieves the user's photo.
  *
  *  Method: directory.users.photos.get
  *
@@ -4320,15 +4637,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosGetWithuserKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
  *
- *  Retrieve photo of a user
+ *  Retrieves the user's photo.
  *
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersPhotosGet
  */
@@ -4337,7 +4658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Patch Photo via Apiary Patch Orchestration
+ *  Adds a photo for the user. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  Method: directory.users.photos.patch
  *
@@ -4348,16 +4670,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosPatchWithObject:userKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
  *
- *  Patch Photo via Apiary Patch Orchestration
+ *  Adds a photo for the user. This method supports [patch
+ *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersPhotosPatch
  */
@@ -4367,7 +4694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Add a photo for the user
+ *  Adds a photo for the user.
  *
  *  Method: directory.users.photos.update
  *
@@ -4378,16 +4705,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForUsersPhotosUpdateWithObject:userKey:]
 
-/** Email or immutable ID of the user */
+/**
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
+ */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_UserPhoto.
  *
- *  Add a photo for the user
+ *  Adds a photo for the user.
  *
  *  @param object The @c GTLRDirectory_UserPhoto to include in the query.
- *  @param userKey Email or immutable ID of the user
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersPhotosUpdate
  */
@@ -4433,7 +4764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  Undelete a deleted user
+ *  Undeletes a deleted user.
  *
  *  Method: directory.users.undelete
  *
@@ -4451,7 +4782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Undelete a deleted user
+ *  Undeletes a deleted user.
  *
  *  @param object The @c GTLRDirectory_UserUndelete to include in the query.
  *  @param userKey The immutable id of the user
@@ -4464,7 +4795,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @end
 
 /**
- *  update user
+ *  Updates a user. This method supports patch semantics, meaning you only need
+ *  to include the fields you wish to update. Fields that are not present in the
+ *  request will be preserved, and fields set to `null` will be cleared.
  *
  *  Method: directory.users.update
  *
@@ -4476,19 +4809,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersUpdateWithObject:userKey:]
 
 /**
- *  Email or immutable ID of the user. If ID, it should match with id of user
- *  object
+ *  Identifies the user in the API request. The value can be the user's primary
+ *  email address, alias email address, or unique user ID.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
 /**
  *  Fetches a @c GTLRDirectory_User.
  *
- *  update user
+ *  Updates a user. This method supports patch semantics, meaning you only need
+ *  to include the fields you wish to update. Fields that are not present in the
+ *  request will be preserved, and fields set to `null` will be cleared.
  *
  *  @param object The @c GTLRDirectory_User to include in the query.
- *  @param userKey Email or immutable ID of the user. If ID, it should match
- *    with id of user object
+ *  @param userKey Identifies the user in the API request. The value can be the
+ *    user's primary email address, alias email address, or unique user ID.
  *
  *  @return GTLRDirectoryQuery_UsersUpdate
  */
@@ -4530,7 +4865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
- *  Event on which subscription is intended
+ *  Events to watch for.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectoryEventEventTypeUnspecified Value
@@ -4611,13 +4946,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *sortOrder;
 
 /**
- *  Whether to fetch the ADMIN_VIEW or DOMAIN_PUBLIC view of the user.
+ *  Whether to fetch the administrator-only or domain-wide public view of the
+ *  user. For more information, see [Retrieve a user as a
+ *  non-administrator](/admin-sdk/directory/v1/guides/manage-users#retrieve_users_non_admin).
  *
  *  Likely values:
- *    @arg @c kGTLRDirectoryViewTypeAdminView Fetches the ADMIN_VIEW of the
- *        user. (Value: "admin_view")
- *    @arg @c kGTLRDirectoryViewTypeDomainPublic Fetches the DOMAIN_PUBLIC view
- *        of the user. (Value: "domain_public")
+ *    @arg @c kGTLRDirectoryViewTypeAdminView Results include both
+ *        administrator-only and domain-public fields. (Value: "admin_view")
+ *    @arg @c kGTLRDirectoryViewTypeDomainPublic Results only include fields for
+ *        the user that are publicly visible to other users in the domain.
+ *        (Value: "domain_public")
  *
  *  @note If not set, the documented server-side default will be
  *        kGTLRDirectoryViewTypeAdminView.

@@ -1152,7 +1152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *  Mark the proposal as accepted at the given revision number. If the number
  *  does not match the server's revision number an `ABORTED` error message will
  *  be returned. This call updates the proposal_state from `PROPOSED` to
- *  `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`.
+ *  `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`. Upon calling
+ *  this endpoint, the buyer implicitly agrees to the terms and conditions
+ *  optionally set within the proposal by the publisher.
  *
  *  Method: adexchangebuyer2.accounts.proposals.accept
  *
@@ -1175,7 +1177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *  Mark the proposal as accepted at the given revision number. If the number
  *  does not match the server's revision number an `ABORTED` error message will
  *  be returned. This call updates the proposal_state from `PROPOSED` to
- *  `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`.
+ *  `BUYER_ACCEPTED`, or from `SELLER_ACCEPTED` to `FINALIZED`. Upon calling
+ *  this endpoint, the buyer implicitly agrees to the terms and conditions
+ *  optionally set within the proposal by the publisher.
  *
  *  @param object The @c GTLRAdExchangeBuyerII_AcceptProposalRequest to include
  *    in the query.

@@ -40,6 +40,94 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  Method: chat.dms.conversations.messages
+ */
+@interface GTLRHangoutsChatQuery_DmsConversationsMessages : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForDmsConversationsMessagesWithObject:parent:]
+
+/**
+ *  Required. Space resource name, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Opaque thread identifier string that can be specified to group messages into
+ *  a single thread. If this is the first message with a given thread
+ *  identifier, a new thread is created. Subsequent messages with the same
+ *  thread identifier will be posted into the same thread. This relieves bots
+ *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  (created earlier by them) to post further updates to it. Has no effect if
+ *  thread field, corresponding to an existing thread, is set in message.
+ */
+@property(nonatomic, copy, nullable) NSString *threadKey;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Message.
+ *
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  @param object The @c GTLRHangoutsChat_Message to include in the query.
+ *  @param parent Required. Space resource name, in the form "spaces/ *".
+ *    Example: spaces/AAAAMpdlehY
+ *
+ *  @return GTLRHangoutsChatQuery_DmsConversationsMessages
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  Method: chat.dms.messages
+ */
+@interface GTLRHangoutsChatQuery_DmsMessages : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForDmsMessagesWithObject:parent:]
+
+/**
+ *  Required. Space resource name, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Opaque thread identifier string that can be specified to group messages into
+ *  a single thread. If this is the first message with a given thread
+ *  identifier, a new thread is created. Subsequent messages with the same
+ *  thread identifier will be posted into the same thread. This relieves bots
+ *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  (created earlier by them) to post further updates to it. Has no effect if
+ *  thread field, corresponding to an existing thread, is set in message.
+ */
+@property(nonatomic, copy, nullable) NSString *threadKey;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Message.
+ *
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  @param object The @c GTLRHangoutsChat_Message to include in the query.
+ *  @param parent Required. Space resource name, in the form "spaces/ *".
+ *    Example: spaces/AAAAMpdlehY
+ *
+ *  @return GTLRHangoutsChatQuery_DmsMessages
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Downloads media. Download is supported on the URI
  *  `/v1/media/{+name}?alt=media`.
  *
@@ -79,6 +167,94 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRHangoutsChatQuery_MediaDownload
  */
 + (instancetype)queryForMediaWithResourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  Method: chat.rooms.conversations.messages
+ */
+@interface GTLRHangoutsChatQuery_RoomsConversationsMessages : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForRoomsConversationsMessagesWithObject:parent:]
+
+/**
+ *  Required. Space resource name, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Opaque thread identifier string that can be specified to group messages into
+ *  a single thread. If this is the first message with a given thread
+ *  identifier, a new thread is created. Subsequent messages with the same
+ *  thread identifier will be posted into the same thread. This relieves bots
+ *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  (created earlier by them) to post further updates to it. Has no effect if
+ *  thread field, corresponding to an existing thread, is set in message.
+ */
+@property(nonatomic, copy, nullable) NSString *threadKey;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Message.
+ *
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  @param object The @c GTLRHangoutsChat_Message to include in the query.
+ *  @param parent Required. Space resource name, in the form "spaces/ *".
+ *    Example: spaces/AAAAMpdlehY
+ *
+ *  @return GTLRHangoutsChatQuery_RoomsConversationsMessages
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  Method: chat.rooms.messages
+ */
+@interface GTLRHangoutsChatQuery_RoomsMessages : GTLRHangoutsChatQuery
+// Previous library name was
+//   +[GTLQueryHangoutsChat queryForRoomsMessagesWithObject:parent:]
+
+/**
+ *  Required. Space resource name, in the form "spaces/ *". Example:
+ *  spaces/AAAAMpdlehY
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Opaque thread identifier string that can be specified to group messages into
+ *  a single thread. If this is the first message with a given thread
+ *  identifier, a new thread is created. Subsequent messages with the same
+ *  thread identifier will be posted into the same thread. This relieves bots
+ *  and webhooks from having to store the Hangouts Chat thread ID of a thread
+ *  (created earlier by them) to post further updates to it. Has no effect if
+ *  thread field, corresponding to an existing thread, is set in message.
+ */
+@property(nonatomic, copy, nullable) NSString *threadKey;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Message.
+ *
+ *  Legacy path for creating message. Calling these will result in a BadRequest
+ *  response.
+ *
+ *  @param object The @c GTLRHangoutsChat_Message to include in the query.
+ *  @param parent Required. Space resource name, in the form "spaces/ *".
+ *    Example: spaces/AAAAMpdlehY
+ *
+ *  @return GTLRHangoutsChatQuery_RoomsMessages
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
+                         parent:(NSString *)parent;
 
 @end
 

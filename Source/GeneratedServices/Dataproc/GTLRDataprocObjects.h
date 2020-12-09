@@ -88,6 +88,7 @@
 @class GTLRDataproc_RegexValidation;
 @class GTLRDataproc_ReservationAffinity;
 @class GTLRDataproc_SecurityConfig;
+@class GTLRDataproc_ShieldedInstanceConfig;
 @class GTLRDataproc_SoftwareConfig;
 @class GTLRDataproc_SoftwareConfig_Properties;
 @class GTLRDataproc_SparkJob;
@@ -828,8 +829,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_Binding : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
 /**
  *  The condition that is associated with this binding.If the condition
  *  evaluates to true, then this binding applies to the current request.If the
@@ -1528,6 +1527,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountScopes;
 
+/** Optional. Shielded Instance Config for clusters using shielded VMs. */
+@property(nonatomic, strong, nullable) GTLRDataproc_ShieldedInstanceConfig *shieldedInstanceConfig;
+
 /**
  *  Optional. The Compute Engine subnetwork to be used for machine
  *  communications. Cannot be specified with network_uri.A full URL, partial
@@ -1914,6 +1916,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** The user-friendly name of the Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *instanceName;
+
+/** The public key used for sharing data with this instance. */
+@property(nonatomic, copy, nullable) NSString *publicKey;
 
 @end
 
@@ -3203,6 +3208,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Shielded Instance Config for clusters using shielded VMs.
+ */
+@interface GTLRDataproc_ShieldedInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines whether instances have integrity monitoring enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
+
+/**
+ *  Optional. Defines whether instances have Secure Boot enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
+
+/**
+ *  Optional. Defines whether instances have the vTPM enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableVtpm;
+
+@end
+
+
+/**
  *  Specifies the selection and config of software inside the cluster.
  */
 @interface GTLRDataproc_SoftwareConfig : GTLRObject
@@ -3634,6 +3668,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Output only. The create cluster operation metadata. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *createCluster;
 
+/**
+ *  Output only. DAG end time, only set for workflows with dag_timeout when DAG
+ *  ends.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dagEndTime;
+
+/**
+ *  Output only. DAG start time, only set for workflows with dag_timeout when
+ *  DAG begins.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *dagStartTime;
+
+/** Output only. The timeout duration for the DAG of jobs. */
+@property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
+
 /** Output only. The delete cluster operation metadata. */
 @property(nonatomic, strong, nullable) GTLRDataproc_ClusterOperation *deleteCluster;
 
@@ -3747,6 +3796,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Output only. The time template was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Timeout duration for the DAG of jobs. You can use "s", "m", "h",
+ *  and "d" suffixes for second, minute, hour, and day duration values,
+ *  respectively. The timeout duration must be from 10 minutes ("10m") to 24
+ *  hours ("24h" or "1d"). The timer begins when the first job is submitted. If
+ *  the workflow is running at the end of the timeout period, any remaining jobs
+ *  are cancelled, the workflow is ended, and if the workflow was running on a
+ *  managed cluster, the cluster is deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
 
 /**
  *  identifier

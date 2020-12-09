@@ -1031,14 +1031,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @interface GTLRContainerAnalysis_BatchCreateNotesRequest : GTLRObject
 
-/** Required. The notes to create. Max allowed length is 1000. */
+/**
+ *  Required. The notes to create, the key is expected to be the note ID. Max
+ *  allowed length is 1000.
+ */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_BatchCreateNotesRequest_Notes *notes;
 
 @end
 
 
 /**
- *  Required. The notes to create. Max allowed length is 1000.
+ *  Required. The notes to create, the key is expected to be the note ID. Max
+ *  allowed length is 1000.
  *
  *  @note This class is documented as having more properties of
  *        GTLRContainerAnalysis_Note. Use @c -additionalJSONKeys and @c
@@ -1086,8 +1090,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Associates `members` with a `role`.
  */
 @interface GTLRContainerAnalysis_Binding : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition

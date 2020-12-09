@@ -934,6 +934,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *requestedAddress;
 
 /**
+ *  Optional. The name of one or more allocated IP address ranges associated
+ *  with this private service access connection. If no range names are provided
+ *  all ranges associated with this connection will be considered. If a CIDR
+ *  range with the specified IP prefix length is not available within these
+ *  ranges, the call fails.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestedRanges;
+
+/**
  *  Optional. A list of secondary IP ranges to be created within the new
  *  subnetwork.
  */
@@ -3520,6 +3529,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSNumber *ipPrefixLength;
 
 /**
+ *  Optional. The name of one or more allocated IP address ranges associated
+ *  with this private service access connection. If no range names are provided
+ *  all ranges associated with this connection will be considered. If a CIDR
+ *  range with the specified IP prefix length is not available within these
+ *  ranges the validation fails.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *requestedRanges;
+
+/**
  *  Optional. DO NOT USE - Under development. The size of the desired secondary
  *  ranges for the subnet. Use usual CIDR range notation. For example, '30' to
  *  find unused x.x.x.x/30 CIDR range. The goal is to determine that the
@@ -3752,7 +3770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_Billing *billing;
 
 /**
- *  This field is obsolete. Its value must be set to `3`.
+ *  Deprecated. The service config compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

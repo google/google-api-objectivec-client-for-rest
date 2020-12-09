@@ -852,7 +852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @interface GTLRCloudKMS_AsymmetricSignRequest : GTLRObject
 
 /**
- *  Required. The digest of the data to sign. The digest must be produced with
+ *  Optional. The digest of the data to sign. The digest must be produced with
  *  the same digest algorithm as specified by the key version's algorithm.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_Digest *digest;
@@ -1002,8 +1002,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  Associates `members` with a `role`.
  */
 @interface GTLRCloudKMS_Binding : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition

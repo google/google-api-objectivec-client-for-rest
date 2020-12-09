@@ -48,12 +48,19 @@ NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_ExportFormatU
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Mbox = @"MBOX";
 NSString * const kGTLRVault_HangoutsChatExportOptions_ExportFormat_Pst = @"PST";
 
+// GTLRVault_HeldVoiceQuery.coveredData
+NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CallLogs = @"CALL_LOGS";
+NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_CoveredDataUnspecified = @"COVERED_DATA_UNSPECIFIED";
+NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_TextMessages = @"TEXT_MESSAGES";
+NSString * const kGTLRVault_HeldVoiceQuery_CoveredData_Voicemails = @"VOICEMAILS";
+
 // GTLRVault_Hold.corpus
 NSString * const kGTLRVault_Hold_Corpus_CorpusTypeUnspecified = @"CORPUS_TYPE_UNSPECIFIED";
 NSString * const kGTLRVault_Hold_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Hold_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Hold_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Hold_Corpus_Mail                  = @"MAIL";
+NSString * const kGTLRVault_Hold_Corpus_Voice                 = @"VOICE";
 
 // GTLRVault_MailExportOptions.exportFormat
 NSString * const kGTLRVault_MailExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
@@ -77,6 +84,7 @@ NSString * const kGTLRVault_Query_Corpus_Drive                 = @"DRIVE";
 NSString * const kGTLRVault_Query_Corpus_Groups                = @"GROUPS";
 NSString * const kGTLRVault_Query_Corpus_HangoutsChat          = @"HANGOUTS_CHAT";
 NSString * const kGTLRVault_Query_Corpus_Mail                  = @"MAIL";
+NSString * const kGTLRVault_Query_Corpus_Voice                 = @"VOICE";
 
 // GTLRVault_Query.dataScope
 NSString * const kGTLRVault_Query_DataScope_AllData            = @"ALL_DATA";
@@ -101,6 +109,17 @@ NSString * const kGTLRVault_Query_SearchMethod_Room            = @"ROOM";
 NSString * const kGTLRVault_Query_SearchMethod_SearchMethodUnspecified = @"SEARCH_METHOD_UNSPECIFIED";
 NSString * const kGTLRVault_Query_SearchMethod_SharedDrive     = @"SHARED_DRIVE";
 NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
+
+// GTLRVault_VoiceExportOptions.exportFormat
+NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
+NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Mbox = @"MBOX";
+NSString * const kGTLRVault_VoiceExportOptions_ExportFormat_Pst = @"PST";
+
+// GTLRVault_VoiceOptions.coveredData
+NSString * const kGTLRVault_VoiceOptions_CoveredData_CallLogs  = @"CALL_LOGS";
+NSString * const kGTLRVault_VoiceOptions_CoveredData_CoveredDataUnspecified = @"COVERED_DATA_UNSPECIFIED";
+NSString * const kGTLRVault_VoiceOptions_CoveredData_TextMessages = @"TEXT_MESSAGES";
+NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemails = @"VOICEMAILS";
 
 // ----------------------------------------------------------------------------
 //
@@ -259,7 +278,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_CorpusQuery
-@dynamic driveQuery, groupsQuery, hangoutsChatQuery, mailQuery;
+@dynamic driveQuery, groupsQuery, hangoutsChatQuery, mailQuery, voiceQuery;
 @end
 
 
@@ -344,7 +363,8 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 //
 
 @implementation GTLRVault_ExportOptions
-@dynamic driveOptions, groupsOptions, hangoutsChatOptions, mailOptions, region;
+@dynamic driveOptions, groupsOptions, hangoutsChatOptions, mailOptions, region,
+         voiceOptions;
 @end
 
 
@@ -484,6 +504,24 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_HeldOrgUnit
 @dynamic holdTime, orgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_HeldVoiceQuery
+//
+
+@implementation GTLRVault_HeldVoiceQuery
+@dynamic coveredData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"coveredData" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -763,7 +801,7 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 @dynamic accountInfo, corpus, dataScope, driveOptions, endTime,
          hangoutsChatInfo, hangoutsChatOptions, mailOptions, method,
          orgUnitInfo, searchMethod, sharedDriveInfo, startTime, teamDriveInfo,
-         terms, timeZone;
+         terms, timeZone, voiceOptions;
 @end
 
 
@@ -926,4 +964,32 @@ NSString * const kGTLRVault_Query_SearchMethod_TeamDrive       = @"TEAM_DRIVE";
 
 @implementation GTLRVault_UserInfo
 @dynamic displayName, email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_VoiceExportOptions
+//
+
+@implementation GTLRVault_VoiceExportOptions
+@dynamic exportFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVault_VoiceOptions
+//
+
+@implementation GTLRVault_VoiceOptions
+@dynamic coveredData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"coveredData" : [NSString class]
+  };
+  return map;
+}
+
 @end

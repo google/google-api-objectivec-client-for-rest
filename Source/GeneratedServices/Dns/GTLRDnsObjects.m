@@ -190,7 +190,7 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 @dynamic creationTime, descriptionProperty, dnsName, dnssecConfig,
          forwardingConfig, identifier, kind, labels, name, nameServers,
          nameServerSet, peeringConfig, privateVisibilityConfig,
-         reverseLookupConfig, visibility;
+         reverseLookupConfig, serviceDirectoryConfig, visibility;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -347,6 +347,31 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 
 @implementation GTLRDns_ManagedZoneReverseLookupConfig
 @dynamic kind;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneServiceDirectoryConfig
+//
+
+@implementation GTLRDns_ManagedZoneServiceDirectoryConfig
+@dynamic kind, namespaceProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"namespaceProperty" : @"namespace" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_ManagedZoneServiceDirectoryConfigNamespace
+//
+
+@implementation GTLRDns_ManagedZoneServiceDirectoryConfigNamespace
+@dynamic deletionTime, kind, namespaceUrl;
 @end
 
 
@@ -537,9 +562,9 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 //
 
 @implementation GTLRDns_Quota
-@dynamic dnsKeysPerManagedZone, kind, managedZones, managedZonesPerNetwork,
-         networksPerManagedZone, networksPerPolicy, policies,
-         resourceRecordsPerRrset, rrsetAdditionsPerChange,
+@dynamic dnsKeysPerManagedZone, gkeClustersPerPolicy, kind, managedZones,
+         managedZonesPerNetwork, networksPerManagedZone, networksPerPolicy,
+         policies, resourceRecordsPerRrset, rrsetAdditionsPerChange,
          rrsetDeletionsPerChange, rrsetsPerManagedZone,
          targetNameServersPerManagedZone, targetNameServersPerPolicy,
          totalRrdataSizePerChange, whitelistedKeySpecs;

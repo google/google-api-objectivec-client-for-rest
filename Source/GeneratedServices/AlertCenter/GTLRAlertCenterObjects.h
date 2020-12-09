@@ -167,6 +167,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
+/**
+ *  Activate Rule Action
+ *
+ *  Value: "RULE_ACTIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleActivate;
+/**
+ *  Deactivate Rule Action
+ *
+ *  Value: "RULE_DEACTIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleDeactivate;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.trigger
@@ -211,6 +223,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
+/**
+ *  Activate Rule Action
+ *
+ *  Value: "RULE_ACTIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleActivate;
+/**
+ *  Deactivate Rule Action
+ *
+ *  Value: "RULE_DEACTIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate;
 
 /**
  *  Alerts for user account warning events.

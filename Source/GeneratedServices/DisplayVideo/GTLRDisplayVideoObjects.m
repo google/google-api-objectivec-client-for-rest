@@ -1167,6 +1167,7 @@ NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_NoValidCreative = @"
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_ParentInsertionOrderExpired = @"PARENT_INSERTION_ORDER_EXPIRED";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_ParentInsertionOrderPaused = @"PARENT_INSERTION_ORDER_PAUSED";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_PendingFlight = @"PENDING_FLIGHT";
+NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_TargetingDeprecatedGeoTarget = @"TARGETING_DEPRECATED_GEO_TARGET";
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_TargetingRevokedOrClosedUserList = @"TARGETING_REVOKED_OR_CLOSED_USER_LIST";
 
 // GTLRDisplayVideo_LineItemBudget.budgetAllocationType
@@ -3035,6 +3036,16 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_GeoRegionSearchTerms
+//
+
+@implementation GTLRDisplayVideo_GeoRegionSearchTerms
+@dynamic geoRegionQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_GeoRegionTargetingOptionDetails
 //
 
@@ -4368,6 +4379,38 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_SdfDownloadTaskMetadata
 @dynamic createTime, endTime, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_SearchTargetingOptionsRequest
+//
+
+@implementation GTLRDisplayVideo_SearchTargetingOptionsRequest
+@dynamic advertiserId, geoRegionSearchTerms, pageSize, pageToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_SearchTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_SearchTargetingOptionsResponse
+@dynamic nextPageToken, targetingOptions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetingOptions" : [GTLRDisplayVideo_TargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"targetingOptions";
+}
+
 @end
 
 

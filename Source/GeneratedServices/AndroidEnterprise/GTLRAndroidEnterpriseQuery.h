@@ -308,7 +308,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 @end
 
 /**
- *  Updates the device policy
+ *  Updates the device policy. To ensure the policy is properly enforced, you
+ *  need to prevent unmanaged accounts from accessing Google Play by setting the
+ *  allowed_accounts in the managed configuration for the Google Play package.
+ *  See restrict accounts in Google Play.
  *
  *  Method: androidenterprise.devices.update
  *
@@ -338,7 +341,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterpriseRequestModeWaitForNotif
 /**
  *  Fetches a @c GTLRAndroidEnterprise_Device.
  *
- *  Updates the device policy
+ *  Updates the device policy. To ensure the policy is properly enforced, you
+ *  need to prevent unmanaged accounts from accessing Google Play by setting the
+ *  allowed_accounts in the managed configuration for the Google Play package.
+ *  See restrict accounts in Google Play.
  *
  *  @param object The @c GTLRAndroidEnterprise_Device to include in the query.
  *  @param enterpriseId The ID of the enterprise.

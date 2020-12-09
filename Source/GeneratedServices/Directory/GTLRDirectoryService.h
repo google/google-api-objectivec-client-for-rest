@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Admin SDK (admin/directory_v1)
+//   Admin SDK API (admin/directory_v1)
 // Description:
 //   Admin SDK lets administrators of enterprise domains to view and manage
 //   resources like user, groups etc. It also provides audit and usage reports
@@ -207,7 +207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserSecurity;
 //
 
 /**
- *  Service for executing Admin SDK queries.
+ *  Service for executing Admin SDK API queries.
  *
  *  Admin SDK lets administrators of enterprise domains to view and manage
  *  resources like user, groups etc. It also provides audit and usage reports of

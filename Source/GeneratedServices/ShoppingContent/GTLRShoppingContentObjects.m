@@ -4339,7 +4339,8 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 //
 
 @implementation GTLRShoppingContent_RepricingRuleEligibleOfferMatcher
-@dynamic brandMatcher, itemGroupIdMatcher, matcherOption, offerIdMatcher;
+@dynamic brandMatcher, itemGroupIdMatcher, matcherOption, offerIdMatcher,
+         skipWhenOnPromotion;
 @end
 
 

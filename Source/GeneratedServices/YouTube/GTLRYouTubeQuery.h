@@ -3434,11 +3434,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.membershipsLevels.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTube
  *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
- *    @c kGTLRAuthScopeYouTubeForceSsl
- *    @c kGTLRAuthScopeYouTubeReadonly
- *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_MembershipsLevelsList : GTLRYouTubeQuery
 // Previous library name was
@@ -3471,11 +3467,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Method: youtube.members.list
  *
  *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTube
  *    @c kGTLRAuthScopeYouTubeChannelMembershipsCreator
- *    @c kGTLRAuthScopeYouTubeForceSsl
- *    @c kGTLRAuthScopeYouTubeReadonly
- *    @c kGTLRAuthScopeYouTubeYoutubepartner
  */
 @interface GTLRYouTubeQuery_MembersList : GTLRYouTubeQuery
 // Previous library name was

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Service Directory API (servicedirectory/v1beta1)
+//   Service Directory API (servicedirectory/v1)
 // Description:
 //   Service Directory is a platform for discovering, publishing, and connecting
 //   services.

@@ -312,7 +312,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2FaceDetectionAnnotation
-@dynamic version;
+@dynamic thumbnail, tracks, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2Track class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -770,7 +778,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1FaceDetectionAnnotation
-@dynamic version;
+@dynamic thumbnail, tracks, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Track class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1082,7 +1098,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1FaceDetectionAnnotation
-@dynamic version;
+@dynamic thumbnail, tracks, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1Track class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1566,7 +1590,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1FaceDetectionAnnotation
-@dynamic version;
+@dynamic thumbnail, tracks, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1Track class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2101,7 +2133,15 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1FaceDetectionAnnotation
-@dynamic version;
+@dynamic thumbnail, tracks, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tracks" : [GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1Track class]
+  };
+  return map;
+}
+
 @end
 
 
