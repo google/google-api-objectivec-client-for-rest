@@ -2932,12 +2932,14 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
   }
 
   NSMutableString *result = [NSMutableString string];
-  [result appendFormat:@"#if SWIFT_PACKAGE || %@\n", kModularIncludeGate];
+  [result appendFormat:@"#if %@\n", kModularIncludeGate];
   [result appendFormat:@"  @import %@;\n", kSwiftPMPackageName];
   [result appendFormat:@"#elif %@\n", kFrameworkIncludeGate];
   [result appendFormat:@"  #import \"%@/%@.h\"\n", kProjectPrefix, headerName];
-  [result appendString:@"#else\n"];
+  [result appendFormat:@"#elif COCOAPODS\n"];
   [result appendFormat:@"  #import \"%@.h\"\n", headerName];
+  [result appendString:@"#else\n"];
+  [result appendFormat:@"  #import <%@/%@.h>\n", kSwiftPMPackageName, headerName];
   [result appendString:@"#endif\n"];
   return result;
 }
