@@ -89,8 +89,10 @@ static NSData *DecodeBase64StringCommon(NSString *base64Str,
   if (requirePadding && (inputLength % 4 != 0)) return nil;
   if (inputLength == 0) return [NSData data];
 
+  NSInteger numEquals = 0;
   while (inputLength > 0 && cString[inputLength - 1] == '=') {
     inputLength--;
+    if (++numEquals > 2) return nil;  // malformed input
   }
 
   NSInteger outputLength = inputLength * 3 / 4;
