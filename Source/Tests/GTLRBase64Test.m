@@ -88,6 +88,15 @@
   data = GTLRDecodeWebSafeBase64(str);
   expectedData = [testStr dataUsingEncoding:NSUTF8StringEncoding];
   XCTAssertEqualObjects(data, expectedData);
+
+  str = @"YQ==";  // A string with two equals to ensure that is counted as valid.
+  data = GTLRDecodeBase64(str);
+  expectedData = [@"a" dataUsingEncoding:NSUTF8StringEncoding];
+  XCTAssertEqualObjects(data, expectedData, @"two equals");
+
+  str = @"a===";  // invalid base64 encoding, no valid encoding can have 3 '='s.
+  data = GTLRDecodeBase64(str);
+  XCTAssertNil(data, @"invalid base64 encoding");
 }
 
 @end
