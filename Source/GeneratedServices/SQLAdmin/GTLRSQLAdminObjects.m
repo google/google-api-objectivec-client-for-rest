@@ -267,7 +267,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_ApiWarning
-@dynamic code, message;
+@dynamic code, message, region;
 @end
 
 

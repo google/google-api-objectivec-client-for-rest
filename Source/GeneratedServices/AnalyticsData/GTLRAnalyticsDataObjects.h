@@ -641,16 +641,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  Specification of cohorts for a cohort report. Cohort reports can be used for
- *  example to create a time series of user retention for the cohort. For
- *  example, you could select the cohort of users that were acquired in the
- *  first week of September and follow that cohort for the next six weeks.
- *  Selecting the users acquired in the first week of September cohort is
- *  specified in the `cohort` object. Following that cohort for the next six
- *  weeks is specified in the `cohortsRange` object. The report response could
- *  show a weekly time series where say your app has retained 60% of this cohort
- *  after three weeks and 25% of this cohort after six weeks. These two
- *  percentages can be calculated by the metric
+ *  The specification of cohorts for a cohort report. Cohort reports create a
+ *  time series of user retention for the cohort. For example, you could select
+ *  the cohort of users that were acquired in the first week of September and
+ *  follow that cohort for the next six weeks. Selecting the users acquired in
+ *  the first week of September cohort is specified in the `cohort` object.
+ *  Following that cohort for the next six weeks is specified in the
+ *  `cohortsRange` object. For examples, see [Cohort Report
+ *  Examples](https://developers.google.com/analytics/devguides/reporting/data/v1/advanced#cohort_report_examples).
+ *  The report response could show a weekly time series where say your app has
+ *  retained 60% of this cohort after three weeks and 25% of this cohort after
+ *  six weeks. These two percentages can be calculated by the metric
  *  `cohortActiveUsers/cohortTotalUsers` and will be separate rows in the
  *  report.
  */
@@ -682,23 +683,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @interface GTLRAnalyticsData_CohortsRange : GTLRObject
 
 /**
- *  `endOffset` specifies the end date of the extended reporting date range for
- *  a cohort report. `endOffset` can be any positive integer but is commonly set
- *  to 5 to 10 so that reports contain data on the cohort for the next several
- *  granularity time periods. If `granularity` is `DAILY`, the `endDate` of the
- *  extended reporting date range is `endDate` of the cohort plus `endOffset`
- *  days. If `granularity` is `WEEKLY`, the `endDate` of the extended reporting
- *  date range is `endDate` of the cohort plus `endOffset * 7` days. If
- *  `granularity` is `MONTHLY`, the `endDate` of the extended reporting date
- *  range is `endDate` of the cohort plus `endOffset * 30` days.
+ *  Required. `endOffset` specifies the end date of the extended reporting date
+ *  range for a cohort report. `endOffset` can be any positive integer but is
+ *  commonly set to 5 to 10 so that reports contain data on the cohort for the
+ *  next several granularity time periods. If `granularity` is `DAILY`, the
+ *  `endDate` of the extended reporting date range is `endDate` of the cohort
+ *  plus `endOffset` days. If `granularity` is `WEEKLY`, the `endDate` of the
+ *  extended reporting date range is `endDate` of the cohort plus `endOffset *
+ *  7` days. If `granularity` is `MONTHLY`, the `endDate` of the extended
+ *  reporting date range is `endDate` of the cohort plus `endOffset * 30` days.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *endOffset;
 
 /**
- *  The granularity used to interpret the `startOffset` and `endOffset` for the
- *  extended reporting date range for a cohort report.
+ *  Required. The granularity used to interpret the `startOffset` and
+ *  `endOffset` for the extended reporting date range for a cohort report.
  *
  *  Likely values:
  *    @arg @c kGTLRAnalyticsData_CohortsRange_Granularity_Daily Daily

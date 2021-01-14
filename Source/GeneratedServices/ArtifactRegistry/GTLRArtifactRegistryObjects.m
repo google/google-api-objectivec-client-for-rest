@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta2)
+//   Artifact Registry API (artifactregistry/v1)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.
@@ -12,27 +12,25 @@
 #import "GTLRArtifactRegistryObjects.h"
 
 // ----------------------------------------------------------------------------
-// Constants
+//
+//   GTLRArtifactRegistry_CancelOperationRequest
+//
 
-// GTLRArtifactRegistry_Hash.type
-NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TYPE_UNSPECIFIED";
-NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256        = @"SHA256";
+@implementation GTLRArtifactRegistry_CancelOperationRequest
+@end
 
-// GTLRArtifactRegistry_Repository.format
-NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
-NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRArtifactRegistry_Binding
+//   GTLRArtifactRegistry_DockerImage
 //
 
-@implementation GTLRArtifactRegistry_Binding
-@dynamic condition, members, role;
+@implementation GTLRArtifactRegistry_DockerImage
+@dynamic imageSizeBytes, mediaType, name, tags, uploadTime, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"members" : [NSString class]
+    @"tags" : [NSString class]
   };
   return map;
 }
@@ -46,150 +44,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"F
 //
 
 @implementation GTLRArtifactRegistry_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Expr
-//
-
-@implementation GTLRArtifactRegistry_Expr
-@dynamic descriptionProperty, expression, location, title;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_File
-//
-
-@implementation GTLRArtifactRegistry_File
-@dynamic createTime, hashes, name, owner, sizeBytes, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"hashes" : [GTLRArtifactRegistry_Hash class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo
-//
-
-@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo
-@dynamic error, gcsSource;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource
-//
-
-@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1GcsSource
-@dynamic uris, useWildcards;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"uris" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse
-//
-
-@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ImportArtifactsResponse
-@dynamic errors, packages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1ErrorInfo class],
-    @"packages" : [GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package
-//
-
-@implementation GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1alpha1Package
-@dynamic createTime, displayName, name, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Hash
-//
-
-@implementation GTLRArtifactRegistry_Hash
-@dynamic type, value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListFilesResponse
-//
-
-@implementation GTLRArtifactRegistry_ListFilesResponse
-@dynamic files, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"files" : [GTLRArtifactRegistry_File class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"files";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListLocationsResponse
-//
-
-@implementation GTLRArtifactRegistry_ListLocationsResponse
-@dynamic locations, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"locations" : [GTLRArtifactRegistry_Location class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"locations";
-}
-
 @end
 
 
@@ -210,132 +64,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"F
 
 + (NSString *)collectionItemsKey {
   return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListPackagesResponse
-//
-
-@implementation GTLRArtifactRegistry_ListPackagesResponse
-@dynamic nextPageToken, packages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"packages" : [GTLRArtifactRegistry_Package class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"packages";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListRepositoriesResponse
-//
-
-@implementation GTLRArtifactRegistry_ListRepositoriesResponse
-@dynamic nextPageToken, repositories;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"repositories" : [GTLRArtifactRegistry_Repository class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"repositories";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListTagsResponse
-//
-
-@implementation GTLRArtifactRegistry_ListTagsResponse
-@dynamic nextPageToken, tags;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [GTLRArtifactRegistry_Tag class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"tags";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_ListVersionsResponse
-//
-
-@implementation GTLRArtifactRegistry_ListVersionsResponse
-@dynamic nextPageToken, versions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"versions" : [GTLRArtifactRegistry_Version class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"versions";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Location
-//
-
-@implementation GTLRArtifactRegistry_Location
-@dynamic displayName, labels, locationId, metadata, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Location_Labels
-//
-
-@implementation GTLRArtifactRegistry_Location_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Location_Metadata
-//
-
-@implementation GTLRArtifactRegistry_Location_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
 }
 
 @end
@@ -381,78 +109,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"F
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRArtifactRegistry_Package
-//
-
-@implementation GTLRArtifactRegistry_Package
-@dynamic createTime, displayName, name, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Policy
-//
-
-@implementation GTLRArtifactRegistry_Policy
-@dynamic bindings, ETag, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bindings" : [GTLRArtifactRegistry_Binding class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Repository
-//
-
-@implementation GTLRArtifactRegistry_Repository
-@dynamic createTime, descriptionProperty, format, kmsKeyName, labels, name,
-         updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Repository_Labels
-//
-
-@implementation GTLRArtifactRegistry_Repository_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_SetIamPolicyRequest
-//
-
-@implementation GTLRArtifactRegistry_SetIamPolicyRequest
-@dynamic policy;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRArtifactRegistry_Status
 //
 
@@ -478,74 +134,6 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"F
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Tag
-//
-
-@implementation GTLRArtifactRegistry_Tag
-@dynamic name, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_TestIamPermissionsRequest
-//
-
-@implementation GTLRArtifactRegistry_TestIamPermissionsRequest
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_TestIamPermissionsResponse
-//
-
-@implementation GTLRArtifactRegistry_TestIamPermissionsResponse
-@dynamic permissions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"permissions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRArtifactRegistry_Version
-//
-
-@implementation GTLRArtifactRegistry_Version
-@dynamic createTime, descriptionProperty, name, relatedTags, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"relatedTags" : [GTLRArtifactRegistry_Tag class]
-  };
-  return map;
 }
 
 @end

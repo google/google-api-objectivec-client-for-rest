@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Alert Center API (alertcenter/v1beta1)
+//   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
 //   Manages alerts on issues affecting your domain.
 // Documentation:
@@ -115,9 +115,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with. Inferred from the caller identity if
- *  not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert is associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -157,9 +157,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with. Inferred from the caller identity if
- *  not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert is associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -202,9 +202,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert feedback are associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert feedback are associated with. Inferred from the
+ *  caller identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -248,9 +248,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with. Inferred from the caller identity if
- *  not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert is associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -285,9 +285,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert metadata is associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert metadata is associated with. Inferred from the
+ *  caller identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -319,9 +319,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAlertCenter queryForAlertsList]
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alerts are associated with. Inferred from the caller identity
- *  if not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alerts are associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -422,9 +422,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAlertCenter queryForGetSettings]
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert settings are associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert settings are associated with. Inferred from the
+ *  caller identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -452,9 +452,9 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryAlertCenter queryForUpdateSettingsWithObject:]
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert settings are associated with. Inferred from the caller
- *  identity if not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert settings are associated with. Inferred from the
+ *  caller identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

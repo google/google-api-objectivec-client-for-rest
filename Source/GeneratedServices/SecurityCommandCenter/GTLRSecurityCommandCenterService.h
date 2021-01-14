@@ -7,7 +7,7 @@
 //   Security Command Center API provides access to temporal views of assets and
 //   findings within an organization.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview
+//   https://cloud.google.com/security-command-center
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

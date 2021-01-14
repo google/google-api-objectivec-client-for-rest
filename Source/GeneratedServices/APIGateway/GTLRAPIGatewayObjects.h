@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   API Gateway API (apigateway/v1beta)
+//   API Gateway API (apigateway/v1)
 // Documentation:
-//    https://cloud.google.com/api-gateway/docs
+//   https://cloud.google.com/api-gateway/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -27,12 +27,10 @@
 @class GTLRAPIGateway_ApiConfigOpenApiDocument;
 @class GTLRAPIGateway_AuditConfig;
 @class GTLRAPIGateway_AuditLogConfig;
-@class GTLRAPIGateway_BackendConfig;
 @class GTLRAPIGateway_Binding;
 @class GTLRAPIGateway_Expr;
 @class GTLRAPIGateway_Gateway;
 @class GTLRAPIGateway_Gateway_Labels;
-@class GTLRAPIGateway_GatewayConfig;
 @class GTLRAPIGateway_Location;
 @class GTLRAPIGateway_Location_Labels;
 @class GTLRAPIGateway_Location_Metadata;
@@ -210,7 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_StateUnspecifie
 FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 
 /**
- *  A consumable API that can be used by multiple Gateways.
+ *  An API that can be served by one or more Gateways.
  */
 @interface GTLRAPIGateway_Api : GTLRObject
 
@@ -292,11 +290,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Immutable. Gateway specific configuration. If not specified, backend
- *  authentication will be set to use OIDC authentication using the default
- *  compute service account.
+ *  Immutable. The Google Cloud IAM Service Account that Gateways serving this
+ *  config should use to authenticate to other services. This may either be the
+ *  Service Account's email (`{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com`)
+ *  or its full resource name (`projects/{PROJECT}/accounts/{UNIQUE_ID}`). This
+ *  is most often used when the service is a GCP resource such as a Cloud Run
+ *  Service or an IAP-secured service.
  */
-@property(nonatomic, strong, nullable) GTLRAPIGateway_GatewayConfig *gatewayConfig;
+@property(nonatomic, copy, nullable) NSString *gatewayServiceAccount;
 
 /**
  *  Optional. gRPC service definition files. If specified, openapi_documents
@@ -313,14 +314,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
 
 /**
  *  Optional. Service Configuration files. At least one must be included when
- *  using gRPC service definitions. See https:
- *  //cloud.google.com/endpoints/docs/grpc/g //
- *  rpc-service-config#service_configuration_overview for the expected file
- *  contents. If multiple files are specified, the files are merged with the
- *  following rules: * All singular scalar fields are merged using "last one
- *  wins" semantics in the order of the files uploaded. * Repeated fields are
- *  concatenated. * Singular embedded messages are merged using these rules for
- *  nested fields.
+ *  using gRPC service definitions. See
+ *  https://cloud.google.com/endpoints/docs/grpc/grpc-service-config#service_configuration_overview
+ *  for the expected file contents. If multiple files are specified, the files
+ *  are merged with the following rules: * All singular scalar fields are merged
+ *  using "last one wins" semantics in the order of the files uploaded. *
+ *  Repeated fields are concatenated. * Singular embedded messages are merged
+ *  using these rules for nested fields.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIGateway_ApiConfigFile *> *managedServiceConfigs;
 
@@ -503,31 +503,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *        case. Should never be this. (Value: "LOG_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *logType;
-
-@end
-
-
-/**
- *  Configuration for all backends.
- */
-@interface GTLRAPIGateway_BackendConfig : GTLRObject
-
-/**
- *  Google Cloud IAM service account used to sign OIDC tokens for backends that
- *  have authentication configured (https:
- *  //cloud.google.com/service-infrastructur //
- *  e/docs/service-management/reference/rest/v1/services.configs#backend). This
- *  may either be the Service Account's email (i.e.
- *  "{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com") or its full resource name
- *  (i.e. "projects/{PROJECT}/accounts/{UNIQUE_ID}"). This is most often used
- *  when the backend is a GCP resource such as a Cloud Run Service or an
- *  IAP-secured service. Note that this token is always sent as an authorization
- *  header bearer token. The audience of the OIDC token is configured in the
- *  associated Service Config in the BackendRule option (https:
- *  //github.com/googleapis/googleapis/blob/ //
- *  master/google/api/backend.proto#L125).
- */
-@property(nonatomic, copy, nullable) NSString *googleServiceAccount;
 
 @end
 
@@ -730,19 +705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGateway_Gateway_State_Updating;
  *        fetch them all at once.
  */
 @interface GTLRAPIGateway_Gateway_Labels : GTLRObject
-@end
-
-
-/**
- *  Configuration settings for Gateways.
- */
-@interface GTLRAPIGateway_GatewayConfig : GTLRObject
-
-/**
- *  Required. Backend settings that are applied to all backends of the Gateway.
- */
-@property(nonatomic, strong, nullable) GTLRAPIGateway_BackendConfig *backendConfig;
-
 @end
 
 

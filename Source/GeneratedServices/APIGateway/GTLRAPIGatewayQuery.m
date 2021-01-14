@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   API Gateway API (apigateway/v1beta)
+//   API Gateway API (apigateway/v1)
 // Documentation:
-//    https://cloud.google.com/api-gateway/docs
+//   https://cloud.google.com/api-gateway/docs
 
 #import "GTLRAPIGatewayQuery.h"
 
@@ -41,7 +41,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/configs";
+  NSString *pathURITemplate = @"v1/{+parent}/configs";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -61,7 +61,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -80,7 +80,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -103,7 +103,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -122,7 +122,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/configs";
+  NSString *pathURITemplate = @"v1/{+parent}/configs";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -148,7 +148,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -175,7 +175,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -202,7 +202,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -229,7 +229,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apis";
+  NSString *pathURITemplate = @"v1/{+parent}/apis";
   GTLRAPIGatewayQuery_ProjectsLocationsApisCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -249,7 +249,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -268,7 +268,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -291,7 +291,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsApisGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -310,7 +310,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/apis";
+  NSString *pathURITemplate = @"v1/{+parent}/apis";
   GTLRAPIGatewayQuery_ProjectsLocationsApisList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -336,7 +336,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsApisPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -363,7 +363,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsApisSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -390,7 +390,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRAPIGatewayQuery_ProjectsLocationsApisTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -417,7 +417,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/gateways";
+  NSString *pathURITemplate = @"v1/{+parent}/gateways";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -437,7 +437,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -456,7 +456,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -479,7 +479,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -498,7 +498,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/gateways";
+  NSString *pathURITemplate = @"v1/{+parent}/gateways";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -524,7 +524,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -551,7 +551,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -578,7 +578,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRAPIGatewayQuery_ProjectsLocationsGatewaysTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -598,7 +598,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -617,7 +617,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRAPIGatewayQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -643,7 +643,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRAPIGatewayQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -663,7 +663,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -682,7 +682,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRAPIGatewayQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -701,7 +701,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRAPIGatewayQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

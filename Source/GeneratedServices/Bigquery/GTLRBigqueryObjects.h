@@ -400,7 +400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeU
 // GTLRBigquery_Model.modelType
 
 /**
- *  [Beta] ARIMA model.
+ *  ARIMA model.
  *
  *  Value: "ARIMA"
  */
@@ -418,25 +418,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifie
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor;
 /**
- *  [Beta] Boosted tree classifier model.
+ *  Boosted tree classifier model.
  *
  *  Value: "BOOSTED_TREE_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier;
 /**
- *  [Beta] Boosted tree regressor model.
+ *  Boosted tree regressor model.
  *
  *  Value: "BOOSTED_TREE_REGRESSOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeRegressor;
 /**
- *  [Beta] DNN classifier model.
+ *  DNN classifier model.
  *
  *  Value: "DNN_CLASSIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_DnnClassifier;
 /**
- *  [Beta] DNN regressor model.
+ *  DNN regressor model.
  *
  *  Value: "DNN_REGRESSOR"
  */
@@ -468,7 +468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_MatrixFactoriza
 /** Value: "MODEL_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ModelTypeUnspecified;
 /**
- *  [Beta] An imported TensorFlow model.
+ *  An imported TensorFlow model.
  *
  *  Value: "TENSORFLOW"
  */
@@ -658,6 +658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_H
  *  Value: "MONTHLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Monthly;
+/**
+ *  Per-minute data.
+ *
+ *  Value: "PER_MINUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_PerMinute;
 /**
  *  Quarterly data.
  *
@@ -1179,7 +1185,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_HolidayRegion_Z
  *  Value: "CUSTOM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Custom;
-/** Value: "KMEANS_INITIALIZATION_METHOD_UNSPECIFIED" */
+/**
+ *  Unspecified initialization method.
+ *
+ *  Value: "KMEANS_INITIALIZATION_METHOD_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansInitializationMethodUnspecified;
 /**
  *  Initializes with kmeans++.
@@ -1885,8 +1895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_Binding : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
@@ -2203,7 +2211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_ClusteringMetrics : GTLRObject
 
-/** [Beta] Information for all clusters. */
+/** Information for all clusters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Cluster *> *clusters;
 
 /**
@@ -3134,9 +3142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** [Optional] Additional options if sourceFormat is set to GOOGLE_SHEETS. */
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
-/**
- *  [Optional, Trusted Tester] Options to configure hive partitioning support.
- */
+/** [Optional] Options to configure hive partitioning support. */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
@@ -3752,24 +3758,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
- *  [Trusted Tester] Defines the list of possible SQL data types to which the
- *  source decimal values are converted. This list and the precision and the
- *  scale parameters of the decimal field determine the target type. In the
- *  order of NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the
- *  specified list and if it supports the precision and the scale. STRING
- *  supports all precision and scale values. If none of the listed types
- *  supports the precision and the scale, the type supporting the widest range
- *  in the specified list is picked, and if a value exceeds the supported range
- *  when reading the data, an error will be thrown. For example: suppose
- *  decimal_target_type = ["NUMERIC", "BIGNUMERIC"]. Then if (precision,scale)
- *  is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30
- *  integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional
- *  digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC (error if value
- *  exeeds supported range). For duplicated types in this field, only one will
- *  be considered and the rest will be ignored. The order of the types in this
- *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
- *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
- *  BIGNUMERIC.
+ *  Defines the list of possible SQL data types to which the source decimal
+ *  values are converted. This list and the precision and the scale parameters
+ *  of the decimal field determine the target type. In the order of NUMERIC,
+ *  BIGNUMERIC ([Preview](/products/#product-launch-stages)), and STRING, a type
+ *  is picked if it is in the specified list and if it supports the precision
+ *  and the scale. STRING supports all precision and scale values. If none of
+ *  the listed types supports the precision and the scale, the type supporting
+ *  the widest range in the specified list is picked, and if a value exceeds the
+ *  supported range when reading the data, an error will be thrown. Example:
+ *  Suppose the value of this field is ["NUMERIC", "BIGNUMERIC"]. If
+ *  (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC
+ *  cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold
+ *  10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC
+ *  (error if value exeeds supported range). This field cannot contain duplicate
+ *  types. The order of the types in this field is ignored. For example,
+ *  ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC", "BIGNUMERIC"] and
+ *  NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
+ *  "STRING"] for ORC and ["NUMERIC"] for the other file formats.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
@@ -3804,9 +3810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
-/**
- *  [Optional, Trusted Tester] Options to configure hive partitioning support.
- */
+/** [Optional] Options to configure hive partitioning support. */
 @property(nonatomic, strong, nullable) GTLRBigquery_HivePartitioningOptions *hivePartitioningOptions;
 
 /**
@@ -3821,6 +3825,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ignoreUnknownValues;
+
+/**
+ *  [Optional] If sourceFormat is set to newline-delimited JSON, indicates
+ *  whether it should be processed as a JSON variant such as GeoJSON. For a
+ *  sourceFormat other than JSON, omit this field. If the sourceFormat is
+ *  newline-delimited JSON: - for newline-delimited GeoJSON: set to GEOJSON.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonExtension;
 
 /**
  *  [Optional] The maximum number of bad records that BigQuery can ignore when
@@ -4960,20 +4972,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Output only. Type of the model resource.
  *
  *  Likely values:
- *    @arg @c kGTLRBigquery_Model_ModelType_Arima [Beta] ARIMA model. (Value:
- *        "ARIMA")
+ *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier [Beta] AutoML
  *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor [Beta] AutoML Tables
  *        regression model. (Value: "AUTOML_REGRESSOR")
- *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier [Beta] Boosted
- *        tree classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeRegressor [Beta] Boosted
- *        tree regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
- *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier [Beta] DNN classifier
- *        model. (Value: "DNN_CLASSIFIER")
- *    @arg @c kGTLRBigquery_Model_ModelType_DnnRegressor [Beta] DNN regressor
- *        model. (Value: "DNN_REGRESSOR")
+ *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeClassifier Boosted tree
+ *        classifier model. (Value: "BOOSTED_TREE_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_BoostedTreeRegressor Boosted tree
+ *        regressor model. (Value: "BOOSTED_TREE_REGRESSOR")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnClassifier DNN classifier model.
+ *        (Value: "DNN_CLASSIFIER")
+ *    @arg @c kGTLRBigquery_Model_ModelType_DnnRegressor DNN regressor model.
+ *        (Value: "DNN_REGRESSOR")
  *    @arg @c kGTLRBigquery_Model_ModelType_Kmeans K-means clustering model.
  *        (Value: "KMEANS")
  *    @arg @c kGTLRBigquery_Model_ModelType_LinearRegression Linear regression
@@ -4984,8 +4995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        factorization model. (Value: "MATRIX_FACTORIZATION")
  *    @arg @c kGTLRBigquery_Model_ModelType_ModelTypeUnspecified Value
  *        "MODEL_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRBigquery_Model_ModelType_Tensorflow [Beta] An imported
- *        TensorFlow model. (Value: "TENSORFLOW")
+ *    @arg @c kGTLRBigquery_Model_ModelType_Tensorflow An imported TensorFlow
+ *        model. (Value: "TENSORFLOW")
  */
 @property(nonatomic, copy, nullable) NSString *modelType;
 
@@ -5790,7 +5801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *medianAbsoluteError;
 
 /**
- *  R^2 score.
+ *  R^2 score. This corresponds to r2_score in ML.EVALUATE.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -6642,10 +6653,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /**
  *  [Required] The field data type. Possible values include STRING, BYTES,
- *  INTEGER, INT64 (same as INTEGER), FLOAT, FLOAT64 (same as FLOAT), BOOLEAN,
- *  BOOL (same as BOOLEAN), TIMESTAMP, DATE, TIME, DATETIME, RECORD (where
- *  RECORD indicates that the field contains a nested schema) or STRUCT (same as
- *  RECORD).
+ *  INTEGER, INT64 (same as INTEGER), FLOAT, FLOAT64 (same as FLOAT), NUMERIC,
+ *  BIGNUMERIC, BOOLEAN, BOOL (same as BOOLEAN), TIMESTAMP, DATE, TIME,
+ *  DATETIME, RECORD (where RECORD indicates that the field contains a nested
+ *  schema) or STRUCT (same as RECORD).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6923,7 +6934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  GTLRBigquery_TrainingOptions
+ *  Options used in model training.
  */
 @interface GTLRBigquery_TrainingOptions : GTLRObject
 
@@ -6962,6 +6973,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        (Value: "HOURLY")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Monthly Monthly data.
  *        (Value: "MONTHLY")
+ *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_PerMinute Per-minute
+ *        data. (Value: "PER_MINUTE")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Quarterly Quarterly
  *        data. (Value: "QUARTERLY")
  *    @arg @c kGTLRBigquery_TrainingOptions_DataFrequency_Weekly Weekly data.
@@ -7242,7 +7255,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        Initializes the centroids using data specified in
  *        kmeans_initialization_column. (Value: "CUSTOM")
  *    @arg @c kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansInitializationMethodUnspecified
- *        Value "KMEANS_INITIALIZATION_METHOD_UNSPECIFIED"
+ *        Unspecified initialization method. (Value:
+ *        "KMEANS_INITIALIZATION_METHOD_UNSPECIFIED")
  *    @arg @c kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_KmeansPlusPlus
  *        Initializes with kmeans++. (Value: "KMEANS_PLUS_PLUS")
  *    @arg @c kGTLRBigquery_TrainingOptions_KmeansInitializationMethod_Random
@@ -7334,8 +7348,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *minSplitLoss;
 
 /**
- *  [Beta] Google Cloud Storage URI from which the model was imported. Only
- *  applicable for imported models.
+ *  Google Cloud Storage URI from which the model was imported. Only applicable
+ *  for imported models.
  */
 @property(nonatomic, copy, nullable) NSString *modelUri;
 

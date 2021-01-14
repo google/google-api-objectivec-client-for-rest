@@ -47,7 +47,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsMa
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly;
 /**
- *  Authorization scope: View your Google Analytics data
+ *  Authorization scope: See and download your Google Analytics data
  *
  *  Value "https://www.googleapis.com/auth/analytics.readonly"
  */

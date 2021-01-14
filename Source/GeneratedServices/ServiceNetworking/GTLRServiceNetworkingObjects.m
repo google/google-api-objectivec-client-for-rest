@@ -443,7 +443,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
          consumerImportCustomRoutes, consumerImportSubnetRoutesWithPublicIp,
          producerExportCustomRoutes, producerExportSubnetRoutesWithPublicIp,
          producerImportCustomRoutes, producerImportSubnetRoutesWithPublicIp,
-         producerNetwork, reservedRanges;
+         producerNetwork, reservedRanges, vpcScReferenceArchitectureEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1283,12 +1283,14 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_RangeReservation
-@dynamic ipPrefixLength, requestedRanges, secondaryRangeIpPrefixLengths;
+@dynamic ipPrefixLength, requestedRanges, secondaryRangeIpPrefixLengths,
+         subnetworkCandidates;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"requestedRanges" : [NSString class],
-    @"secondaryRangeIpPrefixLengths" : [NSNumber class]
+    @"secondaryRangeIpPrefixLengths" : [NSNumber class],
+    @"subnetworkCandidates" : [GTLRServiceNetworking_Subnetwork class]
   };
   return map;
 }
@@ -1510,7 +1512,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Subnetwork
-@dynamic ipCidrRange, name, network, outsideAllocation, secondaryIpRanges;
+@dynamic ipCidrRange, name, network, outsideAllocation, region,
+         secondaryIpRanges;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1667,5 +1670,13 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_ValidateConsumerConfigResponse
-@dynamic isValid, validationError;
+@dynamic existingSubnetworkCandidates, isValid, validationError;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"existingSubnetworkCandidates" : [GTLRServiceNetworking_Subnetwork class]
+  };
+  return map;
+}
+
 @end

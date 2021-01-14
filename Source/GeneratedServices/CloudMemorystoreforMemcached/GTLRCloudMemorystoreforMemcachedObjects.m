@@ -263,7 +263,8 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
-@dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
+@dynamic canReschedule, endTime, rolloutManagementPolicy, scheduleDeadlineTime,
+         startTime;
 @end
 
 

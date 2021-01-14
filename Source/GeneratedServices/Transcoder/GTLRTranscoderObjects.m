@@ -297,7 +297,7 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 @implementation GTLRTranscoder_Job
 @dynamic config, createTime, endTime, failureDetails, failureReason, inputUri,
          name, originUri, outputUri, priority, progress, startTime, state,
-         templateId;
+         templateId, ttlAfterCompletionDays;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

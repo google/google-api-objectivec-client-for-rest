@@ -133,8 +133,6 @@
 @class GTLRYouTube_ResourceId;
 @class GTLRYouTube_SearchResult;
 @class GTLRYouTube_SearchResultSnippet;
-@class GTLRYouTube_Sponsor;
-@class GTLRYouTube_SponsorSnippet;
 @class GTLRYouTube_Subscription;
 @class GTLRYouTube_SubscriptionContentDetails;
 @class GTLRYouTube_SubscriptionSnippet;
@@ -10689,100 +10687,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  A `__sponsor__` resource represents a sponsor for a YouTube channel. A
- *  sponsor provides recurring monetary support to a creator and receives
- *  special benefits.
- */
-@interface GTLRYouTube_Sponsor : GTLRObject
-
-/** Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  `"youtube#sponsor"`.
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The `snippet` object contains basic details about the sponsor. */
-@property(nonatomic, strong, nullable) GTLRYouTube_SponsorSnippet *snippet;
-
-@end
-
-
-/**
- *  GTLRYouTube_SponsorListResponse
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRYouTube_SponsorListResponse : GTLRCollectionObject
-
-/** Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
-
-/**
- *  A list of sponsors that match the request criteria.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_Sponsor *> *items;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  `"youtube#sponsorListResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The token that can be used as the value of the `pageToken` parameter to
- *  retrieve the next page in the result set.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
-@property(nonatomic, strong, nullable) GTLRYouTube_TokenPagination *tokenPagination;
-
-/** The `visitorId` identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
-
-@end
-
-
-/**
- *  GTLRYouTube_SponsorSnippet
- */
-@interface GTLRYouTube_SponsorSnippet : GTLRObject
-
-/** The id of the channel being sponsored. */
-@property(nonatomic, copy, nullable) NSString *channelId;
-
-/**
- *  The cumulative time a user has been a sponsor in months.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cumulativeDurationMonths;
-
-/** Details about the sponsor. */
-@property(nonatomic, strong, nullable) GTLRYouTube_ChannelProfileDetails *sponsorDetails;
-
-/**
- *  The date and time when the user became a sponsor. The value is specified in
- *  ISO 8601 (`YYYY-MM-DDThh:mm:ss.sZ`) format.
- */
-@property(nonatomic, copy, nullable) NSString *sponsorSince;
-
-@end
-
-
-/**
  *  A *subscription* resource contains information about a YouTube user
  *  subscription. A subscription notifies a user when new videos are added to a
  *  channel or when another user takes one of several actions on YouTube, such
@@ -11427,7 +11331,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The projectDetails object contains information about the project specific
- *  video metadata.
+ *  video metadata. b/157517979: This part was never populated after it was
+ *  added. However, it sees non-zero traffic because there is generated client
+ *  code in the wild that refers to it [1]. We keep this field and do NOT remove
+ *  it because otherwise V3 would return an error when this part gets requested
+ *  [2]. [1]
+ *  https://developers.google.com/resources/api-libraries/documentation/youtube/v3/csharp/latest/classGoogle_1_1Apis_1_1YouTube_1_1v3_1_1Data_1_1VideoProjectDetails.html
+ *  [2]
+ *  http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoProjectDetails *projectDetails;
 
@@ -12348,13 +12259,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
- *  Project specific details about the content of a YouTube Video.
+ *  DEPRECATED. b/157517979: This part was never populated after it was added.
+ *  However, it sees non-zero traffic because there is generated client code in
+ *  the wild that refers to it [1]. We keep this field and do NOT remove it
+ *  because otherwise V3 would return an error when this part gets requested
+ *  [2]. [1]
+ *  https://developers.google.com/resources/api-libraries/documentation/youtube/v3/csharp/latest/classGoogle_1_1Apis_1_1YouTube_1_1v3_1_1Data_1_1VideoProjectDetails.html
+ *  [2]
+ *  http://google3/video/youtube/src/python/servers/data_api/common.py?l=1565-1569&rcl=344141677
  */
 @interface GTLRYouTube_VideoProjectDetails : GTLRObject
-
-/** A list of project tags associated with the video during the upload. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
-
 @end
 
 

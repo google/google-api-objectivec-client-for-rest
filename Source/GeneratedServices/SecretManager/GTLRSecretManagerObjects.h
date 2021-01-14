@@ -739,6 +739,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Timestamp in UTC when the Secret is scheduled to expire. This is
+ *  always provided on output, regardless of what was sent on input.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
  *  The labels assigned to this Secret. Label keys must be between 1 and 63
  *  characters long, have a UTF-8 encoding of maximum 128 bytes, and must
  *  conform to the following PCRE regular expression: `\\p{Ll}\\p{Lo}{0,62}`
@@ -761,6 +767,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  been created.
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Replication *replication;
+
+/** Input only. The TTL for the Secret. */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
 @end
 

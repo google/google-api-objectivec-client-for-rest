@@ -22,12 +22,14 @@
 
 @class GTLRShoppingContent_Account;
 @class GTLRShoppingContent_AccountLabel;
+@class GTLRShoppingContent_AccountReturnCarrier;
 @class GTLRShoppingContent_AccountsCustomBatchRequest;
 @class GTLRShoppingContent_AccountsLinkRequest;
 @class GTLRShoppingContent_AccountstatusesCustomBatchRequest;
 @class GTLRShoppingContent_AccountsUpdateLabelsRequest;
 @class GTLRShoppingContent_AccountTax;
 @class GTLRShoppingContent_AccounttaxCustomBatchRequest;
+@class GTLRShoppingContent_Collection;
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedsCustomBatchRequest;
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchRequest;
@@ -717,6 +719,159 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Links return carrier to a merchant account.
+ *
+ *  Method: content.accounts.returncarrier.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsReturncarrierCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsReturncarrierCreateWithObject:accountId:]
+
+/**
+ *  Required. The Merchant Center Account Id under which the Return Carrier is
+ *  to be linked.
+ */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountReturnCarrier.
+ *
+ *  Links return carrier to a merchant account.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountReturnCarrier to include in
+ *    the query.
+ *  @param accountId Required. The Merchant Center Account Id under which the
+ *    Return Carrier is to be linked.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsReturncarrierCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountReturnCarrier *)object
+                      accountId:(long long)accountId;
+
+@end
+
+/**
+ *  Delete a return carrier in the merchant account.
+ *
+ *  Method: content.accounts.returncarrier.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsReturncarrierDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsReturncarrierDeleteWithaccountId:carrierAccountId:]
+
+/**
+ *  Required. The Merchant Center Account Id under which the Return Carrier is
+ *  to be linked.
+ */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. The Google-provided unique carrier ID, used to update the
+ *  resource.
+ */
+@property(nonatomic, assign) long long carrierAccountId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Delete a return carrier in the merchant account.
+ *
+ *  @param accountId Required. The Merchant Center Account Id under which the
+ *    Return Carrier is to be linked.
+ *  @param carrierAccountId Required. The Google-provided unique carrier ID,
+ *    used to update the resource.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsReturncarrierDelete
+ */
++ (instancetype)queryWithAccountId:(long long)accountId
+                  carrierAccountId:(long long)carrierAccountId;
+
+@end
+
+/**
+ *  Lists available return carriers in the merchant account.
+ *
+ *  Method: content.accounts.returncarrier.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsReturncarrierList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsReturncarrierListWithaccountId:]
+
+/**
+ *  Required. The Merchant Center Account Id under which the Return Carrier is
+ *  to be linked.
+ */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListAccountReturnCarrierResponse.
+ *
+ *  Lists available return carriers in the merchant account.
+ *
+ *  @param accountId Required. The Merchant Center Account Id under which the
+ *    Return Carrier is to be linked.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsReturncarrierList
+ */
++ (instancetype)queryWithAccountId:(long long)accountId;
+
+@end
+
+/**
+ *  Updates a return carrier in the merchant account.
+ *
+ *  Method: content.accounts.returncarrier.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsReturncarrierPatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsReturncarrierPatchWithObject:accountId:carrierAccountId:]
+
+/**
+ *  Required. The Merchant Center Account Id under which the Return Carrier is
+ *  to be linked.
+ */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. The Google-provided unique carrier ID, used to update the
+ *  resource.
+ */
+@property(nonatomic, assign) long long carrierAccountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountReturnCarrier.
+ *
+ *  Updates a return carrier in the merchant account.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountReturnCarrier to include in
+ *    the query.
+ *  @param accountId Required. The Merchant Center Account Id under which the
+ *    Return Carrier is to be linked.
+ *  @param carrierAccountId Required. The Google-provided unique carrier ID,
+ *    used to update the resource.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsReturncarrierPatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountReturnCarrier *)object
+                      accountId:(long long)accountId
+               carrierAccountId:(long long)carrierAccountId;
+
+@end
+
+/**
  *  Retrieves multiple Merchant Center account statuses in a single request.
  *
  *  Method: content.accountstatuses.custombatch
@@ -1065,6 +1220,266 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountTax *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Uploads a collection to your Merchant Center account. If a collection with
+ *  the same collectionId already exists, this method updates that entry. In
+ *  each update, the collection is completely replaced by the fields in the body
+ *  of the update request.
+ *
+ *  Method: content.collections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionsCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionsCreateWithObject:merchantId:]
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Collection.
+ *
+ *  Uploads a collection to your Merchant Center account. If a collection with
+ *  the same collectionId already exists, this method updates that entry. In
+ *  each update, the collection is completely replaced by the fields in the body
+ *  of the update request.
+ *
+ *  @param object The @c GTLRShoppingContent_Collection to include in the query.
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Collection *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Deletes a collection from your Merchant Center account.
+ *
+ *  Method: content.collections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionsDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionsDeleteWithmerchantId:collectionId:]
+
+/**
+ *  Required. The collectionId of the collection. CollectionId is the same as
+ *  the REST ID of the collection.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes a collection from your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *  @param collectionId Required. The collectionId of the collection.
+ *    CollectionId is the same as the REST ID of the collection.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionsDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                       collectionId:(NSString *)collectionId;
+
+@end
+
+/**
+ *  Retrieves a collection from your Merchant Center account.
+ *
+ *  Method: content.collections.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionsGetWithmerchantId:collectionId:]
+
+/** Required. The REST ID of the collection. */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Collection.
+ *
+ *  Retrieves a collection from your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *  @param collectionId Required. The REST ID of the collection.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionsGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                       collectionId:(NSString *)collectionId;
+
+@end
+
+/**
+ *  Lists the collections in your Merchant Center account. The response might
+ *  contain fewer items than specified by page_size. Rely on next_page_token to
+ *  determine if there are more items to be requested.
+ *
+ *  Method: content.collections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionsListWithmerchantId:]
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of collections to return in the response, used for
+ *  paging. Defaults to 50; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token (if provided) to retrieve the subsequent page. All other parameters
+ *  must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListCollectionsResponse.
+ *
+ *  Lists the collections in your Merchant Center account. The response might
+ *  contain fewer items than specified by page_size. Rely on next_page_token to
+ *  determine if there are more items to be requested.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Gets the status of a collection from your Merchant Center account.
+ *
+ *  Method: content.collectionstatuses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionstatusesGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionstatusesGetWithmerchantId:collectionId:]
+
+/**
+ *  Required. The collectionId of the collection. CollectionId is the same as
+ *  the REST ID of the collection.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_CollectionStatus.
+ *
+ *  Gets the status of a collection from your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *  @param collectionId Required. The collectionId of the collection.
+ *    CollectionId is the same as the REST ID of the collection.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionstatusesGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                       collectionId:(NSString *)collectionId;
+
+@end
+
+/**
+ *  Lists the statuses of the collections in your Merchant Center account.
+ *
+ *  Method: content.collectionstatuses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_CollectionstatusesList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForCollectionstatusesListWithmerchantId:]
+
+/**
+ *  Required. The ID of the account that contains the collection. This account
+ *  cannot be a multi-client account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The maximum number of collection statuses to return in the response, used
+ *  for paging. Defaults to 50; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token (if provided) to retrieve the subsequent page. All other parameters
+ *  must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListCollectionStatusesResponse.
+ *
+ *  Lists the statuses of the collections in your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account that contains the
+ *    collection. This account cannot be a multi-client account.
+ *
+ *  @return GTLRShoppingContentQuery_CollectionstatusesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
 
 @end
 
@@ -4107,6 +4522,83 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Lists the metrics report for a given Repricing product. Reports of the last
+ *  3 days may not be complete.
+ *
+ *  Method: content.productstatuses.repricingreports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ProductstatusesRepricingreportsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForProductstatusesRepricingreportsListWithmerchantId:productId:]
+
+/**
+ *  Gets Repricing reports on and before this date in the merchant's timezone.
+ *  You can only retrieve data up to 3 days ago (default) or earlier. Format is
+ *  YYYY-MM-DD.
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/** Required. Id of the merchant who owns the Repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Maximum number of days of reports to return. There can be more than one rule
+ *  report returned per day. For example, if 3 rule types got applied to the
+ *  same product within a 24-hour period, then a page_size of 1 will return 3
+ *  rule reports. The page size defaults to 50 and values above 1000 are coerced
+ *  to 1000. This service may return fewer days of reports than this value, for
+ *  example, if the time between your start and end date is less than the page
+ *  size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token (if provided) to retrieve the subsequent page. All other parameters
+ *  must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Id of the Repricing product. Also known as the
+ *  [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/** Id of the Repricing rule. If specified, only gets this rule's reports. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Gets Repricing reports on and after this date in the merchant's timezone, up
+ *  to one year ago. Do not use a start date later than 3 days ago (default).
+ *  Format is YYYY-MM-DD.
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListRepricingProductReportsResponse.
+ *
+ *  Lists the metrics report for a given Repricing product. Reports of the last
+ *  3 days may not be complete.
+ *
+ *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
+ *  @param productId Required. Id of the Repricing product. Also known as the
+ *    [REST_ID](https://developers.google.com/shopping-content/reference/rest/v2.1/products#Product.FIELDS.id)
+ *
+ *  @return GTLRShoppingContentQuery_ProductstatusesRepricingreportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                          productId:(NSString *)productId;
+
+@end
+
+/**
  *  Retrieves a Merchant Center account's pubsub notification settings.
  *
  *  Method: content.pubsubnotificationsettings.get
@@ -4639,6 +5131,73 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_RepricingRule *)object
                      merchantId:(long long)merchantId
                          ruleId:(NSString *)ruleId;
+
+@end
+
+/**
+ *  Lists the metrics report for a given Repricing rule. Reports of the last 3
+ *  days may not be complete.
+ *
+ *  Method: content.repricingrules.repricingreports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_RepricingrulesRepricingreportsList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForRepricingrulesRepricingreportsListWithmerchantId:ruleId:]
+
+/**
+ *  Gets Repricing reports on and before this date in the merchant's timezone.
+ *  You can only retrieve data up to 3 days ago (default) or earlier. Format:
+ *  YYYY-MM-DD.
+ */
+@property(nonatomic, copy, nullable) NSString *endDate;
+
+/** Required. Id of the merchant who owns the Repricing rule. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Maximum number of daily reports to return. Each report includes data from a
+ *  single 24-hour period. The page size defaults to 50 and values above 1000
+ *  are coerced to 1000. This service may return fewer days than this value, for
+ *  example, if the time between your start and end date is less than page size.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Token (if provided) to retrieve the subsequent page. All other parameters
+ *  must match the original call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Id of the Repricing rule. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Gets Repricing reports on and after this date in the merchant's timezone, up
+ *  to one year ago. Do not use a start date later than 3 days ago (default).
+ *  Format: YYYY-MM-DD.
+ */
+@property(nonatomic, copy, nullable) NSString *startDate;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListRepricingRuleReportsResponse.
+ *
+ *  Lists the metrics report for a given Repricing rule. Reports of the last 3
+ *  days may not be complete.
+ *
+ *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
+ *  @param ruleId Required. Id of the Repricing rule.
+ *
+ *  @return GTLRShoppingContentQuery_RepricingrulesRepricingreportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                             ruleId:(NSString *)ruleId;
 
 @end
 

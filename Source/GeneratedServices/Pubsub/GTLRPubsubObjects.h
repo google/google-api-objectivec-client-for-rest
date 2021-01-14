@@ -1134,6 +1134,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Reserved for future use. This field is set only in responses from the
+ *  server; it is ignored if it is set in any requests.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
 @end
 
 

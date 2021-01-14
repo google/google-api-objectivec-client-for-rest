@@ -49,6 +49,7 @@
 @class GTLRCloudFilestore_MaintenancePolicy_Labels;
 @class GTLRCloudFilestore_MaintenanceWindow;
 @class GTLRCloudFilestore_NetworkConfig;
+@class GTLRCloudFilestore_NfsExportOptions;
 @class GTLRCloudFilestore_Operation;
 @class GTLRCloudFilestore_Operation_Metadata;
 @class GTLRCloudFilestore_Operation_Response;
@@ -315,6 +316,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_Addre
  *  Value: "MODE_IPV4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_NfsExportOptions.accessMode
+
+/**
+ *  AccessMode not set.
+ *
+ *  Value: "ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_AccessModeUnspecified;
+/**
+ *  The client can only read the file share.
+ *
+ *  Value: "READ_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadOnly;
+/**
+ *  The client can read and write the file share (default).
+ *
+ *  Value: "READ_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadWrite;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFilestore_NfsExportOptions.squashMode
+
+/**
+ *  The Root user has root access to the file share (default).
+ *
+ *  Value: "NO_ROOT_SQUASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_NoRootSquash;
+/**
+ *  The Root user has squashed access to the anonymous uid/gid.
+ *
+ *  Value: "ROOT_SQUASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_RootSquash;
+/**
+ *  SquashMode not set.
+ *
+ *  Value: "SQUASH_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_Schedule.day
@@ -628,6 +673,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /** The name of the file share (must be 16 characters or less). */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Nfs Export Options. There is a limit of 10 export options per file share.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NfsExportOptions *> *nfsExportOptions;
 
 /**
  *  The resource name of the backup, in the format
@@ -1457,6 +1507,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  Filestore instances in the selected VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *reservedIpRange;
+
+@end
+
+
+/**
+ *  NFS export options specifications.
+ */
+@interface GTLRCloudFilestore_NfsExportOptions : GTLRObject
+
+/**
+ *  Either READ_ONLY, for allowing only read requests on the exported directory,
+ *  or READ_WRITE, for allowing both read and write requests. The default is
+ *  READ_WRITE.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_AccessMode_AccessModeUnspecified
+ *        AccessMode not set. (Value: "ACCESS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadOnly The
+ *        client can only read the file share. (Value: "READ_ONLY")
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadWrite The
+ *        client can read and write the file share (default). (Value:
+ *        "READ_WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *accessMode;
+
+/**
+ *  An integer representing the anonymous group id with a default value of
+ *  65534. Anon_gid may only be set with squash_mode of ROOT_SQUASH. An error
+ *  will be returned if this field is specified for other squash_mode settings.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonGid;
+
+/**
+ *  An integer representing the anonymous user id with a default value of 65534.
+ *  Anon_uid may only be set with squash_mode of ROOT_SQUASH. An error will be
+ *  returned if this field is specified for other squash_mode settings.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *anonUid;
+
+/**
+ *  List of either an IPv4 addresses in the format {octet 1}.{octet 2}.{octet
+ *  3}.{octet 4} or CIDR ranges in the format {octet 1}.{octet 2}.{octet
+ *  3}.{octet 4}/{mask size} which may mount the file share. Overlapping IP
+ *  ranges are not allowed, both within and across NfsExportOptions. An error
+ *  will be returned. The limit is 64 IP ranges/addresses for each
+ *  FileShareConfig among all NfsExportOptions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipRanges;
+
+/**
+ *  Either NO_ROOT_SQUASH, for allowing root access on the exported directory,
+ *  or ROOT_SQUASH, for not allowing root access. The default is NO_ROOT_SQUASH.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_SquashMode_NoRootSquash The
+ *        Root user has root access to the file share (default). (Value:
+ *        "NO_ROOT_SQUASH")
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_SquashMode_RootSquash The
+ *        Root user has squashed access to the anonymous uid/gid. (Value:
+ *        "ROOT_SQUASH")
+ *    @arg @c kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspecified
+ *        SquashMode not set. (Value: "SQUASH_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *squashMode;
 
 @end
 

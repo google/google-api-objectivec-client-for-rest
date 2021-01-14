@@ -1143,11 +1143,11 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *  with an OAuth 2.0 token that includes at least one of the scopes listed in
  *  the [Authorization](#authorization-scopes) section; script projects that do
  *  not require authorization cannot be executed through this API. To find the
- *  correct scopes to include in the authentication token, open the project in
- *  the script editor, then select **File > Project properties** and click the
- *  **Scopes** tab. The error `403, PERMISSION_DENIED: The caller does not have
- *  permission` indicates that the Cloud Platform project used to authorize the
- *  request is not the same as the one used by the script.
+ *  correct scopes to include in the authentication token, open the script
+ *  project **Overview** page and scroll down to "Project OAuth Scopes." The
+ *  error `403, PERMISSION_DENIED: The caller does not have permission`
+ *  indicates that the Cloud Platform project used to authorize the request is
+ *  not the same as the one used by the script.
  *
  *  Method: script.scripts.run
  *
@@ -1170,8 +1170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
 //   +[GTLQueryScript queryForScriptsRunWithObject:scriptId:]
 
 /**
- *  The script ID of the script to be executed. To find the script ID, open the
- *  project in the script editor and select **File > Project properties**.
+ *  The script ID of the script to be executed. Find the script ID on the
+ *  **Project settings** page under "IDs."
  */
 @property(nonatomic, copy, nullable) NSString *scriptId;
 
@@ -1184,16 +1184,15 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *  with an OAuth 2.0 token that includes at least one of the scopes listed in
  *  the [Authorization](#authorization-scopes) section; script projects that do
  *  not require authorization cannot be executed through this API. To find the
- *  correct scopes to include in the authentication token, open the project in
- *  the script editor, then select **File > Project properties** and click the
- *  **Scopes** tab. The error `403, PERMISSION_DENIED: The caller does not have
- *  permission` indicates that the Cloud Platform project used to authorize the
- *  request is not the same as the one used by the script.
+ *  correct scopes to include in the authentication token, open the script
+ *  project **Overview** page and scroll down to "Project OAuth Scopes." The
+ *  error `403, PERMISSION_DENIED: The caller does not have permission`
+ *  indicates that the Cloud Platform project used to authorize the request is
+ *  not the same as the one used by the script.
  *
  *  @param object The @c GTLRScript_ExecutionRequest to include in the query.
- *  @param scriptId The script ID of the script to be executed. To find the
- *    script ID, open the project in the script editor and select **File >
- *    Project properties**.
+ *  @param scriptId The script ID of the script to be executed. Find the script
+ *    ID on the **Project settings** page under "IDs."
  *
  *  @return GTLRScriptQuery_ScriptsRun
  */

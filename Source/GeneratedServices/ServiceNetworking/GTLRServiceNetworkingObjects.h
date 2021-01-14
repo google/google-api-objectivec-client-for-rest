@@ -84,6 +84,7 @@
 @class GTLRServiceNetworking_SourceInfo_SourceFiles_Item;
 @class GTLRServiceNetworking_Status;
 @class GTLRServiceNetworking_Status_Details_Item;
+@class GTLRServiceNetworking_Subnetwork;
 @class GTLRServiceNetworking_SystemParameter;
 @class GTLRServiceNetworking_SystemParameterRule;
 @class GTLRServiceNetworking_SystemParameters;
@@ -1490,6 +1491,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_GoogleCloudServicenetworkingV1ConsumerConfigReservedRange *> *reservedRanges;
 
+/**
+ *  Output only. Indicates whether the VPC Service Controls reference
+ *  architecture is configured for the producer VPC host network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vpcScReferenceArchitectureEnabled;
+
 @end
 
 
@@ -1848,14 +1857,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 
 /**
- *  `Endpoint` describes a network endpoint that serves a set of APIs. A service
- *  may expose any number of endpoints, and all endpoints share the same service
- *  configuration, such as quota configuration and monitoring configuration.
- *  Example service configuration: name: library-example.googleapis.com
- *  endpoints: # Below entry makes 'google.example.library.v1.Library' # API be
- *  served from endpoint address library-example.googleapis.com. # It also
- *  allows HTTP OPTIONS calls to be passed to the backend, for # it to decide
- *  whether the subsequent cross-origin request is # allowed to proceed. - name:
+ *  `Endpoint` describes a network endpoint of a service that serves a set of
+ *  APIs. It is commonly known as a service endpoint. A service may expose any
+ *  number of service endpoints, and all service endpoints share the same
+ *  service definition, such as quota limits and monitoring metrics. Example
+ *  service configuration: name: library-example.googleapis.com endpoints: #
+ *  Below entry makes 'google.example.library.v1.Library' # API be served from
+ *  endpoint address library-example.googleapis.com. # It also allows HTTP
+ *  OPTIONS calls to be passed to the backend, for # it to decide whether the
+ *  subsequent cross-origin request is # allowed to proceed. - name:
  *  library-example.googleapis.com allow_cors: true
  */
 @interface GTLRServiceNetworking_Endpoint : GTLRObject
@@ -3538,15 +3548,22 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requestedRanges;
 
 /**
- *  Optional. DO NOT USE - Under development. The size of the desired secondary
- *  ranges for the subnet. Use usual CIDR range notation. For example, '30' to
- *  find unused x.x.x.x/30 CIDR range. The goal is to determine that the
- *  allocated ranges have enough free space for all the requested secondary
- *  ranges.
+ *  Optional. The size of the desired secondary ranges for the subnet. Use usual
+ *  CIDR range notation. For example, '30' to find unused x.x.x.x/30 CIDR range.
+ *  The goal is to determine that the allocated ranges have enough free space
+ *  for all the requested secondary ranges.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *secondaryRangeIpPrefixLengths;
+
+/**
+ *  Optional. List of subnetwork candidates to validate. The required input
+ *  fields are `name`, `network`, and `region`. Subnetworks from this list which
+ *  exist will be returned in the response with the `ip_cidr_range`,
+ *  `secondary_ip_cider_ranges`, and `outside_allocation` fields set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Subnetwork *> *subnetworkCandidates;
 
 @end
 
@@ -3993,6 +4010,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, strong, nullable) NSNumber *outsideAllocation;
 
+/** GCP region where the subnetwork is located. */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** List of secondary IP ranges in this subnetwork. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_SecondaryIpRange *> *secondaryIpRanges;
 
@@ -4183,7 +4203,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /**
  *  Requirements that must be satisfied before a consumer project can use the
  *  service. Each requirement is of the form /; for example
- *  'serviceusage.googleapis.com/billing-enabled'.
+ *  'serviceusage.googleapis.com/billing-enabled'. For Google APIs, a Terms of
+ *  Service requirement must be included here. Google Cloud APIs must include
+ *  "serviceusage.googleapis.com/tos/cloud". Other Google APIs should include
+ *  "serviceusage.googleapis.com/tos/universal". Additional ToS can be included
+ *  based on the business needs.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requirements;
 
@@ -4283,14 +4307,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @interface GTLRServiceNetworking_ValidateConsumerConfigResponse : GTLRObject
 
 /**
- *  isValid
+ *  List of subnetwork candidates from the request which exist with the
+ *  `ip_cidr_range`, `secondary_ip_cider_ranges`, and `outside_allocation`
+ *  fields set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Subnetwork *> *existingSubnetworkCandidates;
+
+/**
+ *  Indicates whether all the requested validations passed.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isValid;
 
 /**
- *  validationError
+ *  The first validation which failed.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_ValidateConsumerConfigResponse_ValidationError_ComputeApiNotEnabled

@@ -34,7 +34,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.encodedRequest = encodedRequest;
-  query.expectedObjectClass = [GTLRSafebrowsing_FindFullHashesResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse class];
   query.loggingName = @"safebrowsing.encodedFullHashes.get";
   return query;
 }
@@ -53,7 +53,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.encodedRequest = encodedRequest;
-  query.expectedObjectClass = [GTLRSafebrowsing_FetchThreatListUpdatesResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse class];
   query.loggingName = @"safebrowsing.encodedUpdates.get";
   return query;
 }
@@ -62,7 +62,7 @@
 
 @implementation GTLRSafebrowsingQuery_FullHashesFind
 
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FindFullHashesRequest *)object {
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -75,7 +75,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_FindFullHashesResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindFullHashesResponse class];
   query.loggingName = @"safebrowsing.fullHashes.find";
   return query;
 }
@@ -84,7 +84,7 @@
 
 @implementation GTLRSafebrowsingQuery_ThreatHitsCreate
 
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_ThreatHit *)object {
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -97,7 +97,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_Empty class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleProtobufEmpty class];
   query.loggingName = @"safebrowsing.threatHits.create";
   return query;
 }
@@ -112,7 +112,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRSafebrowsing_ListThreatListsResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ListThreatListsResponse class];
   query.loggingName = @"safebrowsing.threatLists.list";
   return query;
 }
@@ -121,7 +121,7 @@
 
 @implementation GTLRSafebrowsingQuery_ThreatListUpdatesFetch
 
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FetchThreatListUpdatesRequest *)object {
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -134,7 +134,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_FetchThreatListUpdatesResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponse class];
   query.loggingName = @"safebrowsing.threatListUpdates.fetch";
   return query;
 }
@@ -143,7 +143,7 @@
 
 @implementation GTLRSafebrowsingQuery_ThreatMatchesFind
 
-+ (instancetype)queryWithObject:(GTLRSafebrowsing_FindThreatMatchesRequest *)object {
++ (instancetype)queryWithObject:(GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -156,7 +156,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRSafebrowsing_FindThreatMatchesResponse class];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FindThreatMatchesResponse class];
   query.loggingName = @"safebrowsing.threatMatches.find";
   return query;
 }

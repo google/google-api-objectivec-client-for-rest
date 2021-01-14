@@ -978,6 +978,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  where your cluster is deployed, and then create and manage this
  *  project-level, per-location bucket (see Dataproc staging bucket
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
+ *  This field requires a Cloud Storage bucket name, not a URI to a Cloud
+ *  Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *configBucket;
 
@@ -1033,7 +1035,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  EU) for your cluster's temp bucket according to the Compute Engine zone
  *  where your cluster is deployed, and then create and manage this
  *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
- *  but you can use any TTL (or none) if you specify a bucket.
+ *  but you can use any TTL (or none) if you specify a bucket. This field
+ *  requires a Cloud Storage bucket name, not a URI to a Cloud Storage bucket.
  */
 @property(nonatomic, copy, nullable) NSString *tempBucket;
 
@@ -1758,6 +1761,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to inject credentials into a cluster.
+ */
+@interface GTLRDataproc_InjectCredentialsRequest : GTLRObject
+
+/** Required. The cluster UUID. */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Required. The encrypted credentials being injected in to the cluster.The
+ *  client is responsible for encrypting the credentials in a way that is
+ *  supported by the cluster.A wrapped value is used here so that the actual
+ *  contents of the encrypted credentials are not written to audit logs.
+ */
+@property(nonatomic, copy, nullable) NSString *credentialsCiphertext;
+
+@end
+
+
+/**
  *  Configuration for the size bounds of an instance group, including its
  *  proportional size to other groups.
  */
@@ -2166,7 +2188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. Maximum number of times in total a driver may be restarted as a
  *  result of driver exiting with non-zero code before job is reported failed.
- *  Maximum value is 240
+ *  Maximum value is 240.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3680,7 +3702,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *dagStartTime;
 
-/** Output only. The timeout duration for the DAG of jobs. */
+/**
+ *  Output only. The timeout duration for the DAG of jobs, expressed in seconds
+ *  (see JSON representation of duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
 
 /** Output only. The delete cluster operation metadata. */
@@ -3798,13 +3824,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Timeout duration for the DAG of jobs. You can use "s", "m", "h",
- *  and "d" suffixes for second, minute, hour, and day duration values,
- *  respectively. The timeout duration must be from 10 minutes ("10m") to 24
- *  hours ("24h" or "1d"). The timer begins when the first job is submitted. If
- *  the workflow is running at the end of the timeout period, any remaining jobs
- *  are cancelled, the workflow is ended, and if the workflow was running on a
- *  managed cluster, the cluster is deleted.
+ *  Optional. Timeout duration for the DAG of jobs, expressed in seconds (see
+ *  JSON representation of duration
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)). The
+ *  timeout duration must be from 10 minutes ("600s") to 24 hours ("86400s").
+ *  The timer begins when the first job is submitted. If the workflow is running
+ *  at the end of the timeout period, any remaining jobs are cancelled, the
+ *  workflow is ended, and if the workflow was running on a managed cluster, the
+ *  cluster is deleted.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *dagTimeout;
 

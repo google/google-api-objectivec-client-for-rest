@@ -553,7 +553,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult
-@dynamic linkedResource, relativeResourceName, searchResultSubtype,
+@dynamic linkedResource, modifyTime, relativeResourceName, searchResultSubtype,
          searchResultType;
 @end
 

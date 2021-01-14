@@ -2103,7 +2103,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Istio service scoped to a single Kubernetes cluster. Learn more at
- *  http://istio.io.
+ *  https://istio.io. Clusters running OSS Istio will have their services
+ *  ingested as this type.
  */
 @interface GTLRMonitoring_ClusterIstio : GTLRObject
 
@@ -3678,7 +3679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  Istio service scoped to an Istio mesh
+ *  Istio service scoped to an Istio mesh. Anthos clusters running ASM < 1.6.8
+ *  will have their services ingested as this type.
  */
 @interface GTLRMonitoring_MeshIstio : GTLRObject
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Eventarc API (eventarc/v1beta1)
+//   Eventarc API (eventarc/v1)
 // Documentation:
 //   https://cloud.google.com/eventarc
 

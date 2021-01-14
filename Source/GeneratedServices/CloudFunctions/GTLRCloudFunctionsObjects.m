@@ -124,7 +124,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_CloudFunction
-@dynamic availableMemoryMb, buildEnvironmentVariables, buildId,
+@dynamic availableMemoryMb, buildEnvironmentVariables, buildId, buildWorkerPool,
          descriptionProperty, entryPoint, environmentVariables, eventTrigger,
          httpsTrigger, ingressSettings, labels, maxInstances, name, network,
          runtime, serviceAccountEmail, sourceArchiveUrl, sourceRepository,

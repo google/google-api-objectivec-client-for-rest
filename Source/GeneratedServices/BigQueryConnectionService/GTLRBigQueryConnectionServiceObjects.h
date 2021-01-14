@@ -161,8 +161,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryConnectionService_CloudSqlProper
  */
 @interface GTLRBigQueryConnectionService_Binding : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If

@@ -408,8 +408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingC
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete;
 /**
- *  The instance has been stopped by owner. It is not currently running, but
- *  it's ready to be restarted.
+ *  The instance is running, or has been stopped by owner.
  *
  *  Value: "RUNNABLE"
  */
@@ -1284,6 +1283,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** The warning message. */
 @property(nonatomic, copy, nullable) NSString *message;
 
+/** The region name for REGION_UNREACHABLE warning. */
+@property(nonatomic, copy, nullable) NSString *region;
+
 @end
 
 
@@ -1906,12 +1908,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The current serving state of the Cloud SQL instance. This can be one of the
  *  following. *SQL_INSTANCE_STATE_UNSPECIFIED*: The state of the instance is
- *  unknown. *RUNNABLE*: The instance has been stopped by owner. It is not
- *  currently running, but it's ready to be restarted. *SUSPENDED*: The instance
- *  is not available, for example due to problems with billing. for example due
- *  to problems with billing. *PENDING_DELETE*: The instance is being deleted.
- *  *PENDING_CREATE*: The instance is being created. *MAINTENANCE*: The instance
- *  is down for maintenance. *FAILED*: The instance creation failed.
+ *  unknown. *RUNNABLE*: The instance is running, or has been stopped by owner.
+ *  *SUSPENDED*: The instance is not available, for example due to problems with
+ *  billing. for example due to problems with billing. *PENDING_DELETE*: The
+ *  instance is being deleted. *PENDING_CREATE*: The instance is being created.
+ *  *MAINTENANCE*: The instance is down for maintenance. *FAILED*: The instance
+ *  creation failed.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The creation of the
@@ -1923,9 +1925,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        being created. (Value: "PENDING_CREATE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_PendingDelete The instance is
  *        being deleted. (Value: "PENDING_DELETE")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Runnable The instance has
- *        been stopped by owner. It is not currently running, but it's ready to
- *        be restarted. (Value: "RUNNABLE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Runnable The instance is
+ *        running, or has been stopped by owner. (Value: "RUNNABLE")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_SqlInstanceStateUnspecified
  *        The state of the instance is unknown. (Value:
  *        "SQL_INSTANCE_STATE_UNSPECIFIED")
@@ -2188,10 +2189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
- *  stored. The URI is in the form *gs: //bucketName/fileName*. If the file
- *  already exists, the requests // succeeds, but the operation fails. If
- *  *fileType* is // *SQL* and the filename ends with .gz, the contents are //
- *  compressed.
+ *  stored. The URI is in the form *gs://bucketName/fileName*. If the file
+ *  already exists, the request succeeds, but the operation fails. If *fileType*
+ *  is *SQL* and the filename ends with .gz, the contents are compressed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2424,10 +2424,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Path to the import file in Cloud Storage, in the form *gs:
- *  //bucketName/fileName*. Compressed gzip files (.gz) are supported // when
- *  *fileType* is *SQL*. The instance must have // write permissions to the
- *  bucket and read access to the file.
+ *  Path to the import file in Cloud Storage, in the form
+ *  *gs://bucketName/fileName*. Compressed gzip files (.gz) are supported when
+ *  *fileType* is *SQL*. The instance must have write permissions to the bucket
+ *  and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 

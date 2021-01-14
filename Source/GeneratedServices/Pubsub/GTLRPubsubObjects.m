@@ -557,7 +557,7 @@
 //
 
 @implementation GTLRPubsub_Topic
-@dynamic kmsKeyName, labels, messageStoragePolicy, name;
+@dynamic kmsKeyName, labels, messageStoragePolicy, name, satisfiesPzs;
 @end
 
 

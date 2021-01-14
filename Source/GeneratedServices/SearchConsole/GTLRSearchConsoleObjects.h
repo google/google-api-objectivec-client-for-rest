@@ -161,6 +161,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByProperty;
 
 // ----------------------------------------------------------------------------
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.dataState
+
+/**
+ *  Include all data, full and partial.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_All;
+/**
+ *  Default value, should not be used.
+ *
+ *  Value: "DATA_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_DataStateUnspecified;
+/**
+ *  Include full final data only, without partial.
+ *
+ *  Value: "FINAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final;
+
+// ----------------------------------------------------------------------------
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
 
 /** Value: "COUNTRY" */
@@ -181,6 +203,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryReques
 
 /** Value: "IMAGE" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image;
+/** Value: "NEWS" */
+FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_News;
 /** Value: "VIDEO" */
 FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video;
 /** Value: "WEB" */
@@ -583,6 +607,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
 @property(nonatomic, copy, nullable) NSString *aggregationType;
 
 /**
+ *  The data state to be fetched, can be full or all, the latter including full
+ *  and partial data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_All
+ *        Include all data, full and partial. (Value: "ALL")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_DataStateUnspecified
+ *        Default value, should not be used. (Value: "DATA_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final
+ *        Include full final data only, without partial. (Value: "FINAL")
+ */
+@property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
  *  [Optional] Zero or more filters to apply to the dimension grouping values;
  *  for example, 'query contains \\"buy\\"' to see only data where the query
  *  string contains the substring \\"buy\\" (not case-sensitive). You can filter
@@ -619,6 +657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web
  *  Likely values:
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image
  *        Value "IMAGE"
+ *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_News
+ *        Value "NEWS"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video
  *        Value "VIDEO"
  *    @arg @c kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Web

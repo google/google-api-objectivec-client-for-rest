@@ -232,7 +232,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
 
 /**
  *  Attributes of the product. For more information, see
- *  https://support.google.com/manufacturers/answer/6124116.
+ *  https://support.google.com/manufacturers/answer/6124116. Next tag: 48
  */
 @interface GTLRManufacturerCenter_Attributes : GTLRObject
 
@@ -357,6 +357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenter_Issue_Severity_Warnin
  *  https://support.google.com/manufacturers/answer/6124116#productdetail.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManufacturerCenter_ProductDetail *> *productDetail;
+
+/**
+ *  The product highlights. For more information, see
+ *  https://support.google.com/manufacturers/answer/10066942
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *productHighlight;
 
 /**
  *  The name of the group of products related to the product. For more

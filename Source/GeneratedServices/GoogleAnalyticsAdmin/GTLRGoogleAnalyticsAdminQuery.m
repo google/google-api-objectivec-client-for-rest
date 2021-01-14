@@ -601,7 +601,7 @@
 
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList
 
-@dynamic parent;
+@dynamic pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

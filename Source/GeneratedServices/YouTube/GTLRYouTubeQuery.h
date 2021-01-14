@@ -185,24 +185,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeNone;
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeEventTypeUpcoming;
 
 // ----------------------------------------------------------------------------
-// filter
-
-/**
- *  Return all sponsors, from newest to oldest.
- *
- *  Value: "all"
- */
-FOUNDATION_EXTERN NSString * const kGTLRYouTubeFilterAll;
-/**
- *  Return the most recent sponsors, from newest to oldest.
- *
- *  Value: "newest"
- */
-FOUNDATION_EXTERN NSString * const kGTLRYouTubeFilterNewest;
-/** Value: "sponsorFilterUnknown" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTubeFilterSponsorFilterUnknown;
-
-// ----------------------------------------------------------------------------
 // mode
 
 /**
@@ -3227,7 +3209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *part* parameter serves two purposes in this operation. It identifies
  *  the properties that the write operation will set as well as the properties
  *  that the API response will include. The part properties that you can include
- *  in the parameter value are id, snippet, cdn, and status.
+ *  in the parameter value are id, snippet, cdn, content_details, and status.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -3240,7 +3222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @param part The *part* parameter serves two purposes in this operation. It
  *    identifies the properties that the write operation will set as well as the
  *    properties that the API response will include. The part properties that
- *    you can include in the parameter value are id, snippet, cdn, and status.
+ *    you can include in the parameter value are id, snippet, cdn,
+ *    content_details, and status.
  *
  *  @return GTLRYouTubeQuery_LiveStreamsInsert
  */
@@ -4410,75 +4393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Retrieves a list of sponsors that match the request criteria for a channel.
- *
- *  Method: youtube.sponsors.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTube
- *    @c kGTLRAuthScopeYouTubeForceSsl
- *    @c kGTLRAuthScopeYouTubeReadonly
- */
-@interface GTLRYouTubeQuery_SponsorsList : GTLRYouTubeQuery
-// Previous library name was
-//   +[GTLQueryYouTube queryForSponsorsListWithpart:]
-
-/**
- *  Parameter that specifies which channel sponsors to return.
- *
- *  Likely values:
- *    @arg @c kGTLRYouTubeFilterSponsorFilterUnknown Value
- *        "sponsorFilterUnknown"
- *    @arg @c kGTLRYouTubeFilterNewest Return the most recent sponsors, from
- *        newest to oldest. (Value: "newest")
- *    @arg @c kGTLRYouTubeFilterAll Return all sponsors, from newest to oldest.
- *        (Value: "all")
- *
- *  @note If not set, the documented server-side default will be
- *        kGTLRYouTubeFilterNewest.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  The *maxResults* parameter specifies the maximum number of items that should
- *  be returned in the result set.
- *
- *  @note If not set, the documented server-side default will be 5.
- */
-@property(nonatomic, assign) NSUInteger maxResults;
-
-/**
- *  The *pageToken* parameter identifies a specific page in the result set that
- *  should be returned. In an API response, the nextPageToken and prevPageToken
- *  properties identify other pages that could be retrieved.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  The *part* parameter specifies the sponsor resource parts that the API
- *  response will include. Supported values are id and snippet.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  Fetches a @c GTLRYouTube_SponsorListResponse.
- *
- *  Retrieves a list of sponsors that match the request criteria for a channel.
- *
- *  @param part The *part* parameter specifies the sponsor resource parts that
- *    the API response will include. Supported values are id and snippet.
- *
- *  @return GTLRYouTubeQuery_SponsorsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithPart:(NSArray<NSString *> *)part;
-
-@end
-
-/**
  *  Deletes a resource.
  *
  *  Method: youtube.subscriptions.delete
@@ -5007,7 +4921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  hl
  *
- *  @note If not set, the documented server-side default will be en_US.
+ *  @note If not set, the documented server-side default will be en-US.
  */
 @property(nonatomic, copy, nullable) NSString *hl;
 

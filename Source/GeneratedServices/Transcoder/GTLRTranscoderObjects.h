@@ -444,7 +444,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Video cropping configuration.
+ *  Video cropping configuration for the input video. The cropped input video is
+ *  scaled to match the output resolution.
  */
 @interface GTLRTranscoder_Crop : GTLRObject
 
@@ -780,6 +781,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  `preset/{preset_id}` - User defined JobTemplate: `{job_template_id}`
  */
 @property(nonatomic, copy, nullable) NSString *templateId;
+
+/**
+ *  Job time to live value in days, which will be effective after job
+ *  completion. Job should be deleted automatically after the given TTL. Enter a
+ *  value between 1 and 90. The default is 30.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ttlAfterCompletionDays;
 
 @end
 

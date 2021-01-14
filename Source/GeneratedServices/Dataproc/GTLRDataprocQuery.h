@@ -25,6 +25,7 @@
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_DiagnoseClusterRequest;
 @class GTLRDataproc_GetIamPolicyRequest;
+@class GTLRDataproc_InjectCredentialsRequest;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest;
 @class GTLRDataproc_Job;
 @class GTLRDataproc_SetIamPolicyRequest;
@@ -1565,6 +1566,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 + (instancetype)queryWithObject:(GTLRDataproc_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Inject encrypted credentials into all of the VMs in a cluster.The target
+ *  cluster must be a personal auth cluster assigned to the user who is issuing
+ *  the RPC.
+ *
+ *  Method: dataproc.projects.regions.clusters.injectCredentials
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsClustersInjectCredentialsWithObject:project:region:cluster:]
+
+/** Required. The cluster, in the form clusters/. */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to, of the form projects/.
+ */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Required. The region containing the cluster, of the form regions/. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Inject encrypted credentials into all of the VMs in a cluster.The target
+ *  cluster must be a personal auth cluster assigned to the user who is issuing
+ *  the RPC.
+ *
+ *  @param object The @c GTLRDataproc_InjectCredentialsRequest to include in the
+ *    query.
+ *  @param project Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to, of the form projects/.
+ *  @param region Required. The region containing the cluster, of the form
+ *    regions/.
+ *  @param cluster Required. The cluster, in the form clusters/.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_InjectCredentialsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                        cluster:(NSString *)cluster;
 
 @end
 

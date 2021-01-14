@@ -2,30 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Dataproc Metastore API (metastore/v1beta)
 // Description:
-//   Manage Cloud Database Migration Service resources on Google Cloud Platform.
+//   The Dataproc Metastore API is used to manage the lifecycle and
+//   configuration of metastore services.
 // Documentation:
-//   https://cloud.google.com/datamigration/
+//   https://cloud.google.com/dataproc-metastore/docs
 
-#import "GTLRCloudDatabaseMigrationService.h"
+#import "GTLRDataprocMetastore.h"
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeCloudDatabaseMigrationServiceCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDataprocMetastoreCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudDatabaseMigrationServiceService
+//   GTLRDataprocMetastoreService
 //
 
-@implementation GTLRCloudDatabaseMigrationServiceService
+@implementation GTLRDataprocMetastoreService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://datamigration.googleapis.com/";
+    self.rootURLString = @"https://metastore.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

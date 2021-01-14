@@ -4162,7 +4162,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1be
 /** Required. Annotation spec set resource name. */
 @property(nonatomic, copy, nullable) NSString *annotationSpecSet;
 
-/** Optional. Configs for sentiment selection. */
+/**
+ *  Optional. Configs for sentiment selection. We deprecate sentiment analysis
+ *  in data labeling side as it is incompatible with uCAIP.
+ */
 @property(nonatomic, strong, nullable) GTLRDataLabeling_GoogleCloudDatalabelingV1beta1SentimentConfig *sentimentConfig;
 
 @end

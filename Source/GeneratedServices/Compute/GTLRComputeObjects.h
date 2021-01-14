@@ -293,6 +293,7 @@
 @class GTLRCompute_LicenseResourceRequirements;
 @class GTLRCompute_LicensesListResponse_Warning;
 @class GTLRCompute_LicensesListResponse_Warning_Data_Item;
+@class GTLRCompute_LocalDisk;
 @class GTLRCompute_LogConfig;
 @class GTLRCompute_LogConfigCloudAuditOptions;
 @class GTLRCompute_LogConfigCounterOptions;
@@ -351,6 +352,7 @@
 @class GTLRCompute_NodeGroupAutoscalingPolicy;
 @class GTLRCompute_NodeGroupList_Warning;
 @class GTLRCompute_NodeGroupList_Warning_Data_Item;
+@class GTLRCompute_NodeGroupMaintenanceWindow;
 @class GTLRCompute_NodeGroupNode;
 @class GTLRCompute_NodeGroupsListNodes_Warning;
 @class GTLRCompute_NodeGroupsListNodes_Warning_Data_Item;
@@ -1373,6 +1375,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Rate;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Backend_BalancingMode_Utilization;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_BackendBucketCdnPolicy.cacheMode
+
+/** Value: "CACHE_ALL_STATIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketCdnPolicy_CacheMode_CacheAllStatic;
+/** Value: "FORCE_CACHE_ALL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketCdnPolicy_CacheMode_ForceCacheAll;
+/** Value: "INVALID_CACHE_MODE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketCdnPolicy_CacheMode_InvalidCacheMode;
+/** Value: "USE_ORIGIN_HEADERS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendBucketCdnPolicy_CacheMode_UseOriginHeaders;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_BackendBucketList_Warning.code
 
 /** Value: "CLEANUP_FAILED" */
@@ -1547,6 +1561,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_War
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceAggregatedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_BackendServiceCdnPolicy.cacheMode
+
+/** Value: "CACHE_ALL_STATIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceCdnPolicy_CacheMode_CacheAllStatic;
+/** Value: "FORCE_CACHE_ALL" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceCdnPolicy_CacheMode_ForceCacheAll;
+/** Value: "INVALID_CACHE_MODE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceCdnPolicy_CacheMode_InvalidCacheMode;
+/** Value: "USE_ORIGIN_HEADERS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendServiceCdnPolicy_CacheMode_UseOriginHeaders;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_BackendServiceList_Warning.code
@@ -2701,6 +2727,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_GRPCHealthCheck_PortSpecificatio
 
 /** Value: "FEATURE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified;
+/** Value: "GVNIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_Gvnic;
 /** Value: "MULTI_IP_SUBNET" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet;
 /** Value: "SECURE_BOOT" */
@@ -2963,6 +2991,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthChecksScopedList_Warning_C
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Healthy;
 /** Value: "UNHEALTHY" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_HealthState_Unhealthy;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_HealthStatus.weightError
+
+/** Value: "INVALID_WEIGHT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_WeightError_InvalidWeight;
+/** Value: "MISSING_WEIGHT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_WeightError_MissingWeight;
+/** Value: "UNAVAILABLE_WEIGHT" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_WeightError_UnavailableWeight;
+/** Value: "WEIGHT_NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_HealthStatus_WeightError_WeightNone;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_HealthStatusForNetworkEndpoint.healthState
@@ -5123,6 +5163,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkEndpointGroupsScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_NetworkInterface.nicType
+
+/** Value: "GVNIC" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkInterface_NicType_Gvnic;
+/** Value: "UNSPECIFIED_NIC_TYPE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkInterface_NicType_UnspecifiedNicType;
+/** Value: "VIRTIO_NET" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_NetworkInterface_NicType_VirtioNet;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_NetworkList_Warning.code
@@ -11997,10 +12047,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  [Output Only] Target recommended MIG size (number of instances) computed by
- *  autoscaler. Autoscaler calculates recommended MIG size even when autoscaling
- *  policy mode is different from ON. This field is empty when autoscaler is not
- *  connected to the existing managed instance group or autoscaler did not
- *  generate its prediction.
+ *  autoscaler. Autoscaler calculates the recommended MIG size even when the
+ *  autoscaling policy mode is different from ON. This field is empty when
+ *  autoscaler is not connected to an existing managed instance group or
+ *  autoscaler did not generate its prediction.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12040,7 +12090,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_AutoscalerStatusDetails *> *statusDetails;
 
-/** URL of the managed instance group that this autoscaler will scale. */
+/**
+ *  URL of the managed instance group that this autoscaler will scale. This
+ *  field is required when creating an autoscaler.
+ */
 @property(nonatomic, copy, nullable) NSString *target;
 
 /**
@@ -12498,7 +12551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  - MODE_OFF (WARNING): Autoscaling is turned off. The number of instances in
  *  the group won't change automatically. The autoscaling configuration is
  *  preserved.
- *  - MODE_ONLY_UP (WARNING): Autoscaling is in the "Autoscale only up" mode.
+ *  - MODE_ONLY_UP (WARNING): Autoscaling is in the "Autoscale only out" mode.
  *  The autoscaler can add instances but not remove any.
  *  - MORE_THAN_ONE_BACKEND_SERVICE (ERROR): The instance group cannot be
  *  autoscaled because it has more than one backend service attached to it.
@@ -12564,11 +12617,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AutoscalingPolicy : GTLRObject
 
 /**
- *  The number of seconds that the autoscaler should wait before it starts
- *  collecting information from a new instance. This prevents the autoscaler
- *  from collecting information when the instance is initializing, during which
- *  the collected usage would not be reliable. The default time autoscaler waits
- *  is 60 seconds.
+ *  The number of seconds that the autoscaler waits before it starts collecting
+ *  information from a new instance. This prevents the autoscaler from
+ *  collecting information when the instance is initializing, during which the
+ *  collected usage would not be reliable. The default time autoscaler waits is
+ *  60 seconds.
  *  Virtual machine initialization times might vary because of numerous factors.
  *  We recommend that you test how long an instance may take to initialize. To
  *  do this, create an instance and time the startup process.
@@ -12590,18 +12643,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_AutoscalingPolicyLoadBalancingUtilization *loadBalancingUtilization;
 
 /**
- *  The maximum number of instances that the autoscaler can scale up to. This is
- *  required when creating or updating an autoscaler. The maximum number of
- *  replicas should not be lower than minimal number of replicas.
+ *  The maximum number of instances that the autoscaler can scale out to. This
+ *  is required when creating or updating an autoscaler. The maximum number of
+ *  replicas must not be lower than minimal number of replicas.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxNumReplicas;
 
 /**
- *  The minimum number of replicas that the autoscaler can scale down to. This
- *  cannot be less than 0. If not provided, autoscaler will choose a default
- *  value depending on maximum number of instances allowed.
+ *  The minimum number of replicas that the autoscaler can scale in to. This
+ *  cannot be less than 0. If not provided, autoscaler chooses a default value
+ *  depending on maximum number of instances allowed.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12630,15 +12683,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AutoscalingPolicyCpuUtilization : GTLRObject
 
 /**
- *  The target CPU utilization that the autoscaler should maintain. Must be a
- *  float value in the range (0, 1]. If not specified, the default is 0.6.
- *  If the CPU level is below the target utilization, the autoscaler scales down
+ *  The target CPU utilization that the autoscaler maintains. Must be a float
+ *  value in the range (0, 1]. If not specified, the default is 0.6.
+ *  If the CPU level is below the target utilization, the autoscaler scales in
  *  the number of instances until it reaches the minimum number of instances you
  *  specified or until the average CPU of your instances reaches the target
  *  utilization.
- *  If the average CPU is above the target utilization, the autoscaler scales up
- *  until it reaches the maximum number of instances you specified or until the
- *  average utilization reaches the target utilization.
+ *  If the average CPU is above the target utilization, the autoscaler scales
+ *  out until it reaches the maximum number of instances you specified or until
+ *  the average utilization reaches the target utilization.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12674,11 +12727,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  TimeSeries to scale upon. This is called a per-group metric for the purpose
  *  of autoscaling.
  *  If not specified, the type defaults to gce_instance.
- *  You should provide a filter that is selective enough to pick just one
- *  TimeSeries for the autoscaled group or for each of the instances (if you are
- *  using gce_instance resource type). If multiple TimeSeries are returned upon
- *  the query execution, the autoscaler will sum their respective values to
- *  obtain its scaling value.
+ *  Try to provide a filter that is selective enough to pick just one TimeSeries
+ *  for the autoscaled group or for each of the instances (if you are using
+ *  gce_instance resource type). If multiple TimeSeries are returned upon the
+ *  query execution, the autoscaler will sum their respective values to obtain
+ *  its scaling value.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -12692,9 +12745,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  If scaling is based on a per-group metric value that represents the total
  *  amount of work to be done or resource usage, set this value to an amount
- *  assigned for a single instance of the scaled group. Autoscaler will keep the
- *  number of instances proportional to the value of this metric, the metric
- *  itself should not change value due to group resizing.
+ *  assigned for a single instance of the scaled group. Autoscaler keeps the
+ *  number of instances proportional to the value of this metric. The metric
+ *  itself does not change value due to group resizing.
  *  A good metric to use with the target is for example
  *  pubsub.googleapis.com/subscription/num_undelivered_messages or a custom
  *  metric exporting the total number of requests coming to your instances.
@@ -12707,13 +12760,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *singleInstanceAssignment;
 
 /**
- *  The target value of the metric that autoscaler should maintain. This must be
- *  a positive value. A utilization metric scales number of virtual machines
+ *  The target value of the metric that autoscaler maintains. This must be a
+ *  positive value. A utilization metric scales number of virtual machines
  *  handling requests to increase or decrease proportionally to the metric.
  *  For example, a good metric to use as a utilization_target is
  *  https://www.googleapis.com/compute/v1/instance/network/received_bytes_count.
- *  The autoscaler will work to keep this value constant for each of the
- *  instances.
+ *  The autoscaler works to keep this value constant for each of the instances.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12743,7 +12795,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Fraction of backend capacity utilization (set in HTTP(S) load balancing
- *  configuration) that autoscaler should maintain. Must be a positive float
+ *  configuration) that the autoscaler maintains. Must be a positive float
  *  value. If not defined, the default is 0.8.
  *
  *  Uses NSNumber of doubleValue.
@@ -12769,8 +12821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_FixedOrPercent *maxScaledInReplicas;
 
 /**
- *  How long back autoscaling should look when computing recommendations to
- *  include directives regarding slower scale in, as described above.
+ *  How far back autoscaling looks when computing recommendations to include
+ *  directives regarding slower scale in, as described above.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12798,19 +12850,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  following parameters: maxConnections (except for regional managed instance
  *  groups), maxConnectionsPerInstance, or maxConnectionsPerEndpoint.
  *  If the loadBalancingScheme for the backend service is INTERNAL (internal
- *  TCP/UDP load balancers), you cannot specify any additional parameters.
+ *  TCP/UDP Load Balancers) or EXTERNAL (Network Load Balancing), you cannot
+ *  specify any additional parameters.
  *  - If the load balancing mode is RATE, the load is spread based on the rate
  *  of HTTP requests per second (RPS).
  *  You can use the RATE balancing mode if the protocol for the backend service
- *  is HTTP or HTTPS. You must specify exactly one of the following parameters:
- *  maxRate (except for regional managed instance groups), maxRatePerInstance,
- *  or maxRatePerEndpoint.
+ *  is HTTP, HTTP2, or HTTPS. You must specify exactly one of the following
+ *  parameters: maxRate (except for regional managed instance groups),
+ *  maxRatePerInstance, or maxRatePerEndpoint.
  *  - If the load balancing mode is UTILIZATION, the load is spread based on the
  *  backend utilization of instances in an instance group.
  *  You can use the UTILIZATION balancing mode if the loadBalancingScheme of the
- *  backend service is EXTERNAL, INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED and
- *  the backends are instance groups. There are no restrictions on the backend
- *  service protocol.
+ *  backend service is EXTERNAL (except Network Load Balancing),
+ *  INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED and the backends are instance
+ *  groups. There are no restrictions on the backend service protocol.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Backend_BalancingMode_Connection Value "CONNECTION"
@@ -12828,7 +12881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  cannot configure a setting larger than 0 and smaller than 0.1. You cannot
  *  configure a setting of 0 when there is only one backend attached to the
  *  backend service.
- *  This cannot be used for internal load balancing.
+ *  This cannot be used for Internal TCP/UDP Load Balancing and Network Load
+ *  Balancing.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -12854,14 +12908,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  The fully-qualified URL of an instance group or network endpoint group (NEG)
  *  resource. The type of backend that a backend service supports depends on the
  *  backend service's loadBalancingScheme.
- *  - When the loadBalancingScheme for the backend service is EXTERNAL,
- *  INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED, the backend can be either an
- *  instance group or a NEG. The backends on the backend service must be either
- *  all instance groups or all NEGs. You cannot mix instance group and NEG
- *  backends on the same backend service.
- *  - When the loadBalancingScheme for the backend service is INTERNAL, the
- *  backend must be an instance group in the same region as the backend service.
- *  NEGs are not supported.
+ *  - When the loadBalancingScheme for the backend service is EXTERNAL (except
+ *  Network Load Balancing), INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED , the
+ *  backend can be either an instance group or a NEG. The backends on the
+ *  backend service must be either all instance groups or all NEGs. You cannot
+ *  mix instance group and NEG backends on the same backend service.
+ *  - When the loadBalancingScheme for the backend service is EXTERNAL for
+ *  Network Load Balancing or INTERNAL for Internal TCP/UDP Load Balancing, the
+ *  backend must be an instance group. NEGs are not supported.
+ *  For regional services, the backend must be in the same region as the backend
+ *  service.
  *  You must use the fully-qualified URL (starting with
  *  https://www.googleapis.com/) to specify the instance group or NEG. Partial
  *  URLs are not supported.
@@ -12874,11 +12930,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  (except for regional managed instance groups). If the backend's
  *  balancingMode is UTILIZATION, this is an optional parameter. If the
  *  backend's balancingMode is CONNECTION, and backend is attached to a backend
- *  service whose loadBalancingScheme is EXTERNAL, you must specify either this
- *  parameter, maxConnectionsPerInstance, or maxConnectionsPerEndpoint.
- *  Not available if the backend's balancingMode is RATE. If the
- *  loadBalancingScheme is INTERNAL, then maxConnections is not supported, even
- *  though the backend requires a balancing mode of CONNECTION.
+ *  service whose loadBalancingScheme is EXTERNAL (except Network Load
+ *  Balancing), you must specify either this parameter,
+ *  maxConnectionsPerInstance, or maxConnectionsPerEndpoint.
+ *  Not available if the backend's balancingMode is RATE. Cannot be specified
+ *  for Network Load Balancing or Internal TCP/UDP Load Balancing, even though
+ *  those load balancers require a balancing mode of CONNECTION.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12889,12 +12946,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  of a NEG. This is multiplied by the number of endpoints in the NEG to
  *  implicitly calculate a maximum number of target maximum simultaneous
  *  connections for the NEG. If the backend's balancingMode is CONNECTION, and
- *  the backend is attached to a backend service whose loadBalancingScheme is
- *  EXTERNAL, you must specify either this parameter, maxConnections, or
- *  maxConnectionsPerInstance.
- *  Not available if the backend's balancingMode is RATE. Internal TCP/UDP load
- *  balancing does not support setting maxConnectionsPerEndpoint even though its
- *  backends require a balancing mode of CONNECTION.
+ *  backend is attached to a backend service whose loadBalancingScheme is
+ *  EXTERNAL (except Network Load Balancing), you must specify either this
+ *  parameter, maxConnections, or maxConnectionsPerInstance.
+ *  Not available if the backend's balancingMode is RATE. Cannot be specified
+ *  for Network Load Balancing or Internal TCP/UDP Load Balancing, even though
+ *  those load balancers require a balancing mode of CONNECTION.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12907,11 +12964,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  simultaneous connections for the whole instance group. If the backend's
  *  balancingMode is UTILIZATION, this is an optional parameter. If the
  *  backend's balancingMode is CONNECTION, and backend is attached to a backend
- *  service whose loadBalancingScheme is EXTERNAL, you must specify either this
- *  parameter, maxConnections, or maxConnectionsPerEndpoint.
- *  Not available if the backend's balancingMode is RATE. Internal TCP/UDP load
- *  balancing does not support setting maxConnectionsPerInstance even though its
- *  backends require a balancing mode of CONNECTION.
+ *  service whose loadBalancingScheme is EXTERNAL (except Network Load
+ *  Balancing), you must specify either this parameter, maxConnections, or
+ *  maxConnectionsPerEndpoint.
+ *  Not available if the backend's balancingMode is RATE. Cannot be specified
+ *  for Network Load Balancing or Internal TCP/UDP Load Balancing, even though
+ *  those load balancers require a balancing mode of CONNECTION.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12991,6 +13049,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** [Output Only] Creation timestamp in RFC3339 text format. */
 @property(nonatomic, copy, nullable) NSString *creationTimestamp;
 
+/** Headers that the HTTP/S load balancer should add to proxied responses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customResponseHeaders;
+
 /**
  *  An optional textual description of the resource; provided by the client when
  *  the resource is created.
@@ -13039,6 +13100,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Message containing Cloud CDN configuration for a backend bucket.
  */
 @interface GTLRCompute_BackendBucketCdnPolicy : GTLRObject
+
+/**
+ *  Specifies the cache setting for all responses from this backend. The
+ *  possible values are:
+ *  USE_ORIGIN_HEADERS Requires the origin to set valid caching headers to cache
+ *  content. Responses without these headers will not be cached at Google's
+ *  edge, and will require a full trip to the origin on every request,
+ *  potentially impacting performance and increasing load on the origin server.
+ *  FORCE_CACHE_ALL Cache all content, ignoring any "private", "no-store" or
+ *  "no-cache" directives in Cache-Control response headers. Warning: this may
+ *  result in Cloud CDN caching private, per-user (user identifiable) content.
+ *  CACHE_ALL_STATIC Automatically cache static content, including common image
+ *  formats, media (video and audio), and web assets (JavaScript and CSS).
+ *  Requests and responses that are marked as uncacheable, as well as dynamic
+ *  content (including HTML), will not be cached.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendBucketCdnPolicy_CacheMode_CacheAllStatic Value
+ *        "CACHE_ALL_STATIC"
+ *    @arg @c kGTLRCompute_BackendBucketCdnPolicy_CacheMode_ForceCacheAll Value
+ *        "FORCE_CACHE_ALL"
+ *    @arg @c kGTLRCompute_BackendBucketCdnPolicy_CacheMode_InvalidCacheMode
+ *        Value "INVALID_CACHE_MODE"
+ *    @arg @c kGTLRCompute_BackendBucketCdnPolicy_CacheMode_UseOriginHeaders
+ *        Value "USE_ORIGIN_HEADERS"
+ */
+@property(nonatomic, copy, nullable) NSString *cacheMode;
+
+/**
+ *  Specifies a separate client (e.g. browser client) TTL, separate from the TTL
+ *  for Cloud CDN's edge caches. Leaving this empty will use the same cache TTL
+ *  for both Cloud CDN and the client-facing response. The maximum allowed value
+ *  is 86400s (1 day).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientTtl;
+
+/**
+ *  Specifies the default TTL for cached content served by this origin for
+ *  responses that do not have an existing valid TTL (max-age or s-max-age).
+ *  Setting a TTL of "0" means "always revalidate". The value of defaultTTL
+ *  cannot be set to a value greater than that of maxTTL, but can be equal. When
+ *  the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the
+ *  TTL set in all responses. The maximum allowed value is 31,622,400s (1 year),
+ *  noting that infrequently accessed objects may be evicted from the cache
+ *  before the defined TTL.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultTtl;
+
+/**
+ *  Specifies the maximum allowed TTL for cached content served by this origin.
+ *  Cache directives that attempt to set a max-age or s-maxage higher than this,
+ *  or an Expires header more than maxTTL seconds in the future will be capped
+ *  at the value of maxTTL, as if it were the value of an s-maxage Cache-Control
+ *  directive. Headers sent to the client will not be modified. Setting a TTL of
+ *  "0" means "always revalidate". The maximum allowed value is 31,622,400s (1
+ *  year), noting that infrequently accessed objects may be evicted from the
+ *  cache before the defined TTL.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTtl;
 
 /**
  *  Maximum number of seconds the response to a signed URL request will be
@@ -13237,7 +13363,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** The list of backends that serve this BackendService. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_Backend *> *backends;
 
-/** Cloud CDN configuration for this BackendService. */
+/**
+ *  Cloud CDN configuration for this BackendService. Not available for Internal
+ *  TCP/UDP Load Balancing and Network Load Balancing.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceCdnPolicy *cdnPolicy;
 
 /**
@@ -13279,6 +13408,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /** Headers that the HTTP/S load balancer should add to proxied requests. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customRequestHeaders;
 
+/** Headers that the HTTP/S load balancer should add to proxied responses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customResponseHeaders;
+
 /**
  *  An optional description of this resource. Provide this property when you
  *  create the resource.
@@ -13296,9 +13428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *enableCDN;
 
 /**
- *  Applicable only to Failover for Internal TCP/UDP Load Balancing. Requires at
- *  least one backend instance group to be defined as a backup (failover)
- *  backend.
+ *  Applicable only to Failover for Internal TCP/UDP Load Balancing and Network
+ *  Load Balancing. Requires at least one backend instance group to be defined
+ *  as a backup (failover) backend.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceFailoverPolicy *failoverPolicy;
 
@@ -13327,7 +13459,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *healthChecks;
 
-/** The configurations for Identity-Aware Proxy on this resource. */
+/**
+ *  The configurations for Identity-Aware Proxy on this resource. Not available
+ *  for Internal TCP/UDP Load Balancing and Network Load Balancing.
+ */
 @property(nonatomic, strong, nullable) GTLRCompute_BackendServiceIAP *iap;
 
 /**
@@ -13347,11 +13482,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Specifies the load balancer type. Choose EXTERNAL for load balancers that
- *  receive traffic from external clients. Choose INTERNAL for Internal TCP/UDP
- *  Load Balancing. Choose INTERNAL_MANAGED for Internal HTTP(S) Load Balancing.
- *  Choose INTERNAL_SELF_MANAGED for Traffic Director. A backend service created
- *  for one type of load balancing cannot be used with another. For more
+ *  Specifies the load balancer type. Choose EXTERNAL for external HTTP(S), SSL
+ *  Proxy, TCP Proxy and Network Load Balancing. Choose INTERNAL for Internal
+ *  TCP/UDP Load Balancing. Choose INTERNAL_MANAGED for Internal HTTP(S) Load
+ *  Balancing. INTERNAL_SELF_MANAGED for Traffic Director. A backend service
+ *  created for one type of load balancer cannot be used with another. For more
  *  information, refer to Choosing a load balancer.
  *
  *  Likely values:
@@ -13435,7 +13570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The URL of the network to which this backend service belongs. This field can
- *  only be spcified when the load balancing scheme is set to INTERNAL.
+ *  only be specified when the load balancing scheme is set to INTERNAL.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
@@ -13466,12 +13601,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  A named port on a backend instance group representing the port for
  *  communication to the backend VMs in that group. Required when the
- *  loadBalancingScheme is EXTERNAL, INTERNAL_MANAGED, or INTERNAL_SELF_MANAGED
- *  and the backends are instance groups. The named port must be defined on each
- *  backend instance group. This parameter has no meaning if the backends are
- *  NEGs.
- *  Must be omitted when the loadBalancingScheme is INTERNAL (Internal TCP/UDP
- *  Load Balancing).
+ *  loadBalancingScheme is EXTERNAL (except Network Load Balancing),
+ *  INTERNAL_MANAGED, or INTERNAL_SELF_MANAGED and the backends are instance
+ *  groups. The named port must be defined on each backend instance group. This
+ *  parameter has no meaning if the backends are NEGs.
+ *  Backend services for Internal TCP/UDP Load Balancing and Network Load
+ *  Balancing require you omit port_name.
  */
 @property(nonatomic, copy, nullable) NSString *portName;
 
@@ -13523,11 +13658,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  Type of session affinity to use. The default is NONE. Session affinity is
- *  not applicable if the --protocol is UDP.
- *  When the loadBalancingScheme is EXTERNAL, possible values are NONE,
- *  CLIENT_IP, or GENERATED_COOKIE. You can use GENERATED_COOKIE if the protocol
- *  is HTTP or HTTPS.
+ *  Type of session affinity to use. The default is NONE.
+ *  When the loadBalancingScheme is EXTERNAL: * For Network Load Balancing, the
+ *  possible values are NONE, CLIENT_IP, CLIENT_IP_PROTO, or
+ *  CLIENT_IP_PORT_PROTO. * For all other load balancers that use
+ *  loadBalancingScheme=EXTERNAL, the possible values are NONE, CLIENT_IP, or
+ *  GENERATED_COOKIE. * You can use GENERATED_COOKIE if the protocol is HTTP,
+ *  HTTP2, or HTTPS.
  *  When the loadBalancingScheme is INTERNAL, possible values are NONE,
  *  CLIENT_IP, CLIENT_IP_PROTO, or CLIENT_IP_PORT_PROTO.
  *  When the loadBalancingScheme is INTERNAL_SELF_MANAGED, or INTERNAL_MANAGED,
@@ -13722,6 +13859,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_CacheKeyPolicy *cacheKeyPolicy;
 
 /**
+ *  Specifies the cache setting for all responses from this backend. The
+ *  possible values are:
+ *  USE_ORIGIN_HEADERS Requires the origin to set valid caching headers to cache
+ *  content. Responses without these headers will not be cached at Google's
+ *  edge, and will require a full trip to the origin on every request,
+ *  potentially impacting performance and increasing load on the origin server.
+ *  FORCE_CACHE_ALL Cache all content, ignoring any "private", "no-store" or
+ *  "no-cache" directives in Cache-Control response headers. Warning: this may
+ *  result in Cloud CDN caching private, per-user (user identifiable) content.
+ *  CACHE_ALL_STATIC Automatically cache static content, including common image
+ *  formats, media (video and audio), and web assets (JavaScript and CSS).
+ *  Requests and responses that are marked as uncacheable, as well as dynamic
+ *  content (including HTML), will not be cached.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_BackendServiceCdnPolicy_CacheMode_CacheAllStatic
+ *        Value "CACHE_ALL_STATIC"
+ *    @arg @c kGTLRCompute_BackendServiceCdnPolicy_CacheMode_ForceCacheAll Value
+ *        "FORCE_CACHE_ALL"
+ *    @arg @c kGTLRCompute_BackendServiceCdnPolicy_CacheMode_InvalidCacheMode
+ *        Value "INVALID_CACHE_MODE"
+ *    @arg @c kGTLRCompute_BackendServiceCdnPolicy_CacheMode_UseOriginHeaders
+ *        Value "USE_ORIGIN_HEADERS"
+ */
+@property(nonatomic, copy, nullable) NSString *cacheMode;
+
+/**
+ *  Specifies a separate client (e.g. browser client) TTL, separate from the TTL
+ *  for Cloud CDN's edge caches. Leaving this empty will use the same cache TTL
+ *  for both Cloud CDN and the client-facing response. The maximum allowed value
+ *  is 86400s (1 day).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientTtl;
+
+/**
+ *  Specifies the default TTL for cached content served by this origin for
+ *  responses that do not have an existing valid TTL (max-age or s-max-age).
+ *  Setting a TTL of "0" means "always revalidate". The value of defaultTTL
+ *  cannot be set to a value greater than that of maxTTL, but can be equal. When
+ *  the cacheMode is set to FORCE_CACHE_ALL, the defaultTTL will overwrite the
+ *  TTL set in all responses. The maximum allowed value is 31,622,400s (1 year),
+ *  noting that infrequently accessed objects may be evicted from the cache
+ *  before the defined TTL.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultTtl;
+
+/**
+ *  Specifies the maximum allowed TTL for cached content served by this origin.
+ *  Cache directives that attempt to set a max-age or s-maxage higher than this,
+ *  or an Expires header more than maxTTL seconds in the future will be capped
+ *  at the value of maxTTL, as if it were the value of an s-maxage Cache-Control
+ *  directive. Headers sent to the client will not be modified. Setting a TTL of
+ *  "0" means "always revalidate". The maximum allowed value is 31,622,400s (1
+ *  year), noting that infrequently accessed objects may be evicted from the
+ *  cache before the defined TTL.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTtl;
+
+/**
  *  Maximum number of seconds the response to a signed URL request will be
  *  considered fresh. After this time period, the response will be revalidated
  *  before being served. Defaults to 1hr (3600s). When serving responses to
@@ -13741,14 +13943,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Applicable only to Failover for Internal TCP/UDP Load Balancing. On failover
- *  or failback, this field indicates whether connection draining will be
- *  honored. GCP has a fixed connection draining timeout of 10 minutes. A
- *  setting of true terminates existing TCP connections to the active pool
- *  during failover and failback, immediately draining traffic. A setting of
- *  false allows existing TCP connections to persist, even on VMs no longer in
- *  the active pool, for up to the duration of the connection draining timeout
- *  (10 minutes).
+ *  Applicable only to Failover for Internal TCP/UDP Load Balancing and Network
+ *  Load Balancing. On failover or failback, this field indicates whether
+ *  connection draining will be honored. GCP has a fixed connection draining
+ *  timeout of 10 minutes. A setting of true terminates existing TCP connections
+ *  to the active pool during failover and failback, immediately draining
+ *  traffic. A setting of false allows existing TCP connections to persist, even
+ *  on VMs no longer in the active pool, for up to the duration of the
+ *  connection draining timeout (10 minutes).
  */
 @interface GTLRCompute_BackendServiceFailoverPolicy : GTLRObject
 
@@ -13761,23 +13963,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *disableConnectionDrainOnFailover;
 
 /**
- *  Applicable only to Failover for Internal TCP/UDP Load Balancing. If set to
- *  true, connections to the load balancer are dropped when all primary and all
- *  backup backend VMs are unhealthy. If set to false, connections are
- *  distributed among all primary VMs when all primary and all backup backend
- *  VMs are unhealthy.
- *  The default is false.
+ *  Applicable only to Failover for Internal TCP/UDP Load Balancing and Network
+ *  Load Balancing, If set to true, connections to the load balancer are dropped
+ *  when all primary and all backup backend VMs are unhealthy.If set to false,
+ *  connections are distributed among all primary VMs when all primary and all
+ *  backup backend VMs are unhealthy. The default is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dropTrafficIfUnhealthy;
 
 /**
- *  Applicable only to Failover for Internal TCP/UDP Load Balancing. The value
- *  of the field must be in the range [0, 1]. If the value is 0, the load
- *  balancer performs a failover when the number of healthy primary VMs equals
- *  zero. For all other values, the load balancer performs a failover when the
- *  total number of healthy primary VMs is less than this ratio.
+ *  Applicable only to Failover for Internal TCP/UDP Load Balancing and Network
+ *  Load Balancing. The value of the field must be in the range [0, 1]. If the
+ *  value is 0, the load balancer performs a failover when the number of healthy
+ *  primary VMs equals zero. For all other values, the load balancer performs a
+ *  failover when the total number of healthy primary VMs is less than this
+ *  ratio.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -17591,9 +17793,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *allPorts;
 
 /**
- *  This field is only used for INTERNAL load balancing.
- *  For internal load balancing, this field identifies the BackendService
- *  resource to receive the matched traffic.
+ *  Identifies the backend service to which the forwarding rule sends traffic.
+ *  Required for Internal TCP/UDP Load Balancing and Network Load Balancing;
+ *  must be omitted for all other load balancer types.
  */
 @property(nonatomic, copy, nullable) NSString *backendService;
 
@@ -17640,10 +17842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  assigned. Methods for specifying an IP address:
  *  * IPv4 dotted decimal, as in `100.1.2.3` * Full URL, as in
  *  https://www.googleapis.com/compute/v1/projects/project_id/regions/region/addresses/address-name
- *  * Partial URL or by name, as in: *
- *  projects/project_id/regions/region/addresses/address-name *
- *  regions/region/addresses/address-name * global/addresses/address-name *
- *  address-name
+ *  * Partial URL or by name, as in:
+ *  - projects/project_id/regions/region/addresses/address-name
+ *  - regions/region/addresses/address-name
+ *  - global/addresses/address-name
+ *  - address-name
  *  The loadBalancingScheme and the forwarding rule's target determine the type
  *  of IP address that you can use. For detailed information, refer to [IP
  *  address
@@ -17656,16 +17859,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *IPAddress;
 
 /**
- *  The IP protocol to which this rule applies. For protocol forwarding, valid
- *  options are TCP, UDP, ESP, AH, SCTP or ICMP.
- *  For Internal TCP/UDP Load Balancing, the load balancing scheme is INTERNAL,
- *  and one of TCP or UDP are valid. For Traffic Director, the load balancing
- *  scheme is INTERNAL_SELF_MANAGED, and only TCPis valid. For Internal HTTP(S)
- *  Load Balancing, the load balancing scheme is INTERNAL_MANAGED, and only TCP
- *  is valid. For HTTP(S), SSL Proxy, and TCP Proxy Load Balancing, the load
- *  balancing scheme is EXTERNAL and only TCP is valid. For Network TCP/UDP Load
- *  Balancing, the load balancing scheme is EXTERNAL, and one of TCP or UDP is
- *  valid.
+ *  The IP protocol to which this rule applies.
+ *  For protocol forwarding, valid options are TCP, UDP, ESP, AH, SCTP and ICMP.
+ *  The valid IP protocols are different for different load balancing products:
+ *  - Internal TCP/UDP Load Balancing: The load balancing scheme is INTERNAL,
+ *  and one of TCP, UDP or ALL is valid.
+ *  - Traffic Director: The load balancing scheme is INTERNAL_SELF_MANAGED, and
+ *  only TCP is valid.
+ *  - Internal HTTP(S) Load Balancing: The load balancing scheme is
+ *  INTERNAL_MANAGED, and only TCP is valid.
+ *  - HTTP(S), SSL Proxy, and TCP Proxy Load Balancing: The load balancing
+ *  scheme is EXTERNAL and only TCP is valid.
+ *  - Network Load Balancing: The load balancing scheme is EXTERNAL, and one of
+ *  TCP or UDP is valid.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_IPProtocol_Ah Value "AH"
@@ -17712,13 +17918,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  - EXTERNAL is used for:
  *  - Classic Cloud VPN gateways
  *  - Protocol forwarding to VMs from an external IP address
- *  - The following load balancers: HTTP(S), SSL Proxy, TCP Proxy, and Network
- *  TCP/UDP
+ *  - HTTP(S), SSL Proxy, TCP Proxy, and Network Load Balancing
  *  - INTERNAL is used for:
  *  - Protocol forwarding to VMs from an internal IP address
- *  - Internal TCP/UDP load balancers
+ *  - Internal TCP/UDP Load Balancing
  *  - INTERNAL_MANAGED is used for:
- *  - Internal HTTP(S) load balancers
+ *  - Internal HTTP(S) Load Balancing
  *  - INTERNAL_SELF_MANAGED is used for:
  *  - Traffic Director
  *  For more information about forwarding rules, refer to Forwarding rule
@@ -17771,9 +17976,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  This field is not used for external load balancing.
- *  For internal load balancing, this field identifies the network that the load
- *  balanced IP should belong to for this Forwarding Rule. If this field is not
- *  specified, the default network will be used.
+ *  For Internal TCP/UDP Load Balancing, this field identifies the network that
+ *  the load balanced IP should belong to for this Forwarding Rule. If this
+ *  field is not specified, the default network will be used.
  *  For Private Service Connect forwarding rules that forward traffic to Google
  *  APIs, a network must be provided.
  */
@@ -17794,21 +17999,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *networkTier;
 
 /**
- *  When the load balancing scheme is EXTERNAL, INTERNAL_SELF_MANAGED and
- *  INTERNAL_MANAGED, you can specify a port_range. Use with a forwarding rule
- *  that points to a target proxy or a target pool. Do not use with a forwarding
- *  rule that points to a backend service. This field is used along with the
- *  target field for TargetHttpProxy, TargetHttpsProxy, TargetSslProxy,
- *  TargetTcpProxy, TargetGrpcProxy, TargetVpnGateway, TargetPool,
- *  TargetInstance.
- *  Applicable only when IPProtocol is TCP, UDP, or SCTP, only packets addressed
- *  to ports in the specified range will be forwarded to target. Forwarding
- *  rules with the same [IPAddress, IPProtocol] pair must have disjoint port
- *  ranges.
+ *  This field can be used only if: * Load balancing scheme is one of EXTERNAL,
+ *  INTERNAL_SELF_MANAGED or INTERNAL_MANAGED, and * IPProtocol is one of TCP,
+ *  UDP, or SCTP.
+ *  Packets addressed to ports in the specified range will be forwarded to
+ *  target or backend_service. You can only use one of ports, port_range, or
+ *  allPorts. The three are mutually exclusive. Forwarding rules with the same
+ *  [IPAddress, IPProtocol] pair must have disjoint port ranges.
  *  Some types of forwarding target have constraints on the acceptable ports:
  *  - TargetHttpProxy: 80, 8080
  *  - TargetHttpsProxy: 443
- *  - TargetGrpcProxy: Any ports
+ *  - TargetGrpcProxy: no constraints
  *  - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
  *  1883, 5222
  *  - TargetSslProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700, 993, 995, 1688,
@@ -17818,17 +18019,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *portRange;
 
 /**
- *  This field is used along with the backend_service field for internal load
- *  balancing.
- *  When the load balancing scheme is INTERNAL, a list of ports can be
- *  configured, for example, ['80'], ['8000','9000']. Only packets addressed to
- *  these ports are forwarded to the backends configured with the forwarding
- *  rule.
- *  If the forwarding rule's loadBalancingScheme is INTERNAL, you can specify
- *  ports in one of the following ways:
- *  * A list of up to five ports, which can be non-contiguous * Keyword ALL,
- *  which causes the forwarding rule to forward traffic on any port of the
- *  forwarding rule's protocol.
+ *  The ports field is only supported when the forwarding rule references a
+ *  backend_service directly. Supported load balancing products are Internal
+ *  TCP/UDP Load Balancing and Network Load Balancing. Only packets addressed to
+ *  the specified list of ports are forwarded to backends.
+ *  You can only use one of ports and port_range, or allPorts. The three are
+ *  mutually exclusive.
+ *  You can specify a list of up to five ports, which can be non-contiguous.
+ *  For Internal TCP/UDP Load Balancing, if you specify allPorts, you should not
+ *  specify ports.
+ *  For more information, see [Port
+ *  specifications](/load-balancing/docs/forwarding-rule-concepts#port_specifications).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
@@ -18557,6 +18758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Likely values:
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_FeatureTypeUnspecified Value
  *        "FEATURE_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRCompute_GuestOsFeature_Type_Gvnic Value "GVNIC"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_MultiIpSubnet Value
  *        "MULTI_IP_SUBNET"
  *    @arg @c kGTLRCompute_GuestOsFeature_Type_SecureBoot Value "SECURE_BOOT"
@@ -19445,6 +19647,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+@property(nonatomic, copy, nullable) NSString *weight;
+
+/**
+ *  weightError
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_HealthStatus_WeightError_InvalidWeight Value
+ *        "INVALID_WEIGHT"
+ *    @arg @c kGTLRCompute_HealthStatus_WeightError_MissingWeight Value
+ *        "MISSING_WEIGHT"
+ *    @arg @c kGTLRCompute_HealthStatus_WeightError_UnavailableWeight Value
+ *        "UNAVAILABLE_WEIGHT"
+ *    @arg @c kGTLRCompute_HealthStatus_WeightError_WeightNone Value
+ *        "WEIGHT_NONE"
+ */
+@property(nonatomic, copy, nullable) NSString *weightError;
 
 @end
 
@@ -25249,6 +25468,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
+ *  Maximum Transmission Unit (MTU), in bytes, of packets passing through this
+ *  interconnect attachment. Only 1440 and 1500 are allowed. If not specified,
+ *  the value will default to 1440.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtu;
+
+/**
  *  Name of the resource. Provided by the client when the resource is created.
  *  The name must be 1-63 characters long, and comply with RFC1035.
  *  Specifically, the name must be 1-63 characters long and match the regular
@@ -26934,6 +27162,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  GTLRCompute_LocalDisk
+ */
+@interface GTLRCompute_LocalDisk : GTLRObject
+
+/**
+ *  Specifies the number of such disks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskCount;
+
+/**
+ *  Specifies the size of the disk in base-2 GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Specifies the desired disk type on the node. This disk type must be a local
+ *  storage type (e.g.: local-ssd). Note that for nodeTemplates, this should be
+ *  the name of the disk type and not its URL.
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+@end
+
+
+/**
  *  Specifies what kind of log the caller must write
  */
 @interface GTLRCompute_LogConfig : GTLRObject
@@ -28136,8 +28393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Represents a collection of network endpoints.
  *  A network endpoint group (NEG) defines how a set of endpoints should be
  *  reached, whether they are reachable, and where they are located. For more
- *  information about using NEGs, see Setting up internet NEGs, Setting up zonal
- *  NEGs, or Setting up serverless NEGs. (== resource_for
+ *  information about using NEGs, see Setting up external HTTP(S) Load Balancing
+ *  with internet NEGs, Setting up zonal NEGs, or Setting up external HTTP(S)
+ *  Load Balancing with serverless NEGs. (== resource_for
  *  {$api_version}.networkEndpointGroups ==) (== resource_for
  *  {$api_version}.globalNetworkEndpointGroups ==) (== resource_for
  *  {$api_version}.regionNetworkEndpointGroups ==)
@@ -29074,6 +29332,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *networkIP;
 
 /**
+ *  The type of vNIC to be used on this interface. This may be gVNIC or
+ *  VirtioNet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_NetworkInterface_NicType_Gvnic Value "GVNIC"
+ *    @arg @c kGTLRCompute_NetworkInterface_NicType_UnspecifiedNicType Value
+ *        "UNSPECIFIED_NIC_TYPE"
+ *    @arg @c kGTLRCompute_NetworkInterface_NicType_VirtioNet Value "VIRTIO_NET"
+ */
+@property(nonatomic, copy, nullable) NSString *nicType;
+
+/**
  *  The URL of the Subnetwork resource for this instance. If the network
  *  resource is in legacy mode, do not specify this field. If the network is in
  *  auto subnet mode, specifying the subnetwork is optional. If the network is
@@ -29489,6 +29759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, copy, nullable) NSString *maintenancePolicy;
 
+@property(nonatomic, strong, nullable) GTLRCompute_NodeGroupMaintenanceWindow *maintenanceWindow;
+
 /**
  *  The name of the resource, provided by the client when initially creating the
  *  resource. The resource name must be 1-63 characters long, and comply with
@@ -29870,9 +30142,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
+ *  Time window specified for daily maintenance operations. GCE's internal
+ *  maintenance will be performed within this window.
+ */
+@interface GTLRCompute_NodeGroupMaintenanceWindow : GTLRObject
+
+/**
+ *  [Output only] A predetermined duration for the window, automatically chosen
+ *  to be the smallest possible in the given scenario.
+ */
+@property(nonatomic, strong, nullable) GTLRCompute_Duration *maintenanceDuration;
+
+/**
+ *  Start time of the window. This must be in UTC format that resolves to one of
+ *  00:00, 04:00, 08:00, 12:00, 16:00, or 20:00. For example, both 13:00-5 and
+ *  08:00 are valid.
+ */
+@property(nonatomic, copy, nullable) NSString *startTime;
+
+@end
+
+
+/**
  *  GTLRCompute_NodeGroupNode
  */
 @interface GTLRCompute_NodeGroupNode : GTLRObject
+
+/** Accelerators for this node. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *accelerators;
 
 /**
  *  CPU overcommit.
@@ -29885,6 +30182,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_NodeGroupNode_CpuOvercommitType_None Value "NONE"
  */
 @property(nonatomic, copy, nullable) NSString *cpuOvercommitType;
+
+/** Local disk configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LocalDisk *> *disks;
 
 /** Instances scheduled on this node. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
@@ -30225,6 +30525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @interface GTLRCompute_NodeTemplate : GTLRObject
 
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_AcceleratorConfig *> *accelerators;
+
 /**
  *  CPU overcommit.
  *
@@ -30247,6 +30549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRCompute_LocalDisk *> *disks;
 
 /**
  *  [Output Only] The unique identifier for the resource. This identifier is
@@ -36696,8 +37000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The destination range of outgoing packets that this route applies to. Only
- *  IPv4 is supported.
+ *  The destination range of outgoing packets that this route applies to. Both
+ *  IPv4 and IPv6 are supported.
  */
 @property(nonatomic, copy, nullable) NSString *destRange;
 
@@ -38153,6 +38457,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *automaticRestart;
 
 /**
+ *  An opaque location hint used to place the instance close to other resources.
+ *  This field is for use by internal tools that use the public API.
+ */
+@property(nonatomic, copy, nullable) NSString *locationHint;
+
+/**
  *  The minimum number of virtual CPUs this instance will consume when running
  *  on a sole-tenant node.
  *
@@ -38531,7 +38841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  An integer indicating the priority of a rule in the list. The priority must
  *  be a positive value between 0 and 2147483647. Rules are evaluated from
  *  highest to lowest priority where 0 is the highest priority and 2147483647 is
- *  the lowest prority.
+ *  the lowest priority.
  *
  *  Uses NSNumber of intValue.
  */
@@ -40452,12 +40762,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output Only] The state of the subnetwork, which can be one of READY or
- *  DRAINING. A subnetwork that is READY is ready to be used. The state of
- *  DRAINING is only applicable to subnetworks that have the purpose set to
+ *  [Output Only] The state of the subnetwork, which can be one of the following
+ *  values: READY: Subnetwork is created and ready to use DRAINING: only
+ *  applicable to subnetworks that have the purpose set to
  *  INTERNAL_HTTPS_LOAD_BALANCER and indicates that connections to the load
  *  balancer are being drained. A subnetwork that is draining cannot be used or
- *  modified until it reaches a status of READY.
+ *  modified until it reaches a status of READY CREATING: Subnetwork is
+ *  provisioning DELETING: Subnetwork is being deleted UPDATING: Subnetwork is
+ *  being updated
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_State_Draining Value "DRAINING"

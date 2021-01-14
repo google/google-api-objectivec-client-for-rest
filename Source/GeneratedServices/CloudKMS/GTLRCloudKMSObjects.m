@@ -14,6 +14,18 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudKMS_AsymmetricDecryptResponse.protectionLevel
+NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_AsymmetricSignResponse.protectionLevel
+NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Software = @"SOFTWARE";
+
 // GTLRCloudKMS_AuditLogConfig.logType
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -86,6 +98,18 @@ NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm = @"
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software = @"SOFTWARE";
 
+// GTLRCloudKMS_DecryptResponse.protectionLevel
+NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software = @"SOFTWARE";
+
+// GTLRCloudKMS_EncryptResponse.protectionLevel
+NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software = @"SOFTWARE";
+
 // GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_CryptoKeyVersionAlgorithmUnspecified = @"CRYPTO_KEY_VERSION_ALGORITHM_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP256Sha256 = @"EC_SIGN_P256_SHA256";
@@ -146,6 +170,12 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss3072Sha256 = @"RSA_
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha256 = @"RSA_SIGN_PSS_4096_SHA256";
 NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_SIGN_PSS_4096_SHA512";
 
+// GTLRCloudKMS_PublicKey.protectionLevel
+NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_External = @"EXTERNAL";
+NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm   = @"HSM";
+NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software = @"SOFTWARE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudKMS_AsymmetricDecryptRequest
@@ -162,7 +192,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricDecryptResponse
-@dynamic plaintext, plaintextCrc32c, verifiedCiphertextCrc32c;
+@dynamic plaintext, plaintextCrc32c, protectionLevel, verifiedCiphertextCrc32c;
 @end
 
 
@@ -182,7 +212,8 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_AsymmetricSignResponse
-@dynamic name, signature, signatureCrc32c, verifiedDigestCrc32c;
+@dynamic name, protectionLevel, signature, signatureCrc32c,
+         verifiedDigestCrc32c;
 @end
 
 
@@ -324,7 +355,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_DecryptResponse
-@dynamic plaintext, plaintextCrc32c;
+@dynamic plaintext, plaintextCrc32c, protectionLevel, usedPrimary;
 @end
 
 
@@ -364,7 +395,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_EncryptResponse
-@dynamic ciphertext, ciphertextCrc32c, name,
+@dynamic ciphertext, ciphertextCrc32c, name, protectionLevel,
          verifiedAdditionalAuthenticatedDataCrc32c, verifiedPlaintextCrc32c;
 @end
 
@@ -622,7 +653,7 @@ NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512 = @"RSA_
 //
 
 @implementation GTLRCloudKMS_PublicKey
-@dynamic algorithm, name, pem, pemCrc32c;
+@dynamic algorithm, name, pem, pemCrc32c, protectionLevel;
 @end
 
 

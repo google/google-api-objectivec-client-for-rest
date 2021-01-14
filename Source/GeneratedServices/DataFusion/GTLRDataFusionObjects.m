@@ -24,6 +24,12 @@ NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_AcceleratorTypeUnsp
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Cdc = @"CDC";
 NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare = @"HEALTHCARE";
 
+// GTLRDataFusion_Accelerator.state
+NSString * const kGTLRDataFusion_Accelerator_State_Disabled    = @"DISABLED";
+NSString * const kGTLRDataFusion_Accelerator_State_Enabled     = @"ENABLED";
+NSString * const kGTLRDataFusion_Accelerator_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataFusion_Accelerator_State_Unknown     = @"UNKNOWN";
+
 // GTLRDataFusion_AuditLogConfig.logType
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRDataFusion_AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -54,7 +60,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Accelerator
-@dynamic acceleratorType;
+@dynamic acceleratorType, state;
 @end
 
 
@@ -100,7 +106,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -386,8 +392,22 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusDetail,
-         target, verb;
+@dynamic additionalStatus, apiVersion, createTime, endTime,
+         requestedCancellation, statusDetail, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_OperationMetadata_AdditionalStatus
+//
+
+@implementation GTLRDataFusion_OperationMetadata_AdditionalStatus
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

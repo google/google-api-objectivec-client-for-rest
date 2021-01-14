@@ -49,6 +49,11 @@ NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByPage = @"BY_PAGE";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_AggregationType_ByProperty = @"BY_PROPERTY";
 
+// GTLRSearchConsole_SearchAnalyticsQueryRequest.dataState
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_All = @"ALL";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_DataStateUnspecified = @"DATA_STATE_UNSPECIFIED";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_DataState_Final = @"FINAL";
+
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.dimensions
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Country = @"COUNTRY";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Date = @"DATE";
@@ -59,6 +64,7 @@ NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_Dimensions_Searc
 
 // GTLRSearchConsole_SearchAnalyticsQueryRequest.searchType
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Image = @"IMAGE";
+NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_News = @"NEWS";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Video = @"VIDEO";
 NSString * const kGTLRSearchConsole_SearchAnalyticsQueryRequest_SearchType_Web = @"WEB";
 
@@ -227,8 +233,8 @@ NSString * const kGTLRSearchConsole_WmxSitemapContent_Type_Web = @"WEB";
 //
 
 @implementation GTLRSearchConsole_SearchAnalyticsQueryRequest
-@dynamic aggregationType, dimensionFilterGroups, dimensions, endDate, rowLimit,
-         searchType, startDate, startRow;
+@dynamic aggregationType, dataState, dimensionFilterGroups, dimensions, endDate,
+         rowLimit, searchType, startDate, startRow;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

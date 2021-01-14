@@ -97,6 +97,21 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 
 /**
+ *  Request message for TablesService.BatchDeleteRows
+ */
+@interface GTLRArea120Tables_BatchDeleteRowsRequest : GTLRObject
+
+/**
+ *  Required. The names of the rows to delete. All rows must belong to the
+ *  parent table or else the entire batch will fail. A maximum of 500 rows can
+ *  be deleted in a batch. Format: tables/{table}/rows/{row}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *names;
+
+@end
+
+
+/**
  *  Request message for TablesService.BatchUpdateRows.
  */
 @interface GTLRArea120Tables_BatchUpdateRowsRequest : GTLRObject

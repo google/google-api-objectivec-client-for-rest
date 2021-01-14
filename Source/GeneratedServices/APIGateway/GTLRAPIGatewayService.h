@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   API Gateway API (apigateway/v1beta)
+//   API Gateway API (apigateway/v1)
 // Documentation:
-//    https://cloud.google.com/api-gateway/docs
+//   https://cloud.google.com/api-gateway/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

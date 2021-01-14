@@ -144,21 +144,45 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Alias.type
 
-/** Value: "ALIAS_TYPE_UNSPECIFIED" */
+/**
+ *  Alias type is not specified.
+ *
+ *  Value: "ALIAS_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_AliasTypeUnspecified;
-/** Value: "CERT" */
+/**
+ *  Certificate.
+ *
+ *  Value: "CERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert;
-/** Value: "KEY_CERT" */
+/**
+ *  Key/certificate pair.
+ *
+ *  Value: "KEY_CERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_KeyCert;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig.type
 
-/** Value: "ALIAS_TYPE_UNSPECIFIED" */
+/**
+ *  Alias type is not specified.
+ *
+ *  Value: "ALIAS_TYPE_UNSPECIFIED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTypeUnspecified;
-/** Value: "CERT" */
+/**
+ *  Certificate.
+ *
+ *  Value: "CERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert;
-/** Value: "KEY_CERT" */
+/**
+ *  Key/certificate pair.
+ *
+ *  Value: "KEY_CERT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert;
 
 // ----------------------------------------------------------------------------
@@ -842,27 +866,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  A reference to a certificate or key, certificate pair.
+ *  Reference to a certificate or key/certificate pair.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Alias : GTLRObject
 
 /**
- *  The resource ID for this alias. Values must match regular expression
+ *  Resource ID for this alias. Values must match the regular expression
  *  `[^/]{1,255}`.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
-/** The chain of certificates under this alias. */
+/** Chain of certificates under this alias. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Certificate *certsInfo;
 
 /**
- *  The type of alias.
+ *  Type of alias.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Alias_Type_AliasTypeUnspecified
- *        Value "ALIAS_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert Value "CERT"
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Alias_Type_KeyCert Value "KEY_CERT"
+ *        Alias type is not specified. (Value: "ALIAS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert Certificate.
+ *        (Value: "CERT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Alias_Type_KeyCert Key/certificate
+ *        pair. (Value: "KEY_CERT")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -888,11 +914,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_AliasTypeUnspecified
- *        Value "ALIAS_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert Value
- *        "CERT"
+ *        Alias type is not specified. (Value: "ALIAS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_Cert
+ *        Certificate. (Value: "CERT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig_Type_KeyCert
- *        Value "KEY_CERT"
+ *        Key/certificate pair. (Value: "KEY_CERT")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1568,60 +1594,60 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Certificate : GTLRObject
 
-/** The chain of certificates under this name. */
+/** Chain of certificates under this name. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1CertInfo *> *certInfo;
 
 @end
 
 
 /**
- *  An X.509 certificate as defined in RFC 5280.
+ *  X.509 certificate as defined in RFC 5280.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1CertInfo : GTLRObject
 
-/** The X.509 basic constraints extension. */
+/** X.509 basic constraints extension. */
 @property(nonatomic, copy, nullable) NSString *basicConstraints;
 
 /**
- *  The X.509 validity / notAfter in milliseconds since the epoch.
+ *  X.509 `notAfter` validity period in milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *expiryDate;
 
-/** The X.509 issuer. */
+/** X.509 issuer. */
 @property(nonatomic, copy, nullable) NSString *issuer;
 
 /**
- *  "Yes" if certificate is valid, "No" if expired and "Not yet" if not yet
- *  valid.
+ *  Flag that specifies whether the certificate is valid. Flag is set to `Yes`
+ *  if the certificate is valid, `No` if expired, or `Not yet` if not yet valid.
  */
 @property(nonatomic, copy, nullable) NSString *isValid;
 
-/** The public key component of the X.509 subject public key info. */
+/** Public key component of the X.509 subject public key info. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
-/** The X.509 serial number. */
+/** X.509 serial number. */
 @property(nonatomic, copy, nullable) NSString *serialNumber;
 
-/** The X.509 signatureAlgorithm. */
+/** X.509 signatureAlgorithm. */
 @property(nonatomic, copy, nullable) NSString *sigAlgName;
 
-/** The X.509 subject. */
+/** X.509 subject. */
 @property(nonatomic, copy, nullable) NSString *subject;
 
-/** The X.509 subject alternative names (SANs) extension. */
+/** X.509 subject alternative names (SANs) extension. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAlternativeNames;
 
 /**
- *  The X.509 validity / notBefore in milliseconds since the epoch.
+ *  X.509 `notBefore` validity period in milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *validFrom;
 
 /**
- *  The X.509 version.
+ *  X.509 version.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2421,7 +2447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Email address of the developer. This value is used to uniquely
- *  identify the developer in Apigee hybrid.
+ *  identify the developer in Apigee hybrid. Note that the email address has to
+ *  be in lowercase only.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
@@ -3070,8 +3097,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. Customer Managed Encryption Key (CMEK) used for disk & volume
- *  encryption.
+ *  Customer Managed Encryption Key (CMEK) used for disk and volume encryption.
+ *  Required for Apigee paid subscriptions only. Use the following format:
+ *  `projects/([^/]+)/locations/([^/]+)/keyRings/([^/]+)/cryptoKeys/([^/]+)`
  */
 @property(nonatomic, copy, nullable) NSString *diskEncryptionKeyName;
 
@@ -3228,15 +3256,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  A datastore for Certificates and Aliases
+ *  Datastore for Certificates and Aliases.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Keystore : GTLRObject
 
-/** Output only. The aliases in this keystore. */
+/** Output only. Aliases in this keystore. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
- *  Required. The resource ID for this keystore. Values must match the regular
+ *  Required. Resource ID for this keystore. Values must match the regular
  *  expression `[\\w[:space:]-.]{1,255}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

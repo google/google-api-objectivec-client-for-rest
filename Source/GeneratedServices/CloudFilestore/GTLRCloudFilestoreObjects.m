@@ -63,6 +63,16 @@ NSString * const kGTLRCloudFilestore_MaintenancePolicy_State_StateUnspecified = 
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
 
+// GTLRCloudFilestore_NfsExportOptions.accessMode
+NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_AccessModeUnspecified = @"ACCESS_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadOnly = @"READ_ONLY";
+NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_ReadWrite = @"READ_WRITE";
+
+// GTLRCloudFilestore_NfsExportOptions.squashMode
+NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_NoRootSquash = @"NO_ROOT_SQUASH";
+NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_RootSquash = @"ROOT_SQUASH";
+NSString * const kGTLRCloudFilestore_NfsExportOptions_SquashMode_SquashModeUnspecified = @"SQUASH_MODE_UNSPECIFIED";
+
 // GTLRCloudFilestore_Schedule.day
 NSString * const kGTLRCloudFilestore_Schedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_Schedule_Day_Friday       = @"FRIDAY";
@@ -163,7 +173,15 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_FileShareConfig
-@dynamic capacityGb, name, sourceBackup;
+@dynamic capacityGb, name, nfsExportOptions, sourceBackup;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nfsExportOptions" : [GTLRCloudFilestore_NfsExportOptions class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -581,6 +599,24 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
   NSDictionary<NSString *, Class> *map = @{
     @"ipAddresses" : [NSString class],
     @"modes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_NfsExportOptions
+//
+
+@implementation GTLRCloudFilestore_NfsExportOptions
+@dynamic accessMode, anonGid, anonUid, ipRanges, squashMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipRanges" : [NSString class]
   };
   return map;
 }

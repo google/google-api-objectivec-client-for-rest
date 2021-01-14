@@ -441,7 +441,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForChromeosdevicesActionWithObject:customerId:resourceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -473,8 +473,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_ChromeOsDeviceAction to include in the
  *    query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param resourceId The unique ID of the device. The `resourceId`s are
@@ -504,7 +504,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForChromeosdevicesGetWithcustomerId:deviceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -539,8 +539,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a Chrome OS device's properties.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
@@ -569,7 +569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForChromeosdevicesListWithcustomerId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -658,8 +658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a paginated list of Chrome OS devices within an account.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
@@ -686,7 +686,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForChromeosdevicesMoveDevicesToOuWithObject:customerId:orgUnitPath:]
 
-/** Immutable ID of the G Suite account */
+/** Immutable ID of the Google Workspace account */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Full path of the target organizational unit or its ID */
@@ -701,7 +701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
- *  @param customerId Immutable ID of the G Suite account
+ *  @param customerId Immutable ID of the Google Workspace account
  *  @param orgUnitPath Full path of the target organizational unit or its ID
  *
  *  @return GTLRDirectoryQuery_ChromeosdevicesMoveDevicesToOu
@@ -728,7 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForChromeosdevicesPatchWithObject:customerId:deviceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -765,8 +765,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  semantics](/admin-sdk/directory/v1/guides/performance#patch).
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
@@ -796,7 +796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForChromeosdevicesUpdateWithObject:customerId:deviceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -831,8 +831,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  `annotatedLocation`, `notes`, `orgUnitPath`, or `annotatedAssetId`.
  *
  *  @param object The @c GTLRDirectory_ChromeOsDevice to include in the query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param deviceId The unique ID of the device. The `deviceId`s are returned in
@@ -864,7 +864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 /** Immutable. Immutable ID of Chrome OS Device Command. */
 @property(nonatomic, assign) long long commandId;
 
-/** Immutable. Immutable ID of the G Suite account. */
+/** Immutable. Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable. Immutable ID of Chrome OS Device. */
@@ -875,7 +875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Gets command data a specific command issued to the device.
  *
- *  @param customerId Immutable. Immutable ID of the G Suite account.
+ *  @param customerId Immutable. Immutable ID of the Google Workspace account.
  *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
  *  @param commandId Immutable. Immutable ID of Chrome OS Device Command.
  *
@@ -899,7 +899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForCustomerDevicesChromeosIssueCommandWithObject:customerId:deviceId:]
 
-/** Immutable. Immutable ID of the G Suite account. */
+/** Immutable. Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Immutable. Immutable ID of Chrome OS Device. */
@@ -912,7 +912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_ChromeosdevicesIssueCommandRequest to
  *    include in the query.
- *  @param customerId Immutable. Immutable ID of the G Suite account.
+ *  @param customerId Immutable. Immutable ID of the Google Workspace account.
  *  @param deviceId Immutable. Immutable ID of Chrome OS Device.
  *
  *  @return GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand
@@ -1024,7 +1024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainAliasesDeleteWithcustomer:domainAliasName:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain alias to be retrieved. */
@@ -1036,7 +1036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a domain Alias of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param domainAliasName Name of domain alias to be retrieved.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesDelete
@@ -1059,7 +1059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainAliasesGetWithcustomer:domainAliasName:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain alias to be retrieved. */
@@ -1070,7 +1070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a domain alias of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param domainAliasName Name of domain alias to be retrieved.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesGet
@@ -1092,7 +1092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainAliasesInsertWithObject:customer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -1101,7 +1101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Inserts a domain alias of the customer.
  *
  *  @param object The @c GTLRDirectory_DomainAlias to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesInsert
  */
@@ -1123,7 +1123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainAliasesListWithcustomer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of the parent domain for which domain aliases are to be fetched. */
@@ -1134,7 +1134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Lists the domain aliases of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_DomainAliasesList
  */
@@ -1154,7 +1154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainsDeleteWithcustomer:domainName:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain to be deleted */
@@ -1166,7 +1166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a domain of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param domainName Name of domain to be deleted
  *
  *  @return GTLRDirectoryQuery_DomainsDelete
@@ -1189,7 +1189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainsGetWithcustomer:domainName:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Name of domain to be retrieved */
@@ -1200,7 +1200,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a domain of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param domainName Name of domain to be retrieved
  *
  *  @return GTLRDirectoryQuery_DomainsGet
@@ -1222,7 +1222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainsInsertWithObject:customer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -1231,7 +1231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Inserts a domain of the customer.
  *
  *  @param object The @c GTLRDirectory_Domains to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_DomainsInsert
  */
@@ -1253,7 +1253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForDomainsListWithcustomer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -1261,7 +1261,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Lists the domains of the customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_DomainsList
  */
@@ -1479,11 +1479,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForGroupsList]
 
 /**
- *  The unique ID for the customer's G Suite account. In case of a multi-domain
- *  account, to fetch all groups for a customer, fill this field instead of
- *  domain. As an account administrator, you can also use the `my_customer`
- *  alias to represent your account's `customerId`. The `customerId` is also
- *  returned as part of the [Users](/admin-sdk/directory/v1/reference/users)
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, fill this field
+ *  instead of domain. As an account administrator, you can also use the
+ *  `my_customer` alias to represent your account's `customerId`. The
+ *  `customerId` is also returned as part of the
+ *  [Users](/admin-sdk/directory/v1/reference/users)
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -1966,7 +1967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMobiledevicesActionWithObject:customerId:resourceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -1985,8 +1986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  @param object The @c GTLRDirectory_MobileDeviceAction to include in the
  *    query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
@@ -2013,7 +2014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMobiledevicesDeleteWithcustomerId:resourceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2029,8 +2030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Removes a mobile device.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
@@ -2058,7 +2059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMobiledevicesGetWithcustomerId:resourceId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2087,8 +2088,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a mobile device's properties.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param resourceId The unique ID the API service uses to identify the mobile
@@ -2116,7 +2117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForMobiledevicesListWithcustomerId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2173,7 +2174,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 
 /**
  *  Search string in the format given at
- *  http://support.google.com/a/bin/answer.py?answer=1408863#search
+ *  https://developers.google.com/admin-sdk/directory/v1/search-operators
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -2196,8 +2197,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a paginated list of all mobile devices for an account.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
@@ -2224,7 +2225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsDeleteWithcustomerId:orgUnitPath:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2240,8 +2241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Removes an organizational unit.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit or its unique
@@ -2268,7 +2269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsGetWithcustomerId:orgUnitPath:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2283,8 +2284,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves an organizational unit.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit or its unique
@@ -2310,7 +2311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsInsertWithObject:customerId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2323,8 +2324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Adds an organizational unit.
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
@@ -2349,7 +2350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsListWithcustomerId:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2378,8 +2379,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a list of all organizational units for an account.
  *
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *
@@ -2403,7 +2404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsPatchWithObject:customerId:orgUnitPath:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2420,8 +2421,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  semantics](/admin-sdk/directory/v1/guides/performance#patch)
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit or its unique
@@ -2448,7 +2449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForOrgunitsUpdateWithObject:customerId:orgUnitPath:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's `customerId`. The `customerId` is also returned as part of the
  *  [Users resource](/admin-sdk/directory/v1/reference/users).
@@ -2464,8 +2465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Updates an organizational unit.
  *
  *  @param object The @c GTLRDirectory_OrgUnit to include in the query.
- *  @param customerId The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customerId The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's `customerId`. The `customerId` is also returned
  *    as part of the [Users resource](/admin-sdk/directory/v1/reference/users).
  *  @param orgUnitPath The full path of the organizational unit or its unique
@@ -2492,7 +2493,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForPrivilegesListWithcustomer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -2500,7 +2501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a paginated list of all privileges for a customer.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_PrivilegesList
  */
@@ -2524,7 +2525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2536,8 +2537,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a building.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param buildingId The id of the building to delete.
  *
@@ -2565,7 +2566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *buildingId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2576,8 +2577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a building.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param buildingId The unique ID of the building to retrieve.
  *
@@ -2623,7 +2624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *coordinatesSource;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2635,8 +2636,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Inserts a building.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsInsert
@@ -2660,7 +2661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesBuildingsListWithcustomer:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2681,8 +2682,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a list of buildings for an account.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesBuildingsList
@@ -2733,7 +2734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *coordinatesSource;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2745,8 +2746,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patches a building via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param buildingId The id of the building to update.
  *
@@ -2796,7 +2797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *coordinatesSource;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2808,8 +2809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Updates a building.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param buildingId The id of the building to update.
  *
@@ -2837,7 +2838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2849,8 +2850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a calendar resource.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to delete.
  *
@@ -2878,7 +2879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2889,8 +2890,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a calendar resource.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to
  *    retrieve.
@@ -2915,7 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesCalendarsInsertWithObject:customer:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2927,8 +2928,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Inserts a calendar resource.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsInsert
@@ -2952,7 +2953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesCalendarsListWithcustomer:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -2996,8 +2997,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a list of calendar resources for an account.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesCalendarsList
@@ -3026,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3038,8 +3039,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patches a calendar resource via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to update.
  *
@@ -3069,7 +3070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *calendarResourceId;
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3083,8 +3084,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  present in the request will be preserved.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param calendarResourceId The unique ID of the calendar resource to update.
  *
@@ -3109,7 +3110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesDeleteWithcustomer:featureKey:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3124,8 +3125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a feature.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to delete.
  *
@@ -3150,7 +3151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesGetWithcustomer:featureKey:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3164,8 +3165,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a feature.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to retrieve.
  *
@@ -3189,7 +3190,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesInsertWithObject:customer:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3201,8 +3202,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Inserts a feature.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesInsert
@@ -3226,7 +3227,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesListWithcustomer:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3247,8 +3248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a list of features for an account.
  *
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *
  *  @return GTLRDirectoryQuery_ResourcesFeaturesList
@@ -3274,7 +3275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesPatchWithObject:customer:featureKey:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3289,8 +3290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patches a feature via Apiary Patch Orchestration.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to update.
  *
@@ -3315,7 +3316,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesRenameWithObject:customer:oldName:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3331,8 +3332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Renames a feature.
  *
  *  @param object The @c GTLRDirectory_FeatureRename to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param oldName The unique ID of the feature to rename.
  *
@@ -3357,7 +3358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForResourcesFeaturesUpdateWithObject:customer:featureKey:]
 
 /**
- *  The unique ID for the customer's G Suite account. As an account
+ *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
  *  account's customer ID.
  */
@@ -3372,8 +3373,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Updates a feature.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
- *  @param customer The unique ID for the customer's G Suite account. As an
- *    account administrator, you can also use the `my_customer` alias to
+ *  @param customer The unique ID for the customer's Google Workspace account.
+ *    As an account administrator, you can also use the `my_customer` alias to
  *    represent your account's customer ID.
  *  @param featureKey The unique ID of the feature to update.
  *
@@ -3397,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRoleAssignmentsDeleteWithcustomer:roleAssignmentId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role assignment. */
@@ -3409,7 +3410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a role assignment.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleAssignmentId Immutable ID of the role assignment.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsDelete
@@ -3432,7 +3433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRoleAssignmentsGetWithcustomer:roleAssignmentId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role assignment. */
@@ -3443,7 +3444,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieve a role assignment.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleAssignmentId Immutable ID of the role assignment.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsGet
@@ -3465,7 +3466,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRoleAssignmentsInsertWithObject:customer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -3474,7 +3475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Creates a role assignment.
  *
  *  @param object The @c GTLRDirectory_RoleAssignment to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsInsert
  */
@@ -3496,7 +3497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRoleAssignmentsListWithcustomer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -3526,7 +3527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a paginated list of all roleAssignments.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_RoleAssignmentsList
  *
@@ -3550,7 +3551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesDeleteWithcustomer:roleId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
@@ -3562,7 +3563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Deletes a role.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleId Immutable ID of the role.
  *
  *  @return GTLRDirectoryQuery_RolesDelete
@@ -3585,7 +3586,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesGetWithcustomer:roleId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
@@ -3596,7 +3597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a role.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleId Immutable ID of the role.
  *
  *  @return GTLRDirectoryQuery_RolesGet
@@ -3618,7 +3619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesInsertWithObject:customer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -3627,7 +3628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Creates a role.
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_RolesInsert
  */
@@ -3649,7 +3650,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesListWithcustomer:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
@@ -3667,7 +3668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieves a paginated list of all the roles in a domain.
  *
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_RolesList
  *
@@ -3691,7 +3692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesPatchWithObject:customer:roleId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
@@ -3703,7 +3704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patch role via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleId Immutable ID of the role.
  *
  *  @return GTLRDirectoryQuery_RolesPatch
@@ -3726,7 +3727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForRolesUpdateWithObject:customer:roleId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable ID of the role. */
@@ -3738,7 +3739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Updates a role.
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
- *  @param customer Immutable ID of the G Suite account.
+ *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleId Immutable ID of the role.
  *
  *  @return GTLRDirectoryQuery_RolesUpdate
@@ -3761,7 +3762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasDeleteWithcustomerId:schemaKey:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3773,7 +3774,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Delete schema
  *
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasDelete
@@ -3796,7 +3797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasGetWithcustomerId:schemaKey:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3807,7 +3808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieve schema
  *
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasGet
@@ -3829,7 +3830,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasInsertWithObject:customerId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -3838,7 +3839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Create schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_SchemasInsert
  */
@@ -3860,7 +3861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasListWithcustomerId:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -3868,7 +3869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *
  *  Retrieve all schemas for a customer
  *
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *
  *  @return GTLRDirectoryQuery_SchemasList
  */
@@ -3888,7 +3889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasPatchWithObject:customerId:schemaKey:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3900,7 +3901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Patch Schema via Apiary Patch Orchestration
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasPatch
@@ -3923,7 +3924,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForSchemasUpdateWithObject:customerId:schemaKey:]
 
-/** Immutable ID of the G Suite account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /** Name or immutable ID of the schema. */
@@ -3935,7 +3936,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
  *  Update schema
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
- *  @param customerId Immutable ID of the G Suite account.
+ *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
  *
  *  @return GTLRDirectoryQuery_SchemasUpdate
@@ -4390,12 +4391,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersList]
 
 /**
- *  The unique ID for the customer's G Suite account. In case of a multi-domain
- *  account, to fetch all groups for a customer, fill this field instead of
- *  domain. You can also use the `my_customer` alias to represent your account's
- *  `customerId`. The `customerId` is also returned as part of the [Users
- *  resource](/admin-sdk/directory/v1/reference/users). Either the `customer` or
- *  the `domain` parameter must be provided.
+ *  The unique ID for the customer's Google Workspace account. In case of a
+ *  multi-domain account, to fetch all groups for a customer, fill this field
+ *  instead of domain. You can also use the `my_customer` alias to represent
+ *  your account's `customerId`. The `customerId` is also returned as part of
+ *  the [Users resource](/admin-sdk/directory/v1/reference/users). Either the
+ *  `customer` or the `domain` parameter must be provided.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
@@ -4847,8 +4848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 //   +[GTLQueryDirectory queryForUsersWatchWithObject:]
 
 /**
- *  Immutable ID of the G Suite account. In case of multi-domain, to fetch all
- *  users for a customer, fill this field instead of domain.
+ *  Immutable ID of the Google Workspace account. In case of multi-domain, to
+ *  fetch all users for a customer, fill this field instead of domain.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 

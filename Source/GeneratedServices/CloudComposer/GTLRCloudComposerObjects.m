@@ -52,6 +52,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_DatabaseConfig
+//
+
+@implementation GTLRCloudComposer_DatabaseConfig
+@dynamic machineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_Date
 //
 
@@ -99,8 +109,8 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_EnvironmentConfig
-@dynamic airflowUri, dagGcsPrefix, gkeCluster, nodeConfig, nodeCount,
-         privateEnvironmentConfig, softwareConfig,
+@dynamic airflowUri, dagGcsPrefix, databaseConfig, gkeCluster, nodeConfig,
+         nodeCount, privateEnvironmentConfig, softwareConfig, webServerConfig,
          webServerNetworkAccessControl;
 @end
 
@@ -372,6 +382,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_WebServerConfig
+//
+
+@implementation GTLRCloudComposer_WebServerConfig
+@dynamic machineType;
 @end
 
 

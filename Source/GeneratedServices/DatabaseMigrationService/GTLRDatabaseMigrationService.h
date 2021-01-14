@@ -6,8 +6,8 @@
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
-//   https://cloud.google.com/datamigration/
+//   https://cloud.google.com/database-migration/
 
-#import "GTLRCloudDatabaseMigrationServiceObjects.h"
-#import "GTLRCloudDatabaseMigrationServiceQuery.h"
-#import "GTLRCloudDatabaseMigrationServiceService.h"
+#import "GTLRDatabaseMigrationServiceObjects.h"
+#import "GTLRDatabaseMigrationServiceQuery.h"
+#import "GTLRDatabaseMigrationServiceService.h"

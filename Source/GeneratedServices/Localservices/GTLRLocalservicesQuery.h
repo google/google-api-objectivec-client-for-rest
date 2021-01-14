@@ -42,6 +42,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  accounts.
  *
  *  Method: localservices.accountReports.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLocalservicesAdwords
  */
 @interface GTLRLocalservicesQuery_AccountReportsSearch : GTLRLocalservicesQuery
 // Previous library name was
@@ -134,6 +137,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  linked accounts.
  *
  *  Method: localservices.detailedLeadReports.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLocalservicesAdwords
  */
 @interface GTLRLocalservicesQuery_DetailedLeadReportsSearch : GTLRLocalservicesQuery
 // Previous library name was

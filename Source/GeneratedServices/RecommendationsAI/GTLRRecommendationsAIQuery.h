@@ -2,9 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Recommendations AI (recommendationengine/v1beta1)
+//   Recommendations AI (Beta) (recommendationengine/v1beta1)
 // Description:
-//   Recommendations AI service enables customers to build end-to-end
+//   Note that we now highly recommend new customers to use Retail API that
+//   incorporates the GA version of the Recommendations AI funtionalities. To
+//   enable Retail API, please visit
+//   https://console.cloud.google.com/apis/library/retail.googleapis.com. This
+//   is Recommendations AI service enables customers to build end-to-end
 //   personalized recommendation systems without requiring a high level of
 //   expertise in machine learning, recommendation system, or Google Cloud.
 // Documentation:
@@ -387,7 +391,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Makes a recommendation prediction. If using API Key based authentication,
  *  the API Key must be registered using the PredictionApiKeyRegistry service.
- *  [Learn more](/recommendations-ai/docs/setting-up#register-key).
+ *  [Learn
+ *  more](https://cloud.google.com/recommendations-ai/docs/setting-up#register-key).
  *
  *  Method: recommendationengine.projects.locations.catalogs.eventStores.placements.predict
  *
@@ -429,7 +434,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Makes a recommendation prediction. If using API Key based authentication,
  *  the API Key must be registered using the PredictionApiKeyRegistry service.
- *  [Learn more](/recommendations-ai/docs/setting-up#register-key).
+ *  [Learn
+ *  more](https://cloud.google.com/recommendations-ai/docs/setting-up#register-key).
  *
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest

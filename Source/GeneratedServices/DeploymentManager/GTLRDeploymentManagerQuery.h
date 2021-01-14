@@ -352,12 +352,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRDeploymentManager_DeploymentsListResponse.
  *
  *  Lists all deployments for a given project.
@@ -761,12 +755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRDeploymentManager_ManifestsListResponse.
  *
  *  Lists all manifests for a given deployment.
@@ -887,12 +875,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_OperationsListResponse.
@@ -1023,12 +1005,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
  *  Fetches a @c GTLRDeploymentManager_ResourcesListResponse.
  *
  *  Lists all resources in a given deployment.
@@ -1113,12 +1089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
 
 /** The project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
-
-/**
- *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDeploymentManager_TypesListResponse.

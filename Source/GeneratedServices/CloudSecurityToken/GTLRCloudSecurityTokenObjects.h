@@ -34,6 +34,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSecurityToken_GoogleIdentityStsV1ExchangeTokenRequest : GTLRObject
 
 /**
+ *  The full resource name of the identity provider; for example:
+ *  `//iam.googleapis.com/projects//workloadIdentityPools//providers/`. Required
+ *  when exchanging an external credential for a Google access token.
+ */
+@property(nonatomic, copy, nullable) NSString *audience;
+
+/**
  *  Required. The grant type. Must be
  *  `urn:ietf:params:oauth:grant-type:token-exchange`, which indicates a token
  *  exchange.
@@ -52,6 +59,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  `urn:ietf:params:oauth:token-type:access_token`.
  */
 @property(nonatomic, copy, nullable) NSString *requestedTokenType;
+
+/**
+ *  The OAuth 2.0 scopes to include on the resulting access token, formatted as
+ *  a list of space-delimited, case-sensitive strings. Required when exchanging
+ *  an external credential for a Google access token.
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 /**
  *  Required. The input token. You can use a Google-issued OAuth 2.0 access
@@ -84,11 +98,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
 /**
- *  The amount of time, in seconds, between the time when the `access_token` was
- *  issued and the time when the `access_token` will expire. This field is
- *  absent when the `subject_token` in the request is a Google-issued,
- *  short-lived access token. In this case, the `access_token` has the same
- *  expiration time as the `subject_token`.
+ *  The amount of time, in seconds, between the time when the access token was
+ *  issued and the time when the access token will expire. This field is absent
+ *  when the `subject_token` in the request is a Google-issued, short-lived
+ *  access token. In this case, the access token has the same expiration time as
+ *  the `subject_token`.
  *
  *  Uses NSNumber of intValue.
  */
@@ -100,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *issuedTokenType;
 
-/** The type of `access_token`. Always has the value `Bearer`. */
+/** The type of access token. Always has the value `Bearer`. */
 @property(nonatomic, copy, nullable) NSString *tokenType;
 
 @end

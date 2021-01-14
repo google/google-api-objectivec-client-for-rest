@@ -30,7 +30,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  LINT.IfChange
+ *  GTLRTasks_Task
  */
 @interface GTLRTasks_Task : GTLRObject
 

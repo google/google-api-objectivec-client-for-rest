@@ -50,7 +50,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEvents;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCalendarEventsReadonly;
 /**
- *  Authorization scope: View your calendars
+ *  Authorization scope: See and download any calendar you can access using your
+ *  Google Calendar
  *
  *  Value "https://www.googleapis.com/auth/calendar.readonly"
  */

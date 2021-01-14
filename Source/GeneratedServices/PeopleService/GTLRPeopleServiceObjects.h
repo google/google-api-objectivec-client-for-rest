@@ -722,9 +722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Output only. The list of contact person resource names that are members of
- *  the contact group. The field is not populated for LIST requests and can only
- *  be updated through the
- *  [ModifyContactGroupMembers](/people/api/rest/v1/contactgroups/members/modify).
+ *  the contact group. The field is only populated for GET requests and will
+ *  only return as many members as `maxMembers` in the get request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *memberResourceNames;
 

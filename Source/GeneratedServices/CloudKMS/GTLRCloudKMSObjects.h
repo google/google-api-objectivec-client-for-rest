@@ -52,6 +52,62 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_AsymmetricDecryptResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_AsymmetricSignResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_AuditLogConfig.logType
 
 /**
@@ -439,6 +495,62 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Protec
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudKMS_DecryptResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_EncryptResponse.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudKMS_ImportCryptoKeyVersionRequest.algorithm
 
 /**
@@ -762,6 +874,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4096Sha512;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudKMS_PublicKey.protectionLevel
+
+/**
+ *  Crypto operations are performed by an external key manager.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_External;
+/**
+ *  Crypto operations are performed in a Hardware Security Module.
+ *
+ *  Value: "HSM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified;
+/**
+ *  Crypto operations are performed in software.
+ *
+ *  Value: "SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Software;
+
 /**
  *  Request message for KeyManagementService.AsymmetricDecrypt.
  */
@@ -829,6 +969,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
 @property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
 
 /**
+ *  The ProtectionLevel of the CryptoKeyVersion used in decryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_External
+ *        Crypto operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Software
+ *        Crypto operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
  *  Integrity verification field. A flag indicating whether
  *  AsymmetricDecryptRequest.ciphertext_crc32c was received by
  *  KeyManagementService and used for the integrity verification of the
@@ -889,6 +1045,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  is in Beta.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used for signing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_External
+ *        Crypto operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Software
+ *        Crypto operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
 
 /**
  *  The created signature.
@@ -1530,6 +1702,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  */
 @property(nonatomic, strong, nullable) NSNumber *plaintextCrc32c;
 
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used in decryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
+
+/**
+ *  Whether the Decryption was performed using the primary key version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedPrimary;
+
 @end
 
 
@@ -1678,6 +1873,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  field to verify that the intended resource was used for encryption.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion used in encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_External Crypto
+ *        operations are performed by an external key manager. (Value:
+ *        "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm Crypto
+ *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software Crypto
+ *        operations are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
 
 /**
  *  Integrity verification field. A flag indicating whether
@@ -2454,6 +2665,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_RsaSignPss4
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pemCrc32c;
+
+/**
+ *  The ProtectionLevel of the CryptoKeyVersion public key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_External Crypto operations
+ *        are performed by an external key manager. (Value: "EXTERNAL")
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm Crypto operations are
+ *        performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified
+ *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_Software Crypto operations
+ *        are performed in software. (Value: "SOFTWARE")
+ */
+@property(nonatomic, copy, nullable) NSString *protectionLevel;
 
 @end
 

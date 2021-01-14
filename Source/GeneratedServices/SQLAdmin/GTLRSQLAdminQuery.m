@@ -967,7 +967,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync
 
-@dynamic instance, project, syncMode;
+@dynamic instance, project, skipVerification, syncMode;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

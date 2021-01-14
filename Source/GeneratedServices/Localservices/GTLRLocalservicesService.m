@@ -8,6 +8,15 @@
 
 #import "GTLRLocalservices.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeLocalservicesAdwords = @"https://www.googleapis.com/auth/adwords";
+
+// ----------------------------------------------------------------------------
+//   GTLRLocalservicesService
+//
+
 @implementation GTLRLocalservicesService
 
 - (instancetype)init {

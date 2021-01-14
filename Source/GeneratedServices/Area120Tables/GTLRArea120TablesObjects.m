@@ -57,6 +57,24 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArea120Tables_BatchDeleteRowsRequest
+//
+
+@implementation GTLRArea120Tables_BatchDeleteRowsRequest
+@dynamic names;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArea120Tables_BatchUpdateRowsRequest
 //
 

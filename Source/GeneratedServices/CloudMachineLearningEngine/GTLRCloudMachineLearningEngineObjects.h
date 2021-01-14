@@ -32,6 +32,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Config;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerSpec;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1DiskConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1EnvVar;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
@@ -1169,10 +1170,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  AutoScaling is used with a [Compute Engine (N1) machine
  *  type](/ml-engine/docs/machine-types-online-prediction), `min_nodes` defaults
  *  to 1. `min_nodes` must be at least 1 for use with a Compute Engine machine
- *  type. Note that you cannot use AutoScaling if your version uses
- *  [GPUs](#Version.FIELDS.accelerator_config). Instead, you must use
- *  ManualScaling. You can set `min_nodes` when creating the model version, and
- *  you can also update `min_nodes` for an existing version: update_body.json: {
+ *  type. You can set `min_nodes` when creating the model version, and you can
+ *  also update `min_nodes` for an existing version: update_body.json: {
  *  'autoScaling': { 'minNodes': 5 } } HTTP request: PATCH
  *  https://ml.googleapis.com/v1/{name=projects/ * /models/ * /versions/
  *  *}?update_mask=autoScaling.minNodes -d \@./update_body.json
@@ -1474,6 +1473,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  API](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#container-v1-core).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1ContainerPort *> *ports;
+
+@end
+
+
+/**
+ *  Represents the config of disk options.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1DiskConfig : GTLRObject
+
+/**
+ *  Size in GB of the boot disk (default is 100GB).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
+
+/**
+ *  Type of the boot disk (default is "pd-standard"). Valid values: "pd-ssd"
+ *  (Persistent Disk Solid State Drive) or "pd-standard" (Persistent Disk Hard
+ *  Disk Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *bootDiskType;
 
 @end
 
@@ -2651,6 +2672,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *containerCommand;
 
+/** Represents the configuration of disk options. */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1DiskConfig *diskConfig;
+
 /**
  *  The Docker image to run on the replica. This image must be in Container
  *  Registry. Learn more about [configuring custom
@@ -2731,17 +2755,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  and port to check that the container is healthy. Read more about [health
  *  checks](/ai-platform/prediction/docs/custom-container-requirements#checks).
  *  For example, if you set this field to `/bar`, then AI Platform Prediction
- *  intermittently sends a GET request to the following URL on the container:
- *  localhost:PORT/bar PORT refers to the first value of
- *  Version.container.ports. If you don't specify this field, it defaults to the
- *  following value: /v1/models/MODEL/versions/VERSION The placeholders in this
- *  value are replaced as follows: * MODEL: The name of the parent Model. This
- *  does not include the "projects/PROJECT_ID/models/" prefix that the API
- *  returns in output; it is the bare model name, as provided to
- *  projects.models.create. * VERSION: The name of the model version. This does
- *  not include the "projects/PROJECT_ID/models/MODEL/versions/" prefix that the
- *  API returns in output; it is the bare version name, as provided to
- *  projects.models.versions.create.
+ *  intermittently sends a GET request to the `/bar` path on the port of your
+ *  container specified by the first value of Version.container.ports. If you
+ *  don't specify this field, it defaults to the following value: /v1/models/
+ *  MODEL/versions/VERSION The placeholders in this value are replaced as
+ *  follows: * MODEL: The name of the parent Model. This does not include the
+ *  "projects/PROJECT_ID/models/" prefix that the API returns in output; it is
+ *  the bare model name, as provided to projects.models.create. * VERSION: The
+ *  name of the model version. This does not include the "projects/PROJECT_ID
+ *  /models/MODEL/versions/" prefix that the API returns in output; it is the
+ *  bare version name, as provided to projects.models.versions.create.
  */
 @property(nonatomic, copy, nullable) NSString *health;
 
@@ -2751,8 +2774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  container's IP address and port. AI Platform Prediction then returns the
  *  container's response in the API response. For example, if you set this field
  *  to `/foo`, then when AI Platform Prediction receives a prediction request,
- *  it forwards the request body in a POST request to the following URL on the
- *  container: localhost:PORT/foo PORT refers to the first value of
+ *  it forwards the request body in a POST request to the `/foo` path on the
+ *  port of your container specified by the first value of
  *  Version.container.ports. If you don't specify this field, it defaults to the
  *  following value: /v1/models/MODEL/versions/VERSION:predict The placeholders
  *  in this value are replaced as follows: * MODEL: The name of the parent
@@ -3701,9 +3724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *  Automatically scale the number of nodes used to serve the model in response
  *  to increases and decreases in traffic. Care should be taken to ramp up
  *  traffic according to the model's ability to scale or you will start seeing
- *  increases in latency and 429 response codes. Note that you cannot use
- *  AutoScaling if your version uses [GPUs](#Version.FIELDS.accelerator_config).
- *  Instead, you must use specify `manual_scaling`.
+ *  increases in latency and 429 response codes.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1AutoScaling *autoScaling;
 
@@ -3807,20 +3828,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version_Labels *labels;
 
+/**
+ *  Output only. The [AI Platform (Unified)
+ *  `Model`](https://cloud.google.com/ai-platform-unified/docs/reference/rest/v1beta1/projects.locations.models)
+ *  ID for the last [model
+ *  migration](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified).
+ */
+@property(nonatomic, copy, nullable) NSString *lastMigrationModelId;
+
+/**
+ *  Output only. The last time this version was successfully [migrated to AI
+ *  Platform
+ *  (Unified)](https://cloud.google.com/ai-platform-unified/docs/start/migrating-to-ai-platform-unified).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastMigrationTime;
+
 /** Output only. The time the version was last used for prediction. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUseTime;
 
 /**
  *  Optional. The type of machine on which to serve the model. Currently only
- *  applies to online prediction service. If this field is not specified, it
- *  defaults to `mls1-c1-m2`. Online prediction supports the following machine
- *  types: * `mls1-c1-m2` * `mls1-c4-m2` * `n1-standard-2` * `n1-standard-4` *
- *  `n1-standard-8` * `n1-standard-16` * `n1-standard-32` * `n1-highmem-2` *
- *  `n1-highmem-4` * `n1-highmem-8` * `n1-highmem-16` * `n1-highmem-32` *
- *  `n1-highcpu-2` * `n1-highcpu-4` * `n1-highcpu-8` * `n1-highcpu-16` *
- *  `n1-highcpu-32` `mls1-c4-m2` is in beta. All other machine types are
- *  generally available. Learn more about the [differences between machine
- *  types](/ml-engine/docs/machine-types-online-prediction).
+ *  applies to online prediction service. To learn about valid values for this
+ *  field, read [Choosing a machine type for online
+ *  prediction](/ai-platform/prediction/docs/machine-types-online-prediction).
+ *  If this field is not specified and you are using a [regional
+ *  endpoint](/ai-platform/prediction/docs/regional-endpoints), then the machine
+ *  type defaults to `n1-standard-2`. If this field is not specified and you are
+ *  using the global endpoint (`ml.googleapis.com`), then the machine type
+ *  defaults to `mls1-c1-m2`.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 

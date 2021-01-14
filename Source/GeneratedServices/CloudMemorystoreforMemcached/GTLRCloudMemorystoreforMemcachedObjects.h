@@ -713,6 +713,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  */
 @property(nonatomic, copy, nullable) NSString *rolloutManagementPolicy;
 
+/**
+ *  schedule_deadline_time is the time deadline any schedule start time cannot
+ *  go beyond, including reschedule. It's normally the initial schedule start
+ *  time plus a week. If the reschedule type is next window, simply take this
+ *  value as start time. If reschedule type is IMMEDIATELY or BY_TIME, current
+ *  or selected time cannot go beyond this deadline.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
+
 /** The scheduled start time for the maintenance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 

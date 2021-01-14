@@ -75,7 +75,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_AwsS3Data
-@dynamic awsAccessKey, bucketName;
+@dynamic awsAccessKey, bucketName, path;
 @end
 
 
@@ -85,7 +85,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_AzureBlobStorageData
-@dynamic azureCredentials, container, storageAccount;
+@dynamic azureCredentials, container, path, storageAccount;
 @end
 
 
@@ -169,7 +169,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_GcsData
-@dynamic bucketName;
+@dynamic bucketName, path;
 @end
 
 
