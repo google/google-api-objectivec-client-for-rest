@@ -41,6 +41,7 @@
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DnsCacheConfig;
+@class GTLRContainer_GcePersistentDiskCsiDriverConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
@@ -173,6 +174,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
+
+/**
+ *  Enables priate IPv6 access to and from Google Services
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional;
+/**
+ *  No private access to or from Google Services
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled;
+/**
+ *  Enables private IPv6 access to Google Services from GKE
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle;
+/**
+ *  Default value. Same as DISABLED
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
 
 /**
@@ -194,6 +223,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
+
+/**
+ *  Enables priate IPv6 access to and from Google Services
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional;
+/**
+ *  No private access to or from Google Services
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled;
+/**
+ *  Enables private IPv6 access to Google Services from GKE
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle;
+/**
+ *  Default value. Same as DISABLED
+ *
+ *  Value: "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkPolicy.provider
@@ -780,6 +837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for NodeLocalDNS, a dns cache running on cluster nodes */
 @property(nonatomic, strong, nullable) GTLRContainer_DnsCacheConfig *dnsCacheConfig;
 
+/** Configuration for the Compute Engine Persistent Disk CSI driver. */
+@property(nonatomic, strong, nullable) GTLRContainer_GcePersistentDiskCsiDriverConfig *gcePersistentDiskCsiDriverConfig;
+
 /**
  *  Configuration for the horizontal pod autoscaling feature, which increases or
  *  decreases the number of replica pods a replication controller has based on
@@ -858,8 +918,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Type of the disk attached to each node (e.g. 'pd-standard' or 'pd-ssd') If
- *  unspecified, the default disk type is 'pd-standard'
+ *  Type of the disk attached to each node (e.g. 'pd-standard', 'pd-ssd' or
+ *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
@@ -1349,8 +1409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output only] Additional information about the current status of this
- *  cluster, if available.
+ *  [Output only] Deprecated. Use conditions instead. Additional information
+ *  about the current status of this cluster, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
@@ -1547,6 +1607,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired private cluster configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
+
+/**
+ *  The desired state of IPv6 connectivity to Google Services.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional
+ *        Enables priate IPv6 access to and from Google Services (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled
+ *        No private access to or from Google Services (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle
+ *        Enables private IPv6 access to Google Services from GKE (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified
+ *        Default value. Same as DISABLED (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredPrivateIpv6GoogleAccess;
 
 /** The desired release channel configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *desiredReleaseChannel;
@@ -1800,6 +1879,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRContainer_Empty : GTLRObject
+@end
+
+
+/**
+ *  Configuration for the Compute Engine PD CSI driver.
+ */
+@interface GTLRContainer_GcePersistentDiskCsiDriverConfig : GTLRObject
+
+/**
+ *  Whether the Compute Engine PD CSI driver is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -2404,6 +2498,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
+ *  The desired state of IPv6 connectivity to Google Services. By default, no
+ *  private IPv6 access to or from Google Services (all access will be via IPv4)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional
+ *        Enables priate IPv6 access to and from Google Services (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL")
+ *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled
+ *        No private access to or from Google Services (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED")
+ *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle
+ *        Enables private IPv6 access to Google Services from GKE (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE")
+ *    @arg @c kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified
+ *        Default value. Same as DISABLED (Value:
+ *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privateIpv6GoogleAccess;
+
+/**
  *  Output only. The relative name of the Google Compute Engine
  *  [subnetwork](https://cloud.google.com/compute/docs/vpc) to which the cluster
  *  is connected. Example:
@@ -2488,8 +2602,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
 
 /**
- *  Type of the disk attached to each node (e.g. 'pd-standard' or 'pd-ssd') If
- *  unspecified, the default disk type is 'pd-standard'
+ *  Type of the disk attached to each node (e.g. 'pd-standard', 'pd-ssd' or
+ *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
 
@@ -2805,8 +2919,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  [Output only] Additional information about the current status of this node
- *  pool instance, if available.
+ *  [Output only] Deprecated. Use conditions instead. Additional information
+ *  about the current status of this node pool instance, if available.
  */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
 
@@ -3917,7 +4031,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  SetNodePoolSizeRequest sets the size a node pool.
+ *  SetNodePoolSizeRequest sets the size of a node pool.
  */
 @interface GTLRContainer_SetNodePoolSizeRequest : GTLRObject
 
@@ -4275,23 +4389,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @interface GTLRContainer_UpgradeEvent : GTLRObject
 
-/** Required. The current version before the upgrade. */
+/** The current version before the upgrade. */
 @property(nonatomic, copy, nullable) NSString *currentVersion;
 
-/** Required. The operation associated with this upgrade. */
+/** The operation associated with this upgrade. */
 @property(nonatomic, copy, nullable) NSString *operation;
 
-/** Required. The time when the operation was started. */
+/** The time when the operation was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *operationStartTime;
 
 /**
- *  Optional. Optional relative path to the resource. For example in node pool
- *  upgrades, the relative path of the node pool.
+ *  Optional relative path to the resource. For example in node pool upgrades,
+ *  the relative path of the node pool.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
- *  Required. The resource type that is upgrading.
+ *  The resource type that is upgrading.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_UpgradeEvent_ResourceType_Master Master / control
@@ -4304,7 +4418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
-/** Required. The target version for the upgrade. */
+/** The target version for the upgrade. */
 @property(nonatomic, copy, nullable) NSString *targetVersion;
 
 @end

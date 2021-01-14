@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Alert Center API (alertcenter/v1beta1)
+//   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
 //   Manages alerts on issues affecting your domain.
 // Documentation:
@@ -387,7 +387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /**
  *  Required. The type of the alert. This is output only after alert is created.
- *  For a list of available alert types see [G Suite Alert
+ *  For a list of available alert types see [Google Workspace Alert
  *  types](/admin-sdk/alertcenter/reference/alert-types).
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -554,8 +554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alerts are associated with.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alerts are associated with.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -597,8 +597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @property(nonatomic, strong, nullable) NSArray<NSString *> *alertId;
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alerts are associated with.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alerts are associated with.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
@@ -993,8 +993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
- *  Settings for callback notifications. For more details see [G Suite Alert
- *  Notification](/admin-sdk/alertcenter/guides/notifications).
+ *  Settings for callback notifications. For more details see [Google Workspace
+ *  Alert Notification](/admin-sdk/alertcenter/guides/notifications).
  */
 @interface GTLRAlertCenter_Notification : GTLRObject
 
@@ -1278,9 +1278,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 @interface GTLRAlertCenter_UndeleteAlertRequest : GTLRObject
 
 /**
- *  Optional. The unique identifier of the G Suite organization account of the
- *  customer the alert is associated with. Inferred from the caller identity if
- *  not provided.
+ *  Optional. The unique identifier of the Google Workspace organization account
+ *  of the customer the alert is associated with. Inferred from the caller
+ *  identity if not provided.
  */
 @property(nonatomic, copy, nullable) NSString *customerId;
 

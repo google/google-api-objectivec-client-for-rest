@@ -1040,7 +1040,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *format;
 
 /**
- *  The ID of the message to retrieve.
+ *  The ID of the message to retrieve. This ID is usually retrieved using
+ *  `messages.list`. The ID is also contained in the result when a message is
+ *  inserted (`messages.insert`) or imported (`messages.import`).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1064,7 +1066,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
- *  @param identifier The ID of the message to retrieve.
+ *  @param identifier The ID of the message to retrieve. This ID is usually
+ *    retrieved using `messages.list`. The ID is also contained in the result
+ *    when a message is inserted (`messages.insert`) or imported
+ *    (`messages.import`).
  *
  *  @return GTLRGmailQuery_UsersMessagesGet
  */

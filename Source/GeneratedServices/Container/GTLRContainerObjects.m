@@ -28,10 +28,22 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
+NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled = @"PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle = @"PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
+
 // GTLRContainer_DatabaseEncryption.state
 NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
+
+// GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
+NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
+NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled = @"PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED";
+NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessToGoogle = @"PRIVATE_IPV6_GOOGLE_ACCESS_TO_GOOGLE";
+NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessUnspecified = @"PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED";
 
 // GTLRContainer_NetworkPolicy.provider
 NSString * const kGTLRContainer_NetworkPolicy_Provider_Calico  = @"CALICO";
@@ -155,8 +167,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_AddonsConfig
 @dynamic cloudRunConfig, configConnectorConfig, dnsCacheConfig,
-         horizontalPodAutoscaling, httpLoadBalancing, kubernetesDashboard,
-         networkPolicyConfig;
+         gcePersistentDiskCsiDriverConfig, horizontalPodAutoscaling,
+         httpLoadBalancing, kubernetesDashboard, networkPolicyConfig;
 @end
 
 
@@ -358,9 +370,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredPrivateClusterConfig, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredShieldedNodes,
-         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
+         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredShieldedNodes, desiredVerticalPodAutoscaling,
+         desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -483,6 +496,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_GcePersistentDiskCsiDriverConfig
+//
+
+@implementation GTLRContainer_GcePersistentDiskCsiDriverConfig
+@dynamic enabled;
 @end
 
 
@@ -790,7 +813,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic defaultSnatStatus, enableIntraNodeVisibility, network, subnetwork;
+@dynamic defaultSnatStatus, enableIntraNodeVisibility, network,
+         privateIpv6GoogleAccess, subnetwork;
 @end
 
 

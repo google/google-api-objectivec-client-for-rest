@@ -261,13 +261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaAccount : GTLRObject
 
-/**
- *  Country of business. Must be a non-deprecated code for a UN M.49 region.
- *  https: //unicode.org/cldr/charts/latest/supplem //
- *  ental/territory_containment_un_m_49.html
- */
-@property(nonatomic, copy, nullable) NSString *countryCode;
-
 /** Output only. Time when this account was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -287,6 +280,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  Example: "accounts/100"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Country of business. Must be a Unicode CLDR region code. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
 
 /** Output only. Time when account payload fields were last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -624,47 +620,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @interface GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings : GTLRObject
 
 /**
- *  Capture events when your visitors view content on your site that has
- *  articles or blog posts.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *articlesAndBlogsEnabled;
-
-/**
- *  Capture events when your visitors view content on your site that has
- *  structured data (eg, articles, blog posts, product details screens, etc.).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *contentViewsEnabled;
-
-/**
- *  If enabled, capture a click event each time a visitor clicks a link or
- *  element that has data attributes beginning with "data-ga".
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dataTaggedElementClicksEnabled;
-
-/** Domains to exclude from measurement. Max length is 1024 characters. */
-@property(nonatomic, copy, nullable) NSString *excludedDomains;
-
-/**
  *  If enabled, capture a file download event each time a link is clicked with a
  *  common document, compressed file, application, video, or audio extension.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fileDownloadsEnabled;
-
-/**
- *  If enabled, capture a view search results event each time a visitor
- *  interacts with a form on your site.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *formInteractionsEnabled;
 
 /**
  *  Output only. Resource name of this Data Stream. Format:
@@ -690,7 +651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @property(nonatomic, strong, nullable) NSNumber *pageChangesEnabled;
 
 /**
- *  If enabled, capture a page view event each time a page loads.
+ *  Output only. If enabled, capture a page view event each time a page loads.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -703,14 +664,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageViewsEnabled;
-
-/**
- *  Capture events when your visitors view content on your site that has product
- *  details screens, etc.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *productsAndEcommerceEnabled;
 
 /**
  *  If enabled, capture scroll events each time a visitor gets to the bottom of
@@ -745,7 +698,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @property(nonatomic, strong, nullable) NSNumber *streamEnabled;
 
 /** Additional URL query parameters. Max length is 1024 characters. */
-@property(nonatomic, copy, nullable) NSString *urlQueryParameter;
+@property(nonatomic, copy, nullable) NSString *uriQueryParameter;
 
 /**
  *  If enabled, capture video play, progress, and complete events as visitors
@@ -811,6 +764,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 @interface GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag : GTLRObject
 
 /**
+ *  Output only. Resource name for this GlobalSiteTag resource. Format:
+ *  properties/{propertyId}/globalSiteTag
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  Immutable. JavaScript code snippet to be pasted as the first item into the
  *  head tag of every webpage to measure.
  */
@@ -859,9 +818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  googleAdsLinkId is not the Google Ads customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
-
-/** Immutable. Format: properties/{propertyId} */
-@property(nonatomic, copy, nullable) NSString *parent;
 
 /** Output only. Time when this link was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -991,11 +947,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /**
  *  Response message for ListFirebaseLinks RPC
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "firebaseLinks" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse : GTLRObject
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse : GTLRCollectionObject
 
-/** List of FirebaseLinks. This will have at most one value. */
+/**
+ *  List of FirebaseLinks. This will have at most one value.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *> *firebaseLinks;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages. Currently, Google
+ *  Analytics supports only one FirebaseLink per property, so this will never be
+ *  populated.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

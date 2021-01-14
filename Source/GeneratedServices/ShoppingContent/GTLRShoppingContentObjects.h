@@ -28,6 +28,7 @@
 @class GTLRShoppingContent_AccountGoogleMyBusinessLink;
 @class GTLRShoppingContent_AccountIdentifier;
 @class GTLRShoppingContent_AccountLabel;
+@class GTLRShoppingContent_AccountReturnCarrier;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntry;
 @class GTLRShoppingContent_AccountsCustomBatchRequestEntryLinkRequest;
 @class GTLRShoppingContent_AccountsCustomBatchResponseEntry;
@@ -48,6 +49,11 @@
 @class GTLRShoppingContent_BusinessDayConfig;
 @class GTLRShoppingContent_CarrierRate;
 @class GTLRShoppingContent_CarriersCarrier;
+@class GTLRShoppingContent_Collection;
+@class GTLRShoppingContent_CollectionFeaturedProduct;
+@class GTLRShoppingContent_CollectionStatus;
+@class GTLRShoppingContent_CollectionStatusDestinationStatus;
+@class GTLRShoppingContent_CollectionStatusItemLevelIssue;
 @class GTLRShoppingContent_Css;
 @class GTLRShoppingContent_CustomAttribute;
 @class GTLRShoppingContent_CustomerReturnReason;
@@ -63,6 +69,7 @@
 @class GTLRShoppingContent_DatafeedstatusesCustomBatchResponseEntry;
 @class GTLRShoppingContent_DatafeedStatusExample;
 @class GTLRShoppingContent_DatafeedTarget;
+@class GTLRShoppingContent_Date;
 @class GTLRShoppingContent_DateTime;
 @class GTLRShoppingContent_DeliveryTime;
 @class GTLRShoppingContent_Error;
@@ -72,6 +79,7 @@
 @class GTLRShoppingContent_Headers;
 @class GTLRShoppingContent_HolidayCutoff;
 @class GTLRShoppingContent_HolidaysHoliday;
+@class GTLRShoppingContent_InapplicabilityDetails;
 @class GTLRShoppingContent_Installment;
 @class GTLRShoppingContent_InvoiceSummary;
 @class GTLRShoppingContent_InvoiceSummaryAdditionalChargeSummary;
@@ -132,6 +140,7 @@
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemItem;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryRefundItemShipping;
 @class GTLRShoppingContent_OrdersCustomBatchRequestEntryShipLineItemsShipmentInfo;
+@class GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails;
 @class GTLRShoppingContent_OrderShipment;
 @class GTLRShoppingContent_OrderShipmentLineItemShipment;
 @class GTLRShoppingContent_OrderShipmentScheduledDeliveryDetails;
@@ -177,13 +186,19 @@
 @class GTLRShoppingContent_RegionGeoTargetArea;
 @class GTLRShoppingContent_RegionPostalCodeArea;
 @class GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange;
+@class GTLRShoppingContent_RepricingProductReport;
+@class GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats;
 @class GTLRShoppingContent_RepricingRule;
+@class GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule;
 @class GTLRShoppingContent_RepricingRuleEffectiveTime;
 @class GTLRShoppingContent_RepricingRuleEffectiveTimeFixedTimePeriod;
 @class GTLRShoppingContent_RepricingRuleEligibleOfferMatcher;
 @class GTLRShoppingContent_RepricingRuleEligibleOfferMatcherStringMatcher;
+@class GTLRShoppingContent_RepricingRuleReport;
+@class GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats;
 @class GTLRShoppingContent_RepricingRuleRestriction;
 @class GTLRShoppingContent_RepricingRuleRestrictionBoundary;
+@class GTLRShoppingContent_RepricingRuleStatsBasedRule;
 @class GTLRShoppingContent_ReturnAddress;
 @class GTLRShoppingContent_ReturnAddressAddress;
 @class GTLRShoppingContent_ReturnaddressCustomBatchRequestEntry;
@@ -238,6 +253,97 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_AccountLabel.labelType
+
+/**
+ *  Indicates that the label was created automatically by CSS Center.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Automatic;
+/**
+ *  Unknown label type.
+ *
+ *  Value: "LABEL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountLabel_LabelType_LabelTypeUnspecified;
+/**
+ *  Indicates that the label was created manually.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Manual;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_AccountReturnCarrier.carrierCode
+
+/**
+ *  Carrier not specified
+ *
+ *  Value: "CARRIER_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCodeUnspecified;
+/**
+ *  FedEx carrier
+ *
+ *  Value: "FEDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex;
+/**
+ *  UPS carrier
+ *
+ *  Value: "UPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
+
+/**
+ *  This product can already win the buybox without rule.
+ *
+ *  Value: "ALREADY_WINNING_BUYBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox;
+/**
+ *  The rule set for this product cannot beat the buybox winner.
+ *
+ *  Value: "CANNOT_BEAT_BUYBOX_WINNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "INAPPLICABLE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified;
+/**
+ *  The rule restrictions are not met. For example, this may be the case if the
+ *  calculated rule price is lower than floor price in the restriction.
+ *
+ *  Value: "RESTRICTIONS_NOT_MET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet;
+/**
+ *  Another rule of a different type takes precedence over this one.
+ *
+ *  Value: "TRIUMPHED_OVER_BY_OTHER_RULE_ON_OFFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverByOtherRuleOnOffer;
+/**
+ *  Another rule of the same type takes precedence over this one.
+ *
+ *  Value: "TRIUMPHED_OVER_BY_SAME_TYPE_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverBySameTypeRule;
+/**
+ *  The reason is not categorized to any known reason.
+ *
+ *  Value: "UNCATEGORIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_Uncategorized;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_OrderTrackingSignalShippingInfo.shippingStatus
 
 /**
@@ -260,6 +366,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_RepricingProductReport.type
+
+/**
+ *  Unused.
+ *
+ *  Value: "REPRICING_RULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified;
+/**
+ *  Cost of goods sale based rule. Repricer will adjust the offer price based on
+ *  the offer's sale cost which is provided by the merchant.
+ *
+ *  Value: "TYPE_COGS_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased;
+/**
+ *  Statistical measurement based rules among Google SA merchants. If this rule
+ *  is chosen, repricer will adjust the offer price based on statistical metrics
+ *  (i.e. mean, median, min) among other merchants who sell the same product.
+ *  Details need to be provdided in the RuleDefinition.
+ *
+ *  Value: "TYPE_STATS_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingRule.type
 
 /**
@@ -269,16 +401,21 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_OrderTrackingSignalShipp
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_RepricingRuleTypeUnspecified;
 /**
- *  Buy Box winning price-based rules. In Buy on Google, the Buy Box refers to
- *  the offer for a product shown at the top of the Product Detail Page (PDP)
- *  with an "Add to Cart" button. If this rule is chosen, your offer price will
- *  be lowered within the range you set to help increase the likelihood that you
- *  will win the Buy Box. There is no RuleDefinition needed for this type.
- *  Deprecated: cannot create rules with this type anymore.
+ *  Cost of goods sale based rule. Repricer will adjust the offer price based on
+ *  the offer's sale cost which is provided by the merchant.
  *
- *  Value: "TYPE_WIN_BUY_BOX"
+ *  Value: "TYPE_COGS_BASED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeWinBuyBox;
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased;
+/**
+ *  Statistical measurement based rules among Google SA merchants. If this rule
+ *  is chosen, repricer will adjust the offer price based on statistical metrics
+ *  (i.e. mean, median, min) among other merchants who sell the same product.
+ *  Details need to be provdided in the RuleDefinition.
+ *
+ *  Value: "TYPE_STATS_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_RepricingRuleEligibleOfferMatcher.matcherOption
@@ -309,6 +446,32 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionUseFeedAttribute;
 
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_RepricingRuleReport.type
+
+/**
+ *  Unused.
+ *
+ *  Value: "REPRICING_RULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified;
+/**
+ *  Cost of goods sale based rule. Repricer will adjust the offer price based on
+ *  the offer's sale cost which is provided by the merchant.
+ *
+ *  Value: "TYPE_COGS_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased;
+/**
+ *  Statistical measurement based rules among Google SA merchants. If this rule
+ *  is chosen, repricer will adjust the offer price based on statistical metrics
+ *  (i.e. mean, median, min) among other merchants who sell the same product.
+ *  Details need to be provdided in the RuleDefinition.
+ *
+ *  Value: "TYPE_STATS_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased;
+
 /**
  *  Account data. After the creation of a new account it may take a few minutes
  *  before it is fully operational. The methods delete, insert, and update
@@ -331,6 +494,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adultContent;
+
+/**
+ *  List of automatically created label IDs that are assigned to the account by
+ *  CSS Center.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *automaticLabelIds;
 
 /** The business information of the account. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_AccountBusinessInformation *businessInformation;
@@ -364,7 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  List of label IDs that are assigned to the account by CSS.
+ *  List of manually created label IDs that are assigned to the account by CSS.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -568,8 +739,58 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  */
 @property(nonatomic, strong, nullable) NSNumber *labelId;
 
+/**
+ *  Output only. The type of this label.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AccountLabel_LabelType_Automatic Indicates
+ *        that the label was created automatically by CSS Center. (Value:
+ *        "AUTOMATIC")
+ *    @arg @c kGTLRShoppingContent_AccountLabel_LabelType_LabelTypeUnspecified
+ *        Unknown label type. (Value: "LABEL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_AccountLabel_LabelType_Manual Indicates that
+ *        the label was created manually. (Value: "MANUAL")
+ */
+@property(nonatomic, copy, nullable) NSString *labelType;
+
 /** The display name of this label. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The return carrier information. This service is designed for merchants
+ *  enrolled in the Buy on Google program.
+ */
+@interface GTLRShoppingContent_AccountReturnCarrier : GTLRObject
+
+/**
+ *  Output only. Immutable. The Google-provided unique carrier ID, used to
+ *  update the resource.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *carrierAccountId;
+
+/** Name of the carrier account. */
+@property(nonatomic, copy, nullable) NSString *carrierAccountName;
+
+/** Number of the carrier account. */
+@property(nonatomic, copy, nullable) NSString *carrierAccountNumber;
+
+/**
+ *  The carrier code enum. Accepts the values FEDEX or UPS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCodeUnspecified
+ *        Carrier not specified (Value: "CARRIER_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex FedEx
+ *        carrier (Value: "FEDEX")
+ *    @arg @c kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups UPS
+ *        carrier (Value: "UPS")
+ */
+@property(nonatomic, copy, nullable) NSString *carrierCode;
 
 @end
 
@@ -792,7 +1013,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
-/** List of provided services. */
+/**
+ *  Acceptable values are: - "`shoppingAdsProductManagement`" -
+ *  "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
+ *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
 @end
@@ -1541,6 +1766,199 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  The collection message.
+ */
+@interface GTLRShoppingContent_Collection : GTLRObject
+
+/**
+ *  Label that you assign to a collection to help organize bidding and reporting
+ *  in Shopping campaigns. Custom label
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel0;
+
+/**
+ *  Label that you assign to a collection to help organize bidding and reporting
+ *  in Shopping campaigns.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel1;
+
+/**
+ *  Label that you assign to a collection to help organize bidding and reporting
+ *  in Shopping campaigns.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel2;
+
+/**
+ *  Label that you assign to a collection to help organize bidding and reporting
+ *  in Shopping campaigns.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel3;
+
+/**
+ *  Label that you assign to a collection to help organize bidding and reporting
+ *  in Shopping campaigns.
+ */
+@property(nonatomic, copy, nullable) NSString *customLabel4;
+
+/**
+ *  This identifies one or more products associated with the collection. Used as
+ *  a lookup to the corresponding product ID in your product feeds. Provide a
+ *  maximum of 100 featuredProduct (for collections). Provide up to 10
+ *  featuredProduct (for Shoppable Images only) with ID and X and Y coordinates.
+ *  featured_product attribute
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionFeaturedProduct *> *featuredProduct;
+
+/** Your collection's name. headline attribute */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *headline;
+
+/**
+ *  Required. The REST ID of the collection. Content API methods that operate on
+ *  collections take this as their collectionId parameter. The REST ID for a
+ *  collection is of the form collectionId. id attribute
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The URL of a collection’s image. image_link attribute */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *imageLink;
+
+/**
+ *  The language of a collection and the language of any featured products
+ *  linked to the collection. language attribute
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/**
+ *  A collection’s landing page. URL directly linking to your collection's page
+ *  on your website. link attribute
+ */
+@property(nonatomic, copy, nullable) NSString *link;
+
+/**
+ *  A collection’s mobile-optimized landing page when you have a different URL
+ *  for mobile and desktop traffic. mobile_link attribute
+ */
+@property(nonatomic, copy, nullable) NSString *mobileLink;
+
+/** product_country attribute */
+@property(nonatomic, copy, nullable) NSString *productCountry;
+
+@end
+
+
+/**
+ *  The message for FeaturedProduct. FeaturedProduct
+ */
+@interface GTLRShoppingContent_CollectionFeaturedProduct : GTLRObject
+
+/** The unique identifier for the product item. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Required. X-coordinate of the product callout on the Shoppable Image.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *x;
+
+/**
+ *  Required. Y-coordinate of the product callout on the Shoppable Image.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *y;
+
+@end
+
+
+/**
+ *  The collectionstatus message.
+ */
+@interface GTLRShoppingContent_CollectionStatus : GTLRObject
+
+/** A list of all issues associated with the collection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionStatusItemLevelIssue *> *collectionLevelIssuses;
+
+/**
+ *  Date on which the collection has been created in [ISO
+ *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
+ *  e.g. "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ */
+@property(nonatomic, copy, nullable) NSString *creationDate;
+
+/** The intended destinations for the collection. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionStatusDestinationStatus *> *destinationStatuses;
+
+/**
+ *  Required. The ID of the collection for which status is reported.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Date on which the collection has been last updated in [ISO
+ *  8601](http://en.wikipedia.org/wiki/ISO_8601) format: Date, time, and offset,
+ *  e.g. "2020-01-02T09:00:00+01:00" or "2020-01-02T09:00:00Z"
+ */
+@property(nonatomic, copy, nullable) NSString *lastUpdateDate;
+
+@end
+
+
+/**
+ *  Destination status message.
+ */
+@interface GTLRShoppingContent_CollectionStatusDestinationStatus : GTLRObject
+
+/** The name of the destination */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** The status for the specified destination. */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Issue associated with the collection.
+ */
+@interface GTLRShoppingContent_CollectionStatusItemLevelIssue : GTLRObject
+
+/** The attribute's name, if the issue is caused by a single attribute. */
+@property(nonatomic, copy, nullable) NSString *attributeName;
+
+/** The error code of the issue. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A short issue description in English.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The destination the issue applies to. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** A detailed issue description in English. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** The URL of a web page to help with resolving this issue. */
+@property(nonatomic, copy, nullable) NSString *documentation;
+
+/** Whether the issue can be resolved by the merchant. */
+@property(nonatomic, copy, nullable) NSString *resolution;
+
+/** How this issue affects the serving of the collection. */
+@property(nonatomic, copy, nullable) NSString *servability;
+
+@end
+
+
+/**
  *  Information about CSS domain.
  */
 @interface GTLRShoppingContent_Css : GTLRObject
@@ -2215,6 +2633,46 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLRShoppingContent_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
  *  Represents civil time (or occasionally physical time). This type can
  *  represent a civil time in one of a few possible ways: * When utc_offset is
  *  set and time_zone is unset: a civil time on a calendar day with a particular
@@ -2591,6 +3049,50 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  "`Mother's Day`" - "`Thanksgiving`" - "`Valentine's Day`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Map of inapplicability details.
+ */
+@interface GTLRShoppingContent_InapplicabilityDetails : GTLRObject
+
+/**
+ *  Count of this inapplicable reason code.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inapplicableCount;
+
+/**
+ *  Reason code this rule was not applicable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox
+ *        This product can already win the buybox without rule. (Value:
+ *        "ALREADY_WINNING_BUYBOX")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner
+ *        The rule set for this product cannot beat the buybox winner. (Value:
+ *        "CANNOT_BEAT_BUYBOX_WINNER")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "INAPPLICABLE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet
+ *        The rule restrictions are not met. For example, this may be the case
+ *        if the calculated rule price is lower than floor price in the
+ *        restriction. (Value: "RESTRICTIONS_NOT_MET")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverByOtherRuleOnOffer
+ *        Another rule of a different type takes precedence over this one.
+ *        (Value: "TRIUMPHED_OVER_BY_OTHER_RULE_ON_OFFER")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverBySameTypeRule
+ *        Another rule of the same type takes precedence over this one. (Value:
+ *        "TRIUMPHED_OVER_BY_SAME_TYPE_RULE")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_Uncategorized
+ *        The reason is not categorized to any known reason. (Value:
+ *        "UNCATEGORIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *inapplicableReason;
 
 @end
 
@@ -3123,6 +3625,71 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  Response for listing account return carriers.
+ */
+@interface GTLRShoppingContent_ListAccountReturnCarrierResponse : GTLRObject
+
+/** List of all available account return carriers for the merchant. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountReturnCarrier *> *accountReturnCarriers;
+
+@end
+
+
+/**
+ *  Response message for the ListCollections method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_ListCollectionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The collections listed.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Collection *> *resources;
+
+@end
+
+
+/**
+ *  Response message for the ListCollectionStatuses method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_ListCollectionStatusesResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The collectionstatuses listed.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionStatus *> *resources;
+
+@end
+
+
+/**
  *  The response message for the `ListCsses` method
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3172,6 +3739,60 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Region *> *regions;
+
+@end
+
+
+/**
+ *  Response message for the ListRepricingProductReports method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "repricingProductReports" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRShoppingContent_ListRepricingProductReportsResponse : GTLRCollectionObject
+
+/**
+ *  A token for retrieving the next page. Its absence means there is no
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Periodic reports for the given Repricing product.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RepricingProductReport *> *repricingProductReports;
+
+@end
+
+
+/**
+ *  Response message for the ListRepricingRuleReports method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "repricingRuleReports" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRShoppingContent_ListRepricingRuleReportsResponse : GTLRCollectionObject
+
+/**
+ *  A token for retrieving the next page. Its absence means there is no
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Daily reports for the given Repricing rule.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_RepricingRuleReport *> *repricingRuleReports;
 
 @end
 
@@ -5362,6 +5983,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  ScheduledDeliveryDetails used to update the scheduled delivery order.
+ */
+@interface GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails : GTLRObject
+
+/**
+ *  The phone number of the carrier fulfilling the delivery. The phone number
+ *  should be formatted as the international notation in
+ */
+@property(nonatomic, copy, nullable) NSString *carrierPhoneNumber;
+
+/** The date a shipment is scheduled for delivery, in ISO 8601 format. */
+@property(nonatomic, copy, nullable) NSString *scheduledDate;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse
  */
 @interface GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse : GTLRObject
@@ -6113,6 +6751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  Optional and can be provided only if `status` is `ready for pickup`.
  */
 @property(nonatomic, copy, nullable) NSString *readyPickupDate;
+
+/** Delivery details of the shipment if scheduling is needed. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails *scheduledDeliveryDetails;
 
 /** The ID of the shipment. */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
@@ -7062,7 +7703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 /** Target gender of the item. */
 @property(nonatomic, copy, nullable) NSString *gender;
 
-/** Google's category of the item (see Google product taxonomy). */
+/**
+ *  Google's category of the item (see [Google product
+ *  taxonomy](https://support.google.com/merchants/answer/1705911)). When
+ *  querying products, this field will contain the user provided value. There is
+ *  currently no way to get back the auto assigned google product categories
+ *  through the API.
+ */
 @property(nonatomic, copy, nullable) NSString *googleProductCategory;
 
 /** Global Trade Item Number (GTIN) of the item. */
@@ -8213,10 +8860,114 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  Resource that represents a daily Repricing product report. Each report
+ *  contains stats for a single type of Repricing rule for a single product on a
+ *  given day. If there are multiple rules of the same type for the product on
+ *  that day, the report lists all the rules by rule ids, combines the stats,
+ *  and paginates the results by date. To retrieve the stats of a particular
+ *  rule, provide the rule_id in the request.
+ */
+@interface GTLRShoppingContent_RepricingProductReport : GTLRObject
+
+/**
+ *  Total count of Repricer applications. This value captures how many times the
+ *  rule of this type was applied to this product during this reporting period.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *applicationCount;
+
+/** Stats specific to buybox winning rules for product report. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats *buyboxWinningProductStats;
+
+/**
+ *  Date of the stats in this report. The report starts and ends according to
+ *  the merchant's timezone.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/** Maximum displayed price after repriced during this reporting period. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *highWatermark;
+
+/**
+ *  List of all reasons the rule did not apply to the product during the
+ *  specified reporting period.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InapplicabilityDetails *> *inapplicabilityDetails;
+
+/** Minimum displayed price after repriced during this reporting period. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *lowWatermark;
+
+/**
+ *  Total unit count of impacted products ordered while the rule was active on
+ *  the date of the report. This count includes all orders that were started
+ *  while the rule was active, even if the rule was no longer active when the
+ *  order was completed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderItemCount;
+
+/** Ids of the Repricing rule for this report. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ruleIds;
+
+/**
+ *  Total GMV generated by impacted products while the rule was active on the
+ *  date of the report. This value includes all orders that were started while
+ *  the rule was active, even if the rule was no longer active when the order
+ *  was completed.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *totalGmv;
+
+/**
+ *  Type of the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified
+ *        Unused. (Value: "REPRICING_RULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased
+ *        Cost of goods sale based rule. Repricer will adjust the offer price
+ *        based on the offer's sale cost which is provided by the merchant.
+ *        (Value: "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased
+ *        Statistical measurement based rules among Google SA merchants. If this
+ *        rule is chosen, repricer will adjust the offer price based on
+ *        statistical metrics (i.e. mean, median, min) among other merchants who
+ *        sell the same product. Details need to be provdided in the
+ *        RuleDefinition. (Value: "TYPE_STATS_BASED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Stats specific to buybox winning rules for product report.
+ */
+@interface GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats : GTLRObject
+
+/**
+ *  Number of times this product won the buybox with these rules during this
+ *  time period.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *buyboxWinsCount;
+
+@end
+
+
+/**
  *  Represents a repricing rule. A repricing rule is used by shopping serving to
  *  adjust transactable offer prices if conditions are met. Next ID: 24
  */
 @interface GTLRShoppingContent_RepricingRule : GTLRObject
+
+/**
+ *  The rule definition for TYPE_COGS_BASED. Required when the rule type is
+ *  TYPE_COGS_BASED.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule *cogsBasedRule;
 
 /** Required. Immutable. CLDR country code (e.g. "US"). */
 @property(nonatomic, copy, nullable) NSString *countryCode;
@@ -8257,6 +9008,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  */
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
+/**
+ *  The rule definition for TYPE_STATS_BASED. Required when the rule type is
+ *  TYPE_STATS_BASED.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleStatsBasedRule *statsBasedRule;
+
 /** The title for the rule. */
 @property(nonatomic, copy, nullable) NSString *title;
 
@@ -8266,16 +9023,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  Likely values:
  *    @arg @c kGTLRShoppingContent_RepricingRule_Type_RepricingRuleTypeUnspecified
  *        Unused. (Value: "REPRICING_RULE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeWinBuyBox Buy Box
- *        winning price-based rules. In Buy on Google, the Buy Box refers to the
- *        offer for a product shown at the top of the Product Detail Page (PDP)
- *        with an "Add to Cart" button. If this rule is chosen, your offer price
- *        will be lowered within the range you set to help increase the
- *        likelihood that you will win the Buy Box. There is no RuleDefinition
- *        needed for this type. Deprecated: cannot create rules with this type
- *        anymore. (Value: "TYPE_WIN_BUY_BOX")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased Cost of
+ *        goods sale based rule. Repricer will adjust the offer price based on
+ *        the offer's sale cost which is provided by the merchant. (Value:
+ *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased Statistical
+ *        measurement based rules among Google SA merchants. If this rule is
+ *        chosen, repricer will adjust the offer price based on statistical
+ *        metrics (i.e. mean, median, min) among other merchants who sell the
+ *        same product. Details need to be provdided in the RuleDefinition.
+ *        (Value: "TYPE_STATS_BASED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A repricing rule that changes the sale price based on cost of goods sale.
+ */
+@interface GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule : GTLRObject
+
+/**
+ *  The percent change against the COGS. Ex: 20 would mean to set the adjusted
+ *  price 1.2X of the COGS data.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentageDelta;
+
+/** The price delta against the COGS. E.g. 2 means $2 more of the COGS. */
+@property(nonatomic, copy, nullable) NSString *priceDelta;
 
 @end
 
@@ -8379,6 +9157,99 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 
 /**
+ *  Resource that represents a daily Repricing rule report. Next ID: 11
+ */
+@interface GTLRShoppingContent_RepricingRuleReport : GTLRObject
+
+/** Stats specific to buybox winning rules for rule report. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats *buyboxWinningRuleStats;
+
+/**
+ *  Date of the stats in this report. The report starts and ends according to
+ *  the merchant's timezone.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/**
+ *  List of product ids that are impacted by this rule during this reporting
+ *  period. Out of stock products and products not searched for by customers are
+ *  examples of non-impacted products.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *impactedProducts;
+
+/**
+ *  List of all reasons the rule did not apply to the inapplicable products
+ *  during the specified reporting period.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_InapplicabilityDetails *> *inapplicabilityDetails;
+
+/**
+ *  List of product ids that are inapplicable to this rule during this reporting
+ *  period. To get the inapplicable reason for a specific product, see
+ *  RepricingProductReport.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inapplicableProducts;
+
+/**
+ *  Total unit count of impacted products ordered while the rule was active on
+ *  the date of the report. This count includes all orders that were started
+ *  while the rule was active, even if the rule was no longer active when the
+ *  order was completed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderItemCount;
+
+/** Id of the Repricing rule for this report. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+/**
+ *  Total GMV generated by impacted products while the rule was active on the
+ *  date of the report. This value includes all orders that were started while
+ *  the rule was active, even if the rule was no longer active when the order
+ *  was completed.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *totalGmv;
+
+/**
+ *  Type of the rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified
+ *        Unused. (Value: "REPRICING_RULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased Cost
+ *        of goods sale based rule. Repricer will adjust the offer price based
+ *        on the offer's sale cost which is provided by the merchant. (Value:
+ *        "TYPE_COGS_BASED")
+ *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased
+ *        Statistical measurement based rules among Google SA merchants. If this
+ *        rule is chosen, repricer will adjust the offer price based on
+ *        statistical metrics (i.e. mean, median, min) among other merchants who
+ *        sell the same product. Details need to be provdided in the
+ *        RuleDefinition. (Value: "TYPE_STATS_BASED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Stats specific to buybox winning rules for rule report.
+ */
+@interface GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats : GTLRObject
+
+/**
+ *  Number of unique products that won the buybox with this rule during this
+ *  period of time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *buyboxWonProductCount;
+
+@end
+
+
+/**
  *  Definition of a rule restriction. At least one of the following needs to be
  *  true: (1) use_auto_pricing_min_price is true (2) floor.price_delta exists
  *  (3) floor.percentage_delta exists If floor.price_delta and
@@ -8430,6 +9301,29 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
  *  It must be negative in floor. For example, if an offer is selling at $10 and
  *  this field is -$2 in floor, the repricing rule only applies if the
  *  calculated new price is >= $8.
+ */
+@property(nonatomic, copy, nullable) NSString *priceDelta;
+
+@end
+
+
+/**
+ *  Definition of stats based rule.
+ */
+@interface GTLRShoppingContent_RepricingRuleStatsBasedRule : GTLRObject
+
+/**
+ *  The percent change against the price target. Valid from 0 to 100
+ *  inclusively.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentageDelta;
+
+/**
+ *  The price delta against the above price target. A positive value means the
+ *  price should be adjusted to be above statistical measure, and a negative
+ *  value means below. Currency code must not be included.
  */
 @property(nonatomic, copy, nullable) NSString *priceDelta;
 
@@ -9697,6 +10591,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleEligibleOff
 
 /** The delivery address */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TestOrderAddress *address;
+
+/**
+ *  Whether the order is scheduled delivery order.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isScheduledDelivery;
 
 /** The phone number of the person receiving the delivery. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;

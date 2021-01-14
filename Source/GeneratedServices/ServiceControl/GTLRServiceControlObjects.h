@@ -4,8 +4,8 @@
 // API:
 //   Service Control API (servicecontrol/v2)
 // Description:
-//   Provides control plane functionality to managed services, such as logging,
-//   monitoring, and status checks.
+//   Provides admission control and telemetry reporting for services integrated
+//   with Service Infrastructure.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -838,7 +838,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Annotations is an unstructured key-value map stored with a resource that may
  *  be set by external tools to store and retrieve arbitrary metadata. They are
  *  not queryable and should be preserved when modifying objects. More info:
- *  http://kubernetes.io/docs/user-guide/annotations
+ *  https://kubernetes.io/docs/user-guide/annotations
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Resource_Annotations *annotations;
 
@@ -869,6 +869,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource labels.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Resource_Labels *labels;
+
+/**
+ *  Immutable. The location of the resource. The location encoding is specific
+ *  to the service provider, and new encoding may be introduced as the service
+ *  evolves. For Google Cloud products, the encoding is what is used by Google
+ *  Cloud APIs, such as `us-east1`, `aws-us-east-1`, and `azure-eastus2`. The
+ *  semantics of `location` is identical to the `cloud.googleapis.com/location`
+ *  label used by some Google Cloud APIs.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The stable identifier (name) of a resource on the `service`. A resource can
@@ -920,7 +930,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Annotations is an unstructured key-value map stored with a resource that may
  *  be set by external tools to store and retrieve arbitrary metadata. They are
  *  not queryable and should be preserved when modifying objects. More info:
- *  http://kubernetes.io/docs/user-guide/annotations
+ *  https://kubernetes.io/docs/user-guide/annotations
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

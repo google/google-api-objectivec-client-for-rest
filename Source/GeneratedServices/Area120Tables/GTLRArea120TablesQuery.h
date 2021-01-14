@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRArea120Tables_BatchCreateRowsRequest;
+@class GTLRArea120Tables_BatchDeleteRowsRequest;
 @class GTLRArea120Tables_BatchUpdateRowsRequest;
 @class GTLRArea120Tables_Row;
 
@@ -176,6 +177,44 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *  @return GTLRArea120TablesQuery_TablesRowsBatchCreate
  */
 + (instancetype)queryWithObject:(GTLRArea120Tables_BatchCreateRowsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes multiple rows.
+ *
+ *  Method: area120tables.tables.rows.batchDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArea120TablesDrive
+ *    @c kGTLRAuthScopeArea120TablesDriveFile
+ *    @c kGTLRAuthScopeArea120TablesSpreadsheets
+ *    @c kGTLRAuthScopeArea120TablesTables
+ */
+@interface GTLRArea120TablesQuery_TablesRowsBatchDelete : GTLRArea120TablesQuery
+// Previous library name was
+//   +[GTLQueryArea120Tables queryForTablesRowsBatchDeleteWithObject:parent:]
+
+/**
+ *  Required. The parent table shared by all rows being deleted. Format:
+ *  tables/{table}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArea120Tables_Empty.
+ *
+ *  Deletes multiple rows.
+ *
+ *  @param object The @c GTLRArea120Tables_BatchDeleteRowsRequest to include in
+ *    the query.
+ *  @param parent Required. The parent table shared by all rows being deleted.
+ *    Format: tables/{table}
+ *
+ *  @return GTLRArea120TablesQuery_TablesRowsBatchDelete
+ */
++ (instancetype)queryWithObject:(GTLRArea120Tables_BatchDeleteRowsRequest *)object
                          parent:(NSString *)parent;
 
 @end

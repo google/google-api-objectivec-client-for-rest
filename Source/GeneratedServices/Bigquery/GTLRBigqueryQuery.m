@@ -617,6 +617,33 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
 
 @end
 
+@implementation GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:getIamPolicy";
+  GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigqueryQuery_RowAccessPoliciesList
 
 @dynamic datasetId, pageSize, pageToken, projectId, tableId;
@@ -637,6 +664,60 @@ NSString * const kGTLRBigqueryStateFilterRunning = @"running";
   query.tableId = tableId;
   query.expectedObjectClass = [GTLRBigquery_ListRowAccessPoliciesResponse class];
   query.loggingName = @"bigquery.rowAccessPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:setIamPolicy";
+  GTLRBigqueryQuery_RowAccessPoliciesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_Policy class];
+  query.loggingName = @"bigquery.rowAccessPolicies.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigquery_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"{+resource}:testIamPermissions";
+  GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigquery_TestIamPermissionsResponse class];
+  query.loggingName = @"bigquery.rowAccessPolicies.testIamPermissions";
   return query;
 }
 

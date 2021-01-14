@@ -7,7 +7,7 @@
 //   Security Command Center API provides access to temporal views of assets and
 //   findings within an organization.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview
+//   https://cloud.google.com/security-command-center
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -120,6 +120,69 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Finding.severity
+
+/**
+ *  Vulnerability: A critical vulnerability is easily discoverable by an
+ *  external actor, exploitable, and results in the direct ability to execute
+ *  arbitrary code, exfiltrate data, and otherwise gain additional access and
+ *  privileges to cloud resources and workloads. Examples include publicly
+ *  accessible unprotected user data, public SSH access with weak or no
+ *  passwords, etc. Threat: Indicates a threat that is able to access, modify,
+ *  or delete data or execute unauthorized code within existing resources.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Critical;
+/**
+ *  Vulnerability: A high risk vulnerability can be easily discovered and
+ *  exploited in combination with other vulnerabilities in order to gain direct
+ *  access and the ability to execute arbitrary code, exfiltrate data, and
+ *  otherwise gain additional access and privileges to cloud resources and
+ *  workloads. An example is a database with weak or no passwords that is only
+ *  accessible internally. This database could easily be compromised by an actor
+ *  that had access to the internal network. Threat: Indicates a threat that is
+ *  able to create new computational resources in an environment but not able to
+ *  access data or execute code in existing resources.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_High;
+/**
+ *  Vulnerability: A low risk vulnerability hampers a security organization’s
+ *  ability to detect vulnerabilities or active threats in their deployment, or
+ *  prevents the root cause investigation of security issues. An example is
+ *  monitoring and logs being disabled for resource configurations and access.
+ *  Threat: Indicates a threat that has obtained minimal access to an
+ *  environment but is not able to access data, execute code, or create
+ *  resources.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Low;
+/**
+ *  Vulnerability: A medium risk vulnerability could be used by an actor to gain
+ *  access to resources or privileges that enable them to eventually (through
+ *  multiple steps or a complex exploit) gain access and the ability to execute
+ *  arbitrary code or exfiltrate data. An example is a service account with
+ *  access to more projects than it should have. If an actor gains access to the
+ *  service account, they could potentially use that access to manipulate a
+ *  project the service account was not intended to. Threat: Indicates a threat
+ *  that is able to cause operational impact but may not access data or execute
+ *  unauthorized code.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Medium;
+/**
+ *  This value is used for findings when a source doesn't write a severity
+ *  value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.state
@@ -726,6 +789,56 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  finding.
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks *securityMarks;
+
+/**
+ *  The severity of the finding. This field is managed by the source that writes
+ *  the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_Critical
+ *        Vulnerability: A critical vulnerability is easily discoverable by an
+ *        external actor, exploitable, and results in the direct ability to
+ *        execute arbitrary code, exfiltrate data, and otherwise gain additional
+ *        access and privileges to cloud resources and workloads. Examples
+ *        include publicly accessible unprotected user data, public SSH access
+ *        with weak or no passwords, etc. Threat: Indicates a threat that is
+ *        able to access, modify, or delete data or execute unauthorized code
+ *        within existing resources. (Value: "CRITICAL")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_High Vulnerability: A
+ *        high risk vulnerability can be easily discovered and exploited in
+ *        combination with other vulnerabilities in order to gain direct access
+ *        and the ability to execute arbitrary code, exfiltrate data, and
+ *        otherwise gain additional access and privileges to cloud resources and
+ *        workloads. An example is a database with weak or no passwords that is
+ *        only accessible internally. This database could easily be compromised
+ *        by an actor that had access to the internal network. Threat: Indicates
+ *        a threat that is able to create new computational resources in an
+ *        environment but not able to access data or execute code in existing
+ *        resources. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_Low Vulnerability: A
+ *        low risk vulnerability hampers a security organization’s ability to
+ *        detect vulnerabilities or active threats in their deployment, or
+ *        prevents the root cause investigation of security issues. An example
+ *        is monitoring and logs being disabled for resource configurations and
+ *        access. Threat: Indicates a threat that has obtained minimal access to
+ *        an environment but is not able to access data, execute code, or create
+ *        resources. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_Medium Vulnerability:
+ *        A medium risk vulnerability could be used by an actor to gain access
+ *        to resources or privileges that enable them to eventually (through
+ *        multiple steps or a complex exploit) gain access and the ability to
+ *        execute arbitrary code or exfiltrate data. An example is a service
+ *        account with access to more projects than it should have. If an actor
+ *        gains access to the service account, they could potentially use that
+ *        access to manipulate a project the service account was not intended
+ *        to. Threat: Indicates a threat that is able to cause operational
+ *        impact but may not access data or execute unauthorized code. (Value:
+ *        "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_Severity_SeverityUnspecified
+ *        This value is used for findings when a source doesn't write a severity
+ *        value. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /**
  *  Source specific properties. These properties are managed by the source that
@@ -1390,13 +1503,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  boolean literals `true` and `false` without quotes. The following field and
  *  operator combinations are supported: * name: `=` * parent: `=`, `:` *
  *  resource_name: `=`, `:` * state: `=`, `:` * category: `=`, `:` *
- *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` Usage: This
- *  should be milliseconds since epoch or an RFC3339 string. Examples:
- *  `event_time = "2019-06-10T16:07:18-07:00"` `event_time = 1560208038000` *
- *  security_marks.marks: `=`, `:` * source_properties: `=`, `:`, `>`, `<`,
- *  `>=`, `<=` For example, `source_properties.size = 100` is a valid filter
- *  string. Use a partial match on the empty string to filter based on a
- *  property existing: `source_properties.my_property : ""` Use a negated
+ *  external_uri: `=`, `:` * event_time: `=`, `>`, `<`, `>=`, `<=` * severity:
+ *  `=`, `:` Usage: This should be milliseconds since epoch or an RFC3339
+ *  string. Examples: `event_time = "2019-06-10T16:07:18-07:00"` `event_time =
+ *  1560208038000` * security_marks.marks: `=`, `:` * source_properties: `=`,
+ *  `:`, `>`, `<`, `>=`, `<=` For example, `source_properties.size = 100` is a
+ *  valid filter string. Use a partial match on the empty string to filter based
+ *  on a property existing: `source_properties.my_property : ""` Use a negated
  *  partial match on the empty string to filter based on a property not
  *  existing: `-source_properties.my_property : ""`
  */
@@ -1406,8 +1519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  Required. Expression that defines what assets fields to use for grouping
  *  (including `state_change`). The string value should follow SQL syntax: comma
  *  separated list of fields. For example: "parent,resource_name". The following
- *  fields are supported: * resource_name * category * state * parent The
- *  following fields are supported when compare_duration is set: * state_change
+ *  fields are supported: * resource_name * category * state * parent * severity
+ *  The following fields are supported when compare_duration is set: *
+ *  state_change
  */
 @property(nonatomic, copy, nullable) NSString *groupBy;
 

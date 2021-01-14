@@ -48,11 +48,6 @@ NSString * const kGTLRYouTubeEventTypeLive      = @"live";
 NSString * const kGTLRYouTubeEventTypeNone      = @"none";
 NSString * const kGTLRYouTubeEventTypeUpcoming  = @"upcoming";
 
-// filter
-NSString * const kGTLRYouTubeFilterAll                  = @"all";
-NSString * const kGTLRYouTubeFilterNewest               = @"newest";
-NSString * const kGTLRYouTubeFilterSponsorFilterUnknown = @"sponsorFilterUnknown";
-
 // mode
 NSString * const kGTLRYouTubeModeAllCurrent             = @"all_current";
 NSString * const kGTLRYouTubeModeListMembersModeUnknown = @"listMembersModeUnknown";
@@ -1764,31 +1759,6 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
   query.part = part;
   query.expectedObjectClass = [GTLRYouTube_SearchListResponse class];
   query.loggingName = @"youtube.search.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRYouTubeQuery_SponsorsList
-
-@dynamic filter, maxResults, pageToken, part;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"part" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithPart:(NSArray<NSString *> *)part {
-  NSString *pathURITemplate = @"youtube/v3/sponsors";
-  GTLRYouTubeQuery_SponsorsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_SponsorListResponse class];
-  query.loggingName = @"youtube.sponsors.list";
   return query;
 }
 

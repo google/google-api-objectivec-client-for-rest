@@ -23,12 +23,21 @@
 
 @class GTLRAccessContextManager_AccessLevel;
 @class GTLRAccessContextManager_AccessPolicy;
+@class GTLRAccessContextManager_ApiOperation;
 @class GTLRAccessContextManager_BasicLevel;
 @class GTLRAccessContextManager_Condition;
 @class GTLRAccessContextManager_CustomLevel;
 @class GTLRAccessContextManager_DevicePolicy;
+@class GTLRAccessContextManager_EgressFrom;
+@class GTLRAccessContextManager_EgressPolicy;
+@class GTLRAccessContextManager_EgressTo;
 @class GTLRAccessContextManager_Expr;
 @class GTLRAccessContextManager_GcpUserAccessBinding;
+@class GTLRAccessContextManager_IngressFrom;
+@class GTLRAccessContextManager_IngressPolicy;
+@class GTLRAccessContextManager_IngressSource;
+@class GTLRAccessContextManager_IngressTo;
+@class GTLRAccessContextManager_MethodSelector;
 @class GTLRAccessContextManager_Operation;
 @class GTLRAccessContextManager_Operation_Metadata;
 @class GTLRAccessContextManager_Operation_Response;
@@ -123,6 +132,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_Allowe
  *  Value: "UNENCRYPTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_EgressFrom.identityType
+
+/**
+ *  Authorize access from all identities outside the perimeter.
+ *
+ *  Value: "ANY_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyIdentity;
+/**
+ *  Authorize access from all service accounts outside the perimeter.
+ *
+ *  Value: "ANY_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyServiceAccount;
+/**
+ *  Authorize access from all human users outside the perimeter.
+ *
+ *  Value: "ANY_USER_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyUserAccount;
+/**
+ *  No blanket identity group specified.
+ *
+ *  Value: "IDENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_IdentityTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAccessContextManager_IngressFrom.identityType
+
+/**
+ *  Authorize access from all identities outside the perimeter.
+ *
+ *  Value: "ANY_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyIdentity;
+/**
+ *  Authorize access from all service accounts outside the perimeter.
+ *
+ *  Value: "ANY_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyServiceAccount;
+/**
+ *  Authorize access from all human users outside the perimeter.
+ *
+ *  Value: "ANY_USER_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyUserAccount;
+/**
+ *  No blanket identity group specified.
+ *
+ *  Value: "IDENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_IdentityTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAccessContextManager_OsConstraint.osType
@@ -251,6 +316,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /** Required. Human readable title. Does not affect behavior. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Identification for an API Operation.
+ */
+@interface GTLRAccessContextManager_ApiOperation : GTLRObject
+
+/**
+ *  API methods or permissions to allow. Method or permission must belong to the
+ *  service specified by `service_name` field. A single MethodSelector entry
+ *  with `*` specified for the `method` field will allow all methods AND
+ *  permissions for the service specified in `service_name`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_MethodSelector *> *methodSelectors;
+
+/**
+ *  The name of the API whose methods or permissions the IngressPolicy or
+ *  EgressPolicy want to allow. A single ApiOperation with `service_name` field
+ *  set to `*` will allow all methods AND permissions for all services.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
 
 @end
 
@@ -446,6 +534,104 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
+ *  Defines the conditions under which an EgressPolicy matches a request.
+ *  Conditions based on information about the source of the request. Note that
+ *  if the destination of the request is protected by a ServicePerimeter, then
+ *  that ServicePerimeter must have an IngressPolicy which allows access in
+ *  order for this request to succeed.
+ */
+@interface GTLRAccessContextManager_EgressFrom : GTLRObject
+
+/**
+ *  A list of identities that are allowed access through this [EgressPolicy].
+ *  Should be in the format of email address. The email address should represent
+ *  individual user or service account only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
+
+/**
+ *  Specifies the type of identities that are allowed access to outside the
+ *  perimeter. If left unspecified, then members of `identities` field will be
+ *  allowed access.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_IdentityType_AnyIdentity
+ *        Authorize access from all identities outside the perimeter. (Value:
+ *        "ANY_IDENTITY")
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_IdentityType_AnyServiceAccount
+ *        Authorize access from all service accounts outside the perimeter.
+ *        (Value: "ANY_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_IdentityType_AnyUserAccount
+ *        Authorize access from all human users outside the perimeter. (Value:
+ *        "ANY_USER_ACCOUNT")
+ *    @arg @c kGTLRAccessContextManager_EgressFrom_IdentityType_IdentityTypeUnspecified
+ *        No blanket identity group specified. (Value:
+ *        "IDENTITY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *identityType;
+
+@end
+
+
+/**
+ *  Policy for egress from perimeter. EgressPolicies match requests based on
+ *  `egress_from` and `egress_to` stanzas. For an EgressPolicy to match, both
+ *  `egress_from` and `egress_to` stanzas must be matched. If an EgressPolicy
+ *  matches a request, the request is allowed to span the ServicePerimeter
+ *  boundary. For example, an EgressPolicy can be used to allow VMs on networks
+ *  within the ServicePerimeter to access a defined set of projects outside the
+ *  perimeter in certain contexts (e.g. to read data from a Cloud Storage bucket
+ *  or query against a BigQuery dataset). EgressPolicies are concerned with the
+ *  *resources* that a request relates as well as the API services and API
+ *  actions being used. They do not related to the direction of data movement.
+ *  More detailed documentation for this concept can be found in the
+ *  descriptions of EgressFrom and EgressTo.
+ */
+@interface GTLRAccessContextManager_EgressPolicy : GTLRObject
+
+/**
+ *  Defines conditions on the source of a request causing this EgressPolicy to
+ *  apply.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_EgressFrom *egressFrom;
+
+/**
+ *  Defines the conditions on the ApiOperation and destination resources that
+ *  cause this EgressPolicy to apply.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_EgressTo *egressTo;
+
+@end
+
+
+/**
+ *  Defines the conditions under which an EgressPolicy matches a request.
+ *  Conditions are based on information about the ApiOperation intended to be
+ *  performed on the `resources` specified. Note that if the destination of the
+ *  request is protected by a ServicePerimeter, then that ServicePerimeter must
+ *  have an IngressPolicy which allows access in order for this request to
+ *  succeed.
+ */
+@interface GTLRAccessContextManager_EgressTo : GTLRObject
+
+/**
+ *  A list of ApiOperations that this egress rule applies to. A request matches
+ *  if it contains an operation/service in this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ApiOperation *> *operations;
+
+/**
+ *  A list of resources, currently only projects in the form `projects/`, that
+ *  match this to stanza. A request matches if it contains a resource in this
+ *  list. If `*` is specified for resources, then this EgressTo rule will
+ *  authorize access to all resources outside the perimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -538,6 +724,131 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  "organizations/256/gcpUserAccessBindings/b3-BhcX_Ud5N"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Defines the conditions under which an IngressPolicy matches a request.
+ *  Conditions are based on information about the source of the request.
+ */
+@interface GTLRAccessContextManager_IngressFrom : GTLRObject
+
+/**
+ *  A list of identities that are allowed access through this ingress policy.
+ *  Should be in the format of email address. The email address should represent
+ *  individual user or service account only.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
+
+/**
+ *  Specifies the type of identities that are allowed access from outside the
+ *  perimeter. If left unspecified, then members of `identities` field will be
+ *  allowed access.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAccessContextManager_IngressFrom_IdentityType_AnyIdentity
+ *        Authorize access from all identities outside the perimeter. (Value:
+ *        "ANY_IDENTITY")
+ *    @arg @c kGTLRAccessContextManager_IngressFrom_IdentityType_AnyServiceAccount
+ *        Authorize access from all service accounts outside the perimeter.
+ *        (Value: "ANY_SERVICE_ACCOUNT")
+ *    @arg @c kGTLRAccessContextManager_IngressFrom_IdentityType_AnyUserAccount
+ *        Authorize access from all human users outside the perimeter. (Value:
+ *        "ANY_USER_ACCOUNT")
+ *    @arg @c kGTLRAccessContextManager_IngressFrom_IdentityType_IdentityTypeUnspecified
+ *        No blanket identity group specified. (Value:
+ *        "IDENTITY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *identityType;
+
+/** Sources that this IngressPolicy authorizes access from. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_IngressSource *> *sources;
+
+@end
+
+
+/**
+ *  Policy for ingress into ServicePerimeter. IngressPolicies match requests
+ *  based on `ingress_from` and `ingress_to` stanzas. For an ingress policy to
+ *  match, both the `ingress_from` and `ingress_to` stanzas must be matched. If
+ *  an IngressPolicy matches a request, the request is allowed through the
+ *  perimeter boundary from outside the perimeter. For example, access from the
+ *  internet can be allowed either based on an AccessLevel or, for traffic
+ *  hosted on Google Cloud, the project of the source network. For access from
+ *  private networks, using the project of the hosting network is required.
+ *  Individual ingress policies can be limited by restricting which services
+ *  and/or actions they match using the `ingress_to` field.
+ */
+@interface GTLRAccessContextManager_IngressPolicy : GTLRObject
+
+/**
+ *  Defines the conditions on the source of a request causing this IngressPolicy
+ *  to apply.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_IngressFrom *ingressFrom;
+
+/**
+ *  Defines the conditions on the ApiOperation and request destination that
+ *  cause this IngressPolicy to apply.
+ */
+@property(nonatomic, strong, nullable) GTLRAccessContextManager_IngressTo *ingressTo;
+
+@end
+
+
+/**
+ *  The source that IngressPolicy authorizes access from.
+ */
+@interface GTLRAccessContextManager_IngressSource : GTLRObject
+
+/**
+ *  An AccessLevel resource name that allow resources within the
+ *  ServicePerimeters to be accessed from the internet. AccessLevels listed must
+ *  be in the same policy as this ServicePerimeter. Referencing a nonexistent
+ *  AccessLevel will cause an error. If no AccessLevel names are listed,
+ *  resources within the perimeter can only be accessed via Google Cloud calls
+ *  with request origins within the perimeter. Example:
+ *  `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If `*` is specified, then
+ *  all IngressSources will be allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *accessLevel;
+
+/**
+ *  A Google Cloud resource that is allowed to ingress the perimeter. Requests
+ *  from these resources will be allowed to access perimeter data. Currently
+ *  only projects are allowed. Format: `projects/{project_number}` The project
+ *  may be in any Google Cloud organization, not just the organization that the
+ *  perimeter is defined in. `*` is not allowed, the case of allowing all Google
+ *  Cloud resources only is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
+ *  Defines the conditions under which an IngressPolicy matches a request.
+ *  Conditions are based on information about the ApiOperation intended to be
+ *  performed on the destination of the request.
+ */
+@interface GTLRAccessContextManager_IngressTo : GTLRObject
+
+/**
+ *  A list of ApiOperations the sources specified in corresponding IngressFrom
+ *  are allowed to perform in this ServicePerimeter.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ApiOperation *> *operations;
+
+/**
+ *  A list of resources, currently only projects in the form `projects/`,
+ *  protected by this ServicePerimeter that are allowed to be accessed by
+ *  sources defined in the corresponding IngressFrom. A request matches if it
+ *  contains a resource in this list. If `*` is specified for resources, then
+ *  this IngressTo rule will authorize access to all resources inside the
+ *  perimeter, provided that the request also matches the `operations` field.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
 @end
 
@@ -667,6 +978,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
+@end
+
+
+/**
+ *  An allowed method or permission of a service specified in ApiOperation.
+ */
+@interface GTLRAccessContextManager_MethodSelector : GTLRObject
+
+/**
+ *  Value for `method` should be a valid method name for the corresponding
+ *  `service_name` in ApiOperation. If `*` used as value for `method`, then ALL
+ *  methods and permissions are allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  Value for `permission` should be a valid Cloud IAM permission for the
+ *  corresponding `service_name` in ApiOperation.
+ */
+@property(nonatomic, copy, nullable) NSString *permission;
 
 @end
 
@@ -969,6 +1301,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
  *  Bridge, must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessLevels;
+
+/**
+ *  List of EgressPolicies to apply to the perimeter. A perimeter may have
+ *  multiple EgressPolicies, each of which is evaluated separately. Access is
+ *  granted if any EgressPolicy grants it. Must be empty for a perimeter bridge.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_EgressPolicy *> *egressPolicies;
+
+/**
+ *  List of IngressPolicies to apply to the perimeter. A perimeter may have
+ *  multiple IngressPolicies, each of which is evaluated separately. Access is
+ *  granted if any Ingress Policy grants it. Must be empty for a perimeter
+ *  bridge.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_IngressPolicy *> *ingressPolicies;
 
 /**
  *  A list of Google Cloud resources that are inside of the service perimeter.

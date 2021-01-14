@@ -182,13 +182,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_Tier_TierUnspecified
 // GTLRCloudRedis_Instance.transitEncryptionMode
 
 /**
- *  In-transit encryption is disabled for instance.
+ *  TLS is disabled for the instance.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled;
 /**
- *  In-transit encryption enabled with server authentication
+ *  Client to Server traffic encryption enabled with server authentication.
  *
  *  Value: "SERVER_AUTHENTICATION"
  */
@@ -561,15 +561,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMod
 @property(nonatomic, copy, nullable) NSString *tier;
 
 /**
- *  Optional. The In-transit encryption mode of Redis instance. If not provided,
- *  in-transit encryption is disabled for instance.
+ *  Optional. The TLS mode of the Redis instance. If not provided, TLS is
+ *  disabled for the instance.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled In-transit
- *        encryption is disabled for instance. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled TLS is
+ *        disabled for the instance. (Value: "DISABLED")
  *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication
- *        In-transit encryption enabled with server authentication (Value:
- *        "SERVER_AUTHENTICATION")
+ *        Client to Server traffic encryption enabled with server
+ *        authentication. (Value: "SERVER_AUTHENTICATION")
  *    @arg @c kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified
  *        Not set. (Value: "TRANSIT_ENCRYPTION_MODE_UNSPECIFIED")
  */

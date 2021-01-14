@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Artifact Registry API (artifactregistry/v1beta2)
+//   Artifact Registry API (artifactregistry/v1)
 // Description:
 //   Store and manage build artifacts in a scalable and integrated service built
 //   on Google infrastructure.
@@ -13,546 +13,89 @@
 
 #import "GTLRArtifactRegistryObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// view
-NSString * const kGTLRArtifactRegistryViewBasic                = @"BASIC";
-NSString * const kGTLRArtifactRegistryViewFull                 = @"FULL";
-NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIEW_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRArtifactRegistryQuery
 
 @dynamic fields;
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsGet
+@implementation GTLRArtifactRegistryQuery_OperationsCancel
 
 @dynamic name;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Location class];
-  query.loggingName = @"artifactregistry.projects.locations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}/locations";
-  GTLRArtifactRegistryQuery_ProjectsLocationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListLocationsResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsOperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsOperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}/operations";
-  GTLRArtifactRegistryQuery_ProjectsLocationsOperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListOperationsResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.operations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCreate
-
-@dynamic parent, repositoryId;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_Repository *)object
-                         parent:(NSString *)parent {
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_CancelOperationRequest *)object
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/repositories";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesCreate *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRArtifactRegistryQuery_OperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.delete";
+  query.expectedObjectClass = [GTLRArtifactRegistry_Empty class];
+  query.loggingName = @"artifactregistry.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesGet
+@implementation GTLRArtifactRegistryQuery_OperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_File class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.files.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/files";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListFilesResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.files.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Repository class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta2/{+resource}:getIamPolicy";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Policy class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/repositories";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListRepositoriesResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Package class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesList
-
-@dynamic pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/packages";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListPackagesResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsCreate
-
-@dynamic parent, tagId;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_Tag *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/tags";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Tag class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.tags.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsDelete *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_OperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_Empty class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.tags.delete";
+  query.loggingName = @"artifactregistry.operations.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsGet
+@implementation GTLRArtifactRegistryQuery_OperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsGet *query =
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Tag class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.tags.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/tags";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListTagsResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.tags.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_Tag *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesTagsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Tag class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.tags.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsDelete
-
-@dynamic force, name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.versions.delete";
+  query.loggingName = @"artifactregistry.operations.get";
   return query;
 }
 
 @end
 
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsGet
+@implementation GTLRArtifactRegistryQuery_OperationsList
 
-@dynamic name, view;
+@dynamic filter, name, pageSize, pageToken;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsGet *query =
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/operations";
+  GTLRArtifactRegistryQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Version class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.versions.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsList
-
-@dynamic pageSize, pageToken, parent, view;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta2/{+parent}/versions";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPackagesVersionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRArtifactRegistry_ListVersionsResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.packages.versions.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_Repository *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta2/{+name}";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Repository class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta2/{+resource}:setIamPolicy";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRArtifactRegistry_Policy class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRArtifactRegistry_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta2/{+resource}:testIamPermissions";
-  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRArtifactRegistry_TestIamPermissionsResponse class];
-  query.loggingName = @"artifactregistry.projects.locations.repositories.testIamPermissions";
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListOperationsResponse class];
+  query.loggingName = @"artifactregistry.operations.list";
   return query;
 }
 

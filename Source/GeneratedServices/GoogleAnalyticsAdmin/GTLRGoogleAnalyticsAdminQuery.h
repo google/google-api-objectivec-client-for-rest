@@ -95,8 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single Account. Throws "Target not found" if no such account
- *  found, or if caller does not have permissions to access it.
+ *  Lookup for a single Account.
  *
  *  Method: analyticsadmin.accounts.get
  *
@@ -116,8 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAccount.
  *
- *  Lookup for a single Account. Throws "Target not found" if no such account
- *  found, or if caller does not have permissions to access it.
+ *  Lookup for a single Account.
  *
  *  @param name Required. The name of the account to lookup. Format:
  *    accounts/{account} Example: "accounts/100"
@@ -782,9 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single AndroidAppDataStream Throws "Target not found" if no
- *  such android app data stream found, or if the caller does not have
- *  permissions to access it.
+ *  Lookup for a single AndroidAppDataStream
  *
  *  Method: analyticsadmin.properties.androidAppDataStreams.get
  *
@@ -805,9 +801,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream.
  *
- *  Lookup for a single AndroidAppDataStream Throws "Target not found" if no
- *  such android app data stream found, or if the caller does not have
- *  permissions to access it.
+ *  Lookup for a single AndroidAppDataStream
  *
  *  @param name Required. The name of the android app data stream to lookup.
  *    Format: properties/{property_id}/androidAppDataStreams/{stream_id}
@@ -1070,6 +1064,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesFirebaseLinksListWithparent:]
 
+/**
+ *  The maximum number of resources to return. The service may return fewer than
+ *  this value, even if there are additional pages. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200; (higher values will be
+ *  coerced to the maximum)
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListFirebaseLinks` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListProperties` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
 /** Required. Format: properties/{property_id} Example: properties/1234 */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1083,6 +1093,10 @@ NS_ASSUME_NONNULL_BEGIN
  *    properties/1234
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 
@@ -1129,9 +1143,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single "GA4" Property. Throws "Target not found" if no such
- *  property found, if property is not of the type "GA4", or if caller does not
- *  have permissions to access it.
+ *  Lookup for a single "GA4" Property.
  *
  *  Method: analyticsadmin.properties.get
  *
@@ -1151,9 +1163,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
  *
- *  Lookup for a single "GA4" Property. Throws "Target not found" if no such
- *  property found, if property is not of the type "GA4", or if caller does not
- *  have permissions to access it.
+ *  Lookup for a single "GA4" Property.
  *
  *  @param name Required. The name of the property to lookup. Format:
  *    properties/{property_id} Example: "properties/1000"
@@ -1386,9 +1396,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single IosAppDataStream Throws "Target not found" if no such
- *  iOS app data stream found, or if the caller does not have permissions to
- *  access it.
+ *  Lookup for a single IosAppDataStream
  *
  *  Method: analyticsadmin.properties.iosAppDataStreams.get
  *
@@ -1409,9 +1417,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream.
  *
- *  Lookup for a single IosAppDataStream Throws "Target not found" if no such
- *  iOS app data stream found, or if the caller does not have permissions to
- *  access it.
+ *  Lookup for a single IosAppDataStream
  *
  *  @param name Required. The name of the iOS app data stream to lookup. Format:
  *    properties/{property_id}/iosAppDataStreams/{stream_id} Example:
@@ -1544,11 +1550,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. An expression for filtering the results of the request. Fields
  *  eligible for filtering are: `parent:`(The resource name of the parent
  *  account) or `firebase_project:`(The id or number of the linked firebase
- *  project). Some examples of filters: | Filter | Description |
+ *  project). Some examples of filters: ``` | Filter | Description |
  *  |-----------------------------|-------------------------------------------|
  *  | parent:accounts/123 | The account with account id: 123. | |
  *  firebase_project:project-id | The firebase project with id: project-id. | |
- *  firebase_project:123 | The firebase project with number: 123. |
+ *  firebase_project:123 | The firebase project with number: 123. | ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2086,8 +2092,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single WebDataStream Throws "Target not found" if no such web
- *  data stream found, or if the caller does not have permissions to access it.
+ *  Lookup for a single WebDataStream
  *
  *  Method: analyticsadmin.properties.webDataStreams.get
  *
@@ -2108,8 +2113,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream.
  *
- *  Lookup for a single WebDataStream Throws "Target not found" if no such web
- *  data stream found, or if the caller does not have permissions to access it.
+ *  Lookup for a single WebDataStream
  *
  *  @param name Required. The name of the web data stream to lookup. Format:
  *    properties/{property_id}/webDataStreams/{stream_id} Example:

@@ -2,11 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Retail API (retail/v2)
 // Description:
-//   Manage Cloud Database Migration Service resources on Google Cloud Platform.
+//   Cloud Retail service enables customers to build end-to-end personalized
+//   recommendation systems without requiring a high level of expertise in
+//   machine learning, recommendation system, or Google Cloud.
 // Documentation:
-//   https://cloud.google.com/datamigration/
+//   https://cloud.google.com/recommendations
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -36,24 +38,26 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDatabaseMigrationServiceCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRetailCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRCloudDatabaseMigrationServiceService
+//   GTLRCloudRetailService
 //
 
 /**
- *  Service for executing Database Migration API queries.
+ *  Service for executing Retail API queries.
  *
- *  Manage Cloud Database Migration Service resources on Google Cloud Platform.
+ *  Cloud Retail service enables customers to build end-to-end personalized
+ *  recommendation systems without requiring a high level of expertise in
+ *  machine learning, recommendation system, or Google Cloud.
  */
-@interface GTLRCloudDatabaseMigrationServiceService : GTLRService
+@interface GTLRCloudRetailService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRCloudDatabaseMigrationServiceQuery.h. The query can the be sent with
-// GTLRService's execute methods,
+// GTLRCloudRetailQuery.h. The query can the be sent with GTLRService's execute
+// methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

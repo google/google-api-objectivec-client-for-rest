@@ -383,11 +383,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOption
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2CloudStorageOptions_FileTypes_Pdf;
 /**
- *  Included file extensions: asc, brf, c, cc, cpp, csv, cxx, c++, cs, css,
- *  dart, eml, go, h, hh, hpp, hxx, h++, hs, html, htm, shtml, shtm, xhtml, lhs,
- *  ini, java, js, json, ocaml, md, mkd, markdown, m, ml, mli, pl, pm, php,
- *  phtml, pht, py, pyw, rb, rbw, rs, rc, scala, sh, sql, tex, txt, text, tsv,
- *  vcard, vcs, wml, xml, xsl, xsd, yml, yaml.
+ *  Included file extensions: asc,asp, aspx, brf, c, cc,cfm, cgi, cpp, csv, cxx,
+ *  c++, cs, css, dart, dat, dot, eml,, epbub, ged, go, h, hh, hpp, hxx, h++,
+ *  hs, html, htm, mkd, markdown, m, ml, mli, perl, pl, plist, pm, php, phtml,
+ *  pht, properties, py, pyw, rb, rbw, rs, rss, rc, scala, sh, sql, swift, tex,
+ *  shtml, shtm, xhtml, lhs, ics, ini, java, js, json, kix, kml, ocaml, md, txt,
+ *  text, tsv, vb, vcard, vcs, wml, xcodeproj, xml, xsl, xsd, yml, yaml.
  *
  *  Value: "TEXT_FILE"
  */
@@ -1993,7 +1994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2CreateDlpJobRequest : GTLRObject
 
-/** Set to control what and how to inspect. */
+/** An inspection job scans a storage repository for InfoTypes. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectJobConfig *inspectJob;
 
 /**
@@ -2007,7 +2008,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/** Set to choose what metric to calculate. */
+/**
+ *  A risk analysis job calculates re-identification risk metrics for a BigQuery
+ *  table.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RiskAnalysisJobConfig *riskJob;
 
 @end
@@ -3727,7 +3731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The configuration used for this job. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RequestedOptions *requestedOptions;
 
-/** A summary of the outcome of this inspect job. */
+/** A summary of the outcome of this inspection job. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Result *result;
 
 @end
@@ -5280,11 +5284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Result : GTLRObject
 
-/**
- *  Statistics related to the processing of hybrid inspect. Early access feature
- *  is in a pre-release state and might change or have limited support. For more
- *  information, see https://cloud.google.com/products#product-launch-stages.
- */
+/** Statistics related to the processing of hybrid inspect. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics *hybridStats;
 
 /**
@@ -5411,11 +5411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Google Cloud Datastore options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DatastoreOptions *datastoreOptions;
 
-/**
- *  Hybrid inspection options. Early access feature is in a pre-release state
- *  and might change or have limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
- */
+/** Hybrid inspection options. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2HybridOptions *hybridOptions;
 
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TimespanConfig *timespanConfig;
@@ -5904,12 +5900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Trigger : GTLRObject
 
-/**
- *  For use with hybrid jobs. Jobs must be manually created and finished. Early
- *  access feature is in a pre-release state and might change or have limited
- *  support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
- */
+/** For use with hybrid jobs. Jobs must be manually created and finished. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Manual *manual;
 
 /** Create a job on a repeating basis based on the elapse of time. */

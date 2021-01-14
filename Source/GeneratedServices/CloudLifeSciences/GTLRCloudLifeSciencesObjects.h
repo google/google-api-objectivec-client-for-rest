@@ -279,6 +279,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 @property(nonatomic, strong, nullable) NSNumber *alwaysRun;
 
 /**
+ *  Prevents the container from accessing the external network.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blockExternalNetwork;
+
+/**
  *  If specified, overrides the `CMD` specified in the container. If the
  *  container also has an `ENTRYPOINT` the values are used as entrypoint
  *  arguments. Otherwise, they are used as a command and arguments to run inside
@@ -621,7 +628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 /**
  *  Carries information about a disk that can be attached to a VM. See
  *  https://cloud.google.com/compute/docs/disks/performance for more information
- *  about disk type, size, and performance considerations.
+ *  about disk type, size, and performance considerations. Specify either
+ *  `Volume` or `Disk`, but not both.
  */
 @interface GTLRCloudLifeSciences_Disk : GTLRObject
 
@@ -1448,7 +1456,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  */
 @property(nonatomic, copy, nullable) NSString *cpuPlatform;
 
-/** The list of disks to create and attach to the VM. */
+/**
+ *  The list of disks to create and attach to the VM. Specify either the
+ *  `volumes[]` field or the `disks[]` field, but not both.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Disk *> *disks;
 
 /**
@@ -1515,7 +1526,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  */
 @property(nonatomic, strong, nullable) GTLRCloudLifeSciences_ServiceAccount *serviceAccount;
 
-/** The list of disks and other storage to create or attach to the VM. */
+/**
+ *  The list of disks and other storage to create or attach to the VM. Specify
+ *  either the `volumes[]` field or the `disks[]` field, but not both.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Volume *> *volumes;
 
 @end
@@ -1540,7 +1554,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 
 /**
- *  Carries information about storage that can be attached to a VM.
+ *  Carries information about storage that can be attached to a VM. Specify
+ *  either `Volume` or `Disk`, but not both.
  */
 @interface GTLRCloudLifeSciences_Volume : GTLRObject
 

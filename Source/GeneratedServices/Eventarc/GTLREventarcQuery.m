@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Eventarc API (eventarc/v1beta1)
+//   Eventarc API (eventarc/v1)
 // Documentation:
 //   https://cloud.google.com/eventarc
 
@@ -22,7 +22,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLREventarcQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -41,7 +41,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLREventarcQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -58,7 +58,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLREventarc_CancelOperationRequest *)object
++ (instancetype)queryWithObject:(GTLREventarc_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -67,7 +67,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLREventarcQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -87,7 +87,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLREventarcQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -106,13 +106,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLREventarcQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLREventarc_Operation class];
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
   query.loggingName = @"eventarc.projects.locations.operations.get";
   return query;
 }
@@ -125,83 +125,14 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLREventarcQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLREventarc_ListOperationsResponse class];
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"eventarc.projects.locations.operations.list";
-  return query;
-}
-
-@end
-
-@implementation GTLREventarcQuery_ProjectsLocationsTriggersCreate
-
-@dynamic parent, triggerId;
-
-+ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/triggers";
-  GTLREventarcQuery_ProjectsLocationsTriggersCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLREventarc_Operation class];
-  query.loggingName = @"eventarc.projects.locations.triggers.create";
-  return query;
-}
-
-@end
-
-@implementation GTLREventarcQuery_ProjectsLocationsTriggersDelete
-
-@dynamic ETag, name;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLREventarcQuery_ProjectsLocationsTriggersDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLREventarc_Operation class];
-  query.loggingName = @"eventarc.projects.locations.triggers.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLREventarcQuery_ProjectsLocationsTriggersGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLREventarcQuery_ProjectsLocationsTriggersGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLREventarc_Trigger class];
-  query.loggingName = @"eventarc.projects.locations.triggers.get";
   return query;
 }
 
@@ -217,7 +148,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -225,52 +156,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLREventarc_Policy class];
   query.loggingName = @"eventarc.projects.locations.triggers.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLREventarcQuery_ProjectsLocationsTriggersList
-
-@dynamic orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/triggers";
-  GTLREventarcQuery_ProjectsLocationsTriggersList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLREventarc_ListTriggersResponse class];
-  query.loggingName = @"eventarc.projects.locations.triggers.list";
-  return query;
-}
-
-@end
-
-@implementation GTLREventarcQuery_ProjectsLocationsTriggersPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
-  GTLREventarcQuery_ProjectsLocationsTriggersPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLREventarc_Operation class];
-  query.loggingName = @"eventarc.projects.locations.triggers.patch";
   return query;
 }
 
@@ -289,7 +174,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLREventarcQuery_ProjectsLocationsTriggersSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -316,7 +201,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLREventarcQuery_ProjectsLocationsTriggersTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

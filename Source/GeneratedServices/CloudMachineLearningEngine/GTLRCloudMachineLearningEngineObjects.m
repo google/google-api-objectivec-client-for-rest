@@ -404,6 +404,16 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1DiskConfig
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1DiskConfig
+@dynamic bootDiskSizeGb, bootDiskType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMachineLearningEngine_GoogleCloudMlV1EncryptionConfig
 //
 
@@ -906,8 +916,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1ReplicaConfig
-@dynamic acceleratorConfig, containerArgs, containerCommand, imageUri,
-         tpuTfVersion;
+@dynamic acceleratorConfig, containerArgs, containerCommand, diskConfig,
+         imageUri, tpuTfVersion;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1267,9 +1277,10 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version
 @dynamic acceleratorConfig, autoScaling, container, createTime, deploymentUri,
          descriptionProperty, errorMessage, ETag, explanationConfig, framework,
-         isDefault, labels, lastUseTime, machineType, manualScaling, name,
-         packageUris, predictionClass, pythonVersion, requestLoggingConfig,
-         routes, runtimeVersion, serviceAccount, state;
+         isDefault, labels, lastMigrationModelId, lastMigrationTime,
+         lastUseTime, machineType, manualScaling, name, packageUris,
+         predictionClass, pythonVersion, requestLoggingConfig, routes,
+         runtimeVersion, serviceAccount, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

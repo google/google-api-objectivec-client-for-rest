@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRCloudComposer_AllowedIpRange;
+@class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_Date;
 @class GTLRCloudComposer_Environment;
 @class GTLRCloudComposer_Environment_Labels;
@@ -39,6 +40,7 @@
 @class GTLRCloudComposer_SoftwareConfig_PypiPackages;
 @class GTLRCloudComposer_Status;
 @class GTLRCloudComposer_Status_Details_Item;
+@class GTLRCloudComposer_WebServerConfig;
 @class GTLRCloudComposer_WebServerNetworkAccessControl;
 
 // Generated comments include content from the discovery document; avoid them
@@ -177,6 +179,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  `2001:db8::/32`.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  The configuration of Cloud SQL instance that is used by the Apache Airflow
+ *  software.
+ */
+@interface GTLRCloudComposer_DatabaseConfig : GTLRObject
+
+/**
+ *  Optional. Cloud SQL machine type used by Airflow database. It has to be one
+ *  of: db-n1-standard-2, db-n1-standard-4, db-n1-standard-8 or
+ *  db-n1-standard-16. If not specified, db-n1-standard-2 will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
 
 @end
 
@@ -332,6 +350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 @property(nonatomic, copy, nullable) NSString *dagGcsPrefix;
 
 /**
+ *  Optional. The configuration settings for Cloud SQL instance used internally
+ *  by Apache Airflow software.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_DatabaseConfig *databaseConfig;
+
+/**
  *  Output only. The Kubernetes Engine cluster used to run this environment.
  */
 @property(nonatomic, copy, nullable) NSString *gkeCluster;
@@ -352,6 +376,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 /** The configuration settings for software inside the environment. */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_SoftwareConfig *softwareConfig;
+
+/**
+ *  Optional. The configuration settings for the Airflow web server App Engine
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_WebServerConfig *webServerConfig;
 
 /**
  *  Optional. The network-level access control policy for the Airflow web
@@ -1024,6 +1054,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudComposer_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  The configuration settings for the Airflow web server App Engine instance.
+ */
+@interface GTLRCloudComposer_WebServerConfig : GTLRObject
+
+/**
+ *  Optional. Machine type on which Airflow web server is running. It has to be
+ *  one of: composer-n1-webserver-2, composer-n1-webserver-4 or
+ *  composer-n1-webserver-8. If not specified, composer-n1-webserver-2 will be
+ *  used. Value custom is returned only in response, if Airflow web server
+ *  parameters were manually changed to a non-standard values.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 @end
 
 

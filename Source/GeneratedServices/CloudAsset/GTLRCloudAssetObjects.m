@@ -60,6 +60,18 @@ NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolic
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported = @"ENCRYPTION_UNSUPPORTED";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1DevicePolicy_AllowedEncryptionStatuses_Unencrypted = @"UNENCRYPTED";
 
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom.identityType
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
+
+// GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom.identityType
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
+NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
+
 // GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint.osType
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_Android = @"ANDROID";
 NSString * const kGTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint_OsType_DesktopChromeOs = @"DESKTOP_CHROME_OS";
@@ -563,6 +575,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation
+@dynamic methodSelectors, serviceName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodSelectors" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1MethodSelector class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1BasicLevel
 //
 
@@ -635,6 +665,121 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom
+@dynamic identities, identityType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy
+@dynamic egressFrom, egressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo
+@dynamic operations, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom
+@dynamic identities, identityType, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identities" : [NSString class],
+    @"sources" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy
+@dynamic ingressFrom, ingressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressSource
+@dynamic accessLevel, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo
+@dynamic operations, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation class],
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1MethodSelector
+//
+
+@implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1MethodSelector
+@dynamic method, permission;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1OsConstraint
 //
 
@@ -665,11 +810,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeterConfig
-@dynamic accessLevels, resources, restrictedServices, vpcAccessibleServices;
+@dynamic accessLevels, egressPolicies, ingressPolicies, resources,
+         restrictedServices, vpcAccessibleServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
+    @"egressPolicies" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressPolicy class],
+    @"ingressPolicies" : [GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressPolicy class],
     @"resources" : [NSString class],
     @"restrictedServices" : [NSString class]
   };

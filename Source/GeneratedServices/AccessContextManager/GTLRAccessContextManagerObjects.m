@@ -30,6 +30,18 @@ NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuse
 NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_EncryptionUnsupported = @"ENCRYPTION_UNSUPPORTED";
 NSString * const kGTLRAccessContextManager_DevicePolicy_AllowedEncryptionStatuses_Unencrypted = @"UNENCRYPTED";
 
+// GTLRAccessContextManager_EgressFrom.identityType
+NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
+NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
+NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
+NSString * const kGTLRAccessContextManager_EgressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
+
+// GTLRAccessContextManager_IngressFrom.identityType
+NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyIdentity = @"ANY_IDENTITY";
+NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyServiceAccount = @"ANY_SERVICE_ACCOUNT";
+NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_AnyUserAccount = @"ANY_USER_ACCOUNT";
+NSString * const kGTLRAccessContextManager_IngressFrom_IdentityType_IdentityTypeUnspecified = @"IDENTITY_TYPE_UNSPECIFIED";
+
 // GTLRAccessContextManager_OsConstraint.osType
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_Android = @"ANDROID";
 NSString * const kGTLRAccessContextManager_OsConstraint_OsType_DesktopChromeOs = @"DESKTOP_CHROME_OS";
@@ -68,6 +80,24 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_ApiOperation
+//
+
+@implementation GTLRAccessContextManager_ApiOperation
+@dynamic methodSelectors, serviceName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methodSelectors" : [GTLRAccessContextManager_MethodSelector class]
+  };
+  return map;
 }
 
 @end
@@ -189,6 +219,53 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_EgressFrom
+//
+
+@implementation GTLRAccessContextManager_EgressFrom
+@dynamic identities, identityType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identities" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_EgressPolicy
+//
+
+@implementation GTLRAccessContextManager_EgressPolicy
+@dynamic egressFrom, egressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_EgressTo
+//
+
+@implementation GTLRAccessContextManager_EgressTo
+@dynamic operations, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRAccessContextManager_ApiOperation class],
+    @"resources" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_Empty
 //
 
@@ -222,6 +299,64 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_IngressFrom
+//
+
+@implementation GTLRAccessContextManager_IngressFrom
+@dynamic identities, identityType, sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"identities" : [NSString class],
+    @"sources" : [GTLRAccessContextManager_IngressSource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_IngressPolicy
+//
+
+@implementation GTLRAccessContextManager_IngressPolicy
+@dynamic ingressFrom, ingressTo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_IngressSource
+//
+
+@implementation GTLRAccessContextManager_IngressSource
+@dynamic accessLevel, resource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_IngressTo
+//
+
+@implementation GTLRAccessContextManager_IngressTo
+@dynamic operations, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRAccessContextManager_ApiOperation class],
+    @"resources" : [NSString class]
   };
   return map;
 }
@@ -336,6 +471,16 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
   return @"servicePerimeters";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_MethodSelector
+//
+
+@implementation GTLRAccessContextManager_MethodSelector
+@dynamic method, permission;
 @end
 
 
@@ -489,11 +634,14 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 //
 
 @implementation GTLRAccessContextManager_ServicePerimeterConfig
-@dynamic accessLevels, resources, restrictedServices, vpcAccessibleServices;
+@dynamic accessLevels, egressPolicies, ingressPolicies, resources,
+         restrictedServices, vpcAccessibleServices;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"accessLevels" : [NSString class],
+    @"egressPolicies" : [GTLRAccessContextManager_EgressPolicy class],
+    @"ingressPolicies" : [GTLRAccessContextManager_IngressPolicy class],
     @"resources" : [NSString class],
     @"restrictedServices" : [NSString class]
   };

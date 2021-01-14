@@ -200,10 +200,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudComposer/*.{h,m}'
   end
-  s.subspec 'CloudDatabaseMigrationService' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/CloudDatabaseMigrationService/*.{h,m}'
-  end
   s.subspec 'CloudDebugger' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudDebugger/*.{h,m}'
@@ -271,6 +267,10 @@ Pod::Spec.new do |s|
   s.subspec 'CloudResourceManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CloudResourceManager/*.{h,m}'
+  end
+  s.subspec 'CloudRetail' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/CloudRetail/*.{h,m}'
   end
   s.subspec 'CloudRun' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -360,6 +360,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DataTransfer/*.{h,m}'
   end
+  s.subspec 'DatabaseMigrationService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DatabaseMigrationService/*.{h,m}'
+  end
   s.subspec 'Dataflow' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dataflow/*.{h,m}'
@@ -367,6 +371,10 @@ Pod::Spec.new do |s|
   s.subspec 'Dataproc' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Dataproc/*.{h,m}'
+  end
+  s.subspec 'DataprocMetastore' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/DataprocMetastore/*.{h,m}'
   end
   s.subspec 'Datastore' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

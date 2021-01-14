@@ -970,6 +970,114 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
+ *
+ *  Method: dlp.organizations.locations.dlpJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsDlpJobsList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsDlpJobsListWithparent:]
+
+/**
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect jobs: - `state` -
+ *  PENDING|RUNNING|CANCELED|FINISHED|FAILED - `inspected_storage` -
+ *  DATASTORE|CLOUD_STORAGE|BIGQUERY - `trigger_name` - The resource name of the
+ *  trigger that created job. - 'end_time` - Corresponds to time the job
+ *  finished. - 'start_time` - Corresponds to time the job finished. * Supported
+ *  fields for risk analysis jobs: - `state` - RUNNING|CANCELED|FINISHED|FAILED
+ *  - 'end_time` - Corresponds to time the job finished. - 'start_time` -
+ *  Corresponds to time the job finished. * The operator must be `=` or `!=`.
+ *  Examples: * inspected_storage = cloud_storage AND state = done *
+ *  inspected_storage = cloud_storage OR inspected_storage = bigquery *
+ *  inspected_storage = cloud_storage AND (state = done OR state = canceled) *
+ *  end_time > \\"2017-12-12T00:00:00+00:00\\" The length of this field should
+ *  be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Deprecated. This field has no effect. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Comma separated list of fields to order by, followed by `asc` or `desc`
+ *  postfix. This list is case-insensitive, default sorting order is ascending,
+ *  redundant space characters are insignificant. Example: `name asc, end_time
+ *  asc, create_time desc` Supported fields are: - `create_time`: corresponds to
+ *  time the job was created. - `end_time`: corresponds to time the job ended. -
+ *  `name`: corresponds to job's name. - `state`: corresponds to `state`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The type of job. Defaults to `DlpJobType.INSPECT`
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListDlpJobsResponse.
+ *
+ *  Lists DlpJobs that match the specified filter in the request. See
+ *  https://cloud.google.com/dlp/docs/inspecting-storage and
+ *  https://cloud.google.com/dlp/docs/compute-risk-analysis to learn more.
+ *
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](https://cloud.google.com/dlp/docs/specifying-location): +
+ *    Projects scope, location specified:
+ *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsDlpJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an InspectTemplate for re-using frequently used configuration for
  *  inspecting content, images, and storage. See
  *  https://cloud.google.com/dlp/docs/creating-templates to learn more.
@@ -1226,6 +1334,261 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  @return GTLRDLPQuery_OrganizationsLocationsInspectTemplatesPatch
  */
 + (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateInspectTemplateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a job trigger to run DLP actions such as scanning storage for
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  Method: dlp.organizations.locations.jobTriggers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsJobTriggersCreate : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersCreateWithObject:parent:]
+
+/**
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
+ *
+ *  Creates a job trigger to run DLP actions such as scanning storage for
+ *  sensitive information on a set schedule. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest to
+ *    include in the query.
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](https://cloud.google.com/dlp/docs/specifying-location): +
+ *    Projects scope, location specified:
+ *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2CreateJobTriggerRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  Method: dlp.organizations.locations.jobTriggers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsJobTriggersDelete : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersDeleteWithname:]
+
+/**
+ *  Required. Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
+ *
+ *  Deletes a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  @param name Required. Resource name of the project and the triggeredJob, for
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  Method: dlp.organizations.locations.jobTriggers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsJobTriggersGet : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersGetWithname:]
+
+/**
+ *  Required. Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
+ *
+ *  Gets a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  @param name Required. Resource name of the project and the triggeredJob, for
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  Method: dlp.organizations.locations.jobTriggers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsJobTriggersList : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersListWithparent:]
+
+/**
+ *  Allows filtering. Supported syntax: * Filter expressions are made up of one
+ *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
+ *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
+ *  restriction has the form of `{field} {operator} {value}`. * Supported
+ *  fields/values for inspect triggers: - `status` - HEALTHY|PAUSED|CANCELLED -
+ *  `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` -
+ *  RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are
+ *  ignored. - 'error_count' - Number of errors that have occurred while
+ *  running. * The operator must be `=` or `!=` for status and
+ *  inspected_storage. Examples: * inspected_storage = cloud_storage AND status
+ *  = HEALTHY * inspected_storage = cloud_storage OR inspected_storage =
+ *  bigquery * inspected_storage = cloud_storage AND (state = PAUSED OR state =
+ *  HEALTHY) * last_run_time > \\"2017-12-12T00:00:00+00:00\\" The length of
+ *  this field should be no more than 500 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Deprecated. This field has no effect. */
+@property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Comma separated list of triggeredJob fields to order by, followed by `asc`
+ *  or `desc` postfix. This list is case-insensitive, default sorting order is
+ *  ascending, redundant space characters are insignificant. Example: `name
+ *  asc,update_time, create_time desc` Supported fields are: - `create_time`:
+ *  corresponds to time the JobTrigger was created. - `update_time`: corresponds
+ *  to time the JobTrigger was last updated. - `last_run_time`: corresponds to
+ *  the last time the JobTrigger ran. - `name`: corresponds to JobTrigger's
+ *  name. - `display_name`: corresponds to JobTrigger's display name. -
+ *  `status`: corresponds to JobTrigger's status.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Size of the page, can be limited by a server. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Page token to continue retrieval. Comes from previous call to
+ *  ListJobTriggers. `order_by` field must not change for subsequent calls.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource name. The format of this value varies depending on
+ *  whether you have [specified a processing
+ *  location](https://cloud.google.com/dlp/docs/specifying-location): + Projects
+ *  scope, location specified: `projects/`PROJECT_ID`/locations/`LOCATION_ID +
+ *  Projects scope, no location specified (defaults to global):
+ *  `projects/`PROJECT_ID The following example `parent` string specifies a
+ *  parent project with the identifier `example-project`, and specifies the
+ *  `europe-west3` location for processing data:
+ *  parent=projects/example-project/locations/europe-west3
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
+ *
+ *  Lists job triggers. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  @param parent Required. Parent resource name. The format of this value
+ *    varies depending on whether you have [specified a processing
+ *    location](https://cloud.google.com/dlp/docs/specifying-location): +
+ *    Projects scope, location specified:
+ *    `projects/`PROJECT_ID`/locations/`LOCATION_ID + Projects scope, no
+ *    location specified (defaults to global): `projects/`PROJECT_ID The
+ *    following example `parent` string specifies a parent project with the
+ *    identifier `example-project`, and specifies the `europe-west3` location
+ *    for processing data:
+ *    parent=projects/example-project/locations/europe-west3
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  Method: dlp.organizations.locations.jobTriggers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDLPCloudPlatform
+ */
+@interface GTLRDLPQuery_OrganizationsLocationsJobTriggersPatch : GTLRDLPQuery
+// Previous library name was
+//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersPatchWithObject:name:]
+
+/**
+ *  Required. Resource name of the project and the triggeredJob, for example
+ *  `projects/dlp-test-project/jobTriggers/53234423`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2JobTrigger.
+ *
+ *  Updates a job trigger. See
+ *  https://cloud.google.com/dlp/docs/creating-job-triggers to learn more.
+ *
+ *  @param object The @c GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the project and the triggeredJob, for
+ *    example `projects/dlp-test-project/jobTriggers/53234423`.
+ *
+ *  @return GTLRDLPQuery_OrganizationsLocationsJobTriggersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDLP_GooglePrivacyDlpV2UpdateJobTriggerRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -2958,7 +3321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
  *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
  *  restriction has the form of `{field} {operator} {value}`. * Supported
- *  fields/values for inspect jobs: - `status` - HEALTHY|PAUSED|CANCELLED -
+ *  fields/values for inspect triggers: - `status` - HEALTHY|PAUSED|CANCELLED -
  *  `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` -
  *  RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are
  *  ignored. - 'error_count' - Number of errors that have occurred while
@@ -3645,9 +4008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 
 /**
  *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
- *  of any enabled actions that have not yet run. Early access feature is in a
- *  pre-release state and might change or have limited support. For more
- *  information, see https://cloud.google.com/products#product-launch-stages.
+ *  of any enabled actions that have not yet run.
  *
  *  Method: dlp.projects.locations.dlpJobs.finish
  *
@@ -3665,9 +4026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  Fetches a @c GTLRDLP_GoogleProtobufEmpty.
  *
  *  Finish a running hybrid DlpJob. Triggers the finalization steps and running
- *  of any enabled actions that have not yet run. Early access feature is in a
- *  pre-release state and might change or have limited support. For more
- *  information, see https://cloud.google.com/products#product-launch-stages.
+ *  of any enabled actions that have not yet run.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2FinishDlpJobRequest to
  *    include in the query.
@@ -3713,10 +4072,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 @end
 
 /**
- *  Inspect hybrid content and store findings to a job. To review the findings
- *  inspect the job. Inspection will occur asynchronously. Early access feature
- *  is in a pre-release state and might change or have limited support. For more
- *  information, see https://cloud.google.com/products#product-launch-stages.
+ *  Inspect hybrid content and store findings to a job. To review the findings,
+ *  inspect the job. Inspection will occur asynchronously.
  *
  *  Method: dlp.projects.locations.dlpJobs.hybridInspect
  *
@@ -3736,10 +4093,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2HybridInspectResponse.
  *
- *  Inspect hybrid content and store findings to a job. To review the findings
- *  inspect the job. Inspection will occur asynchronously. Early access feature
- *  is in a pre-release state and might change or have limited support. For more
- *  information, see https://cloud.google.com/products#product-launch-stages.
+ *  Inspect hybrid content and store findings to a job. To review the findings,
+ *  inspect the job. Inspection will occur asynchronously.
  *
  *  @param object The @c GTLRDLP_GooglePrivacyDlpV2HybridInspectDlpJobRequest to
  *    include in the query.
@@ -4344,9 +4699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
 /**
  *  Inspect hybrid content and store findings to a trigger. The inspection will
  *  be processed asynchronously. To review the findings monitor the jobs within
- *  the trigger. Early access feature is in a pre-release state and might change
- *  or have limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  the trigger.
  *
  *  Method: dlp.projects.locations.jobTriggers.hybridInspect
  *
@@ -4368,9 +4721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *
  *  Inspect hybrid content and store findings to a trigger. The inspection will
  *  be processed asynchronously. To review the findings monitor the jobs within
- *  the trigger. Early access feature is in a pre-release state and might change
- *  or have limited support. For more information, see
- *  https://cloud.google.com/products#product-launch-stages.
+ *  the trigger.
  *
  *  @param object The @c
  *    GTLRDLP_GooglePrivacyDlpV2HybridInspectJobTriggerRequest to include in the
@@ -4403,7 +4754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  or more restrictions. * Restrictions can be combined by `AND` or `OR`
  *  logical operators. A sequence of restrictions implicitly uses `AND`. * A
  *  restriction has the form of `{field} {operator} {value}`. * Supported
- *  fields/values for inspect jobs: - `status` - HEALTHY|PAUSED|CANCELLED -
+ *  fields/values for inspect triggers: - `status` - HEALTHY|PAUSED|CANCELLED -
  *  `inspected_storage` - DATASTORE|CLOUD_STORAGE|BIGQUERY - 'last_run_time` -
  *  RFC 3339 formatted timestamp, surrounded by quotation marks. Nanoseconds are
  *  ignored. - 'error_count' - Number of errors that have occurred while

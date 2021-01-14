@@ -1882,14 +1882,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  `Endpoint` describes a network endpoint that serves a set of APIs. A service
- *  may expose any number of endpoints, and all endpoints share the same service
- *  configuration, such as quota configuration and monitoring configuration.
- *  Example service configuration: name: library-example.googleapis.com
- *  endpoints: # Below entry makes 'google.example.library.v1.Library' # API be
- *  served from endpoint address library-example.googleapis.com. # It also
- *  allows HTTP OPTIONS calls to be passed to the backend, for # it to decide
- *  whether the subsequent cross-origin request is # allowed to proceed. - name:
+ *  `Endpoint` describes a network endpoint of a service that serves a set of
+ *  APIs. It is commonly known as a service endpoint. A service may expose any
+ *  number of service endpoints, and all service endpoints share the same
+ *  service definition, such as quota limits and monitoring metrics. Example
+ *  service configuration: name: library-example.googleapis.com endpoints: #
+ *  Below entry makes 'google.example.library.v1.Library' # API be served from
+ *  endpoint address library-example.googleapis.com. # It also allows HTTP
+ *  OPTIONS calls to be passed to the backend, for # it to decide whether the
+ *  subsequent cross-origin request is # allowed to proceed. - name:
  *  library-example.googleapis.com allow_cors: true
  */
 @interface GTLRServiceManagement_Endpoint : GTLRObject
@@ -3911,7 +3912,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Billing *billing;
 
 /**
- *  This field is obsolete. Its value must be set to `3`.
+ *  Deprecated. The service config compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -4402,7 +4403,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  Requirements that must be satisfied before a consumer project can use the
  *  service. Each requirement is of the form /; for example
- *  'serviceusage.googleapis.com/billing-enabled'.
+ *  'serviceusage.googleapis.com/billing-enabled'. For Google APIs, a Terms of
+ *  Service requirement must be included here. Google Cloud APIs must include
+ *  "serviceusage.googleapis.com/tos/cloud". Other Google APIs should include
+ *  "serviceusage.googleapis.com/tos/universal". Additional ToS can be included
+ *  based on the business needs.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *requirements;
 

@@ -67,8 +67,8 @@
 //
 
 @implementation GTLRWebmasters_SearchAnalyticsQueryRequest
-@dynamic aggregationType, dimensionFilterGroups, dimensions, endDate, rowLimit,
-         searchType, startDate, startRow;
+@dynamic aggregationType, dataState, dimensionFilterGroups, dimensions, endDate,
+         rowLimit, searchType, startDate, startRow;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

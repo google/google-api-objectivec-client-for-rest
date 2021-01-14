@@ -1334,7 +1334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  The unique ID for the customer's G Suite account. (Readonly)
+ *  The unique ID for the customer's Google Workspace account. (Readonly)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -1819,7 +1819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 
 /**
- *  G Suite Mobile Management includes Android, [Google
+ *  Google Workspace Mobile Management includes Android, [Google
  *  Sync](http://support.google.com/a/bin/answer.py?answer=135937), and iOS
  *  devices. For more information about common group mobile device API tasks,
  *  see the [Developer's
@@ -1837,10 +1837,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 /**
  *  The list of applications installed on an Android mobile device. It is not
  *  applicable to Google Sync and iOS devices. The list includes any Android
- *  applications that access G Suite data. When updating an applications list,
- *  it is important to note that updates replace the existing list. If the
- *  Android device has two existing applications and the API updates the list
- *  with five applications, the is now the updated list of five applications.
+ *  applications that access Google Workspace data. When updating an
+ *  applications list, it is important to note that updates replace the existing
+ *  list. If the Android device has two existing applications and the API
+ *  updates the list with five applications, the is now the updated list of five
+ *  applications.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_MobileDevice_Applications_Item *> *applications;
 
@@ -2154,8 +2155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  'apps' under parent organization '/engineering', the orgUnitPath is
  *  '/engineering/apps'. In order to edit an `orgUnitPath`, either update the
  *  name of the organization or the `parentOrgunitPath`. A user's organizational
- *  unit determines which G Suite services the user has access to. If the user
- *  is moved to a new organization, the user's access changes. For more
+ *  unit determines which Google Workspace services the user has access to. If
+ *  the user is moved to a new organization, the user's access changes. For more
  *  information about organization structures, see the [administration help
  *  center](http://support.google.com/a/bin/answer.py?answer=182433&topic=1227584&ctx=topic).
  *  For more information about moving a user to a different organization, see
@@ -2775,9 +2776,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) id ims;
 
 /**
- *  Indicates if the user's profile is visible in the G Suite global address
- *  list when the contact sharing feature is enabled for the domain. For more
- *  information about excluding user profiles, see the [administration help
+ *  Indicates if the user's profile is visible in the Google Workspace global
+ *  address list when the contact sharing feature is enabled for the domain. For
+ *  more information about excluding user profiles, see the [administration help
  *  center](http://support.google.com/a/bin/answer.py?answer=1285988).
  *
  *  Uses NSNumber of boolValue.

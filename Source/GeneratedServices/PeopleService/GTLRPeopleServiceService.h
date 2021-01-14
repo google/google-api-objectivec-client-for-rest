@@ -63,7 +63,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceDirectoryReadonly;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserAddressesRead;
 /**
- *  Authorization scope: View your complete date of birth
+ *  Authorization scope: See and download your exact date of birth
  *
  *  Value "https://www.googleapis.com/auth/user.birthday.read"
  */
@@ -100,7 +100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserinfoProfile;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserOrganizationRead;
 /**
- *  Authorization scope: View your phone numbers
+ *  Authorization scope: See and download your personal phone numbers
  *
  *  Value "https://www.googleapis.com/auth/user.phonenumbers.read"
  */

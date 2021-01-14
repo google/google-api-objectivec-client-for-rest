@@ -3147,54 +3147,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTube_Sponsor
-//
-
-@implementation GTLRYouTube_Sponsor
-@dynamic ETag, kind, snippet;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_SponsorListResponse
-//
-
-@implementation GTLRYouTube_SponsorListResponse
-@dynamic ETag, eventId, items, kind, nextPageToken, pageInfo, tokenPagination,
-         visitorId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_Sponsor class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_SponsorSnippet
-//
-
-@implementation GTLRYouTube_SponsorSnippet
-@dynamic channelId, cumulativeDurationMonths, sponsorDetails, sponsorSince;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRYouTube_Subscription
 //
 
@@ -3807,15 +3759,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_VideoProjectDetails
-@dynamic tags;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"tags" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

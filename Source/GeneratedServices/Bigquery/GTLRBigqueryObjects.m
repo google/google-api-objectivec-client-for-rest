@@ -119,6 +119,7 @@ NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Daily = @"DAILY";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_DataFrequencyUnspecified = @"DATA_FREQUENCY_UNSPECIFIED";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Hourly = @"HOURLY";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Monthly = @"MONTHLY";
+NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_PerMinute = @"PER_MINUTE";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Quarterly = @"QUARTERLY";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Weekly = @"WEEKLY";
 NSString * const kGTLRBigquery_TrainingOptions_DataFrequency_Yearly = @"YEARLY";
@@ -494,7 +495,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1187,11 +1188,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          createDisposition, decimalTargetTypes,
          destinationEncryptionConfiguration, destinationTable,
          destinationTableProperties, encoding, fieldDelimiter,
-         hivePartitioningOptions, ignoreUnknownValues, maxBadRecords,
-         nullMarker, projectionFields, quote, rangePartitioning, schema,
-         schemaInline, schemaInlineFormat, schemaUpdateOptions, skipLeadingRows,
-         sourceFormat, sourceUris, timePartitioning, useAvroLogicalTypes,
-         writeDisposition;
+         hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
+         maxBadRecords, nullMarker, projectionFields, quote, rangePartitioning,
+         schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
+         skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
+         useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

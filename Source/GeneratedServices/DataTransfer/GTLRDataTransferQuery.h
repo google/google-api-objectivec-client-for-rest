@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDataTransfer queryForApplicationsList]
 
-/** Immutable ID of the Google Apps account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryDataTransfer queryForTransfersList]
 
-/** Immutable ID of the Google Apps account. */
+/** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**

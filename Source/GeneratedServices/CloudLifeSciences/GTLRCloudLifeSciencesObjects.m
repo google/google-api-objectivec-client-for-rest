@@ -49,10 +49,11 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_Action
-@dynamic alwaysRun, commands, containerName, credentials, disableImagePrefetch,
-         disableStandardErrorCapture, enableFuse, entrypoint, environment,
-         ignoreExitStatus, imageUri, labels, mounts, pidNamespace, portMappings,
-         publishExposedPorts, runInBackground, timeout;
+@dynamic alwaysRun, blockExternalNetwork, commands, containerName, credentials,
+         disableImagePrefetch, disableStandardErrorCapture, enableFuse,
+         entrypoint, environment, ignoreExitStatus, imageUri, labels, mounts,
+         pidNamespace, portMappings, publishExposedPorts, runInBackground,
+         timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

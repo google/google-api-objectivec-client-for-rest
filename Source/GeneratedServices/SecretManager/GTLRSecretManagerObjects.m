@@ -364,7 +364,7 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Secret
-@dynamic createTime, labels, name, replication;
+@dynamic createTime, expireTime, labels, name, replication, ttl;
 @end
 
 

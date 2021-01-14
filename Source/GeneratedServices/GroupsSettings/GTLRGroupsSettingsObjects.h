@@ -346,6 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  - ALL_MANAGERS_CAN_CONTACT
  *  - ALL_MEMBERS_CAN_CONTACT
  *  - ANYONE_CAN_CONTACT
+ *  - ALL_OWNERS_CAN_CONTACT
  */
 @property(nonatomic, copy, nullable) NSString *whoCanContactOwner;
 

@@ -13,14 +13,39 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRShoppingContent_AccountLabel.labelType
+NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Automatic = @"AUTOMATIC";
+NSString * const kGTLRShoppingContent_AccountLabel_LabelType_LabelTypeUnspecified = @"LABEL_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Manual = @"MANUAL";
+
+// GTLRShoppingContent_AccountReturnCarrier.carrierCode
+NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCodeUnspecified = @"CARRIER_CODE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex = @"FEDEX";
+NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups = @"UPS";
+
+// GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox = @"ALREADY_WINNING_BUYBOX";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner = @"CANNOT_BEAT_BUYBOX_WINNER";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified = @"INAPPLICABLE_REASON_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet = @"RESTRICTIONS_NOT_MET";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverByOtherRuleOnOffer = @"TRIUMPHED_OVER_BY_OTHER_RULE_ON_OFFER";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverBySameTypeRule = @"TRIUMPHED_OVER_BY_SAME_TYPE_RULE";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_Uncategorized = @"UNCATEGORIZED";
+
 // GTLRShoppingContent_OrderTrackingSignalShippingInfo.shippingStatus
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Delivered = @"DELIVERED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_Shipped = @"SHIPPED";
 NSString * const kGTLRShoppingContent_OrderTrackingSignalShippingInfo_ShippingStatus_ShippingStateUnspecified = @"SHIPPING_STATE_UNSPECIFIED";
 
+// GTLRShoppingContent_RepricingProductReport.type
+NSString * const kGTLRShoppingContent_RepricingProductReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
+
 // GTLRShoppingContent_RepricingRule.type
 NSString * const kGTLRShoppingContent_RepricingRule_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
-NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeWinBuyBox = @"TYPE_WIN_BUY_BOX";
+NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased = @"TYPE_STATS_BASED";
 
 // GTLRShoppingContent_RepricingRuleEligibleOfferMatcher.matcherOption
 NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionAllProducts = @"MATCHER_OPTION_ALL_PRODUCTS";
@@ -28,13 +53,18 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionUnspecified = @"MATCHER_OPTION_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherOption_MatcherOptionUseFeedAttribute = @"MATCHER_OPTION_USE_FEED_ATTRIBUTE";
 
+// GTLRShoppingContent_RepricingRuleReport.type
+NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
+NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRShoppingContent_Account
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic adsLinks, adultContent, businessInformation, cssId,
+@dynamic adsLinks, adultContent, automaticLabelIds, businessInformation, cssId,
          googleMyBusinessLink, identifier, kind, labelIds, name, sellerId,
          users, websiteUrl, youtubeChannelLinks;
 
@@ -45,6 +75,7 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"adsLinks" : [GTLRShoppingContent_AccountAdsLink class],
+    @"automaticLabelIds" : [NSNumber class],
     @"labelIds" : [NSNumber class],
     @"users" : [GTLRShoppingContent_AccountUser class],
     @"youtubeChannelLinks" : [GTLRShoppingContent_AccountYouTubeChannelLink class]
@@ -127,12 +158,23 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 //
 
 @implementation GTLRShoppingContent_AccountLabel
-@dynamic accountId, descriptionProperty, labelId, name;
+@dynamic accountId, descriptionProperty, labelId, labelType, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountReturnCarrier
+//
+
+@implementation GTLRShoppingContent_AccountReturnCarrier
+@dynamic carrierAccountId, carrierAccountName, carrierAccountNumber,
+         carrierCode;
 @end
 
 
@@ -792,6 +834,92 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Collection
+//
+
+@implementation GTLRShoppingContent_Collection
+@dynamic customLabel0, customLabel1, customLabel2, customLabel3, customLabel4,
+         featuredProduct, headline, identifier, imageLink, language, link,
+         mobileLink, productCountry;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"featuredProduct" : [GTLRShoppingContent_CollectionFeaturedProduct class],
+    @"headline" : [NSString class],
+    @"imageLink" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CollectionFeaturedProduct
+//
+
+@implementation GTLRShoppingContent_CollectionFeaturedProduct
+@dynamic offerId, x, y;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CollectionStatus
+//
+
+@implementation GTLRShoppingContent_CollectionStatus
+@dynamic collectionLevelIssuses, creationDate, destinationStatuses, identifier,
+         lastUpdateDate;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"collectionLevelIssuses" : [GTLRShoppingContent_CollectionStatusItemLevelIssue class],
+    @"destinationStatuses" : [GTLRShoppingContent_CollectionStatusDestinationStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CollectionStatusDestinationStatus
+//
+
+@implementation GTLRShoppingContent_CollectionStatusDestinationStatus
+@dynamic destination, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_CollectionStatusItemLevelIssue
+//
+
+@implementation GTLRShoppingContent_CollectionStatusItemLevelIssue
+@dynamic attributeName, code, descriptionProperty, destination, detail,
+         documentation, resolution, servability;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Css
 //
 
@@ -1173,6 +1301,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Date
+//
+
+@implementation GTLRShoppingContent_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_DateTime
 //
 
@@ -1303,6 +1441,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_InapplicabilityDetails
+//
+
+@implementation GTLRShoppingContent_InapplicabilityDetails
+@dynamic inapplicableCount, inapplicableReason;
 @end
 
 
@@ -1712,6 +1860,68 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ListAccountReturnCarrierResponse
+//
+
+@implementation GTLRShoppingContent_ListAccountReturnCarrierResponse
+@dynamic accountReturnCarriers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accountReturnCarriers" : [GTLRShoppingContent_AccountReturnCarrier class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListCollectionsResponse
+//
+
+@implementation GTLRShoppingContent_ListCollectionsResponse
+@dynamic nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_Collection class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListCollectionStatusesResponse
+//
+
+@implementation GTLRShoppingContent_ListCollectionStatusesResponse
+@dynamic nextPageToken, resources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resources" : [GTLRShoppingContent_CollectionStatus class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ListCssesResponse
 //
 
@@ -1749,6 +1959,50 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 + (NSString *)collectionItemsKey {
   return @"regions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListRepricingProductReportsResponse
+//
+
+@implementation GTLRShoppingContent_ListRepricingProductReportsResponse
+@dynamic nextPageToken, repricingProductReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repricingProductReports" : [GTLRShoppingContent_RepricingProductReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repricingProductReports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ListRepricingRuleReportsResponse
+//
+
+@implementation GTLRShoppingContent_ListRepricingRuleReportsResponse
+@dynamic nextPageToken, repricingRuleReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repricingRuleReports" : [GTLRShoppingContent_RepricingRuleReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repricingRuleReports";
 }
 
 @end
@@ -2896,6 +3150,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails
+//
+
+@implementation GTLRShoppingContent_OrdersCustomBatchRequestEntryUpdateShipmentScheduledDeliveryDetails
+@dynamic carrierPhoneNumber, scheduledDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_OrdersGetByMerchantOrderIdResponse
 //
 
@@ -3280,7 +3544,8 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 @implementation GTLRShoppingContent_OrdersUpdateShipmentRequest
 @dynamic carrier, deliveryDate, lastPickupDate, operationId, readyPickupDate,
-         shipmentId, status, trackingId, undeliveredDate;
+         scheduledDeliveryDetails, shipmentId, status, trackingId,
+         undeliveredDate;
 @end
 
 
@@ -4296,12 +4561,54 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_RepricingProductReport
+//
+
+@implementation GTLRShoppingContent_RepricingProductReport
+@dynamic applicationCount, buyboxWinningProductStats, date, highWatermark,
+         inapplicabilityDetails, lowWatermark, orderItemCount, ruleIds,
+         totalGmv, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inapplicabilityDetails" : [GTLRShoppingContent_InapplicabilityDetails class],
+    @"ruleIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats
+//
+
+@implementation GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats
+@dynamic buyboxWinsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RepricingRule
 //
 
 @implementation GTLRShoppingContent_RepricingRule
-@dynamic countryCode, effectiveTimePeriod, eligibleOfferMatcher, languageCode,
-         merchantId, paused, restriction, ruleId, title, type;
+@dynamic cogsBasedRule, countryCode, effectiveTimePeriod, eligibleOfferMatcher,
+         languageCode, merchantId, paused, restriction, ruleId, statsBasedRule,
+         title, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule
+//
+
+@implementation GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule
+@dynamic percentageDelta, priceDelta;
 @end
 
 
@@ -4364,6 +4671,37 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_RepricingRuleReport
+//
+
+@implementation GTLRShoppingContent_RepricingRuleReport
+@dynamic buyboxWinningRuleStats, date, impactedProducts, inapplicabilityDetails,
+         inapplicableProducts, orderItemCount, ruleId, totalGmv, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"impactedProducts" : [NSString class],
+    @"inapplicabilityDetails" : [GTLRShoppingContent_InapplicabilityDetails class],
+    @"inapplicableProducts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats
+//
+
+@implementation GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats
+@dynamic buyboxWonProductCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RepricingRuleRestriction
 //
 
@@ -4378,6 +4716,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 //
 
 @implementation GTLRShoppingContent_RepricingRuleRestrictionBoundary
+@dynamic percentageDelta, priceDelta;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RepricingRuleStatsBasedRule
+//
+
+@implementation GTLRShoppingContent_RepricingRuleStatsBasedRule
 @dynamic percentageDelta, priceDelta;
 @end
 
@@ -5180,7 +5528,7 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 //
 
 @implementation GTLRShoppingContent_TestOrderDeliveryDetails
-@dynamic address, phoneNumber;
+@dynamic address, isScheduledDelivery, phoneNumber;
 @end
 
 

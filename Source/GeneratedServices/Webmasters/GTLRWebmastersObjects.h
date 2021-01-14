@@ -123,6 +123,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *aggregationType;
 
 /**
+ *  [Optional] If "all" (case-insensitive), data will include fresh data. If
+ *  "final" (case-insensitive) or if this parameter is omitted, the returned
+ *  data will include only finalized data.
+ */
+@property(nonatomic, copy, nullable) NSString *dataState;
+
+/**
  *  [Optional] Zero or more filters to apply to the dimension grouping values;
  *  for example, 'query contains "buy"' to see only data where the query string
  *  contains the substring "buy" (not case-sensitive). You can filter by a

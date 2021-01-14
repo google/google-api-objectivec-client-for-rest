@@ -1761,6 +1761,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52;
 /**
+ *  SDF version 5.3
+ *
+ *  Value: "SDF_VERSION_5_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -2061,8 +2067,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Creative_HostingSource_Host
 /**
  *  A creative hosted by a third-party ad server (3PAS). Create and update
  *  methods are supported for this hosting type if the creative_type is one of
- *  the following: * `CREATIVE_TYPE_EXPANDABLE` * `CREATIVE_TYPE_STANDARD` *
- *  `CREATIVE_TYPE_VIDEO`
+ *  the following: * `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_EXPANDABLE` *
+ *  `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO`
  *
  *  Value: "HOSTING_SOURCE_THIRD_PARTY"
  */
@@ -5342,19 +5348,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeAffinity;
 /**
+ *  Extended-Demographic type Google audience.
+ *
+ *  Value: "GOOGLE_AUDIENCE_TYPE_EXTENDED_DEMOGRAPHIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeExtendedDemographic;
+/**
  *  In-Market type Google audience.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_IN_MARKET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInMarket;
 /**
- *  Installed-apps type Google audience.
+ *  Installed-Apps type Google audience.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps;
 /**
- *  New-mobile-devices type Google audience.
+ *  Life-Event type Google audience.
+ *
+ *  Value: "GOOGLE_AUDIENCE_TYPE_LIFE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent;
+/**
+ *  New-Mobile-Devices type Google audience.
  *
  *  Value: "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES"
  */
@@ -7780,6 +7798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52;
 /**
+ *  SDF version 5.3
+ *
+ *  Value: "SDF_VERSION_5_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -7831,6 +7855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_5_2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52;
+/**
+ *  SDF version 5.3
+ *
+ *  Value: "SDF_VERSION_5_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -11562,6 +11592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SDF version 5.1 (Value: "SDF_VERSION_5_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52
  *        SDF version 5.2; (Value: "SDF_VERSION_5_2")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53
+ *        SDF version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -11874,9 +11906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceThirdParty A
  *        creative hosted by a third-party ad server (3PAS). Create and update
  *        methods are supported for this hosting type if the creative_type is
- *        one of the following: * `CREATIVE_TYPE_EXPANDABLE` *
- *        `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_VIDEO` (Value:
- *        "HOSTING_SOURCE_THIRD_PARTY")
+ *        one of the following: * `CREATIVE_TYPE_AUDIO` *
+ *        `CREATIVE_TYPE_EXPANDABLE` * `CREATIVE_TYPE_STANDARD` *
+ *        `CREATIVE_TYPE_VIDEO` (Value: "HOSTING_SOURCE_THIRD_PARTY")
  *    @arg @c kGTLRDisplayVideo_Creative_HostingSource_HostingSourceUnspecified
  *        Hosting source is not specified or is unknown in this version. (Value:
  *        "HOSTING_SOURCE_UNSPECIFIED")
@@ -11990,7 +12022,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  `CREATIVE_TYPE_STANDARD` * `CREATIVE_TYPE_EXPANDABLE` Third-party VAST tag
  *  creatives are creatives with following hosting_source: *
  *  `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: *
- *  `CREATIVE_TYPE_VIDEO`
+ *  `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO`
  *
  *  Uses NSNumber of boolValue.
  */
@@ -12082,7 +12114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Required and only valid for third-party VAST tag creatives. Third-party VAST
  *  tag creatives are creatives with following hosting_source: *
  *  `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: *
- *  `CREATIVE_TYPE_VIDEO`
+ *  `CREATIVE_TYPE_AUDIO` * `CREATIVE_TYPE_VIDEO`
  */
 @property(nonatomic, copy, nullable) NSString *vastTagUrl;
 
@@ -14482,14 +14514,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeAffinity
  *        Affinity type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_AFFINITY")
+ *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeExtendedDemographic
+ *        Extended-Demographic type Google audience. (Value:
+ *        "GOOGLE_AUDIENCE_TYPE_EXTENDED_DEMOGRAPHIC")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInMarket
  *        In-Market type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_IN_MARKET")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeInstalledApps
- *        Installed-apps type Google audience. (Value:
+ *        Installed-Apps type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_INSTALLED_APPS")
+ *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeLifeEvent
+ *        Life-Event type Google audience. (Value:
+ *        "GOOGLE_AUDIENCE_TYPE_LIFE_EVENT")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeNewMobileDevices
- *        New-mobile-devices type Google audience. (Value:
+ *        New-Mobile-Devices type Google audience. (Value:
  *        "GOOGLE_AUDIENCE_TYPE_NEW_MOBILE_DEVICES")
  *    @arg @c kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
@@ -17752,8 +17790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  The goal amount, in micros of the advertiser's currency. Applicable when
  *  performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CPM` *
  *  `PERFORMANCE_GOAL_TYPE_CPC` * `PERFORMANCE_GOAL_TYPE_CPA` *
- *  `PERFORMANCE_GOAL_TYPE_CPIAVC` For example 1500000 represents 1.5 standard
- *  units of the currency.
+ *  `PERFORMANCE_GOAL_TYPE_CPIAVC` * `PERFORMANCE_GOAL_TYPE_VCPM` For example
+ *  1500000 represents 1.5 standard units of the currency.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -17762,8 +17800,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /**
  *  The decimal representation of the goal percentage in micros. Applicable when
  *  performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CTR` *
- *  `PERFORMANCE_GOAL_TYPE_VIEWABILITY` For example, 70000 represents 7%
- *  (decimal 0.07).
+ *  `PERFORMANCE_GOAL_TYPE_VIEWABILITY` * `PERFORMANCE_GOAL_TYPE_CVR_CLICKS` *
+ *  `PERFORMANCE_GOAL_TYPE_CVR_IMPRESSIONS` * `PERFORMANCE_GOAL_TYPE_VTR` *
+ *  `PERFORMANCE_GOAL_TYPE_AUDIO_COMPLETION_RATE` *
+ *  `PERFORMANCE_GOAL_TYPE_VIDEO_COMPLETION_RATE` For example, 70000 represents
+ *  7% (decimal 0.07).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -18147,6 +18188,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_5_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 SDF version 5.2;
  *        (Value: "SDF_VERSION_5_2")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 SDF version 5.3
+ *        (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -18203,6 +18246,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        version 5.1 (Value: "SDF_VERSION_5_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52 SDF
  *        version 5.2; (Value: "SDF_VERSION_5_2")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 SDF
+ *        version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

@@ -1472,6 +1472,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
+/** Whether to skip the verification step (VESS). */
+@property(nonatomic, assign) BOOL skipVerification;
+
 /**
  *  External sync mode.
  *

@@ -557,6 +557,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionSt
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateQueued;
 /**
+ *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
+ *  resources are currently being cleaned up after a successful run. Currently,
+ *  this is an opt-in feature, please reach out to Cloud support team if you are
+ *  intersted.
+ *
+ *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateResourceCleaningUp;
+/**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
  *  Value: "JOB_STATE_RUNNING"
@@ -761,6 +770,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStatePendin
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateQueued;
 /**
+ *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
+ *  resources are currently being cleaned up after a successful run. Currently,
+ *  this is an opt-in feature, please reach out to Cloud support team if you are
+ *  intersted.
+ *
+ *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateResourceCleaningUp;
+/**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
  *  Value: "JOB_STATE_RUNNING"
@@ -862,6 +880,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStatePend
  *  Value: "JOB_STATE_QUEUED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateQueued;
+/**
+ *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
+ *  resources are currently being cleaned up after a successful run. Currently,
+ *  this is an opt-in feature, please reach out to Cloud support team if you are
+ *  intersted.
+ *
+ *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateResourceCleaningUp;
 /**
  *  `JOB_STATE_RUNNING` indicates that the job is currently running.
  *
@@ -2794,6 +2821,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        being delayed until launch. Jobs that are queued may only transition
  *        to `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
  *        "JOB_STATE_QUEUED")
+ *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateResourceCleaningUp
+ *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
+ *        associated resources are currently being cleaned up after a successful
+ *        run. Currently, this is an opt-in feature, please reach out to Cloud
+ *        support team if you are intersted. (Value:
+ *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
  *        (Value: "JOB_STATE_RUNNING")
@@ -3404,6 +3437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        launch. Jobs that are queued may only transition to
  *        `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
  *        "JOB_STATE_QUEUED")
+ *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateResourceCleaningUp
+ *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
+ *        associated resources are currently being cleaned up after a successful
+ *        run. Currently, this is an opt-in feature, please reach out to Cloud
+ *        support team if you are intersted. (Value:
+ *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning `JOB_STATE_RUNNING`
  *        indicates that the job is currently running. (Value:
  *        "JOB_STATE_RUNNING")
@@ -3548,6 +3587,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        launch. Jobs that are queued may only transition to
  *        `JOB_STATE_PENDING` or `JOB_STATE_CANCELLED`. (Value:
  *        "JOB_STATE_QUEUED")
+ *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateResourceCleaningUp
+ *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
+ *        associated resources are currently being cleaned up after a successful
+ *        run. Currently, this is an opt-in feature, please reach out to Cloud
+ *        support team if you are intersted. (Value:
+ *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
  *        (Value: "JOB_STATE_RUNNING")

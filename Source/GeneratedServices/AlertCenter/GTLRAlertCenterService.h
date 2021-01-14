@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Alert Center API (alertcenter/v1beta1)
+//   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
 //   Manages alerts on issues affecting your domain.
 // Documentation:
@@ -43,7 +43,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAlertCenterAppsAlerts;
 //
 
 /**
- *  Service for executing G Suite Alert Center API queries.
+ *  Service for executing Google Workspace Alert Center API queries.
  *
  *  Manages alerts on issues affecting your domain.
  */

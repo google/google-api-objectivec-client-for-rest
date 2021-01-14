@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Eventarc API (eventarc/v1beta1)
+//   Eventarc API (eventarc/v1)
 // Documentation:
 //   https://cloud.google.com/eventarc
 
@@ -21,22 +21,16 @@
 @class GTLREventarc_AuditConfig;
 @class GTLREventarc_AuditLogConfig;
 @class GTLREventarc_Binding;
-@class GTLREventarc_CloudRunService;
-@class GTLREventarc_Destination;
 @class GTLREventarc_Expr;
+@class GTLREventarc_GoogleLongrunningOperation;
+@class GTLREventarc_GoogleLongrunningOperation_Metadata;
+@class GTLREventarc_GoogleLongrunningOperation_Response;
+@class GTLREventarc_GoogleRpcStatus;
+@class GTLREventarc_GoogleRpcStatus_Details_Item;
 @class GTLREventarc_Location;
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
-@class GTLREventarc_MatchingCriteria;
-@class GTLREventarc_Operation;
-@class GTLREventarc_Operation_Metadata;
-@class GTLREventarc_Operation_Response;
 @class GTLREventarc_Policy;
-@class GTLREventarc_Pubsub;
-@class GTLREventarc_Status;
-@class GTLREventarc_Status_Details_Item;
-@class GTLREventarc_Transport;
-@class GTLREventarc_Trigger;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -147,8 +141,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  */
 @interface GTLREventarc_Binding : GTLRObject
 
-@property(nonatomic, copy, nullable) NSString *bindingId;
-
 /**
  *  The condition that is associated with this binding. If the condition
  *  evaluates to `true`, then this binding applies to the current request. If
@@ -197,53 +189,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  `roles/editor`, or `roles/owner`.
  */
 @property(nonatomic, copy, nullable) NSString *role;
-
-@end
-
-
-/**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLREventarc_CancelOperationRequest : GTLRObject
-@end
-
-
-/**
- *  Represents a Cloud Run service destination.
- */
-@interface GTLREventarc_CloudRunService : GTLRObject
-
-/**
- *  Optional. The relative path on the Cloud Run service the events should be
- *  sent to. The value must conform to the definition of URI path segment
- *  (section 3.3 of RFC2396). Examples: "/route", "route", "route/subroute".
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/** Required. The region the Cloud Run service is deployed in. */
-@property(nonatomic, copy, nullable) NSString *region;
-
-/**
- *  Required. The name of the Cloud run service being addressed (see
- *  https://cloud.google.com/run/docs/reference/rest/v1/namespaces.services).
- *  Only services located in the same project of the trigger object can be
- *  addressed.
- */
-@property(nonatomic, copy, nullable) NSString *service;
-
-@end
-
-
-/**
- *  Represents a target of an invocation over HTTP.
- */
-@interface GTLREventarc_Destination : GTLRObject
-
-/**
- *  Cloud Run fully-managed service that receives the events. The service should
- *  be running in the same project of the trigger.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_CloudRunService *cloudRunService;
 
 @end
 
@@ -309,6 +254,162 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLREventarc_GoogleLongrunningCancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLREventarc_GoogleLongrunningListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_GoogleLongrunningOperation *> *operations;
+
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLREventarc_GoogleLongrunningOperation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLREventarc_GoogleRpcStatus *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_GoogleLongrunningOperation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_GoogleLongrunningOperation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLREventarc_GoogleLongrunningOperation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLREventarc_GoogleLongrunningOperation_Response : GTLRObject
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLREventarc_GoogleRpcStatus : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_GoogleRpcStatus_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLREventarc_GoogleRpcStatus_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLREventarc_GoogleRpcStatus_Details_Item : GTLRObject
+@end
+
+
+/**
  *  The response message for Locations.ListLocations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -328,60 +429,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLREventarc_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLREventarc_Operation *> *operations;
-
-@end
-
-
-/**
- *  The response message for the ListTriggers method.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "triggers" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLREventarc_ListTriggersResponse : GTLRCollectionObject
-
-/**
- *  A page token that can be sent to ListTriggers to request the next page. If
- *  this is empty, then there are no more pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The requested triggers, up to the number specified in `page_size`.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLREventarc_Trigger *> *triggers;
-
-/** Unreachable resources, if any. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -444,143 +491,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLREventarc_Location_Metadata : GTLRObject
-@end
-
-
-/**
- *  Matches events based on exact matches on the CloudEvents attributes.
- */
-@interface GTLREventarc_MatchingCriteria : GTLRObject
-
-/**
- *  Required. The name of a CloudEvents atrribute. Currently, only a subset of
- *  attributes can be specified. All triggers MUST provide a matching criteria
- *  for attribute 'type'. Event types specify what event type has attributes are
- *  allowed based on
- */
-@property(nonatomic, copy, nullable) NSString *attribute;
-
-/** Required. The value for the attribute */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  This resource represents a long-running operation that is the result of a
- *  network API call.
- */
-@interface GTLREventarc_Operation : GTLRObject
-
-/**
- *  If the value is `false`, it means the operation is still in progress. If
- *  `true`, the operation is completed, and either `error` or `response` is
- *  available.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *done;
-
-/** The error result of the operation in case of failure or cancellation. */
-@property(nonatomic, strong, nullable) GTLREventarc_Status *error;
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_Operation_Metadata *metadata;
-
-/**
- *  The server-assigned name, which is only unique within the same service that
- *  originally returns it. If you use the default HTTP mapping, the `name`
- *  should be a resource name ending with `operations/{unique_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_Operation_Response *response;
-
-@end
-
-
-/**
- *  Service-specific metadata associated with the operation. It typically
- *  contains progress information and common metadata such as create time. Some
- *  services might not provide such metadata. Any method that returns a
- *  long-running operation should document the metadata type, if any.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLREventarc_Operation_Metadata : GTLRObject
-@end
-
-
-/**
- *  The normal response of the operation in case of success. If the original
- *  method returns no data on success, such as `Delete`, the response is
- *  `google.protobuf.Empty`. If the original method is standard
- *  `Get`/`Create`/`Update`, the response should be the resource. For other
- *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
- *  original method name. For example, if the original method name is
- *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLREventarc_Operation_Response : GTLRObject
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLREventarc_OperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
 @end
 
 
@@ -670,28 +580,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
- *  Represents a Pub/Sub transport.
- */
-@interface GTLREventarc_Pubsub : GTLRObject
-
-/**
- *  The name of the Pub/Sub subscription created and managed by Eventarc system
- *  as a transport for the event delivery. The value must be in the form of
- *  `projects/{PROJECT_ID}/subscriptions/{SUBSCRIPTION_NAME}
- */
-@property(nonatomic, copy, nullable) NSString *subscription;
-
-/**
- *  The name of the Pub/Sub topic created and managed by Eventarc system as a
- *  transport for the event delivery. The value must be in the form of
- *  `projects/{PROJECT_ID}/topics/{TOPIC_NAME}
- */
-@property(nonatomic, copy, nullable) NSString *topic;
-
-@end
-
-
-/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLREventarc_SetIamPolicyRequest : GTLRObject
@@ -712,51 +600,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
-@end
-
-
-/**
- *  The `Status` type defines a logical error model that is suitable for
- *  different programming environments, including REST APIs and RPC APIs. It is
- *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
- *  three pieces of data: error code, error message, and error details. You can
- *  find out more about this error model and how to work with it in the [API
- *  Design Guide](https://cloud.google.com/apis/design/errors).
- */
-@interface GTLREventarc_Status : GTLRObject
-
-/**
- *  The status code, which should be an enum value of google.rpc.Code.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *code;
-
-/**
- *  A list of messages that carry the error details. There is a common set of
- *  message types for APIs to use.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLREventarc_Status_Details_Item *> *details;
-
-/**
- *  A developer-facing error message, which should be in English. Any
- *  user-facing error message should be localized and sent in the
- *  google.rpc.Status.details field, or localized by the client.
- */
-@property(nonatomic, copy, nullable) NSString *message;
-
-@end
-
-
-/**
- *  GTLREventarc_Status_Details_Item
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLREventarc_Status_Details_Item : GTLRObject
 @end
 
 
@@ -784,83 +627,6 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
-
-@end
-
-
-/**
- *  Represents the transport intermediaries created for the trigger in order to
- *  deliver events.
- */
-@interface GTLREventarc_Transport : GTLRObject
-
-/**
- *  The Pub/Sub topic and subscription that maybe created by Eventarc as
- *  delivery intermediary.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_Pubsub *pubsub;
-
-@end
-
-
-/**
- *  A representation of the trigger resource.
- */
-@interface GTLREventarc_Trigger : GTLRObject
-
-/** Output only. The creation time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Required. Destinations specify where the events will be sent to. Exactly one
- *  destination is supported at this time.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_Destination *destination;
-
-/**
- *  Output only. This checksum is computed by the server based on the value of
- *  other fields, and may be sent only on create requests to ensure the client
- *  has an up-to-date value before proceeding.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Required. The criteria by which events are filtered. Only events that match
- *  with this critera will be sent to the destinations.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLREventarc_MatchingCriteria *> *matchingCriteria;
-
-/**
- *  Required. The resource name of the trigger. Must be unique within the
- *  location on the project. Format:
- *  projects/{project}/locations/{location}/triggers/{trigger}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The IAM service account email associated with the trigger. The
- *  service account represents the identity of the trigger. The principal who
- *  calls this API must have `iam.serviceAccounts.actAs` permission in the
- *  service account. See
- *  https://cloud.google.com/iam/docs/understanding-service-accounts?hl=en#sa_common
- *  for more information. For Cloud Run destinations, this service account is
- *  used to generate identity tokens when invoking the service. See
- *  https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account
- *  for information on how to invoke authenticated Cloud Run services. In order
- *  to create Audit Log triggers, the service account should also have
- *  'eventarc.events.receiveAuditLogV1Written' permission.
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
-
-/**
- *  Output only. In order to deliver messages, Eventarc may configure other GCP
- *  products as transport intermediary. This field returns a reference to that
- *  transport intermediary. This information can be used for debugging purposes.
- */
-@property(nonatomic, strong, nullable) GTLREventarc_Transport *transport;
-
-/** Output only. The last-modified time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

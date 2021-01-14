@@ -7,7 +7,7 @@
 //   Security Command Center API provides access to temporal views of assets and
 //   findings within an organization.
 // Documentation:
-//   https://console.cloud.google.com/apis/api/securitycenter.googleapis.com/overview
+//   https://cloud.google.com/security-command-center
 
 #import "GTLRSecurityCommandCenterObjects.h"
 
@@ -24,6 +24,13 @@ NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_AdminRead = @
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_Finding.severity
+NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityCommandCenter_Finding_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_Finding_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_Finding.state
 NSString * const kGTLRSecurityCommandCenter_Finding_State_Active = @"ACTIVE";
@@ -207,7 +214,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_Finding
 @dynamic category, createTime, eventTime, externalUri, name, parent,
-         resourceName, securityMarks, sourceProperties, state;
+         resourceName, securityMarks, severity, sourceProperties, state;
 @end
 
 

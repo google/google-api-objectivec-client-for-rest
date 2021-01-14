@@ -159,7 +159,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_Legacy;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_Logging_LoggingUnspecified;
 /**
- *  Turn off all logging. No build logs will be captured. Next ID: 6
+ *  Turn off all logging. No build logs will be captured.
  *
  *  Value: "NONE"
  */
@@ -197,6 +197,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_LogStreamingOpti
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_BuildOptions.machineType
 
+/**
+ *  Highcpu e2 machine with 32 CPUs.
+ *
+ *  Value: "E2_HIGHCPU_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu32;
+/**
+ *  Highcpu e2 machine with 8 CPUs.
+ *
+ *  Value: "E2_HIGHCPU_8"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8;
 /**
  *  Highcpu machine with 32 CPUs.
  *
@@ -542,8 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  IAM service account whose credentials will be used at build runtime. Must be
  *  of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. ACCOUNT can
- *  be email address or uniqueId of the service account. This field is in alpha
- *  and is not publicly available.
+ *  be email address or uniqueId of the service account. This field is in beta.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -703,7 +714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *        rely on the default logging behavior as it may change in the future.
  *        (Value: "LOGGING_UNSPECIFIED")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_None Turn off all logging. No
- *        build logs will be captured. Next ID: 6 (Value: "NONE")
+ *        build logs will be captured. (Value: "NONE")
  *    @arg @c kGTLRCloudBuild_BuildOptions_Logging_StackdriverOnly This option
  *        is the same as CLOUD_LOGGING_ONLY. (Value: "STACKDRIVER_ONLY")
  */
@@ -728,6 +739,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  Compute Engine machine type on which to run the build.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu32 Highcpu e2
+ *        machine with 32 CPUs. (Value: "E2_HIGHCPU_32")
+ *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_E2Highcpu8 Highcpu e2
+ *        machine with 8 CPUs. (Value: "E2_HIGHCPU_8")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu32 Highcpu
  *        machine with 32 CPUs. (Value: "N1_HIGHCPU_32")
  *    @arg @c kGTLRCloudBuild_BuildOptions_MachineType_N1Highcpu8 Highcpu
@@ -787,7 +802,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  Option to specify a `WorkerPool` for the build. Format:
  *  projects/{project}/locations/{location}/workerPools/{workerPool} This field
- *  is experimental.
+ *  is in beta and is available only to restricted users.
  */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 

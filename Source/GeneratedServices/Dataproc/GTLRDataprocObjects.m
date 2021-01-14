@@ -616,6 +616,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_InjectCredentialsRequest
+//
+
+@implementation GTLRDataproc_InjectCredentialsRequest
+@dynamic clusterUuid, credentialsCiphertext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_InstanceGroupAutoscalingPolicyConfig
 //
 

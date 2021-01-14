@@ -90,6 +90,33 @@ NSString * const kGTLRArea120TablesViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRArea120TablesQuery_TablesRowsBatchDelete
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRArea120Tables_BatchDeleteRowsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}/rows:batchDelete";
+  GTLRArea120TablesQuery_TablesRowsBatchDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArea120Tables_Empty class];
+  query.loggingName = @"area120tables.tables.rows.batchDelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRArea120TablesQuery_TablesRowsBatchUpdate
 
 @dynamic parent;

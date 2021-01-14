@@ -41,6 +41,7 @@
 @class GTLRDataFusion_Operation;
 @class GTLRDataFusion_Operation_Metadata;
 @class GTLRDataFusion_Operation_Response;
+@class GTLRDataFusion_OperationMetadata_AdditionalStatus;
 @class GTLRDataFusion_Policy;
 @class GTLRDataFusion_Status;
 @class GTLRDataFusion_Status_Details_Item;
@@ -78,6 +79,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_C
  *  Value: "HEALTHCARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_AcceleratorType_Healthcare;
+
+// ----------------------------------------------------------------------------
+// GTLRDataFusion_Accelerator.state
+
+/**
+ *  Indicates that the accelerator is disabled and not available to use
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_Disabled;
+/**
+ *  Indicates that the accelerator is enabled and available to use
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_Enabled;
+/**
+ *  Default value, do not use
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_StateUnspecified;
+/**
+ *  Indicates that accelerator state is currently unknown. Requests for enable,
+ *  disable could be retried while in this state
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Accelerator_State_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataFusion_AuditLogConfig.logType
@@ -228,6 +258,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
+/**
+ *  The state of the accelerator
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataFusion_Accelerator_State_Disabled Indicates that the
+ *        accelerator is disabled and not available to use (Value: "DISABLED")
+ *    @arg @c kGTLRDataFusion_Accelerator_State_Enabled Indicates that the
+ *        accelerator is enabled and available to use (Value: "ENABLED")
+ *    @arg @c kGTLRDataFusion_Accelerator_State_StateUnspecified Default value,
+ *        do not use (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataFusion_Accelerator_State_Unknown Indicates that
+ *        accelerator state is currently unknown. Requests for enable, disable
+ *        could be retried while in this state (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -301,12 +347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  *  Associates `members` with a `role`.
  */
 @interface GTLRDataFusion_Binding : GTLRObject
-
-/**
- *  A client-specified ID for this binding. Expected to be globally unique to
- *  support the internal bindings-by-ID API.
- */
-@property(nonatomic, copy, nullable) NSString *bindingId;
 
 /**
  *  The condition that is associated with this binding. If the condition
@@ -913,6 +953,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
  */
 @interface GTLRDataFusion_OperationMetadata : GTLRObject
 
+/**
+ *  Map to hold any additonal status info for the operation If there is an
+ *  accelerator being enabled/disabled/deleted, this will be populated with
+ *  accelerator name as key and status as ENABLING, DISABLING or DELETING
+ */
+@property(nonatomic, strong, nullable) GTLRDataFusion_OperationMetadata_AdditionalStatus *additionalStatus;
+
 /** API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
@@ -940,6 +987,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 /** Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  Map to hold any additonal status info for the operation If there is an
+ *  accelerator being enabled/disabled/deleted, this will be populated with
+ *  accelerator name as key and status as ENABLING, DISABLING or DELETING
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataFusion_OperationMetadata_AdditionalStatus : GTLRObject
 @end
 
 

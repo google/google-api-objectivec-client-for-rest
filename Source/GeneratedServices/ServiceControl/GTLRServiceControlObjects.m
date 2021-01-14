@@ -4,8 +4,8 @@
 // API:
 //   Service Control API (servicecontrol/v2)
 // Description:
-//   Provides control plane functionality to managed services, such as logging,
-//   monitoring, and status checks.
+//   Provides admission control and telemetry reporting for services integrated
+//   with Service Infrastructure.
 // Documentation:
 //   https://cloud.google.com/service-control/
 
@@ -386,8 +386,8 @@
 //
 
 @implementation GTLRServiceControl_Resource
-@dynamic annotations, createTime, deleteTime, displayName, ETag, labels, name,
-         service, type, uid, updateTime;
+@dynamic annotations, createTime, deleteTime, displayName, ETag, labels,
+         location, name, service, type, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

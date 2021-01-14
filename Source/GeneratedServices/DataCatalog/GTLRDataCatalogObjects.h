@@ -1205,6 +1205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
+/** Last-modified timestamp of the entry from the managing system. */
+@property(nonatomic, strong, nullable) GTLRDateTime *modifyTime;
+
 /**
  *  The relative resource name of the resource in URL format. Examples: *
  *  `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`

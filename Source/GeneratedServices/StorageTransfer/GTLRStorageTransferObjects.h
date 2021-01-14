@@ -387,6 +387,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
+/**
+ *  Root path to transfer objects. Must be an empty string or full path name
+ *  that ends with a '/'. This field is treated as an object prefix. As such, it
+ *  should generally not begin with a '/'.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
 @end
 
 
@@ -410,6 +417,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /** Required. The container to transfer from the Azure Storage account. */
 @property(nonatomic, copy, nullable) NSString *container;
+
+/**
+ *  Root path to transfer objects. Must be an empty string or full path name
+ *  that ends with a '/'. This field is treated as an object prefix. As such, it
+ *  should generally not begin with a '/'.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 /** Required. The name of the Azure Storage account. */
 @property(nonatomic, copy, nullable) NSString *storageAccount;
@@ -650,6 +664,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
+
+/**
+ *  Root path to transfer objects. Must be an empty string or full path name
+ *  that ends with a '/'. This field is treated as an object prefix. As such, it
+ *  should generally not begin with a '/'. (must meet Object Name
+ *  Requirements](https://cloud.google.com/storage/docs/naming#objectnames)).
+ */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 

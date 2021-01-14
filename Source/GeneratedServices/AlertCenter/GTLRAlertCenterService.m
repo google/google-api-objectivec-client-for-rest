@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   G Suite Alert Center API (alertcenter/v1beta1)
+//   Google Workspace Alert Center API (alertcenter/v1beta1)
 // Description:
 //   Manages alerts on issues affecting your domain.
 // Documentation:

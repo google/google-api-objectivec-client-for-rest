@@ -4495,17 +4495,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Creates an alias from a key, certificate pair. The structure of the request
- *  is controlled by the `format` query parameter: * `keycertfile` - Separate
- *  PEM-encoded key and certificate files are uploaded. The request must have
- *  `Content-Type: multipart/form-data` and include fields `keyFile` and
- *  `certFile`. If uploading to a truststore, omit `keyFile`. A `password` field
- *  should be provided for encrypted keys. * `pkcs12` - A PKCS12 file is
- *  uploaded. The request must have `Content-Type: multipart/form-data` with the
- *  file provided in the `file` field and a `password` field if the file is
- *  encrypted. * `selfsignedcert` - A new private key and certificate are
- *  generated. The request must have `Content-Type: application/json` and a body
- *  of CertificateGenerationSpec.
+ *  Creates an alias from a key/certificate pair. The structure of the request
+ *  is controlled by the `format` query parameter: - `keycertfile` - Separate
+ *  PEM-encoded key and certificate files are uploaded. Set `Content-Type:
+ *  multipart/form-data` and include the `keyFile`, `certFile`, and `password`
+ *  (if keys are encrypted) fields in the request body. If uploading to a
+ *  truststore, omit `keyFile`. - `pkcs12` - A PKCS12 file is uploaded. Set
+ *  `Content-Type: multipart/form-data`, provide the file in the `file` field,
+ *  and include the `password` field if the file is encrypted in the request
+ *  body. - `selfsignedcert` - A new private key and certificate are generated.
+ *  Set `Content-Type: application/json` and include CertificateGenerationSpec
+ *  in the request body.
  *
  *  Method: apigee.organizations.environments.keystores.aliases.create
  *
@@ -4517,61 +4517,65 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCreateWithObject:parent:]
 
 /**
- *  DEPRECATED: For improved security, send the password in the body instead of
- *  using this query param. To send it in the body, use a multipart/form-data
- *  part with name "password". The password for the private key file, if it
- *  exists.
+ *  DEPRECATED: For improved security, specify the password in the request body
+ *  instead of using the query parameter. To specify the password in the request
+ *  body, set `Content-type: multipart/form-data` part with name `password`.
+ *  Password for the private key file, if required.
  */
 @property(nonatomic, copy, nullable) NSString *xPassword;
 
 /**
- *  The alias for the key, certificate pair. Values must match regular
- *  expression `[\\w\\s-.]{1,255}`. This must be provided for all formats except
- *  'selfsignedcert'; self-signed certs may specify the alias in either this
+ *  Alias for the key/certificate pair. Values must match the regular expression
+ *  `[\\w\\s-.]{1,255}`. This must be provided for all formats except
+ *  `selfsignedcert`; self-signed certs may specify the alias in either this
  *  parameter or the JSON body.
  */
 @property(nonatomic, copy, nullable) NSString *alias;
 
 /**
- *  Required. The format of the data. Must be either `selfsignedcert`,
- *  `keycertfile`, or `pkcs12`.
+ *  Required. Format of the data. Valid values include: `selfsignedcert`,
+ *  `keycertfile`, or `pkcs12`
  */
 @property(nonatomic, copy, nullable) NSString *format;
 
-/** If `true`, no expiry validation will be performed. */
+/**
+ *  Flag that specifies whether to ignore expiry validation. If set to `true`,
+ *  no expiry validation will be performed.
+ */
 @property(nonatomic, assign) BOOL ignoreExpiryValidation;
 
 /**
- *  If `true`, do not throw an error when the file contains a chain with no
- *  newline between each certificate. By default, a newline is needed between
- *  each certificate in a chain.
+ *  Flag that specifies whether to ignore newline validation. If set to `true`,
+ *  no error is thrown when the file contains a certificate chain with no
+ *  newline between each certificate. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL ignoreNewlineValidation;
 
 /**
- *  Required. The name of the keystore. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  Required. Name of the keystore. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Alias.
  *
- *  Creates an alias from a key, certificate pair. The structure of the request
- *  is controlled by the `format` query parameter: * `keycertfile` - Separate
- *  PEM-encoded key and certificate files are uploaded. The request must have
- *  `Content-Type: multipart/form-data` and include fields `keyFile` and
- *  `certFile`. If uploading to a truststore, omit `keyFile`. A `password` field
- *  should be provided for encrypted keys. * `pkcs12` - A PKCS12 file is
- *  uploaded. The request must have `Content-Type: multipart/form-data` with the
- *  file provided in the `file` field and a `password` field if the file is
- *  encrypted. * `selfsignedcert` - A new private key and certificate are
- *  generated. The request must have `Content-Type: application/json` and a body
- *  of CertificateGenerationSpec.
+ *  Creates an alias from a key/certificate pair. The structure of the request
+ *  is controlled by the `format` query parameter: - `keycertfile` - Separate
+ *  PEM-encoded key and certificate files are uploaded. Set `Content-Type:
+ *  multipart/form-data` and include the `keyFile`, `certFile`, and `password`
+ *  (if keys are encrypted) fields in the request body. If uploading to a
+ *  truststore, omit `keyFile`. - `pkcs12` - A PKCS12 file is uploaded. Set
+ *  `Content-Type: multipart/form-data`, provide the file in the `file` field,
+ *  and include the `password` field if the file is encrypted in the request
+ *  body. - `selfsignedcert` - A new private key and certificate are generated.
+ *  Set `Content-Type: application/json` and include CertificateGenerationSpec
+ *  in the request body.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
- *  @param parent Required. The name of the keystore. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  @param parent Required. Name of the keystore. Use the following format in
+ *    your request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCreate
  */
@@ -4594,8 +4598,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCsrWithname:]
 
 /**
- *  Required. The name of the alias. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  Required. Name of the alias. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4605,8 +4609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Generates a PKCS #10 Certificate Signing Request for the private key in an
  *  alias.
  *
- *  @param name Required. The name of the alias. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  @param name Required. Name of the alias. Use the following format in your
+ *    request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCsr
  */
@@ -4627,8 +4632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesDeleteWithname:]
 
 /**
- *  Required. The name of the alias. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  Required. Name of the alias. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4637,8 +4642,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Deletes an alias.
  *
- *  @param name Required. The name of the alias. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  @param name Required. Name of the alias. Use the following format in your
+ *    request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesDelete
  */
@@ -4659,8 +4665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetWithname:]
 
 /**
- *  Required. The name of the alias. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  Required. Name of the alias. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4669,8 +4675,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Gets an alias.
  *
- *  @param name Required. The name of the alias. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  @param name Required. Name of the alias. Use the following format in your
+ *    request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGet
  */
@@ -4691,8 +4698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetCertificateWithname:]
 
 /**
- *  Required. The name of the alias. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  Required. Name of the alias. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4701,8 +4708,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Gets the certificate from an alias in PEM-encoded form.
  *
- *  @param name Required. The name of the alias. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  @param name Required. Name of the alias. Use the following format in your
+ *    request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGetCertificate
  */
@@ -4722,19 +4730,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesUpdateWithObject:name:]
 
-/** Required. If `true`, no expiry validation will be performed. */
+/**
+ *  Required. Flag that specifies whether to ignore expiry validation. If set to
+ *  `true`, no expiry validation will be performed.
+ */
 @property(nonatomic, assign) BOOL ignoreExpiryValidation;
 
 /**
- *  If `true`, do not throw an error when the file contains a chain with no
- *  newline between each certificate. By default, a newline is needed between
- *  each certificate in a chain.
+ *  Flag that specifies whether to ignore newline validation. If set to `true`,
+ *  no error is thrown when the file contains a certificate chain with no
+ *  newline between each certificate. Defaults to `false`.
  */
 @property(nonatomic, assign) BOOL ignoreNewlineValidation;
 
 /**
- *  Required. The name of the alias. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  Required. Name of the alias. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4744,8 +4755,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Updates the certificate in an alias.
  *
  *  @param object The @c GTLRApigee_GoogleApiHttpBody to include in the query.
- *  @param name Required. The name of the alias. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}/aliases/{alias}`.
+ *  @param name Required. Name of the alias. Use the following format in your
+ *    request:
+ *    `organizations/{org}/environments/{env}/keystores/{keystore}/aliases/{alias}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesUpdate
  */
@@ -4755,8 +4767,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Creates a keystore or truststore: * Keystore: Contains certificates and
- *  their associated keys. * Truststore: Contains trusted certificates used to
+ *  Creates a keystore or truststore. - Keystore: Contains certificates and
+ *  their associated keys. - Truststore: Contains trusted certificates used to
  *  validate a server's certificate. These certificates are typically
  *  self-signed certificates or certificates that are not signed by a trusted
  *  CA.
@@ -4770,29 +4782,29 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 // Previous library name was
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresCreateWithObject:parent:]
 
-/** Optional. Overrides the value in Keystore. */
+/** Optional. Name of the keystore. Overrides the value in Keystore. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The name of the environment in which to create the keystore. Must
- *  be of the form `organizations/{organization}/environments/{environment}`.
+ *  Required. Name of the environment in which to create the keystore. Use the
+ *  following format in your request: `organizations/{org}/environments/{env}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Keystore.
  *
- *  Creates a keystore or truststore: * Keystore: Contains certificates and
- *  their associated keys. * Truststore: Contains trusted certificates used to
+ *  Creates a keystore or truststore. - Keystore: Contains certificates and
+ *  their associated keys. - Truststore: Contains trusted certificates used to
  *  validate a server's certificate. These certificates are typically
  *  self-signed certificates or certificates that are not signed by a trusted
  *  CA.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Keystore to include in
  *    the query.
- *  @param parent Required. The name of the environment in which to create the
- *    keystore. Must be of the form
- *    `organizations/{organization}/environments/{environment}`.
+ *  @param parent Required. Name of the environment in which to create the
+ *    keystore. Use the following format in your request:
+ *    `organizations/{org}/environments/{env}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresCreate
  */
@@ -4814,8 +4826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresDeleteWithname:]
 
 /**
- *  Required. The name of keystore to delete. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  Required. Name of the keystore. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4824,8 +4836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Deletes a keystore or truststore.
  *
- *  @param name Required. The name of keystore to delete. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  @param name Required. Name of the keystore. Use the following format in your
+ *    request: `organizations/{org}/environments/{env}/keystores/{keystore}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresDelete
  */
@@ -4846,8 +4858,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 //   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresGetWithname:]
 
 /**
- *  Required. The name of keystore. Must be of the form
- *  `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  Required. Name of the keystore. Use the following format in your request:
+ *  `organizations/{org}/environments/{env}/keystores/{keystore}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4856,8 +4868,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Gets a keystore or truststore.
  *
- *  @param name Required. The name of keystore. Must be of the form
- *    `organizations/{organization}/environments/{environment}/keystores/{keystore}`.
+ *  @param name Required. Name of the keystore. Use the following format in your
+ *    request: `organizations/{org}/environments/{env}/keystores/{keystore}`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresGet
  */

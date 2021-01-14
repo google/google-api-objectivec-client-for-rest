@@ -62,7 +62,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaAccount
-@dynamic countryCode, createTime, deleted, displayName, name, updateTime;
+@dynamic createTime, deleted, displayName, name, regionCode, updateTime;
 @end
 
 
@@ -292,13 +292,10 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings
-@dynamic articlesAndBlogsEnabled, contentViewsEnabled,
-         dataTaggedElementClicksEnabled, excludedDomains, fileDownloadsEnabled,
-         formInteractionsEnabled, name, outboundClicksEnabled,
-         pageChangesEnabled, pageLoadsEnabled, pageViewsEnabled,
-         productsAndEcommerceEnabled, scrollsEnabled, searchQueryParameter,
-         siteSearchEnabled, streamEnabled, urlQueryParameter,
-         videoEngagementEnabled;
+@dynamic fileDownloadsEnabled, name, outboundClicksEnabled, pageChangesEnabled,
+         pageLoadsEnabled, pageViewsEnabled, scrollsEnabled,
+         searchQueryParameter, siteSearchEnabled, streamEnabled,
+         uriQueryParameter, videoEngagementEnabled;
 @end
 
 
@@ -318,7 +315,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaGlobalSiteTag
-@dynamic snippet;
+@dynamic name, snippet;
 @end
 
 
@@ -329,7 +326,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink
 @dynamic adsPersonalizationEnabled, canManageClients, createTime, customerId,
-         emailAddress, name, parent, updateTime;
+         emailAddress, name, updateTime;
 @end
 
 
@@ -415,13 +412,17 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaListFirebaseLinksResponse
-@dynamic firebaseLinks;
+@dynamic firebaseLinks, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"firebaseLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink class]
   };
   return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"firebaseLinks";
 }
 
 @end

@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   API Gateway API (apigateway/v1beta)
+//   API Gateway API (apigateway/v1)
 // Documentation:
-//    https://cloud.google.com/api-gateway/docs
+//   https://cloud.google.com/api-gateway/docs
 
 #import "GTLRAPIGatewayObjects.h"
 
@@ -73,7 +73,7 @@ NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRAPIGateway_ApiConfig
-@dynamic createTime, displayName, gatewayConfig, grpcServices, labels,
+@dynamic createTime, displayName, gatewayServiceAccount, grpcServices, labels,
          managedServiceConfigs, name, openapiDocuments, serviceConfigId, state,
          updateTime;
 
@@ -179,16 +179,6 @@ NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAPIGateway_BackendConfig
-//
-
-@implementation GTLRAPIGateway_BackendConfig
-@dynamic googleServiceAccount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAPIGateway_Binding
 //
 
@@ -260,16 +250,6 @@ NSString * const kGTLRAPIGateway_Gateway_State_Updating        = @"UPDATING";
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAPIGateway_GatewayConfig
-//
-
-@implementation GTLRAPIGateway_GatewayConfig
-@dynamic backendConfig;
 @end
 
 

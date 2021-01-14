@@ -801,6 +801,39 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials
+
+@dynamic cluster, project, region;
+
++ (instancetype)queryWithObject:(GTLRDataproc_InjectCredentialsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                        cluster:(NSString *)cluster {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"cluster", @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"v1/{+project}/{+region}/{+cluster}:injectCredentials";
+  GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.cluster = cluster;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.injectCredentials";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersList
 
 @dynamic filter, pageSize, pageToken, projectId, region;

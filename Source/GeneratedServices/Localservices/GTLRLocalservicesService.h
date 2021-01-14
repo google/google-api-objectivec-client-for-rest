@@ -25,6 +25,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+/**
+ *  Authorization scope: Manage your AdWords campaigns
+ *
+ *  Value "https://www.googleapis.com/auth/adwords"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeLocalservicesAdwords;
+
+// ----------------------------------------------------------------------------
+//   GTLRLocalservicesService
+//
+
 /**
  *  Service for executing Local Services API queries.
  */

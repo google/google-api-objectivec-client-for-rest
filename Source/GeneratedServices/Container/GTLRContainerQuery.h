@@ -742,7 +742,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the size for a specific node pool.
+ *  Sets the size for a specific node pool. The new size will be used for all
+ *  replicas, including future replicas created by modifying NodePool.locations.
  *
  *  Method: container.projects.locations.clusters.nodePools.setSize
  *
@@ -763,7 +764,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the size for a specific node pool.
+ *  Sets the size for a specific node pool. The new size will be used for all
+ *  replicas, including future replicas created by modifying NodePool.locations.
  *
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.
@@ -2661,7 +2663,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Sets the size for a specific node pool.
+ *  Sets the size for a specific node pool. The new size will be used for all
+ *  replicas, including future replicas created by modifying NodePool.locations.
  *
  *  Method: container.projects.zones.clusters.nodePools.setSize
  *
@@ -2704,7 +2707,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRContainer_Operation.
  *
- *  Sets the size for a specific node pool.
+ *  Sets the size for a specific node pool. The new size will be used for all
+ *  replicas, including future replicas created by modifying NodePool.locations.
  *
  *  @param object The @c GTLRContainer_SetNodePoolSizeRequest to include in the
  *    query.

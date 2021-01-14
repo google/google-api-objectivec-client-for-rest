@@ -180,10 +180,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudComposer"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_CloudDatabaseMigrationService",
-            targets: ["GoogleAPIClientForREST_CloudDatabaseMigrationService"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_CloudDebugger",
             targets: ["GoogleAPIClientForREST_CloudDebugger"]
         ),
@@ -250,6 +246,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudResourceManager",
             targets: ["GoogleAPIClientForREST_CloudResourceManager"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_CloudRetail",
+            targets: ["GoogleAPIClientForREST_CloudRetail"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudRun",
@@ -340,12 +340,20 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DataTransfer"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_DatabaseMigrationService",
+            targets: ["GoogleAPIClientForREST_DatabaseMigrationService"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Dataflow",
             targets: ["GoogleAPIClientForREST_Dataflow"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Dataproc",
             targets: ["GoogleAPIClientForREST_Dataproc"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DataprocMetastore",
+            targets: ["GoogleAPIClientForREST_DataprocMetastore"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Datastore",
@@ -1094,12 +1102,6 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_CloudDatabaseMigrationService",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/CloudDatabaseMigrationService",
-            publicHeadersPath: "."
-        ),
-        .target(
             name: "GoogleAPIClientForREST_CloudDebugger",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudDebugger",
@@ -1199,6 +1201,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudResourceManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/CloudResourceManager",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_CloudRetail",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/CloudRetail",
             publicHeadersPath: "."
         ),
         .target(
@@ -1334,6 +1342,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_DatabaseMigrationService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/DatabaseMigrationService",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Dataflow",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Dataflow",
@@ -1343,6 +1357,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Dataproc",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Dataproc",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DataprocMetastore",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/DataprocMetastore",
             publicHeadersPath: "."
         ),
         .target(
