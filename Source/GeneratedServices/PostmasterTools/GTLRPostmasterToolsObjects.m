@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1beta1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -94,7 +94,7 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 //
 
 @implementation GTLRPostmasterTools_IpReputation
-@dynamic ipCount, numIps, reputation, sampleIps;
+@dynamic ipCount, reputation, sampleIps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

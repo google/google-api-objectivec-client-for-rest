@@ -146,9 +146,11 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextChange;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3Vertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
+@class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
 @class GTLRDocument_GoogleCloudLocationLocation;
 @class GTLRDocument_GoogleCloudLocationLocation_Labels;
 @class GTLRDocument_GoogleCloudLocationLocation_Metadata;
@@ -1023,6 +1025,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Doc
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Replace;
 
 // ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
+
+/**
+ *  Some error happened during triggering human review, see the [state_message]
+ *  for details.
+ *
+ *  Value: "HUMAN_REVIEW_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError;
+/**
+ *  Human review validation is triggered and the document is under review.
+ *
+ *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress;
+/**
+ *  Human review is skipped for the document, it's either due to the human
+ *  review is not enabled on the processor or the processing request sets to
+ *  skip it.
+ *
+ *  Value: "HUMAN_REVIEW_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata.state
 
 /**
@@ -1101,6 +1140,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
+
+/**
+ *  Some error happened during triggering human review, see the [state_message]
+ *  for details.
+ *
+ *  Value: "HUMAN_REVIEW_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError;
+/**
+ *  Human review validation is triggered and the document is under review.
+ *
+ *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress;
+/**
+ *  Human review is skipped for the document, it's either due to the human
+ *  review is not enabled on the processor or the processing request sets to
+ *  skip it.
+ *
+ *  Value: "HUMAN_REVIEW_SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified;
 
 /**
  *  The common metadata for long running operations.
@@ -1501,13 +1577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus : GTLRObject
 
-/**
- *  The name of the operation triggered by the processed document. If the human
- *  review process is not triggered, this field will be empty. It has the same
- *  response type and metadata as the long running operation returned by
- *  ReviewDocument method.
- */
-@property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+/** The status of human review on the processed document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus *humanReviewStatus;
 
 /**
  *  The source of the document, same as the [input_gcs_source] field in the
@@ -4071,9 +4142,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
  *  The name of the operation triggered by the processed document. If the human
  *  review process is not triggered, this field will be empty. It has the same
  *  response type and metadata as the long running operation returned by
- *  ReviewDocument method.
+ *  ReviewDocument method. .
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+
+/** The status of human review on the processed document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
 
 /**
  *  The source of the document, same as the [input_gcs_source] field in the
@@ -4105,6 +4179,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
 
 /** The overall output config for batch process. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig *outputConfig;
+
+/**
+ *  Whether Human Review feature should be skipped for this request. Default to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
 
 @end
 
@@ -5215,6 +5297,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
 
 
 /**
+ *  The status of human review on a processed document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
+
+/**
+ *  The name of the operation triggered by the processed document. Non-empty
+ *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
+ *  response type and metadata as the long running operation returned by
+ *  [ReviewDocument] method.
+ */
+@property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+
+/**
+ *  The state of human review on the processing request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError
+ *        Some error happened during triggering human review, see the
+ *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress
+ *        Human review validation is triggered and the document is under review.
+ *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped
+ *        Human review is skipped for the document, it's either due to the human
+ *        review is not enabled on the processor or the processing request sets
+ *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** A message providing more details about the human review state. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
+
+@end
+
+
+/**
  *  A vertex represents a 2D point in the image. NOTE: the normalized vertex
  *  coordinates are relative to the original image and range from 0 to 1.
  */
@@ -5271,9 +5394,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
  *  The name of the operation triggered by the processed document. If the human
  *  review process is not triggered, this field will be empty. It has the same
  *  response type and metadata as the long running operation returned by
- *  ReviewDocument method.
+ *  ReviewDocument method. .
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+
+/** The status of human review on the processed document. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
 
 @end
 
@@ -5397,6 +5523,47 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
 
 /** The last update time of the operation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The status of human review on a processed document.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus : GTLRObject
+
+/**
+ *  The name of the operation triggered by the processed document. Non-empty
+ *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
+ *  response type and metadata as the long running operation returned by
+ *  [ReviewDocument] method.
+ */
+@property(nonatomic, copy, nullable) NSString *humanReviewOperation;
+
+/**
+ *  The state of human review on the processing request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError
+ *        Some error happened during triggering human review, see the
+ *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress
+ *        Human review validation is triggered and the document is under review.
+ *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped
+ *        Human review is skipped for the document, it's either due to the human
+ *        review is not enabled on the processor or the processing request sets
+ *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** A message providing more details about the human review state. */
+@property(nonatomic, copy, nullable) NSString *stateMessage;
 
 @end
 

@@ -803,6 +803,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_IstioCanonicalService
+//
+
+@implementation GTLRMonitoring_IstioCanonicalService
+@dynamic canonicalService, canonicalServiceNamespace, meshUid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_LabelDescriptor
 //
 
@@ -1530,7 +1540,7 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Service
 @dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName,
-         meshIstio, name, telemetry;
+         istioCanonicalService, meshIstio, name, telemetry;
 @end
 
 

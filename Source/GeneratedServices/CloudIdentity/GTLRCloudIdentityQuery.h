@@ -165,7 +165,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Creates a device. Only company-owned device may be created.
+ *  Creates a device. Only company-owned device may be created. **Note**: This
+ *  method is available only to customers who have one of the following SKUs:
+ *  Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud
+ *  Identity Premium
  *
  *  Method: cloudidentity.devices.create
  */
@@ -186,7 +189,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Creates a device. Only company-owned device may be created.
+ *  Creates a device. Only company-owned device may be created. **Note**: This
+ *  method is available only to customers who have one of the following SKUs:
+ *  Enterprise Standard, Enterprise Plus, Enterprise for Education, and Cloud
+ *  Identity Premium
  *
  *  @param object The @c
  *    GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1Device to include in the
@@ -483,7 +489,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Updates the client state for the device user
+ *  Updates the client state for the device user **Note**: This method is
+ *  available only to customers who have one of the following SKUs: Enterprise
+ *  Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity
+ *  Premium
  *
  *  Method: cloudidentity.devices.deviceUsers.clientStates.patch
  */
@@ -532,7 +541,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Operation.
  *
- *  Updates the client state for the device user
+ *  Updates the client state for the device user **Note**: This method is
+ *  available only to customers who have one of the following SKUs: Enterprise
+ *  Standard, Enterprise Plus, Enterprise for Education, and Cloud Identity
+ *  Premium
  *
  *  @param object The @c
  *    GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ClientState to include
@@ -1259,6 +1271,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
+ *  Check a potential member for membership in a group. **Note:** This feature
+ *  is only available to Google Workspace Enterprise Standard, Enterprise Plus,
+ *  and Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A member has membership to a group as long as
+ *  there is a single viewable transitive membership between the group and the
+ *  member. The actor must have view permissions to at least one transitive
+ *  membership between the member and group.
+ *
+ *  Method: cloudidentity.groups.memberships.checkTransitiveMembership
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership : GTLRCloudIdentityQuery
+// Previous library name was
+//   +[GTLQueryCloudIdentity queryForGroupsMembershipsCheckTransitiveMembershipWithparent:]
+
+/**
+ *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  group to check the transitive membership in. Format: `groups/{group_id}`,
+ *  where `group_id` is the unique id assigned to the Group to which the
+ *  Membership belongs to.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. A CEL expression that MUST include member specification. This is a
+ *  `required` field. Certain groups are uniquely identified by both a
+ *  'member_key_id' and a 'member_key_namespace', which requires an additional
+ *  query input: 'member_key_namespace'. Example query: `member_key_id ==
+ *  'member_key_id_value'`
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_CheckTransitiveMembershipResponse.
+ *
+ *  Check a potential member for membership in a group. **Note:** This feature
+ *  is only available to Google Workspace Enterprise Standard, Enterprise Plus,
+ *  and Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A member has membership to a group as long as
+ *  there is a single viewable transitive membership between the group and the
+ *  member. The actor must have view permissions to at least one transitive
+ *  membership between the member and group.
+ *
+ *  @param parent [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the group to
+ *    check the transitive membership in. Format: `groups/{group_id}`, where
+ *    `group_id` is the unique id assigned to the Group to which the Membership
+ *    belongs to.
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates a `Membership`.
  *
  *  Method: cloudidentity.groups.memberships.create
@@ -1365,6 +1439,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  @return GTLRCloudIdentityQuery_GroupsMembershipsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a membership graph of just a member or both a member and a group.
+ *  **Note:** This feature is only available to Google Workspace Enterprise
+ *  Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+ *  Premium accounts. If the account of the member is not one of these, a 403
+ *  (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+ *  response will contain all membership paths from the member. Given both a
+ *  group and a member, the response will contain all membership paths between
+ *  the group and the member.
+ *
+ *  Method: cloudidentity.groups.memberships.getMembershipGraph
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph : GTLRCloudIdentityQuery
+// Previous library name was
+//   +[GTLQueryCloudIdentity queryForGroupsMembershipsGetMembershipGraphWithparent:]
+
+/**
+ *  Required. [Resource
+ *  name](https://cloud.google.com/apis/design/resource_names) of the group to
+ *  search transitive memberships in. Format: `groups/{group_id}`, where
+ *  `group_id` is the unique ID assigned to the Group to which the Membership
+ *  belongs to. group_id can be a wildcard collection id "-". When a group_id is
+ *  specified, the membership graph will be constrained to paths between the
+ *  member (defined in the query) and the parent. If a wildcard collection is
+ *  provided, all membership paths connected to the member will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. A CEL expression that MUST include member specification AND
+ *  label(s). Certain groups are uniquely identified by both a 'member_key_id'
+ *  and a 'member_key_namespace', which requires an additional query input:
+ *  'member_key_namespace'. Example query: `member_key_id ==
+ *  'member_key_id_value' && in labels`
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_Operation.
+ *
+ *  Get a membership graph of just a member or both a member and a group.
+ *  **Note:** This feature is only available to Google Workspace Enterprise
+ *  Standard, Enterprise Plus, and Enterprise for Education; and Cloud Identity
+ *  Premium accounts. If the account of the member is not one of these, a 403
+ *  (PERMISSION_DENIED) HTTP status code will be returned. Given a member, the
+ *  response will contain all membership paths from the member. Given both a
+ *  group and a member, the response will contain all membership paths between
+ *  the group and the member.
+ *
+ *  @param parent Required. [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the group to
+ *    search transitive memberships in. Format: `groups/{group_id}`, where
+ *    `group_id` is the unique ID assigned to the Group to which the Membership
+ *    belongs to. group_id can be a wildcard collection id "-". When a group_id
+ *    is specified, the membership graph will be constrained to paths between
+ *    the member (defined in the query) and the parent. If a wildcard collection
+ *    is provided, all membership paths connected to the member will be
+ *    returned.
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1528,6 +1672,140 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRCloudIdentity_ModifyMembershipRolesRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Search transitive groups of a member. **Note:** This feature is only
+ *  available to Google Workspace Enterprise Standard, Enterprise Plus, and
+ *  Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A transitive group is any group that has a
+ *  direct or indirect membership to the member. Actor must have view
+ *  permissions all transitive groups.
+ *
+ *  Method: cloudidentity.groups.memberships.searchTransitiveGroups
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups : GTLRCloudIdentityQuery
+// Previous library name was
+//   +[GTLQueryCloudIdentity queryForGroupsMembershipsSearchTransitiveGroupsWithparent:]
+
+/** The default page size is 200 (max 1000). */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  group to search transitive memberships in. Format: `groups/{group_id}`,
+ *  where `group_id` is always '-' as this API will search across all groups for
+ *  a given member.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. A CEL expression that MUST include member specification AND
+ *  label(s). This is a `required` field. Users can search on label attributes
+ *  of groups. CONTAINS match ('in') is supported on labels. Certain groups are
+ *  uniquely identified by both a 'member_key_id' and a 'member_key_namespace',
+ *  which requires an additional query input: 'member_key_namespace'. Example
+ *  query: `member_key_id == 'member_key_id_value' && in labels`
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_SearchTransitiveGroupsResponse.
+ *
+ *  Search transitive groups of a member. **Note:** This feature is only
+ *  available to Google Workspace Enterprise Standard, Enterprise Plus, and
+ *  Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the member is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A transitive group is any group that has a
+ *  direct or indirect membership to the member. Actor must have view
+ *  permissions all transitive groups.
+ *
+ *  @param parent [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the group to
+ *    search transitive memberships in. Format: `groups/{group_id}`, where
+ *    `group_id` is always '-' as this API will search across all groups for a
+ *    given member.
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Search transitive memberships of a group. **Note:** This feature is only
+ *  available to Google Workspace Enterprise Standard, Enterprise Plus, and
+ *  Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A transitive membership is any direct or
+ *  indirect membership of a group. Actor must have view permissions to all
+ *  transitive memberships.
+ *
+ *  Method: cloudidentity.groups.memberships.searchTransitiveMemberships
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroups
+ *    @c kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly
+ *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
+ */
+@interface GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships : GTLRCloudIdentityQuery
+// Previous library name was
+//   +[GTLQueryCloudIdentity queryForGroupsMembershipsSearchTransitiveMembershipsWithparent:]
+
+/** The default page size is 200 (max 1000). */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
+ *  group to search transitive memberships in. Format: `groups/{group_id}`,
+ *  where `group_id` is the unique ID assigned to the Group.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudIdentity_SearchTransitiveMembershipsResponse.
+ *
+ *  Search transitive memberships of a group. **Note:** This feature is only
+ *  available to Google Workspace Enterprise Standard, Enterprise Plus, and
+ *  Enterprise for Education; and Cloud Identity Premium accounts. If the
+ *  account of the group is not one of these, a 403 (PERMISSION_DENIED) HTTP
+ *  status code will be returned. A transitive membership is any direct or
+ *  indirect membership of a group. Actor must have view permissions to all
+ *  transitive memberships.
+ *
+ *  @param parent [Resource
+ *    name](https://cloud.google.com/apis/design/resource_names) of the group to
+ *    search transitive memberships in. Format: `groups/{group_id}`, where
+ *    `group_id` is the unique ID assigned to the Group.
+ *
+ *  @return GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

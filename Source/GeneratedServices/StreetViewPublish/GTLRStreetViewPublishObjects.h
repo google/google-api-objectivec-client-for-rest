@@ -676,8 +676,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublish_Photo_TransferStatus_T
 @interface GTLRStreetViewPublish_UploadRef : GTLRObject
 
 /**
- *  Required. An upload reference should be unique for each user. It follows the
- *  form:
+ *  An upload reference should be unique for each user. It follows the form:
  *  "https://streetviewpublish.googleapis.com/media/user/{account_id}/photo/{upload_reference}"
  */
 @property(nonatomic, copy, nullable) NSString *uploadUrl;

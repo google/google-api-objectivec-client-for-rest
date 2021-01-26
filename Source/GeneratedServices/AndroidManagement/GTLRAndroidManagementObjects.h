@@ -80,6 +80,7 @@
 @class GTLRAndroidManagement_StatusReportingSettings;
 @class GTLRAndroidManagement_SystemUpdate;
 @class GTLRAndroidManagement_SystemUpdateInfo;
+@class GTLRAndroidManagement_TelephonyInfo;
 @class GTLRAndroidManagement_TermsAndConditions;
 @class GTLRAndroidManagement_User;
 @class GTLRAndroidManagement_UserFacingMessage;
@@ -3299,7 +3300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  The length of time the enrollment token is valid, ranging from 1 minute to
- *  30 days. If not specified, the default duration is 1 hour.
+ *  90 days. If not specified, the default duration is 1 hour.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
@@ -4074,6 +4075,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /** Alphabetic name of current registered operator. For example, Vodafone. */
 @property(nonatomic, copy, nullable) NSString *networkOperatorName;
+
+/**
+ *  Provides telephony information associated with each SIM card on the device.
+ *  Only supported on fully managed devices starting from Android API level 23
+ *  and above.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TelephonyInfo *> *telephonyInfos;
 
 /** Wi-Fi MAC address of the device. For example, 7c:11:11:11:11:11. */
 @property(nonatomic, copy, nullable) NSString *wifiMacAddress;
@@ -5860,6 +5868,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        "UP_TO_DATE")
  */
 @property(nonatomic, copy, nullable) NSString *updateStatus;
+
+@end
+
+
+/**
+ *  Telephony information associated with a given SIM card on the device. Only
+ *  supported on fully managed devices starting from Android API level 23 and
+ *  above.
+ */
+@interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
+
+/** The carrier name associated with this SIM card. */
+@property(nonatomic, copy, nullable) NSString *carrierName;
+
+/** The phone number associated with this SIM card. */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
 
 @end
 

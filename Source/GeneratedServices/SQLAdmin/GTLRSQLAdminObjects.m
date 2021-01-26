@@ -1363,10 +1363,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SslCertsCreateEphemeralRequest
-@dynamic publicKey;
+@dynamic accessToken, publicKey;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"publicKey" : @"public_key" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"publicKey" : @"public_key"
+  };
+  return map;
 }
 
 @end

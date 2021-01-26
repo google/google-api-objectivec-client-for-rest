@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1beta1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -395,16 +395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPostmasterTools_TrafficStats_DomainReput
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ipCount;
-
-/**
- *  Total number of unique IPs in this reputation category. This metric only
- *  pertains to traffic that passed [SPF](http://www.openspf.org/) or
- *  [DKIM](http://www.dkim.org/). Deprecated to be complied with ApiLinter for
- *  Quantities. Use ip_count instead.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *numIps;
 
 /**
  *  The reputation category this IP reputation represents.

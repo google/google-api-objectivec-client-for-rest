@@ -157,6 +157,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 //   +[GTLQueryPeopleService queryForContactGroupsBatchGet]
 
 /**
+ *  Optional. A field mask to restrict which fields on the group are returned.
+ *  Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or
+ *  set to empty. Valid fields are: * clientData * groupType * memberCount *
+ *  metadata * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *groupFields;
+
+/**
  *  Optional. Specifies the maximum number of members to return for each group.
  *  Defaults to 0 if not set, which will return zero members.
  */
@@ -254,6 +264,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 //   +[GTLQueryPeopleService queryForContactGroupsGetWithresourceName:]
 
 /**
+ *  Optional. A field mask to restrict which fields on the group are returned.
+ *  Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or
+ *  set to empty. Valid fields are: * clientData * groupType * memberCount *
+ *  metadata * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *groupFields;
+
+/**
  *  Optional. Specifies the maximum number of members to return. Defaults to 0
  *  if not set, which will return zero members.
  */
@@ -289,6 +309,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @interface GTLRPeopleServiceQuery_ContactGroupsList : GTLRPeopleServiceQuery
 // Previous library name was
 //   +[GTLQueryPeopleService queryForContactGroupsList]
+
+/**
+ *  Optional. A field mask to restrict which fields on the group are returned.
+ *  Defaults to `metadata`, `groupType`, `memberCount`, and `name` if not set or
+ *  set to empty. Valid fields are: * clientData * groupType * memberCount *
+ *  metadata * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *groupFields;
 
 /**
  *  Optional. The maximum number of resources to return. Valid values are

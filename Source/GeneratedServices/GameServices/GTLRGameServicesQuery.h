@@ -529,9 +529,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see https:
- *  //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -587,9 +586,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see https:
- *  //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -728,9 +726,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see https:
- *  //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1263,9 +1260,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see https:
- *  //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1397,9 +1393,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
- *  this field. For the `FieldMask` definition, see https:
- *  //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1537,8 +1532,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see https: //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1585,8 +1580,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The update mask applies to the resource. For the `FieldMask`
- *  definition, see https: //developers.google.com/protocol-buffers //
- *  /docs/reference/google.protobuf#fieldmask
+ *  definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *
  *  String format is a comma-separated list of fields.
  */

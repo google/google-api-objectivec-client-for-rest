@@ -679,6 +679,12 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_IosException;
  */
 FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound;
 /**
+ *  Problems detected while collecting logcat
+ *
+ *  Value: "logcatCollectionError"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_LogcatCollectionError;
+/**
  *  Issue is a native crash.
  *
  *  Value: "nativeCrash"
@@ -2090,6 +2096,13 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
 
 
 /**
+ *  A warning that there were issues in logcat collection.
+ */
+@interface GTLRToolResults_LogcatCollectionError : GTLRObject
+@end
+
+
+/**
  *  One dimension of the matrix of different runs of a step.
  */
 @interface GTLRToolResults_MatrixDimensionDefinition : GTLRObject
@@ -3406,6 +3419,8 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *        an exception. (Value: "iosException")
  *    @arg @c kGTLRToolResults_TestIssue_Type_LauncherActivityNotFound Issue
  *        with finding a launcher activity (Value: "launcherActivityNotFound")
+ *    @arg @c kGTLRToolResults_TestIssue_Type_LogcatCollectionError Problems
+ *        detected while collecting logcat (Value: "logcatCollectionError")
  *    @arg @c kGTLRToolResults_TestIssue_Type_NativeCrash Issue is a native
  *        crash. (Value: "nativeCrash")
  *    @arg @c kGTLRToolResults_TestIssue_Type_NonSdkApiUsageReport App accessed

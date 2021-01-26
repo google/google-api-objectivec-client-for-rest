@@ -28,6 +28,13 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaV100
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV2 = @"TPU_V2";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3 = @"TPU_V3";
 
+// GTLRAIPlatformNotebooks_GetInstanceHealthResponse.healthState
+NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotInstalled = @"AGENT_NOT_INSTALLED";
+NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotRunning = @"AGENT_NOT_RUNNING";
+NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Healthy = @"HEALTHY";
+NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Unhealthy = @"UNHEALTHY";
+
 // GTLRAIPlatformNotebooks_Instance.bootDiskType
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_BootDiskType_PdBalanced = @"PD_BALANCED";
@@ -70,6 +77,11 @@ NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_Nvi
 NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
 NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_TpuV2 = @"TPU_V2";
 NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_TpuV3 = @"TPU_V3";
+
+// GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
+NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Rollback = @"ROLLBACK";
+NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Upgrade = @"UPGRADE";
 
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.state
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Failed = @"FAILED";
@@ -192,6 +204,30 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_GetInstanceHealthResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_GetInstanceHealthResponse
+@dynamic healthInfo, healthState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo
+//
+
+@implementation GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_GuestOsFeature
 //
 
@@ -211,12 +247,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
          diskEncryption, disks, installGpuDriver, instanceOwners, kmsKey,
          labels, machineType, metadata, name, network, noProxyAccess,
          noPublicIp, noRemoveDataDisk, postStartupScript, proxyUri,
-         serviceAccount, state, subnet, updateTime, upgradeHistory, vmImage;
+         serviceAccount, serviceAccountScopes, shieldedInstanceConfig, state,
+         subnet, tags, updateTime, upgradeHistory, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"disks" : [GTLRAIPlatformNotebooks_Disk class],
     @"instanceOwners" : [NSString class],
+    @"serviceAccountScopes" : [NSString class],
+    @"tags" : [NSString class],
     @"upgradeHistory" : [GTLRAIPlatformNotebooks_UpgradeHistoryEntry class]
   };
   return map;
@@ -561,6 +600,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ShieldedInstanceConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_ShieldedInstanceConfig
+@dynamic enableIntegrityMonitoring, enableSecureBoot, enableVtpm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_StartInstanceRequest
 //
 
@@ -651,8 +700,8 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeHistoryEntry
-@dynamic containerImage, createTime, framework, snapshot, state, version,
-         vmImage;
+@dynamic action, containerImage, createTime, framework, snapshot, state,
+         targetImage, version, vmImage;
 @end
 
 

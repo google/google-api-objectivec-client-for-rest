@@ -449,7 +449,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Adds data points to a dataset. The dataset need not be previously created.
  *  All points within the given dataset will be returned with subsquent calls to
  *  retrieve this dataset. Data points can belong to more than one dataset. This
- *  method does not use patch semantics.
+ *  method does not use patch semantics: the data points provided are merely
+ *  inserted, with no existing data replaced.
  *
  *  Method: fitness.users.dataSources.datasets.patch
  *
@@ -477,12 +478,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) long long currentTimeMillis;
 
-/**
- *  Dataset identifier that is a composite of the minimum data point start time
- *  and maximum data point end time represented as nanoseconds from the epoch.
- *  The ID is formatted like: "startTime-endTime" where startTime and endTime
- *  are 64 bit integers.
- */
+/** This field is not used, and can be safely omitted. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
 
 /** The data stream ID of the data source that created the dataset. */
@@ -500,17 +496,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  Adds data points to a dataset. The dataset need not be previously created.
  *  All points within the given dataset will be returned with subsquent calls to
  *  retrieve this dataset. Data points can belong to more than one dataset. This
- *  method does not use patch semantics.
+ *  method does not use patch semantics: the data points provided are merely
+ *  inserted, with no existing data replaced.
  *
  *  @param object The @c GTLRFitness_Dataset to include in the query.
  *  @param userId Patch a dataset for the person identified. Use me to indicate
  *    the authenticated user. Only me is supported at this time.
  *  @param dataSourceId The data stream ID of the data source that created the
  *    dataset.
- *  @param datasetId Dataset identifier that is a composite of the minimum data
- *    point start time and maximum data point end time represented as
- *    nanoseconds from the epoch. The ID is formatted like: "startTime-endTime"
- *    where startTime and endTime are 64 bit integers.
+ *  @param datasetId This field is not used, and can be safely omitted.
  *
  *  @return GTLRFitnessQuery_UsersDataSourcesDatasetsPatch
  */

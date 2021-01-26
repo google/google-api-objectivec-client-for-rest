@@ -956,6 +956,11 @@ NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus_EntityStatusPause
 NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus_EntityStatusScheduledForDeletion = @"ENTITY_STATUS_SCHEDULED_FOR_DELETION";
 NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
 
+// GTLRDisplayVideo_InsertionOrder.insertionOrderType
+NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOrderTypeUnspecified = @"INSERTION_ORDER_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop = @"OVER_THE_TOP";
+NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb = @"RTB";
+
 // GTLRDisplayVideo_InsertionOrderBudget.automationType
 NSString * const kGTLRDisplayVideo_InsertionOrderBudget_AutomationType_InsertionOrderAutomationTypeBidBudget = @"INSERTION_ORDER_AUTOMATION_TYPE_BID_BUDGET";
 NSString * const kGTLRDisplayVideo_InsertionOrderBudget_AutomationType_InsertionOrderAutomationTypeBudget = @"INSERTION_ORDER_AUTOMATION_TYPE_BUDGET";
@@ -1152,6 +1157,7 @@ NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeUnspecified
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoDefault = @"LINE_ITEM_TYPE_VIDEO_DEFAULT";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInstall = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL";
 NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY";
+NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop = @"LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP";
 
 // GTLRDisplayVideo_LineItem.warningMessages
 NSString * const kGTLRDisplayVideo_LineItem_WarningMessages_AllPartnerEnabledExchangesNegativelyTargeted = @"ALL_PARTNER_ENABLED_EXCHANGES_NEGATIVELY_TARGETED";
@@ -1209,6 +1215,11 @@ NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM";
+
+// GTLRDisplayVideo_MobileApp.platform
+NSString * const kGTLRDisplayVideo_MobileApp_Platform_Android  = @"ANDROID";
+NSString * const kGTLRDisplayVideo_MobileApp_Platform_Ios      = @"IOS";
+NSString * const kGTLRDisplayVideo_MobileApp_Platform_PlatformUnspecified = @"PLATFORM_UNSPECIFIED";
 
 // GTLRDisplayVideo_ObaIcon.position
 NSString * const kGTLRDisplayVideo_ObaIcon_Position_ObaIconPositionLowerLeft = @"OBA_ICON_POSITION_LOWER_LEFT";
@@ -3158,8 +3169,9 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_InsertionOrder
 @dynamic advertiserId, bidStrategy, budget, campaignId, displayName,
-         entityStatus, frequencyCap, insertionOrderId, integrationDetails, name,
-         pacing, partnerCosts, performanceGoal, updateTime;
+         entityStatus, frequencyCap, insertionOrderId, insertionOrderType,
+         integrationDetails, name, pacing, partnerCosts, performanceGoal,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3375,8 +3387,8 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 @dynamic advertiserId, bidStrategy, budget, campaignId, conversionCounting,
          creativeIds, displayName, entityStatus, flight, frequencyCap,
          insertionOrderId, integrationDetails, inventorySourceIds, lineItemId,
-         lineItemType, name, pacing, partnerCosts, partnerRevenueModel,
-         targetingExpansion, updateTime, warningMessages;
+         lineItemType, mobileApp, name, pacing, partnerCosts,
+         partnerRevenueModel, targetingExpansion, updateTime, warningMessages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4032,6 +4044,16 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_MeasurementConfig
 @dynamic dv360ToCmCostReportingEnabled, dv360ToCmDataSharingEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_MobileApp
+//
+
+@implementation GTLRDisplayVideo_MobileApp
+@dynamic appId, displayName, platform, publisher;
 @end
 
 

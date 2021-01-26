@@ -59,6 +59,7 @@
 @class GTLRMonitoring_HttpCheck;
 @class GTLRMonitoring_HttpCheck_Headers;
 @class GTLRMonitoring_InternalChecker;
+@class GTLRMonitoring_IstioCanonicalService;
 @class GTLRMonitoring_LabelDescriptor;
 @class GTLRMonitoring_LabelValue;
 @class GTLRMonitoring_LatencyCriteria;
@@ -3189,6 +3190,36 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Canonical service scoped to an Istio mesh. Anthos clusters running ASM >=
+ *  1.6.8 will have their services ingested as this type.
+ */
+@interface GTLRMonitoring_IstioCanonicalService : GTLRObject
+
+/**
+ *  The name of the canonical service underlying this service. Corresponds to
+ *  the destination_canonical_service_name metric label in label in Istio
+ *  metrics (https://cloud.google.com/monitoring/api/metrics_istio).
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalService;
+
+/**
+ *  The namespace of the canonical service underlying this service. Corresponds
+ *  to the destination_canonical_service_namespace metric label in Istio metrics
+ *  (https://cloud.google.com/monitoring/api/metrics_istio).
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalServiceNamespace;
+
+/**
+ *  Identifier for the Istio mesh in which this canonical service is defined.
+ *  Corresponds to the mesh_uid metric label in Istio metrics
+ *  (https://cloud.google.com/monitoring/api/metrics_istio).
+ */
+@property(nonatomic, copy, nullable) NSString *meshUid;
+
+@end
+
+
+/**
  *  A description of a label.
  */
 @interface GTLRMonitoring_LabelDescriptor : GTLRObject
@@ -4939,6 +4970,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /** Name used for UI elements listing this Service. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Type used for canonical services scoped to an Istio mesh. Metrics for Istio
+ *  are documented here (https://istio.io/latest/docs/reference/config/metrics/)
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_IstioCanonicalService *istioCanonicalService;
 
 /** Type used for Istio services scoped to an Istio mesh. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MeshIstio *meshIstio;

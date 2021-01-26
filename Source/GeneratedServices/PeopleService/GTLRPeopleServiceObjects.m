@@ -191,8 +191,8 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_ContactGroup
-@dynamic ETag, formattedName, groupType, memberCount, memberResourceNames,
-         metadata, name, resourceName;
+@dynamic clientData, ETag, formattedName, groupType, memberCount,
+         memberResourceNames, metadata, name, resourceName;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -200,6 +200,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"clientData" : [GTLRPeopleService_GroupClientData class],
     @"memberResourceNames" : [NSString class]
   };
   return map;
@@ -277,7 +278,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_CreateContactGroupRequest
-@dynamic contactGroup;
+@dynamic contactGroup, readGroupFields;
 @end
 
 
@@ -395,6 +396,16 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_GroupClientData
+//
+
+@implementation GTLRPeopleService_GroupClientData
+@dynamic key, value;
 @end
 
 
@@ -914,7 +925,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_UpdateContactGroupRequest
-@dynamic contactGroup;
+@dynamic contactGroup, readGroupFields, updateGroupFields;
 @end
 
 

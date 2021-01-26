@@ -1036,7 +1036,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_NetworkInfo
-@dynamic imei, meid, networkOperatorName, wifiMacAddress;
+@dynamic imei, meid, networkOperatorName, telephonyInfos, wifiMacAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"telephonyInfos" : [GTLRAndroidManagement_TelephonyInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1458,6 +1466,16 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 @implementation GTLRAndroidManagement_SystemUpdateInfo
 @dynamic updateReceivedTime, updateStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_TelephonyInfo
+//
+
+@implementation GTLRAndroidManagement_TelephonyInfo
+@dynamic carrierName, phoneNumber;
 @end
 
 

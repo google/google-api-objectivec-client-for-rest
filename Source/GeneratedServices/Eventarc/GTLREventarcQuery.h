@@ -21,6 +21,7 @@
 @class GTLREventarc_GoogleLongrunningCancelOperationRequest;
 @class GTLREventarc_SetIamPolicyRequest;
 @class GTLREventarc_TestIamPermissionsRequest;
+@class GTLREventarc_Trigger;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -279,6 +280,119 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Create a new trigger in a particular project and location.
+ *
+ *  Method: eventarc.projects.locations.triggers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsTriggersCreate : GTLREventarcQuery
+// Previous library name was
+//   +[GTLQueryEventarc queryForProjectsLocationsTriggersCreateWithObject:parent:]
+
+/** Required. The parent collection in which to add this trigger. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The user-provided ID to be assigned to the trigger. */
+@property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Required. If set, validate the request and preview the review, but do not
+ *  actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Create a new trigger in a particular project and location.
+ *
+ *  @param object The @c GTLREventarc_Trigger to include in the query.
+ *  @param parent Required. The parent collection in which to add this trigger.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsTriggersCreate
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single trigger.
+ *
+ *  Method: eventarc.projects.locations.triggers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsTriggersDelete : GTLREventarcQuery
+// Previous library name was
+//   +[GTLQueryEventarc queryForProjectsLocationsTriggersDeleteWithname:]
+
+/**
+ *  If set to true, and the trigger is not found, the request will succeed but
+ *  no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  If provided, the trigger will only be deleted if the etag matches the
+ *  current etag on the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the trigger to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. If set, validate the request and preview the review, but do not
+ *  actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Delete a single trigger.
+ *
+ *  @param name Required. The name of the trigger to be deleted.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsTriggersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a single trigger.
+ *
+ *  Method: eventarc.projects.locations.triggers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsTriggersGet : GTLREventarcQuery
+// Previous library name was
+//   +[GTLQueryEventarc queryForProjectsLocationsTriggersGetWithname:]
+
+/** Required. The name of the trigger to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLREventarc_Trigger.
+ *
+ *  Get a single trigger.
+ *
+ *  @param name Required. The name of the trigger to get.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsTriggersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -321,6 +435,117 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  List triggers.
+ *
+ *  Method: eventarc.projects.locations.triggers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsTriggersList : GTLREventarcQuery
+// Previous library name was
+//   +[GTLQueryEventarc queryForProjectsLocationsTriggersListWithparent:]
+
+/**
+ *  The sorting order of the resources returned. Value should be a comma
+ *  separated list of fields. The default sorting oder is ascending. To specify
+ *  descending order for a field, append a ` desc` suffix; for example: `name
+ *  desc, trigger_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  The maximum number of triggers to return on each page. Note: The service may
+ *  send fewer.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token; provide the value from the `next_page_token` field in a
+ *  previous `ListTriggers` call to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListTriggers` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent collection to list triggers on. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLREventarc_ListTriggersResponse.
+ *
+ *  List triggers.
+ *
+ *  @param parent Required. The parent collection to list triggers on.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single trigger.
+ *
+ *  Method: eventarc.projects.locations.triggers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeEventarcCloudPlatform
+ */
+@interface GTLREventarcQuery_ProjectsLocationsTriggersPatch : GTLREventarcQuery
+// Previous library name was
+//   +[GTLQueryEventarc queryForProjectsLocationsTriggersPatchWithObject:name:]
+
+/**
+ *  If set to true, and the trigger is not found, a new trigger will be created.
+ *  In this situation, `update_mask` is ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Required. The resource name of the trigger. Must be unique within the
+ *  location on the project and must be in
+ *  `projects/{project}/locations/{location}/triggers/{trigger}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The fields to be updated; only fields explicitly provided will be updated.
+ *  If no field mask is provided, all provided fields in the request will be
+ *  updated. To update all fields, provide a field mask of "*".
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Required. If set, validate the request and preview the review, but do not
+ *  actually post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLREventarc_GoogleLongrunningOperation.
+ *
+ *  Update a single trigger.
+ *
+ *  @param object The @c GTLREventarc_Trigger to include in the query.
+ *  @param name Required. The resource name of the trigger. Must be unique
+ *    within the location on the project and must be in
+ *    `projects/{project}/locations/{location}/triggers/{trigger}` format.
+ *
+ *  @return GTLREventarcQuery_ProjectsLocationsTriggersPatch
+ */
++ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
+                           name:(NSString *)name;
 
 @end
 

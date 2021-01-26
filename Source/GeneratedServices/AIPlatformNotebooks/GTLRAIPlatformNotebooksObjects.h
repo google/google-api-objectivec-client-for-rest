@@ -27,6 +27,7 @@
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_Environment;
 @class GTLRAIPlatformNotebooks_Expr;
+@class GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo;
 @class GTLRAIPlatformNotebooks_GuestOsFeature;
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_Instance_Labels;
@@ -40,6 +41,7 @@
 @class GTLRAIPlatformNotebooks_Policy;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest_Metadata;
 @class GTLRAIPlatformNotebooks_SetInstanceLabelsRequest_Labels;
+@class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
 @class GTLRAIPlatformNotebooks_UpgradeHistoryEntry;
@@ -130,6 +132,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_GetInstanceHealthResponse.healthState
+
+/**
+ *  The instance has not installed health monitoring agent. Applies to ACTIVE
+ *  state.
+ *
+ *  Value: "AGENT_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotInstalled;
+/**
+ *  The instance health monitoring agent is not running. Applies to ACTIVE
+ *  state.
+ *
+ *  Value: "AGENT_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotRunning;
+/**
+ *  The instance substate is unknown.
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_HealthStateUnspecified;
+/**
+ *  The instance is known to be in an healthy state (for example, critical
+ *  daemons are running) Applies to ACTIVE state.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Healthy;
+/**
+ *  The instance is known to be in an unhealthy state (for example, critical
+ *  daemons are not running) Applies to ACTIVE state.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Unhealthy;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Instance.bootDiskType
@@ -349,6 +389,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SetInstanceAccelerat
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_TpuV3;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_UpgradeHistoryEntry.action
+
+/**
+ *  Operation is not specified.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_ActionUnspecified;
+/**
+ *  Rollback.
+ *
+ *  Value: "ROLLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Rollback;
+/**
+ *  Upgrade.
+ *
+ *  Value: "UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Upgrade;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_UpgradeHistoryEntry.state
@@ -715,6 +777,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Response for checking if a notebook instance is healthy.
+ */
+@interface GTLRAIPlatformNotebooks_GetInstanceHealthResponse : GTLRObject
+
+/**
+ *  Output only. Additional information about instance health. Example:
+ *  healthInfo": { "docker_proxy_agent_status": "1", "docker_status": "1",
+ *  "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated":
+ *  "2020-10-18 09:40:03.573409" }
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo *healthInfo;
+
+/**
+ *  Output only. Runtime health_state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotInstalled
+ *        The instance has not installed health monitoring agent. Applies to
+ *        ACTIVE state. (Value: "AGENT_NOT_INSTALLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotRunning
+ *        The instance health monitoring agent is not running. Applies to ACTIVE
+ *        state. (Value: "AGENT_NOT_RUNNING")
+ *    @arg @c kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_HealthStateUnspecified
+ *        The instance substate is unknown. (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Healthy
+ *        The instance is known to be in an healthy state (for example, critical
+ *        daemons are running) Applies to ACTIVE state. (Value: "HEALTHY")
+ *    @arg @c kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_Unhealthy
+ *        The instance is known to be in an unhealthy state (for example,
+ *        critical daemons are not running) Applies to ACTIVE state. (Value:
+ *        "UNHEALTHY")
+ */
+@property(nonatomic, copy, nullable) NSString *healthState;
+
+@end
+
+
+/**
+ *  Output only. Additional information about instance health. Example:
+ *  healthInfo": { "docker_proxy_agent_status": "1", "docker_status": "1",
+ *  "jupyterlab_api_status": "-1", "jupyterlab_status": "-1", "updated":
+ *  "2020-10-18 09:40:03.573409" }
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo : GTLRObject
+@end
+
+
+/**
  *  Guest OS features for boot disk.
  */
 @interface GTLRAIPlatformNotebooks_GuestOsFeature : GTLRObject
@@ -919,6 +1034,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
+ *  Optional. The URIs of service account scopes to be included in Compute
+ *  Engine instances. If not specified, the following
+ *  [scopes](https://cloud.google.com/compute/docs/access/service-accounts#accesscopesiam)
+ *  are defined: - https://www.googleapis.com/auth/cloud-platform -
+ *  https://www.googleapis.com/auth/userinfo.email If not using default scopes,
+ *  you need at least: https://www.googleapis.com/auth/compute
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountScopes;
+
+/**
+ *  Optional. Shielded VM configuration. [Images using supported Shielded VM
+ *  features]
+ *  (https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
+
+/**
  *  Output only. The state of this instance.
  *
  *  Likely values:
@@ -951,6 +1083,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  `projects/{project_id}/regions/{region}/subnetworks/{subnetwork_id}`
  */
 @property(nonatomic, copy, nullable) NSString *subnet;
+
+/**
+ *  Optional. The Compute Engine tags to add to runtime (see [Tagging
+ *  instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
 /** Output only. Instance update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1552,6 +1690,43 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  A set of Shielded Instance options. Check [Images using supported Shielded
+ *  VM features] Not all combinations are valid.
+ */
+@interface GTLRAIPlatformNotebooks_ShieldedInstanceConfig : GTLRObject
+
+/**
+ *  Defines whether the instance has integrity monitoring enabled. Enables
+ *  monitoring and attestation of the boot integrity of the instance. The
+ *  attestation is performed against the integrity policy baseline. This
+ *  baseline is initially derived from the implicitly trusted boot image when
+ *  the instance is created. Enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
+
+/**
+ *  Defines whether the instance has Secure Boot enabled. Secure Boot helps
+ *  ensure that the system only runs authentic software by verifying the digital
+ *  signature of all boot components, and halting the boot process if signature
+ *  verification fails. Disabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
+
+/**
+ *  Defines whether the instance has the vTPM enabled. Enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableVtpm;
+
+@end
+
+
+/**
  *  Request for starting a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_StartInstanceRequest : GTLRObject
@@ -1639,9 +1814,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
- *  GTLRAIPlatformNotebooks_UpgradeHistoryEntry
+ *  The entry of VM image upgrade history.
  */
 @interface GTLRAIPlatformNotebooks_UpgradeHistoryEntry : GTLRObject
+
+/**
+ *  Action. Rolloback or Upgrade.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_ActionUnspecified
+ *        Operation is not specified. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Rollback
+ *        Rollback. (Value: "ROLLBACK")
+ *    @arg @c kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_Action_Upgrade
+ *        Upgrade. (Value: "UPGRADE")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
 
 /** The container image before this instance upgrade. */
 @property(nonatomic, copy, nullable) NSString *containerImage;
@@ -1669,6 +1857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        instance upgrade is succeeded. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/** Target VM Image. Format: ainotebooks-vm/project/image-name/name. */
+@property(nonatomic, copy, nullable) NSString *targetImage;
 
 /** The version of the notebook instance before this upgrade. */
 @property(nonatomic, copy, nullable) NSString *version;

@@ -1576,6 +1576,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  The list of unreachable instances. It includes the names of instances whose
+ *  metadata could not be retrieved within instance_deadline.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 

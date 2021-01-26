@@ -1152,7 +1152,7 @@
 
 @implementation GTLRSpannerQuery_ProjectsInstancesList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, instanceDeadline, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

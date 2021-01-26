@@ -46,7 +46,7 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @implementation GTLRPeopleServiceQuery_ContactGroupsBatchGet
 
-@dynamic maxMembers, resourceNames;
+@dynamic groupFields, maxMembers, resourceNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -111,7 +111,7 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @implementation GTLRPeopleServiceQuery_ContactGroupsGet
 
-@dynamic maxMembers, resourceName;
+@dynamic groupFields, maxMembers, resourceName;
 
 + (instancetype)queryWithResourceName:(NSString *)resourceName {
   NSArray *pathParams = @[ @"resourceName" ];
@@ -130,7 +130,7 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @implementation GTLRPeopleServiceQuery_ContactGroupsList
 
-@dynamic pageSize, pageToken, syncToken;
+@dynamic groupFields, pageSize, pageToken, syncToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/contactGroups";

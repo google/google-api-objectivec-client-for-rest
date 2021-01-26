@@ -572,6 +572,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DeleteConnectionMetadata
+//
+
+@implementation GTLRServiceNetworking_DeleteConnectionMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_DeletePeeredDnsDomainMetadata
 //
 
@@ -745,6 +754,24 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   // This class has a "kind" property that doesn't appear to be usable to
   // determine what type of object was encoded in the JSON.
   return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_GoogleCloudServicenetworkingV1betaConnection
+//
+
+@implementation GTLRServiceNetworking_GoogleCloudServicenetworkingV1betaConnection
+@dynamic network, peering, reservedPeeringRanges, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reservedPeeringRanges" : [NSString class]
+  };
+  return map;
 }
 
 @end

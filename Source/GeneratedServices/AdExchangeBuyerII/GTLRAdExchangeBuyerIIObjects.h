@@ -2032,6 +2032,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitT
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
 
 /**
+ *  Indicates that the detail ID refers to an ad technology provider (ATP); see
+ *  [providers]
+ *  (https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv). This
+ *  namespace is different from the `VENDOR` detail type; see [ad technology
+ *  providers](https://support.google.com/admanager/answer/9012903) for more
+ *  information.
+ *
+ *  Value: "ATP_VENDOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_AtpVendor;
+/**
  *  Indicates that the detail ID refers to a creative attribute; see
  *  [publisher-excludable-creative-attributes](https://developers.google.com/authorized-buyers/rtb/downloads/publisher-excludable-creative-attributes).
  *
@@ -2076,10 +2087,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBrea
 /**
  *  Indicates that the detail ID refers to a vendor; see
  *  [vendors](https://developers.google.com/authorized-buyers/rtb/downloads/vendors).
+ *  This namespace is different from that of the `ATP_VENDOR` detail type.
  *
  *  Value: "VENDOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor;
+/**
+ *  Indicates that the detail string refers the domain of an unknown vendor.
+ *
+ *  Value: "VENDOR_DOMAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_VendorDomain;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_NonBillableWinningBidStatusRow.status
@@ -4903,6 +4921,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *  The type of detail that the detail IDs represent.
  *
  *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_AtpVendor
+ *        Indicates that the detail ID refers to an ad technology provider
+ *        (ATP); see [providers]
+ *        (https://storage.googleapis.com/adx-rtb-dictionaries/providers.csv).
+ *        This namespace is different from the `VENDOR` detail type; see [ad
+ *        technology
+ *        providers](https://support.google.com/admanager/answer/9012903) for
+ *        more information. (Value: "ATP_VENDOR")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute
  *        Indicates that the detail ID refers to a creative attribute; see
  *        [publisher-excludable-creative-attributes](https://developers.google.com/authorized-buyers/rtb/downloads/publisher-excludable-creative-attributes).
@@ -4929,7 +4955,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_Vendor
  *        Indicates that the detail ID refers to a vendor; see
  *        [vendors](https://developers.google.com/authorized-buyers/rtb/downloads/vendors).
+ *        This namespace is different from that of the `ATP_VENDOR` detail type.
  *        (Value: "VENDOR")
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_VendorDomain
+ *        Indicates that the detail string refers the domain of an unknown
+ *        vendor. (Value: "VENDOR_DOMAIN")
  */
 @property(nonatomic, copy, nullable) NSString *detailType;
 

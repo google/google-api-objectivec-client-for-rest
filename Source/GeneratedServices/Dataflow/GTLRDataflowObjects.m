@@ -93,6 +93,11 @@ NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_SingletonKind = @"SING
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_UnknownKind = @"UNKNOWN_KIND";
 NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind = @"WRITE_KIND";
 
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.flexrsGoal
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsCostOptimized = @"FLEXRS_COST_OPTIMIZED";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsSpeedOptimized = @"FLEXRS_SPEED_OPTIMIZED";
+NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsUnspecified = @"FLEXRS_UNSPECIFIED";
+
 // GTLRDataflow_FlexTemplateRuntimeEnvironment.ipConfiguration
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPrivate = @"WORKER_IP_PRIVATE";
 NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_IpConfiguration_WorkerIpPublic = @"WORKER_IP_PUBLIC";
@@ -819,8 +824,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
 @dynamic additionalExperiments, additionalUserLabels, enableStreamingEngine,
-         ipConfiguration, kmsKeyName, machineType, maxWorkers, network,
-         numWorkers, serviceAccountEmail, subnetwork, tempLocation,
+         flexrsGoal, ipConfiguration, kmsKeyName, machineType, maxWorkers,
+         network, numWorkers, serviceAccountEmail, subnetwork, tempLocation,
          workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1019,8 +1024,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @dynamic clientRequestId, createdFromSnapshotId, createTime, currentState,
          currentStateTime, environment, executionInfo, identifier, jobMetadata,
          labels, location, name, pipelineDescription, projectId,
-         replacedByJobId, replaceJobId, requestedState, stageStates, startTime,
-         steps, stepsLocation, tempFiles, transformNameMapping, type;
+         replacedByJobId, replaceJobId, requestedState, satisfiesPzs,
+         stageStates, startTime, steps, stepsLocation, tempFiles,
+         transformNameMapping, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

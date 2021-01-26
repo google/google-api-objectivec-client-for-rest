@@ -704,13 +704,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTile_Relation_RelationType_Relat
 /** The areas present in this geometry. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSemanticTile_Area *> *areas;
 
-/** The extruded areas present in this geometry. */
+/**
+ *  The extruded areas present in this geometry. Not populated if
+ *  modeled_volumes are included in this geometry unless
+ *  always_include_building_footprints is set in GetFeatureTileRequest, in which
+ *  case the client should decide which (extruded areas or modeled volumes)
+ *  should be used (they should not be rendered together).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSemanticTile_ExtrudedArea *> *extrudedAreas;
 
 /** The lines present in this geometry. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSemanticTile_Line *> *lines;
 
-/** The modeled volumes present in this geometry. */
+/**
+ *  The modeled volumes present in this geometry. Not populated unless
+ *  enable_modeled_volumes has been set in GetFeatureTileRequest.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRSemanticTile_ModeledVolume *> *modeledVolumes;
 
 @end

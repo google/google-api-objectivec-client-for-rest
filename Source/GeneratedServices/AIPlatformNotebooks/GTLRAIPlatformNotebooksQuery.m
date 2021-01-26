@@ -210,6 +210,25 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetInstanceHealth
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getInstanceHealth";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetInstanceHealth *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_GetInstanceHealthResponse class];
+  query.loggingName = @"notebooks.projects.locations.instances.getInstanceHealth";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesIsUpgradeable
 
 @dynamic notebookInstance;

@@ -138,6 +138,75 @@
 
 @end
 
+@implementation GTLREventarcQuery_ProjectsLocationsTriggersCreate
+
+@dynamic parent, triggerId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/triggers";
+  GTLREventarcQuery_ProjectsLocationsTriggersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
+  query.loggingName = @"eventarc.projects.locations.triggers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsTriggersDelete
+
+@dynamic allowMissing, ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsTriggersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
+  query.loggingName = @"eventarc.projects.locations.triggers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsTriggersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsTriggersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_Trigger class];
+  query.loggingName = @"eventarc.projects.locations.triggers.get";
+  return query;
+}
+
+@end
+
 @implementation GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -156,6 +225,52 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLREventarc_Policy class];
   query.loggingName = @"eventarc.projects.locations.triggers.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsTriggersList
+
+@dynamic orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/triggers";
+  GTLREventarcQuery_ProjectsLocationsTriggersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLREventarc_ListTriggersResponse class];
+  query.loggingName = @"eventarc.projects.locations.triggers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLREventarcQuery_ProjectsLocationsTriggersPatch
+
+@dynamic allowMissing, name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLREventarc_Trigger *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLREventarcQuery_ProjectsLocationsTriggersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLREventarc_GoogleLongrunningOperation class];
+  query.loggingName = @"eventarc.projects.locations.triggers.patch";
   return query;
 }
 

@@ -29,12 +29,17 @@
 @class GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser;
 @class GTLRCloudIdentity_Group;
 @class GTLRCloudIdentity_Group_Labels;
+@class GTLRCloudIdentity_GroupRelation;
+@class GTLRCloudIdentity_GroupRelation_Labels;
+@class GTLRCloudIdentity_MemberRelation;
 @class GTLRCloudIdentity_Membership;
+@class GTLRCloudIdentity_MembershipAdjacencyList;
 @class GTLRCloudIdentity_MembershipRole;
 @class GTLRCloudIdentity_Operation_Metadata;
 @class GTLRCloudIdentity_Operation_Response;
 @class GTLRCloudIdentity_Status;
 @class GTLRCloudIdentity_Status_Details_Item;
+@class GTLRCloudIdentity_TransitiveMembershipRole;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -443,6 +448,64 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDev
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudIdentity_GroupRelation.relationType
+
+/**
+ *  The two entities have only a direct membership with each other.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_Direct;
+/**
+ *  The two entities have both a direct and an indirect membership with each
+ *  other.
+ *
+ *  Value: "DIRECT_AND_INDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_DirectAndIndirect;
+/**
+ *  The two entities have only an indirect membership with each other.
+ *
+ *  Value: "INDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_Indirect;
+/**
+ *  The relation type is undefined or undetermined.
+ *
+ *  Value: "RELATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_RelationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudIdentity_MemberRelation.relationType
+
+/**
+ *  The two entities have only a direct membership with each other.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Direct;
+/**
+ *  The two entities have both a direct and an indirect membership with each
+ *  other.
+ *
+ *  Value: "DIRECT_AND_INDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_DirectAndIndirect;
+/**
+ *  The two entities have only an indirect membership with each other.
+ *
+ *  Value: "INDIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Indirect;
+/**
+ *  The relation type is undefined or undetermined.
+ *
+ *  Value: "RELATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudIdentity_Membership.type
 
 /**
@@ -477,6 +540,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspec
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 
 /**
+ *  The response message for MembershipsService.CheckTransitiveMembership.
+ */
+@interface GTLRCloudIdentity_CheckTransitiveMembershipResponse : GTLRObject
+
+/**
+ *  Response does not include the possible roles of a member since the behavior
+ *  of this rpc is not all-or-nothing unlike the other rpcs. So, it may not be
+ *  possible to list all the roles definitively, due to possible lack of
+ *  authorization in some of the paths.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasMembership;
+
+@end
+
+
+/**
  *  A unique identifier for an entity in the Cloud Identity Groups API. An
  *  entity can represent either a group with an optional `namespace` or a user
  *  without a `namespace`. The combination of `id` and `namespace` must be
@@ -504,6 +585,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
  *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
  */
 @property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
+ *  The response message for MembershipsService.GetMembershipGraph.
+ */
+@interface GTLRCloudIdentity_GetMembershipGraphResponse : GTLRObject
+
+/**
+ *  The membership graph's path information represented as an adjacency list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MembershipAdjacencyList *> *adjacencyList;
+
+/**
+ *  The resources representing each group in the adjacency list. Each group in
+ *  this list can be correlated to a 'group' of the MembershipAdjacencyList
+ *  using the 'name' of the Group resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Group *> *groups;
 
 @end
 
@@ -1383,6 +1484,63 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 
 
 /**
+ *  Message representing a transitive group of a user or a group.
+ */
+@interface GTLRCloudIdentity_GroupRelation : GTLRObject
+
+/** Display name for this group. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Resource name for this group. */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/**
+ *  Entity key has an id and a namespace. In case of discussion forums, the id
+ *  will be an email address without a namespace.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_EntityKey *groupKey;
+
+/** Labels for Group resource. */
+@property(nonatomic, strong, nullable) GTLRCloudIdentity_GroupRelation_Labels *labels;
+
+/**
+ *  The relation between the member and the transitive group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_GroupRelation_RelationType_Direct The two
+ *        entities have only a direct membership with each other. (Value:
+ *        "DIRECT")
+ *    @arg @c kGTLRCloudIdentity_GroupRelation_RelationType_DirectAndIndirect
+ *        The two entities have both a direct and an indirect membership with
+ *        each other. (Value: "DIRECT_AND_INDIRECT")
+ *    @arg @c kGTLRCloudIdentity_GroupRelation_RelationType_Indirect The two
+ *        entities have only an indirect membership with each other. (Value:
+ *        "INDIRECT")
+ *    @arg @c kGTLRCloudIdentity_GroupRelation_RelationType_RelationTypeUnspecified
+ *        The relation type is undefined or undetermined. (Value:
+ *        "RELATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relationType;
+
+/** Membership roles of the member for the group. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_TransitiveMembershipRole *> *roles;
+
+@end
+
+
+/**
+ *  Labels for Group resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudIdentity_GroupRelation_Labels : GTLRObject
+@end
+
+
+/**
  *  Response message for ListGroups operation.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1466,6 +1624,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 
 
 /**
+ *  Message representing a transitive membership of a group.
+ */
+@interface GTLRCloudIdentity_MemberRelation : GTLRObject
+
+/**
+ *  Resource name for this member if member is a GROUP, otherwise it is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *member;
+
+/**
+ *  Entity key has an id and a namespace. In case of discussion forums, the id
+ *  will be an email address without a namespace.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_EntityKey *> *preferredMemberKey;
+
+/**
+ *  The relation between the group and the transitive member.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudIdentity_MemberRelation_RelationType_Direct The two
+ *        entities have only a direct membership with each other. (Value:
+ *        "DIRECT")
+ *    @arg @c kGTLRCloudIdentity_MemberRelation_RelationType_DirectAndIndirect
+ *        The two entities have both a direct and an indirect membership with
+ *        each other. (Value: "DIRECT_AND_INDIRECT")
+ *    @arg @c kGTLRCloudIdentity_MemberRelation_RelationType_Indirect The two
+ *        entities have only an indirect membership with each other. (Value:
+ *        "INDIRECT")
+ *    @arg @c kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnspecified
+ *        The relation type is undefined or undetermined. (Value:
+ *        "RELATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relationType;
+
+/** The membership role details (i.e name of role and expiry time). */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_TransitiveMembershipRole *> *roles;
+
+@end
+
+
+/**
  *  A membership within the Cloud Identity Groups API. A `Membership` defines a
  *  relationship between a `Group` and an entity belonging to that `Group`,
  *  referred to as a "member".
@@ -1512,6 +1711,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 
 /** Output only. The time when the `Membership` was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Membership graph's path information as an adjacency list.
+ */
+@interface GTLRCloudIdentity_MembershipAdjacencyList : GTLRObject
+
+/**
+ *  Each edge contains information about the member that belongs to this group.
+ *  Note: Fields returned here will help identify the specific Membership
+ *  resource (e.g name, preferred_member_key and role), but may not be a
+ *  comprehensive list of all fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_Membership *> *edges;
+
+/** Resource name of the group that the members belong to. */
+@property(nonatomic, copy, nullable) NSString *group;
 
 @end
 
@@ -1674,6 +1892,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
 
 
 /**
+ *  The response message for MembershipsService.SearchTransitiveGroups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memberships" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_SearchTransitiveGroupsResponse : GTLRCollectionObject
+
+/**
+ *  List of transitive groups satisfying the query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_GroupRelation *> *memberships;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results available for listing.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for MembershipsService.SearchTransitiveMemberships.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memberships" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudIdentity_SearchTransitiveMembershipsResponse : GTLRCollectionObject
+
+/**
+ *  List of transitive members satisfying the query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudIdentity_MemberRelation *> *memberships;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1715,6 +1987,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_User;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudIdentity_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Message representing the role of a TransitiveMembership.
+ */
+@interface GTLRCloudIdentity_TransitiveMembershipRole : GTLRObject
+
+/**
+ *  TransitiveMembershipRole in string format. Currently supported
+ *  TransitiveMembershipRoles: `"MEMBER"`, `"OWNER"`, and `"MANAGER"`.
+ */
+@property(nonatomic, copy, nullable) NSString *role;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -21,6 +21,9 @@
 @class GTLREventarc_AuditConfig;
 @class GTLREventarc_AuditLogConfig;
 @class GTLREventarc_Binding;
+@class GTLREventarc_CloudRun;
+@class GTLREventarc_Destination;
+@class GTLREventarc_EventFilter;
 @class GTLREventarc_Expr;
 @class GTLREventarc_GoogleLongrunningOperation;
 @class GTLREventarc_GoogleLongrunningOperation_Metadata;
@@ -31,6 +34,9 @@
 @class GTLREventarc_Location_Labels;
 @class GTLREventarc_Location_Metadata;
 @class GTLREventarc_Policy;
+@class GTLREventarc_Pubsub;
+@class GTLREventarc_Transport;
+@class GTLREventarc_Trigger;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -194,6 +200,46 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  Represents a Cloud Run destination.
+ */
+@interface GTLREventarc_CloudRun : GTLRObject
+
+/**
+ *  Optional. The relative path on the Cloud Run service the events should be
+ *  sent to. The value must conform to the definition of URI path segment
+ *  (section 3.3 of RFC2396). Examples: "/route", "route", "route/subroute".
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Required. The region the Cloud Run service is deployed in. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Required. The name of the Cloud run service being addressed (see
+ *  https://cloud.google.com/run/docs/reference/rest/v1/namespaces.services).
+ *  Only services located in the same project of the trigger object can be
+ *  addressed.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Represents a target of an invocation over HTTP.
+ */
+@interface GTLREventarc_Destination : GTLRObject
+
+/**
+ *  Cloud Run fully-managed service that receives the events. The service should
+ *  be running in the same project of the trigger.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_CloudRun *cloudRun;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -201,6 +247,24 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLREventarc_Empty : GTLRObject
+@end
+
+
+/**
+ *  Filters events based on exact matches on the CloudEvents attributes.
+ */
+@interface GTLREventarc_EventFilter : GTLRObject
+
+/**
+ *  Required. The name of a CloudEvents attribute. Currently, only a subset of
+ *  attributes are supported for filtering. All triggers MUST provide a filter
+ *  for the 'type' attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *attribute;
+
+/** Required. The value for the attribute. */
+@property(nonatomic, copy, nullable) NSString *value;
+
 @end
 
 
@@ -434,6 +498,36 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  The response message for the ListTriggers method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "triggers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLREventarc_ListTriggersResponse : GTLRCollectionObject
+
+/**
+ *  A page token that can be sent to ListTriggers to request the next page. If
+ *  this is empty, then there are no more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The requested triggers, up to the number specified in `page_size`.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_Trigger *> *triggers;
+
+/** Unreachable resources, if any. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  A resource that represents Google Cloud Platform location.
  */
 @interface GTLREventarc_Location : GTLRObject
@@ -491,6 +585,44 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLREventarc_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLREventarc_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
 @end
 
 
@@ -580,6 +712,31 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 
 
 /**
+ *  Represents a Pub/Sub transport.
+ */
+@interface GTLREventarc_Pubsub : GTLRObject
+
+/**
+ *  Output only. The name of the Pub/Sub subscription created and managed by
+ *  Eventarc system as a transport for the event delivery. Format:
+ *  `projects/{PROJECT_ID}/subscriptions/{SUBSCRIPTION_NAME}`.
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+/**
+ *  Optional. The name of the Pub/Sub topic created and managed by Eventarc
+ *  system as a transport for the event delivery. Format:
+ *  `projects/{PROJECT_ID}/topics/{TOPIC_NAME}`. You may set an existing topic
+ *  for triggers of the type `google.cloud.pubsub.topic.v1.messagePublished`
+ *  only. The topic you provide here will not be deleted by Eventarc at trigger
+ *  deletion.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLREventarc_SetIamPolicyRequest : GTLRObject
@@ -627,6 +784,87 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Represents the transport intermediaries created for the trigger in order to
+ *  deliver events.
+ */
+@interface GTLREventarc_Transport : GTLRObject
+
+/**
+ *  The Pub/Sub topic and subscription used by Eventarc as delivery
+ *  intermediary.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_Pubsub *pubsub;
+
+@end
+
+
+/**
+ *  A representation of the trigger resource.
+ */
+@interface GTLREventarc_Trigger : GTLRObject
+
+/** Output only. The creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Destination specifies where the events should be sent to. */
+@property(nonatomic, strong, nullable) GTLREventarc_Destination *destination;
+
+/**
+ *  Output only. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent only on create requests to ensure the client
+ *  has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The list of filters that applies to event attributes. Only events
+ *  that match all the provided filters will be sent to the destination.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLREventarc_EventFilter *> *eventFilters;
+
+/**
+ *  Required. The resource name of the trigger. Must be unique within the
+ *  location on the project and must be in
+ *  `projects/{project}/locations/{location}/triggers/{trigger}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The IAM service account email associated with the trigger. The
+ *  service account represents the identity of the trigger. The principal who
+ *  calls this API must have `iam.serviceAccounts.actAs` permission in the
+ *  service account. See
+ *  https://cloud.google.com/iam/docs/understanding-service-accounts?hl=en#sa_common
+ *  for more information. For Cloud Run destinations, this service account is
+ *  used to generate identity tokens when invoking the service. See
+ *  https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account
+ *  for information on how to invoke authenticated Cloud Run services. In order
+ *  to create Audit Log triggers, the service account should also have
+ *  'eventarc.events.receiveAuditLogV1Written' permission.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
+ *  Optional. In order to deliver messages, Eventarc may use other GCP products
+ *  as transport intermediary. This field contains a reference to that transport
+ *  intermediary. This information can be used for debugging purposes.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_Transport *transport;
+
+/**
+ *  Output only. Server assigned unique identifier for the trigger. The value is
+ *  a UUID4 string and guaranteed to remain unchanged until the resource is
+ *  deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The last-modified time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

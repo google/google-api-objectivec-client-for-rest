@@ -652,6 +652,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_Unkn
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageSummary_Kind_WriteKind;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_FlexTemplateRuntimeEnvironment.flexrsGoal
+
+/**
+ *  Optimize for lower cost.
+ *
+ *  Value: "FLEXRS_COST_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsCostOptimized;
+/**
+ *  Optimize for lower execution time.
+ *
+ *  Value: "FLEXRS_SPEED_OPTIMIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsSpeedOptimized;
+/**
+ *  Run in the default mode.
+ *
+ *  Value: "FLEXRS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_FlexTemplateRuntimeEnvironment.ipConfiguration
 
 /**
@@ -2975,6 +2997,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSNumber *enableStreamingEngine;
 
 /**
+ *  Set FlexRS goal for the job.
+ *  https://cloud.google.com/dataflow/docs/guides/flexrs
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsCostOptimized
+ *        Optimize for lower cost. (Value: "FLEXRS_COST_OPTIMIZED")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsSpeedOptimized
+ *        Optimize for lower execution time. (Value: "FLEXRS_SPEED_OPTIMIZED")
+ *    @arg @c kGTLRDataflow_FlexTemplateRuntimeEnvironment_FlexrsGoal_FlexrsUnspecified
+ *        Run in the default mode. (Value: "FLEXRS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *flexrsGoal;
+
+/**
  *  Configuration for VM IPs.
  *
  *  Likely values:
@@ -3358,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Defines a job to be run by the Cloud Dataflow service.
+ *  Defines a job to be run by the Cloud Dataflow service. nextID: 26
  */
 @interface GTLRDataflow_Job : GTLRObject
 
@@ -3609,6 +3645,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        transition from `JOB_STATE_RUNNING`. (Value: "JOB_STATE_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *requestedState;
+
+/**
+ *  Reserved for future use. This field is set only in responses from the
+ *  server; it is ignored if it is set in any requests.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  This field may be mutated by the Cloud Dataflow service; callers cannot
@@ -3961,7 +4005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_Parameters *parameters;
 
 /**
- *  Users need to set transform_name_mappings
+ *  Use this to pass transform_name_mappings for streaming update jobs.
  *  Ex:{"oldTransformName":"newTransformName",...}'
  */
 @property(nonatomic, strong, nullable) GTLRDataflow_LaunchFlexTemplateParameter_TransformNameMappings *transformNameMappings;
@@ -4004,7 +4048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Users need to set transform_name_mappings
+ *  Use this to pass transform_name_mappings for streaming update jobs.
  *  Ex:{"oldTransformName":"newTransformName",...}'
  *
  *  @note This class is documented as having more properties of NSString. Use @c

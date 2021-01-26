@@ -86,7 +86,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
  *  and
  *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
- *  intent.
+ *  intent. Data in this object has a few constraints: No sensitive information,
+ *  including but not limited to Personally Identifiable Information.
  */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_Device_CustomData *customData;
 
@@ -173,7 +174,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  [QUERY](https://developers.google.com/assistant/smarthome/reference/intent/query)
  *  and
  *  [EXECUTE](https://developers.google.com/assistant/smarthome/reference/intent/execute)
- *  intent.
+ *  intent. Data in this object has a few constraints: No sensitive information,
+ *  including but not limited to Personally Identifiable Information.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

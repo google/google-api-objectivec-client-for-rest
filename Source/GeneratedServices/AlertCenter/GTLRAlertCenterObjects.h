@@ -851,6 +851,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  A header to display above the incident message. Typcially used to attach a
+ *  localized notice on the timeline for followup comms translations.
+ */
+@property(nonatomic, copy, nullable) NSString *header;
+
 /** A one-line incident description. */
 @property(nonatomic, copy, nullable) NSString *title;
 

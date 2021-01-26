@@ -230,6 +230,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Ready;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Repairing;
 /**
+ *  The instance is restoring a backup to an existing file share and may be
+ *  unusable during this time.
+ *
+ *  Value: "RESTORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_Instance_State_Restoring;
+/**
  *  State not set.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -901,6 +908,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @property(nonatomic, copy, nullable) NSString *rolloutManagementPolicy;
 
+/**
+ *  schedule_deadline_time is the time deadline any schedule start time cannot
+ *  go beyond, including reschedule. It's normally the initial schedule start
+ *  time plus a week. If the reschedule type is next window, simply take this
+ *  value as start time. If reschedule type is IMMEDIATELY or BY_TIME, current
+ *  or selected time cannot go beyond this deadline.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
+
 /** The scheduled start time for the maintenance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -1166,6 +1182,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *    @arg @c kGTLRCloudFilestore_Instance_State_Repairing Work is being done on
  *        the instance. You can get further details from the `statusMessage`
  *        field of the `Instance` resource. (Value: "REPAIRING")
+ *    @arg @c kGTLRCloudFilestore_Instance_State_Restoring The instance is
+ *        restoring a backup to an existing file share and may be unusable
+ *        during this time. (Value: "RESTORING")
  *    @arg @c kGTLRCloudFilestore_Instance_State_StateUnspecified State not set.
  *        (Value: "STATE_UNSPECIFIED")
  */

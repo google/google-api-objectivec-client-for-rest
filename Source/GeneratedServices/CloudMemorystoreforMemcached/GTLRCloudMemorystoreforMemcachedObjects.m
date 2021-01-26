@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1beta2)
+//   Cloud Memorystore for Memcached API (memcache/v1)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -133,34 +133,10 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 //
 
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata
-@dynamic availableZones;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRCloudMemorystoreforMemcached_ZoneMetadata class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata
-//
-
-@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
 @end
@@ -412,18 +388,18 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_ListInstancesResponse
-@dynamic nextPageToken, resources, unreachable;
+@dynamic instances, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"resources" : [GTLRCloudMemorystoreforMemcached_Instance class],
+    @"instances" : [GTLRCloudMemorystoreforMemcached_Instance class],
     @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
-  return @"resources";
+  return @"instances";
 }
 
 @end
@@ -506,6 +482,30 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_LocationMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_LocationMetadata
+@dynamic availableZones;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_ZoneMetadata class];
 }
 
 @end
@@ -640,6 +640,17 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_OperationMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
 @end
 
 

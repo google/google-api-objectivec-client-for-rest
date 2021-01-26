@@ -4,11 +4,11 @@
 // API:
 //   Recommendations AI (Beta) (recommendationengine/v1beta1)
 // Description:
-//   Note that we now highly recommend new customers to use Retail API that
+//   Note that we now highly recommend new customers to use Retail API, which
 //   incorporates the GA version of the Recommendations AI funtionalities. To
 //   enable Retail API, please visit
-//   https://console.cloud.google.com/apis/library/retail.googleapis.com. This
-//   is Recommendations AI service enables customers to build end-to-end
+//   https://console.cloud.google.com/apis/library/retail.googleapis.com. The
+//   Recommendations AI service enables customers to build end-to-end
 //   personalized recommendation systems without requiring a high level of
 //   expertise in machine learning, recommendation system, or Google Cloud.
 // Documentation:
@@ -51,10 +51,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeRecommendationsAICloudPlatform;
 /**
  *  Service for executing Recommendations AI (Beta) queries.
  *
- *  Note that we now highly recommend new customers to use Retail API that
+ *  Note that we now highly recommend new customers to use Retail API, which
  *  incorporates the GA version of the Recommendations AI funtionalities. To
  *  enable Retail API, please visit
- *  https://console.cloud.google.com/apis/library/retail.googleapis.com. This is
+ *  https://console.cloud.google.com/apis/library/retail.googleapis.com. The
  *  Recommendations AI service enables customers to build end-to-end
  *  personalized recommendation systems without requiring a high level of
  *  expertise in machine learning, recommendation system, or Google Cloud.

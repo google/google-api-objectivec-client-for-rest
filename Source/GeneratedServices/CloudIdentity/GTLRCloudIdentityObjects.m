@@ -96,12 +96,34 @@ NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_P
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordSet = @"PASSWORD_SET";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1DeviceUser_PasswordState_PasswordStateUnspecified = @"PASSWORD_STATE_UNSPECIFIED";
 
+// GTLRCloudIdentity_GroupRelation.relationType
+NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_Direct = @"DIRECT";
+NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_DirectAndIndirect = @"DIRECT_AND_INDIRECT";
+NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_Indirect = @"INDIRECT";
+NSString * const kGTLRCloudIdentity_GroupRelation_RelationType_RelationTypeUnspecified = @"RELATION_TYPE_UNSPECIFIED";
+
+// GTLRCloudIdentity_MemberRelation.relationType
+NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Direct = @"DIRECT";
+NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_DirectAndIndirect = @"DIRECT_AND_INDIRECT";
+NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_Indirect = @"INDIRECT";
+NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnspecified = @"RELATION_TYPE_UNSPECIFIED";
+
 // GTLRCloudIdentity_Membership.type
 NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
 NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
 NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_ACCOUNT";
 NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_CheckTransitiveMembershipResponse
+//
+
+@implementation GTLRCloudIdentity_CheckTransitiveMembershipResponse
+@dynamic hasMembership;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -115,6 +137,25 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
   NSDictionary<NSString *, NSString *> *map = @{
     @"identifier" : @"id",
     @"namespaceProperty" : @"namespace"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GetMembershipGraphResponse
+//
+
+@implementation GTLRCloudIdentity_GetMembershipGraphResponse
+@dynamic adjacencyList, groups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adjacencyList" : [GTLRCloudIdentity_MembershipAdjacencyList class],
+    @"groups" : [GTLRCloudIdentity_Group class]
   };
   return map;
 }
@@ -453,6 +494,38 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_GroupRelation
+//
+
+@implementation GTLRCloudIdentity_GroupRelation
+@dynamic displayName, group, groupKey, labels, relationType, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"roles" : [GTLRCloudIdentity_TransitiveMembershipRole class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_GroupRelation_Labels
+//
+
+@implementation GTLRCloudIdentity_GroupRelation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_ListGroupsResponse
 //
 
@@ -517,6 +590,25 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_MemberRelation
+//
+
+@implementation GTLRCloudIdentity_MemberRelation
+@dynamic member, preferredMemberKey, relationType, roles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preferredMemberKey" : [GTLRCloudIdentity_EntityKey class],
+    @"roles" : [GTLRCloudIdentity_TransitiveMembershipRole class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Membership
 //
 
@@ -526,6 +618,24 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"roles" : [GTLRCloudIdentity_MembershipRole class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_MembershipAdjacencyList
+//
+
+@implementation GTLRCloudIdentity_MembershipAdjacencyList
+@dynamic edges, group;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edges" : [GTLRCloudIdentity_Membership class]
   };
   return map;
 }
@@ -634,6 +744,50 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudIdentity_SearchTransitiveGroupsResponse
+//
+
+@implementation GTLRCloudIdentity_SearchTransitiveGroupsResponse
+@dynamic memberships, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRCloudIdentity_GroupRelation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"memberships";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_SearchTransitiveMembershipsResponse
+//
+
+@implementation GTLRCloudIdentity_SearchTransitiveMembershipsResponse
+@dynamic memberships, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"memberships" : [GTLRCloudIdentity_MemberRelation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"memberships";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudIdentity_Status
 //
 
@@ -661,4 +815,14 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_TransitiveMembershipRole
+//
+
+@implementation GTLRCloudIdentity_TransitiveMembershipRole
+@dynamic role;
 @end

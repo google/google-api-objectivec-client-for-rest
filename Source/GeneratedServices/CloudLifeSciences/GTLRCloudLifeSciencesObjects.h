@@ -1469,7 +1469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  those of the tags used or the latest version will still be pulled. The root
  *  directory of the ext4 image must contain `image` and `overlay2` directories
  *  copied from the Docker directory of a VM where the desired Docker images
- *  have already been pulled. Only a single image is supported.
+ *  have already been pulled. Any images pulled that are not cached will be
+ *  stored on the first cache disk instead of the boot disk. Only a single image
+ *  is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dockerCacheImages;
 

@@ -838,6 +838,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_DimensionalityReductionMetrics
+//
+
+@implementation GTLRBigquery_DimensionalityReductionMetrics
+@dynamic totalExplainedVarianceRatio;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_EncryptionConfiguration
 //
 
@@ -873,8 +883,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_EvaluationMetrics
 @dynamic arimaForecastingMetrics, binaryClassificationMetrics,
-         clusteringMetrics, multiClassClassificationMetrics, rankingMetrics,
-         regressionMetrics;
+         clusteringMetrics, dimensionalityReductionMetrics,
+         multiClassClassificationMetrics, rankingMetrics, regressionMetrics;
 @end
 
 
@@ -1085,11 +1095,12 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_IterationResult
 @dynamic arimaResult, clusterInfos, durationMs, evalLoss, index, learnRate,
-         trainingLoss;
+         principalComponentInfos, trainingLoss;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"clusterInfos" : [GTLRBigquery_ClusterInfo class]
+    @"clusterInfos" : [GTLRBigquery_ClusterInfo class],
+    @"principalComponentInfos" : [GTLRBigquery_PrincipalComponentInfo class]
   };
   return map;
 }
@@ -1683,6 +1694,17 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_PrincipalComponentInfo
+//
+
+@implementation GTLRBigquery_PrincipalComponentInfo
+@dynamic cumulativeExplainedVarianceRatio, explainedVariance,
+         explainedVarianceRatio, principalComponentId;
 @end
 
 
