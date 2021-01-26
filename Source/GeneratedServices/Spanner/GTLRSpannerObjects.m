@@ -631,11 +631,12 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ListInstancesResponse
-@dynamic instances, nextPageToken;
+@dynamic instances, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"instances" : [GTLRSpanner_Instance class]
+    @"instances" : [GTLRSpanner_Instance class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -708,6 +708,1220 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
+ *  Lists time series that match a filter. This method does not require a
+ *  Workspace.
+ *
+ *  Method: monitoring.folders.timeSeries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_FoldersTimeSeriesList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForFoldersTimeSeriesListWithname:]
+
+/**
+ *  The alignment_period specifies a time interval, in seconds, that is used to
+ *  divide the data in all the time series into consistent blocks of time. This
+ *  will be done before the per-series aligner can be applied to the data.The
+ *  value must be at least 60 seconds. If a per-series aligner other than
+ *  ALIGN_NONE is specified, this field is required or an error is returned. If
+ *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
+ *  then this field is ignored.The maximum value of the alignment_period is 104
+ *  weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting
+ *  policies.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *aggregationAlignmentPeriod;
+
+/**
+ *  The reduction operation to be used to combine time series into a single time
+ *  series, where the value of each data point in the resulting series is a
+ *  function of all the already aligned values in the input time series.Not all
+ *  reducer operations can be applied to all time series. The valid choices
+ *  depend on the metric_kind and the value_type of the original time series.
+ *  Reduction can yield a time series with a different metric_kind or value_type
+ *  than the input time series.Time series data must first be aligned (see
+ *  per_series_aligner) in order to perform cross-time series reduction. If
+ *  cross_series_reducer is specified, then per_series_aligner must be
+ *  specified, and must not be ALIGN_NONE. An alignment_period must also be
+ *  specified; otherwise, an error is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceNone No
+ *        cross-time series reduction. The output of the Aligner is returned.
+ *        (Value: "REDUCE_NONE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMean Reduce by
+ *        computing the mean value across time series for each alignment period.
+ *        This reducer is valid for DELTA and GAUGE metrics with numeric or
+ *        distribution values. The value_type of the output is DOUBLE. (Value:
+ *        "REDUCE_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMin Reduce by
+ *        computing the minimum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MIN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMax Reduce by
+ *        computing the maximum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MAX")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceSum Reduce by
+ *        computing the sum across time series for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics with numeric and
+ *        distribution values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_SUM")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev Reduce by
+ *        computing the standard deviation across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        or distribution values. The value_type of the output is DOUBLE.
+ *        (Value: "REDUCE_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCount Reduce by
+ *        computing the number of data points across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics of
+ *        numeric, Boolean, distribution, and string value_type. The value_type
+ *        of the output is INT64. (Value: "REDUCE_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue Reduce
+ *        by computing the number of True-valued data points across time series
+ *        for each alignment period. This reducer is valid for DELTA and GAUGE
+ *        metrics of Boolean value_type. The value_type of the output is INT64.
+ *        (Value: "REDUCE_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse
+ *        Reduce by computing the number of False-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue
+ *        Reduce by computing the ratio of the number of True-valued data points
+ *        to the total number of data points for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics of Boolean value_type.
+ *        The output value is in the range 0.0, 1.0 and has value_type DOUBLE.
+ *        (Value: "REDUCE_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99
+ *        Reduce by computing the 99th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95
+ *        Reduce by computing the 95th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50
+ *        Reduce by computing the 50th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05
+ *        Reduce by computing the 5th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_05")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationCrossSeriesReducer;
+
+/**
+ *  The set of fields to preserve when cross_series_reducer is specified. The
+ *  group_by_fields determine how the time series are partitioned into subsets
+ *  prior to applying the aggregation operation. Each subset contains time
+ *  series that have the same value for each of the grouping fields. Each
+ *  individual time series is a member of exactly one subset. The
+ *  cross_series_reducer is applied to each subset of time series. It is not
+ *  possible to reduce across different resource types, so this field implicitly
+ *  contains resource.type. Fields not specified in group_by_fields are
+ *  aggregated away. If group_by_fields is not specified and all the time series
+ *  have the same resource type, then the time series are aggregated into a
+ *  single output time series. If cross_series_reducer is not defined, this
+ *  field is ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aggregationGroupByFields;
+
+/**
+ *  An Aligner describes how to bring the data points in a single time series
+ *  into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
+ *  data points in an alignment_period to be mathematically grouped together,
+ *  resulting in a single data point for each alignment_period with end
+ *  timestamp at the end of the period.Not all alignment operations may be
+ *  applied to all time series. The valid choices depend on the metric_kind and
+ *  value_type of the original time series. Alignment can change the metric_kind
+ *  or the value_type of the time series.Time series data must be aligned in
+ *  order to perform cross-time series reduction. If cross_series_reducer is
+ *  specified, then per_series_aligner must be specified and not equal to
+ *  ALIGN_NONE and alignment_period must be specified; otherwise, an error is
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNone No alignment.
+ *        Raw data is returned. Not valid if cross-series reduction is
+ *        requested. The value_type of the result is the same as the value_type
+ *        of the input. (Value: "ALIGN_NONE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta Align and
+ *        convert to DELTA. The output is delta = y1 - y0.This alignment is
+ *        valid for CUMULATIVE and DELTA metrics. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The value_type of the
+ *        aligned result is the same as the value_type of the input. (Value:
+ *        "ALIGN_DELTA")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignRate Align and
+ *        convert to a rate. The result is computed as rate = (y1 - y0)/(t1 -
+ *        t0), or "delta over time". Think of this aligner as providing the
+ *        slope of the line that passes through the value at the start and at
+ *        the end of the alignment_period.This aligner is valid for CUMULATIVE
+ *        and DELTA metrics with numeric values. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The output is a GAUGE
+ *        metric with value_type DOUBLE.If, by "rate", you mean "percentage
+ *        change", see the ALIGN_PERCENT_CHANGE aligner instead. (Value:
+ *        "ALIGN_RATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate Align
+ *        by interpolating between adjacent points around the alignment period
+ *        boundary. This aligner is valid for GAUGE metrics with numeric values.
+ *        The value_type of the aligned result is the same as the value_type of
+ *        the input. (Value: "ALIGN_INTERPOLATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder Align by
+ *        moving the most recent data point before the end of the alignment
+ *        period to the boundary at the end of the alignment period. This
+ *        aligner is valid for GAUGE metrics. The value_type of the aligned
+ *        result is the same as the value_type of the input. (Value:
+ *        "ALIGN_NEXT_OLDER")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMin Align the time
+ *        series by returning the minimum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MIN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMax Align the time
+ *        series by returning the maximum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MAX")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMean Align the time
+ *        series by returning the mean value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is DOUBLE. (Value: "ALIGN_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCount Align the
+ *        time series by returning the number of values in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        or Boolean values. The value_type of the aligned result is INT64.
+ *        (Value: "ALIGN_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignSum Align the time
+ *        series by returning the sum of the values in each alignment period.
+ *        This aligner is valid for GAUGE and DELTA metrics with numeric and
+ *        distribution values. The value_type of the aligned result is the same
+ *        as the value_type of the input. (Value: "ALIGN_SUM")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev Align the
+ *        time series by returning the standard deviation of the values in each
+ *        alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *        with numeric values. The value_type of the output is DOUBLE. (Value:
+ *        "ALIGN_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue Align the
+ *        time series by returning the number of True values in each alignment
+ *        period. This aligner is valid for GAUGE metrics with Boolean values.
+ *        The value_type of the output is INT64. (Value: "ALIGN_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse Align
+ *        the time series by returning the number of False values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Align
+ *        the time series by returning the ratio of the number of True values to
+ *        the total number of values in each alignment period. This aligner is
+ *        valid for GAUGE metrics with Boolean values. The output value is in
+ *        the range 0.0, 1.0 and has value_type DOUBLE. (Value:
+ *        "ALIGN_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 99th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 95th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 50th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 5th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_05")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange Align
+ *        and convert to a percentage change. This aligner is valid for GAUGE
+ *        and DELTA metrics with numeric values. This alignment returns
+ *        ((current - previous)/previous) * 100, where the value of previous is
+ *        determined based on the alignment_period.If the values of current and
+ *        previous are both 0, then the returned value is 0. If only previous is
+ *        0, the returned value is infinity.A 10-minute moving mean is computed
+ *        at each point of the alignment period prior to the above calculation
+ *        to smooth the metric and prevent false positives from very short-lived
+ *        spikes. The moving mean is only applicable for data whose values are
+ *        >= 0. Any values < 0 are treated as a missing datapoint, and are
+ *        ignored. While DELTA metrics are accepted by this alignment, special
+ *        care should be taken that the values for the metric will always be
+ *        positive. The output is a GAUGE metric with value_type DOUBLE. (Value:
+ *        "ALIGN_PERCENT_CHANGE")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
+
+/**
+ *  Required. A monitoring filter
+ *  (https://cloud.google.com/monitoring/api/v3/filters) that specifies which
+ *  time series should be returned. The filter must specify a single metric
+ *  type, and can additionally specify metric labels and other information. For
+ *  example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+ *  metric.labels.instance_name = "my-instance-name"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The end of the time interval. */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/**
+ *  Optional. The beginning of the time interval. The default value for the
+ *  start time is the end time. The start time must not be later than the end
+ *  time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/**
+ *  Required. The project, organization or folder on which to execute the
+ *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Unsupported: must be left blank. The points in each time series are
+ *  currently returned in reverse time order (most recent to oldest).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  A positive number that is the maximum number of results to return. If
+ *  page_size is empty or more than 100,000 results, the effective page_size is
+ *  100,000 results. If view is set to FULL, this is the maximum number of
+ *  Points returned. If view is set to HEADERS, this is the maximum number of
+ *  TimeSeries returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return additional results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The alignment_period specifies a time interval, in seconds, that is used to
+ *  divide the data in all the time series into consistent blocks of time. This
+ *  will be done before the per-series aligner can be applied to the data.The
+ *  value must be at least 60 seconds. If a per-series aligner other than
+ *  ALIGN_NONE is specified, this field is required or an error is returned. If
+ *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
+ *  then this field is ignored.The maximum value of the alignment_period is 104
+ *  weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting
+ *  policies.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *secondaryAggregationAlignmentPeriod;
+
+/**
+ *  The reduction operation to be used to combine time series into a single time
+ *  series, where the value of each data point in the resulting series is a
+ *  function of all the already aligned values in the input time series.Not all
+ *  reducer operations can be applied to all time series. The valid choices
+ *  depend on the metric_kind and the value_type of the original time series.
+ *  Reduction can yield a time series with a different metric_kind or value_type
+ *  than the input time series.Time series data must first be aligned (see
+ *  per_series_aligner) in order to perform cross-time series reduction. If
+ *  cross_series_reducer is specified, then per_series_aligner must be
+ *  specified, and must not be ALIGN_NONE. An alignment_period must also be
+ *  specified; otherwise, an error is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceNone No
+ *        cross-time series reduction. The output of the Aligner is returned.
+ *        (Value: "REDUCE_NONE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMean
+ *        Reduce by computing the mean value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric or distribution values. The value_type of the output is
+ *        DOUBLE. (Value: "REDUCE_MEAN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMin
+ *        Reduce by computing the minimum value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_MIN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMax
+ *        Reduce by computing the maximum value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_MAX")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceSum
+ *        Reduce by computing the sum across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        and distribution values. The value_type of the output is the same as
+ *        the value_type of the input. (Value: "REDUCE_SUM")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceStddev
+ *        Reduce by computing the standard deviation across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric or distribution values. The value_type of the output is
+ *        DOUBLE. (Value: "REDUCE_STDDEV")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCount
+ *        Reduce by computing the number of data points across time series for
+ *        each alignment period. This reducer is valid for DELTA and GAUGE
+ *        metrics of numeric, Boolean, distribution, and string value_type. The
+ *        value_type of the output is INT64. (Value: "REDUCE_COUNT")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountTrue
+ *        Reduce by computing the number of True-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountFalse
+ *        Reduce by computing the number of False-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceFractionTrue
+ *        Reduce by computing the ratio of the number of True-valued data points
+ *        to the total number of data points for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics of Boolean value_type.
+ *        The output value is in the range 0.0, 1.0 and has value_type DOUBLE.
+ *        (Value: "REDUCE_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile99
+ *        Reduce by computing the 99th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile95
+ *        Reduce by computing the 95th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile50
+ *        Reduce by computing the 50th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile05
+ *        Reduce by computing the 5th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_05")
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryAggregationCrossSeriesReducer;
+
+/**
+ *  The set of fields to preserve when cross_series_reducer is specified. The
+ *  group_by_fields determine how the time series are partitioned into subsets
+ *  prior to applying the aggregation operation. Each subset contains time
+ *  series that have the same value for each of the grouping fields. Each
+ *  individual time series is a member of exactly one subset. The
+ *  cross_series_reducer is applied to each subset of time series. It is not
+ *  possible to reduce across different resource types, so this field implicitly
+ *  contains resource.type. Fields not specified in group_by_fields are
+ *  aggregated away. If group_by_fields is not specified and all the time series
+ *  have the same resource type, then the time series are aggregated into a
+ *  single output time series. If cross_series_reducer is not defined, this
+ *  field is ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryAggregationGroupByFields;
+
+/**
+ *  An Aligner describes how to bring the data points in a single time series
+ *  into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
+ *  data points in an alignment_period to be mathematically grouped together,
+ *  resulting in a single data point for each alignment_period with end
+ *  timestamp at the end of the period.Not all alignment operations may be
+ *  applied to all time series. The valid choices depend on the metric_kind and
+ *  value_type of the original time series. Alignment can change the metric_kind
+ *  or the value_type of the time series.Time series data must be aligned in
+ *  order to perform cross-time series reduction. If cross_series_reducer is
+ *  specified, then per_series_aligner must be specified and not equal to
+ *  ALIGN_NONE and alignment_period must be specified; otherwise, an error is
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNone No
+ *        alignment. Raw data is returned. Not valid if cross-series reduction
+ *        is requested. The value_type of the result is the same as the
+ *        value_type of the input. (Value: "ALIGN_NONE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignDelta
+ *        Align and convert to DELTA. The output is delta = y1 - y0.This
+ *        alignment is valid for CUMULATIVE and DELTA metrics. If the selected
+ *        alignment period results in periods with no data, then the aligned
+ *        value for such a period is created by interpolation. The value_type of
+ *        the aligned result is the same as the value_type of the input. (Value:
+ *        "ALIGN_DELTA")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignRate Align
+ *        and convert to a rate. The result is computed as rate = (y1 - y0)/(t1
+ *        - t0), or "delta over time". Think of this aligner as providing the
+ *        slope of the line that passes through the value at the start and at
+ *        the end of the alignment_period.This aligner is valid for CUMULATIVE
+ *        and DELTA metrics with numeric values. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The output is a GAUGE
+ *        metric with value_type DOUBLE.If, by "rate", you mean "percentage
+ *        change", see the ALIGN_PERCENT_CHANGE aligner instead. (Value:
+ *        "ALIGN_RATE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignInterpolate
+ *        Align by interpolating between adjacent points around the alignment
+ *        period boundary. This aligner is valid for GAUGE metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_INTERPOLATE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNextOlder
+ *        Align by moving the most recent data point before the end of the
+ *        alignment period to the boundary at the end of the alignment period.
+ *        This aligner is valid for GAUGE metrics. The value_type of the aligned
+ *        result is the same as the value_type of the input. (Value:
+ *        "ALIGN_NEXT_OLDER")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMin Align
+ *        the time series by returning the minimum value in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_MIN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMax Align
+ *        the time series by returning the maximum value in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_MAX")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMean Align
+ *        the time series by returning the mean value in each alignment period.
+ *        This aligner is valid for GAUGE and DELTA metrics with numeric values.
+ *        The value_type of the aligned result is DOUBLE. (Value: "ALIGN_MEAN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCount
+ *        Align the time series by returning the number of values in each
+ *        alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *        with numeric or Boolean values. The value_type of the aligned result
+ *        is INT64. (Value: "ALIGN_COUNT")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignSum Align
+ *        the time series by returning the sum of the values in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        and distribution values. The value_type of the aligned result is the
+ *        same as the value_type of the input. (Value: "ALIGN_SUM")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignStddev
+ *        Align the time series by returning the standard deviation of the
+ *        values in each alignment period. This aligner is valid for GAUGE and
+ *        DELTA metrics with numeric values. The value_type of the output is
+ *        DOUBLE. (Value: "ALIGN_STDDEV")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountTrue
+ *        Align the time series by returning the number of True values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountFalse
+ *        Align the time series by returning the number of False values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignFractionTrue
+ *        Align the time series by returning the ratio of the number of True
+ *        values to the total number of values in each alignment period. This
+ *        aligner is valid for GAUGE metrics with Boolean values. The output
+ *        value is in the range 0.0, 1.0 and has value_type DOUBLE. (Value:
+ *        "ALIGN_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile99
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 99th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile95
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 95th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile50
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 50th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile05
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 5th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_05")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentChange
+ *        Align and convert to a percentage change. This aligner is valid for
+ *        GAUGE and DELTA metrics with numeric values. This alignment returns
+ *        ((current - previous)/previous) * 100, where the value of previous is
+ *        determined based on the alignment_period.If the values of current and
+ *        previous are both 0, then the returned value is 0. If only previous is
+ *        0, the returned value is infinity.A 10-minute moving mean is computed
+ *        at each point of the alignment period prior to the above calculation
+ *        to smooth the metric and prevent false positives from very short-lived
+ *        spikes. The moving mean is only applicable for data whose values are
+ *        >= 0. Any values < 0 are treated as a missing datapoint, and are
+ *        ignored. While DELTA metrics are accepted by this alignment, special
+ *        care should be taken that the values for the metric will always be
+ *        positive. The output is a GAUGE metric with value_type DOUBLE. (Value:
+ *        "ALIGN_PERCENT_CHANGE")
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryAggregationPerSeriesAligner;
+
+/**
+ *  Required. Specifies which information is returned about the time series.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringViewFull Returns the identity of the metric(s), the
+ *        time series, and the time series data. (Value: "FULL")
+ *    @arg @c kGTLRMonitoringViewHeaders Returns the identity of the metric and
+ *        the time series resource, but not the time series data. (Value:
+ *        "HEADERS")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
+ *
+ *  Lists time series that match a filter. This method does not require a
+ *  Workspace.
+ *
+ *  @param name Required. The project, organization or folder on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRMonitoringQuery_FoldersTimeSeriesList
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists time series that match a filter. This method does not require a
+ *  Workspace.
+ *
+ *  Method: monitoring.organizations.timeSeries.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_OrganizationsTimeSeriesList : GTLRMonitoringQuery
+// Previous library name was
+//   +[GTLQueryMonitoring queryForOrganizationsTimeSeriesListWithname:]
+
+/**
+ *  The alignment_period specifies a time interval, in seconds, that is used to
+ *  divide the data in all the time series into consistent blocks of time. This
+ *  will be done before the per-series aligner can be applied to the data.The
+ *  value must be at least 60 seconds. If a per-series aligner other than
+ *  ALIGN_NONE is specified, this field is required or an error is returned. If
+ *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
+ *  then this field is ignored.The maximum value of the alignment_period is 104
+ *  weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting
+ *  policies.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *aggregationAlignmentPeriod;
+
+/**
+ *  The reduction operation to be used to combine time series into a single time
+ *  series, where the value of each data point in the resulting series is a
+ *  function of all the already aligned values in the input time series.Not all
+ *  reducer operations can be applied to all time series. The valid choices
+ *  depend on the metric_kind and the value_type of the original time series.
+ *  Reduction can yield a time series with a different metric_kind or value_type
+ *  than the input time series.Time series data must first be aligned (see
+ *  per_series_aligner) in order to perform cross-time series reduction. If
+ *  cross_series_reducer is specified, then per_series_aligner must be
+ *  specified, and must not be ALIGN_NONE. An alignment_period must also be
+ *  specified; otherwise, an error is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceNone No
+ *        cross-time series reduction. The output of the Aligner is returned.
+ *        (Value: "REDUCE_NONE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMean Reduce by
+ *        computing the mean value across time series for each alignment period.
+ *        This reducer is valid for DELTA and GAUGE metrics with numeric or
+ *        distribution values. The value_type of the output is DOUBLE. (Value:
+ *        "REDUCE_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMin Reduce by
+ *        computing the minimum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MIN")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceMax Reduce by
+ *        computing the maximum value across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        values. The value_type of the output is the same as the value_type of
+ *        the input. (Value: "REDUCE_MAX")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceSum Reduce by
+ *        computing the sum across time series for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics with numeric and
+ *        distribution values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_SUM")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceStddev Reduce by
+ *        computing the standard deviation across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        or distribution values. The value_type of the output is DOUBLE.
+ *        (Value: "REDUCE_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCount Reduce by
+ *        computing the number of data points across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics of
+ *        numeric, Boolean, distribution, and string value_type. The value_type
+ *        of the output is INT64. (Value: "REDUCE_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountTrue Reduce
+ *        by computing the number of True-valued data points across time series
+ *        for each alignment period. This reducer is valid for DELTA and GAUGE
+ *        metrics of Boolean value_type. The value_type of the output is INT64.
+ *        (Value: "REDUCE_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceCountFalse
+ *        Reduce by computing the number of False-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReduceFractionTrue
+ *        Reduce by computing the ratio of the number of True-valued data points
+ *        to the total number of data points for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics of Boolean value_type.
+ *        The output value is in the range 0.0, 1.0 and has value_type DOUBLE.
+ *        (Value: "REDUCE_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile99
+ *        Reduce by computing the 99th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile95
+ *        Reduce by computing the 95th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile50
+ *        Reduce by computing the 50th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringAggregationCrossSeriesReducerReducePercentile05
+ *        Reduce by computing the 5th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_05")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationCrossSeriesReducer;
+
+/**
+ *  The set of fields to preserve when cross_series_reducer is specified. The
+ *  group_by_fields determine how the time series are partitioned into subsets
+ *  prior to applying the aggregation operation. Each subset contains time
+ *  series that have the same value for each of the grouping fields. Each
+ *  individual time series is a member of exactly one subset. The
+ *  cross_series_reducer is applied to each subset of time series. It is not
+ *  possible to reduce across different resource types, so this field implicitly
+ *  contains resource.type. Fields not specified in group_by_fields are
+ *  aggregated away. If group_by_fields is not specified and all the time series
+ *  have the same resource type, then the time series are aggregated into a
+ *  single output time series. If cross_series_reducer is not defined, this
+ *  field is ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aggregationGroupByFields;
+
+/**
+ *  An Aligner describes how to bring the data points in a single time series
+ *  into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
+ *  data points in an alignment_period to be mathematically grouped together,
+ *  resulting in a single data point for each alignment_period with end
+ *  timestamp at the end of the period.Not all alignment operations may be
+ *  applied to all time series. The valid choices depend on the metric_kind and
+ *  value_type of the original time series. Alignment can change the metric_kind
+ *  or the value_type of the time series.Time series data must be aligned in
+ *  order to perform cross-time series reduction. If cross_series_reducer is
+ *  specified, then per_series_aligner must be specified and not equal to
+ *  ALIGN_NONE and alignment_period must be specified; otherwise, an error is
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNone No alignment.
+ *        Raw data is returned. Not valid if cross-series reduction is
+ *        requested. The value_type of the result is the same as the value_type
+ *        of the input. (Value: "ALIGN_NONE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignDelta Align and
+ *        convert to DELTA. The output is delta = y1 - y0.This alignment is
+ *        valid for CUMULATIVE and DELTA metrics. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The value_type of the
+ *        aligned result is the same as the value_type of the input. (Value:
+ *        "ALIGN_DELTA")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignRate Align and
+ *        convert to a rate. The result is computed as rate = (y1 - y0)/(t1 -
+ *        t0), or "delta over time". Think of this aligner as providing the
+ *        slope of the line that passes through the value at the start and at
+ *        the end of the alignment_period.This aligner is valid for CUMULATIVE
+ *        and DELTA metrics with numeric values. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The output is a GAUGE
+ *        metric with value_type DOUBLE.If, by "rate", you mean "percentage
+ *        change", see the ALIGN_PERCENT_CHANGE aligner instead. (Value:
+ *        "ALIGN_RATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignInterpolate Align
+ *        by interpolating between adjacent points around the alignment period
+ *        boundary. This aligner is valid for GAUGE metrics with numeric values.
+ *        The value_type of the aligned result is the same as the value_type of
+ *        the input. (Value: "ALIGN_INTERPOLATE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignNextOlder Align by
+ *        moving the most recent data point before the end of the alignment
+ *        period to the boundary at the end of the alignment period. This
+ *        aligner is valid for GAUGE metrics. The value_type of the aligned
+ *        result is the same as the value_type of the input. (Value:
+ *        "ALIGN_NEXT_OLDER")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMin Align the time
+ *        series by returning the minimum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MIN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMax Align the time
+ *        series by returning the maximum value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is the same as the value_type of the
+ *        input. (Value: "ALIGN_MAX")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignMean Align the time
+ *        series by returning the mean value in each alignment period. This
+ *        aligner is valid for GAUGE and DELTA metrics with numeric values. The
+ *        value_type of the aligned result is DOUBLE. (Value: "ALIGN_MEAN")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCount Align the
+ *        time series by returning the number of values in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        or Boolean values. The value_type of the aligned result is INT64.
+ *        (Value: "ALIGN_COUNT")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignSum Align the time
+ *        series by returning the sum of the values in each alignment period.
+ *        This aligner is valid for GAUGE and DELTA metrics with numeric and
+ *        distribution values. The value_type of the aligned result is the same
+ *        as the value_type of the input. (Value: "ALIGN_SUM")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignStddev Align the
+ *        time series by returning the standard deviation of the values in each
+ *        alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *        with numeric values. The value_type of the output is DOUBLE. (Value:
+ *        "ALIGN_STDDEV")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountTrue Align the
+ *        time series by returning the number of True values in each alignment
+ *        period. This aligner is valid for GAUGE metrics with Boolean values.
+ *        The value_type of the output is INT64. (Value: "ALIGN_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignCountFalse Align
+ *        the time series by returning the number of False values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignFractionTrue Align
+ *        the time series by returning the ratio of the number of True values to
+ *        the total number of values in each alignment period. This aligner is
+ *        valid for GAUGE metrics with Boolean values. The output value is in
+ *        the range 0.0, 1.0 and has value_type DOUBLE. (Value:
+ *        "ALIGN_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile99 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 99th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile95 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 95th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile50 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 50th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentile05 Align
+ *        the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 5th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_05")
+ *    @arg @c kGTLRMonitoringAggregationPerSeriesAlignerAlignPercentChange Align
+ *        and convert to a percentage change. This aligner is valid for GAUGE
+ *        and DELTA metrics with numeric values. This alignment returns
+ *        ((current - previous)/previous) * 100, where the value of previous is
+ *        determined based on the alignment_period.If the values of current and
+ *        previous are both 0, then the returned value is 0. If only previous is
+ *        0, the returned value is infinity.A 10-minute moving mean is computed
+ *        at each point of the alignment period prior to the above calculation
+ *        to smooth the metric and prevent false positives from very short-lived
+ *        spikes. The moving mean is only applicable for data whose values are
+ *        >= 0. Any values < 0 are treated as a missing datapoint, and are
+ *        ignored. While DELTA metrics are accepted by this alignment, special
+ *        care should be taken that the values for the metric will always be
+ *        positive. The output is a GAUGE metric with value_type DOUBLE. (Value:
+ *        "ALIGN_PERCENT_CHANGE")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregationPerSeriesAligner;
+
+/**
+ *  Required. A monitoring filter
+ *  (https://cloud.google.com/monitoring/api/v3/filters) that specifies which
+ *  time series should be returned. The filter must specify a single metric
+ *  type, and can additionally specify metric labels and other information. For
+ *  example: metric.type = "compute.googleapis.com/instance/cpu/usage_time" AND
+ *  metric.labels.instance_name = "my-instance-name"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Required. The end of the time interval. */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalEndTime;
+
+/**
+ *  Optional. The beginning of the time interval. The default value for the
+ *  start time is the end time. The start time must not be later than the end
+ *  time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
+
+/**
+ *  Required. The project, organization or folder on which to execute the
+ *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Unsupported: must be left blank. The points in each time series are
+ *  currently returned in reverse time order (most recent to oldest).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  A positive number that is the maximum number of results to return. If
+ *  page_size is empty or more than 100,000 results, the effective page_size is
+ *  100,000 results. If view is set to FULL, this is the maximum number of
+ *  Points returned. If view is set to HEADERS, this is the maximum number of
+ *  TimeSeries returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  If this field is not empty then it must contain the nextPageToken value
+ *  returned by a previous call to this method. Using this field causes the
+ *  method to return additional results from the previous method call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The alignment_period specifies a time interval, in seconds, that is used to
+ *  divide the data in all the time series into consistent blocks of time. This
+ *  will be done before the per-series aligner can be applied to the data.The
+ *  value must be at least 60 seconds. If a per-series aligner other than
+ *  ALIGN_NONE is specified, this field is required or an error is returned. If
+ *  no per-series aligner is specified, or the aligner ALIGN_NONE is specified,
+ *  then this field is ignored.The maximum value of the alignment_period is 104
+ *  weeks (2 years) for charts, and 90,000 seconds (25 hours) for alerting
+ *  policies.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *secondaryAggregationAlignmentPeriod;
+
+/**
+ *  The reduction operation to be used to combine time series into a single time
+ *  series, where the value of each data point in the resulting series is a
+ *  function of all the already aligned values in the input time series.Not all
+ *  reducer operations can be applied to all time series. The valid choices
+ *  depend on the metric_kind and the value_type of the original time series.
+ *  Reduction can yield a time series with a different metric_kind or value_type
+ *  than the input time series.Time series data must first be aligned (see
+ *  per_series_aligner) in order to perform cross-time series reduction. If
+ *  cross_series_reducer is specified, then per_series_aligner must be
+ *  specified, and must not be ALIGN_NONE. An alignment_period must also be
+ *  specified; otherwise, an error is returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceNone No
+ *        cross-time series reduction. The output of the Aligner is returned.
+ *        (Value: "REDUCE_NONE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMean
+ *        Reduce by computing the mean value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric or distribution values. The value_type of the output is
+ *        DOUBLE. (Value: "REDUCE_MEAN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMin
+ *        Reduce by computing the minimum value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_MIN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceMax
+ *        Reduce by computing the maximum value across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric values. The value_type of the output is the same as the
+ *        value_type of the input. (Value: "REDUCE_MAX")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceSum
+ *        Reduce by computing the sum across time series for each alignment
+ *        period. This reducer is valid for DELTA and GAUGE metrics with numeric
+ *        and distribution values. The value_type of the output is the same as
+ *        the value_type of the input. (Value: "REDUCE_SUM")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceStddev
+ *        Reduce by computing the standard deviation across time series for each
+ *        alignment period. This reducer is valid for DELTA and GAUGE metrics
+ *        with numeric or distribution values. The value_type of the output is
+ *        DOUBLE. (Value: "REDUCE_STDDEV")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCount
+ *        Reduce by computing the number of data points across time series for
+ *        each alignment period. This reducer is valid for DELTA and GAUGE
+ *        metrics of numeric, Boolean, distribution, and string value_type. The
+ *        value_type of the output is INT64. (Value: "REDUCE_COUNT")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountTrue
+ *        Reduce by computing the number of True-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceCountFalse
+ *        Reduce by computing the number of False-valued data points across time
+ *        series for each alignment period. This reducer is valid for DELTA and
+ *        GAUGE metrics of Boolean value_type. The value_type of the output is
+ *        INT64. (Value: "REDUCE_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReduceFractionTrue
+ *        Reduce by computing the ratio of the number of True-valued data points
+ *        to the total number of data points for each alignment period. This
+ *        reducer is valid for DELTA and GAUGE metrics of Boolean value_type.
+ *        The output value is in the range 0.0, 1.0 and has value_type DOUBLE.
+ *        (Value: "REDUCE_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile99
+ *        Reduce by computing the 99th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile95
+ *        Reduce by computing the 95th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile50
+ *        Reduce by computing the 50th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationCrossSeriesReducerReducePercentile05
+ *        Reduce by computing the 5th percentile
+ *        (https://en.wikipedia.org/wiki/Percentile) of data points across time
+ *        series for each alignment period. This reducer is valid for GAUGE and
+ *        DELTA metrics of numeric and distribution type. The value of the
+ *        output is DOUBLE. (Value: "REDUCE_PERCENTILE_05")
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryAggregationCrossSeriesReducer;
+
+/**
+ *  The set of fields to preserve when cross_series_reducer is specified. The
+ *  group_by_fields determine how the time series are partitioned into subsets
+ *  prior to applying the aggregation operation. Each subset contains time
+ *  series that have the same value for each of the grouping fields. Each
+ *  individual time series is a member of exactly one subset. The
+ *  cross_series_reducer is applied to each subset of time series. It is not
+ *  possible to reduce across different resource types, so this field implicitly
+ *  contains resource.type. Fields not specified in group_by_fields are
+ *  aggregated away. If group_by_fields is not specified and all the time series
+ *  have the same resource type, then the time series are aggregated into a
+ *  single output time series. If cross_series_reducer is not defined, this
+ *  field is ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *secondaryAggregationGroupByFields;
+
+/**
+ *  An Aligner describes how to bring the data points in a single time series
+ *  into temporal alignment. Except for ALIGN_NONE, all alignments cause all the
+ *  data points in an alignment_period to be mathematically grouped together,
+ *  resulting in a single data point for each alignment_period with end
+ *  timestamp at the end of the period.Not all alignment operations may be
+ *  applied to all time series. The valid choices depend on the metric_kind and
+ *  value_type of the original time series. Alignment can change the metric_kind
+ *  or the value_type of the time series.Time series data must be aligned in
+ *  order to perform cross-time series reduction. If cross_series_reducer is
+ *  specified, then per_series_aligner must be specified and not equal to
+ *  ALIGN_NONE and alignment_period must be specified; otherwise, an error is
+ *  returned.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNone No
+ *        alignment. Raw data is returned. Not valid if cross-series reduction
+ *        is requested. The value_type of the result is the same as the
+ *        value_type of the input. (Value: "ALIGN_NONE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignDelta
+ *        Align and convert to DELTA. The output is delta = y1 - y0.This
+ *        alignment is valid for CUMULATIVE and DELTA metrics. If the selected
+ *        alignment period results in periods with no data, then the aligned
+ *        value for such a period is created by interpolation. The value_type of
+ *        the aligned result is the same as the value_type of the input. (Value:
+ *        "ALIGN_DELTA")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignRate Align
+ *        and convert to a rate. The result is computed as rate = (y1 - y0)/(t1
+ *        - t0), or "delta over time". Think of this aligner as providing the
+ *        slope of the line that passes through the value at the start and at
+ *        the end of the alignment_period.This aligner is valid for CUMULATIVE
+ *        and DELTA metrics with numeric values. If the selected alignment
+ *        period results in periods with no data, then the aligned value for
+ *        such a period is created by interpolation. The output is a GAUGE
+ *        metric with value_type DOUBLE.If, by "rate", you mean "percentage
+ *        change", see the ALIGN_PERCENT_CHANGE aligner instead. (Value:
+ *        "ALIGN_RATE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignInterpolate
+ *        Align by interpolating between adjacent points around the alignment
+ *        period boundary. This aligner is valid for GAUGE metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_INTERPOLATE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignNextOlder
+ *        Align by moving the most recent data point before the end of the
+ *        alignment period to the boundary at the end of the alignment period.
+ *        This aligner is valid for GAUGE metrics. The value_type of the aligned
+ *        result is the same as the value_type of the input. (Value:
+ *        "ALIGN_NEXT_OLDER")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMin Align
+ *        the time series by returning the minimum value in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_MIN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMax Align
+ *        the time series by returning the maximum value in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        values. The value_type of the aligned result is the same as the
+ *        value_type of the input. (Value: "ALIGN_MAX")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignMean Align
+ *        the time series by returning the mean value in each alignment period.
+ *        This aligner is valid for GAUGE and DELTA metrics with numeric values.
+ *        The value_type of the aligned result is DOUBLE. (Value: "ALIGN_MEAN")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCount
+ *        Align the time series by returning the number of values in each
+ *        alignment period. This aligner is valid for GAUGE and DELTA metrics
+ *        with numeric or Boolean values. The value_type of the aligned result
+ *        is INT64. (Value: "ALIGN_COUNT")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignSum Align
+ *        the time series by returning the sum of the values in each alignment
+ *        period. This aligner is valid for GAUGE and DELTA metrics with numeric
+ *        and distribution values. The value_type of the aligned result is the
+ *        same as the value_type of the input. (Value: "ALIGN_SUM")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignStddev
+ *        Align the time series by returning the standard deviation of the
+ *        values in each alignment period. This aligner is valid for GAUGE and
+ *        DELTA metrics with numeric values. The value_type of the output is
+ *        DOUBLE. (Value: "ALIGN_STDDEV")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountTrue
+ *        Align the time series by returning the number of True values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignCountFalse
+ *        Align the time series by returning the number of False values in each
+ *        alignment period. This aligner is valid for GAUGE metrics with Boolean
+ *        values. The value_type of the output is INT64. (Value:
+ *        "ALIGN_COUNT_FALSE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignFractionTrue
+ *        Align the time series by returning the ratio of the number of True
+ *        values to the total number of values in each alignment period. This
+ *        aligner is valid for GAUGE metrics with Boolean values. The output
+ *        value is in the range 0.0, 1.0 and has value_type DOUBLE. (Value:
+ *        "ALIGN_FRACTION_TRUE")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile99
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 99th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_99")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile95
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 95th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_95")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile50
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 50th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_50")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentile05
+ *        Align the time series by using percentile aggregation
+ *        (https://en.wikipedia.org/wiki/Percentile). The resulting data point
+ *        in each alignment period is the 5th percentile of all data points in
+ *        the period. This aligner is valid for GAUGE and DELTA metrics with
+ *        distribution values. The output is a GAUGE metric with value_type
+ *        DOUBLE. (Value: "ALIGN_PERCENTILE_05")
+ *    @arg @c kGTLRMonitoringSecondaryAggregationPerSeriesAlignerAlignPercentChange
+ *        Align and convert to a percentage change. This aligner is valid for
+ *        GAUGE and DELTA metrics with numeric values. This alignment returns
+ *        ((current - previous)/previous) * 100, where the value of previous is
+ *        determined based on the alignment_period.If the values of current and
+ *        previous are both 0, then the returned value is 0. If only previous is
+ *        0, the returned value is infinity.A 10-minute moving mean is computed
+ *        at each point of the alignment period prior to the above calculation
+ *        to smooth the metric and prevent false positives from very short-lived
+ *        spikes. The moving mean is only applicable for data whose values are
+ *        >= 0. Any values < 0 are treated as a missing datapoint, and are
+ *        ignored. While DELTA metrics are accepted by this alignment, special
+ *        care should be taken that the values for the metric will always be
+ *        positive. The output is a GAUGE metric with value_type DOUBLE. (Value:
+ *        "ALIGN_PERCENT_CHANGE")
+ */
+@property(nonatomic, copy, nullable) NSString *secondaryAggregationPerSeriesAligner;
+
+/**
+ *  Required. Specifies which information is returned about the time series.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoringViewFull Returns the identity of the metric(s), the
+ *        time series, and the time series data. (Value: "FULL")
+ *    @arg @c kGTLRMonitoringViewHeaders Returns the identity of the metric and
+ *        the time series resource, but not the time series data. (Value:
+ *        "HEADERS")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListTimeSeriesResponse.
+ *
+ *  Lists time series that match a filter. This method does not require a
+ *  Workspace.
+ *
+ *  @param name Required. The project, organization or folder on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
+ *
+ *  @return GTLRMonitoringQuery_OrganizationsTimeSeriesList
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new alerting policy.
  *
  *  Method: monitoring.projects.alertPolicies.create
@@ -2404,8 +3618,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *intervalStartTime;
 
 /**
- *  Required. The project on which to execute the request. The format is:
- *  projects/[PROJECT_ID_OR_NUMBER]
+ *  Required. The project, organization or folder on which to execute the
+ *  request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2707,8 +3922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
  *  Lists time series that match a filter. This method does not require a
  *  Workspace.
  *
- *  @param name Required. The project on which to execute the request. The
- *    format is: projects/[PROJECT_ID_OR_NUMBER]
+ *  @param name Required. The project, organization or folder on which to
+ *    execute the request. The format is: projects/[PROJECT_ID_OR_NUMBER]
+ *    organizations/[ORGANIZATION_ID] folders/[FOLDER_ID]
  *
  *  @return GTLRMonitoringQuery_ProjectsTimeSeriesList
  */

@@ -523,6 +523,25 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @end
 
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership
+
+@dynamic parent, query;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships:checkTransitiveMembership";
+  GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_CheckTransitiveMembershipResponse class];
+  query.loggingName = @"cloudidentity.groups.memberships.checkTransitiveMembership";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudIdentityQuery_GroupsMembershipsCreate
 
 @dynamic parent;
@@ -583,6 +602,25 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIdentity_Membership class];
   query.loggingName = @"cloudidentity.groups.memberships.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph
+
+@dynamic parent, query;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships:getMembershipGraph";
+  GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_Operation class];
+  query.loggingName = @"cloudidentity.groups.memberships.getMembershipGraph";
   return query;
 }
 
@@ -656,6 +694,44 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
   query.name = name;
   query.expectedObjectClass = [GTLRCloudIdentity_ModifyMembershipRolesResponse class];
   query.loggingName = @"cloudidentity.groups.memberships.modifyMembershipRoles";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups
+
+@dynamic pageSize, pageToken, parent, query;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships:searchTransitiveGroups";
+  GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_SearchTransitiveGroupsResponse class];
+  query.loggingName = @"cloudidentity.groups.memberships.searchTransitiveGroups";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/memberships:searchTransitiveMemberships";
+  GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudIdentity_SearchTransitiveMembershipsResponse class];
+  query.loggingName = @"cloudidentity.groups.memberships.searchTransitiveMemberships";
   return query;
 }
 

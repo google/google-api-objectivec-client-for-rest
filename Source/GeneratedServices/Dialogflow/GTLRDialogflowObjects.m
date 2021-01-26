@@ -69,20 +69,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_Kind_KindMa
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
-// GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.state
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Done = @"DONE";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Draft = @"DRAFT";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Running = @"RUNNING";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric.type
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_AbandonedSessionRate = @"ABANDONED_SESSION_RATE";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_CallbackSessionRate = @"CALLBACK_SESSION_RATE";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_ContainedSessionNoCallbackRate = @"CONTAINED_SESSION_NO_CALLBACK_RATE";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_LiveAgentHandoffRate = @"LIVE_AGENT_HANDOFF_RATE";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_MetricUnspecified = @"METRIC_UNSPECIFIED";
-NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_SessionEndRate = @"SESSION_END_RATE";
-
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_Blob = @"BLOB";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest_DataFormat_DataFormatUnspecified = @"DATA_FORMAT_UNSPECIFIED";
@@ -416,7 +402,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 @dynamic avatarUri, defaultLanguageCode, descriptionProperty, displayName,
          enableSpellCorrection, enableStackdriverLogging, name,
-         speechToTextSettings, startFlow, timeZone;
+         securitySettings, speechToTextSettings, startFlow, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1824,96 +1810,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment
-@dynamic createTime, definition, descriptionProperty, displayName, endTime,
-         experimentLength, lastUpdateTime, name, result, startTime, state,
-         variantsHistory;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"variantsHistory" : [GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentDefinition
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentDefinition
-@dynamic condition, versionVariants;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResult
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResult
-@dynamic lastUpdateTime, versionMetrics;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"versionMetrics" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval
-@dynamic confidenceLevel, lowerBound, ratio, upperBound;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric
-@dynamic confidenceInterval, ratio, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics
-@dynamic metrics, sessionCount, version;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metrics" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest
 //
 
@@ -2433,28 +2329,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 + (NSString *)collectionItemsKey {
   return @"environments";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse
-@dynamic experiments, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"experiments" : [GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"experiments";
 }
 
 @end
@@ -3269,24 +3143,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig
 //
 
@@ -3530,16 +3386,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory
-@dynamic updateTime, versionVariants;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3Version
 //
 
@@ -3550,34 +3396,6 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return @{ @"descriptionProperty" : @"description" };
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants
-@dynamic variants;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"variants" : [GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant
-//
-
-@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant
-@dynamic isControlGroup, trafficAllocation, version;
 @end
 
 

@@ -4204,8 +4204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Primary Cloud Platform region for analytics data storage. For valid values,
  *  see [Create an
- *  organization](https://docs.apigee.com/hybrid/latest/precog-provision).
- *  Defaults to us-west1.
+ *  organization](https://cloud.google.com/apigee/docs/hybrid/latest/precog-provision).
+ *  Defaults to `us-west1`.
  */
 @property(nonatomic, copy, nullable) NSString *analyticsRegion;
 
@@ -4217,7 +4217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Cloud Platform location for the runtime instance. Defaults to us-west1-a.
+ *  Cloud Platform location for the runtime instance. Defaults to `us-west1-a`.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeLocation;
 

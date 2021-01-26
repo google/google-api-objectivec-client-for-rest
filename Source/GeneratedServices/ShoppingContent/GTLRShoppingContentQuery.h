@@ -4522,8 +4522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Lists the metrics report for a given Repricing product. Reports of the last
- *  3 days may not be complete.
+ *  Lists the metrics report for a given Repricing product.
  *
  *  Method: content.productstatuses.repricingreports.list
  *
@@ -4536,7 +4535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Gets Repricing reports on and before this date in the merchant's timezone.
- *  You can only retrieve data up to 3 days ago (default) or earlier. Format is
+ *  You can only retrieve data up to 7 days ago (default) or earlier. Format is
  *  YYYY-MM-DD.
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
@@ -4572,7 +4571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Gets Repricing reports on and after this date in the merchant's timezone, up
- *  to one year ago. Do not use a start date later than 3 days ago (default).
+ *  to one year ago. Do not use a start date later than 7 days ago (default).
  *  Format is YYYY-MM-DD.
  */
 @property(nonatomic, copy, nullable) NSString *startDate;
@@ -4580,8 +4579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_ListRepricingProductReportsResponse.
  *
- *  Lists the metrics report for a given Repricing product. Reports of the last
- *  3 days may not be complete.
+ *  Lists the metrics report for a given Repricing product.
  *
  *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
  *  @param productId Required. Id of the Repricing product. Also known as the
@@ -5135,8 +5133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Lists the metrics report for a given Repricing rule. Reports of the last 3
- *  days may not be complete.
+ *  Lists the metrics report for a given Repricing rule.
  *
  *  Method: content.repricingrules.repricingreports.list
  *
@@ -5149,7 +5146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Gets Repricing reports on and before this date in the merchant's timezone.
- *  You can only retrieve data up to 3 days ago (default) or earlier. Format:
+ *  You can only retrieve data up to 7 days ago (default) or earlier. Format:
  *  YYYY-MM-DD.
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
@@ -5176,7 +5173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Gets Repricing reports on and after this date in the merchant's timezone, up
- *  to one year ago. Do not use a start date later than 3 days ago (default).
+ *  to one year ago. Do not use a start date later than 7 days ago (default).
  *  Format: YYYY-MM-DD.
  */
 @property(nonatomic, copy, nullable) NSString *startDate;
@@ -5184,8 +5181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_ListRepricingRuleReportsResponse.
  *
- *  Lists the metrics report for a given Repricing rule. Reports of the last 3
- *  days may not be complete.
+ *  Lists the metrics report for a given Repricing rule.
  *
  *  @param merchantId Required. Id of the merchant who owns the Repricing rule.
  *  @param ruleId Required. Id of the Repricing rule.

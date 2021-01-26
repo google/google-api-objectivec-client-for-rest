@@ -44,6 +44,1119 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the requested insight. Requires the recommender.*.get IAM permission
  *  for the specified insight type.
  *
+ *  Method: recommender.billingAccounts.locations.insightTypes.insights.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsGetWithname:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  Method: recommender.billingAccounts.locations.insightTypes.insights.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsListWithparent:]
+
+/**
+ *  Optional. Filter expression to restrict the insights returned. Supported
+ *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *  supported insight types:
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
+ *
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *    supported insight types:
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  Method: recommender.billingAccounts.locations.insightTypes.insights.markAccepted
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsMarkAccepted
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsGetWithname:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsListWithparent:]
+
+/**
+ *  Filter expression to restrict the recommendations returned. Supported filter
+ *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
+ *  state_info.state:"FAILED"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
+ *  recommenders: https://cloud.google.com/recommender/docs/recommenders.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
+ *
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
+ *    supported recommenders:
+ *    https://cloud.google.com/recommender/docs/recommenders.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.markClaimed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkClaimed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.markFailed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkFailed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.billingAccounts.locations.recommenders.recommendations.markSucceeded
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkSucceeded
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
+ *  Method: recommender.folders.locations.insightTypes.insights.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsGetWithname:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  Method: recommender.folders.locations.insightTypes.insights.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsListWithparent:]
+
+/**
+ *  Optional. Filter expression to restrict the insights returned. Supported
+ *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *  supported insight types:
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
+ *
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *    supported insight types:
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  Method: recommender.folders.locations.insightTypes.insights.markAccepted
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsMarkAccepted
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsGetWithname:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsListWithparent:]
+
+/**
+ *  Filter expression to restrict the recommendations returned. Supported filter
+ *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
+ *  state_info.state:"FAILED"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
+ *  recommenders: https://cloud.google.com/recommender/docs/recommenders.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
+ *
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
+ *    supported recommenders:
+ *    https://cloud.google.com/recommender/docs/recommenders.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.markClaimed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkClaimed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.markFailed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkFailed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.folders.locations.recommenders.recommendations.markSucceeded
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkSucceeded
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
+ *  Method: recommender.organizations.locations.insightTypes.insights.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsGetWithname:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  Method: recommender.organizations.locations.insightTypes.insights.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsListWithparent:]
+
+/**
+ *  Optional. Filter expression to restrict the insights returned. Supported
+ *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *  supported insight types:
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
+ *
+ *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
+ *  permission for the specified insight type.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
+ *    supported insight types:
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  Method: recommender.organizations.locations.insightTypes.insights.markAccepted
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
+
+/** Required. Name of the insight. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Insight.
+ *
+ *  Marks the Insight State as Accepted. Users can use this method to indicate
+ *  to the Recommender API that they have applied some action based on the
+ *  insight. This stops the insight content from being updated.
+ *  MarkInsightAccepted can be applied to insights in ACTIVE state. Requires the
+ *  recommender.*.update IAM permission for the specified insight.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the insight.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsMarkAccepted
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkInsightAcceptedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsGetWithname:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Gets the requested recommendation. Requires the recommender.*.get IAM
+ *  permission for the specified recommender.
+ *
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsListWithparent:]
+
+/**
+ *  Filter expression to restrict the recommendations returned. Supported filter
+ *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
+ *  state_info.state:"FAILED"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of results to return from this request.
+ *  Non-positive values are ignored. If not specified, the server will determine
+ *  the number of results to return.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If present, retrieves the next batch of results from the preceding
+ *  call to this method. `page_token` must be the value of `next_page_token`
+ *  from the previous response. The values of other method parameters must be
+ *  identical to those in the previous call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The container resource on which to execute the request. Acceptable
+ *  formats: 1.
+ *  "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *  LOCATION here refers to GCP Locations:
+ *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
+ *  recommenders: https://cloud.google.com/recommender/docs/recommenders.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
+ *
+ *  Lists recommendations for a Cloud project. Requires the recommender.*.list
+ *  IAM permission for the specified recommender.
+ *
+ *  @param parent Required. The container resource on which to execute the
+ *    request. Acceptable formats: 1.
+ *    "projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]",
+ *    LOCATION here refers to GCP Locations:
+ *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
+ *    supported recommenders:
+ *    https://cloud.google.com/recommender/docs/recommenders.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.markClaimed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Claimed. Users can use this method to
+ *  indicate to the Recommender API that they are starting to apply the
+ *  recommendation themselves. This stops the recommendation content from being
+ *  updated. Associated insights are frozen and placed in the ACCEPTED state.
+ *  MarkRecommendationClaimed can be applied to recommendations in CLAIMED,
+ *  SUCCEEDED, FAILED, or ACTIVE state. Requires the recommender.*.update IAM
+ *  permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkClaimed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationClaimedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.markFailed
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Failed. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation failed. This stops the recommendation content
+ *  from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationFailed can be applied to recommendations
+ *  in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest to
+ *    include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkFailed
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationFailedRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  Method: recommender.organizations.locations.recommenders.recommendations.markSucceeded
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRecommenderCloudPlatform
+ */
+@interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
+// Previous library name was
+//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
+
+/** Required. Name of the recommendation. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1Recommendation.
+ *
+ *  Marks the Recommendation State as Succeeded. Users can use this method to
+ *  indicate to the Recommender API that they have applied the recommendation
+ *  themselves, and the operation was successful. This stops the recommendation
+ *  content from being updated. Associated insights are frozen and placed in the
+ *  ACCEPTED state. MarkRecommendationSucceeded can be applied to
+ *  recommendations in ACTIVE, CLAIMED, SUCCEEDED, or FAILED state. Requires the
+ *  recommender.*.update IAM permission for the specified recommender.
+ *
+ *  @param object The @c
+ *    GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest
+ *    to include in the query.
+ *  @param name Required. Name of the recommendation.
+ *
+ *  @return GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkSucceeded
+ */
++ (instancetype)queryWithObject:(GTLRRecommender_GoogleCloudRecommenderV1MarkRecommendationSucceededRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the requested insight. Requires the recommender.*.get IAM permission
+ *  for the specified insight type.
+ *
  *  Method: recommender.projects.locations.insightTypes.insights.get
  *
  *  Authorization scope(s):

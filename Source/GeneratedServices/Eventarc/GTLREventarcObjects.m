@@ -73,10 +73,40 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_CloudRun
+//
+
+@implementation GTLREventarc_CloudRun
+@dynamic path, region, service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Destination
+//
+
+@implementation GTLREventarc_Destination
+@dynamic cloudRun;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_Empty
 //
 
 @implementation GTLREventarc_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_EventFilter
+//
+
+@implementation GTLREventarc_EventFilter
+@dynamic attribute, value;
 @end
 
 
@@ -220,6 +250,29 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_ListTriggersResponse
+//
+
+@implementation GTLREventarc_ListTriggersResponse
+@dynamic nextPageToken, triggers, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"triggers" : [GTLREventarc_Trigger class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"triggers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_Location
 //
 
@@ -258,6 +311,17 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_OperationMetadata
+//
+
+@implementation GTLREventarc_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_Policy
 //
 
@@ -276,6 +340,16 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Pubsub
+//
+
+@implementation GTLREventarc_Pubsub
+@dynamic subscription, topic;
 @end
 
 
@@ -318,6 +392,39 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Transport
+//
+
+@implementation GTLREventarc_Transport
+@dynamic pubsub;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Trigger
+//
+
+@implementation GTLREventarc_Trigger
+@dynamic createTime, destination, ETag, eventFilters, name, serviceAccount,
+         transport, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"eventFilters" : [GTLREventarc_EventFilter class]
   };
   return map;
 }

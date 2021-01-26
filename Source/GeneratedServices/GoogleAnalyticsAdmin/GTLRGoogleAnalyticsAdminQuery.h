@@ -100,6 +100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsGet : GTLRGoogleAnalyticsAdminQuery
@@ -133,6 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.getDataSharingSettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsGetDataSharingSettings : GTLRGoogleAnalyticsAdminQuery
@@ -171,6 +173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsList : GTLRGoogleAnalyticsAdminQuery
@@ -293,6 +296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accountSummaries.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountSummariesList : GTLRGoogleAnalyticsAdminQuery
@@ -342,6 +346,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.userLinks.audit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
@@ -461,6 +466,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.userLinks.batchGet
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
@@ -611,6 +617,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.userLinks.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet : GTLRGoogleAnalyticsAdminQuery
@@ -639,6 +646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.accounts.userLinks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList : GTLRGoogleAnalyticsAdminQuery
@@ -711,7 +719,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an android app stream with the specified location and attributes.
+ *  Creates an Android app stream with the specified location and attributes.
+ *  Note that an Android app stream must be linked to a Firebase app to receive
+ *  traffic. To create a working app stream, make sure your property is linked
+ *  to a Firebase project. Then, use the Firebase API to create a Firebase app,
+ *  which will also create an appropriate data stream in Analytics (may take up
+ *  to 24 hours).
  *
  *  Method: analyticsadmin.properties.androidAppDataStreams.create
  *
@@ -731,7 +744,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream.
  *
- *  Creates an android app stream with the specified location and attributes.
+ *  Creates an Android app stream with the specified location and attributes.
+ *  Note that an Android app stream must be linked to a Firebase app to receive
+ *  traffic. To create a working app stream, make sure your property is linked
+ *  to a Firebase project. Then, use the Firebase API to create a Firebase app,
+ *  which will also create an appropriate data stream in Analytics (may take up
+ *  to 24 hours).
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream to
  *    include in the query.
@@ -785,6 +803,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.androidAppDataStreams.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
@@ -821,6 +840,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.androidAppDataStreams.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsList : GTLRGoogleAnalyticsAdminQuery
@@ -1058,6 +1078,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.firebaseLinks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList : GTLRGoogleAnalyticsAdminQuery
@@ -1148,6 +1169,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGet : GTLRGoogleAnalyticsAdminQuery
@@ -1239,6 +1261,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.googleAdsLinks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksList : GTLRGoogleAnalyticsAdminQuery
@@ -1327,7 +1350,12 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates an iOS app data stream with the specified location and attributes.
+ *  Creates an iOS app stream with the specified location and attributes. Note
+ *  that an iOS app stream must be linked to a Firebase app to receive traffic.
+ *  To create a working app stream, make sure your property is linked to a
+ *  Firebase project. Then, use the Firebase API to create a Firebase app, which
+ *  will also create an appropriate data stream in Analytics (may take up to 24
+ *  hours).
  *
  *  Method: analyticsadmin.properties.iosAppDataStreams.create
  *
@@ -1347,7 +1375,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream.
  *
- *  Creates an iOS app data stream with the specified location and attributes.
+ *  Creates an iOS app stream with the specified location and attributes. Note
+ *  that an iOS app stream must be linked to a Firebase app to receive traffic.
+ *  To create a working app stream, make sure your property is linked to a
+ *  Firebase project. Then, use the Firebase API to create a Firebase app, which
+ *  will also create an appropriate data stream in Analytics (may take up to 24
+ *  hours).
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream to
  *    include in the query.
@@ -1401,6 +1434,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.iosAppDataStreams.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
@@ -1437,6 +1471,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.iosAppDataStreams.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsList : GTLRGoogleAnalyticsAdminQuery
@@ -1540,6 +1575,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesList : GTLRGoogleAnalyticsAdminQuery
@@ -1654,6 +1690,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.userLinks.audit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
@@ -1773,6 +1810,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.userLinks.batchGet
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
@@ -1923,6 +1961,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.userLinks.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet : GTLRGoogleAnalyticsAdminQuery
@@ -1951,6 +1990,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.userLinks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList : GTLRGoogleAnalyticsAdminQuery
@@ -2097,6 +2137,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.webDataStreams.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
@@ -2133,6 +2174,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.webDataStreams.getEnhancedMeasurementSettings
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings : GTLRGoogleAnalyticsAdminQuery
@@ -2170,6 +2212,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.webDataStreams.getGlobalSiteTag
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetGlobalSiteTag : GTLRGoogleAnalyticsAdminQuery
@@ -2209,6 +2252,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: analyticsadmin.properties.webDataStreams.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsList : GTLRGoogleAnalyticsAdminQuery

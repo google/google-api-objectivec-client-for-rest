@@ -384,8 +384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingProductReport_T
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
- *  (i.e. mean, median, min) among other merchants who sell the same product.
- *  Details need to be provdided in the RuleDefinition.
+ *  (currently only min is available) among other merchants who sell the same
+ *  product. Details need to be provdided in the RuleDefinition.
  *
  *  Value: "TYPE_STATS_BASED"
  */
@@ -410,8 +410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRule_Type_TypeC
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
- *  (i.e. mean, median, min) among other merchants who sell the same product.
- *  Details need to be provdided in the RuleDefinition.
+ *  (currently only min is available) among other merchants who sell the same
+ *  product. Details need to be provdided in the RuleDefinition.
  *
  *  Value: "TYPE_STATS_BASED"
  */
@@ -465,8 +465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /**
  *  Statistical measurement based rules among Google SA merchants. If this rule
  *  is chosen, repricer will adjust the offer price based on statistical metrics
- *  (i.e. mean, median, min) among other merchants who sell the same product.
- *  Details need to be provdided in the RuleDefinition.
+ *  (currently only min is available) among other merchants who sell the same
+ *  product. Details need to be provdided in the RuleDefinition.
  *
  *  Value: "TYPE_STATS_BASED"
  */
@@ -480,8 +480,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @interface GTLRShoppingContent_Account : GTLRObject
 
 /**
- *  List of linked Ads accounts that are active or pending approval. To create a
- *  new link request, add a new link with status `active` to the list. It will
+ *  Linked Ads accounts that are active or pending approval. To create a new
+ *  link request, add a new link with status `active` to the list. It will
  *  remain in a `pending` state until approved or rejected either in the Ads
  *  interface or through the AdWords API. To delete an active link, or to cancel
  *  a link request, remove it from the list.
@@ -496,8 +496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, strong, nullable) NSNumber *adultContent;
 
 /**
- *  List of automatically created label IDs that are assigned to the account by
- *  CSS Center.
+ *  Automatically created label IDs that are assigned to the account by CSS
+ *  Center.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -535,7 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  List of manually created label IDs that are assigned to the account by CSS.
+ *  Manually created label IDs that are assigned to the account by CSS.
  *
  *  Uses NSNumber of unsignedLongLongValue.
  */
@@ -557,11 +557,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *websiteUrl;
 
 /**
- *  List of linked YouTube channels that are active or pending approval. To
- *  create a new link request, add a new link with status `active` to the list.
- *  It will remain in a `pending` state until approved or rejected in the YT
- *  Creator Studio interface. To delete an active link, or to cancel a link
- *  request, remove it from the list.
+ *  Linked YouTube channels that are active or pending approval. To create a new
+ *  link request, add a new link with status `active` to the list. It will
+ *  remain in a `pending` state until approved or rejected in the YT Creator
+ *  Studio interface. To delete an active link, or to cancel a link request,
+ *  remove it from the list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_AccountYouTubeChannelLink *> *youtubeChannelLinks;
 
@@ -8932,9 +8932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *    @arg @c kGTLRShoppingContent_RepricingProductReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on
- *        statistical metrics (i.e. mean, median, min) among other merchants who
- *        sell the same product. Details need to be provdided in the
- *        RuleDefinition. (Value: "TYPE_STATS_BASED")
+ *        statistical metrics (currently only min is available) among other
+ *        merchants who sell the same product. Details need to be provdided in
+ *        the RuleDefinition. (Value: "TYPE_STATS_BASED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -9030,9 +9030,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *    @arg @c kGTLRShoppingContent_RepricingRule_Type_TypeStatsBased Statistical
  *        measurement based rules among Google SA merchants. If this rule is
  *        chosen, repricer will adjust the offer price based on statistical
- *        metrics (i.e. mean, median, min) among other merchants who sell the
- *        same product. Details need to be provdided in the RuleDefinition.
- *        (Value: "TYPE_STATS_BASED")
+ *        metrics (currently only min is available) among other merchants who
+ *        sell the same product. Details need to be provdided in the
+ *        RuleDefinition. (Value: "TYPE_STATS_BASED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -9224,9 +9224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *    @arg @c kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased
  *        Statistical measurement based rules among Google SA merchants. If this
  *        rule is chosen, repricer will adjust the offer price based on
- *        statistical metrics (i.e. mean, median, min) among other merchants who
- *        sell the same product. Details need to be provdided in the
- *        RuleDefinition. (Value: "TYPE_STATS_BASED")
+ *        statistical metrics (currently only min is available) among other
+ *        merchants who sell the same product. Details need to be provdided in
+ *        the RuleDefinition. (Value: "TYPE_STATS_BASED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

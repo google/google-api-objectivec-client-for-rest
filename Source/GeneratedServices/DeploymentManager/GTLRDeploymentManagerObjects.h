@@ -1148,6 +1148,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 /** Output only. The YAML layout for this manifest. */
 @property(nonatomic, copy, nullable) NSString *layout;
 
+/**
+ *  Output only. The computed size of the fully expanded manifest.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestSizeBytes;
+
+/**
+ *  Output only. The size limit for expanded manifests in the project.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manifestSizeLimitBytes;
+
 /** Output only. The name of the manifest. */
 @property(nonatomic, copy, nullable) NSString *name;
 

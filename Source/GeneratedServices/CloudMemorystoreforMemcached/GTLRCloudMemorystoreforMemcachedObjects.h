@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Memorystore for Memcached API (memcache/v1beta2)
+//   Cloud Memorystore for Memcached API (memcache/v1)
 // Description:
 //   Google Cloud Memorystore for Memcached API is used for creating and
 //   managing Memcached instances in GCP.
@@ -24,7 +24,6 @@
 @class GTLRCloudMemorystoreforMemcached_DailyCycle;
 @class GTLRCloudMemorystoreforMemcached_Date;
 @class GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod;
-@class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
@@ -44,6 +43,7 @@
 @class GTLRCloudMemorystoreforMemcached_Location;
 @class GTLRCloudMemorystoreforMemcached_Location_Labels;
 @class GTLRCloudMemorystoreforMemcached_Location_Metadata;
+@class GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones;
 @class GTLRCloudMemorystoreforMemcached_MaintenancePolicy;
 @class GTLRCloudMemorystoreforMemcached_MaintenancePolicy_Labels;
 @class GTLRCloudMemorystoreforMemcached_MaintenanceWindow;
@@ -434,39 +434,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
- *  Metadata for the given google.cloud.location.Location.
- */
-@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata : GTLRObject
-
-/**
- *  Output only. The set of available zones in the location. The map is keyed by
- *  the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in the `zones` field when creating a Memcached instance.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones *availableZones;
-
-@end
-
-
-/**
- *  Output only. The set of available zones in the location. The map is keyed by
- *  the lowercase ID of each zone, as defined by GCE. These keys can be
- *  specified in the `zones` field when creating a Memcached instance.
- *
- *  @note This class is documented as having more properties of
- *        GTLRCloudMemorystoreforMemcached_ZoneMetadata. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2LocationMetadata_AvailableZones : GTLRObject
-@end
-
-
-/**
  *  Represents the metadata of a long-running operation.
  */
-@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1beta2OperationMetadata : GTLRObject
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
@@ -936,8 +906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /**
  *  The full name of the Google Compute Engine
- *  [network](https://cloud.google.com/vpc/docs/vpc) to which the instance is
- *  connected. If left unspecified, the `default` network will be used.
+ *  [network](/compute/docs/networks-and-firewalls#networks) to which the
+ *  instance is connected. If left unspecified, the `default` network will be
+ *  used.
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
@@ -1090,17 +1061,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *  Response for ListInstances.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "resources" property. If returned as the result of a query, it
+ *        its "instances" property. If returned as the result of a query, it
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
 @interface GTLRCloudMemorystoreforMemcached_ListInstancesResponse : GTLRCollectionObject
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
  *  A list of Memcached instances in the project in the specified location, or
@@ -1111,7 +1076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_Instance *> *resources;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_Instance *> *instances;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
@@ -1225,6 +1196,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMemorystoreforMemcached_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the given google.cloud.location.Location.
+ */
+@interface GTLRCloudMemorystoreforMemcached_LocationMetadata : GTLRObject
+
+/**
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in the `zones` field when creating a Memcached instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones *availableZones;
+
+@end
+
+
+/**
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in the `zones` field when creating a Memcached instance.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudMemorystoreforMemcached_ZoneMetadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_LocationMetadata_AvailableZones : GTLRObject
 @end
 
 
@@ -1497,6 +1498,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudMemorystoreforMemcached_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of a long-running operation.
+ */
+@interface GTLRCloudMemorystoreforMemcached_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** Output only. Time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Time when the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
 @end
 
 

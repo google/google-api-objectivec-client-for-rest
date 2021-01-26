@@ -44,6 +44,7 @@ NSString * const kGTLRCloudFilestore_Instance_State_Deleting   = @"DELETING";
 NSString * const kGTLRCloudFilestore_Instance_State_Error      = @"ERROR";
 NSString * const kGTLRCloudFilestore_Instance_State_Ready      = @"READY";
 NSString * const kGTLRCloudFilestore_Instance_State_Repairing  = @"REPAIRING";
+NSString * const kGTLRCloudFilestore_Instance_State_Restoring  = @"RESTORING";
 NSString * const kGTLRCloudFilestore_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudFilestore_Instance.tier
@@ -282,7 +283,8 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 //
 
 @implementation GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule
-@dynamic canReschedule, endTime, rolloutManagementPolicy, startTime;
+@dynamic canReschedule, endTime, rolloutManagementPolicy, scheduleDeadlineTime,
+         startTime;
 @end
 
 

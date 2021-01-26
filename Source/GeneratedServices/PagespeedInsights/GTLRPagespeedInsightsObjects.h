@@ -171,8 +171,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *channel;
 
-/** The form factor the emulation should use. */
+/**
+ *  The form factor the emulation should use. This field is deprecated,
+ *  form_factor should be used instead.
+ */
 @property(nonatomic, copy, nullable) NSString *emulatedFormFactor;
+
+/**
+ *  How Lighthouse should interpret this run in regards to scoring performance
+ *  metrics and skipping mobile-only tests in desktop.
+ */
+@property(nonatomic, copy, nullable) NSString *formFactor;
 
 /** The locale setting. */
 @property(nonatomic, copy, nullable) NSString *locale;

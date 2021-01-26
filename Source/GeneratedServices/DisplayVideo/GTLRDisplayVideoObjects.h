@@ -141,6 +141,7 @@
 @class GTLRDisplayVideo_ManualTrigger;
 @class GTLRDisplayVideo_MaximizeSpendBidStrategy;
 @class GTLRDisplayVideo_MeasurementConfig;
+@class GTLRDisplayVideo_MobileApp;
 @class GTLRDisplayVideo_Money;
 @class GTLRDisplayVideo_NegativeKeyword;
 @class GTLRDisplayVideo_NegativeKeywordList;
@@ -5534,6 +5535,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus_EntityStatusUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_InsertionOrder.insertionOrderType
+
+/**
+ *  Insertion order type is not specified or is unknown.
+ *
+ *  Value: "INSERTION_ORDER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOrderTypeUnspecified;
+/**
+ *  Video Over the top type IO.
+ *
+ *  Value: "OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop;
+/**
+ *  RTB Video type IO.
+ *
+ *  Value: "RTB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_InsertionOrderBudget.automationType
 
 /**
@@ -6545,6 +6568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  *  Value: "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory;
+/**
+ *  Over the top ads present in OTT IOs. This type is only applicable to line
+ *  items with an insertion order of insertion_order_type `OVER_THE_TOP`
+ *
+ *  Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_LineItem.warningMessages
@@ -6842,6 +6872,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_Pe
  *  Value: "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_MobileApp.platform
+
+/**
+ *  Android platform.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MobileApp_Platform_Android;
+/**
+ *  iOS platform.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MobileApp_Platform_Ios;
+/**
+ *  Platform is not specified.
+ *
+ *  Value: "PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MobileApp_Platform_PlatformUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ObaIcon.position
@@ -14806,6 +14858,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, strong, nullable) NSNumber *insertionOrderId;
 
+/**
+ *  The type of insertion order. If this field is unspecified in creation, the
+ *  value defaults to `RTB`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOrderTypeUnspecified
+ *        Insertion order type is not specified or is unknown. (Value:
+ *        "INSERTION_ORDER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop
+ *        Video Over the top type IO. (Value: "OVER_THE_TOP")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb RTB Video
+ *        type IO. (Value: "RTB")
+ */
+@property(nonatomic, copy, nullable) NSString *insertionOrderType;
+
 /** Additional integration details of the insertion order. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_IntegrationDetails *integrationDetails;
 
@@ -15815,8 +15882,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory
  *        Video ads served on mobile app inventory. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY")
+ *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop
+ *        Over the top ads present in OTT IOs. This type is only applicable to
+ *        line items with an insertion order of insertion_order_type
+ *        `OVER_THE_TOP` (Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP")
  */
 @property(nonatomic, copy, nullable) NSString *lineItemType;
+
+/**
+ *  The mobile app promoted by the line item. This is applicable only when
+ *  line_item_type is either `LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL` or
+ *  `LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileApp *mobileApp;
 
 /** Output only. The resource name of the line item. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -16916,6 +16994,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dv360ToCmDataSharingEnabled;
+
+@end
+
+
+/**
+ *  A mobile app promoted by a mobile app install line item.
+ */
+@interface GTLRDisplayVideo_MobileApp : GTLRObject
+
+/**
+ *  Required. The ID of the app provided by the platform store. Android apps are
+ *  identified by the bundle ID used by Android's Play store, such as
+ *  `com.google.android.gm`. iOS apps are identified by a nine-digit app ID used
+ *  by Apple's App store, such as `422689480`.
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/** Output only. The app name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The app platform.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_MobileApp_Platform_Android Android platform.
+ *        (Value: "ANDROID")
+ *    @arg @c kGTLRDisplayVideo_MobileApp_Platform_Ios iOS platform. (Value:
+ *        "IOS")
+ *    @arg @c kGTLRDisplayVideo_MobileApp_Platform_PlatformUnspecified Platform
+ *        is not specified. (Value: "PLATFORM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *platform;
+
+/** Output only. The app publisher. */
+@property(nonatomic, copy, nullable) NSString *publisher;
 
 @end
 

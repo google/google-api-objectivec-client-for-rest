@@ -128,6 +128,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
 //   +[GTLQuerySemanticTile queryForFeaturetilesGetWithname:]
 
 /**
+ *  Flag indicating whether the returned tile will always contain 2.5D
+ *  footprints for structures. If enabled_modeled_volumes is set, this will mean
+ *  that structures will have both their 3D models and 2.5D footprints returned.
+ */
+@property(nonatomic, assign) BOOL alwaysIncludeBuildingFootprints;
+
+/**
  *  API client name and version. For example, the SDK calling the API. The exact
  *  format is up to the client.
  */

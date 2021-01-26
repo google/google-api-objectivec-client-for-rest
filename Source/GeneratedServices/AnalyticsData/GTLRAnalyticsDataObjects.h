@@ -585,7 +585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  Defines a cohort selection criteria. A cohort is a group of users who share
- *  a common characteristic. For example, users with the same `firstTouchDate`
+ *  a common characteristic. For example, users with the same `firstSessionDate`
  *  belong to the same cohort.
  */
 @interface GTLRAnalyticsData_Cohort : GTLRObject
@@ -609,7 +609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_DateRange *dateRange;
 
 /**
- *  Dimension used by the cohort. Required and only supports `firstTouchDate`.
+ *  Dimension used by the cohort. Required and only supports `firstSessionDate`.
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1483,8 +1483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *tokensPerDay;
 
 /**
- *  Standard Analytics Properties can use up to 5,000 tokens per day; Analytics
- *  360 Properties can use 50,000 tokens per day. An API request consumes a
+ *  Standard Analytics Properties can use up to 5,000 tokens per hour; Analytics
+ *  360 Properties can use 50,000 tokens per hour. An API request consumes a
  *  single number of tokens, and that number is deducted from both the hourly
  *  and daily quotas.
  */

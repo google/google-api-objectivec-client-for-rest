@@ -74,7 +74,7 @@
 //
 
 @implementation GTLRPagespeedInsights_ConfigSettings
-@dynamic channel, emulatedFormFactor, locale, onlyCategories;
+@dynamic channel, emulatedFormFactor, formFactor, locale, onlyCategories;
 @end
 
 

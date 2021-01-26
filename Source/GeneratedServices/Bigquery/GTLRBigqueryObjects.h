@@ -57,6 +57,7 @@
 @class GTLRBigquery_DataSplitResult;
 @class GTLRBigquery_DestinationTableProperties;
 @class GTLRBigquery_DestinationTableProperties_Labels;
+@class GTLRBigquery_DimensionalityReductionMetrics;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_Entry;
 @class GTLRBigquery_ErrorProto;
@@ -99,6 +100,7 @@
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_MultiClassClassificationMetrics;
 @class GTLRBigquery_Policy;
+@class GTLRBigquery_PrincipalComponentInfo;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
 @class GTLRBigquery_QueryParameter;
@@ -2725,6 +2727,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  Model evaluation metrics for dimensionality reduction models.
+ */
+@interface GTLRBigquery_DimensionalityReductionMetrics : GTLRObject
+
+/**
+ *  Total percentage of variance explained by the selected principal components.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalExplainedVarianceRatio;
+
+@end
+
+
+/**
  *  GTLRBigquery_EncryptionConfiguration
  */
 @interface GTLRBigquery_EncryptionConfiguration : GTLRObject
@@ -2798,6 +2815,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Populated for clustering models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ClusteringMetrics *clusteringMetrics;
+
+/**
+ *  Evaluation metrics when the model is a dimensionality reduction model, which
+ *  currently includes PCA.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DimensionalityReductionMetrics *dimensionalityReductionMetrics;
 
 /** Populated for multi-class classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MultiClassClassificationMetrics *multiClassClassificationMetrics;
@@ -3495,6 +3518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *learnRate;
+
+/** The information of the principal components. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_PrincipalComponentInfo *> *principalComponentInfos;
 
 /**
  *  Loss computed on the training data at the end of iteration.
@@ -5203,6 +5229,45 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Principal component infos, used only for eigen decomposition based models,
+ *  e.g., PCA. Ordered by explained_variance in the descending order.
+ */
+@interface GTLRBigquery_PrincipalComponentInfo : GTLRObject
+
+/**
+ *  The explained_variance is pre-ordered in the descending order to compute the
+ *  cumulative explained variance ratio.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cumulativeExplainedVarianceRatio;
+
+/**
+ *  Explained variance by this principal component, which is simply the
+ *  eigenvalue.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *explainedVariance;
+
+/**
+ *  Explained_variance over the total explained variance.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *explainedVarianceRatio;
+
+/**
+ *  Id of the principal component.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *principalComponentId;
 
 @end
 

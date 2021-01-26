@@ -40,6 +40,7 @@
 @class GTLRPeopleService_FieldMetadata;
 @class GTLRPeopleService_FileAs;
 @class GTLRPeopleService_Gender;
+@class GTLRPeopleService_GroupClientData;
 @class GTLRPeopleService_ImClient;
 @class GTLRPeopleService_Interest;
 @class GTLRPeopleService_Locale;
@@ -686,6 +687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  */
 @interface GTLRPeopleService_ContactGroup : GTLRObject
 
+/** The group's client data. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_GroupClientData *> *clientData;
+
 /**
  *  The [HTTP entity tag](https://en.wikipedia.org/wiki/HTTP_ETag) of the
  *  resource. Used for web cache validation.
@@ -872,6 +876,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** Required. The contact group to create. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
+
+/**
+ *  Optional. A field mask to restrict which fields on the group are returned.
+ *  Defaults to `metadata`, `groupType`, and `name` if not set or set to empty.
+ *  Valid fields are: * clientData * groupType * metadata * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readGroupFields;
 
 @end
 
@@ -1118,6 +1131,21 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** The response for each requested resource name. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PersonResponse *> *responses;
+
+@end
+
+
+/**
+ *  Arbitrary client data that is populated by clients. Duplicate keys and
+ *  values are allowed. LINT.IfChange(GroupClientData)
+ */
+@interface GTLRPeopleService_GroupClientData : GTLRObject
+
+/** The client specified key of the client data. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The client specified value of the client data. */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -2307,6 +2335,25 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** Required. The contact group to update. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_ContactGroup *contactGroup;
+
+/**
+ *  Optional. A field mask to restrict which fields on the group are returned.
+ *  Defaults to `metadata`, `groupType`, and `name` if not set or set to empty.
+ *  Valid fields are: * clientData * groupType * memberCount * metadata * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readGroupFields;
+
+/**
+ *  Optional. A field mask to restrict which fields on the group are updated.
+ *  Multiple fields can be specified by separating them with commas. Defaults to
+ *  `name` if not set or set to empty. Updated fields are replaced. Valid values
+ *  are: * clientData * name
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateGroupFields;
 
 @end
 

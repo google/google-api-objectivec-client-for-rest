@@ -110,6 +110,104 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRMonitoringQuery_FoldersTimeSeriesList
+
+@dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,
+         aggregationGroupByFields, aggregationPerSeriesAligner, filter,
+         intervalEndTime, intervalStartTime, name, orderBy, pageSize, pageToken,
+         secondaryAggregationAlignmentPeriod,
+         secondaryAggregationCrossSeriesReducer,
+         secondaryAggregationGroupByFields,
+         secondaryAggregationPerSeriesAligner, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"aggregationAlignmentPeriod" : @"aggregation.alignmentPeriod",
+    @"aggregationCrossSeriesReducer" : @"aggregation.crossSeriesReducer",
+    @"aggregationGroupByFields" : @"aggregation.groupByFields",
+    @"aggregationPerSeriesAligner" : @"aggregation.perSeriesAligner",
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime",
+    @"secondaryAggregationAlignmentPeriod" : @"secondaryAggregation.alignmentPeriod",
+    @"secondaryAggregationCrossSeriesReducer" : @"secondaryAggregation.crossSeriesReducer",
+    @"secondaryAggregationGroupByFields" : @"secondaryAggregation.groupByFields",
+    @"secondaryAggregationPerSeriesAligner" : @"secondaryAggregation.perSeriesAligner"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregation.groupByFields" : [NSString class],
+    @"secondaryAggregation.groupByFields" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries";
+  GTLRMonitoringQuery_FoldersTimeSeriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListTimeSeriesResponse class];
+  query.loggingName = @"monitoring.folders.timeSeries.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_OrganizationsTimeSeriesList
+
+@dynamic aggregationAlignmentPeriod, aggregationCrossSeriesReducer,
+         aggregationGroupByFields, aggregationPerSeriesAligner, filter,
+         intervalEndTime, intervalStartTime, name, orderBy, pageSize, pageToken,
+         secondaryAggregationAlignmentPeriod,
+         secondaryAggregationCrossSeriesReducer,
+         secondaryAggregationGroupByFields,
+         secondaryAggregationPerSeriesAligner, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"aggregationAlignmentPeriod" : @"aggregation.alignmentPeriod",
+    @"aggregationCrossSeriesReducer" : @"aggregation.crossSeriesReducer",
+    @"aggregationGroupByFields" : @"aggregation.groupByFields",
+    @"aggregationPerSeriesAligner" : @"aggregation.perSeriesAligner",
+    @"intervalEndTime" : @"interval.endTime",
+    @"intervalStartTime" : @"interval.startTime",
+    @"secondaryAggregationAlignmentPeriod" : @"secondaryAggregation.alignmentPeriod",
+    @"secondaryAggregationCrossSeriesReducer" : @"secondaryAggregation.crossSeriesReducer",
+    @"secondaryAggregationGroupByFields" : @"secondaryAggregation.groupByFields",
+    @"secondaryAggregationPerSeriesAligner" : @"secondaryAggregation.perSeriesAligner"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aggregation.groupByFields" : [NSString class],
+    @"secondaryAggregation.groupByFields" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}/timeSeries";
+  GTLRMonitoringQuery_OrganizationsTimeSeriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_ListTimeSeriesResponse class];
+  query.loggingName = @"monitoring.organizations.timeSeries.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsAlertPoliciesCreate
 
 @dynamic name;

@@ -7,7 +7,7 @@
 //   Schedule queries or transfer external data from SaaS applications to Google
 //   BigQuery on a regular basis.
 // Documentation:
-//   https://cloud.google.com/bigquery/
+//   https://cloud.google.com/bigquery-transfer/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

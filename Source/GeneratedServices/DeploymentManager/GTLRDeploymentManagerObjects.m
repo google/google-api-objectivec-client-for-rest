@@ -350,8 +350,8 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreac
 //
 
 @implementation GTLRDeploymentManager_Manifest
-@dynamic config, expandedConfig, identifier, imports, insertTime, layout, name,
-         selfLink;
+@dynamic config, expandedConfig, identifier, imports, insertTime, layout,
+         manifestSizeBytes, manifestSizeLimitBytes, name, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

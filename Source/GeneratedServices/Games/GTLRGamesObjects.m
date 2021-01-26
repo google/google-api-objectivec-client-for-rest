@@ -1272,7 +1272,7 @@ NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecified = @"SNAPSHOT_T
 //
 
 @implementation GTLRGames_ResolveSnapshotHeadRequest
-@dynamic resolutionPolicy;
+@dynamic maxConflictsPerSnapshot, resolutionPolicy;
 @end
 
 

@@ -1513,7 +1513,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *status;
 
 /**
- *  The type of this run; can be either "AUTOMATED" or "ON_DEMAND".
+ *  The type of this run; can be either "AUTOMATED" or "ON_DEMAND". This field
+ *  defaults to "ON_DEMAND" and is ignored, when specified for insert requests.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_BackupRun_Type_Automated The backup schedule
@@ -3722,6 +3723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  SslCerts create ephemeral certificate request.
  */
 @interface GTLRSQLAdmin_SslCertsCreateEphemeralRequest : GTLRObject
+
+/** Access token to include in the signed certificate. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
 
 /** PEM encoded public key to include in the signed certificate. */
 @property(nonatomic, copy, nullable) NSString *publicKey;

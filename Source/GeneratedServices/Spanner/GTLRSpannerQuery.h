@@ -2370,6 +2370,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
+ *  Deadline used while retrieving metadata for instances. Instances whose
+ *  metadata cannot be retrieved within this deadline will be added to
+ *  unreachable in ListInstancesResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceDeadline;
+
+/**
  *  Number of instances to be returned in the response. If 0 or less, defaults
  *  to the server's maximum allowed page size.
  */

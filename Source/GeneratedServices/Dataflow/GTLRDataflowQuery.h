@@ -526,7 +526,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
+ *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
+ *  JobViews.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
@@ -899,7 +900,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
+ *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
+ *  JobViews.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't
@@ -1708,7 +1710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflowViewMetadataOnly;
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  Level of information requested in response. Default is `JOB_VIEW_SUMMARY`.
+ *  Deprecated. ListJobs always returns summaries now. Use GetJob for other
+ *  JobViews.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflowViewJobViewUnknown The job view to return isn't

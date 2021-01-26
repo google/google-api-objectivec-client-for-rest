@@ -38,6 +38,11 @@ NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_Al
 NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_PrivateRangesOnly = @"PRIVATE_RANGES_ONLY";
 NSString * const kGTLRCloudFunctions_CloudFunction_VpcConnectorEgressSettings_VpcConnectorEgressSettingsUnspecified = @"VPC_CONNECTOR_EGRESS_SETTINGS_UNSPECIFIED";
 
+// GTLRCloudFunctions_HttpsTrigger.securityLevel
+NSString * const kGTLRCloudFunctions_HttpsTrigger_SecurityLevel_SecureAlways = @"SECURE_ALWAYS";
+NSString * const kGTLRCloudFunctions_HttpsTrigger_SecurityLevel_SecureOptional = @"SECURE_OPTIONAL";
+NSString * const kGTLRCloudFunctions_HttpsTrigger_SecurityLevel_SecurityLevelUnspecified = @"SECURITY_LEVEL_UNSPECIFIED";
+
 // GTLRCloudFunctions_OperationMetadataV1.type
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_CreateFunction = @"CREATE_FUNCTION";
 NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_DeleteFunction = @"DELETE_FUNCTION";
@@ -128,8 +133,8 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
          descriptionProperty, entryPoint, environmentVariables, eventTrigger,
          httpsTrigger, ingressSettings, labels, maxInstances, name, network,
          runtime, serviceAccountEmail, sourceArchiveUrl, sourceRepository,
-         sourceUploadUrl, status, timeout, updateTime, versionId, vpcConnector,
-         vpcConnectorEgressSettings;
+         sourceToken, sourceUploadUrl, status, timeout, updateTime, versionId,
+         vpcConnector, vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -260,7 +265,7 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_HttpsTrigger
-@dynamic url;
+@dynamic securityLevel, url;
 @end
 
 

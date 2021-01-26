@@ -4964,11 +4964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *groupId;
 
-/**
- *  The date and time that the video was uploaded. The value is specified in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the video was uploaded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the resource that is primarily
@@ -5154,11 +5151,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
-/**
- *  The date and time when the caption track was last updated. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *lastUpdated;
+/** The date and time when the caption track was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdated;
 
 /**
  *  The name of the caption track. The name is intended to be visible to the
@@ -5469,11 +5463,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** The ID of the content owner linked to the channel. */
 @property(nonatomic, copy, nullable) NSString *contentOwner;
 
-/**
- *  The date and time of when the channel was linked to the content owner. The
- *  value is specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *timeLinked;
+/** The date and time when the channel was linked to the content owner. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timeLinked;
 
 @end
 
@@ -5932,11 +5923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** Localized title and description, read-only. */
 @property(nonatomic, strong, nullable) GTLRYouTube_ChannelLocalization *localized;
 
-/**
- *  The date and time that the channel was created. The value is specified in <
- *  a href="//www.w3.org/TR/NOTE-datetime">ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the channel was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the channel. For each object in
@@ -6222,11 +6210,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** The unique id of the parent comment, only set for replies. */
 @property(nonatomic, copy, nullable) NSString *parentId;
 
-/**
- *  The date and time when the comment was orignally published. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time when the comment was originally published. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The comment's text. The format is either plain text or HTML dependent on
@@ -6243,11 +6228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *textOriginal;
 
-/**
- *  The date and time when was last updated . The value is specified in ISO 8601
- *  format.
- */
-@property(nonatomic, copy, nullable) NSString *updatedAt;
+/** The date and time when the comment was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updatedAt;
 
 /** The ID of the video the comment refers to, if any. */
 @property(nonatomic, copy, nullable) NSString *videoId;
@@ -8383,7 +8365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  The date and time that the live stream referenced by boundStreamId was last
  *  updated.
  */
-@property(nonatomic, copy, nullable) NSString *boundStreamLastUpdateTimeMs;
+@property(nonatomic, strong, nullable) GTLRDateTime *boundStreamLastUpdateTimeMs;
 
 /**
  *  closedCaptionsType
@@ -8607,17 +8589,15 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the broadcast actually ended. This information is
- *  only available once the broadcast's state is complete. The value is
- *  specified in ISO 8601 format.
+ *  only available once the broadcast's state is complete.
  */
-@property(nonatomic, copy, nullable) NSString *actualEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
  *  The date and time that the broadcast actually started. This information is
- *  only available once the broadcast's state is live. The value is specified in
- *  ISO 8601 format.
+ *  only available once the broadcast's state is live.
  */
-@property(nonatomic, copy, nullable) NSString *actualStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
 /**
  *  The ID that YouTube uses to uniquely identify the channel that is publishing
@@ -8646,21 +8626,15 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time that the broadcast was added to YouTube's live broadcast
- *  schedule. The value is specified in ISO 8601 format.
+ *  schedule.
  */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
-/**
- *  The date and time that the broadcast is scheduled to end. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *scheduledEndTime;
+/** The date and time that the broadcast is scheduled to start. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
-/**
- *  The date and time that the broadcast is scheduled to start. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *scheduledStartTime;
+/** The date and time that the broadcast is scheduled to end. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 /**
  *  A map of thumbnail images associated with the broadcast. For each nested
@@ -9014,11 +8988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/**
- *  The date and time when the underlying stream went offline. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *offlineAt;
+/** The date and time when the underlying stream went offline. */
+@property(nonatomic, strong, nullable) GTLRDateTime *offlineAt;
 
 /** General pagination information. */
 @property(nonatomic, strong, nullable) GTLRYouTube_PageInfo *pageInfo;
@@ -9088,11 +9059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageDeletedDetails *messageDeletedDetails;
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatMessageRetractedDetails *messageRetractedDetails;
 
-/**
- *  The date and time when the message was orignally published. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time when the message was orignally published. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  Details about the Super Chat event, this is only set if the type is
@@ -9644,11 +9612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) NSNumber *isDefaultStream;
 
-/**
- *  The date and time that the stream was created. The value is specified in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the stream was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The stream's title. The value must be between 1 and 128 characters long.
@@ -10184,11 +10149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *videoId;
 
-/**
- *  The date and time that the video was published to YouTube. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *videoPublishedAt;
+/** The date and time that the video was published to YouTube. */
+@property(nonatomic, strong, nullable) GTLRDateTime *videoPublishedAt;
 
 @end
 
@@ -10282,11 +10244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) NSNumber *position;
 
-/**
- *  The date and time that the item was added to the playlist. The value is
- *  specified in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the item was added to the playlist. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The id object contains information that can be used to uniquely identify the
@@ -10437,11 +10396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** Localized title and description, read-only. */
 @property(nonatomic, strong, nullable) GTLRYouTube_PlaylistLocalization *localized;
 
-/**
- *  The date and time that the playlist was created. The value is specified in
- *  ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the playlist was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /** Keyword tags associated with the playlist. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
@@ -10669,9 +10625,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The creation date and time of the resource that the search result
- *  identifies. The value is specified in ISO 8601 format.
+ *  identifies.
  */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A map of thumbnail images associated with the search result. For each object
@@ -10835,11 +10791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  The date and time that the subscription was created. The value is specified
- *  in ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time that the subscription was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  The id object contains information about the channel that the user
@@ -10977,11 +10930,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** The text contents of the comment left by the user. */
 @property(nonatomic, copy, nullable) NSString *commentText;
 
-/**
- *  The date and time when the event occurred. The value is specified in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *createdAt;
+/** The date and time when the event occurred. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createdAt;
 
 /** The currency in which the purchase was made. ISO 4217. */
 @property(nonatomic, copy, nullable) NSString *currency;
@@ -12039,16 +11989,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, copy, nullable) NSString *activeLiveChatId;
 
 /**
- *  The time that the broadcast actually ended. The value is specified in ISO
- *  8601 format. This value will not be available until the broadcast is over.
+ *  The time that the broadcast actually ended. This value will not be available
+ *  until the broadcast is over.
  */
-@property(nonatomic, copy, nullable) NSString *actualEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
 
 /**
- *  The time that the broadcast actually started. The value is specified in ISO
- *  8601 format. This value will not be available until the broadcast begins.
+ *  The time that the broadcast actually started. This value will not be
+ *  available until the broadcast begins.
  */
-@property(nonatomic, copy, nullable) NSString *actualStartTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
 
 /**
  *  The number of viewers currently watching the broadcast. The property and its
@@ -12063,17 +12013,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @property(nonatomic, strong, nullable) NSNumber *concurrentViewers;
 
 /**
- *  The time that the broadcast is scheduled to end. The value is specified in
- *  ISO 8601 format. If the value is empty or the property is not present, then
- *  the broadcast is scheduled to continue indefinitely.
+ *  The time that the broadcast is scheduled to end. If the value is empty or
+ *  the property is not present, then the broadcast is scheduled to contiue
+ *  indefinitely.
  */
-@property(nonatomic, copy, nullable) NSString *scheduledEndTime;
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
-/**
- *  The time that the broadcast is scheduled to begin. The value is specified in
- *  ISO 8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *scheduledStartTime;
+/** The time that the broadcast is scheduled to begin. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 @end
 
@@ -12340,11 +12287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 /** The text description of the location where the video was recorded. */
 @property(nonatomic, copy, nullable) NSString *locationDescription;
 
-/**
- *  The date and time when the video was recorded. The value is specified in ISO
- *  8601 (YYYY-MM-DDThh:mm:ss.sssZ) format.
- */
-@property(nonatomic, copy, nullable) NSString *recordingDate;
+/** The date and time when the video was recorded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *recordingDate;
 
 @end
 
@@ -12405,11 +12349,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoLocalization *localized;
 
-/**
- *  The date and time that the video was uploaded. The value is specified in ISO
- *  8601 format.
- */
-@property(nonatomic, copy, nullable) NSString *publishedAt;
+/** The date and time when the video was uploaded. */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
 /**
  *  A list of keyword tags associated with the video. Tags may contain spaces.
@@ -12550,10 +12491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  The date and time when the video is scheduled to publish. It can be set only
- *  if the privacy status of the video is private. The value is specified in ISO
- *  8601 format.
+ *  if the privacy status of the video is private..
  */
-@property(nonatomic, copy, nullable) NSString *publishAt;
+@property(nonatomic, strong, nullable) GTLRDateTime *publishAt;
 
 /**
  *  This value explains why YouTube rejected an uploaded video. This property is

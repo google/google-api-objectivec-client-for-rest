@@ -429,7 +429,7 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 //
 
 @implementation GTLRAlertCenter_GoogleOperations
-@dynamic affectedUserEmails, attachmentData, descriptionProperty, title;
+@dynamic affectedUserEmails, attachmentData, descriptionProperty, header, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

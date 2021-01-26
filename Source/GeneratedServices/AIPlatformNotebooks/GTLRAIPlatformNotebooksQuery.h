@@ -372,6 +372,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Check if a notebook instance is healthy.
+ *
+ *  Method: notebooks.projects.locations.instances.getInstanceHealth
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetInstanceHealth : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesGetInstanceHealthWithname:]
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_GetInstanceHealthResponse.
+ *
+ *  Check if a notebook instance is healthy.
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetInstanceHealth
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Check if a notebook instance is upgradable.
  *
  *  Method: notebooks.projects.locations.instances.isUpgradeable

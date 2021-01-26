@@ -4,7 +4,7 @@
 // API:
 //   Area120 Tables API (area120tables/v1alpha1)
 // Documentation:
-//   https://tables.area120.google.com
+//   https://support.google.com/area120-tables/answer/10011390
 
 #import "GTLRArea120TablesObjects.h"
 

@@ -2411,8 +2411,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_GoogleApiServicecontrolV1TraceSpan *> *traceSpans;
 
 /**
- *  User defined labels for the resource that this operation is associated with.
- *  Only a combination of 1000 user labels per consumer project are allowed.
+ *  Private Preview. This feature is only available for approved services. User
+ *  defined labels for the resource that this operation is associated with. Only
+ *  a combination of 1000 user labels per consumer project are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCertificateAuthorityService_GoogleApiServicecontrolV1Operation_UserLabels *userLabels;
 
@@ -2454,8 +2455,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 
 
 /**
- *  User defined labels for the resource that this operation is associated with.
- *  Only a combination of 1000 user labels per consumer project are allowed.
+ *  Private Preview. This feature is only available for approved services. User
+ *  defined labels for the resource that this operation is associated with. Only
+ *  a combination of 1000 user labels per consumer project are allowed.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

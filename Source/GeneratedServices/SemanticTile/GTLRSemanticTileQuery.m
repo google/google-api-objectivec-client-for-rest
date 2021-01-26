@@ -42,12 +42,13 @@ NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatUnknown = @"TERRAIN
 
 @implementation GTLRSemanticTileQuery_FeaturetilesGet
 
-@dynamic clientInfoApiClient, clientInfoApplicationId,
-         clientInfoApplicationVersion, clientInfoDeviceModel,
-         clientInfoOperatingSystem, clientInfoPlatform, clientInfoUserId,
-         clientTileVersionId, enableDetailedHighwayTypes, enableFeatureNames,
-         enableModeledVolumes, enablePoliticalFeatures, enablePrivateRoads,
-         enableUnclippedBuildings, languageCode, name, regionCode;
+@dynamic alwaysIncludeBuildingFootprints, clientInfoApiClient,
+         clientInfoApplicationId, clientInfoApplicationVersion,
+         clientInfoDeviceModel, clientInfoOperatingSystem, clientInfoPlatform,
+         clientInfoUserId, clientTileVersionId, enableDetailedHighwayTypes,
+         enableFeatureNames, enableModeledVolumes, enablePoliticalFeatures,
+         enablePrivateRoads, enableUnclippedBuildings, languageCode, name,
+         regionCode;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
