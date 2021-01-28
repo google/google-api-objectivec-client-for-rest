@@ -3632,6 +3632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon;
 /**
+ *  Sharethrough
+ *
+ *  Value: "EXCHANGE_SHARETHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSharethrough;
+/**
  *  Smaato
  *
  *  Value: "EXCHANGE_SMAATO"
@@ -3655,6 +3661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartstreamtv;
+/**
+ *  SoundCast.
+ *
+ *  Value: "EXCHANGE_SOUNDCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSoundcast;
 /**
  *  Sovrn.
  *
@@ -4002,6 +4014,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon;
 /**
+ *  Sharethrough
+ *
+ *  Value: "EXCHANGE_SHARETHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSharethrough;
+/**
  *  Smaato
  *
  *  Value: "EXCHANGE_SMAATO"
@@ -4025,6 +4043,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartstreamtv;
+/**
+ *  SoundCast.
+ *
+ *  Value: "EXCHANGE_SOUNDCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSoundcast;
 /**
  *  Sovrn.
  *
@@ -4400,6 +4424,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon;
 /**
+ *  Sharethrough
+ *
+ *  Value: "EXCHANGE_SHARETHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSharethrough;
+/**
  *  Smaato
  *
  *  Value: "EXCHANGE_SMAATO"
@@ -4423,6 +4453,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartstreamtv;
+/**
+ *  SoundCast.
+ *
+ *  Value: "EXCHANGE_SOUNDCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSoundcast;
 /**
  *  Sovrn.
  *
@@ -6229,6 +6265,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon;
 /**
+ *  Sharethrough
+ *
+ *  Value: "EXCHANGE_SHARETHROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSharethrough;
+/**
  *  Smaato
  *
  *  Value: "EXCHANGE_SMAATO"
@@ -6252,6 +6294,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartstreamtv;
+/**
+ *  SoundCast.
+ *
+ *  Value: "EXCHANGE_SOUNDCAST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSoundcast;
 /**
  *  Sovrn.
  *
@@ -13388,6 +13436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSharethrough
+ *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmaato
  *        Smaato (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartclip
@@ -13396,6 +13446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSoundcast
+ *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotxchange
@@ -13544,6 +13596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSharethrough
+ *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmaato
  *        Smaato (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartclip
@@ -13552,6 +13606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSoundcast
+ *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotxchange
@@ -13703,6 +13759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSharethrough
+ *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmaato
  *        Smaato (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartclip
@@ -13711,6 +13769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSoundcast
+ *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn
  *        Sovrn. (Value: "EXCHANGE_SOVRN")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotxchange
@@ -15391,6 +15451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        RevenueMax. (Value: "EXCHANGE_REVENUEMAX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSharethrough
+ *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmaato Smaato
  *        (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartclip
@@ -15399,6 +15461,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSoundcast
+ *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn Sovrn.
  *        (Value: "EXCHANGE_SOVRN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotxchange

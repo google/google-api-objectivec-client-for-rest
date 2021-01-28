@@ -243,7 +243,8 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 @implementation GTLRBinaryAuthorization_Policy
 @dynamic admissionWhitelistPatterns, clusterAdmissionRules,
          defaultAdmissionRule, descriptionProperty, globalPolicyEvaluationMode,
-         name, updateTime;
+         istioServiceIdentityAdmissionRules, kubernetesNamespaceAdmissionRules,
+         kubernetesServiceAccountAdmissionRules, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -265,6 +266,48 @@ NSString * const kGTLRBinaryAuthorization_ValidateAttestationOccurrenceResponse_
 //
 
 @implementation GTLRBinaryAuthorization_Policy_ClusterAdmissionRules
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBinaryAuthorization_AdmissionRule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules
+//
+
+@implementation GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBinaryAuthorization_AdmissionRule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules
+//
+
+@implementation GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBinaryAuthorization_AdmissionRule class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules
+//
+
+@implementation GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules
 
 + (Class)classForAdditionalProperties {
   return [GTLRBinaryAuthorization_AdmissionRule class];

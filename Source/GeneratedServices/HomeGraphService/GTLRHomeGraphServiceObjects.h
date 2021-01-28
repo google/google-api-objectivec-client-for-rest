@@ -25,6 +25,7 @@
 @class GTLRHomeGraphService_Device_CustomData;
 @class GTLRHomeGraphService_DeviceInfo;
 @class GTLRHomeGraphService_DeviceNames;
+@class GTLRHomeGraphService_NonLocalTrait;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
 @class GTLRHomeGraphService_QueryResponsePayload;
@@ -73,7 +74,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  Third-party device definition.
+ *  Third-party device definition. Next ID = 14
  */
 @interface GTLRHomeGraphService_Device : GTLRObject
 
@@ -103,6 +104,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Names given to this device by your smart home Action. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceNames *name;
+
+/**
+ *  See description for "traits". For Smart Home Entertainment Devices (SHED)
+ *  devices, some traits can only be executed on 3P cloud, e.g.
+ *  "non_local_traits": [ { "trait": "action.devices.traits.MediaInitiation" },
+ *  { "trait": "action.devices.traits.Channel" } ] go/shed-per-trait-routing.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_NonLocalTrait *> *nonLocalTraits;
 
 /**
  *  Indicates whether your smart home Action will report notifications to Google
@@ -234,6 +243,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRHomeGraphService_Empty : GTLRObject
+@end
+
+
+/**
+ *  LINT.IfChange go/shed-per-trait-routing. Making it object to allow for
+ *  extendible design, where we can add attributes in future.
+ */
+@interface GTLRHomeGraphService_NonLocalTrait : GTLRObject
+
+/**
+ *  Trait name, e.g., "action.devices.traits.MediaInitiation". See [device
+ *  traits](https://developers.google.com/assistant/smarthome/traits).
+ */
+@property(nonatomic, copy, nullable) NSString *trait;
+
 @end
 
 

@@ -2597,8 +2597,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  neither operator is specified, `AND` is assumed. Examples: Include only
  *  pools with more than 100 reserved workers: `(worker_count > 100)
  *  (worker_config.reserved = true)` Include only pools with a certain label or
- *  machines of the n1-standard family: `worker_config.labels.key1 : * OR
- *  worker_config.machine_type: n1-standard`
+ *  machines of the e2-standard family: `worker_config.labels.key1 : * OR
+ *  worker_config.machine_type: e2-standard`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2716,7 +2716,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaWorkerConfig_Labels *labels;
 
 /**
- *  Required. Machine type of the worker, such as `n1-standard-2`. See
+ *  Required. Machine type of the worker, such as `e2-standard-2`. See
  *  https://cloud.google.com/compute/docs/machine-types for a list of supported
  *  machine types. Note that `f1-micro` and `g1-small` are not yet supported.
  */

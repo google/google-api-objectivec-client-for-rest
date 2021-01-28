@@ -209,6 +209,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Ins
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination.writeDisposition
+
+/**
+ *  Append data to the existing tables.
+ *
+ *  Value: "WRITE_APPEND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend;
+/**
+ *  Default behavior is the same as WRITE_EMPTY.
+ *
+ *  Value: "WRITE_DISPOSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteDispositionUnspecified;
+/**
+ *  Only export data if the destination tables are empty.
+ *
+ *  Value: "WRITE_EMPTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteEmpty;
+/**
+ *  Erase all existing data in a tables before writing the instances.
+ *
+ *  Value: "WRITE_TRUNCATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteTruncate;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_ImageConfig.textRedactionMode
 
 /**
@@ -241,8 +269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactio
 
 /**
  *  The source file contains one or more lines of newline-delimited JSON
- *  (ndjson). Each line is a bundle that contains one or more resources. Set the
- *  bundle type to `history` to import resource versions.
+ *  (ndjson). Each line is a bundle that contains one or more resources.
  *
  *  Value: "BUNDLE"
  */
@@ -938,10 +965,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *  This determines if the client can use an Update operation to create a new
  *  resource with a client-specified ID. If false, all IDs are server-assigned
  *  through the Create operation and attempts to update a non-existent resource
- *  return errors. Be careful with the audit logs if client-specified resource
- *  IDs contain sensitive data such as patient identifiers, those IDs are part
- *  of the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
- *  notifications.
+ *  return errors. It is strongly advised not to include or encode any sensitive
+ *  data such as patient identifiers in client-specified resource IDs. Those IDs
+ *  are part of the FHIR resource path recorded in Cloud audit logs and Cloud
+ *  Pub/Sub notifications. Those IDs can also be contained in reference fields
+ *  within other resources.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1187,7 +1215,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 /**
  *  If this flag is `TRUE`, all tables are deleted from the dataset before the
  *  new exported tables are written. If the flag is not set and the destination
- *  dataset contains tables, the export call returns an error.
+ *  dataset contains tables, the export call returns an error. If
+ *  `write_disposition` is specified, this parameter is ignored. force=false is
+ *  equivalent to write_disposition=WRITE_EMPTY and force=true is equivalent to
+ *  write_disposition=WRITE_TRUNCATE.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1195,6 +1226,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /** The configuration for the exported BigQuery schema. */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaConfig *schemaConfig;
+
+/**
+ *  Determines whether existing tables in the destination dataset are
+ *  overwritten or appended to. If a write_disposition is specified, the `force`
+ *  parameter is ignored.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend
+ *        Append data to the existing tables. (Value: "WRITE_APPEND")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteDispositionUnspecified
+ *        Default behavior is the same as WRITE_EMPTY. (Value:
+ *        "WRITE_DISPOSITION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteEmpty
+ *        Only export data if the destination tables are empty. (Value:
+ *        "WRITE_EMPTY")
+ *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteTruncate
+ *        Erase all existing data in a tables before writing the instances.
+ *        (Value: "WRITE_TRUNCATE")
+ */
+@property(nonatomic, copy, nullable) NSString *writeDisposition;
 
 @end
 
@@ -1480,8 +1531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_Bundle
  *        The source file contains one or more lines of newline-delimited JSON
  *        (ndjson). Each line is a bundle that contains one or more resources.
- *        Set the bundle type to `history` to import resource versions. (Value:
- *        "BUNDLE")
+ *        (Value: "BUNDLE")
  *    @arg @c kGTLRCloudHealthcare_ImportResourcesRequest_ContentStructure_BundlePretty
  *        The entire file is one JSON bundle. The JSON can span multiple lines.
  *        (Value: "BUNDLE_PRETTY")

@@ -3405,9 +3405,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The mask to specify which fields should be updated. Only a test
- *  case's metadata and replayed_conversation_turns may be updated. The original
- *  test_case_conversation_turns may not be updated.
+ *  Required. The mask to specify which fields should be updated. The
+ *  `creationTime` and `lastTestResult` cannot be updated.
  *
  *  String format is a comma-separated list of fields.
  */

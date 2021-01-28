@@ -381,7 +381,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Intoto;
 /**
- *  Unknown.
+ *  Default value. This value is unused.
  *
  *  Value: "NOTE_KIND_UNSPECIFIED"
  */
@@ -728,7 +728,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Image;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Intoto;
 /**
- *  Unknown.
+ *  Default value. This value is unused.
  *
  *  Value: "NOTE_KIND_UNSPECIFIED"
  */
@@ -786,7 +786,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Image;
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Intoto;
 /**
- *  Unknown.
+ *  Default value. This value is unused.
  *
  *  Value: "NOTE_KIND_UNSPECIFIED"
  */
@@ -1651,6 +1651,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /** The severity (eg: distro assigned severity) for this vulnerability. */
 @property(nonatomic, copy, nullable) NSString *severityName;
 
+/** The source from which the information in this Detail was obtained. */
+@property(nonatomic, copy, nullable) NSString *source;
+
 /**
  *  The time this information was last changed at the source. This is an
  *  upstream timestamp from the underlying information source - e.g. Ubuntu
@@ -1753,7 +1756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Intoto This
  *        represents an in-toto link. (Value: "INTOTO")
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_NoteKindUnspecified
- *        Unknown. (Value: "NOTE_KIND_UNSPECIFIED")
+ *        Default value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Package This
  *        represents a package installed via a package manager. (Value:
  *        "PACKAGE")
@@ -2705,8 +2708,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        basis relationship. (Value: "IMAGE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Intoto This represents an in-toto
  *        link. (Value: "INTOTO")
- *    @arg @c kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified Unknown.
- *        (Value: "NOTE_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified Default
+ *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Package This represents a package
  *        installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
@@ -2796,8 +2799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        image basis relationship. (Value: "IMAGE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Intoto This represents an
  *        in-toto link. (Value: "INTOTO")
- *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified
- *        Unknown. (Value: "NOTE_KIND_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified Default
+ *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Package This represents a
  *        package installed via a package manager. (Value: "PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
@@ -3383,6 +3386,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *epoch;
+
+/**
+ *  Whether this version is specifying part of an inclusive range. Grafeas does
+ *  not have the capability to specify version ranges; instead we have fields
+ *  that specify start version and end versions. At times this is insufficient -
+ *  we also need to specify whether the version is included in the range or is
+ *  excluded from the range. This boolean is expected to be set to true when the
+ *  version is included in a range.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *inclusive;
 
 /**
  *  Required. Distinguishes between sentinel MIN/MAX versions and normal

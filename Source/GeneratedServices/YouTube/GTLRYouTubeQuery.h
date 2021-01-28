@@ -637,7 +637,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1375,7 +1376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1591,7 +1593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 20.
+ *  @note If not set, the documented server-side default will be 20 (from the
+ *        range 1..100).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -1870,7 +1873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 20.
+ *  @note If not set, the documented server-side default will be 20 (from the
+ *        range 1..100).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2468,7 +2472,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2915,7 +2920,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 500.
+ *  @note If not set, the documented server-side default will be 500 (from the
+ *        range 200..2000).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -2935,6 +2941,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 /**
  *  Specifies the size of the profile image that should be returned for each
  *  user.
+ *
+ *  @note The documented range is 16..720.
  */
 @property(nonatomic, assign) NSUInteger profileImageSize;
 
@@ -3053,7 +3061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3257,7 +3266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3471,7 +3481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..1000).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3649,7 +3660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -3939,7 +3951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4148,7 +4161,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4500,7 +4514,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 0..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4624,7 +4639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  The *maxResults* parameter specifies the maximum number of items that should
  *  be returned in the result set.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 1..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -5239,6 +5255,11 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 @property(nonatomic, copy, nullable) NSString *locale;
 
+/**
+ *  maxHeight
+ *
+ *  @note The documented range is 72..8192.
+ */
 @property(nonatomic, assign) NSInteger maxHeight;
 
 /**
@@ -5247,11 +5268,16 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  in conjunction with the myRating and chart parameters, but it is not
  *  supported for use in conjunction with the id parameter.
  *
- *  @note If not set, the documented server-side default will be 5.
+ *  @note If not set, the documented server-side default will be 5 (from the
+ *        range 1..50).
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-/** Return the player with maximum height specified in */
+/**
+ *  Return the player with maximum height specified in
+ *
+ *  @note The documented range is 72..8192.
+ */
 @property(nonatomic, assign) NSInteger maxWidth;
 
 /**
