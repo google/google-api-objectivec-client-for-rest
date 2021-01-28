@@ -583,7 +583,7 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 @implementation GTLRContainerAnalysis_Detail
 @dynamic cpeUri, descriptionProperty, fixedLocation, isObsolete,
          maxAffectedVersion, minAffectedVersion, package, packageType,
-         severityName, sourceUpdateTime;
+         severityName, source, sourceUpdateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1433,7 +1433,7 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 //
 
 @implementation GTLRContainerAnalysis_Version
-@dynamic epoch, kind, name, revision;
+@dynamic epoch, inclusive, kind, name, revision;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

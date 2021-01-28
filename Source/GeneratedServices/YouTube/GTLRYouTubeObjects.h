@@ -3557,6 +3557,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Proj
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360;
 
 // ----------------------------------------------------------------------------
+// GTLRYouTube_LiveBroadcastContentDetails.stereoLayout
+
+/** Value: "leftRight" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight;
+/** Value: "mono" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono;
+/** Value: "stereoLayoutUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_StereoLayoutUnspecified;
+/** Value: "topBottom" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom;
+
+// ----------------------------------------------------------------------------
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 
 /**
@@ -8525,6 +8537,21 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startWithSlate;
+
+/**
+ *  The 3D stereo layout of this broadcast. This defaults to mono.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight
+ *        Value "leftRight"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono Value
+ *        "mono"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_StereoLayoutUnspecified
+ *        Value "stereoLayoutUnspecified"
+ *    @arg @c kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom
+ *        Value "topBottom"
+ */
+@property(nonatomic, copy, nullable) NSString *stereoLayout;
 
 @end
 

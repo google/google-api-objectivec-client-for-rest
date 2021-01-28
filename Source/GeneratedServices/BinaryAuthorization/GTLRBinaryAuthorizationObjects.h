@@ -32,6 +32,9 @@
 @class GTLRBinaryAuthorization_Jwt;
 @class GTLRBinaryAuthorization_PkixPublicKey;
 @class GTLRBinaryAuthorization_Policy_ClusterAdmissionRules;
+@class GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules;
+@class GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules;
+@class GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules;
 @class GTLRBinaryAuthorization_Signature;
 @class GTLRBinaryAuthorization_UserOwnedGrafeasNote;
 
@@ -790,6 +793,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 @property(nonatomic, copy, nullable) NSString *globalPolicyEvaluationMode;
 
 /**
+ *  Optional. Per-istio-service-identity admission rules. Istio service identity
+ *  spec format: spiffe:///ns//sa/ or /ns//sa/ e.g.
+ *  spiffe://example.com/ns/test-ns/sa/default
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules *istioServiceIdentityAdmissionRules;
+
+/**
+ *  Optional. Per-kubernetes-namespace admission rules. K8s namespace spec
+ *  format: [a-z.-]+, e.g. 'some-namespace'
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules *kubernetesNamespaceAdmissionRules;
+
+/**
+ *  Optional. Per-kubernetes-service-account admission rules. Service account
+ *  spec format: `namespace:serviceaccount`. e.g. 'test-ns:default'
+ */
+@property(nonatomic, strong, nullable) GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules *kubernetesServiceAccountAdmissionRules;
+
+/**
  *  Output only. The resource name, in the format `projects/ * /policy`. There
  *  is at most one policy per project.
  */
@@ -814,6 +836,46 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRBinaryAuthorization_Policy_ClusterAdmissionRules : GTLRObject
+@end
+
+
+/**
+ *  Optional. Per-istio-service-identity admission rules. Istio service identity
+ *  spec format: spiffe:///ns//sa/ or /ns//sa/ e.g.
+ *  spiffe://example.com/ns/test-ns/sa/default
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBinaryAuthorization_Policy_IstioServiceIdentityAdmissionRules : GTLRObject
+@end
+
+
+/**
+ *  Optional. Per-kubernetes-namespace admission rules. K8s namespace spec
+ *  format: [a-z.-]+, e.g. 'some-namespace'
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBinaryAuthorization_Policy_KubernetesNamespaceAdmissionRules : GTLRObject
+@end
+
+
+/**
+ *  Optional. Per-kubernetes-service-account admission rules. Service account
+ *  spec format: `namespace:serviceaccount`. e.g. 'test-ns:default'
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBinaryAuthorization_AdmissionRule. Use @c -additionalJSONKeys and
+ *        @c -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBinaryAuthorization_Policy_KubernetesServiceAccountAdmissionRules : GTLRObject
 @end
 
 

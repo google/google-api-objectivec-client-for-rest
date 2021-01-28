@@ -889,6 +889,12 @@ NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_ProjectionU
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_Rectangular = @"rectangular";
 NSString * const kGTLRYouTube_LiveBroadcastContentDetails_Projection_X360 = @"360";
 
+// GTLRYouTube_LiveBroadcastContentDetails.stereoLayout
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_LeftRight = @"leftRight";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_Mono = @"mono";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_StereoLayoutUnspecified = @"stereoLayoutUnspecified";
+NSString * const kGTLRYouTube_LiveBroadcastContentDetails_StereoLayout_TopBottom = @"topBottom";
+
 // GTLRYouTube_LiveBroadcastStatus.lifeCycleStatus
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Complete = @"complete";
 NSString * const kGTLRYouTube_LiveBroadcastStatus_LifeCycleStatus_Created = @"created";
@@ -2262,7 +2268,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
          enableAutoStart, enableAutoStop, enableClosedCaptions,
          enableContentEncryption, enableDvr, enableEmbed, enableLowLatency,
          latencyPreference, mesh, monitorStream, projection, recordFromStart,
-         startWithSlate;
+         startWithSlate, stereoLayout;
 @end
 
 

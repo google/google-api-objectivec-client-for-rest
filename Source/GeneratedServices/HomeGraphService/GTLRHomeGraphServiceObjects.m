@@ -39,7 +39,7 @@
 //
 
 @implementation GTLRHomeGraphService_Device
-@dynamic attributes, customData, deviceInfo, identifier, name,
+@dynamic attributes, customData, deviceInfo, identifier, name, nonLocalTraits,
          notificationSupportedByAgent, otherDeviceIds, roomHint, structureHint,
          traits, type, willReportState;
 
@@ -49,6 +49,7 @@
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"nonLocalTraits" : [GTLRHomeGraphService_NonLocalTrait class],
     @"otherDeviceIds" : [GTLRHomeGraphService_AgentOtherDeviceId class],
     @"traits" : [NSString class]
   };
@@ -121,6 +122,16 @@
 //
 
 @implementation GTLRHomeGraphService_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_NonLocalTrait
+//
+
+@implementation GTLRHomeGraphService_NonLocalTrait
+@dynamic trait;
 @end
 
 

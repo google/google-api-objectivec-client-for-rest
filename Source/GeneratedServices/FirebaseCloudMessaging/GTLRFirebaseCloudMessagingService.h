@@ -32,8 +32,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
+ *  Authorization scope: View and manage your data across Google Cloud Platform
+ *  services
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

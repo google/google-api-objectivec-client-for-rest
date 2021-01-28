@@ -38,6 +38,12 @@ NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_DoNotTransform = @"DO
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_InspectAndTransform = @"INSPECT_AND_TRANSFORM";
 NSString * const kGTLRCloudHealthcare_FieldMetadata_Action_Transform = @"TRANSFORM";
 
+// GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination.writeDisposition
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend = @"WRITE_APPEND";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteDispositionUnspecified = @"WRITE_DISPOSITION_UNSPECIFIED";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteEmpty = @"WRITE_EMPTY";
+NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteTruncate = @"WRITE_TRUNCATE";
+
 // GTLRCloudHealthcare_ImageConfig.textRedactionMode
 NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactAllText = @"REDACT_ALL_TEXT";
 NSString * const kGTLRCloudHealthcare_ImageConfig_TextRedactionMode_RedactNoText = @"REDACT_NO_TEXT";
@@ -457,7 +463,7 @@ NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_SchemaTypeUnspecif
 //
 
 @implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination
-@dynamic datasetUri, force, schemaConfig;
+@dynamic datasetUri, force, schemaConfig, writeDisposition;
 @end
 
 

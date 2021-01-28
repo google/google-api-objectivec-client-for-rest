@@ -32,6 +32,83 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate
 
 @dynamic datasetId, parent;
@@ -1191,6 +1268,37 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
   query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType
+
+@dynamic parent, resourceType;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
+                         parent:(NSString *)parent
+                   resourceType:(NSString *)resourceType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"parent", @"resourceType"
+  ];
+  NSString *pathURITemplate = @"v1/{+parent}/fhir/{resourceType}/_search";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.resourceType = resourceType;
+  query.expectedObjectClass = [GTLRCloudHealthcare_HttpBody class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.fhir.search-type";
   return query;
 }
 
