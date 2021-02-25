@@ -710,8 +710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 @interface GTLRCloudDomains_ConfigureContactSettingsRequest : GTLRObject
 
 /**
- *  The list of contact notices that the caller acknowledges. The notices
- *  required here depend on the values specified in `contact_settings`.
+ *  The list of contact notices that the caller acknowledges. The notices needed
+ *  here depend on the values specified in `contact_settings`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contactNotices;
 
@@ -1634,9 +1634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_Registration_SupportedPriva
 @interface GTLRCloudDomains_RegisterDomainRequest : GTLRObject
 
 /**
- *  The list of contact notices that the caller acknowledges. The notices
- *  required here depend on the values specified in
- *  `registration.contact_settings`.
+ *  The list of contact notices that the caller acknowledges. The notices needed
+ *  here depend on the values specified in `registration.contact_settings`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contactNotices;
 

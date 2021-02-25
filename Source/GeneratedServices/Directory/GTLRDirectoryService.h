@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAlias;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryDirectoryUserAliasReadonly;
 /**
- *  Authorization scope: View users on your domain
+ *  Authorization scope: See info about users on your domain
  *
  *  Value "https://www.googleapis.com/auth/admin.directory.user.readonly"
  */

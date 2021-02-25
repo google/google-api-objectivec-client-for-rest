@@ -501,7 +501,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesPatchWithObject:name:]
 
 /**
- *  The Data Catalog resource name of the entry in URL format. Example: *
+ *  Output only. The Data Catalog resource name of the entry in URL format.
+ *  Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *  Note that this Entry and its child resources may not actually be stored in
  *  the location in this name.
@@ -532,8 +533,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry to
  *    include in the query.
- *  @param name The Data Catalog resource name of the entry in URL format.
- *    Example: *
+ *  @param name Output only. The Data Catalog resource name of the entry in URL
+ *    format. Example: *
  *    projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *    Note that this Entry and its child resources may not actually be stored in
  *    the location in this name.

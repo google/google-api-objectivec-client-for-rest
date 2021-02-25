@@ -36,6 +36,8 @@
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
+@class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
@@ -911,9 +913,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /**
  *  schedule_deadline_time is the time deadline any schedule start time cannot
  *  go beyond, including reschedule. It's normally the initial schedule start
- *  time plus a week. If the reschedule type is next window, simply take this
- *  value as start time. If reschedule type is IMMEDIATELY or BY_TIME, current
- *  or selected time cannot go beyond this deadline.
+ *  time plus maintenance window length (1 day or 1 week). Maintenance cannot be
+ *  scheduled to start beyond this deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
 
@@ -937,6 +938,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *exclude;
+
+/**
+ *  Optional. If the update call is triggered from rollback, set the value as
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRollback;
 
 /**
  *  Optional. The MaintenancePolicies that have been attached to the instance.
@@ -993,6 +1002,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
+@end
+
+
+/**
+ *  PerSliSloEligibility is a mapping from an SLI name to eligibility.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility : GTLRObject
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities *eligibilities;
+
+@end
+
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities : GTLRObject
 @end
 
 
@@ -1069,8 +1126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
- *  that the instance should be excluded from all SLIs defined in the service
- *  SLO configuration.
+ *  that the instance should be excluded from all SLIs.
  */
 @property(nonatomic, copy, nullable) NSString *sliName;
 
@@ -1088,7 +1144,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
-/** Optional. User-defined instance eligibility. */
+/**
+ *  Optional. Global per-instance SLI eligibility which applies to all defined
+ *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
+ *  used.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
 
 /**
@@ -1112,6 +1172,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  the form of per node metric to Monarch.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
+
+/**
+ *  Optional. Multiple per-instance SLI eligibilities which apply for individual
+ *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
+ *  used.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
 
 /**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to

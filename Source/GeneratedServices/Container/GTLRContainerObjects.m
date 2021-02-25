@@ -184,6 +184,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Autopilot
+//
+
+@implementation GTLRContainer_Autopilot
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AutoprovisioningNodePoolDefaults
 //
 
@@ -287,7 +297,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Cluster
-@dynamic addonsConfig, authenticatorGroupsConfig, autoscaling,
+@dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
          binaryAuthorization, clusterIpv4Cidr, conditions, createTime,
          currentMasterVersion, currentNodeCount, currentNodeVersion,
          databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
@@ -297,9 +307,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          loggingService, maintenancePolicy, masterAuth,
          masterAuthorizedNetworksConfig, monitoringService, name, network,
          networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
-         privateClusterConfig, releaseChannel, resourceLabels,
-         resourceUsageExportConfig, selfLink, servicesIpv4Cidr, shieldedNodes,
-         status, statusMessage, subnetwork, tpuIpv4CidrBlock,
+         notificationConfig, privateClusterConfig, releaseChannel,
+         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
+         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
          verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -370,10 +380,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
          desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
-         desiredReleaseChannel, desiredResourceUsageExportConfig,
-         desiredShieldedNodes, desiredVerticalPodAutoscaling,
-         desiredWorkloadIdentityConfig;
+         desiredNotificationConfig, desiredPrivateClusterConfig,
+         desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
+         desiredResourceUsageExportConfig, desiredShieldedNodes,
+         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -648,6 +658,30 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_LinuxNodeConfig
+//
+
+@implementation GTLRContainer_LinuxNodeConfig
+@dynamic sysctls;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LinuxNodeConfig_Sysctls
+//
+
+@implementation GTLRContainer_LinuxNodeConfig_Sysctls
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_ListClustersResponse
 //
 
@@ -844,11 +878,11 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NodeConfig
-@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType, labels,
-         localSsdCount, machineType, metadata, minCpuPlatform, nodeGroup,
-         oauthScopes, preemptible, reservationAffinity, sandboxConfig,
-         serviceAccount, shieldedInstanceConfig, tags, taints,
-         workloadMetadataConfig;
+@dynamic accelerators, bootDiskKmsKey, diskSizeGb, diskType, imageType,
+         kubeletConfig, labels, linuxNodeConfig, localSsdCount, machineType,
+         metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
+         reservationAffinity, sandboxConfig, serviceAccount,
+         shieldedInstanceConfig, tags, taints, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -888,6 +922,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeKubeletConfig
+//
+
+@implementation GTLRContainer_NodeKubeletConfig
+@dynamic cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy;
 @end
 
 
@@ -940,6 +984,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeTaint
 @dynamic effect, key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NotificationConfig
+//
+
+@implementation GTLRContainer_NotificationConfig
+@dynamic pubsub;
 @end
 
 
@@ -1005,6 +1059,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_PrivateClusterMasterGlobalAccessConfig
 @dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_PubSub
+//
+
+@implementation GTLRContainer_PubSub
+@dynamic enabled, topic;
 @end
 
 
@@ -1425,8 +1489,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic clusterId, imageType, locations, name, nodePoolId, nodeVersion,
-         projectId, upgradeSettings, workloadMetadataConfig, zoneProperty;
+@dynamic clusterId, imageType, kubeletConfig, linuxNodeConfig, locations, name,
+         nodePoolId, nodeVersion, projectId, upgradeSettings,
+         workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -3111,11 +3111,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  and delegates other aspects to sub-sections. Each sub-section is either a
  *  proto message or a repeated proto message that configures a specific aspect,
  *  such as auth. See each proto message definition for details. Example: type:
- *  google.api.Service config_version: 3 name: calendar.googleapis.com title:
- *  Google Calendar API apis: - name: google.calendar.v3.Calendar
- *  authentication: providers: - id: google_calendar_auth jwks_uri:
- *  https://www.googleapis.com/oauth2/v1/certs issuer:
- *  https://securetoken.google.com rules: - selector: "*" requirements:
+ *  google.api.Service name: calendar.googleapis.com title: Google Calendar API
+ *  apis: - name: google.calendar.v3.Calendar authentication: providers: - id:
+ *  google_calendar_auth jwks_uri: https://www.googleapis.com/oauth2/v1/certs
+ *  issuer: https://securetoken.google.com rules: - selector: "*" requirements:
  *  provider_id: google_calendar_auth
  */
 @interface GTLRServiceConsumerManagement_Service : GTLRObject
@@ -3525,9 +3524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Policy bindings to be applied to the tenant project, in addition to the
  *  'roles/owner' role granted to the Service Consumer Management service
- *  account. At least one binding must have the role `roles/owner`. Among the
- *  list of members for `roles/owner`, at least one of them must be either the
- *  `user` or `group` type.
+ *  account. At least one binding must have the role `roles/owner`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_PolicyBinding *> *policyBindings;
 
@@ -3991,6 +3988,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  `services/serviceconsumermanagement.googleapis.com/projects/123/defaultIdentity`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The Default Identity tag. If specified when creating the account, the tag
+ *  must be present in activation_grants. If not specified when creating the
+ *  account, the tag is set to the tag specified in activation_grants.
+ */
+@property(nonatomic, copy, nullable) NSString *tag;
 
 /** The unique and stable id of the default identity. */
 @property(nonatomic, copy, nullable) NSString *uniqueId;

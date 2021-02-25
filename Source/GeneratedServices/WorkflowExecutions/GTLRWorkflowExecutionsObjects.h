@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -22,8 +22,6 @@
 
 @class GTLRWorkflowExecutions_Error;
 @class GTLRWorkflowExecutions_Execution;
-@class GTLRWorkflowExecutions_StackTrace;
-@class GTLRWorkflowExecutions_StackTraceElement;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -81,21 +79,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_Error : GTLRObject
 
-/** Human readable stack trace string. */
+/** Human readable error context, helpful for debugging purposes. */
 @property(nonatomic, copy, nullable) NSString *context;
 
-/** Error message and data returned represented as a JSON string. */
+/** Error payload returned by the execution, represented as a JSON string. */
 @property(nonatomic, copy, nullable) NSString *payload;
-
-/** Stack trace with detailed information of where error was generated. */
-@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StackTrace *stackTrace;
 
 @end
 
 
 /**
  *  A running instance of a
- *  [Workflow](/workflows/docs/reference/rest/v1beta/projects.locations.workflows).
+ *  [Workflow](/workflows/docs/reference/rest/v1/projects.locations.workflows).
  */
 @interface GTLRWorkflowExecutions_Execution : GTLRObject
 
@@ -177,46 +172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  A collection of stack elements (frames) where an error occurred.
- */
-@interface GTLRWorkflowExecutions_StackTrace : GTLRObject
-
-/** An array of Stack elements. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StackTraceElement *> *elements;
-
-@end
-
-
-/**
- *  A single stack element (frame) where an error occurred.
- */
-@interface GTLRWorkflowExecutions_StackTraceElement : GTLRObject
-
-/**
- *  The source code column position (of the line) the current instruction was
- *  generated from.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *column;
-
-/**
- *  The source code line number the current instruction was generated from.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *line;
-
-/** The routine where the error occurred. */
-@property(nonatomic, copy, nullable) NSString *routine;
-
-/** The step the error occurred at. */
-@property(nonatomic, copy, nullable) NSString *step;
 
 @end
 

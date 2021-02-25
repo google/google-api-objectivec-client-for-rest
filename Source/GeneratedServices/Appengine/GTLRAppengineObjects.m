@@ -802,7 +802,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_LocationMetadata
-@dynamic flexibleEnvironmentAvailable, standardEnvironmentAvailable;
+@dynamic flexibleEnvironmentAvailable, searchApiAvailable,
+         standardEnvironmentAvailable;
 @end
 
 

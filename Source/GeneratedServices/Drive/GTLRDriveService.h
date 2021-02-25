@@ -39,8 +39,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDrive;
 /**
- *  Authorization scope: View and manage its own configuration data in your
- *  Google Drive
+ *  Authorization scope: See, create, and delete its own configuration data in
+ *  your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */
@@ -59,7 +59,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveFile;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDriveMetadata;
 /**
- *  Authorization scope: View metadata for files in your Google Drive
+ *  Authorization scope: See information about your Google Drive files
  *
  *  Value "https://www.googleapis.com/auth/drive.metadata.readonly"
  */

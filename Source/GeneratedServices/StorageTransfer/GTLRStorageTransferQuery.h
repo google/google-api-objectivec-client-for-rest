@@ -24,6 +24,7 @@
 @class GTLRStorageTransfer_CancelOperationRequest;
 @class GTLRStorageTransfer_PauseTransferOperationRequest;
 @class GTLRStorageTransfer_ResumeTransferOperationRequest;
+@class GTLRStorageTransfer_RunTransferJobRequest;
 @class GTLRStorageTransfer_TransferJob;
 @class GTLRStorageTransfer_UpdateTransferJobRequest;
 
@@ -242,6 +243,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Attempts to start a new TransferOperation for the current TransferJob. A
+ *  TransferJob has a maximum of one active TransferOperation. If this method is
+ *  called while a TransferOperation is active, an error wil be returned.
+ *
+ *  Method: storagetransfer.transferJobs.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageTransferCloudPlatform
+ */
+@interface GTLRStorageTransferQuery_TransferJobsRun : GTLRStorageTransferQuery
+// Previous library name was
+//   +[GTLQueryStorageTransfer queryForTransferJobsRunWithObject:jobName:]
+
+/** Required. The name of the transfer job. */
+@property(nonatomic, copy, nullable) NSString *jobName;
+
+/**
+ *  Fetches a @c GTLRStorageTransfer_Operation.
+ *
+ *  Attempts to start a new TransferOperation for the current TransferJob. A
+ *  TransferJob has a maximum of one active TransferOperation. If this method is
+ *  called while a TransferOperation is active, an error wil be returned.
+ *
+ *  @param object The @c GTLRStorageTransfer_RunTransferJobRequest to include in
+ *    the query.
+ *  @param jobName Required. The name of the transfer job.
+ *
+ *  @return GTLRStorageTransferQuery_TransferJobsRun
+ */
++ (instancetype)queryWithObject:(GTLRStorageTransfer_RunTransferJobRequest *)object
+                        jobName:(NSString *)jobName;
+
+@end
+
+/**
  *  Cancels a transfer. Use the transferOperations.get method to check if the
  *  cancellation succeeded or if the operation completed despite the `cancel`
  *  request. When you cancel an operation, the currently running transfer is
@@ -337,7 +373,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists transfer operations.
+ *  Lists transfer operations. Operations are ordered by their creation time in
+ *  reverse chronological order.
  *
  *  Method: storagetransfer.transferOperations.list
  *
@@ -361,7 +398,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Required. The value `transferOperations`. */
+/** Not used. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The list page size. The max allowed value is 256. */
@@ -373,9 +410,10 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageTransfer_ListOperationsResponse.
  *
- *  Lists transfer operations.
+ *  Lists transfer operations. Operations are ordered by their creation time in
+ *  reverse chronological order.
  *
- *  @param name Required. The value `transferOperations`.
+ *  @param name Not used.
  *  @param filter Required. A list of query parameters specified as JSON text in
  *    the form of: `{"projectId":"my_project_id",
  *    "jobNames":["jobid1","jobid2",...],

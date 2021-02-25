@@ -24,6 +24,7 @@
 @class GTLRContainer_AcceleratorConfig;
 @class GTLRContainer_AddonsConfig;
 @class GTLRContainer_AuthenticatorGroupsConfig;
+@class GTLRContainer_Autopilot;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BigQueryDestination;
@@ -50,6 +51,8 @@
 @class GTLRContainer_Jwk;
 @class GTLRContainer_KubernetesDashboard;
 @class GTLRContainer_LegacyAbac;
+@class GTLRContainer_LinuxNodeConfig;
+@class GTLRContainer_LinuxNodeConfig_Sysctls;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
@@ -63,14 +66,17 @@
 @class GTLRContainer_NodeConfig;
 @class GTLRContainer_NodeConfig_Labels;
 @class GTLRContainer_NodeConfig_Metadata;
+@class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeManagement;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodeTaint;
+@class GTLRContainer_NotificationConfig;
 @class GTLRContainer_Operation;
 @class GTLRContainer_OperationProgress;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
+@class GTLRContainer_PubSub;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
@@ -895,6 +901,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Autopilot is the configuration for Autopilot settings on the cluster. It is
+ *  the official product name of what is previously known as AutoGKE
+ */
+@interface GTLRContainer_Autopilot : GTLRObject
+
+/**
+ *  Enable Autopilot
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  AutoprovisioningNodePoolDefaults contains defaults for a node pool created
  *  by NAP.
  */
@@ -1110,6 +1132,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
+
+/**
+ *  Autopilot configuration for the cluster. It has the same semantics as
+ *  AutoGKE and overrides the setting in autogke.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_Autopilot *autopilot;
 
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *autoscaling;
@@ -1348,6 +1376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  "node_config" or "initial_node_count" are specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_NodePool *> *nodePools;
+
+/** Notification configuration of the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *notificationConfig;
 
 /** Configuration for private cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *privateClusterConfig;
@@ -1604,6 +1635,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  picks the Kubernetes master version
  */
 @property(nonatomic, copy, nullable) NSString *desiredNodeVersion;
+
+/** The desired notification configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_NotificationConfig *desiredNotificationConfig;
 
 /** The desired private cluster configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateClusterConfig *desiredPrivateClusterConfig;
@@ -2211,6 +2245,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Parameters that can be configured on Linux nodes.
+ */
+@interface GTLRContainer_LinuxNodeConfig : GTLRObject
+
+/**
+ *  The Linux kernel parameters to be applied to the nodes and all pods running
+ *  on the nodes. The following parameters are supported.
+ *  net.core.netdev_max_backlog net.core.rmem_max net.core.wmem_default
+ *  net.core.wmem_max net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem
+ *  net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
+
+@end
+
+
+/**
+ *  The Linux kernel parameters to be applied to the nodes and all pods running
+ *  on the nodes. The following parameters are supported.
+ *  net.core.netdev_max_backlog net.core.rmem_max net.core.wmem_default
+ *  net.core.wmem_max net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem
+ *  net.ipv4.tcp_wmem net.ipv4.tcp_tw_reuse
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRContainer_LinuxNodeConfig_Sysctls : GTLRObject
+@end
+
+
+/**
  *  ListClustersResponse is the result of ListClustersRequest.
  */
 @interface GTLRContainer_ListClustersResponse : GTLRObject
@@ -2613,6 +2680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
+/** Node kubelet configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *kubeletConfig;
+
 /**
  *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
  *  These will added in addition to any default label(s) that Kubernetes may
@@ -2623,6 +2693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
+
+/** Parameters that can be configured on Linux nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
 
 /**
  *  The number of local SSD disks to be attached to the node. The limit for this
@@ -2785,6 +2858,45 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        fetch them all at once.
  */
 @interface GTLRContainer_NodeConfig_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Node kubelet configs.
+ */
+@interface GTLRContainer_NodeKubeletConfig : GTLRObject
+
+/**
+ *  Enable CPU CFS quota enforcement for containers that specify CPU limits.
+ *  This option is enabled by default which makes kubelet use CFS quota
+ *  (https://www.kernel.org/doc/Documentation/scheduler/sched-bwc.txt) to
+ *  enforce container CPU limits. Otherwise, CPU limits will not be enforced at
+ *  all. Disable this option to mitigate CPU throttling problems while still
+ *  having your pods to be in Guaranteed QoS class by specifying the CPU limits.
+ *  The default value is 'true' if unspecified.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cpuCfsQuota;
+
+/**
+ *  Set the CPU CFS quota period value 'cpu.cfs_period_us'. The string must be a
+ *  sequence of decimal numbers, each with optional fraction and a unit suffix,
+ *  such as "300ms". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
+ *  "h". The value must be a positive duration.
+ */
+@property(nonatomic, copy, nullable) NSString *cpuCfsQuotaPeriod;
+
+/**
+ *  Control the CPU management policy on the node. See
+ *  https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/
+ *  The following values are allowed. - "none": the default, which represents
+ *  the existing scheduling behavior. - "static": allows pods with certain
+ *  resource characteristics to be granted increased CPU affinity and
+ *  exclusivity on the node. The default value is 'none' if unspecified.
+ */
+@property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
+
 @end
 
 
@@ -3000,6 +3112,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Value for taint. */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  NotificationConfig is the configuration of notifications.
+ */
+@interface GTLRContainer_NotificationConfig : GTLRObject
+
+/** Notification config for Pub/Sub. */
+@property(nonatomic, strong, nullable) GTLRContainer_PubSub *pubsub;
 
 @end
 
@@ -3224,6 +3347,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Pub/Sub specific notification config.
+ */
+@interface GTLRContainer_PubSub : GTLRObject
+
+/**
+ *  Enable notifications for Pub/Sub.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The desired Pub/Sub topic to which notifications will be sent by GKE. Format
+ *  is `projects/{project}/topics/{topic}`.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
 
 @end
 
@@ -4323,6 +4467,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Required. The desired image type for the node pool. */
 @property(nonatomic, copy, nullable) NSString *imageType;
+
+/** Node kubelet configs. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *kubeletConfig;
+
+/** Parameters that can be configured on Linux nodes. */
+@property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig *linuxNodeConfig;
 
 /**
  *  The desired list of Google Compute Engine

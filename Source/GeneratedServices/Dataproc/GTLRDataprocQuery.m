@@ -918,6 +918,72 @@ NSString * const kGTLRDataprocJobStateMatcherNonActive = @"NON_ACTIVE";
 
 @end
 
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersStart
+
+@dynamic clusterName, projectId, region;
+
++ (instancetype)queryWithObject:(GTLRDataproc_StartClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterName", @"projectId", @"region"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:start";
+  GTLRDataprocQuery_ProjectsRegionsClustersStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.region = region;
+  query.clusterName = clusterName;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.start";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocQuery_ProjectsRegionsClustersStop
+
+@dynamic clusterName, projectId, region;
+
++ (instancetype)queryWithObject:(GTLRDataproc_StopClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"clusterName", @"projectId", @"region"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/regions/{region}/clusters/{clusterName}:stop";
+  GTLRDataprocQuery_ProjectsRegionsClustersStop *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.region = region;
+  query.clusterName = clusterName;
+  query.expectedObjectClass = [GTLRDataproc_Operation class];
+  query.loggingName = @"dataproc.projects.regions.clusters.stop";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocQuery_ProjectsRegionsClustersTestIamPermissions
 
 @dynamic resource;

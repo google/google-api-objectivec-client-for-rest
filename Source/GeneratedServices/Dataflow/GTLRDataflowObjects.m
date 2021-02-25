@@ -67,6 +67,11 @@ NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsCost
 NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsSpeedOptimized = @"FLEXRS_SPEED_OPTIMIZED";
 NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified = @"FLEXRS_UNSPECIFIED";
 
+// GTLRDataflow_Environment.shuffleMode
+NSString * const kGTLRDataflow_Environment_ShuffleMode_ServiceBased = @"SERVICE_BASED";
+NSString * const kGTLRDataflow_Environment_ShuffleMode_ShuffleModeUnspecified = @"SHUFFLE_MODE_UNSPECIFIED";
+NSString * const kGTLRDataflow_Environment_ShuffleMode_VmBased = @"VM_BASED";
+
 // GTLRDataflow_ExecutionStageState.executionStageState
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelled = @"JOB_STATE_CANCELLED";
 NSString * const kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateCancelling = @"JOB_STATE_CANCELLING";
@@ -666,8 +671,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @implementation GTLRDataflow_Environment
 @dynamic clusterManagerApiService, dataset, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
-         serviceAccountEmail, serviceKmsKeyName, tempStoragePrefix, userAgent,
-         version, workerPools, workerRegion, workerZone;
+         serviceAccountEmail, serviceKmsKeyName, shuffleMode, tempStoragePrefix,
+         userAgent, version, workerPools, workerRegion, workerZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2091,7 +2096,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_SdkHarnessContainerImage
-@dynamic containerImage, useSingleCorePerContainer;
+@dynamic containerImage, environmentId, useSingleCorePerContainer;
 @end
 
 

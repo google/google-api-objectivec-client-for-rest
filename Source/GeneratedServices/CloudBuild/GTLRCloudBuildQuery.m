@@ -529,3 +529,34 @@
 }
 
 @end
+
+@implementation GTLRCloudBuildQuery_ProjectsTriggersWebhook
+
+@dynamic projectId, secret, trigger;
+
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                      projectId:(NSString *)projectId
+                        trigger:(NSString *)trigger {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"projectId", @"trigger"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectId}/triggers/{trigger}:webhook";
+  GTLRCloudBuildQuery_ProjectsTriggersWebhook *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.projectId = projectId;
+  query.trigger = trigger;
+  query.expectedObjectClass = [GTLRCloudBuild_ReceiveTriggerWebhookResponse class];
+  query.loggingName = @"cloudbuild.projects.triggers.webhook";
+  return query;
+}
+
+@end

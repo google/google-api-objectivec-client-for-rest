@@ -38,6 +38,7 @@
 @class GTLRShoppingContent_LiasettingsCustomBatchRequest;
 @class GTLRShoppingContent_LocalInventory;
 @class GTLRShoppingContent_LocalinventoryCustomBatchRequest;
+@class GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateChargeInvoiceRequest;
 @class GTLRShoppingContent_OrderinvoicesCreateRefundInvoiceRequest;
 @class GTLRShoppingContent_OrderreturnsAcknowledgeRequest;
@@ -76,6 +77,8 @@
 @class GTLRShoppingContent_ReturnaddressCustomBatchRequest;
 @class GTLRShoppingContent_ReturnPolicy;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchRequest;
+@class GTLRShoppingContent_ReturnPolicyOnline;
+@class GTLRShoppingContent_SearchRequest;
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequest;
 
@@ -1220,6 +1223,90 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountTax *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Retrieves a status of BoG program for your Merchant Center account.
+ *
+ *  Method: content.buyongoogleprograms.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForBuyongoogleprogramsGetWithmerchantId:regionCode:]
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The Program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_BuyOnGoogleProgramStatus.
+ *
+ *  Retrieves a status of BoG program for your Merchant Center account.
+ *
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode The Program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                         regionCode:(NSString *)regionCode;
+
+@end
+
+/**
+ *  Onboards BoG in your Merchant Center account. By using this method, you
+ *  agree to the Terms of Service.
+ *
+ *  Method: content.buyongoogleprograms.onboard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsOnboard : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForBuyongoogleprogramsOnboardWithObject:merchantId:regionCode:]
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Onboards BoG in your Merchant Center account. By using this method, you
+ *  agree to the Terms of Service.
+ *
+ *  @param object The @c GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode The program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsOnboard
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode;
 
 @end
 
@@ -4927,6 +5014,43 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Retrieves merchant performance mertrics matching the search query and
+ *  optionally segmented by selected dimensions.
+ *
+ *  Method: content.reports.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReportsSearch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReportsSearchWithObject:merchantId:]
+
+/**
+ *  Required. Id of the merchant making the call. Must be a standalone account
+ *  or an MCA subaccount.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_SearchResponse.
+ *
+ *  Retrieves merchant performance mertrics matching the search query and
+ *  optionally segmented by selected dimensions.
+ *
+ *  @param object The @c GTLRShoppingContent_SearchRequest to include in the
+ *    query.
+ *  @param merchantId Required. Id of the merchant making the call. Must be a
+ *    standalone account or an MCA subaccount.
+ *
+ *  @return GTLRShoppingContentQuery_ReportsSearch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_SearchRequest *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Creates a repricing rule for your Merchant Center account.
  *
  *  Method: content.repricingrules.create
@@ -5042,7 +5166,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 // Previous library name was
 //   +[GTLQueryShoppingContent queryForRepricingrulesListWithmerchantId:]
 
-/** CLDR country code (e.g. "US"), used as a filter on repricing rules. */
+/**
+ *  [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  (e.g. "US"), used as a filter on repricing rules.
+ */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /**
@@ -5521,6 +5649,188 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @return GTLRShoppingContentQuery_ReturnpolicyList
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId;
+
+@end
+
+/**
+ *  Creates a new return policy.
+ *
+ *  Method: content.returnpolicyonline.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReturnpolicyonlineCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReturnpolicyonlineCreateWithObject:merchantId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve the return policy
+ *  online object.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ReturnPolicyOnline.
+ *
+ *  Creates a new return policy.
+ *
+ *  @param object The @c GTLRShoppingContent_ReturnPolicyOnline to include in
+ *    the query.
+ *  @param merchantId Required. The id of the merchant for which to retrieve the
+ *    return policy online object.
+ *
+ *  @return GTLRShoppingContentQuery_ReturnpolicyonlineCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicyOnline *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Deletes an existing return policy.
+ *
+ *  Method: content.returnpolicyonline.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReturnpolicyonlineDelete : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReturnpolicyonlineDeleteWithmerchantId:returnPolicyId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve the return policy
+ *  online object.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the return policy to delete. */
+@property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Deletes an existing return policy.
+ *
+ *  @param merchantId Required. The id of the merchant for which to retrieve the
+ *    return policy online object.
+ *  @param returnPolicyId Required. The id of the return policy to delete.
+ *
+ *  @return GTLRShoppingContentQuery_ReturnpolicyonlineDelete
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId;
+
+@end
+
+/**
+ *  Gets an existing return policy.
+ *
+ *  Method: content.returnpolicyonline.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReturnpolicyonlineGet : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReturnpolicyonlineGetWithmerchantId:returnPolicyId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve the return policy
+ *  online object.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the return policy to retrieve. */
+@property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ReturnPolicyOnline.
+ *
+ *  Gets an existing return policy.
+ *
+ *  @param merchantId Required. The id of the merchant for which to retrieve the
+ *    return policy online object.
+ *  @param returnPolicyId Required. The id of the return policy to retrieve.
+ *
+ *  @return GTLRShoppingContentQuery_ReturnpolicyonlineGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId;
+
+@end
+
+/**
+ *  Lists all existing return policies.
+ *
+ *  Method: content.returnpolicyonline.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReturnpolicyonlineList : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReturnpolicyonlineListWithmerchantId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve the return policy
+ *  online object.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ListReturnPolicyOnlineResponse.
+ *
+ *  Lists all existing return policies.
+ *
+ *  @param merchantId Required. The id of the merchant for which to retrieve the
+ *    return policy online object.
+ *
+ *  @return GTLRShoppingContentQuery_ReturnpolicyonlineList
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Updates an existing return policy.
+ *
+ *  Method: content.returnpolicyonline.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ReturnpolicyonlinePatch : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForReturnpolicyonlinePatchWithObject:merchantId:returnPolicyId:]
+
+/**
+ *  Required. The id of the merchant for which to retrieve the return policy
+ *  online object.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. The id of the return policy to update. */
+@property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ReturnPolicyOnline.
+ *
+ *  Updates an existing return policy.
+ *
+ *  @param object The @c GTLRShoppingContent_ReturnPolicyOnline to include in
+ *    the query.
+ *  @param merchantId Required. The id of the merchant for which to retrieve the
+ *    return policy online object.
+ *  @param returnPolicyId Required. The id of the return policy to update.
+ *
+ *  @return GTLRShoppingContentQuery_ReturnpolicyonlinePatch
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicyOnline *)object
+                     merchantId:(long long)merchantId
+                 returnPolicyId:(NSString *)returnPolicyId;
 
 @end
 

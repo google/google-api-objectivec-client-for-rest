@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -35,7 +35,7 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
 //
 
 @implementation GTLRWorkflowExecutions_Error
-@dynamic context, payload, stackTrace;
+@dynamic context, payload;
 @end
 
 
@@ -69,32 +69,4 @@ NSString * const kGTLRWorkflowExecutions_Execution_State_Succeeded = @"SUCCEEDED
   return @"executions";
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkflowExecutions_StackTrace
-//
-
-@implementation GTLRWorkflowExecutions_StackTrace
-@dynamic elements;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"elements" : [GTLRWorkflowExecutions_StackTraceElement class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkflowExecutions_StackTraceElement
-//
-
-@implementation GTLRWorkflowExecutions_StackTraceElement
-@dynamic column, line, routine, step;
 @end

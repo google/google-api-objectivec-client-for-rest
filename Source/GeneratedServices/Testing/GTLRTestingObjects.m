@@ -363,11 +363,12 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_ApkManifest
 @dynamic applicationLabel, intentFilters, maxSdkVersion, minSdkVersion,
-         packageName, targetSdkVersion;
+         packageName, targetSdkVersion, usesPermission;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"intentFilters" : [GTLRTesting_IntentFilter class]
+    @"intentFilters" : [GTLRTesting_IntentFilter class],
+    @"usesPermission" : [NSString class]
   };
   return map;
 }
@@ -863,7 +864,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 //
 
 @implementation GTLRTesting_ProvidedSoftwareCatalog
-@dynamic orchestratorVersion;
+@dynamic androidxOrchestratorVersion, orchestratorVersion;
 @end
 
 

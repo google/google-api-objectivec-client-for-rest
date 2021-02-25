@@ -211,7 +211,7 @@ NSString * const kGTLRArea120TablesViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRArea120TablesQuery_TablesRowsList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic filter, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

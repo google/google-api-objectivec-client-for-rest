@@ -295,6 +295,33 @@
 
 @end
 
+@implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeHeadCursor
+
+@dynamic topic;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeHeadCursorRequest *)object
+                          topic:(NSString *)topic {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/topicStats/{+topic}:computeHeadCursor";
+  GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeHeadCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsubLite_ComputeHeadCursorResponse class];
+  query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeHeadCursor";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeMessageStats
 
 @dynamic topic;

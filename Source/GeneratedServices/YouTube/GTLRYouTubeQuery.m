@@ -927,38 +927,6 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
-@implementation GTLRYouTubeQuery_LiveBroadcastsControl
-
-@dynamic displaySlate, identifier, offsetTimeMs, onBehalfOfContentOwner,
-         onBehalfOfContentOwnerChannel, part, walltime;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"identifier" : @"id" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"part" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithIdentifier:(NSString *)identifier
-                               part:(NSArray<NSString *> *)part {
-  NSString *pathURITemplate = @"youtube/v3/liveBroadcasts/control";
-  GTLRYouTubeQuery_LiveBroadcastsControl *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.identifier = identifier;
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_LiveBroadcast class];
-  query.loggingName = @"youtube.liveBroadcasts.control";
-  return query;
-}
-
-@end
-
 @implementation GTLRYouTubeQuery_LiveBroadcastsDelete
 
 @dynamic identifier, onBehalfOfContentOwner, onBehalfOfContentOwnerChannel;

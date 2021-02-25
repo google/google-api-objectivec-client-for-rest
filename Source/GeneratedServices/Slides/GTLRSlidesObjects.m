@@ -18,6 +18,12 @@ NSString * const kGTLRSlides_AffineTransform_Unit_Emu          = @"EMU";
 NSString * const kGTLRSlides_AffineTransform_Unit_Pt           = @"PT";
 NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
+// GTLRSlides_Autofit.autofitType
+NSString * const kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified = @"AUTOFIT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSlides_Autofit_AutofitType_None          = @"NONE";
+NSString * const kGTLRSlides_Autofit_AutofitType_ShapeAutofit  = @"SHAPE_AUTOFIT";
+NSString * const kGTLRSlides_Autofit_AutofitType_TextAutofit   = @"TEXT_AUTOFIT";
+
 // GTLRSlides_AutoText.type
 NSString * const kGTLRSlides_AutoText_Type_SlideNumber     = @"SLIDE_NUMBER";
 NSString * const kGTLRSlides_AutoText_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -681,6 +687,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_AffineTransform
 @dynamic scaleX, scaleY, shearX, shearY, translateX, translateY, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_Autofit
+//
+
+@implementation GTLRSlides_Autofit
+@dynamic autofitType, fontScale, lineSpacingReduction;
 @end
 
 
@@ -1660,7 +1676,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_ShapeProperties
-@dynamic contentAlignment, link, outline, shadow, shapeBackgroundFill;
+@dynamic autofit, contentAlignment, link, outline, shadow, shapeBackgroundFill;
 @end
 
 

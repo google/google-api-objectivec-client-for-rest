@@ -2065,6 +2065,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBrea
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason;
 /**
+ *  Indicates that the detail ID refers an IAB GVL ID which Google did not
+ *  detect in the latest TCF Vendor List. See [Global Vendor List]
+ *  (https://vendor-list.consensu.org/v2/vendor-list.json)
+ *
+ *  Value: "GVL_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_GvlId;
+/**
  *  Indicates that the detail ID refers to a policy topic.
  *
  *  Value: "POLICY_TOPIC"
@@ -4941,6 +4949,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        DisapprovalReason enum in
  *        [snippet-status-report-proto](https://developers.google.com/authorized-buyers/rtb/downloads/snippet-status-report-proto).
  *        (Value: "DISAPPROVAL_REASON")
+ *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_GvlId
+ *        Indicates that the detail ID refers an IAB GVL ID which Google did not
+ *        detect in the latest TCF Vendor List. See [Global Vendor List]
+ *        (https://vendor-list.consensu.org/v2/vendor-list.json) (Value:
+ *        "GVL_ID")
  *    @arg @c kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic
  *        Indicates that the detail ID refers to a policy topic. (Value:
  *        "POLICY_TOPIC")

@@ -146,7 +146,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Product to delete does not exist, a NOT_FOUND error is returned. The Product
  *  to delete can neither be a Product.Type.COLLECTION Product member nor a
  *  Product.Type.PRIMARY Product with more than one variants. Otherwise, an
- *  INVALID_ARGUMENT error is returned.
+ *  INVALID_ARGUMENT error is returned. All inventory information for the named
+ *  Product will be deleted.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -162,7 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    Product to delete does not exist, a NOT_FOUND error is returned. The
  *    Product to delete can neither be a Product.Type.COLLECTION Product member
  *    nor a Product.Type.PRIMARY Product with more than one variants. Otherwise,
- *    an INVALID_ARGUMENT error is returned.
+ *    an INVALID_ARGUMENT error is returned. All inventory information for the
+ *    named Product will be deleted.
  *
  *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsDelete
  */

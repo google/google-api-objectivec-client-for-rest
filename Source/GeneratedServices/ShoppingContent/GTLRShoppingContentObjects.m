@@ -23,6 +23,14 @@ NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_CarrierCo
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Fedex = @"FEDEX";
 NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups = @"UPS";
 
+// GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active = @"ACTIVE";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible = @"ELIGIBLE";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible = @"NOT_ELIGIBLE";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding = @"ONBOARDING";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused = @"PAUSED";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified = @"PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED";
+
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox = @"ALREADY_WINNING_BUYBOX";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner = @"CANNOT_BEAT_BUYBOX_WINNER";
@@ -57,6 +65,46 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
+
+// GTLRShoppingContent_ReturnPolicyOnline.itemConditions
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_ItemConditionUnspecified = @"ITEM_CONDITION_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_New = @"NEW";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_Used = @"USED";
+
+// GTLRShoppingContent_ReturnPolicyOnline.returnMethods
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_AtAKiosk = @"AT_A_KIOSK";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ByMail = @"BY_MAIL";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_InStore = @"IN_STORE";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ReturnMethodUnspecified = @"RETURN_METHOD_UNSPECIFIED";
+
+// GTLRShoppingContent_ReturnPolicyOnlinePolicy.type
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_LifetimeReturns = @"LIFETIME_RETURNS";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NoReturns = @"NO_RETURNS";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NumberOfDaysAfterDelivery = @"NUMBER_OF_DAYS_AFTER_DELIVERY";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnLabelSource
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_CustomerResponsibility = @"CUSTOMER_RESPONSIBILITY";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_DownloadAndPrint = @"DOWNLOAD_AND_PRINT";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_InTheBox = @"IN_THE_BOX";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_ReturnLabelSourceUnspecified = @"RETURN_LABEL_SOURCE_UNSPECIFIED";
+
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnReasonCategory
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_BuyerRemorse = @"BUYER_REMORSE";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ItemDefect = @"ITEM_DEFECT";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ReturnReasonCategoryUnspecified = @"RETURN_REASON_CATEGORY_UNSPECIFIED";
+
+// GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee.type
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_CustomerPayingActualFee = @"CUSTOMER_PAYING_ACTUAL_FEE";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_Fixed = @"FIXED";
+NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRShoppingContent_Segments.program
+NSString * const kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing = @"BUY_ON_GOOGLE_LISTING";
+NSString * const kGTLRShoppingContent_Segments_Program_FreeLocalProductListing = @"FREE_LOCAL_PRODUCT_LISTING";
+NSString * const kGTLRShoppingContent_Segments_Program_FreeProductListing = @"FREE_PRODUCT_LISTING";
+NSString * const kGTLRShoppingContent_Segments_Program_ProgramUnspecified = @"PROGRAM_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_ADS";
 
 // ----------------------------------------------------------------------------
 //
@@ -800,6 +848,17 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_BuyOnGoogleProgramStatus
+//
+
+@implementation GTLRShoppingContent_BuyOnGoogleProgramStatus
+@dynamic customerServicePendingEmail, customerServiceVerifiedEmail,
+         participationStage;
 @end
 
 
@@ -2032,6 +2091,24 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ListReturnPolicyOnlineResponse
+//
+
+@implementation GTLRShoppingContent_ListReturnPolicyOnlineResponse
+@dynamic returnPolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"returnPolicies" : [GTLRShoppingContent_ReturnPolicyOnline class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_LocalInventory
 //
 
@@ -2202,6 +2279,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_Metrics
+//
+
+@implementation GTLRShoppingContent_Metrics
+@dynamic clicks, ctr, impressions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_MinimumOrderValueTable
 //
 
@@ -2243,6 +2330,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 @implementation GTLRShoppingContent_MonetaryAmount
 @dynamic priceAmount, taxAmount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest
+//
+
+@implementation GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest
+@dynamic customerServiceEmail;
 @end
 
 
@@ -4561,6 +4658,16 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ReportRow
+//
+
+@implementation GTLRShoppingContent_ReportRow
+@dynamic metrics, segments;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RepricingProductReport
 //
 
@@ -4869,7 +4976,7 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 @implementation GTLRShoppingContent_ReturnPolicy
 @dynamic country, kind, label, name, nonFreeReturnReasons, policy,
-         returnPolicyId, seasonalOverrides;
+         returnPolicyId, returnShippingFee, seasonalOverrides;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4983,6 +5090,69 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ReturnPolicyOnline
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyOnline
+@dynamic countries, itemConditions, label, name, policy, restockingFee,
+         returnMethods, returnPolicyId, returnPolicyUri,
+         returnReasonCategoryInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countries" : [NSString class],
+    @"itemConditions" : [NSString class],
+    @"returnMethods" : [NSString class],
+    @"returnReasonCategoryInfo" : [GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicyOnlinePolicy
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyOnlinePolicy
+@dynamic days, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicyOnlineRestockingFee
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyOnlineRestockingFee
+@dynamic fixedFee, microPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo
+@dynamic returnLabelSource, returnReasonCategory, returnShippingFee;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee
+//
+
+@implementation GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee
+@dynamic fixedFee, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_ReturnPolicyPolicy
 //
 
@@ -5047,6 +5217,48 @@ NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SearchRequest
+//
+
+@implementation GTLRShoppingContent_SearchRequest
+@dynamic pageSize, pageToken, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_SearchResponse
+//
+
+@implementation GTLRShoppingContent_SearchResponse
+@dynamic nextPageToken, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRShoppingContent_ReportRow class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"results";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_Segments
+//
+
+@implementation GTLRShoppingContent_Segments
+@dynamic date, offerId, program;
 @end
 
 

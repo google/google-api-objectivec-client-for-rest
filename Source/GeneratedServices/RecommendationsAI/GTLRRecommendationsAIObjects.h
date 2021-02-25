@@ -1504,11 +1504,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, copy, nullable) NSString *listId;
 
 /**
- *  Required for `category-page-view` events. Other event types should not set
- *  this field. The categories associated with a category page. Category pages
- *  include special pages such as sales or promotions. For instance, a special
- *  sale page may have the category hierarchy: categories : ["Sales", "2017
- *  Black Friday Deals"].
+ *  Required for `category-page-view` events. At least one of search_query or
+ *  page_categories is required for `search` events. Other event types should
+ *  not set this field. The categories associated with a category page. Category
+ *  pages include special pages such as sales or promotions. For instance, a
+ *  special sale page may have the category hierarchy: categories : ["Sales",
+ *  "2017 Black Friday Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItemCategoryHierarchy *> *pageCategories;
 
@@ -1538,8 +1539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendat
 @property(nonatomic, strong, nullable) GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PurchaseTransaction *purchaseTransaction;
 
 /**
- *  Required for `search` events. Other event types should not set this field.
- *  The user's search query as UTF-8 encoded text with a length limit of 5 KiB.
+ *  At least one of search_query or page_categories is required for `search`
+ *  events. Other event types should not set this field. The user's search query
+ *  as UTF-8 encoded text with a length limit of 5 KiB.
  */
 @property(nonatomic, copy, nullable) NSString *searchQuery;
 

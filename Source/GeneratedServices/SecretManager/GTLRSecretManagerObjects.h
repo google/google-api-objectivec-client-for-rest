@@ -41,6 +41,7 @@
 @class GTLRSecretManager_Secret_Labels;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
+@class GTLRSecretManager_Topic;
 @class GTLRSecretManager_UserManaged;
 @class GTLRSecretManager_UserManagedStatus;
 
@@ -768,6 +769,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @property(nonatomic, strong, nullable) GTLRSecretManager_Replication *replication;
 
+/**
+ *  Optional. A list of up to 10 Pub/Sub topics to which messages are published
+ *  when control plane operations are called on the secret or its versions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Topic *> *topics;
+
 /** Input only. The TTL for the Secret. */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
@@ -902,6 +909,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  A Pub/Sub topic which SM will publish to when control plane events occur on
+ *  this secret.
+ */
+@interface GTLRSecretManager_Topic : GTLRObject
+
+/**
+ *  Required. The resource name of the Pub/Sub topic that will be published to,
+ *  in the following format: `projects/ * /topics/ *`. For publication to
+ *  succeed, the Secret Manager P4SA must have `pubsub.publisher` permissions on
+ *  the topic.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

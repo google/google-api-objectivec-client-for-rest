@@ -10236,7 +10236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /**
  *  Basic details about a playlist, including title, description and thumbnails.
- *  Basic details of a YouTube Playlist item provided by the author. Next ID: 13
+ *  Basic details of a YouTube Playlist item provided by the author. Next ID: 15
  */
 @interface GTLRYouTube_PlaylistItemSnippet : GTLRObject
 
@@ -10289,6 +10289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The item's title. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+/** Channel id for the channel this video belongs to. */
+@property(nonatomic, copy, nullable) NSString *videoOwnerChannelId;
+
+/** Channel title for the channel this video belongs to. */
+@property(nonatomic, copy, nullable) NSString *videoOwnerChannelTitle;
 
 @end
 
@@ -10435,6 +10441,18 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  object that contains other information about the thumbnail.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_ThumbnailDetails *thumbnails;
+
+/**
+ *  Note: if the playlist has a custom thumbnail, this field will not be
+ *  populated. The video id selected by the user that will be used as the
+ *  thumbnail of this playlist. This field defaults to the first publicly
+ *  viewable video in the playlist, if: 1. The user has never selected a video
+ *  to be the thumbnail of the playlist. 2. The user selects a video to be the
+ *  thumbnail, and then removes that video from the playlist. 3. The user
+ *  selects a non-owned video to be the thumbnail, but that video becomes
+ *  private, or gets deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *thumbnailVideoId;
 
 /** The playlist's title. */
 @property(nonatomic, copy, nullable) NSString *title;

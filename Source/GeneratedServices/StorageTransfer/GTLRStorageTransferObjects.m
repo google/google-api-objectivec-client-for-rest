@@ -334,6 +334,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_RunTransferJobRequest
+//
+
+@implementation GTLRStorageTransfer_RunTransferJobRequest
+@dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_Schedule
 //
 

@@ -138,10 +138,11 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_Build
-@dynamic artifacts, buildTriggerId, createTime, finishTime, identifier, images,
-         logsBucket, logUrl, name, options, projectId, queueTtl, results,
-         secrets, serviceAccount, source, sourceProvenance, startTime, status,
-         statusDetail, steps, substitutions, tags, timeout, timing;
+@dynamic artifacts, availableSecrets, buildTriggerId, createTime, finishTime,
+         identifier, images, logsBucket, logUrl, name, options, projectId,
+         queueTtl, results, secrets, serviceAccount, source, sourceProvenance,
+         startTime, status, statusDetail, steps, substitutions, tags, timeout,
+         timing;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -375,11 +376,67 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_HttpBody
+//
+
+@implementation GTLRCloudBuild_HttpBody
+@dynamic contentType, data, extensions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRCloudBuild_HttpBody_Extensions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_HttpBody_Extensions_Item
+//
+
+@implementation GTLRCloudBuild_HttpBody_Extensions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_HTTPDelivery
 //
 
 @implementation GTLRCloudBuild_HTTPDelivery
 @dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_InlineSecret
+//
+
+@implementation GTLRCloudBuild_InlineSecret
+@dynamic envMap, kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_InlineSecret_EnvMap
+//
+
+@implementation GTLRCloudBuild_InlineSecret_EnvMap
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -576,6 +633,15 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_ReceiveTriggerWebhookResponse
+//
+
+@implementation GTLRCloudBuild_ReceiveTriggerWebhookResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_RepoSource
 //
 
@@ -654,6 +720,39 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_SecretManagerSecret
+//
+
+@implementation GTLRCloudBuild_SecretManagerSecret
+@dynamic env, versionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Secrets
+//
+
+@implementation GTLRCloudBuild_Secrets
+@dynamic inlineProperty, secretManager;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"inlineProperty" : @"inline" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inline" : [GTLRCloudBuild_InlineSecret class],
+    @"secretManager" : [GTLRCloudBuild_SecretManagerSecret class]
+  };
+  return map;
 }
 
 @end

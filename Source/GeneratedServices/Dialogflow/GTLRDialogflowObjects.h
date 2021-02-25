@@ -81,6 +81,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfoIntentParameterValue;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
@@ -97,6 +98,12 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EnvironmentVersionConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EventInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentDefinition;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResult;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Form;
@@ -167,8 +174,14 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ValidationMessage;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Version;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3VoiceSelectionParams;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService;
@@ -178,6 +191,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfoIntentParameterValue;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
@@ -611,6 +625,102 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Enti
  *  Value: "KIND_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_Kind_KindUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.state
+
+/**
+ *  The experiment is done.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Done;
+/**
+ *  The experiment is created but not started yet.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Draft;
+/**
+ *  The experiment is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Running;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric.countType
+
+/**
+ *  Average turn count in a session.
+ *
+ *  Value: "AVERAGE_TURN_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_AverageTurnCount;
+/**
+ *  Count type unspecified.
+ *
+ *  Value: "COUNT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_CountTypeUnspecified;
+/**
+ *  Total number of occurrences of a 'NO_MATCH'.
+ *
+ *  Value: "TOTAL_NO_MATCH_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_TotalNoMatchCount;
+/**
+ *  Total number of turn counts.
+ *
+ *  Value: "TOTAL_TURN_COUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_TotalTurnCount;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric.type
+
+/**
+ *  Percentage of sessions where user hung up.
+ *
+ *  Value: "ABANDONED_SESSION_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_AbandonedSessionRate;
+/**
+ *  Percentage of sessions with the same user calling back.
+ *
+ *  Value: "CALLBACK_SESSION_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_CallbackSessionRate;
+/**
+ *  Percentage of contained sessions without user calling back in 24 hours.
+ *
+ *  Value: "CONTAINED_SESSION_NO_CALLBACK_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_ContainedSessionNoCallbackRate;
+/**
+ *  Percentage of sessions that were handed to a human agent.
+ *
+ *  Value: "LIVE_AGENT_HANDOFF_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_LiveAgentHandoffRate;
+/**
+ *  Metric unspecified.
+ *
+ *  Value: "METRIC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_MetricUnspecified;
+/**
+ *  Percentage of sessions reached Dialogflow 'END_PAGE' or 'END_SESSION'.
+ *
+ *  Value: "SESSION_END_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_SessionEndRate;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest.dataFormat
@@ -2284,9 +2394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Immutable. The default language of the agent as a language tag. See
  *  [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
- *  list of the currently supported language codes. This field cannot be set by
- *  the Agents.UpdateAgent method.
+ *  Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for
+ *  a list of the currently supported language codes. This field cannot be set
+ *  by the Agents.UpdateAgent method.
  */
 @property(nonatomic, copy, nullable) NSString *defaultLanguageCode;
 
@@ -2562,8 +2672,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnVirtualAgentOutput : GTLRObject
 
 /**
- *  The Page on which the utterance was spoken. Only some fields such as name
- *  and displayname will be set.
+ *  The Page on which the utterance was spoken. Only name and displayName will
+ *  be set.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Page *currentPage;
 
@@ -2589,8 +2699,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageText *> *textResponses;
 
 /**
- *  The Intent that triggered the response. Only some fields such as name and
- *  displayname will be set.
+ *  The Intent that triggered the response. Only name and displayName will be
+ *  set.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Intent *triggeredIntent;
 
@@ -2825,11 +2935,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Indicates whether the parameter content should be redacted in text and
- *  audio. If the flag is set to true, the parameter content will be replaced by
- *  parameter name in both request and response. Note: the parameter content is
- *  subject to redaction if either parameter level redaction or entity type
- *  level redaction is enabled.
+ *  Indicates whether the parameter content should be redacted in log. If
+ *  redaction is enabled, the parameter content will be replaced by parameter
+ *  name during logging. Note: the parameter content is subject to redaction if
+ *  either parameter level redaction or entity type level redaction is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3329,11 +3438,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Indicates whether the parameter content should be redacted in text and
- *  audio. If the flag is set to true, the parameter content will be replaced by
- *  parameter name in both request and response. Note: the parameter content is
- *  subject to redaction if either parameter level redaction or entity type
- *  level redaction is enabled.
+ *  Indicates whether the parameter content should be redacted in log. If
+ *  redaction is enabled, the parameter content will be replaced by parameter
+ *  name during logging. Note: the parameter content is subject to redaction if
+ *  either parameter level redaction or entity type level redaction is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3456,9 +3564,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  order: * TransitionRoutes defined in the page with intent specified. *
  *  TransitionRoutes defined in the transition route groups with intent
  *  specified. * TransitionRoutes defined in flow with intent specified. *
- *  TransitionRoutes defined in the page with only condition specified. *
- *  TransitionRoutes defined in the transition route groups with only condition
- *  specified.
+ *  TransitionRoutes defined in the transition route groups with intent
+ *  specified. * TransitionRoutes defined in the page with only condition
+ *  specified. * TransitionRoutes defined in the transition route groups with
+ *  only condition specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TransitionRoute *> *transitionRoutes;
 
@@ -3585,8 +3694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Required. The language of the input. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
- *  list of the currently supported language codes. Note that queries in the
+ *  Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for
+ *  a list of the currently supported language codes. Note that queries in the
  *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -3630,9 +3739,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Output only. A signal that indicates the interaction with the Dialogflow
  *  agent has ended. This message is generated by Dialogflow only when the
- *  conversation reaches `END_SESSION` or `END_PAGE` page. It is not supposed to
- *  be defined by the user. It's guaranteed that there is at most one such
- *  message in each response.
+ *  conversation reaches `END_SESSION` page. It is not supposed to be defined by
+ *  the user. It's guaranteed that there is at most one such message in each
+ *  response.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessageEndInteraction *endInteraction;
 
@@ -4002,8 +4111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurn *> *conversationTurns;
 
 /**
- *  Optional. Environment where the test was run. If not set, it indicates the
- *  draft environment.
+ *  Environment where the test was run. If not set, it indicates the draft
+ *  environment.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -4213,6 +4322,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Custom data set in QueryParameters.payload. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload *payload;
 
+/**
+ *  The sentiment analysis result of the current user request. The field is
+ *  filled when sentiment analysis is configured to be enabled for the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult *sentimentAnalysisResult;
+
 /** Information about session status. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo *sessionInfo;
 
@@ -4248,6 +4363,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents intent information communicated to the webhook.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo : GTLRObject
+
+/**
+ *  The confidence of the matched intent. Values range from 0.0 (completely
+ *  uncertain) to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Always present. The display name of the last matched intent. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Always present. The unique identifier of the last matched intent. Format:
@@ -4297,6 +4423,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id resolvedValue;
+
+@end
+
+
+/**
+ *  Represents the result of sentiment analysis.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult : GTLRObject
+
+/**
+ *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  magnitude of sentiment, regardless of score (positive or negative).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *magnitude;
+
+/**
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
+ *  sentiment).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 
@@ -4394,7 +4544,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Intent coverage. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3IntentCoverage *intentCoverage;
 
-/** Transition coverage. */
+/** Transition route group coverage. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage *routeGroupCoverage;
+
+/** Transition (excluding transition route groups) coverage. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverage *transitionCoverage;
 
 @end
@@ -4459,8 +4612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnVirtualAgentOutput : GTLRObject
 
 /**
- *  The Page on which the utterance was spoken. Only some fields such as name
- *  and displayname will be set.
+ *  The Page on which the utterance was spoken. Only name and displayName will
+ *  be set.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Page *currentPage;
 
@@ -4486,8 +4639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageText *> *textResponses;
 
 /**
- *  The Intent that triggered the response. Only some fields such as name and
- *  displayname will be set.
+ *  The Intent that triggered the response. Only name and displayName will be
+ *  set.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Intent *triggeredIntent;
 
@@ -4708,6 +4861,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Indicates whether parameters of the entity type should be redacted in log.
+ *  If redaction is enabled, page parameters and intent parameters referring to
+ *  the entity type will be replaced by parameter name when logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *redact;
+
 @end
 
 
@@ -4849,6 +5011,246 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Name of the event. */
 @property(nonatomic, copy, nullable) NSString *event;
+
+@end
+
+
+/**
+ *  Represents an experiment in an environment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment : GTLRObject
+
+/** Creation time of this experiment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The definition of the experiment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentDefinition *definition;
+
+/**
+ *  The human-readable description of the experiment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. The human-readable name of the experiment (unique in an
+ *  environment). Limit of 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** End time of this experiment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Maximum number of days to run the experiment. */
+@property(nonatomic, strong, nullable) GTLRDuration *experimentLength;
+
+/** Last update time of this experiment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  The name of the experiment. Format:
+ *  projects//locations//agents//environments//experiments/..
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Inference result of the experiment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResult *result;
+
+/** Start time of this experiment. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The current state of the experiment. Transition triggered by
+ *  Expriments.StartExperiment: PENDING->RUNNING. Transition triggered by
+ *  Expriments.CancelExperiment: PENDING->CANCELLED or RUNNING->CANCELLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Done The
+ *        experiment is done. (Value: "DONE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Draft
+ *        The experiment is created but not started yet. (Value: "DRAFT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Running
+ *        The experiment is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The history of updates to the experiment variants. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory *> *variantsHistory;
+
+@end
+
+
+/**
+ *  Definition of the experiment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentDefinition : GTLRObject
+
+/**
+ *  The condition defines which subset of sessions are selected for this
+ *  experiment. If not specified, all sessions are eligible. E.g.
+ *  "query_input.language_code=en" See the [conditions
+ *  reference](https://cloud.google.com/dialogflow/cx/docs/reference/condition).
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** The flow versions as the variants of this experiment. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants *versionVariants;
+
+@end
+
+
+/**
+ *  The inference result which includes an objective metric to optimize and the
+ *  confidence interval.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResult : GTLRObject
+
+/**
+ *  The last time the experiment's stats data was updated. Will have default
+ *  value if stats have never been computed for this experiment.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/** Version variants and metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics *> *versionMetrics;
+
+@end
+
+
+/**
+ *  A confidence interval is a range of possible values for the experiment
+ *  objective you are trying to measure.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval : GTLRObject
+
+/**
+ *  The confidence level used to construct the interval, i.e. there is X% chance
+ *  that the true value is within this interval.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidenceLevel;
+
+/**
+ *  Lower bound of the interval.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lowerBound;
+
+/**
+ *  The percent change between an experiment metric's value and the value for
+ *  its control.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratio;
+
+/**
+ *  Upper bound of the interval.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *upperBound;
+
+@end
+
+
+/**
+ *  Metric and corresponding confidence intervals.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric : GTLRObject
+
+/**
+ *  The probability that the treatment is better than all other treatments in
+ *  the experiment
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultConfidenceInterval *confidenceInterval;
+
+/**
+ *  Count value of a metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+/**
+ *  Count-based metric type. Only one of type or count_type is specified in each
+ *  Metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_AverageTurnCount
+ *        Average turn count in a session. (Value: "AVERAGE_TURN_COUNT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_CountTypeUnspecified
+ *        Count type unspecified. (Value: "COUNT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_TotalNoMatchCount
+ *        Total number of occurrences of a 'NO_MATCH'. (Value:
+ *        "TOTAL_NO_MATCH_COUNT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_CountType_TotalTurnCount
+ *        Total number of turn counts. (Value: "TOTAL_TURN_COUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *countType;
+
+/**
+ *  Ratio value of a metric.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ratio;
+
+/**
+ *  Ratio-based metric type. Only one of type or count_type is specified in each
+ *  Metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_AbandonedSessionRate
+ *        Percentage of sessions where user hung up. (Value:
+ *        "ABANDONED_SESSION_RATE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_CallbackSessionRate
+ *        Percentage of sessions with the same user calling back. (Value:
+ *        "CALLBACK_SESSION_RATE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_ContainedSessionNoCallbackRate
+ *        Percentage of contained sessions without user calling back in 24
+ *        hours. (Value: "CONTAINED_SESSION_NO_CALLBACK_RATE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_LiveAgentHandoffRate
+ *        Percentage of sessions that were handed to a human agent. (Value:
+ *        "LIVE_AGENT_HANDOFF_RATE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_MetricUnspecified
+ *        Metric unspecified. (Value: "METRIC_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric_Type_SessionEndRate
+ *        Percentage of sessions reached Dialogflow 'END_PAGE' or 'END_SESSION'.
+ *        (Value: "SESSION_END_RATE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Version variant and associated metrics.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultVersionMetrics : GTLRObject
+
+/**
+ *  The metrics and corresponding confidence intervals in the inference result.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ExperimentResultMetric *> *metrics;
+
+/**
+ *  Number of sessions that were allocated to this version.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sessionCount;
+
+/**
+ *  The name of the flow Version. Format:
+ *  `projects//locations//agents//flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -5091,11 +5493,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Indicates whether the parameter content should be redacted in text and
- *  audio. If the flag is set to true, the parameter content will be replaced by
- *  parameter name in both request and response. Note: the parameter content is
- *  subject to redaction if either parameter level redaction or entity type
- *  level redaction is enabled.
+ *  Indicates whether the parameter content should be redacted in log. If
+ *  redaction is enabled, the parameter content will be replaced by parameter
+ *  name during logging. Note: the parameter content is subject to redaction if
+ *  either parameter level redaction or entity type level redaction is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5710,11 +6111,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isList;
 
 /**
- *  Indicates whether the parameter content should be redacted in text and
- *  audio. If the flag is set to true, the parameter content will be replaced by
- *  parameter name in both request and response. Note: the parameter content is
- *  subject to redaction if either parameter level redaction or entity type
- *  level redaction is enabled.
+ *  Indicates whether the parameter content should be redacted in log. If
+ *  redaction is enabled, the parameter content will be replaced by parameter
+ *  name during logging. Note: the parameter content is subject to redaction if
+ *  either parameter level redaction or entity type level redaction is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5853,6 +6253,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Environment *> *environments;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Experiments.ListExperiments.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "experiments" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse : GTLRCollectionObject
+
+/**
+ *  The list of experiments. There will be a maximum number of items returned
+ *  based on the page_size field in the request. The list may in some cases be
+ *  empty or contain fewer entries than page_size even if this isn't the last
+ *  page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *> *experiments;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no more
@@ -6498,9 +6928,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  order: * TransitionRoutes defined in the page with intent specified. *
  *  TransitionRoutes defined in the transition route groups with intent
  *  specified. * TransitionRoutes defined in flow with intent specified. *
- *  TransitionRoutes defined in the page with only condition specified. *
- *  TransitionRoutes defined in the transition route groups with only condition
- *  specified.
+ *  TransitionRoutes defined in the transition route groups with intent
+ *  specified. * TransitionRoutes defined in the page with only condition
+ *  specified. * TransitionRoutes defined in the transition route groups with
+ *  only condition specified.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute *> *transitionRoutes;
 
@@ -6627,8 +7058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Required. The language of the input. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
- *  list of the currently supported language codes. Note that queries in the
+ *  Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for
+ *  a list of the currently supported language codes. Note that queries in the
  *  same session do not necessarily need to specify the same language.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -6651,6 +7082,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *analyzeQueryTextSentiment;
+
+/**
+ *  Whether to disable webhook calls for this request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWebhook;
 
 /** The geo location of this conversational query. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleTypeLatLng *geoLocation;
@@ -6798,8 +7236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The language that was triggered during intent detection. See [Language
- *  Support](https://cloud.google.com/dialogflow/docs/reference/language) for a
- *  list of the currently supported language codes.
+ *  Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for
+ *  a list of the currently supported language codes.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -6962,9 +7400,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Output only. A signal that indicates the interaction with the Dialogflow
  *  agent has ended. This message is generated by Dialogflow only when the
- *  conversation reaches `END_SESSION` or `END_PAGE` page. It is not supposed to
- *  be defined by the user. It's guaranteed that there is at most one such
- *  message in each response.
+ *  conversation reaches `END_SESSION` page. It is not supposed to be defined by
+ *  the user. It's guaranteed that there is at most one such message in each
+ *  response.
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessageEndInteraction *endInteraction;
 
@@ -7241,12 +7679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
-/**
- *  Required. Format of test case name to run: `projects//locations/
- *  /agents//testCases/`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
 @end
 
 
@@ -7469,6 +7901,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The request message for Experiments.StartExperiment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest : GTLRObject
+@end
+
+
+/**
+ *  The request message for Experiments.StopExperiment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest : GTLRObject
+@end
+
+
+/**
  *  Configuration of how speech should be synthesized.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig : GTLRObject
@@ -7592,8 +8038,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn *> *conversationTurns;
 
 /**
- *  Optional. Environment where the test was run. If not set, it indicates the
- *  draft environment.
+ *  Environment where the test was run. If not set, it indicates the draft
+ *  environment.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -7711,8 +8157,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Transition coverage represents the percentage of all possible transitions
- *  present within any of a parent's test cases.
+ *  Transition coverage represents the percentage of all possible page
+ *  transitions (page-level transition routes and event handlers, excluding
+ *  transition route groups) present within any of a parent's test cases.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverage : GTLRObject
 
@@ -7730,7 +8177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  A transition in the agent's graph.
+ *  A transition in a page.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransition : GTLRObject
 
@@ -7867,6 +8314,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Transition route group coverage represents the percentage of all possible
+ *  transition routes present within any of a parent's test cases. The results
+ *  are grouped by the transition route group.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverage : GTLRObject
+
+/** Transition route group coverages. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage *> *coverages;
+
+/**
+ *  The percent of transition routes in all the transition route groups that are
+ *  covered.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coverageScore;
+
+@end
+
+
+/**
+ *  Coverage result message for one transition route group.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverage : GTLRObject
+
+/**
+ *  The percent of transition routes in the transition route group that are
+ *  covered.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coverageScore;
+
+/** Transition route group metadata. Only name and displayName will be set. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup *routeGroup;
+
+/**
+ *  The list of transition routes and coverage in the transition route group.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition *> *transitions;
+
+@end
+
+
+/**
+ *  A transition coverage in a transition route group.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroupCoverageCoverageTransition : GTLRObject
+
+/**
+ *  Whether or not the transition route is covered by at least one of the
+ *  agent's test cases.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *covered;
+
+/** Intent route or condition route. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute *transitionRoute;
+
+@end
+
+
+/**
  *  Metadata for UpdateDocument operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3UpdateDocumentOperationMetadata : GTLRObject
@@ -7967,6 +8478,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The history of variants update.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3VariantsHistory : GTLRObject
+
+/** Update time of the variants. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The flow versions as the variants. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants *versionVariants;
+
+@end
+
+
+/**
  *  Represents a version of a flow.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Version : GTLRObject
@@ -8013,6 +8538,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  A list of flow version variants.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariants : GTLRObject
+
+/** A list of flow version variants. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant *> *variants;
+
+@end
+
+
+/**
+ *  A single flow version with specified traffic allocation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3VersionVariantsVariant : GTLRObject
+
+/**
+ *  Whether the variant is for the control group.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isControlGroup;
+
+/**
+ *  Percentage of the traffic which should be routed to this version of flow.
+ *  Traffic allocation for a single flow must sum up to 1.0.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trafficAllocation;
+
+/**
+ *  The name of the flow version. Format:
+ *  `projects//locations//agents//flows//versions/`.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -8162,6 +8727,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Custom data set in QueryParameters.payload. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload *payload;
 
+/**
+ *  The sentiment analysis result of the current user request. The field is
+ *  filled when sentiment analysis is configured to be enabled for the request.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestSentimentAnalysisResult *sentimentAnalysisResult;
+
 /** Information about session status. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo *sessionInfo;
 
@@ -8197,6 +8768,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Represents intent information communicated to the webhook.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo : GTLRObject
+
+/**
+ *  The confidence of the matched intent. Values range from 0.0 (completely
+ *  uncertain) to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** Always present. The display name of the last matched intent. */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Always present. The unique identifier of the last matched intent. Format:
@@ -8246,6 +8828,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) id resolvedValue;
+
+@end
+
+
+/**
+ *  Represents the result of sentiment analysis.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestSentimentAnalysisResult : GTLRObject
+
+/**
+ *  A non-negative number in the [0, +inf) range, which represents the absolute
+ *  magnitude of sentiment, regardless of score (positive or negative).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *magnitude;
+
+/**
+ *  Sentiment score between -1.0 (negative sentiment) and 1.0 (positive
+ *  sentiment).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
 
 @end
 

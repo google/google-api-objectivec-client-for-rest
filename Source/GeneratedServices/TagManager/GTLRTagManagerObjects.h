@@ -897,6 +897,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  User notes on how to apply this tag in the container. \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.update
+ */
+@property(nonatomic, copy, nullable) NSString *notes;
+
+/**
  *  The client's parameters. \@mutable
  *  tagmanager.accounts.containers.workspaces.clients.create \@mutable
  *  tagmanager.accounts.containers.workspaces.clients.update

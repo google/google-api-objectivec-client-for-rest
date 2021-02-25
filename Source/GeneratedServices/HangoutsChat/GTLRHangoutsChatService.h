@@ -2,9 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Hangouts Chat API (chat/v1)
+//   Google Chat API (chat/v1)
 // Description:
-//   Enables bots to fetch information and perform actions in Hangouts Chat.
+//   Enables bots to fetch information and perform actions in Google Chat.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -28,9 +28,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- *  Service for executing Hangouts Chat API queries.
+ *  Service for executing Google Chat API queries.
  *
- *  Enables bots to fetch information and perform actions in Hangouts Chat.
+ *  Enables bots to fetch information and perform actions in Google Chat.
  */
 @interface GTLRHangoutsChatService : GTLRService
 

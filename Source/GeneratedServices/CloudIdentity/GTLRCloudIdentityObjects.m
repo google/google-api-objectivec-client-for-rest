@@ -13,6 +13,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudIdentity_DynamicGroupQuery.resourceType
+NSString * const kGTLRCloudIdentity_DynamicGroupQuery_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_DynamicGroupQuery_ResourceType_User = @"USER";
+
+// GTLRCloudIdentity_DynamicGroupStatus.status
+NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_UpdatingMemberships = @"UPDATING_MEMBERSHIPS";
+NSString * const kGTLRCloudIdentity_DynamicGroupStatus_Status_UpToDate = @"UP_TO_DATE";
+
 // GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes.ownershipPrivilege
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_DeviceAdministrator = @"DEVICE_ADMINISTRATOR";
 NSString * const kGTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1AndroidAttributes_OwnershipPrivilege_DeviceOwner = @"DEVICE_OWNER";
@@ -115,6 +124,13 @@ NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_A
 NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
+// GTLRCloudIdentity_UserInvitation.state
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Accepted = @"ACCEPTED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Declined = @"DECLINED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_Invited = @"INVITED";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_NotYetSent = @"NOT_YET_SENT";
+NSString * const kGTLRCloudIdentity_UserInvitation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudIdentity_CheckTransitiveMembershipResponse
@@ -122,6 +138,44 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
 @implementation GTLRCloudIdentity_CheckTransitiveMembershipResponse
 @dynamic hasMembership;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DynamicGroupMetadata
+//
+
+@implementation GTLRCloudIdentity_DynamicGroupMetadata
+@dynamic queries, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [GTLRCloudIdentity_DynamicGroupQuery class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DynamicGroupQuery
+//
+
+@implementation GTLRCloudIdentity_DynamicGroupQuery
+@dynamic query, resourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_DynamicGroupStatus
+//
+
+@implementation GTLRCloudIdentity_DynamicGroupStatus
+@dynamic status, statusTime;
 @end
 
 
@@ -141,6 +195,16 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_ExpiryDetail
+//
+
+@implementation GTLRCloudIdentity_ExpiryDetail
+@dynamic expireTime;
 @end
 
 
@@ -468,8 +532,8 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 //
 
 @implementation GTLRCloudIdentity_Group
-@dynamic createTime, descriptionProperty, displayName, groupKey, labels, name,
-         parent, updateTime;
+@dynamic createTime, descriptionProperty, displayName, dynamicGroupMetadata,
+         groupKey, labels, name, parent, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -649,7 +713,7 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 //
 
 @implementation GTLRCloudIdentity_MembershipRole
-@dynamic name;
+@dynamic expiryDetail, name;
 @end
 
 
@@ -659,12 +723,13 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 //
 
 @implementation GTLRCloudIdentity_ModifyMembershipRolesRequest
-@dynamic addRoles, removeRoles;
+@dynamic addRoles, removeRoles, updateRolesParams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"addRoles" : [GTLRCloudIdentity_MembershipRole class],
-    @"removeRoles" : [NSString class]
+    @"removeRoles" : [NSString class],
+    @"updateRolesParams" : [GTLRCloudIdentity_UpdateMembershipRolesParams class]
   };
   return map;
 }
@@ -825,4 +890,24 @@ NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 
 @implementation GTLRCloudIdentity_TransitiveMembershipRole
 @dynamic role;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UpdateMembershipRolesParams
+//
+
+@implementation GTLRCloudIdentity_UpdateMembershipRolesParams
+@dynamic fieldMask, membershipRole;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudIdentity_UserInvitation
+//
+
+@implementation GTLRCloudIdentity_UserInvitation
+@dynamic mailsSentCount, name, state, updateTime;
 @end

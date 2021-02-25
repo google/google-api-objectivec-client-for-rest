@@ -257,7 +257,7 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 //
 
 @implementation GTLRArea120Tables_Row
-@dynamic name, values;
+@dynamic createTime, name, updateTime, values;
 @end
 
 
@@ -281,7 +281,7 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 //
 
 @implementation GTLRArea120Tables_Table
-@dynamic columns, displayName, name;
+@dynamic columns, createTime, displayName, name, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -309,7 +309,7 @@ NSString * const kGTLRArea120Tables_UpdateRowRequest_View_ViewUnspecified = @"VI
 //
 
 @implementation GTLRArea120Tables_Workspace
-@dynamic displayName, name, tables;
+@dynamic createTime, displayName, name, tables, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

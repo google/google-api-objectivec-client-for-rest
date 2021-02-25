@@ -84,38 +84,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferRunAttemptRunAttempt
 // states
 
 /**
- *  Data transfer is cancelled.
+ *  Data transfer is cancelled (6).
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesCancelled;
 /**
- *  Data transfer failed.
+ *  Data transfer failed (5).
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesFailed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by data transfer
- *  backend.
+ *  backend (2).
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesPending;
 /**
- *  Data transfer is in progress.
+ *  Data transfer is in progress (3).
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesRunning;
 /**
- *  Data transfer completed successfully.
+ *  Data transfer completed successfully (4).
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesSucceeded;
 /**
- *  State placeholder.
+ *  State placeholder (0).
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
@@ -728,12 +728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
- *  name is automatically generated based on the config_id specified in
- *  CreateTransferConfigRequest along with project_id and region. If config_id
- *  is not provided, usually a uuid, even though it is not guaranteed or
- *  required, will be generated for config_id.
+ *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
+ *  Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *  required. The name is ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -771,12 +768,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config. Transfer config names
- *    have the form of
+ *    have the form
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *    The name is automatically generated based on the config_id specified in
- *    CreateTransferConfigRequest along with project_id and region. If config_id
- *    is not provided, usually a uuid, even though it is not guaranteed or
- *    required, will be generated for config_id.
+ *    Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *    required. The name is ignored when creating a transfer config.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsPatch
  */
@@ -911,18 +906,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified State
- *        placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransferStatesPending Data transfer is scheduled
- *        and is waiting to be picked up by data transfer backend. (Value:
+ *        and is waiting to be picked up by data transfer backend (2). (Value:
  *        "PENDING")
  *    @arg @c kGTLRBigQueryDataTransferStatesRunning Data transfer is in
- *        progress. (Value: "RUNNING")
+ *        progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Data transfer completed
- *        successfully. (Value: "SUCCEEDED")
- *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed.
+ *        successfully (4). (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed (5).
  *        (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Data transfer is
- *        cancelled. (Value: "CANCELLED")
+ *        cancelled (6). (Value: "CANCELLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 
@@ -1338,12 +1333,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
- *  name is automatically generated based on the config_id specified in
- *  CreateTransferConfigRequest along with project_id and region. If config_id
- *  is not provided, usually a uuid, even though it is not guaranteed or
- *  required, will be generated for config_id.
+ *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
+ *  Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *  required. The name is ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1381,12 +1373,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  @param object The @c GTLRBigQueryDataTransfer_TransferConfig to include in
  *    the query.
  *  @param name The resource name of the transfer config. Transfer config names
- *    have the form of
+ *    have the form
  *    `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
- *    The name is automatically generated based on the config_id specified in
- *    CreateTransferConfigRequest along with project_id and region. If config_id
- *    is not provided, usually a uuid, even though it is not guaranteed or
- *    required, will be generated for config_id.
+ *    Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *    required. The name is ignored when creating a transfer config.
  *
  *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsPatch
  */
@@ -1521,18 +1511,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransferStatesTransferStateUnspecified State
- *        placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  *    @arg @c kGTLRBigQueryDataTransferStatesPending Data transfer is scheduled
- *        and is waiting to be picked up by data transfer backend. (Value:
+ *        and is waiting to be picked up by data transfer backend (2). (Value:
  *        "PENDING")
  *    @arg @c kGTLRBigQueryDataTransferStatesRunning Data transfer is in
- *        progress. (Value: "RUNNING")
+ *        progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransferStatesSucceeded Data transfer completed
- *        successfully. (Value: "SUCCEEDED")
- *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed.
+ *        successfully (4). (Value: "SUCCEEDED")
+ *    @arg @c kGTLRBigQueryDataTransferStatesFailed Data transfer failed (5).
  *        (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransferStatesCancelled Data transfer is
- *        cancelled. (Value: "CANCELLED")
+ *        cancelled (6). (Value: "CANCELLED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *states;
 

@@ -142,11 +142,12 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Device
-@dynamic activeConfig, deviceMetadata, displayName, fccId, grants, name,
-         preloadedConfig, serialNumber, state;
+@dynamic activeConfig, deviceMetadata, displayName, fccId, grantRangeAllowlists,
+         grants, name, preloadedConfig, serialNumber, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"grantRangeAllowlists" : [GTLRSASPortal_FrequencyRange class],
     @"grants" : [GTLRSASPortal_DeviceGrant class]
   };
   return map;

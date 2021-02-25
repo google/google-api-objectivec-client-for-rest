@@ -16,6 +16,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// view
+NSString * const kGTLRAndroidManagementViewBasic               = @"BASIC";
+NSString * const kGTLRAndroidManagementViewEnterpriseViewUnspecified = @"ENTERPRISE_VIEW_UNSPECIFIED";
+
 // wipeDataFlags
 NSString * const kGTLRAndroidManagementWipeDataFlagsPreserveResetProtectionData = @"PRESERVE_RESET_PROTECTION_DATA";
 NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFlagUnspecified = @"WIPE_DATA_FLAG_UNSPECIFIED";
@@ -52,7 +56,7 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @implementation GTLRAndroidManagementQuery_EnterprisesCreate
 
-@dynamic enterpriseToken, projectId, signupUrlName;
+@dynamic agreementAccepted, enterpriseToken, projectId, signupUrlName;
 
 + (instancetype)queryWithObject:(GTLRAndroidManagement_Enterprise *)object {
   if (object == nil) {
@@ -69,6 +73,25 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRAndroidManagement_Enterprise class];
   query.loggingName = @"androidmanagement.enterprises.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAndroidManagementQuery_EnterprisesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAndroidManagement_Empty class];
+  query.loggingName = @"androidmanagement.enterprises.delete";
   return query;
 }
 
@@ -328,6 +351,23 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
   query.name = name;
   query.expectedObjectClass = [GTLRAndroidManagement_Enterprise class];
   query.loggingName = @"androidmanagement.enterprises.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidManagementQuery_EnterprisesList
+
+@dynamic pageSize, pageToken, projectId, view;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/enterprises";
+  GTLRAndroidManagementQuery_EnterprisesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRAndroidManagement_ListEnterprisesResponse class];
+  query.loggingName = @"androidmanagement.enterprises.list";
   return query;
 }
 

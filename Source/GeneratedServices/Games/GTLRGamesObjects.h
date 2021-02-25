@@ -2866,7 +2866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  */
 @property(nonatomic, strong, nullable) NSNumber *height;
 
-/** The MIME type of the image. */
+/** Output only. The MIME type of the image. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**

@@ -27,6 +27,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
@@ -40,6 +41,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TestCase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TrainFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup;
@@ -96,11 +99,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeCoverageTypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeIntent;
 /**
- *  Page transition coverage
+ *  Page transition coverage.
  *
  *  Value: "PAGE_TRANSITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypePageTransition;
+/**
+ *  Transition route group coverage.
+ *
+ *  Value: "TRANSITION_ROUTE_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflowTypeTransitionRouteGroup;
 
 // ----------------------------------------------------------------------------
 // view
@@ -226,9 +235,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -317,9 +326,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  language dependent: * `EntityType.entities.value` *
  *  `EntityType.entities.synonyms` * `EntityType.excluded_phrases.value` If not
  *  specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -361,9 +370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  dependent: * `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -419,9 +428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `EntityType.entities.value` * `EntityType.entities.synonyms` *
  *  `EntityType.excluded_phrases.value` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -523,6 +532,276 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an Experiment in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsCreateWithObject:parent:]
+
+/**
+ *  Required. The Agent to create an Environment for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Creates an Experiment in the specified Environment.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment to
+ *    include in the query.
+ *  @param parent Required. The Agent to create an Environment for. Format:
+ *    `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsDeleteWithname:]
+
+/**
+ *  Required. The name of the Environment to delete. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
+ *
+ *  Deletes the specified Experiment.
+ *
+ *  @param name Required. The name of the Environment to delete. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsGetWithname:]
+
+/**
+ *  Required. The name of the Environment. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Retrieves the specified Experiment.
+ *
+ *  @param name Required. The name of the Environment. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the list of all experiments in the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsListWithparent:]
+
+/**
+ *  The maximum number of items to return in a single page. By default 20 and at
+ *  most 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The Environment to list all environments for. Format:
+ *  `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListExperimentsResponse.
+ *
+ *  Returns the list of all experiments in the specified Environment.
+ *
+ *  @param parent Required. The Environment to list all environments for.
+ *    Format: `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the specified Experiment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsPatchWithObject:name:]
+
+/**
+ *  The name of the experiment. Format:
+ *  projects//locations//agents//environments//experiments/..
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The mask to control which fields get updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Updates the specified Experiment.
+ *
+ *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment to
+ *    include in the query.
+ *  @param name The name of the experiment. Format:
+ *    projects//locations//agents//environments//experiments/..
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts the specified Experiment. This rpc only changes the state of
+ *  experiment from PENDING to RUNNING.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsStartWithObject:name:]
+
+/**
+ *  Required. Resource name of the experiment to start. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Starts the specified Experiment. This rpc only changes the state of
+ *  experiment from PENDING to RUNNING.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the experiment to start. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StartExperimentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops the specified Experiment. This rpc only changes the state of
+ *  experiment from RUNNING to DONE.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.experiments.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop : GTLRDialogflowQuery
+// Previous library name was
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsStopWithObject:name:]
+
+/**
+ *  Required. Resource name of the experiment to stop. Format:
+ *  `projects//locations//agents//environments//experiments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.
+ *
+ *  Stops the specified Experiment. This rpc only changes the state of
+ *  experiment from RUNNING to DONE.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the experiment to stop. Format:
+ *    `projects//locations//agents//environments//experiments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3StopExperimentRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1138,9 +1417,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
  *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1228,9 +1507,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  dependent: * `Flow.event_handlers.trigger_fulfillment.messages` *
  *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1310,9 +1589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  * `Flow.event_handlers.trigger_fulfillment.messages` *
  *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1370,9 +1649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Page.transition_routes.trigger_fulfillment.messages` *
  *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
  *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1463,9 +1742,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Page.transition_routes.trigger_fulfillment.messages` *
  *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
  *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1510,9 +1789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Page.transition_routes.trigger_fulfillment.messages` *
  *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
  *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1570,9 +1849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Page.transition_routes.trigger_fulfillment.messages` *
  *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
  *  If not specified, the agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1627,9 +1906,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
  *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1719,9 +1998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list transition route groups for. The field `messages` in
  *  TransitionRoute is language dependent. If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1809,9 +2088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list transition route groups for. The field `messages` in
  *  TransitionRoute is language dependent. If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1852,9 +2131,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list transition route groups for. The field `messages` in
  *  TransitionRoute is language dependent. If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -1909,9 +2188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list transition route groups for. The field `messages` in
  *  TransitionRoute is language dependent. If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2308,9 +2587,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language of the following fields in `intent`: *
  *  `Intent.training_phrases.parts.text` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2387,9 +2666,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to retrieve the intent for. The following fields are language
  *  dependent: * `Intent.training_phrases.parts.text` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2443,9 +2722,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language to list intents for. The following fields are language
  *  dependent: * `Intent.training_phrases.parts.text` If not specified, the
  *  agent's default language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -2499,9 +2778,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  The language of the following fields in `intent`: *
  *  `Intent.training_phrases.parts.text` If not specified, the agent's default
  *  language is used. [Many
- *  languages](https://cloud.google.com/dialogflow/docs/reference/language) are
- *  supported. Note: languages must be enabled in the agent before they can be
- *  used.
+ *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
+ *  are supported. Note: languages must be enabled in the agent before they can
+ *  be used.
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
@@ -3154,8 +3433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @arg @c kGTLRDialogflowTypeCoverageTypeUnspecified Should never be used.
  *        (Value: "COVERAGE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDialogflowTypeIntent Intent coverage. (Value: "INTENT")
- *    @arg @c kGTLRDialogflowTypePageTransition Page transition coverage (Value:
- *        "PAGE_TRANSITION")
+ *    @arg @c kGTLRDialogflowTypePageTransition Page transition coverage.
+ *        (Value: "PAGE_TRANSITION")
+ *    @arg @c kGTLRDialogflowTypeTransitionRouteGroup Transition route group
+ *        coverage. (Value: "TRANSITION_ROUTE_GROUP")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3506,13 +3787,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun : GTLRDialogflowQuery
 // Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesRunWithObject:projectsId:locationsId:agentsId:]
+//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesRunWithObject:name:]
 
-@property(nonatomic, copy, nullable) NSString *agentsId;
-
-@property(nonatomic, copy, nullable) NSString *locationsId;
-
-@property(nonatomic, copy, nullable) NSString *projectsId;
+/**
+ *  Required. Format of test case name to run: `projects//locations/
+ *  /agents//testCases/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
@@ -3522,16 +3803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest to include in
  *    the query.
- *  @param projectsId NSString
- *  @param locationsId NSString
- *  @param agentsId NSString
+ *  @param name Required. Format of test case name to run: `projects//locations/
+ *    /agents//testCases/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest *)object
-                     projectsId:(NSString *)projectsId
-                    locationsId:(NSString *)locationsId
-                       agentsId:(NSString *)agentsId;
+                           name:(NSString *)name;
 
 @end
 

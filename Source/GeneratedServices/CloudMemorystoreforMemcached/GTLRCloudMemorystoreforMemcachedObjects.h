@@ -714,6 +714,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @property(nonatomic, strong, nullable) NSNumber *exclude;
 
 /**
+ *  Optional. If the update call is triggered from rollback, set the value as
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRollback;
+
+/**
  *  Optional. The MaintenancePolicies that have been attached to the instance.
  *  The key must be of the type name of the oneof policy name defined in
  *  MaintenancePolicy, and the embedded policy must define the same policy type.

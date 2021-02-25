@@ -31,7 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View and manage your Google Docs documents
+ *  Authorization scope: See, create, and edit all Google Docs documents you
+ *  have access to
  *
  *  Value "https://www.googleapis.com/auth/documents"
  */

@@ -42,6 +42,7 @@
 @class GTLRDataprocMetastore_Operation_Metadata;
 @class GTLRDataprocMetastore_Operation_Response;
 @class GTLRDataprocMetastore_Policy;
+@class GTLRDataprocMetastore_Restore;
 @class GTLRDataprocMetastore_Secret;
 @class GTLRDataprocMetastore_Service;
 @class GTLRDataprocMetastore_Service_Labels;
@@ -221,6 +222,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_S
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Restore.state
+
+/**
+ *  The metadata restore is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled;
+/**
+ *  The metadata restore failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Failed;
+/**
+ *  The metadata restore is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Running;
+/**
+ *  The state of the metadata restore is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_StateUnspecified;
+/**
+ *  The metadata restore completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_Restore.type
+
+/**
+ *  The service's metadata and configuration are restored.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_Full;
+/**
+ *  Only the service's metadata is restored.
+ *
+ *  Value: "METADATA_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_MetadataOnly;
+/**
+ *  The restore type is unknown.
+ *
+ *  Value: "RESTORE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_Service.state
@@ -954,6 +1011,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 /** Output only. The latest metadata exports of the metastore service. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_MetadataExport *> *metadataExports;
 
+/** Output only. The latest restores of the metastore service. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataprocMetastore_Restore *> *restores;
+
 @end
 
 
@@ -1122,6 +1182,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  The details of a metadata restore operation.
+ */
+@interface GTLRDataprocMetastore_Restore : GTLRObject
+
+/**
+ *  Output only. The relative resource name of the metastore service backup to
+ *  restore from, in the following
+ *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/** Output only. The time when the restore ended. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. The time when the restore started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. The current state of the restore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Cancelled The metadata
+ *        restore is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Failed The metadata restore
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Running The metadata restore
+ *        is running. (Value: "RUNNING")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_StateUnspecified The state of
+ *        the metadata restore is unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDataprocMetastore_Restore_State_Succeeded The metadata
+ *        restore completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The type of restore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_Full The service's metadata
+ *        and configuration are restored. (Value: "FULL")
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_MetadataOnly Only the
+ *        service's metadata is restored. (Value: "METADATA_ONLY")
+ *    @arg @c kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified The
+ *        restore type is unknown. (Value: "RESTORE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A securely stored value.
  */
 @interface GTLRDataprocMetastore_Secret : GTLRObject
@@ -1189,8 +1300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /**
  *  Immutable. The relative resource name of the VPC network on which the
- *  instance can be accessed. The network must belong to the same project as the
- *  metastore instance. It is specified in the following
+ *  instance can be accessed. It is specified in the following
  *  form:"projects/{project_number}/global/networks/{network_id}".
  */
 @property(nonatomic, copy, nullable) NSString *network;

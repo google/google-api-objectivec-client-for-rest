@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflows API (workflows/v1beta)
+//   Workflows API (workflows/v1)
 // Description:
 //   Orchestrate Workflows consisting of Google Cloud APIs, SaaS APIs or private
 //   API endpoints.

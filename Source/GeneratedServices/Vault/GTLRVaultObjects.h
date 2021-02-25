@@ -457,7 +457,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_DataScope_UnprocessedData;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_Account;
 /**
  *  Will search for all accounts in the organization. No need to set
- *  account_info or org_unit_info.
+ *  account_info or org_unit_info. Not all CORPUS_TYPE support this scope.
+ *  Supported by MAIL.
  *
  *  Value: "ENTIRE_ORG"
  */
@@ -506,7 +507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_Query_Method_TeamDrive;
 FOUNDATION_EXTERN NSString * const kGTLRVault_Query_SearchMethod_Account;
 /**
  *  Will search for all accounts in the organization. No need to set
- *  account_info or org_unit_info.
+ *  account_info or org_unit_info. Not all CORPUS_TYPE support this scope.
+ *  Supported by MAIL.
  *
  *  Value: "ENTIRE_ORG"
  */
@@ -1812,8 +1814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *    @arg @c kGTLRVault_Query_Method_Account Will search all accounts provided
  *        in account_info. (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_Method_EntireOrg Will search for all accounts in
- *        the organization. No need to set account_info or org_unit_info.
- *        (Value: "ENTIRE_ORG")
+ *        the organization. No need to set account_info or org_unit_info. Not
+ *        all CORPUS_TYPE support this scope. Supported by MAIL. (Value:
+ *        "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_Method_OrgUnit Will search all accounts in the OU
  *        specified in org_unit_info. (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_Method_Room Will search in the Room specified in
@@ -1843,7 +1846,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *        provided in account_info. (Value: "ACCOUNT")
  *    @arg @c kGTLRVault_Query_SearchMethod_EntireOrg Will search for all
  *        accounts in the organization. No need to set account_info or
- *        org_unit_info. (Value: "ENTIRE_ORG")
+ *        org_unit_info. Not all CORPUS_TYPE support this scope. Supported by
+ *        MAIL. (Value: "ENTIRE_ORG")
  *    @arg @c kGTLRVault_Query_SearchMethod_OrgUnit Will search all accounts in
  *        the OU specified in org_unit_info. (Value: "ORG_UNIT")
  *    @arg @c kGTLRVault_Query_SearchMethod_Room Will search in the Room

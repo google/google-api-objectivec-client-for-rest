@@ -152,6 +152,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CertificateAuthorityService"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ChromeManagement",
+            targets: ["GoogleAPIClientForREST_ChromeManagement"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ChromeUXReport",
             targets: ["GoogleAPIClientForREST_ChromeUXReport"]
         ),
@@ -298,6 +302,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Cloudbilling",
             targets: ["GoogleAPIClientForREST_Cloudbilling"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Cloudchannel",
+            targets: ["GoogleAPIClientForREST_Cloudchannel"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Clouderrorreporting",
@@ -556,8 +564,16 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Monitoring"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessAccountManagement",
+            targets: ["GoogleAPIClientForREST_MyBusinessAccountManagement"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_NetworkManagement",
             targets: ["GoogleAPIClientForREST_NetworkManagement"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Networkconnectivity",
+            targets: ["GoogleAPIClientForREST_Networkconnectivity"]
         ),
         .library(
             name: "GoogleAPIClientForREST_OSConfig",
@@ -566,6 +582,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Oauth2",
             targets: ["GoogleAPIClientForREST_Oauth2"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_OnDemandScanning",
+            targets: ["GoogleAPIClientForREST_OnDemandScanning"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PagespeedInsights",
@@ -582,6 +602,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_PolicySimulator",
+            targets: ["GoogleAPIClientForREST_PolicySimulator"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PolicyTroubleshooter",
@@ -770,6 +794,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Vision",
             targets: ["GoogleAPIClientForREST_Vision"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_WebRisk",
+            targets: ["GoogleAPIClientForREST_WebRisk"]
         ),
         .library(
             name: "GoogleAPIClientForREST_WebSecurityScanner",
@@ -1060,6 +1088,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_ChromeManagement",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ChromeManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_ChromeUXReport",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/ChromeUXReport",
@@ -1279,6 +1313,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Cloudbilling",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Cloudbilling",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Cloudchannel",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Cloudchannel",
             publicHeadersPath: "."
         ),
         .target(
@@ -1666,9 +1706,21 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_MyBusinessAccountManagement",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessAccountManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_NetworkManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/NetworkManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Networkconnectivity",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Networkconnectivity",
             publicHeadersPath: "."
         ),
         .target(
@@ -1681,6 +1733,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Oauth2",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Oauth2",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_OnDemandScanning",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/OnDemandScanning",
             publicHeadersPath: "."
         ),
         .target(
@@ -1705,6 +1763,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PolicySimulator",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PolicySimulator",
             publicHeadersPath: "."
         ),
         .target(
@@ -1987,6 +2051,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Vision",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Vision",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_WebRisk",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/WebRisk",
             publicHeadersPath: "."
         ),
         .target(

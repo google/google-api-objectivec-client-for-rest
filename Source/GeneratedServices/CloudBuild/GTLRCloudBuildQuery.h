@@ -24,6 +24,7 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_CancelBuildRequest;
 @class GTLRCloudBuild_CancelOperationRequest;
+@class GTLRCloudBuild_HttpBody;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RetryBuildRequest;
 
@@ -905,6 +906,43 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)queryWithObject:(GTLRCloudBuild_RepoSource *)object
                       projectId:(NSString *)projectId
                       triggerId:(NSString *)triggerId;
+
+@end
+
+/**
+ *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
+ *  webhook request targeted at a specific trigger.
+ *
+ *  Method: cloudbuild.projects.triggers.webhook
+ */
+@interface GTLRCloudBuildQuery_ProjectsTriggersWebhook : GTLRCloudBuildQuery
+// Previous library name was
+//   +[GTLQueryCloudBuild queryForProjectsTriggersWebhookWithObject:projectId:trigger:]
+
+/** Project in which the specified trigger lives */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Secret token used for authorization if an OAuth token isn't provided. */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/** Name of the trigger to run the payload against */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ReceiveTriggerWebhookResponse.
+ *
+ *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
+ *  webhook request targeted at a specific trigger.
+ *
+ *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
+ *  @param projectId Project in which the specified trigger lives
+ *  @param trigger Name of the trigger to run the payload against
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsTriggersWebhook
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                      projectId:(NSString *)projectId
+                        trigger:(NSString *)trigger;
 
 @end
 

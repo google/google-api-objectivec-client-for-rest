@@ -35,6 +35,8 @@
 @class GTLRPubsub_PushConfig_Attributes;
 @class GTLRPubsub_ReceivedMessage;
 @class GTLRPubsub_RetryPolicy;
+@class GTLRPubsub_Schema;
+@class GTLRPubsub_SchemaSettings;
 @class GTLRPubsub_Snapshot;
 @class GTLRPubsub_Snapshot_Labels;
 @class GTLRPubsub_Subscription;
@@ -48,6 +50,77 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_Schema.type
+
+/**
+ *  An Avro schema definition.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_Avro;
+/**
+ *  A Protocol Buffer schema definition.
+ *
+ *  Value: "PROTOCOL_BUFFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_ProtocolBuffer;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_Schema_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_SchemaSettings.encoding
+
+/**
+ *  Binary encoding, as defined by the schema type. For some schema types,
+ *  binary encoding may not be available.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_Binary;
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCODING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified;
+/**
+ *  JSON encoding
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json;
+
+// ----------------------------------------------------------------------------
+// GTLRPubsub_ValidateMessageRequest.encoding
+
+/**
+ *  Binary encoding, as defined by the schema type. For some schema types,
+ *  binary encoding may not be available.
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Binary;
+/**
+ *  Unspecified
+ *
+ *  Value: "ENCODING_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified;
+/**
+ *  JSON encoding
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json;
 
 /**
  *  Request for the Acknowledge method.
@@ -273,6 +346,33 @@ NS_ASSUME_NONNULL_BEGIN
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Response for the `ListSchemas` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schemas" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRPubsub_ListSchemasResponse : GTLRCollectionObject
+
+/**
+ *  If not empty, indicates that there may be more schemas that match the
+ *  request; this value should be passed in a new `ListSchemasRequest`.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting schemas.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPubsub_Schema *> *schemas;
 
 @end
 
@@ -826,6 +926,69 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A schema resource.
+ */
+@interface GTLRPubsub_Schema : GTLRObject
+
+/**
+ *  The definition of the schema. This should contain a string representing the
+ *  full definition of the schema that is a valid schema definition of the type
+ *  specified in `type`.
+ */
+@property(nonatomic, copy, nullable) NSString *definition;
+
+/**
+ *  Required. Name of the schema. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of the schema definition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_Schema_Type_Avro An Avro schema definition. (Value:
+ *        "AVRO")
+ *    @arg @c kGTLRPubsub_Schema_Type_ProtocolBuffer A Protocol Buffer schema
+ *        definition. (Value: "PROTOCOL_BUFFER")
+ *    @arg @c kGTLRPubsub_Schema_Type_TypeUnspecified Default value. This value
+ *        is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Settings for validating messages published against a schema.
+ */
+@interface GTLRPubsub_SchemaSettings : GTLRObject
+
+/**
+ *  The encoding of messages validated against `schema`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_Binary Binary encoding, as
+ *        defined by the schema type. For some schema types, binary encoding may
+ *        not be available. (Value: "BINARY")
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified
+ *        Unspecified (Value: "ENCODING_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_SchemaSettings_Encoding_Json JSON encoding (Value:
+ *        "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Required. The name of the schema that messages published should be validated
+ *  against. Format is `projects/{project}/schemas/{schema}`. The value of this
+ *  field will be `_deleted-schema_` if the schema has been deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+@end
+
+
+/**
  *  Request for the `Seek` method.
  */
 @interface GTLRPubsub_SeekRequest : GTLRObject
@@ -1142,6 +1305,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
+/** Settings for validating messages published against a schema. */
+@property(nonatomic, strong, nullable) GTLRPubsub_SchemaSettings *schemaSettings;
+
 @end
 
 
@@ -1215,6 +1381,70 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  Request for the `ValidateMessage` method.
+ */
+@interface GTLRPubsub_ValidateMessageRequest : GTLRObject
+
+/**
+ *  The encoding expected for messages
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_Binary Binary
+ *        encoding, as defined by the schema type. For some schema types, binary
+ *        encoding may not be available. (Value: "BINARY")
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified
+ *        Unspecified (Value: "ENCODING_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_ValidateMessageRequest_Encoding_Json JSON encoding
+ *        (Value: "JSON")
+ */
+@property(nonatomic, copy, nullable) NSString *encoding;
+
+/**
+ *  Message to validate against the provided `schema_spec`.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Name of the schema against which to validate. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Ad-hoc schema against which to validate */
+@property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Response for the `ValidateMessage` method. Empty for now.
+ */
+@interface GTLRPubsub_ValidateMessageResponse : GTLRObject
+@end
+
+
+/**
+ *  Request for the `ValidateSchema` method.
+ */
+@interface GTLRPubsub_ValidateSchemaRequest : GTLRObject
+
+/** Required. The schema object to validate. */
+@property(nonatomic, strong, nullable) GTLRPubsub_Schema *schema;
+
+@end
+
+
+/**
+ *  Response for the `ValidateSchema` method. Empty for now.
+ */
+@interface GTLRPubsub_ValidateSchemaResponse : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

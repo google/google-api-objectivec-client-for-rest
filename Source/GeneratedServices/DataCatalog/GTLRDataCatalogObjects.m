@@ -23,7 +23,6 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery = @"BIGQUERY";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub = @"CLOUD_PUBSUB";
-NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms = @"DPMS";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified = @"INTEGRATED_SYSTEM_UNSPECIFIED";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type

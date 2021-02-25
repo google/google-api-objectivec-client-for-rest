@@ -101,6 +101,7 @@
 @class GTLRShoppingContent_MerchantOrderReturn;
 @class GTLRShoppingContent_MerchantOrderReturnItem;
 @class GTLRShoppingContent_MerchantRejectionReason;
+@class GTLRShoppingContent_Metrics;
 @class GTLRShoppingContent_MinimumOrderValueTable;
 @class GTLRShoppingContent_MinimumOrderValueTableStoreCodeSetWithMov;
 @class GTLRShoppingContent_MonetaryAmount;
@@ -186,6 +187,7 @@
 @class GTLRShoppingContent_RegionGeoTargetArea;
 @class GTLRShoppingContent_RegionPostalCodeArea;
 @class GTLRShoppingContent_RegionPostalCodeAreaPostalCodeRange;
+@class GTLRShoppingContent_ReportRow;
 @class GTLRShoppingContent_RepricingProductReport;
 @class GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats;
 @class GTLRShoppingContent_RepricingRule;
@@ -206,11 +208,17 @@
 @class GTLRShoppingContent_ReturnPolicy;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchRequestEntry;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchResponseEntry;
+@class GTLRShoppingContent_ReturnPolicyOnline;
+@class GTLRShoppingContent_ReturnPolicyOnlinePolicy;
+@class GTLRShoppingContent_ReturnPolicyOnlineRestockingFee;
+@class GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo;
+@class GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee;
 @class GTLRShoppingContent_ReturnPolicyPolicy;
 @class GTLRShoppingContent_ReturnPolicySeasonalOverride;
 @class GTLRShoppingContent_ReturnPricingInfo;
 @class GTLRShoppingContent_ReturnShipment;
 @class GTLRShoppingContent_Row;
+@class GTLRShoppingContent_Segments;
 @class GTLRShoppingContent_Service;
 @class GTLRShoppingContent_SettlementReport;
 @class GTLRShoppingContent_SettlementTransaction;
@@ -295,6 +303,48 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_Car
  *  Value: "UPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
+
+/**
+ *  Merchant's program participation is active for a specific region code.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active;
+/**
+ *  Merchant is eligible for onboarding to a given program in a specific region
+ *  code.
+ *
+ *  Value: "ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible;
+/**
+ *  Merchant is not eligible for onboarding to a given program in a specific
+ *  region code.
+ *
+ *  Value: "NOT_ELIGIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible;
+/**
+ *  Merchant is onboarding to a given program in a specific region code.
+ *
+ *  Value: "ONBOARDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding;
+/**
+ *  Participation has been paused.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused;
+/**
+ *  Default value when participation stage is not set.
+ *
+ *  Value: "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
@@ -471,6 +521,190 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  Value: "TYPE_STATS_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnline.itemConditions
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ITEM_CONDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_ItemConditionUnspecified;
+/**
+ *  New.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_New;
+/**
+ *  Used.
+ *
+ *  Value: "USED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_Used;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnline.returnMethods
+
+/**
+ *  At a kiosk.
+ *
+ *  Value: "AT_A_KIOSK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_AtAKiosk;
+/**
+ *  By mail.
+ *
+ *  Value: "BY_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ByMail;
+/**
+ *  In store.
+ *
+ *  Value: "IN_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_InStore;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ReturnMethods_ReturnMethodUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlinePolicy.type
+
+/**
+ *  Life time returns.
+ *
+ *  Value: "LIFETIME_RETURNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_LifetimeReturns;
+/**
+ *  No returns.
+ *
+ *  Value: "NO_RETURNS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NoReturns;
+/**
+ *  Number of days after a return is delivered.
+ *
+ *  Value: "NUMBER_OF_DAYS_AFTER_DELIVERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NumberOfDaysAfterDelivery;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnLabelSource
+
+/**
+ *  Customers' responsibility to get the label.
+ *
+ *  Value: "CUSTOMER_RESPONSIBILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_CustomerResponsibility;
+/**
+ *  Download and print the label.
+ *
+ *  Value: "DOWNLOAD_AND_PRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_DownloadAndPrint;
+/**
+ *  Label in the box.
+ *
+ *  Value: "IN_THE_BOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_InTheBox;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_LABEL_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_ReturnLabelSourceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo.returnReasonCategory
+
+/**
+ *  Buyer remorse.
+ *
+ *  Value: "BUYER_REMORSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_BuyerRemorse;
+/**
+ *  Item defect.
+ *
+ *  Value: "ITEM_DEFECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ItemDefect;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RETURN_REASON_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ReturnReasonCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee.type
+
+/**
+ *  Customer will pay the actual return shipping fee.
+ *
+ *  Value: "CUSTOMER_PAYING_ACTUAL_FEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_CustomerPayingActualFee;
+/**
+ *  The return shipping fee is a fixed value.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_Fixed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRShoppingContent_Segments.program
+
+/**
+ *  Buy on Google Listing.
+ *
+ *  Value: "BUY_ON_GOOGLE_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing;
+/**
+ *  Free Local Product Listing.
+ *
+ *  Value: "FREE_LOCAL_PRODUCT_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_FreeLocalProductListing;
+/**
+ *  Free Product Listing.
+ *
+ *  Value: "FREE_PRODUCT_LISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_FreeProductListing;
+/**
+ *  Not specified.
+ *
+ *  Value: "PROGRAM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_ProgramUnspecified;
+/**
+ *  Shopping Ads.
+ *
+ *  Value: "SHOPPING_ADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds;
 
 /**
  *  Account data. After the creation of a new account it may take a few minutes
@@ -937,8 +1171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Provided services. Acceptable values are: - "`shoppingAdsProductManagement`"
- *  - "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ *  - "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -1705,6 +1938,44 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Response message for the GetProgramStatus method.
+ */
+@interface GTLRShoppingContent_BuyOnGoogleProgramStatus : GTLRObject
+
+/** The customer service pending email. */
+@property(nonatomic, copy, nullable) NSString *customerServicePendingEmail;
+
+/** The customer service verified email. */
+@property(nonatomic, copy, nullable) NSString *customerServiceVerifiedEmail;
+
+/**
+ *  The current participation stage for the program.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active
+ *        Merchant's program participation is active for a specific region code.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible
+ *        Merchant is eligible for onboarding to a given program in a specific
+ *        region code. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible
+ *        Merchant is not eligible for onboarding to a given program in a
+ *        specific region code. (Value: "NOT_ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding
+ *        Merchant is onboarding to a given program in a specific region code.
+ *        (Value: "ONBOARDING")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused
+ *        Participation has been paused. (Value: "PAUSED")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified
+ *        Default value when participation stage is not set. (Value:
+ *        "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participationStage;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_CarrierRate
  */
 @interface GTLRShoppingContent_CarrierRate : GTLRObject
@@ -1772,7 +2043,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  Label that you assign to a collection to help organize bidding and reporting
- *  in Shopping campaigns. Custom label
+ *  in Shopping campaigns. [Custom
+ *  label](https://support.google.com/merchants/answer/9674217)
  */
 @property(nonatomic, copy, nullable) NSString *customLabel0;
 
@@ -1805,51 +2077,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  a lookup to the corresponding product ID in your product feeds. Provide a
  *  maximum of 100 featuredProduct (for collections). Provide up to 10
  *  featuredProduct (for Shoppable Images only) with ID and X and Y coordinates.
- *  featured_product attribute
+ *  [featured_product
+ *  attribute](https://support.google.com/merchants/answer/9703736)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_CollectionFeaturedProduct *> *featuredProduct;
 
-/** Your collection's name. headline attribute */
+/**
+ *  Your collection's name. [headline
+ *  attribute](https://support.google.com/merchants/answer/9673580)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headline;
 
 /**
  *  Required. The REST ID of the collection. Content API methods that operate on
  *  collections take this as their collectionId parameter. The REST ID for a
- *  collection is of the form collectionId. id attribute
+ *  collection is of the form collectionId. [id
+ *  attribute](https://support.google.com/merchants/answer/9649290)
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The URL of a collection’s image. image_link attribute */
+/**
+ *  The URL of a collection’s image. [image_link
+ *  attribute](https://support.google.com/merchants/answer/9703236)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *imageLink;
 
 /**
  *  The language of a collection and the language of any featured products
- *  linked to the collection. language attribute
+ *  linked to the collection. [language
+ *  attribute](https://support.google.com/merchants/answer/9673781)
  */
 @property(nonatomic, copy, nullable) NSString *language;
 
 /**
  *  A collection’s landing page. URL directly linking to your collection's page
- *  on your website. link attribute
+ *  on your website. [link
+ *  attribute](https://support.google.com/merchants/answer/9673983)
  */
 @property(nonatomic, copy, nullable) NSString *link;
 
 /**
  *  A collection’s mobile-optimized landing page when you have a different URL
- *  for mobile and desktop traffic. mobile_link attribute
+ *  for mobile and desktop traffic. [mobile_link
+ *  attribute](https://support.google.com/merchants/answer/9646123)
  */
 @property(nonatomic, copy, nullable) NSString *mobileLink;
 
-/** product_country attribute */
+/**
+ *  [product_country
+ *  attribute](https://support.google.com/merchants/answer/9674155)
+ */
 @property(nonatomic, copy, nullable) NSString *productCountry;
 
 @end
 
 
 /**
- *  The message for FeaturedProduct. FeaturedProduct
+ *  The message for FeaturedProduct.
+ *  [FeaturedProduct](https://support.google.com/merchants/answer/9703736)
  */
 @interface GTLRShoppingContent_CollectionFeaturedProduct : GTLRObject
 
@@ -3825,6 +4112,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Response message for the `ListReturnPolicyOnline` method.
+ */
+@interface GTLRShoppingContent_ListReturnPolicyOnlineResponse : GTLRObject
+
+/** The retrieved return policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicyOnline *> *returnPolicies;
+
+@end
+
+
+/**
  *  Local inventory resource. For accepted attribute values, see the local
  *  product inventory feed specification.
  */
@@ -4118,6 +4416,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Performance metrics. Values are only set for metrics requested explicitly in
+ *  the request's search query.
+ */
+@interface GTLRShoppingContent_Metrics : GTLRObject
+
+/**
+ *  Number of clicks.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clicks;
+
+/**
+ *  Number of clicks merchant's products receive (clicks) divided by the number
+ *  of times the products are shown (impressions).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ctr;
+
+/**
+ *  Number of times merchant's products are shown.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressions;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_MinimumOrderValueTable
  */
 @interface GTLRShoppingContent_MinimumOrderValueTable : GTLRObject
@@ -4163,6 +4492,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  `currency`.
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *taxAmount;
+
+@end
+
+
+/**
+ *  Request message for the OnboardProgram method.
+ */
+@interface GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest : GTLRObject
+
+/** The customer service email. */
+@property(nonatomic, copy, nullable) NSString *customerServiceEmail;
 
 @end
 
@@ -5950,7 +6290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 /**
  *  If set to true, all shipping costs for the order will be refunded. If this
- *  is true, amount should not be provided and will be ignored.
+ *  is true, amount should not be provided and will be ignored. If set to false,
+ *  submit the amount of the partial shipping refund, excluding the shipping
+ *  tax. The shipping tax is calculated and handled on Google's side.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6474,7 +6816,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *productId;
 
 /**
- *  The quantity to return and refund.
+ *  The quantity to return and refund. Quantity is required.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -8860,6 +9202,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 
 
 /**
+ *  Result row returned from the search query.
+ */
+@interface GTLRShoppingContent_ReportRow : GTLRObject
+
+/**
+ *  Metrics requested by the merchant in the query. Metric values are only set
+ *  for metrics requested explicitly in the query.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Metrics *metrics;
+
+/**
+ *  Segmentation dimensions requested by the merchant in the query. Dimension
+ *  values are only set for dimensions requested explicitly in the query.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Segments *segments;
+
+@end
+
+
+/**
  *  Resource that represents a daily Repricing product report. Each report
  *  contains stats for a single type of Repricing rule for a single product on a
  *  given day. If there are multiple rules of the same type for the product on
@@ -8969,7 +9331,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleCostOfGoodsSaleRule *cogsBasedRule;
 
-/** Required. Immutable. CLDR country code (e.g. "US"). */
+/**
+ *  Required. Immutable. [CLDR country
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml)
+ *  (e.g. "US").
+ */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 /** Required. Time period when the rule should take effect. */
@@ -9554,6 +9920,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 /** Return policy ID generated by Google. */
 @property(nonatomic, copy, nullable) NSString *returnPolicyId;
 
+/** The return shipping fee that will apply to non free return reasons. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Price *returnShippingFee;
+
 /** An optional list of seasonal overrides. */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicySeasonalOverride *> *seasonalOverrides;
 
@@ -9667,6 +10036,195 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicy *> *resources;
+
+@end
+
+
+/**
+ *  Return policy online object. This is currently used to represent return
+ *  policies for ads and free listings programs.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnline : GTLRObject
+
+/**
+ *  The countries of sale where the return policy is applicable. The values must
+ *  be a valid 2 letter ISO 3166 code, e.g. "US".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *countries;
+
+/**
+ *  The item conditions that are accepted for returns. This is required to not
+ *  be empty unless the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *itemConditions;
+
+/**
+ *  The unique user-defined label of the return policy. The same label cannot be
+ *  used in different return policies for the same country. Policies with the
+ *  label 'default' will apply to all products, unless a product specifies a
+ *  return_policy_label attribute.
+ */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the policy as shown in Merchant Center. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The return policy. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlinePolicy *policy;
+
+/**
+ *  The restocking fee that applies to all return reason categories. This would
+ *  be treated as a free restocking fee if the value is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlineRestockingFee *restockingFee;
+
+/**
+ *  The return methods of how customers can return an item. This value is
+ *  required to not be empty unless the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *returnMethods;
+
+/** Output only. Return policy ID generated by Google. */
+@property(nonatomic, copy, nullable) NSString *returnPolicyId;
+
+/**
+ *  The return policy uri. This can used by Google to do a sanity check for the
+ *  policy.
+ */
+@property(nonatomic, copy, nullable) NSString *returnPolicyUri;
+
+/**
+ *  The return reason category information. This required to not be empty unless
+ *  the type of return policy is noReturns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo *> *returnReasonCategoryInfo;
+
+@end
+
+
+/**
+ *  The available policies.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlinePolicy : GTLRObject
+
+/**
+ *  The number of days items can be returned after delivery, where one day is
+ *  defined to be 24 hours after the delivery timestamp. Required for
+ *  `numberOfDaysAfterDelivery` returns.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *days;
+
+/**
+ *  Policy type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_LifetimeReturns
+ *        Life time returns. (Value: "LIFETIME_RETURNS")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NoReturns No
+ *        returns. (Value: "NO_RETURNS")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_NumberOfDaysAfterDelivery
+ *        Number of days after a return is delivered. (Value:
+ *        "NUMBER_OF_DAYS_AFTER_DELIVERY")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlinePolicy_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The restocking fee. This can either be a fixed fee or a micro percent.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineRestockingFee : GTLRObject
+
+/** Fixed restocking fee. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *fixedFee;
+
+/**
+ *  Percent of total price in micros. 15,000,000 means 15% of the total price
+ *  would be charged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *microPercent;
+
+@end
+
+
+/**
+ *  The return reason category info wrapper.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo : GTLRObject
+
+/**
+ *  The corresponding return label source.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_CustomerResponsibility
+ *        Customers' responsibility to get the label. (Value:
+ *        "CUSTOMER_RESPONSIBILITY")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_DownloadAndPrint
+ *        Download and print the label. (Value: "DOWNLOAD_AND_PRINT")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_InTheBox
+ *        Label in the box. (Value: "IN_THE_BOX")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnLabelSource_ReturnLabelSourceUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RETURN_LABEL_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnLabelSource;
+
+/**
+ *  The return reason category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_BuyerRemorse
+ *        Buyer remorse. (Value: "BUYER_REMORSE")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ItemDefect
+ *        Item defect. (Value: "ITEM_DEFECT")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnReasonCategoryInfo_ReturnReasonCategory_ReturnReasonCategoryUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RETURN_REASON_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *returnReasonCategory;
+
+/**
+ *  The corresponding return shipping fee. This is only applicable when
+ *  returnLabelSource is not the customer's responsibility.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee *returnShippingFee;
+
+@end
+
+
+/**
+ *  The return shipping fee. This can either be a fixed fee or a boolean to
+ *  indicate that the customer pays the actual shipping cost.
+ */
+@interface GTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee : GTLRObject
+
+/**
+ *  Fixed return shipping fee amount. This value is only applicable when type is
+ *  FIXED. We will treat the return shipping fee as free if type is FIXED and
+ *  this value is not set.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PriceAmount *fixedFee;
+
+/**
+ *  Type of return shipping fee.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_CustomerPayingActualFee
+ *        Customer will pay the actual return shipping fee. (Value:
+ *        "CUSTOMER_PAYING_ACTUAL_FEE")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_Fixed
+ *        The return shipping fee is a fixed value. (Value: "FIXED")
+ *    @arg @c kGTLRShoppingContent_ReturnPolicyOnlineReturnShippingFee_Type_TypeUnspecified
+ *        Default value. This value is unused. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -9822,6 +10380,98 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  one-dimensional tables. Required.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_Value *> *cells;
+
+@end
+
+
+/**
+ *  Request message for the ReportService.Search method.
+ */
+@interface GTLRShoppingContent_SearchRequest : GTLRObject
+
+/**
+ *  Number of ReportRows to retrieve in a single page. Defaults to the maximum
+ *  of 1000. Values above 1000 are coerced to 1000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Token of the page to retrieve. If not specified, the first page of results
+ *  is returned. In order to request the next page of results, the value
+ *  obtained from `next_page_token` in the previous response should be used.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Query that defines performance metrics to retrieve and dimensions
+ *  according to which the metrics are to be segmented.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  Response message for the ReportService.Search method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRShoppingContent_SearchResponse : GTLRCollectionObject
+
+/**
+ *  Token which can be sent as `page_token` to retrieve the next page. If
+ *  omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Rows that matched the search query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_ReportRow *> *results;
+
+@end
+
+
+/**
+ *  Dimensions according to which metrics are segmented in the response. Values
+ *  of product dimensions, e.g., offer id, reflect the state of a product at the
+ *  time of the corresponding event, e.g., impression or order. Segment fields
+ *  cannot be selected in queries without also selecting at least one metric
+ *  field. Values are only set for dimensions requested explicitly in the
+ *  request's search query.
+ */
+@interface GTLRShoppingContent_Segments : GTLRObject
+
+/** Date in the merchant timezone to which metrics apply. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
+
+/** Merchant-provided id of the product. */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  Program to which metrics apply, e.g., Free Product Listing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_Segments_Program_BuyOnGoogleListing Buy on
+ *        Google Listing. (Value: "BUY_ON_GOOGLE_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_FreeLocalProductListing Free
+ *        Local Product Listing. (Value: "FREE_LOCAL_PRODUCT_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_FreeProductListing Free
+ *        Product Listing. (Value: "FREE_PRODUCT_LISTING")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_ProgramUnspecified Not
+ *        specified. (Value: "PROGRAM_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_Segments_Program_ShoppingAds Shopping Ads.
+ *        (Value: "SHOPPING_ADS")
+ */
+@property(nonatomic, copy, nullable) NSString *program;
 
 @end
 
@@ -10152,7 +10802,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_RepricingRuleReport_Type
  *  "`order`" - "`reversal`" - "`orderRefund`" - "`reversalRefund`" -
  *  "`issueRelatedRefundAndReplacement`" - "`returnLabelShippingFeeTransaction`"
  *  - "`reversalIssueRelatedRefundAndReplacement`" -
- *  "`reversalReturnLabelShippingFeeTransaction`"
+ *  "`reversalReturnLabelShippingFeeTransaction`" -
+ *  "`lumpSumCorrectionTransaction`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

@@ -48,6 +48,45 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// encryptionConfigEncryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must contain a
+ *  valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeCustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption;
+/**
+ *  Use the same encryption configuration as the database. This is the default
+ *  option when encryption_config is empty. For example, if the database is
+ *  using `Customer_Managed_Encryption`, the backup will be using the same Cloud
+ *  KMS key as the database.
+ *
+ *  Value: "USE_DATABASE_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Spanner query classes.
  */
@@ -261,6 +300,34 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *backupId;
 
 /**
+ *  Required. The encryption type of the backup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption
+ *        Use the same encryption configuration as the database. This is the
+ *        default option when encryption_config is empty. For example, if the
+ *        database is using `Customer_Managed_Encryption`, the backup will be
+ *        using the same Cloud KMS key as the database. (Value:
+ *        "USE_DATABASE_ENCRYPTION")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpannerEncryptionConfigEncryptionTypeCustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        contain a valid Cloud KMS key. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionConfigEncryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to protect the backup. This
+ *  field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionConfigKmsKeyName;
+
+/**
  *  Required. The name of the instance in which the backup will be created. This
  *  must be the same instance that contains the database the backup will be
  *  created from. The backup will be stored in the location(s) specified in the
@@ -431,6 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  in the Backup are eligible for filtering: * `name` * `database` * `state` *
  *  `create_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `expire_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
+ *  `version_time` (and values are of the format YYYY-MM-DDTHH:MM:SSZ) *
  *  `size_bytes` You can combine multiple expressions by enclosing each
  *  expression in parentheses. By default, expressions are combined with AND
  *  logic, but you can specify AND, OR, and NOT logic explicitly. Here are a few

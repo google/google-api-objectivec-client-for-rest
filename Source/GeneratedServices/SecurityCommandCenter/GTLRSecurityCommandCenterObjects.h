@@ -483,10 +483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecurityMarks *securityMarks;
 
-/**
- *  The time at which the asset was last updated, added, or deleted in Security
- *  Command Center.
- */
+/** The time at which the asset was last updated or added in Cloud SCC. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

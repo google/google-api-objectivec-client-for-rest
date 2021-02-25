@@ -713,7 +713,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Dataset_Access_Item
-@dynamic domain, groupByEmail, iamMember, role, routine, specialGroup,
+@dynamic dataset, domain, groupByEmail, iamMember, role, routine, specialGroup,
          userByEmail, view;
 @end
 
@@ -729,6 +729,38 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DatasetAccessEntry
+//
+
+@implementation GTLRBigquery_DatasetAccessEntry
+@dynamic dataset, targetTypes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"targetTypes" : @"target_types" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"target_types" : [GTLRBigquery_DatasetAccessEntry_TargetTypes_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
+//
+
+@implementation GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
+@dynamic targetType;
 @end
 
 
@@ -1377,13 +1409,14 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlAffectedRowAccessPolicyCount,
-         ddlOperationPerformed, ddlTargetRoutine, ddlTargetRowAccessPolicy,
-         ddlTargetTable, estimatedBytesProcessed, modelTraining,
-         modelTrainingCurrentIteration, modelTrainingExpectedTotalIteration,
-         numDmlAffectedRows, queryPlan, referencedRoutines, referencedTables,
-         reservationUsage, schema, statementType, timeline, totalBytesBilled,
-         totalBytesProcessed, totalBytesProcessedAccuracy,
-         totalPartitionsProcessed, totalSlotMs, undeclaredQueryParameters;
+         ddlOperationPerformed, ddlTargetDataset, ddlTargetRoutine,
+         ddlTargetRowAccessPolicy, ddlTargetTable, estimatedBytesProcessed,
+         modelTraining, modelTrainingCurrentIteration,
+         modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
+         referencedRoutines, referencedTables, reservationUsage, schema,
+         statementType, timeline, totalBytesBilled, totalBytesProcessed,
+         totalBytesProcessedAccuracy, totalPartitionsProcessed, totalSlotMs,
+         undeclaredQueryParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

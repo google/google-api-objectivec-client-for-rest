@@ -81,6 +81,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudComposer_EncryptionConfig
+//
+
+@implementation GTLRCloudComposer_EncryptionConfig
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudComposer_Environment
 //
 
@@ -109,9 +119,9 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_EnvironmentConfig
-@dynamic airflowUri, dagGcsPrefix, databaseConfig, gkeCluster, nodeConfig,
-         nodeCount, privateEnvironmentConfig, softwareConfig, webServerConfig,
-         webServerNetworkAccessControl;
+@dynamic airflowUri, dagGcsPrefix, databaseConfig, encryptionConfig, gkeCluster,
+         nodeConfig, nodeCount, privateEnvironmentConfig, softwareConfig,
+         webServerConfig, webServerNetworkAccessControl;
 @end
 
 

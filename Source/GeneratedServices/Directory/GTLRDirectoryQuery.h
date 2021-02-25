@@ -2224,6 +2224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsDeleteWithcustomerId:orgUnitPath:]
 
+/** Parses org unit path without url decode to allow for plus in ou name */
+@property(nonatomic, assign) BOOL allowPlus;
+
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
@@ -2267,6 +2270,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @interface GTLRDirectoryQuery_OrgunitsGet : GTLRDirectoryQuery
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsGetWithcustomerId:orgUnitPath:]
+
+/** Parses org unit path without url decode to allow for plus in ou name */
+@property(nonatomic, assign) BOOL allowPlus;
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2403,6 +2409,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsPatchWithObject:customerId:orgUnitPath:]
 
+/** Parses org unit path without url decode to allow for plus in ou name */
+@property(nonatomic, assign) BOOL allowPlus;
+
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
@@ -2447,6 +2456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @interface GTLRDirectoryQuery_OrgunitsUpdate : GTLRDirectoryQuery
 // Previous library name was
 //   +[GTLQueryDirectory queryForOrgunitsUpdateWithObject:customerId:orgUnitPath:]
+
+/** Parses org unit path without url decode to allow for plus in ou name */
+@property(nonatomic, assign) BOOL allowPlus;
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account

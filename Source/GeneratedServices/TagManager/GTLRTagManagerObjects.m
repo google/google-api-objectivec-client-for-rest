@@ -268,7 +268,7 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Client
-@dynamic accountId, clientId, containerId, fingerprint, name, parameter,
+@dynamic accountId, clientId, containerId, fingerprint, name, notes, parameter,
          parentFolderId, path, priority, tagManagerUrl, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

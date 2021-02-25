@@ -91,6 +91,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeGoogleCredentials
 NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypePkcs12File = @"TYPE_PKCS12_FILE";
 NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRIam_WorkloadIdentityPool.state
+NSString * const kGTLRIam_WorkloadIdentityPool_State_Active    = @"ACTIVE";
+NSString * const kGTLRIam_WorkloadIdentityPool_State_Deleted   = @"DELETED";
+NSString * const kGTLRIam_WorkloadIdentityPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRIam_WorkloadIdentityPoolProvider.state
+NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_Active = @"ACTIVE";
+NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_Deleted = @"DELETED";
+NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRIam_AdminAuditData
@@ -154,6 +164,16 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Aws
+//
+
+@implementation GTLRIam_Aws
+@dynamic accountId;
 @end
 
 
@@ -353,6 +373,68 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 + (NSString *)collectionItemsKey {
   return @"accounts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_ListWorkloadIdentityPoolProvidersResponse
+//
+
+@implementation GTLRIam_ListWorkloadIdentityPoolProvidersResponse
+@dynamic nextPageToken, workloadIdentityPoolProviders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloadIdentityPoolProviders" : [GTLRIam_WorkloadIdentityPoolProvider class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloadIdentityPoolProviders";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_ListWorkloadIdentityPoolsResponse
+//
+
+@implementation GTLRIam_ListWorkloadIdentityPoolsResponse
+@dynamic nextPageToken, workloadIdentityPools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workloadIdentityPools" : [GTLRIam_WorkloadIdentityPool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workloadIdentityPools";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_Oidc
+//
+
+@implementation GTLRIam_Oidc
+@dynamic allowedAudiences, issuerUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedAudiences" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -786,9 +868,72 @@ NSString * const kGTLRIam_ServiceAccountKey_PrivateKeyType_TypeUnspecified = @"T
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest
+//
+
+@implementation GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_UndeleteWorkloadIdentityPoolRequest
+//
+
+@implementation GTLRIam_UndeleteWorkloadIdentityPoolRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRIam_UploadServiceAccountKeyRequest
 //
 
 @implementation GTLRIam_UploadServiceAccountKeyRequest
 @dynamic publicKeyData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_WorkloadIdentityPool
+//
+
+@implementation GTLRIam_WorkloadIdentityPool
+@dynamic descriptionProperty, disabled, displayName, name, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_WorkloadIdentityPoolProvider
+//
+
+@implementation GTLRIam_WorkloadIdentityPoolProvider
+@dynamic attributeCondition, attributeMapping, aws, descriptionProperty,
+         disabled, displayName, name, oidc, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIam_WorkloadIdentityPoolProvider_AttributeMapping
+//
+
+@implementation GTLRIam_WorkloadIdentityPoolProvider_AttributeMapping
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end

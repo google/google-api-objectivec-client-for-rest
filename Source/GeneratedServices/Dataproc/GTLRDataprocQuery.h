@@ -29,6 +29,8 @@
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest;
 @class GTLRDataproc_Job;
 @class GTLRDataproc_SetIamPolicyRequest;
+@class GTLRDataproc_StartClusterRequest;
+@class GTLRDataproc_StopClusterRequest;
 @class GTLRDataproc_SubmitJobRequest;
 @class GTLRDataproc_TestIamPermissionsRequest;
 @class GTLRDataproc_WorkflowTemplate;
@@ -1342,12 +1344,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Optional. A unique id used to identify the request. If the server receives
- *  two CreateClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  two CreateClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1405,12 +1409,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Optional. A unique id used to identify the request. If the server receives
- *  two DeleteClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  two DeleteClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1721,12 +1727,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 
 /**
  *  Optional. A unique id used to identify the request. If the server receives
- *  two UpdateClusterRequest requests with the same id, then the second request
- *  will be ignored and the first google.longrunning.Operation created and
- *  stored in the backend is returned.It is recommended to always set this value
- *  to a UUID (https://en.wikipedia.org/wiki/Universally_unique_identifier).The
- *  id must contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and
- *  hyphens (-). The maximum length is 40 characters.
+ *  two UpdateClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.UpdateClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.It is recommended to always set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1810,6 +1818,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  */
 + (instancetype)queryWithObject:(GTLRDataproc_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts a cluster in a project.
+ *
+ *  Method: dataproc.projects.regions.clusters.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersStart : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsClustersStartWithObject:projectId:region:clusterName:]
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Starts a cluster in a project.
+ *
+ *  @param object The @c GTLRDataproc_StartClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersStart
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_StartClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
+
+@end
+
+/**
+ *  Stops a cluster in a project.
+ *
+ *  Method: dataproc.projects.regions.clusters.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersStop : GTLRDataprocQuery
+// Previous library name was
+//   +[GTLQueryDataproc queryForProjectsRegionsClustersStopWithObject:projectId:region:clusterName:]
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Stops a cluster in a project.
+ *
+ *  @param object The @c GTLRDataproc_StopClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersStop
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_StopClusterRequest *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
 
 @end
 

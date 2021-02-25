@@ -364,7 +364,15 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_Secret
-@dynamic createTime, expireTime, labels, name, replication, ttl;
+@dynamic createTime, expireTime, labels, name, replication, topics, ttl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"topics" : [GTLRSecretManager_Topic class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -445,6 +453,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_Topic
+//
+
+@implementation GTLRSecretManager_Topic
+@dynamic name;
 @end
 
 

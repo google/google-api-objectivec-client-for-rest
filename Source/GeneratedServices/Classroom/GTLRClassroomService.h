@@ -43,7 +43,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomAnnouncements;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomAnnouncementsReadonly;
 /**
- *  Authorization scope: Manage your Google Classroom classes
+ *  Authorization scope: See, edit, create, and permanently delete your Google
+ *  Classroom classes
  *
  *  Value "https://www.googleapis.com/auth/classroom.courses"
  */
@@ -69,8 +70,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkmaterials;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeClassroomCourseworkmaterialsReadonly;
 /**
- *  Authorization scope: Manage your course work and view your grades in Google
- *  Classroom
+ *  Authorization scope: See, create and edit coursework items including
+ *  assignments, questions, and grades
  *
  *  Value "https://www.googleapis.com/auth/classroom.coursework.me"
  */

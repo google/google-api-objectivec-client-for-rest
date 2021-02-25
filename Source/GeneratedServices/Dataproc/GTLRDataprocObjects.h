@@ -58,6 +58,7 @@
 @class GTLRDataproc_Job;
 @class GTLRDataproc_Job_Labels;
 @class GTLRDataproc_JobPlacement;
+@class GTLRDataproc_JobPlacement_ClusterLabels;
 @class GTLRDataproc_JobReference;
 @class GTLRDataproc_JobScheduling;
 @class GTLRDataproc_JobStatus;
@@ -68,6 +69,7 @@
 @class GTLRDataproc_ManagedCluster;
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
+@class GTLRDataproc_MetastoreConfig;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
 @class GTLRDataproc_Operation;
@@ -457,8 +459,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ReservationAffinity_ConsumeRese
 
 /**
  *  The Anaconda python distribution. The Anaconda component is not supported in
- *  the Dataproc preview 2.0 image. The 2.0 preview image is pre-installed with
- *  Miniconda.
+ *  the Dataproc 2.0 image. The 2.0 image is pre-installed with Miniconda.
  *
  *  Value: "ANACONDA"
  */
@@ -1016,6 +1017,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_InstanceGroupConfig *masterConfig;
 
+/** Optional. Metastore configuration. */
+@property(nonatomic, strong, nullable) GTLRDataproc_MetastoreConfig *metastoreConfig;
+
 /**
  *  Optional. The Compute Engine config settings for additional worker instances
  *  in a cluster.
@@ -1312,8 +1316,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Type of the boot disk (default is "pd-standard"). Valid values:
- *  "pd-ssd" (Persistent Disk Solid State Drive) or "pd-standard" (Persistent
- *  Disk Hard Disk Drive).
+ *  "pd-balanced" (Persistent Disk Balanced Solid State Drive), "pd-ssd"
+ *  (Persistent Disk Solid State Drive), or "pd-standard" (Persistent Disk Hard
+ *  Disk Drive). See Disk types
+ *  (https://cloud.google.com/compute/docs/disks#disk-types).
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskType;
 
@@ -1530,7 +1536,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccountScopes;
 
-/** Optional. Shielded Instance Config for clusters using shielded VMs. */
+/**
+ *  Optional. Shielded Instance Config for clusters using Compute Engine
+ *  Shielded VMs (https://cloud.google.com/security/shielded-cloud/shielded-vm).
+ */
 @property(nonatomic, strong, nullable) GTLRDataproc_ShieldedInstanceConfig *shieldedInstanceConfig;
 
 /**
@@ -2136,6 +2145,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @interface GTLRDataproc_JobPlacement : GTLRObject
 
+/**
+ *  Optional. Cluster labels to identify a cluster where the job will be
+ *  submitted.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_JobPlacement_ClusterLabels *clusterLabels;
+
 /** Required. The name of the cluster where the job will be submitted. */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -2145,6 +2160,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
+@end
+
+
+/**
+ *  Optional. Cluster labels to identify a cluster where the job will be
+ *  submitted.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_JobPlacement_ClusterLabels : GTLRObject
 @end
 
 
@@ -2397,7 +2425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  are running). Passing this threshold will cause the cluster to be deleted.
  *  Minimum value is 5 minutes; maximum value is 14 days (see JSON
  *  representation of Duration
- *  (https://developers.google.com/protocol-buffers/docs/proto3#json).
+ *  (https://developers.google.com/protocol-buffers/docs/proto3#json)).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *idleDeleteTtl;
 
@@ -2635,6 +2663,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Group.
  */
 @property(nonatomic, copy, nullable) NSString *instanceTemplateName;
+
+@end
+
+
+/**
+ *  Specifies a Metastore configuration.
+ */
+@interface GTLRDataproc_MetastoreConfig : GTLRObject
+
+/**
+ *  Required. Resource name of an existing Dataproc Metastore service.Example:
+ *  projects/[project_id]/locations/[dataproc_region]/services/[service-name]
+ */
+@property(nonatomic, copy, nullable) NSString *dataprocMetastoreService;
 
 @end
 
@@ -3204,11 +3246,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Security related configuration, including Kerberos.
+ *  Security related configuration, including encryption, Kerberos, etc.
  */
 @interface GTLRDataproc_SecurityConfig : GTLRObject
 
-/** Kerberos related configuration. */
+/** Optional. Kerberos related configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KerberosConfig *kerberosConfig;
 
 @end
@@ -3230,7 +3272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
- *  Shielded Instance Config for clusters using shielded VMs.
+ *  Shielded Instance Config for clusters using Compute Engine Shielded VMs
+ *  (https://cloud.google.com/security/shielded-cloud/shielded-vm).
  */
 @interface GTLRDataproc_ShieldedInstanceConfig : GTLRObject
 
@@ -3502,6 +3545,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to start a cluster.
+ */
+@interface GTLRDataproc_StartClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two StartClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StartClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  The Status type defines a logical error model that is suitable for different
  *  programming environments, including REST APIs and RPC APIs. It is used by
  *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
@@ -3547,6 +3617,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to stop a cluster.
+ */
+@interface GTLRDataproc_StopClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique id used to identify the request. If the server receives
+ *  two StopClusterRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StopClusterRequest)s
+ *  with the same id, then the second request will be ignored and the first
+ *  google.longrunning.Operation created and stored in the backend is
+ *  returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  A request to submit a job.
  */
 @interface GTLRDataproc_SubmitJobRequest : GTLRObject
@@ -3556,9 +3653,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. A unique id used to identify the request. If the server receives
- *  two SubmitJobRequest requests with the same id, then the second request will
- *  be ignored and the first Job created and stored in the backend is
- *  returned.It is recommended to always set this value to a UUID
+ *  two SubmitJobRequest
+ *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.SubmitJobRequest)s
+ *  with the same id, then the second request will be ignored and the first Job
+ *  created and stored in the backend is returned.It is recommended to always
+ *  set this value to a UUID
  *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.

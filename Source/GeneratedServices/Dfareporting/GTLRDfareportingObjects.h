@@ -4,7 +4,8 @@
 // API:
 //   Campaign Manager 360 API (dfareporting/v3.4)
 // Description:
-//   Manage your DoubleClick Campaign Manager ad campaigns and reports.
+//   Build applications to efficiently manage large or complex trafficking,
+//   reporting, and attribution workflows for Campaign Manager 360.
 // Documentation:
 //   https://developers.google.com/doubleclick-advertisers/
 
@@ -7634,7 +7635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 
 /**
  *  The value of the custom floodlight variable. The length of string must not
- *  exceed 50 characters.
+ *  exceed 100 characters.
  */
 @property(nonatomic, copy, nullable) NSString *value;
 
@@ -13204,7 +13205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @interface GTLRDfareporting_Report_PathToConversionCriteria_ReportProperties : GTLRObject
 
 /**
- *  DFA checks to see if a click interaction occurred within the specified
+ *  CM360 checks to see if a click interaction occurred within the specified
  *  period of time before a conversion. By default the value is pulled from
  *  Floodlight or you can manually enter a custom value. Valid values: 1-90.
  *
@@ -13213,9 +13214,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoSettings_Orientation_P
 @property(nonatomic, strong, nullable) NSNumber *clicksLookbackWindow;
 
 /**
- *  DFA checks to see if an impression interaction occurred within the specified
- *  period of time before a conversion. By default the value is pulled from
- *  Floodlight or you can manually enter a custom value. Valid values: 1-90.
+ *  CM360 checks to see if an impression interaction occurred within the
+ *  specified period of time before a conversion. By default the value is pulled
+ *  from Floodlight or you can manually enter a custom value. Valid values:
+ *  1-90.
  *
  *  Uses NSNumber of intValue.
  */

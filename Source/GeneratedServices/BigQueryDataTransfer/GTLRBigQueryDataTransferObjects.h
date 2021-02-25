@@ -177,38 +177,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter
 // GTLRBigQueryDataTransfer_TransferConfig.state
 
 /**
- *  Data transfer is cancelled.
+ *  Data transfer is cancelled (6).
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled;
 /**
- *  Data transfer failed.
+ *  Data transfer failed (5).
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by data transfer
- *  backend.
+ *  backend (2).
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Pending;
 /**
- *  Data transfer is in progress.
+ *  Data transfer is in progress (3).
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Running;
 /**
- *  Data transfer completed successfully.
+ *  Data transfer completed successfully (4).
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded;
 /**
- *  State placeholder.
+ *  State placeholder (0).
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
@@ -246,38 +246,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Sev
 // GTLRBigQueryDataTransfer_TransferRun.state
 
 /**
- *  Data transfer is cancelled.
+ *  Data transfer is cancelled (6).
  *
  *  Value: "CANCELLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled;
 /**
- *  Data transfer failed.
+ *  Data transfer failed (5).
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed;
 /**
  *  Data transfer is scheduled and is waiting to be picked up by data transfer
- *  backend.
+ *  backend (2).
  *
  *  Value: "PENDING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending;
 /**
- *  Data transfer is in progress.
+ *  Data transfer is in progress (3).
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running;
 /**
- *  Data transfer completed successfully.
+ *  Data transfer completed successfully (4).
  *
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded;
 /**
- *  State placeholder.
+ *  State placeholder (0).
  *
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
@@ -1008,12 +1008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 /**
  *  The resource name of the transfer config. Transfer config names have the
- *  form of
- *  `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`. The
- *  name is automatically generated based on the config_id specified in
- *  CreateTransferConfigRequest along with project_id and region. If config_id
- *  is not provided, usually a uuid, even though it is not guaranteed or
- *  required, will be generated for config_id.
+ *  form `projects/{project_id}/locations/{region}/transferConfigs/{config_id}`.
+ *  Where `config_id` is usually a uuid, even though it is not guaranteed or
+ *  required. The name is ignored when creating a transfer config.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1049,18 +1046,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled Data
- *        transfer is cancelled. (Value: "CANCELLED")
+ *        transfer is cancelled (6). (Value: "CANCELLED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Failed Data
- *        transfer failed. (Value: "FAILED")
+ *        transfer failed (5). (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Pending Data
  *        transfer is scheduled and is waiting to be picked up by data transfer
- *        backend. (Value: "PENDING")
+ *        backend (2). (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Running Data
- *        transfer is in progress. (Value: "RUNNING")
+ *        transfer is in progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_Succeeded Data
- *        transfer completed successfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully (4). (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_State_TransferStateUnspecified
- *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        State placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1191,18 +1188,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled Data
- *        transfer is cancelled. (Value: "CANCELLED")
+ *        transfer is cancelled (6). (Value: "CANCELLED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Failed Data transfer
- *        failed. (Value: "FAILED")
+ *        failed (5). (Value: "FAILED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Pending Data transfer
- *        is scheduled and is waiting to be picked up by data transfer backend.
- *        (Value: "PENDING")
+ *        is scheduled and is waiting to be picked up by data transfer backend
+ *        (2). (Value: "PENDING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Running Data transfer
- *        is in progress. (Value: "RUNNING")
+ *        is in progress (3). (Value: "RUNNING")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded Data
- *        transfer completed successfully. (Value: "SUCCEEDED")
+ *        transfer completed successfully (4). (Value: "SUCCEEDED")
  *    @arg @c kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified
- *        State placeholder. (Value: "TRANSFER_STATE_UNSPECIFIED")
+ *        State placeholder (0). (Value: "TRANSFER_STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

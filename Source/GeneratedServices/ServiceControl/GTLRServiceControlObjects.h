@@ -505,8 +505,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *permission;
 
 /**
- *  The resource being accessed, as a REST-style string. For example:
- *  bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID
+ *  The resource being accessed, as a REST-style or cloud resource string. For
+ *  example: bigquery.googleapis.com/projects/PROJECTID/datasets/DATASETID or
+ *  projects/PROJECTID/datasets/DATASETID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -528,6 +529,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Describes attributes about the operation being executed by the service. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_AttributeContext *attributes;
+
+/** Optional. Contains a comma-separated list of flags. */
+@property(nonatomic, copy, nullable) NSString *flags;
 
 /** Describes the resources and the policies applied to each resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceControl_ResourceInfo *> *resources;
@@ -747,7 +751,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
- *  The timestamp when the `destination` service receives the first byte of the
+ *  The timestamp when the `destination` service receives the last byte of the
  *  request.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
@@ -1005,6 +1009,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceControl_Response : GTLRObject
 
 /**
+ *  The length of time it takes the backend service to fully respond to a
+ *  request. Measured from when the destination service starts to send the
+ *  request to the backend until when the destination service receives the
+ *  complete response from the backend.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *backendLatency;
+
+/**
  *  The HTTP response status code, such as `200` and `404`.
  *
  *  Uses NSNumber of longLongValue.
@@ -1026,7 +1038,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *size;
 
 /**
- *  The timestamp when the `destination` service generates the first byte of the
+ *  The timestamp when the `destination` service sends the last byte of the
  *  response.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;

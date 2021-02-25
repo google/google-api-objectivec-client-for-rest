@@ -4985,10 +4985,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
+ *  `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
  *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *  target_host. The value of dimensions should be comma separated list as shown
- *  below `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *  below
+ *  `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5059,11 +5060,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/environments/{environment_id/stats/{dimensions}`
+ *    `organizations/{organization_id}/environments/{environment_id/optimizedStats/{dimensions}`
  *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
  *    target_host. The value of dimensions should be comma separated list as
  *    shown below
- *    `organizations/{org}/environments/{env}/stats/apiproxy,request_verb`
+ *    `organizations/{org}/environments/{env}/optimizedStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet
  */
@@ -6805,10 +6806,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
+ *  `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let you
  *  view metrics in meaningful groupings. E.g. apiproxy, target_host. The value
  *  of dimensions should be comma separated list as shown below
- *  `organizations/{org}/stats/apiproxy,request_verb`
+ *  `organizations/{org}/hostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6875,10 +6876,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *    view metrics in meaningful groupings. E.g. apiproxy, target_host. The
+ *    `organizations/{organization_id}/hostStats/{dimensions}`. Dimensions let
+ *    you view metrics in meaningful groupings. E.g. apiproxy, target_host. The
  *    value of dimensions should be comma separated list as shown below
- *    `organizations/{org}/stats/apiproxy,request_verb`
+ *    `organizations/{org}/hostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsHostStatsGet
  */
@@ -7720,10 +7721,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Required. The resource name for which the interactive query will be
  *  executed. Must be of the form
- *  `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *  view metrics in meaningful groupings. E.g. apiproxy, target_host. The value
- *  of dimensions should be comma separated list as shown below
- *  `organizations/{org}/stats/apiproxy,request_verb`
+ *  `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
+ *  Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
+ *  target_host. The value of dimensions should be comma separated list as shown
+ *  below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7786,10 +7787,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  @param name Required. The resource name for which the interactive query will
  *    be executed. Must be of the form
- *    `organizations/{organization_id}/stats/{dimensions}`. Dimensions let you
- *    view metrics in meaningful groupings. E.g. apiproxy, target_host. The
- *    value of dimensions should be comma separated list as shown below
- *    `organizations/{org}/stats/apiproxy,request_verb`
+ *    `organizations/{organization_id}/optimizedHostStats/{dimensions}`.
+ *    Dimensions let you view metrics in meaningful groupings. E.g. apiproxy,
+ *    target_host. The value of dimensions should be comma separated list as
+ *    shown below `organizations/{org}/optimizedHostStats/apiproxy,request_verb`
  *
  *  @return GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet
  */

@@ -43,6 +43,11 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionC
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Unknown = @"UNKNOWN";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso = @"VSO";
 
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents.cmUsage
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMatch = @"CONFIG_MATCH";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMismatch = @"CONFIG_MISMATCH";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None = @"NONE";
+
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted = @"ABORTED";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_CleanupError = @"CLEANUP_ERROR";
@@ -72,6 +77,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Internal = @"INTERNAL";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_InvalidArgument = @"INVALID_ARGUMENT";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning = @"LOCAL_CASPROXY_NOT_RUNNING";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalContainerManagerNotRunning = @"LOCAL_CONTAINER_MANAGER_NOT_RUNNING";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice = @"NO_CUDA_CAPABLE_DEVICE";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NotFound = @"NOT_FOUND";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Ok = @"OK";
@@ -756,9 +762,9 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandDurations
-@dynamic dockerPrep, dockerPrepStartTime, download, downloadStartTime,
-         execStartTime, execution, isoPrepDone, overall, stdout, upload,
-         uploadStartTime;
+@dynamic cmWaitForAssignment, dockerPrep, dockerPrepStartTime, download,
+         downloadStartTime, execStartTime, execution, isoPrepDone, overall,
+         stdout, upload, uploadStartTime;
 @end
 
 
@@ -768,8 +774,8 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents
-@dynamic dockerCacheHit, dockerImageName, inputCacheMiss, numErrors,
-         numWarnings;
+@dynamic cmUsage, dockerCacheHit, dockerImageName, inputCacheMiss, numErrors,
+         numWarnings, usedAsyncContainer;
 @end
 
 

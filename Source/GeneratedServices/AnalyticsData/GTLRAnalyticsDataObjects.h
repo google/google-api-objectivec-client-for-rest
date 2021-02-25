@@ -972,16 +972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /** A filter for in list values. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_InListFilter *inListFilter;
 
-/**
- *  A filter for null values. If True, a null dimension value is matched by this
- *  filter. Null filter is commonly used inside a NOT filter expression. For
- *  example, a NOT expression of a null filter removes rows when a dimension is
- *  null.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nullFilter;
-
 /** A filter for numeric or date values. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_NumericFilter *numericFilter;
 
@@ -1342,8 +1332,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldNames;
 
 /**
- *  The number of rows to return in this pivot. If unspecified, 10 rows are
- *  returned. If -1, all rows are returned.
+ *  The number of rows to return in this pivot. If the `limit` parameter is
+ *  unspecified, up to 10,000 rows are returned. The product of the `limit` for
+ *  each `pivot` in a `RunPivotReportRequest` must not exceed 100,000. For
+ *  example, a two pivot request with `limit: 1000` in each pivot will fail
+ *  because the product is `1,000,000`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1397,9 +1390,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_PivotDimensionHeader *> *pivotDimensionHeaders;
 
 /**
- *  The cardinality of the pivot as if offset = 0 and limit = -1. The total
- *  number of rows for this pivot's fields regardless of how the parameters
- *  offset and limit are specified in the request.
+ *  The cardinality of the pivot. The total number of rows for this pivot's
+ *  fields regardless of how the parameters `offset` and `limit` are specified
+ *  in the request.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1705,8 +1698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
 
 /**
- *  The number of rows to return. If unspecified, 10 rows are returned. If -1,
- *  all rows are returned.
+ *  The number of rows to return. If the `limit` parameter is unspecified,
+ *  10,000 rows are returned. The API returns a maximum of 100,000 rows per
+ *  request, no matter how many you ask for.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1838,9 +1832,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSNumber *keepEmptyRows;
 
 /**
- *  The number of rows to return. If unspecified, 10 rows are returned. If -1,
- *  all rows are returned. To learn more about this pagination parameter, see
- *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
+ *  The number of rows to return. If the `limit` parameter is unspecified,
+ *  10,000 rows are returned. The API returns a maximum of 100,000 rows per
+ *  request, no matter how many you ask for.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1863,9 +1857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
 
 /**
- *  The row count of the start row. The first row is counted as row 0. To learn
- *  more about this pagination parameter, see
- *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
+ *  The row count of the start row. The first row is counted as row 0.
  *
  *  Uses NSNumber of longLongValue.
  */
