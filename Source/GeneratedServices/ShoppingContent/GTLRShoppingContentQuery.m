@@ -709,6 +709,59 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsGet
+
+@dynamic merchantId, regionCode;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                         regionCode:(NSString *)regionCode {
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}";
+  GTLRShoppingContentQuery_BuyongoogleprogramsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.expectedObjectClass = [GTLRShoppingContent_BuyOnGoogleProgramStatus class];
+  query.loggingName = @"content.buyongoogleprograms.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsOnboard
+
+@dynamic merchantId, regionCode;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/buyongoogleprograms/{regionCode}/onboard";
+  GTLRShoppingContentQuery_BuyongoogleprogramsOnboard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.loggingName = @"content.buyongoogleprograms.onboard";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_CollectionsCreate
 
 @dynamic merchantId;
@@ -2949,6 +3002,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_ReportsSearch
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_SearchRequest *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/reports/search";
+  GTLRShoppingContentQuery_ReportsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_SearchResponse class];
+  query.loggingName = @"content.reports.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_RepricingrulesCreate
 
 @dynamic merchantId, ruleId;
@@ -3315,6 +3395,128 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.merchantId = merchantId;
   query.expectedObjectClass = [GTLRShoppingContent_ReturnpolicyListResponse class];
   query.loggingName = @"content.returnpolicy.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyonlineCreate
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicyOnline *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicyonline";
+  GTLRShoppingContentQuery_ReturnpolicyonlineCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnPolicyOnline class];
+  query.loggingName = @"content.returnpolicyonline.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyonlineDelete
+
+@dynamic merchantId, returnPolicyId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnPolicyId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}";
+  GTLRShoppingContentQuery_ReturnpolicyonlineDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnPolicyId = returnPolicyId;
+  query.loggingName = @"content.returnpolicyonline.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyonlineGet
+
+@dynamic merchantId, returnPolicyId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId
+                     returnPolicyId:(NSString *)returnPolicyId {
+  NSArray *pathParams = @[
+    @"merchantId", @"returnPolicyId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}";
+  GTLRShoppingContentQuery_ReturnpolicyonlineGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.returnPolicyId = returnPolicyId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnPolicyOnline class];
+  query.loggingName = @"content.returnpolicyonline.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyonlineList
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicyonline";
+  GTLRShoppingContentQuery_ReturnpolicyonlineList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ListReturnPolicyOnlineResponse class];
+  query.loggingName = @"content.returnpolicyonline.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ReturnpolicyonlinePatch
+
+@dynamic merchantId, returnPolicyId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnPolicyOnline *)object
+                     merchantId:(long long)merchantId
+                 returnPolicyId:(NSString *)returnPolicyId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"returnPolicyId"
+  ];
+  NSString *pathURITemplate = @"content/v2.1/{merchantId}/returnpolicyonline/{returnPolicyId}";
+  GTLRShoppingContentQuery_ReturnpolicyonlinePatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.returnPolicyId = returnPolicyId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnPolicyOnline class];
+  query.loggingName = @"content.returnpolicyonline.patch";
   return query;
 }
 

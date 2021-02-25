@@ -290,7 +290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  devices. The ASP access code is used instead of the login and password you
  *  commonly use when accessing an application through a browser. For more
  *  information about ASPs and how to create one, see the [help
- *  center](//http://support.google.com/a/bin/answer.py?amp;answer=1032419).
+ *  center](https://support.google.com/a/answer/2537800#asp).
  */
 @interface GTLRDirectory_Asp : GTLRObject
 
@@ -303,7 +303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The time when the ASP was created. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -317,7 +317,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The time when the ASP was last used. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format.
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -691,7 +691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Google Chrome devices run on the [Chrome
- *  OS](http://support.google.com/chromeos). For more information about common
+ *  OS](https://support.google.com/chromeos). For more information about common
  *  API tasks, see the [Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-chrome-devices).
  */
@@ -732,7 +732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  developer hardware switch is enabled. When booted, the device has a command
  *  line shell. For an example of a developer switch, see the [Chromebook
  *  developer
- *  information](http://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
+ *  information](https://www.chromium.org/chromium-os/developer-information-for-chrome-os-devices/samsung-series-5-chromebook#TOC-Developer-switch).
  */
 @property(nonatomic, copy, nullable) NSString *bootMode;
 
@@ -820,10 +820,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Notes about this device added by the administrator. This property can be
- *  [searched](http://support.google.com/chromeos/a/bin/answer.py?answer=1698333)
- *  with the [list](/admin-sdk/directory/v1/reference/chromeosdevices/list)
- *  method's `query` parameter. Maximum length is 500 characters. Empty values
- *  are allowed.
+ *  [searched](https://support.google.com/chrome/a/answer/1698333) with the
+ *  [list](/admin-sdk/directory/v1/reference/chromeosdevices/list) method's
+ *  `query` parameter. Maximum length is 500 characters. Empty values are
+ *  allowed.
  */
 @property(nonatomic, copy, nullable) NSString *notes;
 
@@ -841,7 +841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  [updated](/admin-sdk/directory/v1/guides/manage-chrome-devices#update_chrome_device)
  *  using the API. For more information about how to create an organizational
  *  structure for your device, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182433).
+ *  center](https://support.google.com/a/answer/182433).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
 
@@ -1355,7 +1355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The customer's contact phone number in
- *  [E.164](http://en.wikipedia.org/wiki/E.164) format.
+ *  [E.164](https://en.wikipedia.org/wiki/E.164) format.
  */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
 
@@ -1387,7 +1387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  This is a required property. For `countryCode` information see the [ISO 3166
- *  country code elements](http://www.iso.org/iso/country_codes.htm).
+ *  country code elements](https://www.iso.org/iso/country_codes.htm).
  */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
@@ -1477,7 +1477,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Creation time of the domain. Expressed in [Unix
- *  time](http://en.wikipedia.org/wiki/Epoch_time) format. (Read-only).
+ *  time](https://en.wikipedia.org/wiki/Epoch_time) format. (Read-only).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1646,10 +1646,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  The group's email address. If your account has multiple domains, select the
  *  appropriate domain for the email address. The `email` must be unique. This
  *  property is required when creating a group. Group email addresses are
- *  subject to the same character usage rules as usernames, see the
- *  [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=33386) for the
- *  details.
+ *  subject to the same character usage rules as usernames, see the [help
+ *  center](https://support.google.com/a/answer/9193374) for details.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
@@ -1759,7 +1757,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  memberships. For example, if `group1` is a member of `group2`, `group2`
  *  cannot be a member of `group1`. For more information about a member's role,
  *  see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=167094).
+ *  center](https://support.google.com/a/answer/167094).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -1820,9 +1818,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  Google Workspace Mobile Management includes Android, [Google
- *  Sync](http://support.google.com/a/bin/answer.py?answer=135937), and iOS
- *  devices. For more information about common group mobile device API tasks,
- *  see the [Developer's
+ *  Sync](https://support.google.com/a/answer/135937), and iOS devices. For more
+ *  information about common group mobile device API tasks, see the [Developer's
  *  Guide](/admin-sdk/directory/v1/guides/manage-mobile-devices.html).
  */
 @interface GTLRDirectory_MobileDevice : GTLRObject
@@ -2042,7 +2039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  The list of permissions of this application. These can be either a standard
  *  Android permission or one defined by the application, and are found in an
  *  application's [Android
- *  manifest](http://developer.android.com/guide/topics/manifest/uses-permission-element.html).
+ *  manifest](https://developer.android.com/guide/topics/manifest/uses-permission-element.html).
  *  Examples of a Calendar application's permissions are `READ_CALENDAR`, or
  *  `MANAGE_ACCOUNTS`.
  */
@@ -2116,7 +2113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  sub-organizational unit inherits the settings of the nearest parent
  *  organizational unit. For more information on inheritance and users in an
  *  organization structure, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182442&topic=1227584&ctx=topic).
+ *  center](https://support.google.com/a/answer/4352075).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2158,9 +2155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  unit determines which Google Workspace services the user has access to. If
  *  the user is moved to a new organization, the user's access changes. For more
  *  information about organization structures, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=182433&topic=1227584&ctx=topic).
- *  For more information about moving a user to a different organization, see
- *  [Update a
+ *  center](https://support.google.com/a/answer/4352075). For more information
+ *  about moving a user to a different organization, see [Update a
  *  user](/admin-sdk/directory/v1/guides/manage-users.html#update_user).
  */
 @property(nonatomic, copy, nullable) NSString *orgUnitPath;
@@ -2752,9 +2748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Stores the hash format of the password property. We recommend sending the
  *  `password` property value as a base 16 bit hexadecimal-encoded hash value.
  *  Set the `hashFunction` values as either the
- *  [SHA-1](http://wikipedia.org/wiki/SHA-1),
- *  [MD5](http://wikipedia.org/wiki/MD5), or
- *  [crypt](https://en.wikipedia.org/wiki/Crypt_(C)) hash format.
+ *  [SHA-1](https://wikipedia.org/wiki/SHA-1),
+ *  [MD5](https://wikipedia.org/wiki/MD5), or
+ *  [crypt](https://en.wikipedia.org/wiki/Crypt_\\(C\\)) hash format.
  */
 @property(nonatomic, copy, nullable) NSString *hashFunction;
 
@@ -2779,15 +2775,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  Indicates if the user's profile is visible in the Google Workspace global
  *  address list when the contact sharing feature is enabled for the domain. For
  *  more information about excluding user profiles, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=1285988).
+ *  center](https://support.google.com/a/answer/1285988).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *includeInGlobalAddressList;
 
 /**
- *  If `true`, the user's IP address is [white
- *  listed](http://support.google.com/a/bin/answer.py?answer=60752).
+ *  If `true`, the user's IP address is
+ *  [whitelisted](https://support.google.com/a/answer/60752).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2813,7 +2809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  administrators are supported by the API but cannot create or undelete users,
  *  or make users administrators. These requests are ignored by the API service.
  *  Roles and privileges for administrators are assigned using the [Admin
- *  console](http://support.google.com/a/bin/answer.py?answer=33325).
+ *  console](https://support.google.com/a/answer/33325).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2878,8 +2874,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
  *  characters, and can contain spaces, letters (a-z), numbers (0-9), dashes
  *  (-), forward slashes (/), and periods (.). For more information about
  *  character usage rules, see the [administration help
- *  center](http://support.google.com/a/bin/answer.py?answer=33386). Maximum
- *  allowed data size for this field is 1Kb.
+ *  center](https://support.google.com/a/answer/9193374). Maximum allowed data
+ *  size for this field is 1Kb.
  */
 @property(nonatomic, strong, nullable) GTLRDirectory_UserName *name;
 
@@ -2923,7 +2919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 @property(nonatomic, strong, nullable) id phones;
 
 /**
- *  A list of [POSIX](http://www.opengroup.org/austin/papers/posix_faq.html)
+ *  A list of [POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
  *  account information for the user.
  *
  *  Can be any valid JSON type.
@@ -3448,14 +3444,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_ChromeosdevicesIssueCommandReq
 
 /**
  *  The user photo's upload data in [web-safe
- *  Base64](https://code.google.com/p/stringencoders/wiki/WebSafeBase64) format
- *  in bytes. This means: * The slash (/) character is replaced with the
- *  underscore (_) character. * The plus sign (+) character is replaced with the
- *  hyphen (-) character. * The equals sign (=) character is replaced with the
- *  asterisk (*). * For padding, the period (.) character is used instead of the
- *  RFC-4648 baseURL definition which uses the equals sign (=) for padding. This
- *  is done to simplify URL-parsing. * Whatever the size of the photo being
- *  uploaded, the API downsizes it to 96x96 pixels.
+ *  Base64](https://en.wikipedia.org/wiki/Base64#URL_applications) format in
+ *  bytes. This means: * The slash (/) character is replaced with the underscore
+ *  (_) character. * The plus sign (+) character is replaced with the hyphen (-)
+ *  character. * The equals sign (=) character is replaced with the asterisk
+ *  (*). * For padding, the period (.) character is used instead of the RFC-4648
+ *  baseURL definition which uses the equals sign (=) for padding. This is done
+ *  to simplify URL-parsing. * Whatever the size of the photo being uploaded,
+ *  the API downsizes it to 96x96 pixels.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

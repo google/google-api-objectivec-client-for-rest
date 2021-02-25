@@ -315,7 +315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 
 /**
  *  The fields of the `Device` resource to be returned in the response. If the
- *  field mask is unset or empty, all fields are returned.
+ *  field mask is unset or empty, all fields are returned. Fields have to be
+ *  provided in snake_case format, for example: `last_heartbeat_time`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -374,7 +375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  The fields of the `Device` resource to be returned in the response. The
  *  fields `id` and `num_id` are always returned, along with any other fields
- *  specified.
+ *  specified in snake_case format, for example: `last_heartbeat_time`.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -753,7 +754,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
 /**
  *  The fields of the `Device` resource to be returned in the response. The
  *  fields `id` and `num_id` are always returned, along with any other fields
- *  specified.
+ *  specified in snake_case format, for example: `last_heartbeat_time`.
  *
  *  String format is a comma-separated list of fields.
  */

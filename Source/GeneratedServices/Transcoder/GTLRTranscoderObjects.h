@@ -52,6 +52,7 @@
 @class GTLRTranscoder_OriginUri;
 @class GTLRTranscoder_Output;
 @class GTLRTranscoder_Overlay;
+@class GTLRTranscoder_Pad;
 @class GTLRTranscoder_PreprocessingConfig;
 @class GTLRTranscoder_Progress;
 @class GTLRTranscoder_PubsubDestination;
@@ -239,7 +240,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Normalized coordinates based on output video resolution. Valid values:
- *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object.
+ *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object. For
+ *  example, use the x and y coordinates {0,0} to position the top-left corner
+ *  of the overlay animation in the top-left corner of the output video.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *xy;
 
@@ -256,7 +259,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Normalized coordinates based on output video resolution. Valid values:
- *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object.
+ *  `0.0`–`1.0`. `xy` is the upper-left coordinate of the overlay object. For
+ *  example, use the x and y coordinates {0,0} to position the top-left corner
+ *  of the overlay animation in the top-left corner of the output video.
  */
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *xy;
 
@@ -284,12 +289,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Specify audio loudness normalization in loudness units relative to full
- *  scale (LUFS). Enter a value between -24 and 0, where -24 is the Advanced
- *  Television Systems Committee (ATSC A/85), -23 is the EU R128 broadcast
- *  standard, -19 is the prior standard for online mono audio, -18 is the
- *  ReplayGain standard, -16 is the prior standard for stereo audio, -14 is the
- *  new online audio standard recommended by Spotify, as well as Amazon Echo,
- *  and 0 disables normalization. The default is 0.
+ *  scale (LUFS). Enter a value between -24 and 0 (the default), where: * -24 is
+ *  the Advanced Television Systems Committee (ATSC A/85) standard * -23 is the
+ *  EU R128 broadcast standard * -19 is the prior standard for online mono audio
+ *  * -18 is the ReplayGain standard * -16 is the prior standard for stereo
+ *  audio * -14 is the new online audio standard recommended by Spotify, as well
+ *  as Amazon Echo * 0 disables normalization
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -640,7 +645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @interface GTLRTranscoder_Image : GTLRObject
 
 /**
- *  Target image opacity. Valid values: `1` (solid, default), `0` (transparent).
+ *  Target image opacity. Valid values: `1.0` (solid, default) to `0.0`
+ *  (transparent).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -678,9 +684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_PreprocessingConfig *preprocessingConfig;
 
 /**
- *  URI of the media. It must be stored in Cloud Storage. Example
- *  `gs://bucket/inputs/file.mp4`. If empty the value will be populated from
- *  `Job.input_uri`.
+ *  URI of the media. Input files must be at least 5 seconds in duration and
+ *  stored in Cloud Storage (for example, `gs://bucket/inputs/file.mp4`). If
+ *  empty, the value will be populated from `Job.input_uri`.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -717,8 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 /**
  *  Input only. Specify the `input_uri` to populate empty `uri` fields in each
  *  element of `Job.config.inputs` or `JobTemplate.config.inputs` when using
- *  template. URI of the media. It must be stored in Cloud Storage. For example,
- *  `gs://bucket/inputs/file.mp4`.
+ *  template. URI of the media. Input files must be at least 5 seconds in
+ *  duration and stored in Cloud Storage (for example,
+ *  `gs://bucket/inputs/file.mp4`).
  */
 @property(nonatomic, copy, nullable) NSString *inputUri;
 
@@ -1018,6 +1025,44 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRTranscoder_OperationMetadata : GTLRObject
+
+/** [Output only] API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  [Output only] Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** [Output only] The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** [Output only] The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** [Output only] Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  [Output only] Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** [Output only] Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
  *  The origin URI.
  */
 @interface GTLRTranscoder_OriginUri : GTLRObject
@@ -1069,6 +1114,43 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
+ *  Pad filter configuration for the input video. The padded input video is
+ *  scaled after padding with black to match the output resolution.
+ */
+@interface GTLRTranscoder_Pad : GTLRObject
+
+/**
+ *  The number of pixels to add to the bottom. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bottomPixels;
+
+/**
+ *  The number of pixels to add to the left. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *leftPixels;
+
+/**
+ *  The number of pixels to add to the right. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rightPixels;
+
+/**
+ *  The number of pixels to add to the top. The default is 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topPixels;
+
+@end
+
+
+/**
  *  Preprocessing configurations.
  */
 @interface GTLRTranscoder_PreprocessingConfig : GTLRObject
@@ -1087,6 +1169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /** Denoise preprocessing configuration. */
 @property(nonatomic, strong, nullable) GTLRTranscoder_Denoise *denoise;
+
+/** Specify the video pad filter configuration. */
+@property(nonatomic, strong, nullable) GTLRTranscoder_Pad *pad;
 
 @end
 
@@ -1167,7 +1252,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  */
 @property(nonatomic, strong, nullable) NSNumber *individualSegments;
 
-/** Duration of the segments in seconds. The default is `"6.0s"`. */
+/**
+ *  Duration of the segments in seconds. The default is `"6.0s"`. Note that
+ *  `segmentDuration` must be greater than or equal to
+ *  [`gopDuration`](#videostream), and `segmentDuration` must be divisible by
+ *  [`gopDuration`](#videostream).
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *segmentDuration;
 
 @end
@@ -1208,6 +1298,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  interval value in seconds.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *interval;
+
+/**
+ *  The quality of the generated sprite sheet. Enter a value between 1 and 100,
+ *  where 1 is the lowest quality and 100 is the highest quality. The default is
+ *  100. A high quality value corresponds to a low image data compression ratio.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quality;
 
 /**
  *  The maximum number of rows per sprite sheet. When the sprite sheet is full,
@@ -1391,14 +1490,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  than the input frame rate. The API will generate an output FPS that is
  *  divisible by the input FPS, and smaller or equal to the target FPS. The
  *  following table shows the computed video FPS given the target FPS (in
- *  parenthesis) and input FPS (in the first column): | | (30) | (60) | (25) |
- *  (50) | |--------|--------|--------|------|------| | 240 | Fail | Fail | Fail
- *  | Fail | | 120 | 30 | 60 | 20 | 30 | | 100 | 25 | 50 | 20 | 30 | | 50 | 25 |
- *  50 | 20 | 30 | | 60 | 30 | 60 | 20 | 30 | | 59.94 | 29.97 | 59.94 | 20 | 30
- *  | | 48 | 24 | 48 | 20 | 30 | | 30 | 30 | 30 | 20 | 30 | | 25 | 25 | 25 | 20
- *  | 30 | | 24 | 24 | 24 | 20 | 30 | | 23.976 | 23.976 | 23.976 | 20 | 30 | |
- *  15 | 15 | 15 | 20 | 30 | | 12 | 12 | 12 | 20 | 30 | | 10 | 10 | 10 | 20 | 30
- *  |
+ *  parenthesis) and input FPS (in the first column): ``` | | (30) | (60) | (25)
+ *  | (50) | |--------|--------|--------|------|------| | 240 | Fail | Fail |
+ *  Fail | Fail | | 120 | 30 | 60 | 20 | 30 | | 100 | 25 | 50 | 20 | 30 | | 50 |
+ *  25 | 50 | 20 | 30 | | 60 | 30 | 60 | 20 | 30 | | 59.94 | 29.97 | 59.94 | 20
+ *  | 30 | | 48 | 24 | 48 | 20 | 30 | | 30 | 30 | 30 | 20 | 30 | | 25 | 25 | 25
+ *  | 20 | 30 | | 24 | 24 | 24 | 20 | 30 | | 23.976 | 23.976 | 23.976 | 20 | 30
+ *  | | 15 | 15 | 15 | 20 | 30 | | 12 | 12 | 12 | 20 | 30 | | 10 | 10 | 10 | 20
+ *  | 30 | ```
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -1406,6 +1505,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 /**
  *  Select the GOP size based on the specified duration. The default is `"3s"`.
+ *  Note that `gopDuration` must be less than or equal to
+ *  [`segmentDuration`](#SegmentSettings), and
+ *  [`segmentDuration`](#SegmentSettings) must be divisible by `gopDuration`.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *gopDuration;
 

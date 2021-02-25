@@ -61,6 +61,7 @@
 @class GTLRPeopleService_RelationshipInterest;
 @class GTLRPeopleService_RelationshipStatus;
 @class GTLRPeopleService_Residence;
+@class GTLRPeopleService_SearchResult;
 @class GTLRPeopleService_SipAddress;
 @class GTLRPeopleService_Skill;
 @class GTLRPeopleService_Source;
@@ -930,7 +931,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  The response for deleteing a contact's photo.
+ *  The response for deleting a contact's photo.
  */
 @interface GTLRPeopleService_DeleteContactPhotoResponse : GTLRObject
 
@@ -2158,6 +2159,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  The response to a search request for the authenticated user, given a query.
+ */
+@interface GTLRPeopleService_SearchResponse : GTLRObject
+
+/** The results of the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_SearchResult *> *results;
+
+@end
+
+
+/**
+ *  A result of a search query.
+ */
+@interface GTLRPeopleService_SearchResult : GTLRObject
+
+/** The matched Person. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_Person *person;
 
 @end
 

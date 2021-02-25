@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRSlides_AffineTransform;
+@class GTLRSlides_Autofit;
 @class GTLRSlides_AutoText;
 @class GTLRSlides_Bullet;
 @class GTLRSlides_ColorScheme;
@@ -184,6 +185,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_Pt;
  *  Value: "UNIT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlides_AffineTransform_Unit_UnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSlides_Autofit.autofitType
+
+/**
+ *  The autofit type is unspecified.
+ *
+ *  Value: "AUTOFIT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified;
+/**
+ *  Do not autofit.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_None;
+/**
+ *  Resize shape to fit text.
+ *
+ *  Value: "SHAPE_AUTOFIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_ShapeAutofit;
+/**
+ *  Shrink text on overflow to fit shape.
+ *
+ *  Value: "TEXT_AUTOFIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlides_Autofit_AutofitType_TextAutofit;
 
 // ----------------------------------------------------------------------------
 // GTLRSlides_AutoText.type
@@ -4068,6 +4097,54 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 
 /**
+ *  The autofit properties of a Shape.
+ */
+@interface GTLRSlides_Autofit : GTLRObject
+
+/**
+ *  The autofit type of the shape. If unspecified, the autofit type is inherited
+ *  from a parent placeholder if it exists. The field will be automatically set
+ *  to NONE if a request is made that may affect text fitting within its
+ *  bounding text box. In this case the font_scale will be applied to the
+ *  font_size and the line_spacing_reduction will be applied to the
+ *  line_spacing. Both properties would also be reset to default values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_AutofitTypeUnspecified The autofit
+ *        type is unspecified. (Value: "AUTOFIT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_None Do not autofit. (Value:
+ *        "NONE")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_ShapeAutofit Resize shape to fit
+ *        text. (Value: "SHAPE_AUTOFIT")
+ *    @arg @c kGTLRSlides_Autofit_AutofitType_TextAutofit Shrink text on
+ *        overflow to fit shape. (Value: "TEXT_AUTOFIT")
+ */
+@property(nonatomic, copy, nullable) NSString *autofitType;
+
+/**
+ *  The font scale applied to the shape. For shapes with autofit_type NONE or
+ *  SHAPE_AUTOFIT, this value will be the default value of 1. For TEXT_AUTOFIT,
+ *  this value multiplied by the font_size will give the font size that is
+ *  rendered in the editor. This property is read-only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fontScale;
+
+/**
+ *  The line spacing reduction applied to the shape. For shapes with
+ *  autofit_type NONE or SHAPE_AUTOFIT, this value will be the default value of
+ *  0. For TEXT_AUTOFIT, this value subtracted from the line_spacing will give
+ *  the line spacing that is rendered in the editor. This property is read-only.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lineSpacingReduction;
+
+@end
+
+
+/**
  *  A TextElement kind that represents auto text.
  */
 @interface GTLRSlides_AutoText : GTLRObject
@@ -7839,6 +7916,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  impact how text fits in the shape.
  */
 @interface GTLRSlides_ShapeProperties : GTLRObject
+
+/**
+ *  The autofit properties of the shape. This property is only set for shapes
+ *  that allow text.
+ */
+@property(nonatomic, strong, nullable) GTLRSlides_Autofit *autofit;
 
 /**
  *  The alignment of the content in the shape. If unspecified, the alignment is

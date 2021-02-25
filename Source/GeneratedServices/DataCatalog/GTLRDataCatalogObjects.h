@@ -107,12 +107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
 /**
- *  Dataproc Metastore - Managed Hive Metastore.
- *
- *  Value: "DPMS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms;
-/**
  *  Default unknown system.
  *
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
@@ -559,8 +553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        BigQuery. (Value: "BIGQUERY")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Dpms
- *        Dataproc Metastore - Managed Hive Metastore. (Value: "DPMS")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  */
@@ -578,7 +570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
 /**
- *  The Data Catalog resource name of the entry in URL format. Example: *
+ *  Output only. The Data Catalog resource name of the entry in URL format.
+ *  Example: *
  *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
  *  Note that this Entry and its child resources may not actually be stored in
  *  the location in this name.

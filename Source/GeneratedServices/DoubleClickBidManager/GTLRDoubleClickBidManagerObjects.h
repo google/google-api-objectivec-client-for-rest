@@ -611,8 +611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -1143,8 +1141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -1627,6 +1623,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGmailPotentialViews;
 /** Value: "METRIC_GRP_CORRECTED_IMPRESSIONS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedImpressions;
+/** Value: "METRIC_GRP_CORRECTED_VIEWABLE_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedViewableImpressions;
+/** Value: "METRIC_GRP_CORRECTED_VIEWABLE_IMPRESSIONS_SHARE_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricGrpCorrectedViewableImpressionsSharePercent;
 /** Value: "METRIC_IMPRESSION_CUSTOM_VALUE_COST" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricImpressionCustomValueCost;
 /** Value: "METRIC_IMPRESSIONS" */
@@ -2081,8 +2081,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVideoCompletionRate;
 /** Value: "METRIC_VIEWABLE_BID_REQUESTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableBidRequests;
+/** Value: "METRIC_VIEWABLE_GROSS_RATING_POINTS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricViewableGrossRatingPoints;
 /** Value: "METRIC_VIRTUAL_PEOPLE_AVERAGE_IMPRESSION_FREQUENCY_BY_DEMO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleAverageImpressionFrequencyByDemo;
+/**
+ *  Value: "METRIC_VIRTUAL_PEOPLE_AVERAGE_VIEWABLE_IMPRESSION_FREQUENCY_BY_DEMO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleAverageViewableImpressionFrequencyByDemo;
 /** Value: "METRIC_VIRTUAL_PEOPLE_CLICK_REACH_BY_DEMO" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleClickReachByDemo;
 /** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_BY_DEMO" */
@@ -2091,6 +2097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachPercent;
 /** Value: "METRIC_VIRTUAL_PEOPLE_IMPRESSION_REACH_SHARE_PERCENT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleImpressionReachSharePercent;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_BY_DEMO" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachByDemo;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachPercent;
+/** Value: "METRIC_VIRTUAL_PEOPLE_VIEWABLE_IMPRESSION_REACH_SHARE_PERCENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricVirtualPeopleViewableImpressionReachSharePercent;
 /** Value: "METRIC_WATCH_TIME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricWatchTime;
 
@@ -2681,8 +2693,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoRatingTier;
 /** Value: "FILTER_VIDEO_SKIPPABLE_SUPPORT" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoSkippableSupport;
-/** Value: "FILTER_VIDEO_VPAID_SUPPORT" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoVpaidSupport;
 /** Value: "FILTER_WEEK" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterWeek;
 /** Value: "FILTER_YEAR" */
@@ -3599,8 +3609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_VIDEO_RATING_TIER"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoSkippableSupport
  *        Value "FILTER_VIDEO_SKIPPABLE_SUPPORT"
- *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterVideoVpaidSupport
- *        Value "FILTER_VIDEO_VPAID_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterWeek Value
  *        "FILTER_WEEK"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterYear Value
@@ -4372,8 +4380,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_VIDEO_RATING_TIER"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoSkippableSupport
  *        Value "FILTER_VIDEO_SKIPPABLE_SUPPORT"
- *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterVideoVpaidSupport
- *        Value "FILTER_VIDEO_VPAID_SUPPORT"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterWeek
  *        Value "FILTER_WEEK"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterYear

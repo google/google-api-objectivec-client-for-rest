@@ -608,6 +608,38 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Gets the current system policy in the specified location.
+ *
+ *  Method: binaryauthorization.systempolicy.getPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBinaryAuthorizationCloudPlatform
+ */
+@interface GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy : GTLRBinaryAuthorizationQuery
+// Previous library name was
+//   +[GTLQueryBinaryAuthorization queryForSystempolicyGetPolicyWithname:]
+
+/**
+ *  Required. The resource name, in the format `locations/ * /policy`. Note that
+ *  the system policy is not associated with a project.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBinaryAuthorization_Policy.
+ *
+ *  Gets the current system policy in the specified location.
+ *
+ *  @param name Required. The resource name, in the format `locations/ *
+ *    /policy`. Note that the system policy is not associated with a project.
+ *
+ *  @return GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

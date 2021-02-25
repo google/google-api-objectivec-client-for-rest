@@ -66,7 +66,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  */
 FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Open;
 /**
- *  Status is unknown.
+ *  Status is unknown. When left unspecified in requests, it is treated like
+ *  OPEN.
  *
  *  Value: "RESOLUTION_STATUS_UNSPECIFIED"
  */
@@ -180,7 +181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreporting_ErrorGroup_Resolutio
  *        groups. It is also used for errors re-occurring after marked RESOLVED.
  *        (Value: "OPEN")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_ResolutionStatusUnspecified
- *        Status is unknown. (Value: "RESOLUTION_STATUS_UNSPECIFIED")
+ *        Status is unknown. When left unspecified in requests, it is treated
+ *        like OPEN. (Value: "RESOLUTION_STATUS_UNSPECIFIED")
  *    @arg @c kGTLRClouderrorreporting_ErrorGroup_ResolutionStatus_Resolved
  *        Error Group manually resolved, more events for this group are not
  *        expected to occur. (Value: "RESOLVED")

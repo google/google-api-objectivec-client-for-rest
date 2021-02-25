@@ -40,8 +40,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGames;
 /**
- *  Authorization scope: View and manage its own configuration data in your
- *  Google Drive
+ *  Authorization scope: See, create, and delete its own configuration data in
+ *  your Google Drive
  *
  *  Value "https://www.googleapis.com/auth/drive.appdata"
  */

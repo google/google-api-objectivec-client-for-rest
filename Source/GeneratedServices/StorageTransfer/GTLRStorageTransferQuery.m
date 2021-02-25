@@ -126,6 +126,33 @@
 
 @end
 
+@implementation GTLRStorageTransferQuery_TransferJobsRun
+
+@dynamic jobName;
+
++ (instancetype)queryWithObject:(GTLRStorageTransfer_RunTransferJobRequest *)object
+                        jobName:(NSString *)jobName {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"jobName" ];
+  NSString *pathURITemplate = @"v1/{+jobName}:run";
+  GTLRStorageTransferQuery_TransferJobsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.jobName = jobName;
+  query.expectedObjectClass = [GTLRStorageTransfer_Operation class];
+  query.loggingName = @"storagetransfer.transferJobs.run";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageTransferQuery_TransferOperationsCancel
 
 @dynamic name;

@@ -323,7 +323,7 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_Metadata
-@dynamic createTime, endTime, events, labels, pipeline, startTime;
+@dynamic createTime, endTime, events, labels, pipeline, pubSubTopic, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -504,7 +504,7 @@ NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unknown = @"UNKNOWN";
 //
 
 @implementation GTLRCloudLifeSciences_RunPipelineRequest
-@dynamic labels, pipeline;
+@dynamic labels, pipeline, pubSubTopic;
 @end
 
 

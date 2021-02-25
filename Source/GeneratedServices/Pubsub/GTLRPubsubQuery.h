@@ -27,6 +27,7 @@
 @class GTLRPubsub_ModifyPushConfigRequest;
 @class GTLRPubsub_PublishRequest;
 @class GTLRPubsub_PullRequest;
+@class GTLRPubsub_Schema;
 @class GTLRPubsub_SeekRequest;
 @class GTLRPubsub_SetIamPolicyRequest;
 @class GTLRPubsub_Subscription;
@@ -35,6 +36,8 @@
 @class GTLRPubsub_UpdateSnapshotRequest;
 @class GTLRPubsub_UpdateSubscriptionRequest;
 @class GTLRPubsub_UpdateTopicRequest;
+@class GTLRPubsub_ValidateMessageRequest;
+@class GTLRPubsub_ValidateSchemaRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -43,6 +46,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Include the name and type of the schema, but not the definition.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewBasic;
+/**
+ *  Include all Schema object fields.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "SCHEMA_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Pubsub query classes.
  */
@@ -50,6 +82,266 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a schema.
+ *
+ *  Method: pubsub.projects.schemas.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasCreate : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasCreateWithObject:parent:]
+
+/**
+ *  Required. The name of the project in which to create the schema. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The ID to use for the schema, which will become the final component of the
+ *  schema's resource name. See
+ *  https://cloud.google.com/pubsub/docs/admin#resource_names for resource name
+ *  constraints.
+ */
+@property(nonatomic, copy, nullable) NSString *schemaId;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Creates a schema.
+ *
+ *  @param object The @c GTLRPubsub_Schema to include in the query.
+ *  @param parent Required. The name of the project in which to create the
+ *    schema. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasCreate
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_Schema *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema.
+ *
+ *  Method: pubsub.projects.schemas.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasDelete : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasDeleteWithname:]
+
+/**
+ *  Required. Name of the schema to delete. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRPubsub_Empty.
+ *
+ *  Deletes a schema.
+ *
+ *  @param name Required. Name of the schema to delete. Format is
+ *    `projects/{project}/schemas/{schema}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a schema.
+ *
+ *  Method: pubsub.projects.schemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasGet : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasGetWithname:]
+
+/**
+ *  Required. The name of the schema to get. Format is
+ *  `projects/{project}/schemas/{schema}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The set of fields to return in the response. If not set, returns a Schema
+ *  with `name` and `type`, but not `definition`. Set to `FULL` to retrieve all
+ *  fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRPubsubViewBasic Include the name and type of the schema, but
+ *        not the definition. (Value: "BASIC")
+ *    @arg @c kGTLRPubsubViewFull Include all Schema object fields. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRPubsub_Schema.
+ *
+ *  Gets a schema.
+ *
+ *  @param name Required. The name of the schema to get. Format is
+ *    `projects/{project}/schemas/{schema}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists schemas in a project.
+ *
+ *  Method: pubsub.projects.schemas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasList : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasListWithparent:]
+
+/** Maximum number of schemas to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListSchemasResponse`; indicates that this is
+ *  a continuation of a prior `ListSchemas` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the project in which to list schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The set of Schema fields to return in the response. If not set, returns
+ *  Schemas with `name` and `type`, but not `definition`. Set to `FULL` to
+ *  retrieve all fields.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsubViewSchemaViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "SCHEMA_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRPubsubViewBasic Include the name and type of the schema, but
+ *        not the definition. (Value: "BASIC")
+ *    @arg @c kGTLRPubsubViewFull Include all Schema object fields. (Value:
+ *        "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRPubsub_ListSchemasResponse.
+ *
+ *  Lists schemas in a project.
+ *
+ *  @param parent Required. The name of the project in which to list schemas.
+ *    Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Validates a schema.
+ *
+ *  Method: pubsub.projects.schemas.validate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasValidate : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasValidateWithObject:parent:]
+
+/**
+ *  Required. The name of the project in which to validate schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPubsub_ValidateSchemaResponse.
+ *
+ *  Validates a schema.
+ *
+ *  @param object The @c GTLRPubsub_ValidateSchemaRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the project in which to validate
+ *    schemas. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasValidate
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateSchemaRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Validates a message against a schema.
+ *
+ *  Method: pubsub.projects.schemas.validateMessage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsub
+ *    @c kGTLRAuthScopePubsubCloudPlatform
+ */
+@interface GTLRPubsubQuery_ProjectsSchemasValidateMessage : GTLRPubsubQuery
+// Previous library name was
+//   +[GTLQueryPubsub queryForProjectsSchemasValidateMessageWithObject:parent:]
+
+/**
+ *  Required. The name of the project in which to validate schemas. Format is
+ *  `projects/{project-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRPubsub_ValidateMessageResponse.
+ *
+ *  Validates a message against a schema.
+ *
+ *  @param object The @c GTLRPubsub_ValidateMessageRequest to include in the
+ *    query.
+ *  @param parent Required. The name of the project in which to validate
+ *    schemas. Format is `projects/{project-id}`.
+ *
+ *  @return GTLRPubsubQuery_ProjectsSchemasValidateMessage
+ */
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateMessageRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

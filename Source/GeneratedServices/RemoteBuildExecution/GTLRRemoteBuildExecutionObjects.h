@@ -237,6 +237,30 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Vso;
 
 // ----------------------------------------------------------------------------
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents.cmUsage
+
+/**
+ *  Container Manager is enabled and there was a matching container available
+ *  for use during execution.
+ *
+ *  Value: "CONFIG_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMatch;
+/**
+ *  Container Manager is enabled, but there was no matching container available
+ *  for execution.
+ *
+ *  Value: "CONFIG_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMismatch;
+/**
+ *  Container Manager is disabled or not running for this execution.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None;
+
+// ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
 
 /**
@@ -413,6 +437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "LOCAL_CASPROXY_NOT_RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning;
+/**
+ *  The local Container Manager is not running.
+ *
+ *  Value: "LOCAL_CONTAINER_MANAGER_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalContainerManagerNotRunning;
 /**
  *  The command failed with "no cuda-capable device is detected" error.
  *
@@ -1992,6 +2022,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandDurations : GTLRObject
 
 /**
+ *  The time spent waiting for Container Manager to assign an asynchronous
+ *  container for execution.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cmWaitForAssignment;
+
+/**
  *  The time spent preparing the command to be run in a Docker container
  *  (includes pulling the Docker image, if necessary).
  */
@@ -2042,6 +2078,22 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents : GTLRObject
 
 /**
+ *  Indicates if and how Container Manager is being used for task execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMatch
+ *        Container Manager is enabled and there was a matching container
+ *        available for use during execution. (Value: "CONFIG_MATCH")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMismatch
+ *        Container Manager is enabled, but there was no matching container
+ *        available for execution. (Value: "CONFIG_MISMATCH")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None
+ *        Container Manager is disabled or not running for this execution.
+ *        (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *cmUsage;
+
+/**
  *  Indicates whether we are using a cached Docker image (true) or had to pull
  *  the Docker image (false) for this command.
  *
@@ -2072,6 +2124,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWarnings;
+
+/**
+ *  Indicates whether an asynchronous container was used for execution.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *usedAsyncContainer;
 
 @end
 
@@ -2165,6 +2224,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalCasproxyNotRunning
  *        The local casproxy is not running. (Value:
  *        "LOCAL_CASPROXY_NOT_RUNNING")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_LocalContainerManagerNotRunning
+ *        The local Container Manager is not running. (Value:
+ *        "LOCAL_CONTAINER_MANAGER_NOT_RUNNING")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_NoCudaCapableDevice
  *        The command failed with "no cuda-capable device is detected" error.
  *        (Value: "NO_CUDA_CAPABLE_DEVICE")

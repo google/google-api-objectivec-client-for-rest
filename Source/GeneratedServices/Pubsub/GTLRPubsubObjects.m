@@ -12,6 +12,24 @@
 #import "GTLRPubsubObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRPubsub_Schema.type
+NSString * const kGTLRPubsub_Schema_Type_Avro            = @"AVRO";
+NSString * const kGTLRPubsub_Schema_Type_ProtocolBuffer  = @"PROTOCOL_BUFFER";
+NSString * const kGTLRPubsub_Schema_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRPubsub_SchemaSettings.encoding
+NSString * const kGTLRPubsub_SchemaSettings_Encoding_Binary    = @"BINARY";
+NSString * const kGTLRPubsub_SchemaSettings_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
+NSString * const kGTLRPubsub_SchemaSettings_Encoding_Json      = @"JSON";
+
+// GTLRPubsub_ValidateMessageRequest.encoding
+NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Binary = @"BINARY";
+NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
+NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRPubsub_AcknowledgeRequest
 //
@@ -119,6 +137,28 @@
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ListSchemasResponse
+//
+
+@implementation GTLRPubsub_ListSchemasResponse
+@dynamic nextPageToken, schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRPubsub_Schema class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"schemas";
 }
 
 @end
@@ -438,6 +478,26 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_Schema
+//
+
+@implementation GTLRPubsub_Schema
+@dynamic definition, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_SchemaSettings
+//
+
+@implementation GTLRPubsub_SchemaSettings
+@dynamic encoding, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_SeekRequest
 //
 
@@ -557,7 +617,8 @@
 //
 
 @implementation GTLRPubsub_Topic
-@dynamic kmsKeyName, labels, messageStoragePolicy, name, satisfiesPzs;
+@dynamic kmsKeyName, labels, messageStoragePolicy, name, satisfiesPzs,
+         schemaSettings;
 @end
 
 
@@ -602,4 +663,42 @@
 
 @implementation GTLRPubsub_UpdateTopicRequest
 @dynamic topic, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ValidateMessageRequest
+//
+
+@implementation GTLRPubsub_ValidateMessageRequest
+@dynamic encoding, message, name, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ValidateMessageResponse
+//
+
+@implementation GTLRPubsub_ValidateMessageResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ValidateSchemaRequest
+//
+
+@implementation GTLRPubsub_ValidateSchemaRequest
+@dynamic schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_ValidateSchemaResponse
+//
+
+@implementation GTLRPubsub_ValidateSchemaResponse
 @end

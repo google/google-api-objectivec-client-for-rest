@@ -25,6 +25,11 @@ NSString * const kGTLRSpanner_Database_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Database_State_ReadyOptimizing  = @"READY_OPTIMIZING";
 NSString * const kGTLRSpanner_Database_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_EncryptionInfo.encryptionType
+NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
+NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
+NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRSpanner_ExecuteSqlRequest.queryMode
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Normal = @"NORMAL";
 NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Plan = @"PLAN";
@@ -45,6 +50,12 @@ NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadOnly        = @"READ_ONLY";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite       = @"READ_WRITE";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness         = @"WITNESS";
+
+// GTLRSpanner_RestoreDatabaseEncryptionConfig.encryptionType
+NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
+NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
+NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption = @"USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION";
 
 // GTLRSpanner_RestoreDatabaseMetadata.sourceType
 NSString * const kGTLRSpanner_RestoreDatabaseMetadata_SourceType_Backup = @"BACKUP";
@@ -73,8 +84,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Backup
-@dynamic createTime, database, expireTime, name, referencingDatabases,
-         sizeBytes, state;
+@dynamic createTime, database, encryptionInfo, expireTime, name,
+         referencingDatabases, sizeBytes, state, versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -92,7 +103,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_BackupInfo
-@dynamic backup, createTime, sourceDatabase;
+@dynamic backup, createTime, sourceDatabase, versionTime;
 @end
 
 
@@ -168,7 +179,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CommitRequest
-@dynamic mutations, singleUseTransaction, transactionId;
+@dynamic mutations, returnCommitStats, singleUseTransaction, transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -186,7 +197,17 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CommitResponse
-@dynamic commitTimestamp;
+@dynamic commitStats, commitTimestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CommitStats
+//
+
+@implementation GTLRSpanner_CommitStats
+@dynamic mutationCount;
 @end
 
 
@@ -216,7 +237,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CreateDatabaseRequest
-@dynamic createStatement, extraStatements;
+@dynamic createStatement, encryptionConfig, extraStatements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -264,7 +285,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Database
-@dynamic createTime, name, restoreInfo, state;
+@dynamic createTime, earliestVersionTime, encryptionConfig, encryptionInfo,
+         name, restoreInfo, state, versionRetentionPeriod;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"encryptionInfo" : [GTLRSpanner_EncryptionInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -284,6 +314,26 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_EncryptionConfig
+//
+
+@implementation GTLRSpanner_EncryptionConfig
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_EncryptionInfo
+//
+
+@implementation GTLRSpanner_EncryptionInfo
+@dynamic encryptionStatus, encryptionType, kmsKeyVersion;
 @end
 
 
@@ -1040,6 +1090,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_RestoreDatabaseEncryptionConfig
+//
+
+@implementation GTLRSpanner_RestoreDatabaseEncryptionConfig
+@dynamic encryptionType, kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_RestoreDatabaseMetadata
 //
 
@@ -1055,7 +1115,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_RestoreDatabaseRequest
-@dynamic backup, databaseId;
+@dynamic backup, databaseId, encryptionConfig;
 @end
 
 

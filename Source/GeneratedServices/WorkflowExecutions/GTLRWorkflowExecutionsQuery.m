@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Workflow Executions API (workflowexecutions/v1beta)
+//   Workflow Executions API (workflowexecutions/v1)
 // Description:
 //   Execute workflows created with Workflows API.
 // Documentation:
@@ -43,7 +43,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -70,7 +70,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/executions";
+  NSString *pathURITemplate = @"v1/{+parent}/executions";
   GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -90,7 +90,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -109,7 +109,7 @@ NSString * const kGTLRWorkflowExecutionsViewFull               = @"FULL";
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta/{+parent}/executions";
+  NSString *pathURITemplate = @"v1/{+parent}/executions";
   GTLRWorkflowExecutionsQuery_ProjectsLocationsWorkflowsExecutionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

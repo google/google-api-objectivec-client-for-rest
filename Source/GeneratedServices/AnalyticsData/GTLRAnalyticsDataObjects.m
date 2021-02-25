@@ -350,8 +350,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_Filter
-@dynamic betweenFilter, fieldName, inListFilter, nullFilter, numericFilter,
-         stringFilter;
+@dynamic betweenFilter, fieldName, inListFilter, numericFilter, stringFilter;
 @end
 
 

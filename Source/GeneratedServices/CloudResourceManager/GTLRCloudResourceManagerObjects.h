@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Resource Manager API (cloudresourcemanager/v2)
+//   Cloud Resource Manager API (cloudresourcemanager/v3)
 // Description:
 //   Creates, reads, and updates metadata for Google Cloud Platform resource
 //   containers.
@@ -25,13 +25,16 @@
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_Expr;
-@class GTLRCloudResourceManager_Folder;
 @class GTLRCloudResourceManager_GetPolicyOptions;
+@class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
 @class GTLRCloudResourceManager_Operation_Response;
 @class GTLRCloudResourceManager_Policy;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
+@class GTLRCloudResourceManager_TagBinding;
+@class GTLRCloudResourceManager_TagKey;
+@class GTLRCloudResourceManager_TagValue;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -70,28 +73,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogT
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudResourceManager_Folder.lifecycleState
-
-/**
- *  The normal and active state.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_Active;
-/**
- *  The folder has been marked for deletion by the user.
- *
- *  Value: "DELETE_REQUESTED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_DeleteRequested;
-/**
- *  Unspecified state.
- *
- *  Value: "LIFECYCLE_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_LifecycleState_LifecycleStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperation.operationType
@@ -348,52 +329,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  Metadata pertaining to the Folder creation process.
- */
-@interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
-
-/** The display name of the folder. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  The resource name of the folder or organization we are creating the folder
- *  under.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by CreateProject. It provides insight for when significant phases
- *  of Project creation have completed.
- */
-@interface GTLRCloudResourceManager_CreateProjectMetadata : GTLRObject
-
-/** Creation time of the project creation workflow. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  True if the project can be retrieved using GetProject. No other operations
- *  on the project are guaranteed to work until the project creation is
- *  complete.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *gettable;
-
-/**
- *  True if the project creation process is complete.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *ready;
-
-@end
-
-
-/**
  *  Runtime operation information for creating a TagKey.
  */
 @interface GTLRCloudResourceManager_CreateTagKeyMetadata : GTLRObject
@@ -408,30 +343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by DeleteFolder.
- */
-@interface GTLRCloudResourceManager_DeleteFolderMetadata : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by DeleteOrganization.
- */
-@interface GTLRCloudResourceManager_DeleteOrganizationMetadata : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by DeleteProject.
- */
-@interface GTLRCloudResourceManager_DeleteProjectMetadata : GTLRObject
-@end
-
-
-/**
  *  Runtime operation information for deleting a TagKey.
  */
 @interface GTLRCloudResourceManager_DeleteTagKeyMetadata : GTLRObject
@@ -442,6 +353,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *  Runtime operation information for deleting a TagValue.
  */
 @interface GTLRCloudResourceManager_DeleteTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRCloudResourceManager_Empty : GTLRObject
 @end
 
 
@@ -490,57 +412,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
-
-@end
-
-
-/**
- *  A Folder in an Organization's resource hierarchy, used to organize that
- *  Organization's resources.
- */
-@interface GTLRCloudResourceManager_Folder : GTLRObject
-
-/**
- *  Output only. Timestamp when the Folder was created. Assigned by the server.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  The folder's display name. A folder's display name must be unique amongst
- *  its siblings, e.g. no two folders with the same parent can share the same
- *  display name. The display name must start and end with a letter or digit,
- *  may contain letters, digits, spaces, hyphens and underscores and can be no
- *  longer than 30 characters. This is captured by the regular expression:
- *  `[\\p{L}\\p{N}]([\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?`.
- */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. The lifecycle state of the folder. Updates to the
- *  lifecycle_state must be performed via DeleteFolder and UndeleteFolder.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudResourceManager_Folder_LifecycleState_Active The normal
- *        and active state. (Value: "ACTIVE")
- *    @arg @c kGTLRCloudResourceManager_Folder_LifecycleState_DeleteRequested
- *        The folder has been marked for deletion by the user. (Value:
- *        "DELETE_REQUESTED")
- *    @arg @c kGTLRCloudResourceManager_Folder_LifecycleState_LifecycleStateUnspecified
- *        Unspecified state. (Value: "LIFECYCLE_STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *lifecycleState;
-
-/**
- *  Output only. The resource name of the Folder. Its format is
- *  `folders/{folder_id}`, for example: "folders/1234".
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The Folder's parent's resource name. Updates to the folder's
- *  parent must be performed via MoveFolder.
- */
-@property(nonatomic, copy, nullable) NSString *parent;
 
 @end
 
@@ -734,27 +605,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  The ListFolders response message.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "folders" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
+ *  A Lien represents an encumbrance on the actions that can be performed on a
+ *  resource.
  */
-@interface GTLRCloudResourceManager_ListFoldersResponse : GTLRCollectionObject
+@interface GTLRCloudResourceManager_Lien : GTLRObject
+
+/** The creation time of this Lien. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  A possibly paginated list of Folders that are direct descendants of the
- *  specified parent resource.
+ *  A system-generated unique identifier for this Lien. Example:
+ *  `liens/1234abcd`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A stable, user-visible/meaningful string identifying the origin of the Lien,
+ *  intended to be inspected programmatically. Maximum length of 200 characters.
+ *  Example: 'compute.googleapis.com'
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  A reference to the resource this Lien is attached to. The server will
+ *  validate the parent against those for which Liens are supported. Example:
+ *  `projects/1234`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Concise user-visible strings indicating why an action cannot be performed on
+ *  a resource. Maximum length of 200 characters. Example: 'Holds production API
+ *  key'
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  The types of operations which should be blocked as a result of this Lien.
+ *  Each value should correspond to an IAM permission. The server will validate
+ *  the permissions against those for which Liens are supported. An empty list
+ *  is meaningless and will be rejected. Example:
+ *  ['resourcemanager.projects.delete']
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictions;
+
+@end
+
+
+/**
+ *  The response message for Liens.ListLiens.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "liens" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListLiensResponse : GTLRCollectionObject
+
+/**
+ *  A list of Liens.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Folder *> *folders;
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Lien *> *liens;
 
 /**
- *  A pagination token returned from a previous call to `ListFolders` that
- *  indicates from where listing should continue.
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -762,42 +680,88 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  Metadata pertaining to the Folder move process.
+ *  The ListTagBindings response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tagBindings" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudResourceManager_MoveFolderMetadata : GTLRObject
+@interface GTLRCloudResourceManager_ListTagBindingsResponse : GTLRCollectionObject
 
-/** The resource name of the folder or organization to move the folder to. */
-@property(nonatomic, copy, nullable) NSString *destinationParent;
+/**
+ *  A pagination token returned from a previous call to `ListTagBindings` that
+ *  indicates from where listing should continue. This is currently not used,
+ *  but the server may at any point start supplying a valid token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** The display name of the folder. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** The resource name of the folder's parent. */
-@property(nonatomic, copy, nullable) NSString *sourceParent;
+/**
+ *  A possibly paginated list of TagBindings for the specified TagValue or
+ *  resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagBinding *> *tagBindings;
 
 @end
 
 
 /**
- *  The MoveFolder request message.
+ *  The ListTagKeys response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tagKeys" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudResourceManager_MoveFolderRequest : GTLRObject
+@interface GTLRCloudResourceManager_ListTagKeysResponse : GTLRCollectionObject
 
 /**
- *  Required. The resource name of the Folder or Organization to reparent the
- *  folder under. Must be of the form `folders/{folder_id}` or
- *  `organizations/{org_id}`.
+ *  A pagination token returned from a previous call to `ListTagKeys` that
+ *  indicates from where listing should continue. This is currently not used,
+ *  but the server may at any point start supplying a valid token.
  */
-@property(nonatomic, copy, nullable) NSString *destinationParent;
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of TagKeys that live under the specified parent in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagKey *> *tagKeys;
 
 @end
 
 
 /**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by MoveProject.
+ *  The ListTagValues response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "tagValues" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
  */
-@interface GTLRCloudResourceManager_MoveProjectMetadata : GTLRObject
+@interface GTLRCloudResourceManager_ListTagValuesResponse : GTLRCollectionObject
+
+/**
+ *  A pagination token returned from a previous call to `ListTagValues` that
+ *  indicates from where listing should continue. This is currently not used,
+ *  but the server may at any point start supplying a valid token.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A possibly paginated list of TagValues that are direct descendants of the
+ *  specified parent TagKey.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagValue *> *tagValues;
+
 @end
 
 
@@ -996,73 +960,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
- *  The request message for searching folders.
- */
-@interface GTLRCloudResourceManager_SearchFoldersRequest : GTLRObject
-
-/**
- *  Optional. The maximum number of folders to return in the response.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *pageSize;
-
-/**
- *  Optional. A pagination token returned from a previous call to
- *  `SearchFolders` that indicates from where search should continue.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Search criteria used to select the Folders to return. If no search criteria
- *  is specified then all accessible folders will be returned. Query expressions
- *  can be used to restrict results based upon displayName, lifecycleState and
- *  parent, where the operators `=`, `NOT`, `AND` and `OR` can be used along
- *  with the suffix wildcard symbol `*`. The displayName field in a query
- *  expression should use escaped quotes for values that include whitespace to
- *  prevent unexpected behavior. Some example queries are: * Query
- *  `displayName=Test*` returns Folder resources whose display name starts with
- *  "Test". * Query `lifecycleState=ACTIVE` returns Folder resources with
- *  `lifecycleState` set to `ACTIVE`. * Query `parent=folders/123` returns
- *  Folder resources that have `folders/123` as a parent resource. * Query
- *  `parent=folders/123 AND lifecycleState=ACTIVE` returns active Folder
- *  resources that have `folders/123` as a parent resource. * Query
- *  `displayName=\\\\"Test String\\\\"` returns Folder resources with display
- *  names that include both "Test" and "String".
- */
-@property(nonatomic, copy, nullable) NSString *query;
-
-@end
-
-
-/**
- *  The response message for searching folders.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "folders" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudResourceManager_SearchFoldersResponse : GTLRCollectionObject
-
-/**
- *  A possibly paginated folder search results. the specified parent resource.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Folder *> *folders;
-
-/**
- *  A pagination token returned from a previous call to `SearchFolders` that
- *  indicates from where searching should continue.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudResourceManager_SetIamPolicyRequest : GTLRObject
@@ -1132,6 +1029,140 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
+ *  A TagBinding represents a connection between a TagValue and a cloud resource
+ *  (currently project, folder, or organization). Once a TagBinding is created,
+ *  the TagValue is applied to all the descendants of the cloud resource.
+ */
+@interface GTLRCloudResourceManager_TagBinding : GTLRObject
+
+/**
+ *  Output only. The name of the TagBinding. This is a String of the form:
+ *  `tagBindings/{full-resource-name}/{tag-value-name}` (e.g.
+ *  `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The full resource name of the resource the TagValue is bound to. E.g.
+ *  `//cloudresourcemanager.googleapis.com/projects/123`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** The TagValue of the TagBinding. Must be of the form `tagValues/456`. */
+@property(nonatomic, copy, nullable) NSString *tagValue;
+
+@end
+
+
+/**
+ *  A TagKey, used to group a set of TagValues.
+ */
+@interface GTLRCloudResourceManager_TagKey : GTLRObject
+
+/** Output only. Creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-assigned description of the TagKey. Must not exceed 256
+ *  characters. Read-write.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Entity tag which users can pass to prevent race conditions. This
+ *  field is always set in server responses. See UpdateTagKeyRequest for
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Immutable. The resource name for a TagKey. Must be in the format
+ *  `tagKeys/{tag_key_id}`, where `tag_key_id` is the generated numeric id for
+ *  the TagKey.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Immutable. Namespaced name of the TagKey. */
+@property(nonatomic, copy, nullable) NSString *namespacedName;
+
+/**
+ *  Immutable. The resource name of the new TagKey's parent. Must be of the form
+ *  `organizations/{org_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Immutable. The user friendly name for a TagKey. The short name
+ *  should be unique for TagKeys within the same tag namespace. The short name
+ *  must be 1-63 characters, beginning and ending with an alphanumeric character
+ *  ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and alphanumerics
+ *  between.
+ */
+@property(nonatomic, copy, nullable) NSString *shortName;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A TagValue is a child of a particular TagKey. This is used to group cloud
+ *  resources for the purpose of controlling them using policies.
+ */
+@interface GTLRCloudResourceManager_TagValue : GTLRObject
+
+/** Output only. Creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-assigned description of the TagValue. Must not exceed 256
+ *  characters. Read-write.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Entity tag which users can pass to prevent race conditions. This
+ *  field is always set in server responses. See UpdateTagValueRequest for
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Immutable. Resource name for TagValue in the format `tagValues/456`. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Namespaced name of the TagValue. Must be in the format
+ *  `{organization_id}/{tag_key_short_name}/{short_name}`.
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedName;
+
+/**
+ *  Immutable. The resource name of the new TagValue's parent TagKey. Must be of
+ *  the form `tagKeys/{tag_key_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. Immutable. User-assigned short name for TagValue. The short name
+ *  should be unique for TagValues within the same parent TagKey. The short name
+ *  must be 63 characters or less, beginning and ending with an alphanumeric
+ *  character ([a-z0-9A-Z]) with dashes (-), underscores (_), dots (.), and
+ *  alphanumerics between.
+ */
+@property(nonatomic, copy, nullable) NSString *shortName;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRCloudResourceManager_TestIamPermissionsRequest : GTLRObject
@@ -1156,53 +1187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by UndeleteFolder.
- */
-@interface GTLRCloudResourceManager_UndeleteFolderMetadata : GTLRObject
-@end
-
-
-/**
- *  The UndeleteFolder request message.
- */
-@interface GTLRCloudResourceManager_UndeleteFolderRequest : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by UndeleteOrganization.
- */
-@interface GTLRCloudResourceManager_UndeleteOrganizationMetadata : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by UndeleteProject.
- */
-@interface GTLRCloudResourceManager_UndeleteProjectMetadata : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by UpdateFolder.
- */
-@interface GTLRCloudResourceManager_UpdateFolderMetadata : GTLRObject
-@end
-
-
-/**
- *  A status object which is used as the `metadata` field for the Operation
- *  returned by UpdateProject.
- */
-@interface GTLRCloudResourceManager_UpdateProjectMetadata : GTLRObject
 @end
 
 

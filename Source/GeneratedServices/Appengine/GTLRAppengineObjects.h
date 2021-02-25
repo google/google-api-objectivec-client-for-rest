@@ -2247,6 +2247,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, strong, nullable) NSNumber *flexibleEnvironmentAvailable;
 
 /**
+ *  Output only. Search API
+ *  (https://cloud.google.com/appengine/docs/standard/python/search) is
+ *  available in the given location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchApiAvailable;
+
+/**
  *  App Engine standard environment is available in the given
  *  location.\@OutputOnly
  *

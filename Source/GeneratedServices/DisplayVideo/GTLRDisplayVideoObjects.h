@@ -1329,6 +1329,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptio
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CarrierAndIspTargetingOptionDetails_Type_CarrierAndIspTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails.adType
+
+/**
+ *  Audio creatives, e.g. audio ads that play during audio content.
+ *
+ *  Value: "AD_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio;
+/**
+ *  Display creatives, e.g. image and HTML5.
+ *
+ *  Value: "AD_TYPE_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay;
+/**
+ *  Ad type is not specified or is unknown in this version.
+ *
+ *  Value: "AD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified;
+/**
+ *  Video creatives, e.g. video ads that play during streaming content in video
+ *  players.
+ *
+ *  Value: "AD_TYPE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails.contentInstreamPosition
 
 /**
@@ -1349,6 +1378,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssi
  *  Value: "CONTENT_INSTREAM_POSITION_PRE_ROLL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionPreRoll;
+/**
+ *  Ads instream position is unknown.
+ *
+ *  Value: "CONTENT_INSTREAM_POSITION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnknown;
 /**
  *  Content instream position is not specified in this version. This enum is a
  *  place holder for a default value and does not represent a real in stream ad
@@ -1380,6 +1415,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionTarg
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionPreRoll;
 /**
+ *  Ads instream position is unknown.
+ *
+ *  Value: "CONTENT_INSTREAM_POSITION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnknown;
+/**
  *  Content instream position is not specified in this version. This enum is a
  *  place holder for a default value and does not represent a real in stream ad
  *  position.
@@ -1387,6 +1428,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionTarg
  *  Value: "CONTENT_INSTREAM_POSITION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails.adType
+
+/**
+ *  Audio creatives, e.g. audio ads that play during audio content.
+ *
+ *  Value: "AD_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio;
+/**
+ *  Display creatives, e.g. image and HTML5.
+ *
+ *  Value: "AD_TYPE_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay;
+/**
+ *  Ad type is not specified or is unknown in this version.
+ *
+ *  Value: "AD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified;
+/**
+ *  Video creatives, e.g. video ads that play during streaming content in video
+ *  players.
+ *
+ *  Value: "AD_TYPE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails.contentOutstreamPosition
@@ -1756,7 +1826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51;
 /**
- *  SDF version 5.2;
+ *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
@@ -3578,7 +3648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOoyala;
 /**
- *  Open8
+ *  Open8.
  *
  *  Value: "EXCHANGE_OPEN8"
  */
@@ -3632,13 +3702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon;
 /**
- *  Sharethrough
+ *  Sharethrough.
  *
  *  Value: "EXCHANGE_SHARETHROUGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSharethrough;
 /**
- *  Smaato
+ *  Smaato.
  *
  *  Value: "EXCHANGE_SMAATO"
  */
@@ -3692,7 +3762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSupership;
 /**
- *  Taboola
+ *  Taboola.
  *
  *  Value: "EXCHANGE_TABOOLA"
  */
@@ -3710,7 +3780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria;
 /**
- *  TripleLift
+ *  TripleLift.
  *
  *  Value: "EXCHANGE_TRIPLELIFT"
  */
@@ -3734,7 +3804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited;
 /**
- *  UnrulyX
+ *  UnrulyX.
  *
  *  Value: "EXCHANGE_UNRULYX"
  */
@@ -3960,7 +4030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOoyala;
 /**
- *  Open8
+ *  Open8.
  *
  *  Value: "EXCHANGE_OPEN8"
  */
@@ -4014,13 +4084,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon;
 /**
- *  Sharethrough
+ *  Sharethrough.
  *
  *  Value: "EXCHANGE_SHARETHROUGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSharethrough;
 /**
- *  Smaato
+ *  Smaato.
  *
  *  Value: "EXCHANGE_SMAATO"
  */
@@ -4074,7 +4144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSupership;
 /**
- *  Taboola
+ *  Taboola.
  *
  *  Value: "EXCHANGE_TABOOLA"
  */
@@ -4092,7 +4162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria;
 /**
- *  TripleLift
+ *  TripleLift.
  *
  *  Value: "EXCHANGE_TRIPLELIFT"
  */
@@ -4116,7 +4186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited;
 /**
- *  UnrulyX
+ *  UnrulyX.
  *
  *  Value: "EXCHANGE_UNRULYX"
  */
@@ -4370,7 +4440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOoyala;
 /**
- *  Open8
+ *  Open8.
  *
  *  Value: "EXCHANGE_OPEN8"
  */
@@ -4424,13 +4494,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon;
 /**
- *  Sharethrough
+ *  Sharethrough.
  *
  *  Value: "EXCHANGE_SHARETHROUGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSharethrough;
 /**
- *  Smaato
+ *  Smaato.
  *
  *  Value: "EXCHANGE_SMAATO"
  */
@@ -4484,7 +4554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSupership;
 /**
- *  Taboola
+ *  Taboola.
  *
  *  Value: "EXCHANGE_TABOOLA"
  */
@@ -4502,7 +4572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria;
 /**
- *  TripleLift
+ *  TripleLift.
  *
  *  Value: "EXCHANGE_TRIPLELIFT"
  */
@@ -4526,7 +4596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited;
 /**
- *  UnrulyX
+ *  UnrulyX.
  *
  *  Value: "EXCHANGE_UNRULYX"
  */
@@ -5580,13 +5650,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_EntityStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_InsertionOrderTypeUnspecified;
 /**
- *  Video Over the top type IO.
+ *  Over-the-top.
  *
  *  Value: "OVER_THE_TOP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop;
 /**
- *  RTB Video type IO.
+ *  Real-time bidding.
  *
  *  Value: "RTB"
  */
@@ -6211,7 +6281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOoyala;
 /**
- *  Open8
+ *  Open8.
  *
  *  Value: "EXCHANGE_OPEN8"
  */
@@ -6265,13 +6335,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon;
 /**
- *  Sharethrough
+ *  Sharethrough.
  *
  *  Value: "EXCHANGE_SHARETHROUGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSharethrough;
 /**
- *  Smaato
+ *  Smaato.
  *
  *  Value: "EXCHANGE_SMAATO"
  */
@@ -6325,7 +6395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSupership;
 /**
- *  Taboola
+ *  Taboola.
  *
  *  Value: "EXCHANGE_TABOOLA"
  */
@@ -6343,7 +6413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria;
 /**
- *  TripleLift
+ *  TripleLift.
  *
  *  Value: "EXCHANGE_TRIPLELIFT"
  */
@@ -6367,7 +6437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited;
 /**
- *  UnrulyX
+ *  UnrulyX.
  *
  *  Value: "EXCHANGE_UNRULYX"
  */
@@ -6569,7 +6639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
 // GTLRDisplayVideo_LineItem.lineItemType
 
 /**
- *  Rtb Audio ads sold for a variety of environments.
+ *  RTB Audio ads sold for a variety of environments.
  *
  *  Value: "LINE_ITEM_TYPE_AUDIO_DEFAULT"
  */
@@ -6617,8 +6687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineI
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoMobileAppInventory;
 /**
- *  Over the top ads present in OTT IOs. This type is only applicable to line
- *  items with an insertion order of insertion_order_type `OVER_THE_TOP`
+ *  Over-the-top ads present in OTT insertion orders. This type is only
+ *  applicable to line items with an insertion order of insertion_order_type
+ *  `OVER_THE_TOP`.
  *
  *  Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP"
  */
@@ -6976,6 +7047,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ObaIcon_Position_ObaIconPos
  *  Value: "OBA_ICON_POSITION_UPPER_RIGHT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ObaIcon_Position_ObaIconPositionUpperRight;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails.adType
+
+/**
+ *  Audio creatives, e.g. audio ads that play during audio content.
+ *
+ *  Value: "AD_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio;
+/**
+ *  Display creatives, e.g. image and HTML5.
+ *
+ *  Value: "AD_TYPE_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay;
+/**
+ *  Ad type is not specified or is unknown in this version.
+ *
+ *  Value: "AD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified;
+/**
+ *  Video creatives, e.g. video ads that play during streaming content in video
+ *  players.
+ *
+ *  Value: "AD_TYPE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails.onScreenPosition
@@ -7561,6 +7661,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PartnerRevenueModel_MarkupT
 // GTLRDisplayVideo_PerformanceGoal.performanceGoalType
 
 /**
+ *  The performance goal is set in audio completion rate (complete audio listens
+ *  per impression) percentage.
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_AUDIO_COMPLETION_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeAudioCompletionRate;
+/**
+ *  The performance goal is set in click conversion rate (conversions per click)
+ *  percentage.
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_CLICK_CVR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeClickCvr;
+/**
  *  The performance goal is set in CPA (cost per action).
  *
  *  Value: "PERFORMANCE_GOAL_TYPE_CPA"
@@ -7598,6 +7712,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_Performance
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCtr;
 /**
+ *  The performance goal is set in impression conversion rate (conversions per
+ *  impression) percentage.
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_IMPRESSION_CVR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeImpressionCvr;
+/**
  *  The performance goal is set to Other.
  *
  *  Value: "PERFORMANCE_GOAL_TYPE_OTHER"
@@ -7610,11 +7731,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_Performance
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeUnspecified;
 /**
+ *  The performance goal is set in VCPM (cost per thousand viewable
+ *  impressions).
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_VCPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVcpm;
+/**
+ *  The performance goal is set in video completion rate (complete video views
+ *  per impression) percentage.
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_VIDEO_COMPLETION_RATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVideoCompletionRate;
+/**
  *  The performance goal is set in Viewability percentage.
  *
  *  Value: "PERFORMANCE_GOAL_TYPE_VIEWABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeViewability;
+/**
+ *  The performance goal is set in YouTube view rate (YouTube views per
+ *  impression) percentage.
+ *
+ *  Value: "PERFORMANCE_GOAL_TYPE_VTR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVtr;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_PerformanceGoalBidStrategy.performanceGoalType
@@ -7892,7 +8034,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51;
 /**
- *  SDF version 5.2;
+ *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
@@ -7950,7 +8092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51;
 /**
- *  SDF version 5.2;
+ *  SDF version 5.2
  *
  *  Value: "SDF_VERSION_5_2"
  */
@@ -10809,6 +10951,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Response message for BulkListInsertionOrderAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_BulkListInsertionOrderAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  BulkListInsertionOrderAssignedTargetingOptionsRequest to fetch the next page
+ *  of results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_BulkListLineItemAssignedTargetingOptionsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11293,6 +11465,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails : GTLRObject
 
 /**
+ *  Output only. The ad type to target. Only applicable to insertion order
+ *  targeting and new line items supporting the specified ad type will inherit
+ *  this targeting option by default. Possible values are: * `AD_TYPE_VIDEO`,
+ *  the setting will be inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_VIDEO_DEFAULT`. * `AD_TYPE_AUDIO`, the setting will be
+ *  inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_AUDIO_DEFAULT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio
+ *        Audio creatives, e.g. audio ads that play during audio content.
+ *        (Value: "AD_TYPE_AUDIO")
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay
+ *        Display creatives, e.g. image and HTML5. (Value: "AD_TYPE_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified
+ *        Ad type is not specified or is unknown in this version. (Value:
+ *        "AD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo
+ *        Video creatives, e.g. video ads that play during streaming content in
+ *        video players. (Value: "AD_TYPE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adType;
+
+/**
  *  Output only. The content instream position for video or audio ads.
  *
  *  Likely values:
@@ -11305,6 +11501,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionPreRoll
  *        Ads that play before streaming content. (Value:
  *        "CONTENT_INSTREAM_POSITION_PRE_ROLL")
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnknown
+ *        Ads instream position is unknown. (Value:
+ *        "CONTENT_INSTREAM_POSITION_UNKNOWN")
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnspecified
  *        Content instream position is not specified in this version. This enum
  *        is a place holder for a default value and does not represent a real in
@@ -11342,6 +11541,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionPreRoll
  *        Ads that play before streaming content. (Value:
  *        "CONTENT_INSTREAM_POSITION_PRE_ROLL")
+ *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnknown
+ *        Ads instream position is unknown. (Value:
+ *        "CONTENT_INSTREAM_POSITION_UNKNOWN")
  *    @arg @c kGTLRDisplayVideo_ContentInstreamPositionTargetingOptionDetails_ContentInstreamPosition_ContentInstreamPositionUnspecified
  *        Content instream position is not specified in this version. This enum
  *        is a place holder for a default value and does not represent a real in
@@ -11358,6 +11560,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  targeting_type is `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION`.
  */
 @interface GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The ad type to target. Only applicable to insertion order
+ *  targeting and new line items supporting the specified ad type will inherit
+ *  this targeting option by default. Possible values are: * `AD_TYPE_DISPLAY`,
+ *  the setting will be inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT`. * `AD_TYPE_VIDEO`, the setting will be
+ *  inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_VIDEO_DEFAULT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio
+ *        Audio creatives, e.g. audio ads that play during audio content.
+ *        (Value: "AD_TYPE_AUDIO")
+ *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay
+ *        Display creatives, e.g. image and HTML5. (Value: "AD_TYPE_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified
+ *        Ad type is not specified or is unknown in this version. (Value:
+ *        "AD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo
+ *        Video creatives, e.g. video ads that play during streaming content in
+ *        video players. (Value: "AD_TYPE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adType;
 
 /**
  *  Output only. The content outstream position.
@@ -11691,7 +11917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion51
  *        SDF version 5.1 (Value: "SDF_VERSION_5_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion52
- *        SDF version 5.2; (Value: "SDF_VERSION_5_2")
+ *        SDF version 5.2 (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion53
  *        SDF version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
@@ -12066,6 +12292,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, strong, nullable) GTLRDuration *mediaDuration;
 
+/**
+ *  Output only. Indicates the third-party audio creative supports MP3. Output
+ *  only and only valid for third-party audio creatives. Third-party audio
+ *  creatives are creatives with following hosting_source: *
+ *  `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: *
+ *  `CREATIVE_TYPE_AUDIO`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mp3Audio;
+
 /** Output only. The resource name of the creative. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12080,6 +12317,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  following creative_type: * `CREATIVE_TYPE_VIDEO`
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ObaIcon *obaIcon;
+
+/**
+ *  Output only. Indicates the third-party audio creative supports OGG. Output
+ *  only and only valid for third-party audio creatives. Third-party audio
+ *  creatives are creatives with following hosting_source: *
+ *  `HOSTING_SOURCE_THIRD_PARTY` combined with following creative_type: *
+ *  `CREATIVE_TYPE_AUDIO`
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *oggAudio;
 
 /**
  *  Amount of time to play the video before counting a view. This field is
@@ -13419,7 +13667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOoyala
  *        Ooyala. (Value: "EXCHANGE_OOYALA")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOpen8
- *        Open8 (Value: "EXCHANGE_OPEN8")
+ *        Open8. (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeOpenx
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangePermodo
@@ -13437,9 +13685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSharethrough
- *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
+ *        Sharethrough. (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmaato
- *        Smaato (Value: "EXCHANGE_SMAATO")
+ *        Smaato. (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartclip
  *        SmartClip. (Value: "EXCHANGE_SMARTCLIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartrtb
@@ -13457,13 +13705,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSupership
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTaboola
- *        Taboola (Value: "EXCHANGE_TABOOLA")
+ *        Taboola. (Value: "EXCHANGE_TABOOLA")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriplelift
- *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeTvn
@@ -13471,7 +13719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnrulyx
- *        UnrulyX (Value: "EXCHANGE_UNRULYX")
+ *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -13579,7 +13827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOoyala
  *        Ooyala. (Value: "EXCHANGE_OOYALA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOpen8
- *        Open8 (Value: "EXCHANGE_OPEN8")
+ *        Open8. (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeOpenx
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangePermodo
@@ -13597,9 +13845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSharethrough
- *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
+ *        Sharethrough. (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmaato
- *        Smaato (Value: "EXCHANGE_SMAATO")
+ *        Smaato. (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartclip
  *        SmartClip. (Value: "EXCHANGE_SMARTCLIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartrtb
@@ -13617,13 +13865,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSupership
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTaboola
- *        Taboola (Value: "EXCHANGE_TABOOLA")
+ *        Taboola. (Value: "EXCHANGE_TABOOLA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriplelift
- *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeTvn TVN.
@@ -13631,7 +13879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnrulyx
- *        UnrulyX (Value: "EXCHANGE_UNRULYX")
+ *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -13742,7 +13990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOoyala
  *        Ooyala. (Value: "EXCHANGE_OOYALA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOpen8
- *        Open8 (Value: "EXCHANGE_OPEN8")
+ *        Open8. (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeOpenx
  *        OpenX. (Value: "EXCHANGE_OPENX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangePermodo
@@ -13760,9 +14008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSharethrough
- *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
+ *        Sharethrough. (Value: "EXCHANGE_SHARETHROUGH")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmaato
- *        Smaato (Value: "EXCHANGE_SMAATO")
+ *        Smaato. (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartclip
  *        SmartClip. (Value: "EXCHANGE_SMARTCLIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartrtb
@@ -13780,13 +14028,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSupership
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTaboola
- *        Taboola (Value: "EXCHANGE_TABOOLA")
+ *        Taboola. (Value: "EXCHANGE_TABOOLA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriplelift
- *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTriton
  *        Triton. (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeTvn
@@ -13794,7 +14042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnited
  *        United. (Value: "EXCHANGE_UNITED")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnrulyx
- *        UnrulyX (Value: "EXCHANGE_UNRULYX")
+ *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -14927,9 +15175,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Insertion order type is not specified or is unknown. (Value:
  *        "INSERTION_ORDER_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_OverTheTop
- *        Video Over the top type IO. (Value: "OVER_THE_TOP")
- *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb RTB Video
- *        type IO. (Value: "RTB")
+ *        Over-the-top. (Value: "OVER_THE_TOP")
+ *    @arg @c kGTLRDisplayVideo_InsertionOrder_InsertionOrderType_Rtb Real-time
+ *        bidding. (Value: "RTB")
  */
 @property(nonatomic, copy, nullable) NSString *insertionOrderType;
 
@@ -15433,7 +15681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        ONE by AOL: Video. (Value: "EXCHANGE_ONE_BY_AOL_VIDEO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOoyala Ooyala.
  *        (Value: "EXCHANGE_OOYALA")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpen8 Open8
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpen8 Open8.
  *        (Value: "EXCHANGE_OPEN8")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeOpenx OpenX.
  *        (Value: "EXCHANGE_OPENX")
@@ -15452,8 +15700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeRubicon
  *        Rubicon. (Value: "EXCHANGE_RUBICON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSharethrough
- *        Sharethrough (Value: "EXCHANGE_SHARETHROUGH")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmaato Smaato
+ *        Sharethrough. (Value: "EXCHANGE_SHARETHROUGH")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmaato Smaato.
  *        (Value: "EXCHANGE_SMAATO")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartclip
  *        SmartClip. (Value: "EXCHANGE_SMARTCLIP")
@@ -15471,22 +15719,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        SSP. (Value: "EXCHANGE_STROER")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSupership
  *        Supership. (Value: "EXCHANGE_SUPERSHIP")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTaboola Taboola
- *        (Value: "EXCHANGE_TABOOLA")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTaboola
+ *        Taboola. (Value: "EXCHANGE_TABOOLA")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTeadstv
  *        TeadsTv. (Value: "EXCHANGE_TEADSTV")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTelaria
  *        Telaria. (Value: "EXCHANGE_TELARIA")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriplelift
- *        TripleLift (Value: "EXCHANGE_TRIPLELIFT")
+ *        TripleLift. (Value: "EXCHANGE_TRIPLELIFT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTriton Triton.
  *        (Value: "EXCHANGE_TRITON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeTvn TVN.
  *        (Value: "EXCHANGE_TVN")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnited United.
  *        (Value: "EXCHANGE_UNITED")
- *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx UnrulyX
- *        (Value: "EXCHANGE_UNRULYX")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnrulyx
+ *        UnrulyX. (Value: "EXCHANGE_UNRULYX")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeUnspecified
  *        Exchange is not specified or is unknown in this version. (Value:
  *        "EXCHANGE_UNSPECIFIED")
@@ -15923,7 +16171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault
- *        Rtb Audio ads sold for a variety of environments. (Value:
+ *        RTB Audio ads sold for a variety of environments. (Value:
  *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
@@ -15947,9 +16195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Video ads served on mobile app inventory. (Value:
  *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeVideoOverTheTop
- *        Over the top ads present in OTT IOs. This type is only applicable to
- *        line items with an insertion order of insertion_order_type
- *        `OVER_THE_TOP` (Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP")
+ *        Over-the-top ads present in OTT insertion orders. This type is only
+ *        applicable to line items with an insertion order of
+ *        insertion_order_type `OVER_THE_TOP`. (Value:
+ *        "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP")
  */
 @property(nonatomic, copy, nullable) NSString *lineItemType;
 
@@ -16446,6 +16695,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  A token to retrieve the next page of results. Pass this value in the
  *  page_token field in the subsequent call to `ListGoogleAudiences` method to
  *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListInsertionOrderAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  ListInsertionOrderAssignedTargetingOptionsRequest to fetch the next page of
+ *  results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -17267,6 +17546,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails : GTLRObject
 
 /**
+ *  Output only. The ad type to target. Only applicable to insertion order
+ *  targeting and new line items supporting the specified ad type will inherit
+ *  this targeting option by default. Possible values are: * `AD_TYPE_DISPLAY`,
+ *  the setting will be inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT`. * `AD_TYPE_VIDEO`, the setting will be
+ *  inherited by new line item when line_item_type is
+ *  `LINE_ITEM_TYPE_VIDEO_DEFAULT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeAudio
+ *        Audio creatives, e.g. audio ads that play during audio content.
+ *        (Value: "AD_TYPE_AUDIO")
+ *    @arg @c kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeDisplay
+ *        Display creatives, e.g. image and HTML5. (Value: "AD_TYPE_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeUnspecified
+ *        Ad type is not specified or is unknown in this version. (Value:
+ *        "AD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails_AdType_AdTypeVideo
+ *        Video creatives, e.g. video ads that play during streaming content in
+ *        video players. (Value: "AD_TYPE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adType;
+
+/**
  *  Output only. The on screen position.
  *
  *  Likely values:
@@ -17977,8 +18280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /**
  *  The decimal representation of the goal percentage in micros. Applicable when
  *  performance_goal_type is one of: * `PERFORMANCE_GOAL_TYPE_CTR` *
- *  `PERFORMANCE_GOAL_TYPE_VIEWABILITY` * `PERFORMANCE_GOAL_TYPE_CVR_CLICKS` *
- *  `PERFORMANCE_GOAL_TYPE_CVR_IMPRESSIONS` * `PERFORMANCE_GOAL_TYPE_VTR` *
+ *  `PERFORMANCE_GOAL_TYPE_VIEWABILITY` * `PERFORMANCE_GOAL_TYPE_CLICK_CVR` *
+ *  `PERFORMANCE_GOAL_TYPE_IMPRESSION_CVR` * `PERFORMANCE_GOAL_TYPE_VTR` *
  *  `PERFORMANCE_GOAL_TYPE_AUDIO_COMPLETION_RATE` *
  *  `PERFORMANCE_GOAL_TYPE_VIDEO_COMPLETION_RATE` For example, 70000 represents
  *  7% (decimal 0.07).
@@ -17998,6 +18301,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Required. The type of the performance goal.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeAudioCompletionRate
+ *        The performance goal is set in audio completion rate (complete audio
+ *        listens per impression) percentage. (Value:
+ *        "PERFORMANCE_GOAL_TYPE_AUDIO_COMPLETION_RATE")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeClickCvr
+ *        The performance goal is set in click conversion rate (conversions per
+ *        click) percentage. (Value: "PERFORMANCE_GOAL_TYPE_CLICK_CVR")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCpa
  *        The performance goal is set in CPA (cost per action). (Value:
  *        "PERFORMANCE_GOAL_TYPE_CPA")
@@ -18016,15 +18326,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeCtr
  *        The performance goal is set in CTR (click-through rate) percentage.
  *        (Value: "PERFORMANCE_GOAL_TYPE_CTR")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeImpressionCvr
+ *        The performance goal is set in impression conversion rate (conversions
+ *        per impression) percentage. (Value:
+ *        "PERFORMANCE_GOAL_TYPE_IMPRESSION_CVR")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeOther
  *        The performance goal is set to Other. (Value:
  *        "PERFORMANCE_GOAL_TYPE_OTHER")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeUnspecified
  *        Performance goal type is not specified or is unknown in this version.
  *        (Value: "PERFORMANCE_GOAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVcpm
+ *        The performance goal is set in VCPM (cost per thousand viewable
+ *        impressions). (Value: "PERFORMANCE_GOAL_TYPE_VCPM")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVideoCompletionRate
+ *        The performance goal is set in video completion rate (complete video
+ *        views per impression) percentage. (Value:
+ *        "PERFORMANCE_GOAL_TYPE_VIDEO_COMPLETION_RATE")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeViewability
  *        The performance goal is set in Viewability percentage. (Value:
  *        "PERFORMANCE_GOAL_TYPE_VIEWABILITY")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoal_PerformanceGoalType_PerformanceGoalTypeVtr
+ *        The performance goal is set in YouTube view rate (YouTube views per
+ *        impression) percentage. (Value: "PERFORMANCE_GOAL_TYPE_VTR")
  */
 @property(nonatomic, copy, nullable) NSString *performanceGoalType;
 
@@ -18363,7 +18687,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "SDF_VERSION_5")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion51 SDF version 5.1
  *        (Value: "SDF_VERSION_5_1")
- *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 SDF version 5.2;
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion52 SDF version 5.2
  *        (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion53 SDF version 5.3
  *        (Value: "SDF_VERSION_5_3")
@@ -18422,7 +18746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion51 SDF
  *        version 5.1 (Value: "SDF_VERSION_5_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion52 SDF
- *        version 5.2; (Value: "SDF_VERSION_5_2")
+ *        version 5.2 (Value: "SDF_VERSION_5_2")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion53 SDF
  *        version 5.3 (Value: "SDF_VERSION_5_3")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified

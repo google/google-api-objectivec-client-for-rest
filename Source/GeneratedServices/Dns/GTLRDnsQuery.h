@@ -57,7 +57,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Atomically update the ResourceRecordSet collection.
+ *  Atomically updates the ResourceRecordSet collection.
  *
  *  Method: dns.changes.create
  *
@@ -88,7 +88,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Change.
  *
- *  Atomically update the ResourceRecordSet collection.
+ *  Atomically updates the ResourceRecordSet collection.
  *
  *  @param object The @c GTLRDns_Change to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -104,7 +104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Fetch the representation of an existing Change.
+ *  Fetches the representation of an existing Change.
  *
  *  Method: dns.changes.get
  *
@@ -143,7 +143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Change.
  *
- *  Fetch the representation of an existing Change.
+ *  Fetches the representation of an existing Change.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
@@ -160,7 +160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerate Changes to a ResourceRecordSet collection.
+ *  Enumerates Changes to a ResourceRecordSet collection.
  *
  *  Method: dns.changes.list
  *
@@ -182,7 +182,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -212,7 +212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_ChangesListResponse.
  *
- *  Enumerate Changes to a ResourceRecordSet collection.
+ *  Enumerates Changes to a ResourceRecordSet collection.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
@@ -253,8 +253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  An optional comma-separated list of digest types to compute and display for
- *  key signing keys. If omitted, the recommended digest type will be computed
- *  and displayed.
+ *  key signing keys. If omitted, the recommended digest type is computed and
+ *  displayed.
  */
 @property(nonatomic, copy, nullable) NSString *digestType;
 
@@ -305,8 +305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  An optional comma-separated list of digest types to compute and display for
- *  key signing keys. If omitted, the recommended digest type will be computed
- *  and displayed.
+ *  key signing keys. If omitted, the recommended digest type is computed and
+ *  displayed.
  */
 @property(nonatomic, copy, nullable) NSString *digestType;
 
@@ -318,7 +318,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -352,7 +352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Fetch the representation of an existing Operation.
+ *  Fetches the representation of an existing Operation.
  *
  *  Method: dns.managedZoneOperations.get
  *
@@ -376,7 +376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /** Identifies the managed zone addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *managedZone;
 
-/** Identifies the operation addressed by this request. */
+/**
+ *  Identifies the operation addressed by this request (ID of the operation).
+ */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /** Identifies the project addressed by this request. */
@@ -385,11 +387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Operation.
  *
- *  Fetch the representation of an existing Operation.
+ *  Fetches the representation of an existing Operation.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
- *  @param operation Identifies the operation addressed by this request.
+ *  @param operation Identifies the operation addressed by this request (ID of
+ *    the operation).
  *
  *  @return GTLRDnsQuery_ManagedZoneOperationsGet
  */
@@ -400,7 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerate Operations for the given ManagedZone.
+ *  Enumerates Operations for the given ManagedZone.
  *
  *  Method: dns.managedZoneOperations.list
  *
@@ -419,7 +422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -447,7 +450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_ManagedZoneOperationsListResponse.
  *
- *  Enumerate Operations for the given ManagedZone.
+ *  Enumerates Operations for the given ManagedZone.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.
@@ -614,7 +617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -739,7 +742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Create a new Policy
+ *  Creates a new Policy
  *
  *  Method: dns.policies.create
  *
@@ -764,7 +767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Policy.
  *
- *  Create a new Policy
+ *  Creates a new Policy
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -777,7 +780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Delete a previously created Policy. Will fail if the policy is still being
+ *  Delete a previously created Policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  Method: dns.policies.delete
@@ -807,7 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete a previously created Policy. Will fail if the policy is still being
+ *  Delete a previously created Policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  @param project Identifies the project addressed by this request.
@@ -822,7 +825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Fetch the representation of an existing Policy.
+ *  Fetches the representation of an existing Policy.
  *
  *  Method: dns.policies.get
  *
@@ -852,7 +855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Policy.
  *
- *  Fetch the representation of an existing Policy.
+ *  Fetches the representation of an existing Policy.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param policy User given friendly name of the policy addressed by this
@@ -866,7 +869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerate all Policies associated with a project.
+ *  Enumerates all Policies associated with a project.
  *
  *  Method: dns.policies.list
  *
@@ -882,7 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -898,7 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_PoliciesListResponse.
  *
- *  Enumerate all Policies associated with a project.
+ *  Enumerates all Policies associated with a project.
  *
  *  @param project Identifies the project addressed by this request.
  *
@@ -1039,7 +1042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerate ResourceRecordSets that have been created but not yet deleted.
+ *  Enumerate ResourceRecordSets that you have created but not yet deleted.
  *
  *  Method: dns.resourceRecordSets.list
  *
@@ -1061,7 +1064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
- *  server will decide how many results to return.
+ *  server decides how many results to return.
  */
 @property(nonatomic, assign) NSInteger maxResults;
 
@@ -1089,7 +1092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_ResourceRecordSetsListResponse.
  *
- *  Enumerate ResourceRecordSets that have been created but not yet deleted.
+ *  Enumerate ResourceRecordSets that you have created but not yet deleted.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.

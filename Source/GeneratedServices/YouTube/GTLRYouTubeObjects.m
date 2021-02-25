@@ -2956,7 +2956,8 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_PlaylistItemSnippet
 @dynamic channelId, channelTitle, descriptionProperty, playlistId, position,
-         publishedAt, resourceId, thumbnails, title;
+         publishedAt, resourceId, thumbnails, title, videoOwnerChannelId,
+         videoOwnerChannelTitle;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3030,7 +3031,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_PlaylistSnippet
 @dynamic channelId, channelTitle, defaultLanguage, descriptionProperty,
-         localized, publishedAt, tags, thumbnails, title;
+         localized, publishedAt, tags, thumbnails, thumbnailVideoId, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

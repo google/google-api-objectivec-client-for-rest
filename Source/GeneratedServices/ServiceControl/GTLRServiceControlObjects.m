@@ -228,7 +228,7 @@
 //
 
 @implementation GTLRServiceControl_CheckRequest
-@dynamic attributes, resources, serviceConfigId;
+@dynamic attributes, flags, resources, serviceConfigId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -459,7 +459,7 @@
 //
 
 @implementation GTLRServiceControl_Response
-@dynamic code, headers, size, time;
+@dynamic backendLatency, code, headers, size, time;
 @end
 
 

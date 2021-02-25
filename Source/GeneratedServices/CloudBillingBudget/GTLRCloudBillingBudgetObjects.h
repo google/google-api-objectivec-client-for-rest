@@ -23,11 +23,13 @@
 
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1BudgetAmount;
+@class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_Labels;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1NotificationsRule;
 @class GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule;
+@class GTLRCloudBillingBudget_GoogleTypeDate;
 @class GTLRCloudBillingBudget_GoogleTypeMoney;
 
 // Generated comments include content from the discovery document; avoid them
@@ -41,13 +43,35 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.calendarPeriod
+
+/** Value: "CALENDAR_PERIOD_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified;
+/**
+ *  A month. Month starts on the first day of each month, such as January 1,
+ *  February 1, March 1, and so on.
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Month;
+/**
+ *  A quarter. Quarters start on dates January 1, April 1, July 1, and October 1
+ *  of each year.
+ *
+ *  Value: "QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Quarter;
+/**
+ *  A year. Year starts on January 1.
+ *
+ *  Value: "YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Year;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.creditTypesTreatment
 
-/**
- *  This is an invalid value.
- *
- *  Value: "CREDIT_TYPES_TREATMENT_UNSPECIFIED"
- */
+/** Value: "CREDIT_TYPES_TREATMENT_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified;
 /**
  *  All types of credit are added to the net cost to determine the spend for
@@ -88,7 +112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_CurrentSpend;
 /**
  *  Use forecasted spend for the period as the basis for comparison against the
- *  threshold.
+ *  threshold. Cannot be set in combination with Filter.custom_period.
  *
  *  Value: "FORECASTED_SPEND"
  */
@@ -97,9 +121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  A budget is a plan that describes what you expect to spend on Cloud
  *  projects, plus the rules to execute as spend is tracked against that plan,
- *  (for example, send an alert when 90% of the target spend is met). Currently
- *  all plans are monthly budgets so the usage period(s) tracked are implied
- *  (calendar months of usage back-to-back).
+ *  (for example, send an alert when 90% of the target spend is met). The budget
+ *  time period is configurable, with options such as month (default), quarter,
+ *  year, or custom time period.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Budget : GTLRObject
 
@@ -154,15 +178,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Use the last period's actual spend as the budget for the present period.
+ *  Cannot be set in combination with Filter.custom_period.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount *lastPeriodAmount;
 
 /**
  *  A specified amount to use as the budget. `currency_code` is optional. If
- *  specified, it must match the currency of the billing account. The
- *  `currency_code` is provided on output.
+ *  specified when creating a budget, it must match the currency of the billing
+ *  account. If specified when updating a budget, it must match the
+ *  currency_code of the existing budget. The `currency_code` is provided on
+ *  output.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleTypeMoney *specifiedAmount;
+
+@end
+
+
+/**
+ *  All date times begin at 12 AM US and Canadian Pacific Time (UTC-8).
+ */
+@interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod : GTLRObject
+
+/**
+ *  Optional. The end date of the time period. Budgets with elapsed end date
+ *  won't be processed. If unset, specifies to track all usage incurred since
+ *  the start_date.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleTypeDate *endDate;
+
+/** Required. The start date must be after January 1, 2017. */
+@property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleTypeDate *startDate;
 
 @end
 
@@ -171,6 +216,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  A filter for a budget, limiting the scope of the cost to calculate.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter : GTLRObject
+
+/**
+ *  Optional. Specifies to track usage for recurring calendar period. E.g.
+ *  Assume that CalendarPeriod.QUARTER is set. The budget will track usage from
+ *  April 1 to June 30, when current calendar month is April, May, June. After
+ *  that, it will track usage from July 1 to September 30 when current calendar
+ *  month is July, August, September, and so on.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified
+ *        Value "CALENDAR_PERIOD_UNSPECIFIED"
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Month
+ *        A month. Month starts on the first day of each month, such as January
+ *        1, February 1, March 1, and so on. (Value: "MONTH")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Quarter
+ *        A quarter. Quarters start on dates January 1, April 1, July 1, and
+ *        October 1 of each year. (Value: "QUARTER")
+ *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Year
+ *        A year. Year starts on January 1. (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *calendarPeriod;
 
 /**
  *  Optional. If Filter.credit_types_treatment is INCLUDE_SPECIFIED_CREDITS,
@@ -187,8 +253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified
- *        This is an invalid value. (Value:
- *        "CREDIT_TYPES_TREATMENT_UNSPECIFIED")
+ *        Value "CREDIT_TYPES_TREATMENT_UNSPECIFIED"
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_ExcludeAllCredits
  *        All types of credit are added to the net cost to determine the spend
  *        for threshold calculations. (Value: "EXCLUDE_ALL_CREDITS")
@@ -201,6 +266,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        (Value: "INCLUDE_SPECIFIED_CREDITS")
  */
 @property(nonatomic, copy, nullable) NSString *creditTypesTreatment;
+
+/**
+ *  Optional. Specifies to track usage from any start date (required) to any end
+ *  date (optional).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod *customPeriod;
 
 /**
  *  Optional. A single label and value pair specifying that usage from only this
@@ -368,7 +439,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        (Value: "CURRENT_SPEND")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_ForecastedSpend
  *        Use forecasted spend for the period as the basis for comparison
- *        against the threshold. (Value: "FORECASTED_SPEND")
+ *        against the threshold. Cannot be set in combination with
+ *        Filter.custom_period. (Value: "FORECASTED_SPEND")
  */
 @property(nonatomic, copy, nullable) NSString *spendBasis;
 
@@ -391,6 +463,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudBillingBudget_GoogleProtobufEmpty : GTLRObject
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values * A
+ *  month and day value, with a zero year, such as an anniversary * A year on
+ *  its own, with zero month and day values * A year and month value, with a
+ *  zero day, such as a credit card expiration date Related types are
+ *  google.type.TimeOfDay and `google.protobuf.Timestamp`.
+ */
+@interface GTLRCloudBillingBudget_GoogleTypeDate : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
 @end
 
 

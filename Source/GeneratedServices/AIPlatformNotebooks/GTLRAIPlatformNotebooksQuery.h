@@ -23,10 +23,12 @@
 
 @class GTLRAIPlatformNotebooks_CancelOperationRequest;
 @class GTLRAIPlatformNotebooks_Environment;
+@class GTLRAIPlatformNotebooks_Execution;
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_RegisterInstanceRequest;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest;
 @class GTLRAIPlatformNotebooks_ResetInstanceRequest;
+@class GTLRAIPlatformNotebooks_Schedule;
 @class GTLRAIPlatformNotebooks_SetIamPolicyRequest;
 @class GTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest;
 @class GTLRAIPlatformNotebooks_SetInstanceLabelsRequest;
@@ -34,6 +36,7 @@
 @class GTLRAIPlatformNotebooks_StartInstanceRequest;
 @class GTLRAIPlatformNotebooks_StopInstanceRequest;
 @class GTLRAIPlatformNotebooks_TestIamPermissionsRequest;
+@class GTLRAIPlatformNotebooks_TriggerScheduleRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceRequest;
 
@@ -189,6 +192,153 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param parent Required. Format: `projects/{project_id}/locations/{location}`
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new Scheduled Notebook in a given project and location.
+ *
+ *  Method: notebooks.projects.locations.executions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsCreate : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsCreateWithObject:parent:]
+
+/** Required. User-defined unique ID of this execution. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Creates a new Scheduled Notebook in a given project and location.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_Execution to include in the
+ *    query.
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Execution *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes execution
+ *
+ *  Method: notebooks.projects.locations.executions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsDelete : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsDeleteWithname:]
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/executions/{execution_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Deletes execution
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/executions/{execution_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of executions
+ *
+ *  Method: notebooks.projects.locations.executions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsGet : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsGetWithname:]
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/schedules/{execution_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Execution.
+ *
+ *  Gets details of executions
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/schedules/{execution_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists executions in a given project and location
+ *
+ *  Method: notebooks.projects.locations.executions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsList : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsListWithparent:]
+
+/** Filter applied to resulting executions. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort by field. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum return size of the list call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previous returned page token that can be used to continue listing from the
+ *  last result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_ListExecutionsResponse.
+ *
+ *  Lists executions in a given project and location
+ *
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1128,6 +1278,188 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new Scheduled Notebook in a given project and location.
+ *
+ *  Method: notebooks.projects.locations.schedules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesCreate : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesCreateWithObject:parent:]
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. User-defined unique ID of this schedule. */
+@property(nonatomic, copy, nullable) NSString *scheduleId;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Creates a new Scheduled Notebook in a given project and location.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_Schedule to include in the
+ *    query.
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Schedule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes schedule and all underlying jobs
+ *
+ *  Method: notebooks.projects.locations.schedules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesDelete : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesDeleteWithname:]
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Deletes schedule and all underlying jobs
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of schedule
+ *
+ *  Method: notebooks.projects.locations.schedules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesGet : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesGetWithname:]
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Schedule.
+ *
+ *  Gets details of schedule
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists schedules in a given project and location.
+ *
+ *  Method: notebooks.projects.locations.schedules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesList : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesListWithparent:]
+
+/** Filter applied to resulting schedules. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Field to order results by. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Maximum return size of the list call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previous returned page token that can be used to continue listing from the
+ *  last result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_ListSchedulesResponse.
+ *
+ *  Lists schedules in a given project and location.
+ *
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Triggers execution of an existing schedule.
+ *
+ *  Method: notebooks.projects.locations.schedules.trigger
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesTrigger : GTLRAIPlatformNotebooksQuery
+// Previous library name was
+//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesTriggerWithObject:name:]
+
+/**
+ *  Required. Format:
+ *  `parent=projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Triggers execution of an existing schedule.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_TriggerScheduleRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesTrigger
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_TriggerScheduleRequest *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -13,6 +13,19 @@
 
 #import "GTLRSpannerObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// encryptionConfigEncryptionType
+NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeCustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
+NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
+NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption = @"USE_DATABASE_ENCRYPTION";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRSpannerQuery
 
 @dynamic fields;
@@ -78,7 +91,16 @@
 
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsCreate
 
-@dynamic backupId, parent;
+@dynamic backupId, encryptionConfigEncryptionType, encryptionConfigKmsKeyName,
+         parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"encryptionConfigEncryptionType" : @"encryptionConfig.encryptionType",
+    @"encryptionConfigKmsKeyName" : @"encryptionConfig.kmsKeyName"
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRSpanner_Backup *)object
                          parent:(NSString *)parent {

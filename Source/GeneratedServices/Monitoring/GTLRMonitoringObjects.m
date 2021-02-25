@@ -1333,11 +1333,18 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_NotificationChannel
-@dynamic descriptionProperty, displayName, enabled, labels, name, type,
-         userLabels, verificationStatus;
+@dynamic creationRecord, descriptionProperty, displayName, enabled, labels,
+         mutationRecords, name, type, userLabels, verificationStatus;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mutationRecords" : [GTLRMonitoring_MutationRecord class]
+  };
+  return map;
 }
 
 @end

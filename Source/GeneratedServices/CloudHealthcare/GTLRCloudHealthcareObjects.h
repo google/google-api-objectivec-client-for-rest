@@ -230,7 +230,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1F
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteEmpty;
 /**
- *  Erase all existing data in a tables before writing the instances.
+ *  Erase all existing data in the tables before writing the instances.
  *
  *  Value: "WRITE_TRUNCATE"
  */
@@ -1242,7 +1242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
  *        Only export data if the destination tables are empty. (Value:
  *        "WRITE_EMPTY")
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteTruncate
- *        Erase all existing data in a tables before writing the instances.
+ *        Erase all existing data in the tables before writing the instances.
  *        (Value: "WRITE_TRUNCATE")
  */
 @property(nonatomic, copy, nullable) NSString *writeDisposition;
@@ -1299,8 +1299,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Restricts notifications sent for messages matching a filter. If this is
- *  empty, all messages are matched. Syntax:
- *  https://cloud.google.com/appengine/docs/standard/python/search/query_strings
+ *  empty, all messages are matched. The following syntax is available: * A
+ *  string field value can be written as text inside quotation marks, for
+ *  example `"query text"`. The only valid relational operation for text fields
+ *  is equality (`=`), where text is searched within the field, rather than
+ *  having the field be equal to the text. For example, `"Comment = great"`
+ *  returns messages with `great` in the comment field. * A number field value
+ *  can be written as an integer, a decimal, or an exponential. The valid
+ *  relational operators for number fields are the equality operator (`=`),
+ *  along with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note
+ *  that there is no inequality (`!=`) operator. You can prepend the `NOT`
+ *  operator to an expression to negate it. * A date field value must be written
+ *  in `yyyy-mm-dd` form. Fields with date and time use the RFC3339 time format.
+ *  Leading zeros are required for one-digit months and days. The valid
+ *  relational operators for date fields are the equality operator (`=`) , along
+ *  with the less than/greater than operators (`<`, `<=`, `>`, `>=`). Note that
+ *  there is no inequality (`!=`) operator. You can prepend the `NOT` operator
+ *  to an expression to negate it. * Multiple field query expressions can be
+ *  combined in one query by adding `AND` or `OR` operators between the
+ *  expressions. If a boolean operator appears within a quoted string, it is not
+ *  treated as special, it's just another part of the character string to be
+ *  matched. You can prepend the `NOT` operator to an expression to negate it.
  *  The following fields and functions are available for filtering: *
  *  `message_type`, from the MSH-9.1 field. For example, `NOT message_type =
  *  "ADT"`. * `send_date` or `sendDate`, the YYYY-MM-DD date the message was
@@ -2122,7 +2141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_SchemaConfig_SchemaType_
 
 /**
  *  Byte(s) to use as the segment terminator. If this is unset, '\\r' is used as
- *  segment terminator.
+ *  segment terminator, matching the HL7 version 2 specification.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).

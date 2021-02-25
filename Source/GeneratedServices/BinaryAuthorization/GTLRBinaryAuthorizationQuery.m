@@ -356,3 +356,22 @@
 }
 
 @end
+
+@implementation GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBinaryAuthorizationQuery_SystempolicyGetPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBinaryAuthorization_Policy class];
+  query.loggingName = @"binaryauthorization.systempolicy.getPolicy";
+  return query;
+}
+
+@end

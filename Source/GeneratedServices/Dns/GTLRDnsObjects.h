@@ -44,11 +44,6 @@
 @class GTLRDns_Quota;
 @class GTLRDns_ResourceRecordSet;
 @class GTLRDns_ResponseHeader;
-@class GTLRDns_RRSetRoutingPolicy;
-@class GTLRDns_RRSetRoutingPolicyGeoPolicy;
-@class GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem;
-@class GTLRDns_RRSetRoutingPolicyWrrPolicy;
-@class GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -164,15 +159,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneDnsSecConfig_State_Transf
 // GTLRDns_ManagedZoneForwardingConfigNameServerTarget.forwardingPath
 
 /**
- *  Cloud DNS will make forwarding decision based on address ranges, i.e.
+ *  Cloud DNS makes forwarding decisions based on address ranges; that is,
  *  RFC1918 addresses forward to the target through the VPC and non-RFC1918
- *  addresses will forward to the target through the Internet
+ *  addresses forward to the target through the internet
  *
  *  Value: "default"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default;
 /**
- *  Cloud DNS will always forward to this target through the VPC.
+ *  Cloud DNS always forwards to this target through the VPC.
  *
  *  Value: "private"
  */
@@ -190,9 +185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 // GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer.forwardingPath
 
 /**
- *  Cloud DNS will make forwarding decision based on address ranges, i.e.
+ *  Cloud DNS will make forwarding decision based on address ranges; that is,
  *  RFC1918 addresses forward to the target through the VPC and non-RFC1918
- *  addresses will forward to the target through the Internet
+ *  addresses forward to the target through the internet
  *
  *  Value: "default"
  */
@@ -287,7 +282,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  list request using this value as your pagination token. In this way you can
  *  retrieve the complete contents of even very large collections one page at a
  *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
+ *  and last paginated list request, the set of all elements returned are an
  *  inconsistent view of the collection. There is no way to retrieve a
  *  "snapshot" of collections larger than the maximum page size.
  */
@@ -343,16 +338,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Active keys will be used to sign subsequent changes to the ManagedZone.
- *  Inactive keys will still be present as DNSKEY Resource Records for the use
- *  of resolvers validating existing signatures.
+ *  Active keys are used to sign subsequent changes to the ManagedZone. Inactive
+ *  keys will still be present as DNSKEY Resource Records for the use of
+ *  resolvers validating existing signatures.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isActive;
 
 /**
- *  Length of the key in bits. Specified at creation time then immutable.
+ *  Length of the key in bits. Specified at creation time, then immutable.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -377,10 +372,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the
- *  Secure Entry Point flag set and, when active, will be used to sign only
- *  resource record sets of type DNSKEY. Otherwise, the Secure Entry Point flag
- *  will be cleared and this key will be used to sign only resource record sets
- *  of other types. Immutable after creation time.
+ *  Secure Entry Point flag set and, when active, are used to sign only resource
+ *  record sets of type DNSKEY. Otherwise, the Secure Entry Point flag is
+ *  cleared and this key is used to sign only resource record sets of other
+ *  types. Immutable after creation time.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_DnsKey_Type_KeySigning Value "keySigning"
@@ -420,7 +415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  list request using this value as your pagination token. In this way you can
  *  retrieve the complete contents of even very large collections one page at a
  *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
+ *  and last paginated list request, the set of all elements returned are an
  *  inconsistent view of the collection. There is no way to retrieve a
  *  "snapshot" of collections larger than the maximum page size.
  */
@@ -459,8 +454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /**
  *  Specifies whether this is a key signing key (KSK) or a zone signing key
  *  (ZSK). Key signing keys have the Secure Entry Point flag set and, when
- *  active, will only be used to sign resource record sets of type DNSKEY. Zone
- *  signing keys do not have the Secure Entry Point flag set and will be used to
+ *  active, are only used to sign resource record sets of type DNSKEY. Zone
+ *  signing keys do not have the Secure Entry Point flag set and are used to
  *  sign all other types of resource record sets.
  *
  *  Likely values:
@@ -562,7 +557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /**
  *  Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet
  *  is a set of DNS name servers that all host the same ManagedZones. Most users
- *  will leave this field unset.
+ *  will leave this field unset. If you need to use this field, please reach out
+ *  to your account team.
  */
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
 
@@ -580,7 +576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  The presence of this field indicates that this is a managed reverse lookup
- *  zone and Cloud DNS will resolve reverse lookup queries using automatically
+ *  zone and Cloud DNS resolves reverse lookup queries using automatically
  *  configured records for VPC resources. This only applies to networks listed
  *  under private_visibility_config.
  */
@@ -664,7 +660,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  List of target name servers to forward to. Cloud DNS will select the best
+ *  List of target name servers to forward to. Cloud DNS selects the best
  *  available name server if more than one target is given.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDns_ManagedZoneForwardingConfigNameServerTarget *> *targetNameServers;
@@ -679,18 +675,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud
- *  DNS will make forwarding decision based on address ranges, i.e. RFC1918
- *  addresses go to the VPC, non-RFC1918 addresses go to the Internet. When set
- *  to PRIVATE, Cloud DNS will always send queries through VPC for this target.
+ *  DNS makes forwarding decisions based on address ranges; that is, RFC1918
+ *  addresses go to the VPC, non-RFC1918 addresses go to the internet. When set
+ *  to PRIVATE, Cloud DNS always sends queries through VPC for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default
- *        Cloud DNS will make forwarding decision based on address ranges, i.e.
+ *        Cloud DNS makes forwarding decisions based on address ranges; that is,
  *        RFC1918 addresses forward to the target through the VPC and
- *        non-RFC1918 addresses will forward to the target through the Internet
+ *        non-RFC1918 addresses forward to the target through the internet
  *        (Value: "default")
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Private
- *        Cloud DNS will always forward to this target through the VPC. (Value:
+ *        Cloud DNS always forwards to this target through the VPC. (Value:
  *        "private")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
@@ -722,7 +718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  list request using this value as your page token. In this way you can
  *  retrieve the complete contents of even very large collections one page at a
  *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
+ *  and last paginated list request, the set of all elements returned are an
  *  inconsistent view of the collection. There is no way to retrieve a
  *  consistent snapshot of a collection larger than the maximum page size.
  */
@@ -886,7 +882,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  list request using this value as your page token. In this way you can
  *  retrieve the complete contents of even very large collections one page at a
  *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
+ *  and last paginated list request, the set of all elements returned are an
  *  inconsistent view of the collection. There is no way to retrieve a
  *  consistent snapshot of a collection larger than the maximum page size.
  */
@@ -1004,7 +1000,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  list request using this value as your page token. In this way you can
  *  retrieve the complete contents of even very large collections one page at a
  *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
+ *  and last paginated list request, the set of all elements returned are an
  *  inconsistent view of the collection. There is no way to retrieve a
  *  consistent snapshot of a collection larger than the maximum page size.
  */
@@ -1066,8 +1062,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Allows networks bound to this policy to receive DNS queries sent by VMs or
- *  applications over VPN connections. When enabled, a virtual IP address will
- *  be allocated from each of the sub-networks that are bound to this policy.
+ *  applications over VPN connections. When enabled, a virtual IP address is
+ *  allocated from each of the sub-networks that are bound to this policy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1092,7 +1088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** User assigned name for this policy. */
+/** User-assigned name for this policy. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1127,15 +1123,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud
- *  DNS will make forwarding decision based on address ranges, i.e. RFC1918
- *  addresses go to the VPC, non-RFC1918 addresses go to the Internet. When set
- *  to PRIVATE, Cloud DNS will always send queries through VPC for this target.
+ *  DNS makes forwarding decision based on address ranges; that is, RFC1918
+ *  addresses go to the VPC, non-RFC1918 addresses go to the internet. When set
+ *  to PRIVATE, Cloud DNS always sends queries through VPC for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default
- *        Cloud DNS will make forwarding decision based on address ranges, i.e.
- *        RFC1918 addresses forward to the target through the VPC and
- *        non-RFC1918 addresses will forward to the target through the Internet
+ *        Cloud DNS will make forwarding decision based on address ranges; that
+ *        is, RFC1918 addresses forward to the target through the VPC and
+ *        non-RFC1918 addresses forward to the target through the internet
  *        (Value: "default")
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private
  *        Cloud DNS will always forward to this target through the VPC. (Value:
@@ -1209,13 +1205,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dnsKeysPerManagedZone;
-
-/**
- *  Maximum allowed number of GKE clusters per policy.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *gkeClustersPerPolicy;
 
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1323,14 +1312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Configures dynamic query responses based on geo location of querying user or
- *  a weighted round robin based routing policy. A ResourceRecordSet should only
- *  have either rrdata (static) or routing_policy(dynamic). An error is returned
- *  otherwise.
- */
-@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicy *routingPolicy;
-
-/**
  *  As defined in RFC 1035 (section 5) and RFC 1034 (section 3.6.1) -- see
  *  examples.
  */
@@ -1373,12 +1354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /**
  *  The presence of this field indicates that there exist more results following
  *  your last page of results in pagination order. To fetch them, make another
- *  list request using this value as your pagination token. In this way you can
- *  retrieve the complete contents of even very large collections one page at a
- *  time. However, if the contents of the collection change between the first
- *  and last paginated list request, the set of all elements returned will be an
- *  inconsistent view of the collection. There is no way to retrieve a
- *  consistent snapshot of a collection larger than the maximum page size.
+ *  list request using this value as your pagination token. This lets you
+ *  retrieve complete contents of even larger collections, one page at a time.
+ *  However, if the contents of the collection change between the first and last
+ *  paginated list request, the set of elements returned are an inconsistent
+ *  view of the collection. You cannot retrieve a consistent snapshot of a
+ *  collection larger than the maximum page size.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -1404,119 +1385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  the server (output only).
  */
 @property(nonatomic, copy, nullable) NSString *operationId;
-
-@end
-
-
-/**
- *  A RRSetRoutingPolicy represents ResourceRecordSet data that will be returned
- *  dynamically with the response varying based on configured properties such as
- *  geolocation or by weighted random selection.
- */
-@interface GTLRDns_RRSetRoutingPolicy : GTLRObject
-
-@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyGeoPolicy *geoPolicy;
-@property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) GTLRDns_RRSetRoutingPolicyWrrPolicy *wrrPolicy;
-
-@end
-
-
-/**
- *  GTLRDns_RRSetRoutingPolicyGeoPolicy
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRDns_RRSetRoutingPolicyGeoPolicy : GTLRCollectionObject
-
-/**
- *  If the health check for the primary target for a geo location returns an
- *  unhealthy status, the failover target is returned instead. This failover
- *  configuration is not mandatory. If a failover is not provided, the primary
- *  target won't be healthchecked - we'll return the primarily configured rrdata
- *  irrespective of whether it is healthy or not.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem *> *failovers;
-
-/**
- *  The primary geo routing configuration. If there are multiple items with the
- *  same location, an error is returned instead.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem *> *items;
-
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem
- */
-@interface GTLRDns_RRSetRoutingPolicyGeoPolicyGeoPolicyItem : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  The geo-location granularity is a GCP region. This location string should
- *  correspond to a GCP region. e.g "us-east1", "southamerica-east1",
- *  "asia-east1", etc.
- */
-@property(nonatomic, copy, nullable) NSString *location;
-
-@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
-
-/** DNSSEC generated signatures for the above geo_rrdata. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
-
-@end
-
-
-/**
- *  GTLRDns_RRSetRoutingPolicyWrrPolicy
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRDns_RRSetRoutingPolicyWrrPolicy : GTLRCollectionObject
-
-/**
- *  items
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem *> *items;
-
-@property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem
- */
-@interface GTLRDns_RRSetRoutingPolicyWrrPolicyWrrPolicyItem : GTLRObject
-
-@property(nonatomic, copy, nullable) NSString *kind;
-@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
-
-/** DNSSEC generated signatures for the above wrr_rrdata. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *signatureRrdatas;
-
-/**
- *  The weight corresponding to this subset of rrdata. When multiple
- *  WeightedRoundRobinPolicyItems are configured, the probability of returning
- *  an rrset is proportional to its weight relative to the sum of weights
- *  configured for all items. This weight should be a decimal in the range
- *  [0,1].
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 

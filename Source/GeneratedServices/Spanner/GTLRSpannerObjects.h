@@ -25,8 +25,11 @@
 @class GTLRSpanner_BackupInfo;
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChildLink;
+@class GTLRSpanner_CommitStats;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_Delete;
+@class GTLRSpanner_EncryptionConfig;
+@class GTLRSpanner_EncryptionInfo;
 @class GTLRSpanner_ExecuteSqlRequest_Params;
 @class GTLRSpanner_ExecuteSqlRequest_ParamTypes;
 @class GTLRSpanner_Expr;
@@ -56,6 +59,7 @@
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
 @class GTLRSpanner_ReplicaInfo;
+@class GTLRSpanner_RestoreDatabaseEncryptionConfig;
 @class GTLRSpanner_RestoreInfo;
 @class GTLRSpanner_ResultSet;
 @class GTLRSpanner_ResultSetMetadata;
@@ -143,6 +147,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_ReadyOptimizing;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_EncryptionInfo.encryptionType
+
+/**
+ *  The data is encrypted at rest with a key that is managed by the customer.
+ *  The active version of the key. `kms_key_version` will be populated, and
+ *  `encryption_status` may be populated.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption;
+/**
+ *  The data is encrypted at rest with a key that is fully managed by Google. No
+ *  key version or status will be populated. This is the default state.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  Encryption type was not specified, though data at rest remains encrypted.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_ExecuteSqlRequest.queryMode
@@ -254,6 +283,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified
  *  Value: "WITNESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_RestoreDatabaseEncryptionConfig.encryptionType
+
+/**
+ *  Use customer managed encryption. If specified, `kms_key_name` must must
+ *  contain a valid Cloud KMS key.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption;
+/**
+ *  Unspecified. Do not use.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified;
+/**
+ *  Use Google default encryption.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_GoogleDefaultEncryption;
+/**
+ *  This is the default option when encryption_config is not specified.
+ *
+ *  Value: "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_RestoreDatabaseMetadata.sourceType
@@ -373,9 +431,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_Backup : GTLRObject
 
 /**
- *  Output only. The backup will contain an externally consistent copy of the
- *  database at the timestamp specified by `create_time`. `create_time` is
- *  approximately the time the CreateBackup request is received.
+ *  Output only. The time the CreateBackup request is received. If the request
+ *  does not specify `version_time`, the `version_time` of the backup will be
+ *  equivalent to the `create_time`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -385,6 +443,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  backup. Values are of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/** Output only. The encryption information for the backup. */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionInfo *encryptionInfo;
 
 /**
  *  Required for the CreateBackup operation. The expiration time of the backup,
@@ -437,6 +498,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  The backup will contain an externally consistent copy of the database at the
+ *  timestamp specified by `version_time`. If `version_time` is not specified,
+ *  the system will set `version_time` to the `create_time` of the backup.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionTime;
+
 @end
 
 
@@ -448,14 +516,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /** Name of the backup. */
 @property(nonatomic, copy, nullable) NSString *backup;
 
-/**
- *  The backup contains an externally consistent copy of `source_database` at
- *  the timestamp specified by `create_time`.
- */
+/** The time the CreateBackup request was received. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Name of the database the backup was created from. */
 @property(nonatomic, copy, nullable) NSString *sourceDatabase;
+
+/**
+ *  The backup contains an externally consistent copy of `source_database` at
+ *  the timestamp specified by `version_time`. If the CreateBackup request did
+ *  not specify `version_time`, the `version_time` of the backup is equivalent
+ *  to the `create_time`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionTime;
 
 @end
 
@@ -607,6 +680,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Mutation *> *mutations;
 
 /**
+ *  If `true`, then statistics related to the transaction will be included in
+ *  the CommitResponse. Default value is `false`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnCommitStats;
+
+/**
  *  Execute mutations in a temporary transaction. Note that unlike commit of a
  *  previously-started transaction, commit with a temporary transaction is
  *  non-idempotent. That is, if the `CommitRequest` is sent to Cloud Spanner
@@ -632,8 +713,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_CommitResponse : GTLRObject
 
+/**
+ *  The statistics about this Commit. Not returned by default. For more
+ *  information, see CommitRequest.return_commit_stats.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_CommitStats *commitStats;
+
 /** The Cloud Spanner timestamp at which the transaction committed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *commitTimestamp;
+
+@end
+
+
+/**
+ *  Additional statistics about a commit.
+ */
+@interface GTLRSpanner_CommitStats : GTLRObject
+
+/**
+ *  The total number of mutations for the transaction. Knowing the
+ *  `mutation_count` value can help you maximize the number of mutations in a
+ *  transaction and minimize the number of API round trips. You can also monitor
+ *  this value to prevent transactions from exceeding the system
+ *  [limit](http://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data).
+ *  If the number of mutations exceeds the limit, the server returns
+ *  [INVALID_ARGUMENT](http://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mutationCount;
 
 @end
 
@@ -692,6 +800,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  enclosed in backticks (`` ` ``).
  */
 @property(nonatomic, copy, nullable) NSString *createStatement;
+
+/**
+ *  Optional. The encryption configuration for the database. If this field is
+ *  not specified, Cloud Spanner will encrypt/decrypt all data at rest using
+ *  Google default encryption.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionConfig *encryptionConfig;
 
 /**
  *  Optional. A list of DDL statements to run inside the newly created database.
@@ -770,6 +885,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. Earliest timestamp at which older versions of the data can be
+ *  read. This value is continuously updated by Cloud Spanner and becomes stale
+ *  the moment it is queried. If you are using this value to recover data, make
+ *  sure to account for the time from the moment when the value is queried to
+ *  the moment when you initiate the recovery.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestVersionTime;
+
+/**
+ *  Output only. For databases that are using customer managed encryption, this
+ *  field contains the encryption configuration for the database. For databases
+ *  that are using Google default or other types of encryption, this field is
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_EncryptionConfig *encryptionConfig;
+
+/**
+ *  Output only. For databases that are using customer managed encryption, this
+ *  field contains the encryption information for the database, such as
+ *  encryption state and the Cloud KMS key versions that are in use. For
+ *  databases that are using Google default or other types of encryption, this
+ *  field is empty. This field is propagated lazily from the backend. There
+ *  might be a delay from when a key version is being used and when it appears
+ *  in this field.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_EncryptionInfo *> *encryptionInfo;
+
+/**
  *  Required. The name of the database. Values are of the form
  *  `projects//instances//databases/`, where `` is as specified in the `CREATE
  *  DATABASE` statement. This name can be passed to other API methods to
@@ -804,6 +947,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Output only. The period in which Cloud Spanner retains all versions of data
+ *  for the database. This is the same as the value of version_retention_period
+ *  database option set using UpdateDatabaseDdl. Defaults to 1 hour, if not set.
+ */
+@property(nonatomic, copy, nullable) NSString *versionRetentionPeriod;
+
 @end
 
 
@@ -835,6 +985,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRSpanner_Empty : GTLRObject
+@end
+
+
+/**
+ *  Encryption configuration for a Cloud Spanner database.
+ */
+@interface GTLRSpanner_EncryptionConfig : GTLRObject
+
+/**
+ *  The Cloud KMS key to be used for encrypting and decrypting the database.
+ *  Values are of the form `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Encryption information for a Cloud Spanner database or backup.
+ */
+@interface GTLRSpanner_EncryptionInfo : GTLRObject
+
+/**
+ *  Output only. If present, the status of a recent encrypt/decrypt call on
+ *  underlying data for this database or backup. Regardless of status, data is
+ *  always encrypted at rest.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Status *encryptionStatus;
+
+/**
+ *  Output only. The type of encryption.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption
+ *        The data is encrypted at rest with a key that is managed by the
+ *        customer. The active version of the key. `kms_key_version` will be
+ *        populated, and `encryption_status` may be populated. (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_GoogleDefaultEncryption
+ *        The data is encrypted at rest with a key that is fully managed by
+ *        Google. No key version or status will be populated. This is the
+ *        default state. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_EncryptionInfo_EncryptionType_TypeUnspecified
+ *        Encryption type was not specified, though data at rest remains
+ *        encrypted. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Output only. A Cloud KMS key version that is being used to protect the
+ *  database or backup.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
 @end
 
 
@@ -2492,6 +2696,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Encryption configuration for the restored database.
+ */
+@interface GTLRSpanner_RestoreDatabaseEncryptionConfig : GTLRObject
+
+/**
+ *  Required. The encryption type of the restored database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption
+ *        Use customer managed encryption. If specified, `kms_key_name` must
+ *        must contain a valid Cloud KMS key. (Value:
+ *        "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
+ *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_GoogleDefaultEncryption
+ *        Use Google default encryption. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ *    @arg @c kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_UseConfigDefaultOrBackupEncryption
+ *        This is the default option when encryption_config is not specified.
+ *        (Value: "USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Optional. The Cloud KMS key that will be used to encrypt/decrypt the
+ *  restored database. This field should be set only when encryption_type is
+ *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
+ *  `projects//locations//keyRings//cryptoKeys/`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  Metadata type for the long-running operation returned by RestoreDatabase.
  */
 @interface GTLRSpanner_RestoreDatabaseMetadata : GTLRObject
@@ -2562,6 +2800,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  full database name of the form `projects//instances//databases/`.
  */
 @property(nonatomic, copy, nullable) NSString *databaseId;
+
+/**
+ *  Optional. An encryption configuration describing the encryption type and key
+ *  resources in Cloud KMS used to encrypt/decrypt the database to restore to.
+ *  If this field is not specified, the restored database will use the same
+ *  encryption configuration as the backup by default, namely encryption_type =
+ *  `USE_CONFIG_DEFAULT_OR_DATABASE_ENCRYPTION`.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_RestoreDatabaseEncryptionConfig *encryptionConfig;
 
 @end
 
@@ -3031,7 +3278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  inactivity at the client may cause Cloud Spanner to release a transaction's
  *  locks and abort it. Conceptually, a read-write transaction consists of zero
  *  or more reads or SQL statements followed by Commit. At any time before
- *  Commit, the client can send a Rollback request to abort the transaction. ###
+ *  Commit, the client can send a Rollback request to abort the transaction. ##
  *  Semantics Cloud Spanner can commit the transaction if all read locks it
  *  acquired are still valid at commit time, and it is able to acquire write
  *  locks for all writes. Cloud Spanner can abort the transaction for any
@@ -3040,65 +3287,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  transaction commits, Cloud Spanner makes no guarantees about how long the
  *  transaction's locks were held for. It is an error to use Cloud Spanner locks
  *  for any sort of mutual exclusion other than between Cloud Spanner
- *  transactions themselves. ### Retrying Aborted Transactions When a
- *  transaction aborts, the application can choose to retry the whole
- *  transaction again. To maximize the chances of successfully committing the
- *  retry, the client should execute the retry in the same session as the
- *  original attempt. The original session's lock priority increases with each
- *  consecutive abort, meaning that each attempt has a slightly better chance of
- *  success than the previous. Under some circumstances (e.g., many transactions
- *  attempting to modify the same row(s)), a transaction can abort many times in
- *  a short period before successfully committing. Thus, it is not a good idea
- *  to cap the number of retries a transaction can attempt; instead, it is
- *  better to limit the total amount of wall time spent retrying. ### Idle
- *  Transactions A transaction is considered idle if it has no outstanding reads
- *  or SQL queries and has not started a read or SQL query within the last 10
- *  seconds. Idle transactions can be aborted by Cloud Spanner so that they
- *  don't hold on to locks indefinitely. In that case, the commit will fail with
- *  error `ABORTED`. If this behavior is undesirable, periodically executing a
- *  simple SQL query in the transaction (e.g., `SELECT 1`) prevents the
- *  transaction from becoming idle. ## Snapshot Read-Only Transactions Snapshot
- *  read-only transactions provides a simpler method than locking read-write
- *  transactions for doing several consistent reads. However, this type of
- *  transaction does not support writes. Snapshot transactions do not take
- *  locks. Instead, they work by choosing a Cloud Spanner timestamp, then
- *  executing all reads at that timestamp. Since they do not acquire locks, they
- *  do not block concurrent read-write transactions. Unlike locking read-write
- *  transactions, snapshot read-only transactions never abort. They can fail if
- *  the chosen read timestamp is garbage collected; however, the default garbage
- *  collection policy is generous enough that most applications do not need to
- *  worry about this in practice. Snapshot read-only transactions do not need to
- *  call Commit or Rollback (and in fact are not permitted to do so). To execute
- *  a snapshot transaction, the client specifies a timestamp bound, which tells
- *  Cloud Spanner how to choose a read timestamp. The types of timestamp bound
- *  are: - Strong (the default). - Bounded staleness. - Exact staleness. If the
- *  Cloud Spanner database to be read is geographically distributed, stale
- *  read-only transactions can execute more quickly than strong or read-write
- *  transaction, because they are able to execute far from the leader replica.
- *  Each type of timestamp bound is discussed in detail below. ### Strong Strong
- *  reads are guaranteed to see the effects of all transactions that have
- *  committed before the start of the read. Furthermore, all rows yielded by a
- *  single read are consistent with each other -- if any part of the read
- *  observes a transaction, all parts of the read see the transaction. Strong
- *  reads are not repeatable: two consecutive strong read-only transactions
- *  might return inconsistent results if there are concurrent writes. If
- *  consistency across reads is required, the reads should be executed within a
- *  transaction or at an exact read timestamp. See
- *  TransactionOptions.ReadOnly.strong. ### Exact Staleness These timestamp
- *  bounds execute reads at a user-specified timestamp. Reads at a timestamp are
- *  guaranteed to see a consistent prefix of the global transaction history:
- *  they observe modifications done by all transactions with a commit timestamp
- *  <= the read timestamp, and observe none of the modifications done by
- *  transactions with a larger commit timestamp. They will block until all
- *  conflicting transactions that may be assigned commit timestamps <= the read
- *  timestamp have finished. The timestamp can either be expressed as an
- *  absolute Cloud Spanner commit timestamp or a staleness relative to the
- *  current time. These modes do not require a "negotiation phase" to pick a
- *  timestamp. As a result, they execute slightly faster than the equivalent
- *  boundedly stale concurrency modes. On the other hand, boundedly stale reads
- *  usually return fresher results. See
+ *  transactions themselves. ## Retrying Aborted Transactions When a transaction
+ *  aborts, the application can choose to retry the whole transaction again. To
+ *  maximize the chances of successfully committing the retry, the client should
+ *  execute the retry in the same session as the original attempt. The original
+ *  session's lock priority increases with each consecutive abort, meaning that
+ *  each attempt has a slightly better chance of success than the previous.
+ *  Under some circumstances (e.g., many transactions attempting to modify the
+ *  same row(s)), a transaction can abort many times in a short period before
+ *  successfully committing. Thus, it is not a good idea to cap the number of
+ *  retries a transaction can attempt; instead, it is better to limit the total
+ *  amount of wall time spent retrying. ## Idle Transactions A transaction is
+ *  considered idle if it has no outstanding reads or SQL queries and has not
+ *  started a read or SQL query within the last 10 seconds. Idle transactions
+ *  can be aborted by Cloud Spanner so that they don't hold on to locks
+ *  indefinitely. In that case, the commit will fail with error `ABORTED`. If
+ *  this behavior is undesirable, periodically executing a simple SQL query in
+ *  the transaction (e.g., `SELECT 1`) prevents the transaction from becoming
+ *  idle. ## Snapshot Read-Only Transactions Snapshot read-only transactions
+ *  provides a simpler method than locking read-write transactions for doing
+ *  several consistent reads. However, this type of transaction does not support
+ *  writes. Snapshot transactions do not take locks. Instead, they work by
+ *  choosing a Cloud Spanner timestamp, then executing all reads at that
+ *  timestamp. Since they do not acquire locks, they do not block concurrent
+ *  read-write transactions. Unlike locking read-write transactions, snapshot
+ *  read-only transactions never abort. They can fail if the chosen read
+ *  timestamp is garbage collected; however, the default garbage collection
+ *  policy is generous enough that most applications do not need to worry about
+ *  this in practice. Snapshot read-only transactions do not need to call Commit
+ *  or Rollback (and in fact are not permitted to do so). To execute a snapshot
+ *  transaction, the client specifies a timestamp bound, which tells Cloud
+ *  Spanner how to choose a read timestamp. The types of timestamp bound are: -
+ *  Strong (the default). - Bounded staleness. - Exact staleness. If the Cloud
+ *  Spanner database to be read is geographically distributed, stale read-only
+ *  transactions can execute more quickly than strong or read-write transaction,
+ *  because they are able to execute far from the leader replica. Each type of
+ *  timestamp bound is discussed in detail below. ## Strong Strong reads are
+ *  guaranteed to see the effects of all transactions that have committed before
+ *  the start of the read. Furthermore, all rows yielded by a single read are
+ *  consistent with each other -- if any part of the read observes a
+ *  transaction, all parts of the read see the transaction. Strong reads are not
+ *  repeatable: two consecutive strong read-only transactions might return
+ *  inconsistent results if there are concurrent writes. If consistency across
+ *  reads is required, the reads should be executed within a transaction or at
+ *  an exact read timestamp. See TransactionOptions.ReadOnly.strong. ## Exact
+ *  Staleness These timestamp bounds execute reads at a user-specified
+ *  timestamp. Reads at a timestamp are guaranteed to see a consistent prefix of
+ *  the global transaction history: they observe modifications done by all
+ *  transactions with a commit timestamp <= the read timestamp, and observe none
+ *  of the modifications done by transactions with a larger commit timestamp.
+ *  They will block until all conflicting transactions that may be assigned
+ *  commit timestamps <= the read timestamp have finished. The timestamp can
+ *  either be expressed as an absolute Cloud Spanner commit timestamp or a
+ *  staleness relative to the current time. These modes do not require a
+ *  "negotiation phase" to pick a timestamp. As a result, they execute slightly
+ *  faster than the equivalent boundedly stale concurrency modes. On the other
+ *  hand, boundedly stale reads usually return fresher results. See
  *  TransactionOptions.ReadOnly.read_timestamp and
- *  TransactionOptions.ReadOnly.exact_staleness. ### Bounded Staleness Bounded
+ *  TransactionOptions.ReadOnly.exact_staleness. ## Bounded Staleness Bounded
  *  staleness modes allow Cloud Spanner to pick the read timestamp, subject to a
  *  user-provided staleness bound. Cloud Spanner chooses the newest timestamp
  *  within the staleness bound that allows execution of the reads at the closest
@@ -3116,7 +3362,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Because the timestamp negotiation requires up-front knowledge of which rows
  *  will be read, it can only be used with single-use read-only transactions.
  *  See TransactionOptions.ReadOnly.max_staleness and
- *  TransactionOptions.ReadOnly.min_read_timestamp. ### Old Read Timestamps and
+ *  TransactionOptions.ReadOnly.min_read_timestamp. ## Old Read Timestamps and
  *  Garbage Collection Cloud Spanner continuously garbage collects deleted and
  *  overwritten data in the background to reclaim storage space. This process is
  *  known as "version GC". By default, version GC reclaims versions after they

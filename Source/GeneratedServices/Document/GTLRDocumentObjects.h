@@ -23,9 +23,7 @@
 #endif
 
 @class GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema;
-@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType;
+@class GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation;
 @class GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntity;
@@ -117,6 +115,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntity;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityNormalizedValue;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityRelation;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfig;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfigGcsOutputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPage;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchor;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentPageAnchorPageRef;
@@ -148,6 +148,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3RawDocument;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3Vertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus;
@@ -214,117 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3C
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata_State_Succeeded;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion.state
-
-/**
- *  The processor version is being created.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Creating;
-/**
- *  The processor version is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deleting;
-/**
- *  The processor version is deployed and can be used for processing.
- *
- *  Value: "DEPLOYED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deployed;
-/**
- *  The processor version is being deployed.
- *
- *  Value: "DEPLOYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deploying;
-/**
- *  The processor version failed and is in an indeterminate state.
- *
- *  Value: "FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Failed;
-/**
- *  The processor version is in an unspecified state.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_StateUnspecified;
-/**
- *  The processor version is not deployed and cannot be used for processing.
- *
- *  Value: "UNDEPLOYED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeployed;
-/**
- *  The processor version is being undeployed.
- *
- *  Value: "UNDEPLOYING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeploying;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.occurrenceType
-
-/**
- *  Unspecified occurrence type.
- *
- *  Value: "OCCURRENCE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified;
-/**
- *  The entity type will appear zero or multiple times.
- *
- *  Value: "OPTIONAL_MULTIPLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalMultiple;
-/**
- *  The entity type will appear zero times or once.
- *
- *  Value: "OPTIONAL_ONCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalOnce;
-/**
- *  The entity type will appear once or more times.
- *
- *  Value: "REQUIRED_MULTIPLE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredMultiple;
-/**
- *  The entity type will only appear exactly once.
- *
- *  Value: "REQUIRED_ONCE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredOnce;
-
-// ----------------------------------------------------------------------------
-// GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.source
-
-/**
- *  The entity type is in the predefined schema of a pretrained version of a
- *  processor.
- *
- *  Value: "PREDEFINED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_Predefined;
-/**
- *  Unspecified source.
- *
- *  Value: "SOURCE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_SourceUnspecified;
-/**
- *  The entity type is added by the users either: - during an uptraining of an
- *  existing processor, or - during the process of creating a customized
- *  processor.
- *
- *  Value: "USER_INPUT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_UserInput;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1BatchProcessMetadata.state
@@ -1041,9 +931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Hum
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress;
 /**
- *  Human review is skipped for the document, it's either due to the human
- *  review is not enabled on the processor or the processing request sets to
- *  skip it.
+ *  Human review is skipped for the document. This can happen because human
+ *  review is not enabled on the processor or the processing request has been
+ *  set to skip this document.
  *
  *  Value: "HUMAN_REVIEW_SKIPPED"
  */
@@ -1055,7 +945,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Hum
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed;
 /**
- *  State unspecified.
+ *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
@@ -1158,9 +1048,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress;
 /**
- *  Human review is skipped for the document, it's either due to the human
- *  review is not enabled on the processor or the processing request sets to
- *  skip it.
+ *  Human review is skipped for the document. This can happen because human
+ *  review is not enabled on the processor or the processing request has been
+ *  set to skip this document.
  *
  *  Value: "HUMAN_REVIEW_SKIPPED"
  */
@@ -1172,7 +1062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed;
 /**
- *  State unspecified.
+ *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
@@ -1315,150 +1205,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  A processor version is an implementation of a processor. Each processor can
- *  have multiple versions, pre-trained by Google internally or up-trained by
- *  the customer. At a time, a processor can only have one default version
- *  version. So the processor's behavior (when processing documents) is defined
- *  by a default version.
+ *  Metadata of the EvaluateProcessorVersion method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionMetadata : GTLRObject
 
-/** The time the processor version was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** The display name of the processor version. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  The resource name of the processor version. Format:
- *  projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processor_version}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The schema of the processor version. Describes the output. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema *schema;
-
-/**
- *  The state of the processor version.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Creating
- *        The processor version is being created. (Value: "CREATING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deleting
- *        The processor version is being deleted. (Value: "DELETING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deployed
- *        The processor version is deployed and can be used for processing.
- *        (Value: "DEPLOYED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Deploying
- *        The processor version is being deployed. (Value: "DEPLOYING")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Failed
- *        The processor version failed and is in an indeterminate state. (Value:
- *        "FAILED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_StateUnspecified
- *        The processor version is in an unspecified state. (Value:
- *        "STATE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeployed
- *        The processor version is not deployed and cannot be used for
- *        processing. (Value: "UNDEPLOYED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion_State_Undeploying
- *        The processor version is being undeployed. (Value: "UNDEPLOYING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
 @end
 
 
 /**
- *  The schema defines the output of the processed document by a processor.
+ *  Metadata of the EvaluateProcessorVersion method.
  */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3Schema : GTLRObject
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluateProcessorVersionResponse : GTLRObject
 
-/**
- *  Description of the schema.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Display name to show to users. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Entity types of the schema. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType *> *entityTypes;
-
-@end
-
-
-/**
- *  EntityType is the wrapper of a label of the corresponding model with
- *  detailed attributes and limitations for entity-based processors. Multiple
- *  types can also compose a dependency tree to represent nested types.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType : GTLRObject
-
-/**
- *  Type of the entity. It can be either a value type (such as "text",
- *  "numeric", "date" and "address"), or an object type which may contain nested
- *  entities (such as "document" and "table").
- */
-@property(nonatomic, copy, nullable) NSString *baseType;
-
-/**
- *  Description of the entity type.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  Occurrence type limits the number of times an entity type appears in the
- *  document.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified
- *        Unspecified occurrence type. (Value: "OCCURRENCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalMultiple
- *        The entity type will appear zero or multiple times. (Value:
- *        "OPTIONAL_MULTIPLE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OptionalOnce
- *        The entity type will appear zero times or once. (Value:
- *        "OPTIONAL_ONCE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredMultiple
- *        The entity type will appear once or more times. (Value:
- *        "REQUIRED_MULTIPLE")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_RequiredOnce
- *        The entity type will only appear exactly once. (Value:
- *        "REQUIRED_ONCE")
- */
-@property(nonatomic, copy, nullable) NSString *occurrenceType;
-
-/**
- *  Describing the nested structure of an entity. An EntityType may consist of
- *  several other EntityTypes. For example, in a document there can be an
- *  EntityType 'ID', which consists of EntityType 'name' and 'address', with
- *  corresponding attributes, such as TEXT for both types and ONCE for
- *  occurrence types.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType *> *properties;
-
-/**
- *  Source of this entity type.
- *
- *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_Predefined
- *        The entity type is in the predefined schema of a pretrained version of
- *        a processor. (Value: "PREDEFINED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_SourceUnspecified
- *        Unspecified source. (Value: "SOURCE_UNSPECIFIED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Source_UserInput
- *        The entity type is added by the users either: - during an uptraining
- *        of an existing processor, or - during the process of creating a
- *        customized processor. (Value: "USER_INPUT")
- */
-@property(nonatomic, copy, nullable) NSString *source;
-
-/** Name of the type. It must be unique within the set of same level types. */
-@property(nonatomic, copy, nullable) NSString *type;
+/** The resource name of the created evaluation. */
+@property(nonatomic, copy, nullable) NSString *evaluation;
 
 @end
 
@@ -1471,6 +1234,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 /** The basic metadata of the long running operation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
 
+/** The test dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation *testDatasetValidation;
+
+/** The training dataset validation information. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation *trainingDatasetValidation;
+
+@end
+
+
+/**
+ *  The dataset validation information. This includes any and all errors with
+ *  documents and the dataset.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation : GTLRObject
+
+/**
+ *  Error information for the dataset as a whole. A maximum of 10 dataset errors
+ *  will be returned. A single dataset error is terminal for training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *datasetErrors;
+
+/**
+ *  Error information pertaining to specific documents. A maximum of 10 document
+ *  errors will be returned. Any document with errors will not be used
+ *  throughout training.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *documentErrors;
+
 @end
 
 
@@ -1479,8 +1270,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionResponse : GTLRObject
 
-/** The processor version produced by training. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersion *processorVersion;
+/** The resource name of the processor version produced by training. */
+@property(nonatomic, copy, nullable) NSString *processorVersion;
 
 @end
 
@@ -4142,7 +3933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The name of the operation triggered by the processed document. If the human
  *  review process is not triggered, this field will be empty. It has the same
  *  response type and metadata as the long running operation returned by
- *  ReviewDocument method. .
+ *  ReviewDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
 
@@ -4174,8 +3965,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequest : GTLRObject
 
+/** The overall output config for batch process. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfig *documentOutputConfig;
+
 /** The input config for each single document in the batch process. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig *> *inputConfigs;
+
+/** The input documents for batch process. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig *inputDocuments;
 
 /** The overall output config for batch process. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig *outputConfig;
@@ -4478,6 +4275,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** Subject entity id. */
 @property(nonatomic, copy, nullable) NSString *subjectId;
+
+@end
+
+
+/**
+ *  Config that controls the output of documents. All documents will be written
+ *  as a JSON file.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfig : GTLRObject
+
+/** Output config to write the results to Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfigGcsOutputConfig *gcsOutputConfig;
+
+@end
+
+
+/**
+ *  The configuration used when outputting documents.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentOutputConfigGcsOutputConfig : GTLRObject
+
+/** The Cloud Storage uri (a directory) of the output. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
 
@@ -5302,9 +5122,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
 
 /**
- *  The name of the operation triggered by the processed document. Non-empty
- *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
- *  response type and metadata as the long running operation returned by
+ *  The name of the operation triggered by the processed document. This field is
+ *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
+ *  same response type and metadata as the long running operation returned by
  *  [ReviewDocument] method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
@@ -5320,14 +5140,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        Human review validation is triggered and the document is under review.
  *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped
- *        Human review is skipped for the document, it's either due to the human
- *        review is not enabled on the processor or the processing request sets
- *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
+ *        Human review is skipped for the document. This can happen because
+ *        human review is not enabled on the processor or the processing request
+ *        has been set to skip this document. (Value: "HUMAN_REVIEW_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed
  *        Human review validation is triggered and passed, so no review is
  *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ *        Human review state is unspecified. Most likely due to an internal
+ *        error. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5368,6 +5189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 /** The document payload, the [content] and [mime_type] fields must be set. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *document;
 
+/** An inline document proto. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *inlineDocument;
+
+/** A raw document content (bytes). */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3RawDocument *rawDocument;
+
 /**
  *  Whether Human Review feature should be skipped for this request. Default to
  *  false.
@@ -5394,12 +5221,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The name of the operation triggered by the processed document. If the human
  *  review process is not triggered, this field will be empty. It has the same
  *  response type and metadata as the long running operation returned by
- *  ReviewDocument method. .
+ *  ReviewDocument method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
 
 /** The status of human review on the processed document. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus *humanReviewStatus;
+
+@end
+
+
+/**
+ *  Payload message of raw document content (bytes).
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3RawDocument : GTLRObject
+
+/**
+ *  Inline document content.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  An IANA MIME type (RFC6838) indicating the nature and format of the
+ *  [content].
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
 
@@ -5453,6 +5302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** The document that needs human review. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *document;
+
+/** An inline document proto. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3Document *inlineDocument;
 
 @end
 
@@ -5533,9 +5385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus : GTLRObject
 
 /**
- *  The name of the operation triggered by the processed document. Non-empty
- *  only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the same
- *  response type and metadata as the long running operation returned by
+ *  The name of the operation triggered by the processed document. This field is
+ *  populated only when the [state] is [HUMAN_REVIEW_IN_PROGRESS]. It has the
+ *  same response type and metadata as the long running operation returned by
  *  [ReviewDocument] method.
  */
 @property(nonatomic, copy, nullable) NSString *humanReviewOperation;
@@ -5551,14 +5403,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        Human review validation is triggered and the document is under review.
  *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped
- *        Human review is skipped for the document, it's either due to the human
- *        review is not enabled on the processor or the processing request sets
- *        to skip it. (Value: "HUMAN_REVIEW_SKIPPED")
+ *        Human review is skipped for the document. This can happen because
+ *        human review is not enabled on the processor or the processing request
+ *        has been set to skip this document. (Value: "HUMAN_REVIEW_SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed
  *        Human review validation is triggered and passed, so no review is
  *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified
- *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ *        Human review state is unspecified. Most likely due to an internal
+ *        error. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

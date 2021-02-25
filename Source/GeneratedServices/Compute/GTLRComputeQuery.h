@@ -26,6 +26,7 @@
 @class GTLRCompute_Autoscaler;
 @class GTLRCompute_BackendBucket;
 @class GTLRCompute_BackendService;
+@class GTLRCompute_BulkInsertInstanceResource;
 @class GTLRCompute_CacheInvalidationRule;
 @class GTLRCompute_Commitment;
 @class GTLRCompute_DeprecationStatus;
@@ -37,9 +38,13 @@
 @class GTLRCompute_DisplayDevice;
 @class GTLRCompute_ExternalVpnGateway;
 @class GTLRCompute_Firewall;
+@class GTLRCompute_FirewallPolicy;
+@class GTLRCompute_FirewallPolicyAssociation;
+@class GTLRCompute_FirewallPolicyRule;
 @class GTLRCompute_ForwardingRule;
 @class GTLRCompute_GlobalNetworkEndpointGroupsAttachEndpointsRequest;
 @class GTLRCompute_GlobalNetworkEndpointGroupsDetachEndpointsRequest;
+@class GTLRCompute_GlobalOrganizationSetPolicyRequest;
 @class GTLRCompute_GlobalSetLabelsRequest;
 @class GTLRCompute_GlobalSetPolicyRequest;
 @class GTLRCompute_HealthCheck;
@@ -304,7 +309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -434,7 +439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -544,7 +549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -777,7 +782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -879,7 +884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -1123,7 +1128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -1587,7 +1592,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -1851,7 +1856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -2175,7 +2180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -2501,7 +2506,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -2776,7 +2781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Optional. Source image to restore onto a disk. */
+/** Source image to restore onto a disk. This field is optional. */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
 
 /**
@@ -2875,7 +2880,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3262,7 +3267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3393,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3623,7 +3628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -3717,6 +3722,790 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                         project:(NSString *)project
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Inserts an association for the specified firewall policy.
+ *
+ *  Method: compute.firewallPolicies.addAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesAddAssociation : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesAddAssociationWithObject:firewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  Indicates whether or not to replace it if an association of the attachment
+ *  already exists. This is false by default, in which case an error will be
+ *  returned if an association already exists.
+ */
+@property(nonatomic, assign) BOOL replaceExistingAssociation;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts an association for the specified firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyAssociation to include in the
+ *    query.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesAddAssociation
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyAssociation *)object
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Inserts a rule into a firewall policy.
+ *
+ *  Method: compute.firewallPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesAddRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesAddRuleWithObject:firewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a firewall policy.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Copies rules to the specified firewall policy.
+ *
+ *  Method: compute.firewallPolicies.cloneRules
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesCloneRules : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesCloneRulesWithfirewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** The firewall policy from which to copy rules. */
+@property(nonatomic, copy, nullable) NSString *sourceFirewallPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Copies rules to the specified firewall policy.
+ *
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesCloneRules
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes the specified policy.
+ *
+ *  Method: compute.firewallPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesDeleteWithfirewallPolicy:]
+
+/** Name of the firewall policy to delete. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified policy.
+ *
+ *  @param firewallPolicy Name of the firewall policy to delete.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesDelete
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Returns the specified firewall policy.
+ *
+ *  Method: compute.firewallPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesGetWithfirewallPolicy:]
+
+/** Name of the firewall policy to get. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicy.
+ *
+ *  Returns the specified firewall policy.
+ *
+ *  @param firewallPolicy Name of the firewall policy to get.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesGet
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Gets an association with the specified name.
+ *
+ *  Method: compute.firewallPolicies.getAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesGetAssociation : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesGetAssociationWithfirewallPolicy:]
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The name of the association to get from the firewall policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyAssociation.
+ *
+ *  Gets an association with the specified name.
+ *
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesGetAssociation
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.firewallPolicies.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesGetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesGetIamPolicyWithresource:]
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets a rule of the specified priority.
+ *
+ *  Method: compute.firewallPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesGetRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesGetRuleWithfirewallPolicy:]
+
+/** Name of the firewall policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to get from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyRule.
+ *
+ *  Gets a rule of the specified priority.
+ *
+ *  @param firewallPolicy Name of the firewall policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesGetRule
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  Method: compute.firewallPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesInsertWithObject:]
+
+/**
+ *  Parent ID for this request. The ID can be either be "folders/[FOLDER_ID]" if
+ *  the parent is a folder or "organizations/[ORGANIZATION_ID]" if the parent is
+ *  an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new policy in the specified project using the data included in the
+ *  request.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object;
+
+@end
+
+/**
+ *  Lists all the policies that have been configured for the specified project.
+ *
+ *  Method: compute.firewallPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesList]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPolicyList.
+ *
+ *  Lists all the policies that have been configured for the specified project.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Lists associations of a specified target, i.e., organization or folder.
+ *
+ *  Method: compute.firewallPolicies.listAssociations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesListAssociations : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesListAssociations]
+
+/**
+ *  The target resource to list associations. It is an organization, or a
+ *  folder.
+ */
+@property(nonatomic, copy, nullable) NSString *targetResource;
+
+/**
+ *  Fetches a @c GTLRCompute_FirewallPoliciesListAssociationsResponse.
+ *
+ *  Lists associations of a specified target, i.e., organization or folder.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesListAssociations
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Moves the specified firewall policy.
+ *
+ *  Method: compute.firewallPolicies.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesMove : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesMoveWithfirewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The new parent of the firewall policy. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Moves the specified firewall policy.
+ *
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesMove
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  Method: compute.firewallPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesPatchWithObject:firewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicy to include in the query.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicy *)object
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Patches a rule of the specified priority.
+ *
+ *  Method: compute.firewallPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesPatchRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesPatchRuleWithObject:firewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule of the specified priority.
+ *
+ *  @param object The @c GTLRCompute_FirewallPolicyRule to include in the query.
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_FirewallPolicyRule *)object
+                 firewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Removes an association for the specified firewall policy.
+ *
+ *  Method: compute.firewallPolicies.removeAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesRemoveAssociation : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesRemoveAssociationWithfirewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** Name for the attachment that will be removed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes an association for the specified firewall policy.
+ *
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Deletes a rule of the specified priority.
+ *
+ *  Method: compute.firewallPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesRemoveRule : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesRemoveRuleWithfirewallPolicy:]
+
+/** Name of the firewall policy to update. */
+@property(nonatomic, copy, nullable) NSString *firewallPolicy;
+
+/** The priority of the rule to remove from the firewall policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule of the specified priority.
+ *
+ *  @param firewallPolicy Name of the firewall policy to update.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesRemoveRule
+ */
++ (instancetype)queryWithFirewallPolicy:(NSString *)firewallPolicy;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.firewallPolicies.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_FirewallPoliciesSetIamPolicy : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesSetIamPolicyWithObject:resource:]
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_GlobalOrganizationSetPolicyRequest to
+ *    include in the query.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalOrganizationSetPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.firewallPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_FirewallPoliciesTestIamPermissions : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForFirewallPoliciesTestIamPermissionsWithObject:resource:]
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_FirewallPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
                        resource:(NSString *)resource;
 
 @end
@@ -3919,7 +4708,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4127,7 +4916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4361,7 +5150,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4441,6 +5230,64 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                  forwardingRule:(NSString *)forwardingRule;
+
+@end
+
+/**
+ *  Sets the labels on the specified resource. To learn more about labels, read
+ *  the Labeling Resources documentation.
+ *
+ *  Method: compute.forwardingRules.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ForwardingRulesSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForForwardingRulesSetLabelsWithObject:project:region:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on the specified resource. To learn more about labels, read
+ *  the Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_RegionSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ForwardingRulesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetLabelsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
 
 @end
 
@@ -4702,7 +5549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4924,7 +5771,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -4997,6 +5844,45 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithObject:(GTLRCompute_ForwardingRule *)object
                         project:(NSString *)project
                  forwardingRule:(NSString *)forwardingRule;
+
+@end
+
+/**
+ *  Sets the labels on the specified resource. To learn more about labels, read
+ *  the Labeling Resources documentation.
+ *
+ *  Method: compute.globalForwardingRules.setLabels
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalForwardingRulesSetLabels : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalForwardingRulesSetLabelsWithObject:project:resource:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Sets the labels on the specified resource. To learn more about labels, read
+ *  the Labeling Resources documentation.
+ *
+ *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalForwardingRulesSetLabels
+ */
++ (instancetype)queryWithObject:(GTLRCompute_GlobalSetLabelsRequest *)object
+                        project:(NSString *)project
+                       resource:(NSString *)resource;
 
 @end
 
@@ -5374,7 +6260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5470,7 +6356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5574,7 +6460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5732,7 +6618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -5946,7 +6832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6046,7 +6932,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6265,7 +7151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6594,7 +7480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -6923,7 +7809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7391,7 +8277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -7748,7 +8634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8268,7 +9154,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8376,7 +9262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8490,7 +9376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -8600,7 +9486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9306,7 +10192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9564,7 +10450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -9673,7 +10559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10055,7 +10941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10142,6 +11028,63 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                    zoneProperty:(NSString *)zoneProperty
                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Creates multiple instances. Count specifies the number of instances to
+ *  create.
+ *
+ *  Method: compute.instances.bulkInsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesBulkInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesBulkInsertWithObject:project:zoneProperty:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates multiple instances. Count specifies the number of instances to
+ *  create.
+ *
+ *  @param object The @c GTLRCompute_BulkInsertInstanceResource to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_InstancesBulkInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertInstanceResource *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
 
 @end
 
@@ -10380,6 +11323,56 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Returns effective firewalls applied to an interface of the instance.
+ *
+ *  Method: compute.instances.getEffectiveFirewalls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetEffectiveFirewalls : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForInstancesGetEffectiveFirewallsWithproject:zoneProperty:instance:networkInterface:]
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** The name of the network interface to get the effective firewalls. */
+@property(nonatomic, copy, nullable) NSString *networkInterface;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_InstancesGetEffectiveFirewallsResponse.
+ *
+ *  Returns effective firewalls applied to an interface of the instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *  @param networkInterface The name of the network interface to get the
+ *    effective firewalls.
+ *
+ *  @return GTLRComputeQuery_InstancesGetEffectiveFirewalls
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance
+                networkInterface:(NSString *)networkInterface;
 
 @end
 
@@ -10774,7 +11767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -10881,7 +11874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -12284,8 +13277,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Updates an instance's network interface. This method follows PATCH
- *  semantics.
+ *  Updates an instance's network interface. This method can only update an
+ *  interface's alias IP range and attached network. See Modifying alias IP
+ *  ranges for an existing instance for instructions on changing alias IP
+ *  ranges. See Migrating a VM between networks for instructions on migrating an
+ *  interface. This method follows PATCH semantics.
  *
  *  Method: compute.instances.updateNetworkInterface
  *
@@ -12330,8 +13326,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Updates an instance's network interface. This method follows PATCH
- *  semantics.
+ *  Updates an instance's network interface. This method can only update an
+ *  interface's alias IP range and attached network. See Modifying alias IP
+ *  ranges for an existing instance for instructions on changing alias IP
+ *  ranges. See Migrating a VM between networks for instructions on migrating an
+ *  interface. This method follows PATCH semantics.
  *
  *  @param object The @c GTLRCompute_NetworkInterface to include in the query.
  *  @param project Project ID for this request.
@@ -12662,7 +13661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -12840,7 +13839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13078,7 +14077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13268,7 +14267,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13525,7 +14524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -13941,7 +14940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -14130,7 +15129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -14261,7 +15260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -14370,7 +15369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -14767,7 +15766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -14874,7 +15873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15097,6 +16096,41 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Returns the effective firewalls on a given network.
+ *
+ *  Method: compute.networks.getEffectiveFirewalls
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_NetworksGetEffectiveFirewalls : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForNetworksGetEffectiveFirewallsWithproject:network:]
+
+/** Name of the network for this request. */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_NetworksGetEffectiveFirewallsResponse.
+ *
+ *  Returns the effective firewalls on a given network.
+ *
+ *  @param project Project ID for this request.
+ *  @param network Name of the network for this request.
+ *
+ *  @return GTLRComputeQuery_NetworksGetEffectiveFirewalls
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                         network:(NSString *)network;
+
+@end
+
+/**
  *  Creates a network in the specified project using the data included in the
  *  request.
  *
@@ -15211,7 +16245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15323,7 +16357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -15693,7 +16727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16055,7 +17089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16157,7 +17191,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16483,7 +17517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16763,7 +17797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -16952,7 +17986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17083,7 +18117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17192,7 +18226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17426,7 +18460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17863,7 +18897,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -17952,7 +18986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -18435,7 +19469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -18832,7 +19866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19055,7 +20089,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19237,7 +20271,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -19551,7 +20585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
-/** Optional. Source image to restore onto a disk. */
+/** Source image to restore onto a disk. This field is optional. */
 @property(nonatomic, copy, nullable) NSString *sourceImage;
 
 /**
@@ -19644,7 +20678,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20036,7 +21070,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20337,7 +21371,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -20590,7 +21624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21279,7 +22313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21384,7 +22418,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21491,7 +22525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -21594,7 +22628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22195,7 +23229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22298,7 +23332,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22386,6 +23420,59 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
                         project:(NSString *)project
                          region:(NSString *)region
                   instanceGroup:(NSString *)instanceGroup;
+
+@end
+
+/**
+ *  Creates multiple instances in a given region. Count specifies the number of
+ *  instances to create.
+ *
+ *  Method: compute.regionInstances.bulkInsert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstancesBulkInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForRegionInstancesBulkInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates multiple instances in a given region. Count specifies the number of
+ *  instances to create.
+ *
+ *  @param object The @c GTLRCompute_BulkInsertInstanceResource to include in
+ *    the query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_RegionInstancesBulkInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_BulkInsertInstanceResource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
 
 @end
 
@@ -22631,7 +23718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -22875,7 +23962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23050,7 +24137,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23239,7 +24326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23479,7 +24566,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -23722,7 +24809,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24020,7 +25107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24363,7 +25450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24608,7 +25695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -24900,7 +25987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25167,7 +26254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25444,7 +26531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25634,7 +26721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -25817,7 +26904,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -26012,7 +27099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -26399,7 +27486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -26693,7 +27780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -26782,7 +27869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27133,7 +28220,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27351,7 +28438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27570,7 +28657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27803,7 +28890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -27894,7 +28981,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28045,7 +29132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28381,7 +29468,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28472,7 +29559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -28909,7 +29996,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29064,7 +30151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29283,7 +30370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29489,7 +30576,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29708,7 +30795,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -29727,6 +30814,60 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified TargetHttpsProxy resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *
+ *  Method: compute.targetHttpsProxies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_TargetHttpsProxiesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForTargetHttpsProxiesPatchWithObject:project:targetHttpsProxy:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the TargetHttpsProxy resource to patch. */
+@property(nonatomic, copy, nullable) NSString *targetHttpsProxy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified TargetHttpsProxy resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *
+ *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param targetHttpsProxy Name of the TargetHttpsProxy resource to patch.
+ *
+ *  @return GTLRComputeQuery_TargetHttpsProxiesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TargetHttpsProxy *)object
+                        project:(NSString *)project
+               targetHttpsProxy:(NSString *)targetHttpsProxy;
 
 @end
 
@@ -30031,7 +31172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -30276,7 +31417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -30498,7 +31639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -30779,7 +31920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31174,7 +32315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31620,7 +32761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -31828,7 +32969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32064,7 +33205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32168,7 +33309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32443,7 +33584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32686,7 +33827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -32962,7 +34103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33166,7 +34307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33402,7 +34543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33582,7 +34723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
@@ -33785,7 +34926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Opt-in for partial success behavior which provides partial results in case
- *  of failure. The default value is false and the logic is the same as today.
+ *  of failure. The default value is false.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 

@@ -378,7 +378,7 @@
 @implementation GTLRCalendar_Event
 @dynamic anyoneCanAddSelf, attachments, attendees, attendeesOmitted, colorId,
          conferenceData, created, creator, descriptionProperty, end,
-         endTimeUnspecified, ETag, extendedProperties, gadget,
+         endTimeUnspecified, ETag, eventType, extendedProperties, gadget,
          guestsCanInviteOthers, guestsCanModify, guestsCanSeeOtherGuests,
          hangoutLink, htmlLink, iCalUID, identifier, kind, location, locked,
          organizer, originalStartTime, privateCopy, recurrence,

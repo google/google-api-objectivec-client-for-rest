@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Resource Manager API (cloudresourcemanager/v2)
+//   Cloud Resource Manager API (cloudresourcemanager/v3)
 // Description:
 //   Creates, reads, and updates metadata for Google Cloud Platform resource
 //   containers.
@@ -19,69 +19,229 @@
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersCreate
+@implementation GTLRCloudResourceManagerQuery_LiensCreate
 
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object {
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_Lien *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v2/folders";
-  GTLRCloudResourceManagerQuery_FoldersCreate *query =
+  NSString *pathURITemplate = @"v3/liens";
+  GTLRCloudResourceManagerQuery_LiensCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Lien class];
+  query.loggingName = @"cloudresourcemanager.liens.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LiensDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_LiensDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Empty class];
+  query.loggingName = @"cloudresourcemanager.liens.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LiensGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_LiensGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Lien class];
+  query.loggingName = @"cloudresourcemanager.liens.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_LiensList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/liens";
+  GTLRCloudResourceManagerQuery_LiensList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListLiensResponse class];
+  query.loggingName = @"cloudresourcemanager.liens.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_OperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_OperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagBindingsCreate
+
+@dynamic validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBinding *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v3/tagBindings";
+  GTLRCloudResourceManagerQuery_TagBindingsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
-  query.loggingName = @"cloudresourcemanager.folders.create";
+  query.loggingName = @"cloudresourcemanager.tagBindings.create";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersDelete
+@implementation GTLRCloudResourceManagerQuery_TagBindingsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRCloudResourceManagerQuery_FoldersDelete *query =
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagBindingsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Folder class];
-  query.loggingName = @"cloudresourcemanager.folders.delete";
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagBindings.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersGet
+@implementation GTLRCloudResourceManagerQuery_TagBindingsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/tagBindings";
+  GTLRCloudResourceManagerQuery_TagBindingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListTagBindingsResponse class];
+  query.loggingName = @"cloudresourcemanager.tagBindings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagKeysCreate
+
+@dynamic validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagKey *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v3/tagKeys";
+  GTLRCloudResourceManagerQuery_TagKeysCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagKeysDelete
+
+@dynamic ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagKeysDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagKeysGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRCloudResourceManagerQuery_FoldersGet *query =
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagKeysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Folder class];
-  query.loggingName = @"cloudresourcemanager.folders.get";
+  query.expectedObjectClass = [GTLRCloudResourceManager_TagKey class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.get";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersGetIamPolicy
+@implementation GTLRCloudResourceManagerQuery_TagKeysGetIamPolicy
 
 @dynamic resource;
 
@@ -94,42 +254,42 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
-  GTLRCloudResourceManagerQuery_FoldersGetIamPolicy *query =
+  NSString *pathURITemplate = @"v3/{+resource}:getIamPolicy";
+  GTLRCloudResourceManagerQuery_TagKeysGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
-  query.loggingName = @"cloudresourcemanager.folders.getIamPolicy";
+  query.loggingName = @"cloudresourcemanager.tagKeys.getIamPolicy";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersList
+@implementation GTLRCloudResourceManagerQuery_TagKeysList
 
-@dynamic pageSize, pageToken, parent, showDeleted;
+@dynamic pageSize, pageToken, parent;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v2/folders";
-  GTLRCloudResourceManagerQuery_FoldersList *query =
+  NSString *pathURITemplate = @"v3/tagKeys";
+  GTLRCloudResourceManagerQuery_TagKeysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRCloudResourceManager_ListFoldersResponse class];
-  query.loggingName = @"cloudresourcemanager.folders.list";
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListTagKeysResponse class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.list";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersMove
+@implementation GTLRCloudResourceManagerQuery_TagKeysPatch
 
-@dynamic name;
+@dynamic name, updateMask, validateOnly;
 
-+ (instancetype)queryWithObject:(GTLRCloudResourceManager_MoveFolderRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagKey *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -138,70 +298,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}:move";
-  GTLRCloudResourceManagerQuery_FoldersMove *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
-  query.loggingName = @"cloudresourcemanager.folders.move";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudResourceManagerQuery_FoldersPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRCloudResourceManager_Folder *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}";
-  GTLRCloudResourceManagerQuery_FoldersPatch *query =
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagKeysPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Folder class];
-  query.loggingName = @"cloudresourcemanager.folders.patch";
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagKeys.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersSearch
-
-+ (instancetype)queryWithObject:(GTLRCloudResourceManager_SearchFoldersRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v2/folders:search";
-  GTLRCloudResourceManagerQuery_FoldersSearch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudResourceManager_SearchFoldersResponse class];
-  query.loggingName = @"cloudresourcemanager.folders.search";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudResourceManagerQuery_FoldersSetIamPolicy
+@implementation GTLRCloudResourceManagerQuery_TagKeysSetIamPolicy
 
 @dynamic resource;
 
@@ -214,21 +325,21 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
-  GTLRCloudResourceManagerQuery_FoldersSetIamPolicy *query =
+  NSString *pathURITemplate = @"v3/{+resource}:setIamPolicy";
+  GTLRCloudResourceManagerQuery_TagKeysSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
-  query.loggingName = @"cloudresourcemanager.folders.setIamPolicy";
+  query.loggingName = @"cloudresourcemanager.tagKeys.setIamPolicy";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersTestIamPermissions
+@implementation GTLRCloudResourceManagerQuery_TagKeysTestIamPermissions
 
 @dynamic resource;
 
@@ -241,25 +352,135 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
-  GTLRCloudResourceManagerQuery_FoldersTestIamPermissions *query =
+  NSString *pathURITemplate = @"v3/{+resource}:testIamPermissions";
+  GTLRCloudResourceManagerQuery_TagKeysTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudResourceManager_TestIamPermissionsResponse class];
-  query.loggingName = @"cloudresourcemanager.folders.testIamPermissions";
+  query.loggingName = @"cloudresourcemanager.tagKeys.testIamPermissions";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_FoldersUndelete
+@implementation GTLRCloudResourceManagerQuery_TagValuesCreate
+
+@dynamic validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagValue *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v3/tagValues";
+  GTLRCloudResourceManagerQuery_TagValuesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagValues.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesDelete
+
+@dynamic ETag, name, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagValuesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagValues.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesGet
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRCloudResourceManager_UndeleteFolderRequest *)object
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagValuesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudResourceManager_TagValue class];
+  query.loggingName = @"cloudresourcemanager.tagValues.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesGetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_GetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v3/{+resource}:getIamPolicy";
+  GTLRCloudResourceManagerQuery_TagValuesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
+  query.loggingName = @"cloudresourcemanager.tagValues.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v3/tagValues";
+  GTLRCloudResourceManagerQuery_TagValuesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudResourceManager_ListTagValuesResponse class];
+  query.loggingName = @"cloudresourcemanager.tagValues.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesPatch
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TagValue *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -268,34 +489,69 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v2/{+name}:undelete";
-  GTLRCloudResourceManagerQuery_FoldersUndelete *query =
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRCloudResourceManagerQuery_TagValuesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Folder class];
-  query.loggingName = @"cloudresourcemanager.folders.undelete";
+  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
+  query.loggingName = @"cloudresourcemanager.tagValues.patch";
   return query;
 }
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_OperationsGet
+@implementation GTLRCloudResourceManagerQuery_TagValuesSetIamPolicy
 
-@dynamic name;
+@dynamic resource;
 
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudResourceManagerQuery_OperationsGet *query =
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v3/{+resource}:setIamPolicy";
+  GTLRCloudResourceManagerQuery_TagValuesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
+                               HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
-  query.loggingName = @"cloudresourcemanager.operations.get";
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudResourceManager_Policy class];
+  query.loggingName = @"cloudresourcemanager.tagValues.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudResourceManagerQuery_TagValuesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudResourceManager_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v3/{+resource}:testIamPermissions";
+  GTLRCloudResourceManagerQuery_TagValuesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudResourceManager_TestIamPermissionsResponse class];
+  query.loggingName = @"cloudresourcemanager.tagValues.testIamPermissions";
   return query;
 }
 

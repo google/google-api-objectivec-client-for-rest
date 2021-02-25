@@ -40,7 +40,11 @@
 @class GTLRIam_TestIamPermissionsRequest;
 @class GTLRIam_UndeleteRoleRequest;
 @class GTLRIam_UndeleteServiceAccountRequest;
+@class GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest;
+@class GTLRIam_UndeleteWorkloadIdentityPoolRequest;
 @class GTLRIam_UploadServiceAccountKeyRequest;
+@class GTLRIam_WorkloadIdentityPool;
+@class GTLRIam_WorkloadIdentityPoolProvider;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -667,6 +671,168 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Creates a new WorkloadIdentityPool. You cannot reuse the name of a deleted
+ *  pool until 30 days after deletion.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsCreateWithObject:parent:]
+
+/**
+ *  Required. The parent resource to create the pool in. The only supported
+ *  location is `global`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the pool, which becomes the final component of
+ *  the resource name. This value should be 4-32 characters, and may contain the
+ *  characters [a-z0-9-]. The prefix `gcp-` is reserved for use by Google, and
+ *  may not be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadIdentityPoolId;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Creates a new WorkloadIdentityPool. You cannot reuse the name of a deleted
+ *  pool until 30 days after deletion.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPool to include in the query.
+ *  @param parent Required. The parent resource to create the pool in. The only
+ *    supported location is `global`.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a WorkloadIdentityPool. You cannot use a deleted pool to exchange
+ *  external credentials for Google Cloud credentials. However, deletion does
+ *  not revoke credentials that have already been issued. Credentials issued for
+ *  a deleted pool do not grant access to resources. If the pool is undeleted,
+ *  and the credentials are not expired, they grant access again. You can
+ *  undelete a pool for 30 days. After 30 days, deletion is permanent. You
+ *  cannot update deleted pools. However, you can view and list them.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsDeleteWithname:]
+
+/** Required. The name of the pool to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Deletes a WorkloadIdentityPool. You cannot use a deleted pool to exchange
+ *  external credentials for Google Cloud credentials. However, deletion does
+ *  not revoke credentials that have already been issued. Credentials issued for
+ *  a deleted pool do not grant access to resources. If the pool is undeleted,
+ *  and the credentials are not expired, they grant access again. You can
+ *  undelete a pool for 30 days. After 30 days, deletion is permanent. You
+ *  cannot update deleted pools. However, you can view and list them.
+ *
+ *  @param name Required. The name of the pool to delete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an individual WorkloadIdentityPool.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsGetWithname:]
+
+/** Required. The name of the pool to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_WorkloadIdentityPool.
+ *
+ *  Gets an individual WorkloadIdentityPool.
+ *
+ *  @param name Required. The name of the pool to retrieve.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all non-deleted WorkloadIdentityPools in a project. If `show_deleted`
+ *  is set to `true`, then deleted pools are also listed.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsListWithparent:]
+
+/**
+ *  The maximum number of pools to return. If unspecified, at most 50 pools are
+ *  returned. The maximum value is 1000; values above are 1000 truncated to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListWorkloadIdentityPools` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource to list pools for. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Whether to return soft-deleted pools. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRIam_ListWorkloadIdentityPoolsResponse.
+ *
+ *  Lists all non-deleted WorkloadIdentityPools in a project. If `show_deleted`
+ *  is set to `true`, then deleted pools are also listed.
+ *
+ *  @param parent Required. The parent resource to list pools for.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -699,6 +865,200 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
+ *  Updates an existing WorkloadIdentityPool.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsPatchWithObject:name:]
+
+/** Output only. The resource name of the pool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Updates an existing WorkloadIdentityPool.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPool to include in the query.
+ *  @param name Output only. The resource name of the pool.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPool *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new WorkloadIdentityPoolProvider in a WorkloadIdentityPool. You
+ *  cannot reuse the name of a deleted provider until 30 days after deletion.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersCreateWithObject:parent:]
+
+/** Required. The pool to create this provider in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID for the provider, which becomes the final component of the
+ *  resource name. This value must be 4-32 characters, and may contain the
+ *  characters [a-z0-9-]. The prefix `gcp-` is reserved for use by Google, and
+ *  may not be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *workloadIdentityPoolProviderId;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Creates a new WorkloadIdentityPoolProvider in a WorkloadIdentityPool. You
+ *  cannot reuse the name of a deleted provider until 30 days after deletion.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPoolProvider to include in the
+ *    query.
+ *  @param parent Required. The pool to create this provider in.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a WorkloadIdentityPoolProvider. Deleting a provider does not revoke
+ *  credentials that have already been issued; they continue to grant access.
+ *  You can undelete a provider for 30 days. After 30 days, deletion is
+ *  permanent. You cannot update deleted providers. However, you can view and
+ *  list them.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersDeleteWithname:]
+
+/** Required. The name of the provider to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Deletes a WorkloadIdentityPoolProvider. Deleting a provider does not revoke
+ *  credentials that have already been issued; they continue to grant access.
+ *  You can undelete a provider for 30 days. After 30 days, deletion is
+ *  permanent. You cannot update deleted providers. However, you can view and
+ *  list them.
+ *
+ *  @param name Required. The name of the provider to delete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an individual WorkloadIdentityPoolProvider.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersGetWithname:]
+
+/** Required. The name of the provider to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_WorkloadIdentityPoolProvider.
+ *
+ *  Gets an individual WorkloadIdentityPoolProvider.
+ *
+ *  @param name Required. The name of the provider to retrieve.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all non-deleted WorkloadIdentityPoolProviders in a
+ *  WorkloadIdentityPool. If `show_deleted` is set to `true`, then deleted
+ *  providers are also listed.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersListWithparent:]
+
+/**
+ *  The maximum number of providers to return. If unspecified, at most 50
+ *  providers are returned. The maximum value is 100; values above 100 are
+ *  truncated to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListWorkloadIdentityPoolProviders`
+ *  call. Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The pool to list providers for. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Whether to return soft-deleted providers. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRIam_ListWorkloadIdentityPoolProvidersResponse.
+ *
+ *  Lists all non-deleted WorkloadIdentityPoolProviders in a
+ *  WorkloadIdentityPool. If `show_deleted` is set to `true`, then deleted
+ *  providers are also listed.
+ *
+ *  @param parent Required. The pool to list providers for.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -727,6 +1087,110 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates an existing WorkloadIdentityPoolProvider.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersPatchWithObject:name:]
+
+/** Output only. The resource name of the provider. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Updates an existing WorkloadIdentityPoolProvider.
+ *
+ *  @param object The @c GTLRIam_WorkloadIdentityPoolProvider to include in the
+ *    query.
+ *  @param name Output only. The resource name of the provider.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch
+ */
++ (instancetype)queryWithObject:(GTLRIam_WorkloadIdentityPoolProvider *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a WorkloadIdentityPoolProvider, as long as it was deleted fewer
+ *  than 30 days ago.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.providers.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersUndeleteWithObject:name:]
+
+/** Required. The name of the provider to undelete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Undeletes a WorkloadIdentityPoolProvider, as long as it was deleted fewer
+ *  than 30 days ago.
+ *
+ *  @param object The @c GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest to
+ *    include in the query.
+ *  @param name Required. The name of the provider to undelete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete
+ */
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolProviderRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Undeletes a WorkloadIdentityPool, as long as it was deleted fewer than 30
+ *  days ago.
+ *
+ *  Method: iam.projects.locations.workloadIdentityPools.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeIamCloudPlatform
+ */
+@interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete : GTLRIamQuery
+// Previous library name was
+//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsUndeleteWithObject:name:]
+
+/** Required. The name of the pool to undelete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRIam_Operation.
+ *
+ *  Undeletes a WorkloadIdentityPool, as long as it was deleted fewer than 30
+ *  days ago.
+ *
+ *  @param object The @c GTLRIam_UndeleteWorkloadIdentityPoolRequest to include
+ *    in the query.
+ *  @param name Required. The name of the pool to undelete.
+ *
+ *  @return GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete
+ */
++ (instancetype)queryWithObject:(GTLRIam_UndeleteWorkloadIdentityPoolRequest *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -86,6 +86,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
 
 
 /**
+ *  Compute the current head cursor for a partition.
+ */
+@interface GTLRPubsubLite_ComputeHeadCursorRequest : GTLRObject
+
+/**
+ *  Required. The partition for which we should compute the head cursor.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partition;
+
+@end
+
+
+/**
+ *  Response containing the head cursor for the requested topic and partition.
+ */
+@interface GTLRPubsubLite_ComputeHeadCursorResponse : GTLRObject
+
+/** The head cursor. */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_Cursor *headCursor;
+
+@end
+
+
+/**
  *  Compute statistics about a range of messages in a given topic and partition.
  */
 @interface GTLRPubsubLite_ComputeMessageStatsRequest : GTLRObject

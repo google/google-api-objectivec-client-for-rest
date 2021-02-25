@@ -456,7 +456,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *token;
 
-/** The type of delivery mechanism used for this channel. */
+/**
+ *  The type of delivery mechanism used for this channel. Valid values are
+ *  "web_hook" (or "webhook"). Both values refer to a channel where Http
+ *  requests are used to deliver messages.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -962,6 +966,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** ETag of the resource. */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Specific type of the event. Read-only. Possible values are:
+ *  - "default" - A regular event or not further specified.
+ *  - "outOfOffice" - An out-of-office event.
+ */
+@property(nonatomic, copy, nullable) NSString *eventType;
 
 /** Extended properties of the event. */
 @property(nonatomic, strong, nullable) GTLRCalendar_Event_ExtendedProperties *extendedProperties;

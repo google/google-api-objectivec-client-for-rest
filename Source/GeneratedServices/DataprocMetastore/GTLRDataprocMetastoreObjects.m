@@ -48,6 +48,18 @@ NSString * const kGTLRDataprocMetastore_MetadataImport_State_StateUnspecified = 
 NSString * const kGTLRDataprocMetastore_MetadataImport_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating = @"UPDATING";
 
+// GTLRDataprocMetastore_Restore.state
+NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Failed   = @"FAILED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Running  = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_Restore_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Succeeded = @"SUCCEEDED";
+
+// GTLRDataprocMetastore_Restore.type
+NSString * const kGTLRDataprocMetastore_Restore_Type_Full      = @"FULL";
+NSString * const kGTLRDataprocMetastore_Restore_Type_MetadataOnly = @"METADATA_ONLY";
+NSString * const kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
+
 // GTLRDataprocMetastore_Service.state
 NSString * const kGTLRDataprocMetastore_Service_State_Active   = @"ACTIVE";
 NSString * const kGTLRDataprocMetastore_Service_State_Creating = @"CREATING";
@@ -401,11 +413,12 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_MetadataManagementActivity
-@dynamic metadataExports;
+@dynamic metadataExports, restores;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"metadataExports" : [GTLRDataprocMetastore_MetadataExport class]
+    @"metadataExports" : [GTLRDataprocMetastore_MetadataExport class],
+    @"restores" : [GTLRDataprocMetastore_Restore class]
   };
   return map;
 }
@@ -471,6 +484,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Restore
+//
+
+@implementation GTLRDataprocMetastore_Restore
+@dynamic backup, endTime, startTime, state, type;
 @end
 
 

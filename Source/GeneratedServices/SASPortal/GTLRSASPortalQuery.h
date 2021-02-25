@@ -187,7 +187,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -264,12 +264,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersDeploymentsListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no deployments are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of deployments to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDeployments method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDeployments that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -496,7 +503,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -707,8 +714,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListCustomers method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListCustomers that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -831,12 +838,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersNodesDeploymentsListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no deployments are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of deployments to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDeployments method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDeployments that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -939,7 +953,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1016,12 +1030,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersNodesListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no nodes are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of nodes to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method that
- *  indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes that indicates
+ *  where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1118,12 +1139,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForCustomersNodesNodesListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no nodes are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of nodes to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method that
- *  indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes that indicates
+ *  where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1436,7 +1464,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Generates a secret to be used with the ValidateInstaller method
+ *  Generates a secret to be used with the ValidateInstaller.
  *
  *  Method: sasportal.installer.generateSecret
  *
@@ -1450,7 +1478,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSASPortal_GenerateSecretResponse.
  *
- *  Generates a secret to be used with the ValidateInstaller method
+ *  Generates a secret to be used with the ValidateInstaller.
  *
  *  @param object The @c GTLRSASPortal_GenerateSecretRequest to include in the
  *    query.
@@ -1590,7 +1618,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1667,12 +1695,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForNodesDeploymentsListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no deployments are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of deployments to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDeployments method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDeployments that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1899,7 +1934,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2198,12 +2233,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForNodesNodesDeploymentsListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no deployments are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of deployments to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListDeployments method
- *  that indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListDeployments that
+ *  indicates where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2306,7 +2348,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The filter expression. The filter should have one of the following formats:
- *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial_number of
+ *  "sn=123454" or "display_name=MyDevice". sn corresponds to serial number of
  *  the device. The filter is case insensitive.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2383,12 +2425,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForNodesNodesListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no nodes are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of nodes to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method that
- *  indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes that indicates
+ *  where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2485,12 +2534,19 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQuerySASPortal queryForNodesNodesNodesListWithparent:]
 
+/**
+ *  The filter expression. The filter should have the following format:
+ *  "DIRECT_CHILDREN" or format: "direct_children". The filter is case
+ *  insensitive. If empty, then no nodes are filtered.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /** The maximum number of nodes to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A pagination token returned from a previous call to ListNodes method that
- *  indicates where this listing should continue from.
+ *  A pagination token returned from a previous call to ListNodes that indicates
+ *  where this listing should continue from.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

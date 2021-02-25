@@ -1635,6 +1635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Max number of bytes to scan from a file. If a scanned file's size is bigger
  *  than this value then the rest of the bytes are omitted. Only one of
  *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  Cannot be set if de-identification is requested.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1645,6 +1646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  number of bytes scanned is rounded down. Must be between 0 and 100,
  *  inclusively. Both 0 and 100 means no limit. Defaults to 0. Only one of
  *  bytes_limit_per_file and bytes_limit_per_file_percent can be specified.
+ *  Cannot be set if de-identification is requested.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2556,7 +2558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Output only. The creation timestamp of an inspectTemplate. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** ///////////// // The core content of the template // /////////////// */
+/** The core content of the template. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2DeidentifyConfig *deidentifyConfig;
 
 /**
@@ -3129,7 +3131,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Configuration to control the number of findings returned.
+ *  Configuration to control the number of findings returned. Cannot be set if
+ *  de-identification is requested.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FindingLimits : GTLRObject
 
@@ -5356,7 +5359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Schedule for triggeredJobs.
+ *  Schedule for inspect job triggers.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Schedule : GTLRObject
 

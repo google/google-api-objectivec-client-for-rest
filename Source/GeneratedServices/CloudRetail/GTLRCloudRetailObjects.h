@@ -1675,9 +1675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  */
 @property(nonatomic, strong, nullable) NSNumber *availableQuantity;
 
-/**
- *  The timestamp when this Product becomes available recommendation and search.
- */
+/** The timestamp when this Product becomes available for recommendation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *availableTime;
 
 /**
@@ -1727,9 +1725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  Product images for the product. A maximum of 300 images are allowed. Google
- *  Merchant Center property
- *  [image_link](https://support.google.com/merchants/answer/6324350).
+ *  Product images for the product.Highly recommended to put the main image to
+ *  the first. A maximum of 300 images are allowed. Google Merchant Center
+ *  property [image_link](https://support.google.com/merchants/answer/6324350).
  *  Schema.org property [Product.image](https://schema.org/image).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2Image *> *images;
@@ -2138,9 +2136,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  Required. User event type. Allowed values are: * `add-to-cart`: Products
  *  being added to cart. * `category-page-view`: Special pages such as sale or
  *  promotion pages viewed. * `detail-page-view`: Products detail page viewed. *
- *  `home-page-view`: Homepage viewed. * `purchase-complete`: User finishing a
- *  purchase. * `search`: Product search. * `shopping-cart-page-view`: User
- *  viewing a shopping cart.
+ *  `home-page-view`: Homepage viewed. * `promotion-offered`: Promotion is
+ *  offered to a user. * `promotion-not-offered`: Promotion is not offered to a
+ *  user. * `purchase-complete`: User finishing a purchase. * `search`: Product
+ *  search. * `shopping-cart-page-view`: User viewing a shopping cart.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -2158,9 +2157,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  the category name, please replace it with other character(s). Category pages
  *  include special pages such as sales or promotions. For instance, a special
  *  sale page may have the category hierarchy: "pageCategories" : ["Sales > 2017
- *  Black Friday Deals"]. Required for `category-page-view` events. Other event
- *  types should not set this field. Otherwise, an INVALID_ARGUMENT error is
- *  returned.
+ *  Black Friday Deals"]. Required for `category-page-view` events. At least one
+ *  of search_query or page_categories is required for `search` events. Other
+ *  event types should not set this field. Otherwise, an INVALID_ARGUMENT error
+ *  is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
@@ -2204,8 +2204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 /**
  *  The user's search query. The value must be a UTF-8 encoded string with a
  *  length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. At least one of search_query or filter is required for `search`
- *  events. Other event types should not set this field. Otherwise, an
+ *  returned. At least one of search_query or page_categories is required for
+ *  `search` events. Other event types should not set this field. Otherwise, an
  *  INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *searchQuery;

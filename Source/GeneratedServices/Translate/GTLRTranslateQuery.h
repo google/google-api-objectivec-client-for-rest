@@ -722,11 +722,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Waits for the specified long-running operation until it is done or reaches
- *  at most a specified timeout, returning the latest state. If the operation is
- *  already done, the latest state is immediately returned. If the timeout
- *  specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout
- *  is used. If the server does not support this method, it returns
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
  *  basis. It may return the latest state before the specified timeout
  *  (including immediately), meaning even an immediate response is no guarantee
@@ -748,11 +748,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTranslate_Operation.
  *
- *  Waits for the specified long-running operation until it is done or reaches
- *  at most a specified timeout, returning the latest state. If the operation is
- *  already done, the latest state is immediately returned. If the timeout
- *  specified is greater than the default HTTP/RPC timeout, the HTTP/RPC timeout
- *  is used. If the server does not support this method, it returns
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
  *  basis. It may return the latest state before the specified timeout
  *  (including immediately), meaning even an immediate response is no guarantee

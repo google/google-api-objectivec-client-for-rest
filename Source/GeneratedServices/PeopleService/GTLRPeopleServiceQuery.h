@@ -536,6 +536,54 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
+ *  Provides a list of contacts in the authenticated user's other contacts that
+ *  matches the search query.
+ *
+ *  Method: people.otherContacts.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
+ */
+@interface GTLRPeopleServiceQuery_OtherContactsSearch : GTLRPeopleServiceQuery
+// Previous library name was
+//   +[GTLQueryPeopleService queryForOtherContactsSearch]
+
+/**
+ *  Optional. The number of results to return. Defaults to 10 if field is not
+ *  set, or set to 0.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Required. The plain-text query for the request. The query is used to match
+ *  prefix phrases of the fields on a person. For example, a person with name
+ *  "foo name" matches queries such as "f", "fo", "foo", "foo n", "nam", etc.,
+ *  but not "oo n".
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Required. A field mask to restrict which fields on each person are returned.
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * emailAddresses * names * phoneNumbers
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRPeopleService_SearchResponse.
+ *
+ *  Provides a list of contacts in the authenticated user's other contacts that
+ *  matches the search query.
+ *
+ *  @return GTLRPeopleServiceQuery_OtherContactsSearch
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Provides a list of the authenticated user's contacts. The request returns a
  *  400 error if `personFields` is not specified. The request returns a 410
  *  error if `sync_token` is specified and is expired. Sync tokens expire after
@@ -1101,6 +1149,57 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Provides a list of contacts in the authenticated user's grouped contacts
+ *  that matches the search query.
+ *
+ *  Method: people.people.searchContacts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePeopleServiceContacts
+ *    @c kGTLRAuthScopePeopleServiceContactsReadonly
+ */
+@interface GTLRPeopleServiceQuery_PeopleSearchContacts : GTLRPeopleServiceQuery
+// Previous library name was
+//   +[GTLQueryPeopleService queryForPeopleSearchContacts]
+
+/** Optional. The number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Required. The plain-text query for the request. The query is used to match
+ *  prefix phrases of the fields on a person. For example, a person with name
+ *  "foo name" matches queries such as "f", "fo", "foo", "foo n", "nam", etc.,
+ *  but not "oo n".
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Required. A field mask to restrict which fields on each person are returned.
+ *  Multiple fields can be specified by separating them with commas. Valid
+ *  values are: * addresses * ageRanges * biographies * birthdays * calendarUrls
+ *  * clientData * coverPhotos * emailAddresses * events * externalIds * genders
+ *  * imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Fetches a @c GTLRPeopleService_SearchResponse.
+ *
+ *  Provides a list of contacts in the authenticated user's grouped contacts
+ *  that matches the search query.
+ *
+ *  @return GTLRPeopleServiceQuery_PeopleSearchContacts
  */
 + (instancetype)query;
 

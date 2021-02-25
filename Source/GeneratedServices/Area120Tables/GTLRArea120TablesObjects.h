@@ -356,11 +356,17 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @interface GTLRArea120Tables_Row : GTLRObject
 
+/** Time when the row was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /**
  *  The resource name of the row. Row names have the form
  *  `tables/{table}/rows/{row}`. The name is ignored when creating a row.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Time when the row was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
  *  The values of the row. This is a map of column key to value. Key is user
@@ -396,6 +402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_ColumnDescription *> *columns;
 
+/** Time when the table was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** The human readable title of the table. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -403,6 +412,11 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *  The resource name of the table. Table names have the form `tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Time when the table was last updated excluding updates to individual rows
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -443,6 +457,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  */
 @interface GTLRArea120Tables_Workspace : GTLRObject
 
+/** Time when the workspace was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
 /** The human readable title of the workspace. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -454,6 +471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 /** The list of tables in the workspace. */
 @property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_Table *> *tables;
+
+/** Time when the workspace was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

@@ -344,6 +344,84 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_Sta
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Environment.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Instance.peeringCidrRange
+
+/**
+ *  Range not specified.
+ *
+ *  Value: "CIDR_RANGE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified;
+/**
+ *  The "/16" CIDR range.
+ *
+ *  Value: "SLASH_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16;
+/**
+ *  The "/20" CIDR range.
+ *
+ *  Value: "SLASH_20"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Instance.state
 
 /**
@@ -430,6 +508,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetad
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Organization.billingType
+
+/**
+ *  Billing type not specified.
+ *
+ *  Value: "BILLING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified;
+/**
+ *  Free and limited access to Apigee for evaluation purposes only. only.
+ *
+ *  Value: "EVALUATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation;
+/**
+ *  A pre-paid subscription to Apigee.
+ *
+ *  Value: "SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Subscription;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.runtimeType
 
 /**
@@ -450,6 +550,34 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_R
  *  Value: "RUNTIME_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1Organization.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
@@ -2586,6 +2714,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *expiresAt;
 
 /**
+ *  Input only. Expiration time, in seconds, for the consumer key. If not set or
+ *  left to the default value of `-1`, the API key never expires. The expiration
+ *  time can't be updated after it is set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresInSeconds;
+
+/**
  *  Time the developer app was created in milliseconds since epoch.
  *
  *  Uses NSNumber of longLongValue.
@@ -2684,6 +2821,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Optional. Key-value pairs that may be used for customizing the environment.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Properties *properties;
+
+/**
+ *  Output only. State of the environment. Values other than ACTIVE means the
+ *  resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_Active Resource
+ *        is provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_Creating Resource
+ *        is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_Deleting The
+ *        resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2810,6 +2963,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** ID of the environment group. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the environment group. Values other than ACTIVE means
+ *  the resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Active
+ *        Resource is provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Creating
+ *        Resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Deleting The
+ *        resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -3128,6 +3297,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  expression `^a-z{0,30}[a-z\\d]$`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The size of the CIDR block range that will be reserved by the
+ *  instance. If not specified, default to SLASH_16.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified
+ *        Range not specified. (Value: "CIDR_RANGE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16
+ *        The "/16" CIDR range. (Value: "SLASH_16")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20
+ *        The "/20" CIDR range. (Value: "SLASH_20")
+ */
+@property(nonatomic, copy, nullable) NSString *peeringCidrRange;
 
 /** Output only. Port number of the exposed Apigee endpoint. */
 @property(nonatomic, copy, nullable) NSString *port;
@@ -3957,15 +4140,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Compute Engine network used for Service Networking to be peered with Apigee
  *  runtime instances. See [Getting started with the Service Networking
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
- *  Valid only when [RuntimeType] is set to CLOUD. The value can be updated only
- *  when there are no runtime instances. For example: "default". **Note:** Not
+ *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value can
+ *  be updated only when there are no runtime instances. For example: `default`.
+ *  Apigee also supports shared VPC (that is, the host network project is not
+ *  the same as the one that is peering with Apigee). See [Shared VPC
+ *  overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC
+ *  network, use the following format:
+ *  `projects/{host-project-id}/{region}/networks/{network-name}`. For example:
+ *  `projects/my-sharedvpc-host/global/networks/mynetwork` **Note:** Not
  *  supported for Apigee hybrid.
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
+ *  Output only. Billing type of the Apigee organization. See [Apigee
+ *  pricing](https://cloud.google.com/apigee/pricing).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified
+ *        Billing type not specified. (Value: "BILLING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation
+ *        Free and limited access to Apigee for evaluation purposes only. only.
+ *        (Value: "EVALUATION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Subscription
+ *        A pre-paid subscription to Apigee. (Value: "SUBSCRIPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *billingType;
+
+/**
  *  Output only. Base64-encoded public certificate for the root CA of the Apigee
- *  organization. Valid only when [RuntimeType] is CLOUD.
+ *  organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -4006,7 +4210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Output only. Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The project ID associated with the Apigee organization. */
+/** Project ID associated with the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Properties defined in the Apigee organization profile. */
@@ -4016,9 +4220,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Cloud KMS key name used for encrypting the data that is stored and
  *  replicated across runtime instances. Update is not allowed after the
  *  organization is created. If not specified, a Google-Managed encryption key
- *  will be used. Valid only when [RuntimeType] is CLOUD. For example:
- *  "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not
- *  supported for Apigee hybrid.
+ *  will be used. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`. For
+ *  example: "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:**
+ *  Not supported for Apigee hybrid.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeDatabaseEncryptionKeyName;
 
@@ -4037,9 +4241,26 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *runtimeType;
 
 /**
- *  Output only. Subscription type of the Apigee organization. Valid values
- *  include trial (free, limited, and for evaluation purposes only) or paid
- *  (full subscription has been purchased). See [Apigee
+ *  Output only. State of the organization. Values other than ACTIVE means the
+ *  resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_Active Resource
+ *        is provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_Creating
+ *        Resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_Deleting The
+ *        resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. DEPRECATED: This will eventually be replaced by BillingType.
+ *  Subscription type of the Apigee organization. Valid values include trial
+ *  (free, limited, and for evaluation purposes only) or paid (full subscription
+ *  has been purchased). See [Apigee
  *  pricing](https://cloud.google.com/apigee/pricing/).
  *
  *  Likely values:

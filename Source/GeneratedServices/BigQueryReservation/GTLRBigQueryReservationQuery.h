@@ -449,7 +449,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Name of the requested reservation, for example:
- *  `projects/{project_id}/locations/{location_id}/bireservation`
+ *  `projects/{project_id}/locations/{location_id}/biReservation`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -459,7 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Retrieves a BI reservation.
  *
  *  @param name Required. Name of the requested reservation, for example:
- *    `projects/{project_id}/locations/{location_id}/bireservation`
+ *    `projects/{project_id}/locations/{location_id}/biReservation`
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsGetBiReservation
  */
@@ -481,11 +481,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  `organizationA` contains two projects, `project1` and `project2`. *
  *  Assignments for all three entities (`organizationA`, `project1`, and
  *  `project2`) could all be created and mapped to the same or different
- *  reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not
- *  have 'bigquery.admin' permissions on the project using the reservation and
- *  the project that owns this reservation. Returns
- *  `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment does not
- *  match location of the reservation.
+ *  reservations. "None" assignments represent an absence of the assignment.
+ *  Projects assigned to None use on-demand pricing. To create a "None"
+ *  assignment, use "none" as a reservation_id in the parent. Example parent:
+ *  `projects/myproject/locations/US/reservations/none`. Returns
+ *  `google.rpc.Code.PERMISSION_DENIED` if user does not have 'bigquery.admin'
+ *  permissions on the project using the reservation and the project that owns
+ *  this reservation. Returns `google.rpc.Code.INVALID_ARGUMENT` when location
+ *  of the assignment does not match location of the reservation.
  *
  *  Method: bigqueryreservation.projects.locations.reservations.assignments.create
  *
@@ -519,11 +522,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  `organizationA` contains two projects, `project1` and `project2`. *
  *  Assignments for all three entities (`organizationA`, `project1`, and
  *  `project2`) could all be created and mapped to the same or different
- *  reservations. Returns `google.rpc.Code.PERMISSION_DENIED` if user does not
- *  have 'bigquery.admin' permissions on the project using the reservation and
- *  the project that owns this reservation. Returns
- *  `google.rpc.Code.INVALID_ARGUMENT` when location of the assignment does not
- *  match location of the reservation.
+ *  reservations. "None" assignments represent an absence of the assignment.
+ *  Projects assigned to None use on-demand pricing. To create a "None"
+ *  assignment, use "none" as a reservation_id in the parent. Example parent:
+ *  `projects/myproject/locations/US/reservations/none`. Returns
+ *  `google.rpc.Code.PERMISSION_DENIED` if user does not have 'bigquery.admin'
+ *  permissions on the project using the reservation and the project that owns
+ *  this reservation. Returns `google.rpc.Code.INVALID_ARGUMENT` when location
+ *  of the assignment does not match location of the reservation.
  *
  *  @param object The @c GTLRBigQueryReservation_Assignment to include in the
  *    query.
@@ -1050,7 +1056,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The resource name of the singleton BI reservation. Reservation names have
- *  the form `projects/{project_id}/locations/{location_id}/bireservation`.
+ *  the form `projects/{project_id}/locations/{location_id}/biReservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1073,7 +1079,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    query.
  *  @param name The resource name of the singleton BI reservation. Reservation
  *    names have the form
- *    `projects/{project_id}/locations/{location_id}/bireservation`.
+ *    `projects/{project_id}/locations/{location_id}/biReservation`.
  *
  *  @return GTLRBigQueryReservationQuery_ProjectsLocationsUpdateBiReservation
  */

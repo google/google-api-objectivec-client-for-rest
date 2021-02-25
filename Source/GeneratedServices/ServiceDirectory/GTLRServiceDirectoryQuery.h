@@ -116,7 +116,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a namespace, and returns the new Namespace.
+ *  Creates a namespace, and returns the new namespace.
  *
  *  Method: servicedirectory.projects.locations.namespaces.create
  *
@@ -146,7 +146,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Namespace.
  *
- *  Creates a namespace, and returns the new Namespace.
+ *  Creates a namespace, and returns the new namespace.
  *
  *  @param object The @c GTLRServiceDirectory_Namespace to include in the query.
  *  @param parent Required. The resource name of the project and location the
@@ -266,29 +266,29 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesListWithparent:]
 
 /**
- *  Optional. The filter to list result by. General filter string syntax: () can
- *  be "name", or "labels." for map field. can be "<, >, <=, >=, !=, =, :". Of
- *  which ":" means HAS, and is roughly the same as "=". must be the same data
- *  type as field. can be "AND, OR, NOT". Examples of valid filters: *
- *  "labels.owner" returns Namespaces that have a label with the key "owner"
- *  this is the same as "labels:owner". * "labels.protocol=gRPC" returns
- *  Namespaces that have key/value "protocol=gRPC". *
- *  "name>projects/my-project/locations/us-east/namespaces/namespace-c" returns
- *  Namespaces that have name that is alphabetically later than the string, so
- *  "namespace-e" will be returned but "namespace-a" will not be. *
- *  "labels.owner!=sd AND labels.foo=bar" returns Namespaces that have "owner"
- *  in label key but value is not "sd" AND have key/value foo=bar. *
- *  "doesnotexist.foo=bar" returns an empty list. Note that Namespace doesn't
- *  have a field called "doesnotexist". Since the filter does not match any
- *  Namespaces, it returns no results.
+ *  Optional. The filter to list results by. General `filter` string syntax: `
+ *  ()` * `` can be `name` or `labels.` for map field * `` can be `<`, `>`,
+ *  `<=`, `>=`, `!=`, `=`, `:`. Of which `:` means `HAS`, and is roughly the
+ *  same as `=` * `` must be the same data type as field * `` can be `AND`,
+ *  `OR`, `NOT` Examples of valid filters: * `labels.owner` returns namespaces
+ *  that have a label with the key `owner`, this is the same as `labels:owner` *
+ *  `labels.owner=sd` returns namespaces that have key/value `owner=sd` *
+ *  `name>projects/my-project/locations/us-east1/namespaces/namespace-c` returns
+ *  namespaces that have name that is alphabetically later than the string, so
+ *  "namespace-e" is returned but "namespace-a" is not * `labels.owner!=sd AND
+ *  labels.foo=bar` returns namespaces that have `owner` in label key but value
+ *  is not `sd` AND have key/value `foo=bar` * `doesnotexist.foo=bar` returns an
+ *  empty list. Note that namespace doesn't have a field called "doesnotexist".
+ *  Since the filter does not match any namespaces, it returns no results For
+ *  more information about filtering, see [API Filtering](https://aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The order to list result by. General order by string syntax: ()
- *  (,) allows values {"name"} ascending or descending order by . If this is
- *  left blank, "asc" is used. Note that an empty order_by string result in
- *  default order, which is order by name in ascending order.
+ *  Optional. The order to list results by. General `order_by` string syntax: `
+ *  () (,)` * `` allows value: `name` * `` ascending or descending order by ``.
+ *  If this is left blank, `asc` is used Note that an empty `order_by` string
+ *  results in default order, which is order by `name` in ascending order.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -303,7 +303,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the project and location whose namespaces
- *  we'd like to list.
+ *  you'd like to list.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -313,7 +313,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all namespaces.
  *
  *  @param parent Required. The resource name of the project and location whose
- *    namespaces we'd like to list.
+ *    namespaces you'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesList
  *
@@ -338,8 +338,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the namespace in the format 'projects/ *
- *  /locations/ * /namespaces/ *'.
+ *  Immutable. The resource name for the namespace in the format `projects/ *
+ *  /locations/ * /namespaces/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -357,7 +357,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceDirectory_Namespace to include in the query.
  *  @param name Immutable. The resource name for the namespace in the format
- *    'projects/ * /locations/ * /namespaces/ *'.
+ *    `projects/ * /locations/ * /namespaces/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesPatch
  */
@@ -367,7 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a service, and returns the new Service.
+ *  Creates a service, and returns the new service.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.create
  *
@@ -396,7 +396,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Service.
  *
- *  Creates a service, and returns the new Service.
+ *  Creates a service, and returns the new service.
  *
  *  @param object The @c GTLRServiceDirectory_Service to include in the query.
  *  @param parent Required. The resource name of the namespace this service will
@@ -440,7 +440,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a endpoint, and returns the new Endpoint.
+ *  Creates an endpoint, and returns the new endpoint.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.endpoints.create
  *
@@ -467,7 +467,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Endpoint.
  *
- *  Creates a endpoint, and returns the new Endpoint.
+ *  Creates an endpoint, and returns the new endpoint.
  *
  *  @param object The @c GTLRServiceDirectory_Endpoint to include in the query.
  *  @param parent Required. The resource name of the service that this endpoint
@@ -481,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a endpoint.
+ *  Deletes an endpoint.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.endpoints.delete
  *
@@ -498,7 +498,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Empty.
  *
- *  Deletes a endpoint.
+ *  Deletes an endpoint.
  *
  *  @param name Required. The name of the endpoint to delete.
  *
@@ -509,7 +509,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a endpoint.
+ *  Gets an endpoint.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.endpoints.get
  *
@@ -526,7 +526,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Endpoint.
  *
- *  Gets a endpoint.
+ *  Gets an endpoint.
  *
  *  @param name Required. The name of the endpoint to get.
  *
@@ -549,27 +549,35 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsListWithparent:]
 
 /**
- *  Optional. The filter to list result by. General filter string syntax: () can
- *  be "name", "address", "port" or "metadata." for map field. can be "<, >, <=,
- *  >=, !=, =, :". Of which ":" means HAS, and is roughly the same as "=". must
- *  be the same data type as field. can be "AND, OR, NOT". Examples of valid
- *  filters: * "metadata.owner" returns Endpoints that have a label with the key
- *  "owner" this is the same as "metadata:owner". * "metadata.protocol=gRPC"
- *  returns Endpoints that have key/value "protocol=gRPC". *
- *  "address=192.108.1.105" returns Endpoints that have this address. *
- *  "port>8080" returns Endpoints that have port number larger than 8080. *
- *  "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/my-service/endpoints/endpoint-c"
- *  returns Endpoints that have name that is alphabetically later than the
- *  string, so "endpoint-e" will be returned but "endpoint-a" will not be. *
- *  "metadata.owner!=sd AND metadata.foo=bar" returns Endpoints that have
- *  "owner" in label key but value is not "sd" AND have key/value foo=bar. *
- *  "doesnotexist.foo=bar" returns an empty list. Note that Endpoint doesn't
+ *  Optional. The filter to list results by. General `filter` string syntax: `
+ *  ()` * `` can be `name`, `address`, `port`, or `annotations.` for map field *
+ *  `` can be `<`, `>`, `<=`, `>=`, `!=`, `=`, `:`. Of which `:` means `HAS`,
+ *  and is roughly the same as `=` * `` must be the same data type as field * ``
+ *  can be `AND`, `OR`, `NOT` Examples of valid filters: * `annotations.owner`
+ *  returns endpoints that have a annotation with the key `owner`, this is the
+ *  same as `annotations:owner` * `annotations.protocol=gRPC` returns endpoints
+ *  that have key/value `protocol=gRPC` * `address=192.108.1.105` returns
+ *  endpoints that have this address * `port>8080` returns endpoints that have
+ *  port number larger than 8080 *
+ *  `name>projects/my-project/locations/us-east1/namespaces/my-namespace/services/my-service/endpoints/endpoint-c`
+ *  returns endpoints that have name that is alphabetically later than the
+ *  string, so "endpoint-e" is returned but "endpoint-a" is not *
+ *  `annotations.owner!=sd AND annotations.foo=bar` returns endpoints that have
+ *  `owner` in annotation key but value is not `sd` AND have key/value `foo=bar`
+ *  * `doesnotexist.foo=bar` returns an empty list. Note that endpoint doesn't
  *  have a field called "doesnotexist". Since the filter does not match any
- *  Endpoints, it returns no results.
+ *  endpoints, it returns no results For more information about filtering, see
+ *  [API Filtering](https://aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. The order to list result by. */
+/**
+ *  Optional. The order to list results by. General `order_by` string syntax: `
+ *  () (,)` * `` allows values: `name`, `address`, `port` * `` ascending or
+ *  descending order by ``. If this is left blank, `asc` is used Note that an
+ *  empty `order_by` string results in default order, which is order by `name`
+ *  in ascending order.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Optional. The maximum number of items to return. */
@@ -582,7 +590,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the service whose endpoints we'd like to
+ *  Required. The resource name of the service whose endpoints you'd like to
  *  list.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -593,7 +601,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all endpoints.
  *
  *  @param parent Required. The resource name of the service whose endpoints
- *    we'd like to list.
+ *    you'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsList
  *
@@ -606,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a endpoint.
+ *  Updates an endpoint.
  *
  *  Method: servicedirectory.projects.locations.namespaces.services.endpoints.patch
  *
@@ -618,8 +626,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the endpoint in the format 'projects/ *
- *  /locations/ * /namespaces/ * /services/ * /endpoints/ *'.
+ *  Immutable. The resource name for the endpoint in the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -633,11 +641,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRServiceDirectory_Endpoint.
  *
- *  Updates a endpoint.
+ *  Updates an endpoint.
  *
  *  @param object The @c GTLRServiceDirectory_Endpoint to include in the query.
  *  @param name Immutable. The resource name for the endpoint in the format
- *    'projects/ * /locations/ * /namespaces/ * /services/ * /endpoints/ *'.
+ *    `projects/ * /locations/ * /namespaces/ * /services/ * /endpoints/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsPatch
  */
@@ -723,25 +731,32 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesListWithparent:]
 
 /**
- *  Optional. The filter to list result by. General filter string syntax: () can
- *  be "name", or "metadata." for map field. can be "<, >, <=, >=, !=, =, :". Of
- *  which ":" means HAS, and is roughly the same as "=". must be the same data
- *  type as field. can be "AND, OR, NOT". Examples of valid filters: *
- *  "metadata.owner" returns Services that have a label with the key "owner"
- *  this is the same as "metadata:owner". * "metadata.protocol=gRPC" returns
- *  Services that have key/value "protocol=gRPC". *
- *  "name>projects/my-project/locations/us-east/namespaces/my-namespace/services/service-c"
- *  returns Services that have name that is alphabetically later than the
- *  string, so "service-e" will be returned but "service-a" will not be. *
- *  "metadata.owner!=sd AND metadata.foo=bar" returns Services that have "owner"
- *  in label key but value is not "sd" AND have key/value foo=bar. *
- *  "doesnotexist.foo=bar" returns an empty list. Note that Service doesn't have
- *  a field called "doesnotexist". Since the filter does not match any Services,
- *  it returns no results.
+ *  Optional. The filter to list results by. General `filter` string syntax: `
+ *  ()` * `` can be `name` or `annotations.` for map field * `` can be `<`, `>`,
+ *  `<=`, `>=`, `!=`, `=`, `:`. Of which `:` means `HAS`, and is roughly the
+ *  same as `=` * `` must be the same data type as field * `` can be `AND`,
+ *  `OR`, `NOT` Examples of valid filters: * `annotations.owner` returns
+ *  services that have a annotation with the key `owner`, this is the same as
+ *  `annotations:owner` * `annotations.protocol=gRPC` returns services that have
+ *  key/value `protocol=gRPC` *
+ *  `name>projects/my-project/locations/us-east1/namespaces/my-namespace/services/service-c`
+ *  returns services that have name that is alphabetically later than the
+ *  string, so "service-e" is returned but "service-a" is not *
+ *  `annotations.owner!=sd AND annotations.foo=bar` returns services that have
+ *  `owner` in annotation key but value is not `sd` AND have key/value `foo=bar`
+ *  * `doesnotexist.foo=bar` returns an empty list. Note that service doesn't
+ *  have a field called "doesnotexist". Since the filter does not match any
+ *  services, it returns no results For more information about filtering, see
+ *  [API Filtering](https://aip.dev/160).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. The order to list result by. */
+/**
+ *  Optional. The order to list results by. General `order_by` string syntax: `
+ *  () (,)` * `` allows value: `name` * `` ascending or descending order by ``.
+ *  If this is left blank, `asc` is used Note that an empty `order_by` string
+ *  results in default order, which is order by `name` in ascending order.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /** Optional. The maximum number of items to return. */
@@ -754,7 +769,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the namespace whose services we'd like to
+ *  Required. The resource name of the namespace whose services you'd like to
  *  list.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -765,7 +780,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all services belonging to a namespace.
  *
  *  @param parent Required. The resource name of the namespace whose services
- *    we'd like to list.
+ *    you'd like to list.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesList
  *
@@ -790,8 +805,8 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesPatchWithObject:name:]
 
 /**
- *  Immutable. The resource name for the service in the format 'projects/ *
- *  /locations/ * /namespaces/ * /services/ *'.
+ *  Immutable. The resource name for the service in the format `projects/ *
+ *  /locations/ * /namespaces/ * /services/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -809,7 +824,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRServiceDirectory_Service to include in the query.
  *  @param name Immutable. The resource name for the service in the format
- *    'projects/ * /locations/ * /namespaces/ * /services/ *'.
+ *    `projects/ * /locations/ * /namespaces/ * /services/ *`.
  *
  *  @return GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesPatch
  */

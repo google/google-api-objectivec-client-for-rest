@@ -14,6 +14,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.calendarPeriod
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified = @"CALENDAR_PERIOD_UNSPECIFIED";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Month = @"MONTH";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Quarter = @"QUARTER";
+NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_Year = @"YEAR";
+
 // GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter.creditTypesTreatment
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_CreditTypesTreatmentUnspecified = @"CREDIT_TYPES_TREATMENT_UNSPECIFIED";
 NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_ExcludeAllCredits = @"EXCLUDE_ALL_CREDITS";
@@ -60,12 +66,22 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod
+//
+
+@implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod
+@dynamic endDate, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter
 //
 
 @implementation GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter
-@dynamic creditTypes, creditTypesTreatment, labels, projects, services,
-         subaccounts;
+@dynamic calendarPeriod, creditTypes, creditTypesTreatment, customPeriod,
+         labels, projects, services, subaccounts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -160,6 +176,16 @@ NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRul
 //
 
 @implementation GTLRCloudBillingBudget_GoogleProtobufEmpty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBillingBudget_GoogleTypeDate
+//
+
+@implementation GTLRCloudBillingBudget_GoogleTypeDate
+@dynamic day, month, year;
 @end
 
 

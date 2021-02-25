@@ -240,8 +240,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_ClusterConfig
 @dynamic autoscalingConfig, configBucket, encryptionConfig, endpointConfig,
          gceClusterConfig, initializationActions, lifecycleConfig, masterConfig,
-         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
-         workerConfig;
+         metastoreConfig, secondaryWorkerConfig, securityConfig, softwareConfig,
+         tempBucket, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -742,7 +742,21 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_JobPlacement
-@dynamic clusterName, clusterUuid;
+@dynamic clusterLabels, clusterName, clusterUuid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_JobPlacement_ClusterLabels
+//
+
+@implementation GTLRDataproc_JobPlacement_ClusterLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -965,6 +979,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ManagedGroupConfig
 @dynamic instanceGroupManagerName, instanceTemplateName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_MetastoreConfig
+//
+
+@implementation GTLRDataproc_MetastoreConfig
+@dynamic dataprocMetastoreService;
 @end
 
 
@@ -1443,6 +1467,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_StartClusterRequest
+//
+
+@implementation GTLRDataproc_StartClusterRequest
+@dynamic clusterUuid, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_Status
 //
 
@@ -1470,6 +1504,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_StopClusterRequest
+//
+
+@implementation GTLRDataproc_StopClusterRequest
+@dynamic clusterUuid, requestId;
 @end
 
 

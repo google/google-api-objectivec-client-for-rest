@@ -257,6 +257,7 @@
 @class GTLRVision_Status_Details_Item;
 @class GTLRVision_Symbol;
 @class GTLRVision_TextAnnotation;
+@class GTLRVision_TextDetectionParams;
 @class GTLRVision_TextProperty;
 @class GTLRVision_Vertex;
 @class GTLRVision_WebDetection;
@@ -12264,6 +12265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 /** Parameters for product search. */
 @property(nonatomic, strong, nullable) GTLRVision_ProductSearchParams *productSearchParams;
 
+/** Parameters for text detection and document text detection. */
+@property(nonatomic, strong, nullable) GTLRVision_TextDetectionParams *textDetectionParams;
+
 /** Parameters for web detection. */
 @property(nonatomic, strong, nullable) GTLRVision_WebDetectionParams *webDetectionParams;
 
@@ -13537,6 +13541,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVision_SafeSearchAnnotation_Violence_Ver
 
 /** UTF-8 text detected on the pages. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Parameters for text detections. This is used to control TEXT_DETECTION and
+ *  DOCUMENT_TEXT_DETECTION features.
+ */
+@interface GTLRVision_TextDetectionParams : GTLRObject
+
+/**
+ *  By default, Cloud Vision API only includes confidence score for
+ *  DOCUMENT_TEXT_DETECTION result. Set the flag to true to include confidence
+ *  score for TEXT_DETECTION as well.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTextDetectionConfidenceScore;
 
 @end
 

@@ -23,6 +23,7 @@
 @class GTLRCloudComposer_AllowedIpRange;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_Date;
+@class GTLRCloudComposer_EncryptionConfig;
 @class GTLRCloudComposer_Environment;
 @class GTLRCloudComposer_Environment_Labels;
 @class GTLRCloudComposer_EnvironmentConfig;
@@ -251,6 +252,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 
 
 /**
+ *  The encryption options for the Cloud Composer environment and its
+ *  dependencies.
+ */
+@interface GTLRCloudComposer_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. Customer-managed Encryption Key available through Google's Key
+ *  Management Service. Cannot be updated. If not specified, Google-managed key
+ *  will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
  *  An environment for running orchestration tasks.
  */
 @interface GTLRCloudComposer_Environment : GTLRObject
@@ -354,6 +371,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  by Apache Airflow software.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_DatabaseConfig *databaseConfig;
+
+/**
+ *  Optional. The encryption options for the Cloud Composer environment and its
+ *  dependencies. Cannot be updated.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_EncryptionConfig *encryptionConfig;
 
 /**
  *  Output only. The Kubernetes Engine cluster used to run this environment.
@@ -620,12 +643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Optional. The Compute Engine network to be used for machine communications,
  *  specified as a [relative resource
  *  name](/apis/design/resource_names#relative_resource_name). For example:
- *  "projects/{projectId}/global/networks/{networkId}". [Shared
- *  VPC](/vpc/docs/shared-vpc) is not currently supported. The network must
- *  belong to the environment's project. If unspecified, the "default" network
- *  ID in the environment's project is used. If a [Custom Subnet
- *  Network](/vpc/docs/vpc#vpc_networks_and_subnets) is provided,
- *  `nodeConfig.subnetwork` must also be provided.
+ *  "projects/{projectId}/global/networks/{networkId}". If unspecified, the
+ *  "default" network ID in the environment's project is used. If a [Custom
+ *  Subnet Network](/vpc/docs/vpc#vpc_networks_and_subnets) is provided,
+ *  `nodeConfig.subnetwork` must also be provided. For [Shared
+ *  VPC](/vpc/docs/shared-vpc) subnetwork requirements, see
+ *  `nodeConfig.subnetwork`.
  */
 @property(nonatomic, copy, nullable) NSString *network;
 

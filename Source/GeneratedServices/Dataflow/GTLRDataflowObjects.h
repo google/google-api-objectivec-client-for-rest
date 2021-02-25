@@ -483,6 +483,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedul
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_FlexResourceSchedulingGoal_FlexrsUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataflow_Environment.shuffleMode
+
+/**
+ *  Shuffle is done on the service side.
+ *
+ *  Value: "SERVICE_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_ShuffleMode_ServiceBased;
+/**
+ *  Shuffle mode information is not available.
+ *
+ *  Value: "SHUFFLE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_ShuffleMode_ShuffleModeUnspecified;
+/**
+ *  Shuffle is done on the worker VMs.
+ *
+ *  Value: "VM_BASED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataflow_Environment_ShuffleMode_VmBased;
+
+// ----------------------------------------------------------------------------
 // GTLRDataflow_ExecutionStageState.executionStageState
 
 /**
@@ -2682,6 +2704,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
  */
 @property(nonatomic, copy, nullable) NSString *serviceKmsKeyName;
+
+/**
+ *  Output only. The shuffle mode used for the job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataflow_Environment_ShuffleMode_ServiceBased Shuffle is done
+ *        on the service side. (Value: "SERVICE_BASED")
+ *    @arg @c kGTLRDataflow_Environment_ShuffleMode_ShuffleModeUnspecified
+ *        Shuffle mode information is not available. (Value:
+ *        "SHUFFLE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDataflow_Environment_ShuffleMode_VmBased Shuffle is done on
+ *        the worker VMs. (Value: "VM_BASED")
+ */
+@property(nonatomic, copy, nullable) NSString *shuffleMode;
 
 /**
  *  The prefix of the resources the system should use for temporary storage. The
@@ -5443,6 +5479,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** A docker container image that resides in Google Container Registry. */
 @property(nonatomic, copy, nullable) NSString *containerImage;
+
+/**
+ *  Environment ID for the Beam runner API proto Environment that corresponds to
+ *  the current SDK Harness.
+ */
+@property(nonatomic, copy, nullable) NSString *environmentId;
 
 /**
  *  If true, recommends the Dataflow service to use only one core per SDK

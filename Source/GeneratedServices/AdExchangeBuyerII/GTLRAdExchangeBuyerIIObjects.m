@@ -381,6 +381,7 @@ NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailRespo
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute = @"CREATIVE_ATTRIBUTE";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DetailTypeUnspecified = @"DETAIL_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_DisapprovalReason = @"DISAPPROVAL_REASON";
+NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_GvlId = @"GVL_ID";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_PolicyTopic = @"POLICY_TOPIC";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_ProductCategory = @"PRODUCT_CATEGORY";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_SensitiveCategory = @"SENSITIVE_CATEGORY";

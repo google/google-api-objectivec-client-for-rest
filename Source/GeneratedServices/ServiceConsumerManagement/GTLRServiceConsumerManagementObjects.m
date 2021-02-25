@@ -1554,7 +1554,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_V1DefaultIdentity
-@dynamic email, name, uniqueId;
+@dynamic email, name, tag, uniqueId;
 @end
 
 

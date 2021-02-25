@@ -28,6 +28,25 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaV100
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV2 = @"TPU_V2";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3 = @"TPU_V3";
 
+// GTLRAIPlatformNotebooks_Execution.state
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Failed = @"FAILED";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Preparing = @"PREPARING";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Queued = @"QUEUED";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Running = @"RUNNING";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Succeeded = @"SUCCEEDED";
+
+// GTLRAIPlatformNotebooks_ExecutionTemplate.scaleTier
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Basic = @"BASIC";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicGpu = @"BASIC_GPU";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicTpu = @"BASIC_TPU";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Custom = @"CUSTOM";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Premium1 = @"PREMIUM_1";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_ScaleTierUnspecified = @"SCALE_TIER_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Standard1 = @"STANDARD_1";
+
 // GTLRAIPlatformNotebooks_GetInstanceHealthResponse.healthState
 NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotInstalled = @"AGENT_NOT_INSTALLED";
 NSString * const kGTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthState_AgentNotRunning = @"AGENT_NOT_RUNNING";
@@ -63,6 +82,23 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_State_StateUnspecified = @"ST
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopped = @"STOPPED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopping = @"STOPPING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading = @"UPGRADING";
+
+// GTLRAIPlatformNotebooks_Schedule.state
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disabled = @"DISABLED";
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Enabled = @"ENABLED";
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Paused = @"PAUSED";
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_UpdateFailed = @"UPDATE_FAILED";
+
+// GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig.type
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_SchedulerAcceleratorTypeUnspecified = @"SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV2 = @"TPU_V2";
+NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV3 = @"TPU_V3";
 
 // GTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest.type
 NSString * const kGTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
@@ -182,6 +218,47 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Execution
+//
+
+@implementation GTLRAIPlatformNotebooks_Execution
+@dynamic createTime, descriptionProperty, displayName, executionTemplate, name,
+         outputNotebookFile, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ExecutionTemplate
+//
+
+@implementation GTLRAIPlatformNotebooks_ExecutionTemplate
+@dynamic acceleratorConfig, containerImageUri, inputNotebookFile, labels,
+         masterType, outputNotebookFolder, paramsYamlFile, scaleTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ExecutionTemplate_Labels
+//
+
+@implementation GTLRAIPlatformNotebooks_ExecutionTemplate_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -327,6 +404,29 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ListExecutionsResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_ListExecutionsResponse
+@dynamic executions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"executions" : [GTLRAIPlatformNotebooks_Execution class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"executions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_ListInstancesResponse
 //
 
@@ -387,6 +487,29 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ListSchedulesResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_ListSchedulesResponse
+@dynamic nextPageToken, schedules, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schedules" : [GTLRAIPlatformNotebooks_Schedule class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"schedules";
 }
 
 @end
@@ -546,6 +669,32 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_Schedule
+//
+
+@implementation GTLRAIPlatformNotebooks_Schedule
+@dynamic createTime, cronSchedule, descriptionProperty, displayName,
+         executionTemplate, name, state, timeZone, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig
+@dynamic coreCount, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_SetIamPolicyRequest
 //
 
@@ -691,6 +840,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_TriggerScheduleRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_TriggerScheduleRequest
 @end
 
 

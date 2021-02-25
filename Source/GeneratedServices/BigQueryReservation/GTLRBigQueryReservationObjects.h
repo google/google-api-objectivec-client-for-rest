@@ -272,7 +272,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_CapacityCommitment_S
 
 /**
  *  The resource name of the singleton BI reservation. Reservation names have
- *  the form `projects/{project_id}/locations/{location_id}/bireservation`.
+ *  the form `projects/{project_id}/locations/{location_id}/biReservation`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

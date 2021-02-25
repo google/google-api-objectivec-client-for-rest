@@ -19,8 +19,8 @@
 @dynamic acl, billing, cors, defaultEventBasedHold, defaultObjectAcl,
          encryption, ETag, iamConfiguration, identifier, kind, labels,
          lifecycle, location, locationType, logging, metageneration, name,
-         owner, projectNumber, retentionPolicy, selfLink, storageClass,
-         timeCreated, updated, versioning, website, zoneAffinity;
+         owner, projectNumber, retentionPolicy, satisfiesPZS, selfLink,
+         storageClass, timeCreated, updated, versioning, website, zoneAffinity;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -1281,6 +1281,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  [Output Only] An ID that represents a group of operations, such as when a
+ *  group of operations results from a `bulkInsert` API request.
+ */
+@property(nonatomic, copy, nullable) NSString *operationGroupId;
+
+/**
  *  [Output Only] The type of operation, such as `insert`, `update`, or
  *  `delete`, and so on.
  */

@@ -46,7 +46,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideo;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning;
 /**
- *  Authorization scope: New Service:
+ *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/display-video-user-management
  *
  *  Value "https://www.googleapis.com/auth/display-video-user-management"

@@ -1358,10 +1358,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Output only. The resource name of the bucket. For example:
- *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id The
- *  supported locations are: "global"For the location of global it is
- *  unspecified where logs are actually stored. Once a bucket has been created,
- *  the location can not be changed.
+ *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id" The
+ *  supported locations are: global, us-central1, us-east1, us-west1,
+ *  asia-east1, europe-west1.For the location of global it is unspecified where
+ *  logs are actually stored. Once a bucket has been created, the location can
+ *  not be changed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1412,7 +1413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. A set of user-defined (key, value) data that provides additional
- *  information about the log entry.
+ *  information about the log entry.Cloud Logging truncates label keys that
+ *  exceed 512 B and label values that exceed 64 KB upon their associated log
+ *  entry being written. The truncation is indicated by an ellipsis at the end
+ *  of the character string.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntry_Labels *labels;
 
@@ -1444,7 +1448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  labels that used to be in metadata.userLabels will now be present in the
  *  labels field with a key prefix of k8s-pod/. The system labels that were
  *  present in the metadata.systemLabels field will no longer be available in
- *  the LogEntry.
+ *  the log entry.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_MonitoredResourceMetadata *metadata;
 
@@ -1569,7 +1573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. A set of user-defined (key, value) data that provides additional
- *  information about the log entry.
+ *  information about the log entry.Cloud Logging truncates label keys that
+ *  exceed 512 B and label values that exceed 64 KB upon their associated log
+ *  entry being written. The truncation is indicated by an ellipsis at the end
+ *  of the character string.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2199,11 +2206,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  The units in which the metric value is reported. It is only applicable if
  *  the value_type is INT64, DOUBLE, or DISTRIBUTION. The unit defines the
- *  representation of the stored metric values.Different systems may scale the
- *  values to be more easily displayed (so a value of 0.02KBy might be displayed
- *  as 20By, and a value of 3523KBy might be displayed as 3.5MBy). However, if
- *  the unit is KBy, then the value of the metric is always in thousands of
- *  bytes, no matter how it may be displayed..If you want a custom metric to
+ *  representation of the stored metric values.Different systems might scale the
+ *  values to be more easily displayed (so a value of 0.02kBy might be displayed
+ *  as 20By, and a value of 3523kBy might be displayed as 3.5MBy). However, if
+ *  the unit is kBy, then the value of the metric is always in thousands of
+ *  bytes, no matter how it might be displayed.If you want a custom metric to
  *  record the exact number of CPU-seconds used by a job, you can create an
  *  INT64 CUMULATIVE metric whose unit is s{CPU} (or equivalently 1s{CPU} or
  *  just s). If the job uses 12,005 CPU-seconds, then the value is written as
@@ -2212,8 +2219,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  ks{CPU}, and then write the value 12.005 (which is 12005/1000), or use
  *  Kis{CPU} and write 11.723 (which is 12005/1024).The supported units are a
  *  subset of The Unified Code for Units of Measure
- *  (http://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit By
- *  byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
+ *  (https://unitsofmeasure.org/ucum.html) standard:Basic units (UNIT) bit bit
+ *  By byte s second min minute h hour d day 1 dimensionlessPrefixes (PREFIX) k
  *  kilo (10^3) M mega (10^6) G giga (10^9) T tera (10^12) P peta (10^15) E exa
  *  (10^18) Z zetta (10^21) Y yotta (10^24) m milli (10^-3) u micro (10^-6) n
  *  nano (10^-9) p pico (10^-12) f femto (10^-15) a atto (10^-18) z zepto

@@ -840,6 +840,34 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPeopleService_SearchResponse
+//
+
+@implementation GTLRPeopleService_SearchResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRPeopleService_SearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPeopleService_SearchResult
+//
+
+@implementation GTLRPeopleService_SearchResult
+@dynamic person;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPeopleService_SipAddress
 //
 

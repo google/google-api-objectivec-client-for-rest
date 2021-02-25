@@ -51,6 +51,8 @@
 @class GTLRBigquery_CsvOptions;
 @class GTLRBigquery_Dataset_Access_Item;
 @class GTLRBigquery_Dataset_Labels;
+@class GTLRBigquery_DatasetAccessEntry;
+@class GTLRBigquery_DatasetAccessEntry_TargetTypes_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item;
 @class GTLRBigquery_DatasetList_Datasets_Item_Labels;
 @class GTLRBigquery_DatasetReference;
@@ -2471,6 +2473,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_Dataset_Access_Item : GTLRObject
 
 /**
+ *  [Pick one] A grant authorizing all resources of a particular type in a
+ *  particular dataset access to this dataset. Only views are supported for now.
+ *  The role field is not required when this field is set. If that dataset is
+ *  deleted and re-created, its access needs to be granted again via an update
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetAccessEntry *dataset;
+
+/**
  *  [Pick one] A domain to grant access to. Any users signed in with the domain
  *  specified will be granted the specified access. Example: "example.com". Maps
  *  to IAM policy member "domain:DOMAIN".
@@ -2548,6 +2559,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        fetch them all at once.
  */
 @interface GTLRBigquery_Dataset_Labels : GTLRObject
+@end
+
+
+/**
+ *  GTLRBigquery_DatasetAccessEntry
+ */
+@interface GTLRBigquery_DatasetAccessEntry : GTLRObject
+
+/** [Required] The dataset this entry applies to. */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *dataset;
+
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_DatasetAccessEntry_TargetTypes_Item *> *targetTypes;
+
+@end
+
+
+/**
+ *  GTLRBigquery_DatasetAccessEntry_TargetTypes_Item
+ */
+@interface GTLRBigquery_DatasetAccessEntry_TargetTypes_Item : GTLRObject
+
+/**
+ *  [Required] Which resources in the dataset this entry applies to. Currently,
+ *  only views are supported, but additional target types may be added in the
+ *  future. Possible values: VIEWS: This entry applies to all views in the
+ *  dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *targetType;
+
 @end
 
 
@@ -4510,6 +4550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  DDL target.
  */
 @property(nonatomic, copy, nullable) NSString *ddlOperationPerformed;
+
+/**
+ *  [Output-only] The DDL target dataset. Present only for CREATE/ALTER/DROP
+ *  SCHEMA queries.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_DatasetReference *ddlTargetDataset;
 
 /**
  *  The DDL target routine. Present only for CREATE/DROP FUNCTION/PROCEDURE

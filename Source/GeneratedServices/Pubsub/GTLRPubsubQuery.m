@@ -13,9 +13,159 @@
 
 #import "GTLRPubsubObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRPubsubViewBasic                 = @"BASIC";
+NSString * const kGTLRPubsubViewFull                  = @"FULL";
+NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRPubsubQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasCreate
+
+@dynamic parent, schemaId;
+
++ (instancetype)queryWithObject:(GTLRPubsub_Schema *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas";
+  GTLRPubsubQuery_ProjectsSchemasCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsub_Schema class];
+  query.loggingName = @"pubsub.projects.schemas.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsSchemasDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Empty class];
+  query.loggingName = @"pubsub.projects.schemas.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPubsubQuery_ProjectsSchemasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPubsub_Schema class];
+  query.loggingName = @"pubsub.projects.schemas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasList
+
+@dynamic pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas";
+  GTLRPubsubQuery_ProjectsSchemasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsub_ListSchemasResponse class];
+  query.loggingName = @"pubsub.projects.schemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasValidate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateSchemaRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas:validate";
+  GTLRPubsubQuery_ProjectsSchemasValidate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsub_ValidateSchemaResponse class];
+  query.loggingName = @"pubsub.projects.schemas.validate";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasValidateMessage
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPubsub_ValidateMessageRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas:validateMessage";
+  GTLRPubsubQuery_ProjectsSchemasValidateMessage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPubsub_ValidateMessageResponse class];
+  query.loggingName = @"pubsub.projects.schemas.validateMessage";
+  return query;
+}
 
 @end
 

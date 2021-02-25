@@ -243,7 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *  An admission rule specifies either that all container images used in a pod
  *  creation request must be attested to by one or more attestors, that all pod
  *  creations will be allowed, or that all pod creations will be denied. Images
- *  matching an admission whitelist pattern are exempted from admission rules
+ *  matching an admission allowlist pattern are exempted from admission rules
  *  and will never block a pod creation.
  */
 @interface GTLRBinaryAuthorization_AdmissionRule : GTLRObject
@@ -296,7 +296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
 
 
 /**
- *  An admission whitelist pattern exempts images from checks by admission
+ *  An admission allowlist pattern exempts images from checks by admission
  *  rules.
  */
 @interface GTLRBinaryAuthorization_AdmissionWhitelistPattern : GTLRObject

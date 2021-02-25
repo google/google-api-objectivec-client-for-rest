@@ -175,6 +175,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRStorage_Bucket_RetentionPolicy *retentionPolicy;
 
+/**
+ *  Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPZS;
+
 /** The URI of this bucket. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 

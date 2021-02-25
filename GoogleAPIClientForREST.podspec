@@ -172,6 +172,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/CertificateAuthorityService/*.{h,m}'
   end
+  s.subspec 'ChromeManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ChromeManagement/*.{h,m}'
+  end
   s.subspec 'ChromeUXReport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ChromeUXReport/*.{h,m}'
@@ -319,6 +323,10 @@ Pod::Spec.new do |s|
   s.subspec 'Cloudbilling' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Cloudbilling/*.{h,m}'
+  end
+  s.subspec 'Cloudchannel' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Cloudchannel/*.{h,m}'
   end
   s.subspec 'Clouderrorreporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -576,9 +584,17 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Monitoring/*.{h,m}'
   end
+  s.subspec 'MyBusinessAccountManagement' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessAccountManagement/*.{h,m}'
+  end
   s.subspec 'NetworkManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/NetworkManagement/*.{h,m}'
+  end
+  s.subspec 'Networkconnectivity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Networkconnectivity/*.{h,m}'
   end
   s.subspec 'OSConfig' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -587,6 +603,10 @@ Pod::Spec.new do |s|
   s.subspec 'Oauth2' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Oauth2/*.{h,m}'
+  end
+  s.subspec 'OnDemandScanning' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/OnDemandScanning/*.{h,m}'
   end
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -603,6 +623,10 @@ Pod::Spec.new do |s|
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
+  end
+  s.subspec 'PolicySimulator' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PolicySimulator/*.{h,m}'
   end
   s.subspec 'PolicyTroubleshooter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -791,6 +815,10 @@ Pod::Spec.new do |s|
   s.subspec 'Vision' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Vision/*.{h,m}'
+  end
+  s.subspec 'WebRisk' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/WebRisk/*.{h,m}'
   end
   s.subspec 'WebSecurityScanner' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

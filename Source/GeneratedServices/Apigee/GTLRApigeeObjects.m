@@ -60,6 +60,23 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing = @
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Ready = @"READY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified = @"RUNTIME_STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1Environment.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1Instance.peeringCidrRange
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified = @"CIDR_RANGE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16 = @"SLASH_16";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20 = @"SLASH_20";
+
 // GTLRApigee_GoogleCloudApigeeV1Instance.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Active = @"ACTIVE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating = @"CREATING";
@@ -85,10 +102,21 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_InProgre
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1Organization.billingType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Evaluation = @"EVALUATION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_Subscription = @"SUBSCRIPTION";
+
 // GTLRApigee_GoogleCloudApigeeV1Organization.runtimeType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Cloud = @"CLOUD";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_Hybrid = @"HYBRID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_RuntimeType_RuntimeTypeUnspecified = @"RUNTIME_TYPE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1Organization.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Active = @"ACTIVE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Creating = @"CREATING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Deleting = @"DELETING";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid = @"PAID";
@@ -914,7 +942,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey
 @dynamic apiProducts, attributes, consumerKey, consumerSecret, expiresAt,
-         issuedAt, scopes, status;
+         expiresInSeconds, issuedAt, scopes, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -963,7 +991,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Environment
 @dynamic createdAt, descriptionProperty, displayName, lastModifiedAt, name,
-         properties;
+         properties, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1018,7 +1046,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup
-@dynamic createdAt, hostnames, lastModifiedAt, name;
+@dynamic createdAt, hostnames, lastModifiedAt, name, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1154,7 +1182,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Instance
 @dynamic createdAt, descriptionProperty, diskEncryptionKeyName, displayName,
-         host, lastModifiedAt, location, name, port, state;
+         host, lastModifiedAt, location, name, peeringCidrRange, port, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1856,10 +1884,11 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Organization
-@dynamic analyticsRegion, attributes, authorizedNetwork, caCertificate,
-         createdAt, customerName, descriptionProperty, displayName,
-         environments, lastModifiedAt, name, projectId, properties,
-         runtimeDatabaseEncryptionKeyName, runtimeType, subscriptionType, type;
+@dynamic analyticsRegion, attributes, authorizedNetwork, billingType,
+         caCertificate, createdAt, customerName, descriptionProperty,
+         displayName, environments, lastModifiedAt, name, projectId, properties,
+         runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

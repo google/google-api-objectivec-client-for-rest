@@ -26,6 +26,9 @@
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_Environment;
+@class GTLRAIPlatformNotebooks_Execution;
+@class GTLRAIPlatformNotebooks_ExecutionTemplate;
+@class GTLRAIPlatformNotebooks_ExecutionTemplate_Labels;
 @class GTLRAIPlatformNotebooks_Expr;
 @class GTLRAIPlatformNotebooks_GetInstanceHealthResponse_HealthInfo;
 @class GTLRAIPlatformNotebooks_GuestOsFeature;
@@ -40,6 +43,8 @@
 @class GTLRAIPlatformNotebooks_Operation_Response;
 @class GTLRAIPlatformNotebooks_Policy;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest_Metadata;
+@class GTLRAIPlatformNotebooks_Schedule;
+@class GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig;
 @class GTLRAIPlatformNotebooks_SetInstanceLabelsRequest_Labels;
 @class GTLRAIPlatformNotebooks_ShieldedInstanceConfig;
 @class GTLRAIPlatformNotebooks_Status;
@@ -132,6 +137,121 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  *  Value: "TPU_V3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Execution.state
+
+/**
+ *  The job has been cancelled. `error_message` should describe the reason for
+ *  the cancellation.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelled;
+/**
+ *  The job is being cancelled. `error_message` should describe the reason for
+ *  the cancellation.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling;
+/**
+ *  The job failed. `error_message` should contain the details of the failure.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Failed;
+/**
+ *  The service is preparing to execution the job.
+ *
+ *  Value: "PREPARING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Preparing;
+/**
+ *  The job has been just created and processing has not yet begun.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Queued;
+/**
+ *  The job is in progress.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Running;
+/**
+ *  The job state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_StateUnspecified;
+/**
+ *  The job completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ExecutionTemplate.scaleTier
+
+/**
+ *  A single worker instance. This tier is suitable for learning how to use
+ *  Cloud ML, and for experimenting with new models using small datasets.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Basic;
+/**
+ *  A single worker instance with a K80 GPU.
+ *
+ *  Value: "BASIC_GPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicGpu;
+/**
+ *  A single worker instance with a Cloud TPU.
+ *
+ *  Value: "BASIC_TPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicTpu;
+/**
+ *  The CUSTOM tier is not a set tier, but rather enables you to use your own
+ *  cluster specification. When you use this tier, set values to configure your
+ *  processing cluster according to these guidelines: * You _must_ set
+ *  `TrainingInput.masterType` to specify the type of machine to use for your
+ *  master node. This is the only required setting. * You _may_ set
+ *  `TrainingInput.workerCount` to specify the number of workers to use. If you
+ *  specify one or more workers, you _must_ also set `TrainingInput.workerType`
+ *  to specify the type of machine to use for your worker nodes. * You _may_ set
+ *  `TrainingInput.parameterServerCount` to specify the number of parameter
+ *  servers to use. If you specify one or more parameter servers, you _must_
+ *  also set `TrainingInput.parameterServerType` to specify the type of machine
+ *  to use for your parameter servers. Note that all of your workers must use
+ *  the same machine type, which can be different from your parameter server
+ *  type and master type. Your parameter servers must likewise use the same
+ *  machine type, which can be different from your worker type and master type.
+ *
+ *  Value: "CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Custom;
+/**
+ *  A large number of workers with many parameter servers.
+ *
+ *  Value: "PREMIUM_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Premium1;
+/**
+ *  Unspecified Scale Tier.
+ *
+ *  Value: "SCALE_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_ScaleTierUnspecified;
+/**
+ *  Many workers and a few parameter servers.
+ *
+ *  Value: "STANDARD_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Standard1;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_GetInstanceHealthResponse.healthState
@@ -313,6 +433,96 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopp
  *  Value: "UPGRADING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Schedule.state
+
+/**
+ *  The job is disabled by the system due to error. The user cannot directly set
+ *  a job to be disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disabled;
+/**
+ *  The job is executing normally.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Enabled;
+/**
+ *  The job is paused by the user. It will not execute. A user can intentionally
+ *  pause the job using PauseJobRequest.
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Paused;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_StateUnspecified;
+/**
+ *  The job state resulting from a failed CloudScheduler.UpdateJob operation. To
+ *  recover a job from this state, retry CloudScheduler.UpdateJob until a
+ *  successful response is received.
+ *
+ *  Value: "UPDATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_UpdateFailed;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig.type
+
+/**
+ *  Nvidia Tesla K80 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_K80"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaK80;
+/**
+ *  Nvidia Tesla P100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP100;
+/**
+ *  Nvidia Tesla P4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP4;
+/**
+ *  Nvidia Tesla T4 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_T4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaT4;
+/**
+ *  Nvidia Tesla V100 GPU.
+ *
+ *  Value: "NVIDIA_TESLA_V100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaV100;
+/**
+ *  Unspecified accelerator type. Default to no GPU.
+ *
+ *  Value: "SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_SchedulerAcceleratorTypeUnspecified;
+/**
+ *  TPU v2.
+ *
+ *  Value: "TPU_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV2;
+/**
+ *  TPU v3.
+ *
+ *  Value: "TPU_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV3;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest.type
@@ -724,6 +934,198 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 /** Use a Compute Engine VM image to start the notebook instance. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VmImage *vmImage;
 
+@end
+
+
+/**
+ *  The definition of a single executed notebook.
+ */
+@interface GTLRAIPlatformNotebooks_Execution : GTLRObject
+
+/** Output only. Time the Execution was instantiated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A brief description of this execution.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Name used for UI purposes. Name can only contain alphanumeric
+ *  characters and underscores '_'.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** execute metadata including name, hardware spec, region, labels, etc. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ExecutionTemplate *executionTemplate;
+
+/**
+ *  Output only. The resource name of the execute. Format:
+ *  `projects/{project_id}/locations/{location}/execution/{execution_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output notebook file generated by this execution */
+@property(nonatomic, copy, nullable) NSString *outputNotebookFile;
+
+/**
+ *  Output only. State of the underlying AI Platform job.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Cancelled The job has
+ *        been cancelled. `error_message` should describe the reason for the
+ *        cancellation. (Value: "CANCELLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Cancelling The job is
+ *        being cancelled. `error_message` should describe the reason for the
+ *        cancellation. (Value: "CANCELLING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Failed The job failed.
+ *        `error_message` should contain the details of the failure. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Preparing The service is
+ *        preparing to execution the job. (Value: "PREPARING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Queued The job has been
+ *        just created and processing has not yet begun. (Value: "QUEUED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Running The job is in
+ *        progress. (Value: "RUNNING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_StateUnspecified The job
+ *        state is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Succeeded The job
+ *        completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Time the Execution was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The description a notebook execution workload.
+ */
+@interface GTLRAIPlatformNotebooks_ExecutionTemplate : GTLRObject
+
+/**
+ *  Configuration (count and accelerator type) for hardware running notebook
+ *  execution.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig *acceleratorConfig;
+
+/**
+ *  Container Image URI to a DLVM Example:
+ *  'gcr.io/deeplearning-platform-release/base-cu100' More examples can be found
+ *  at:
+ *  https://cloud.google.com/ai-platform/deep-learning-containers/docs/choosing-container
+ */
+@property(nonatomic, copy, nullable) NSString *containerImageUri;
+
+/**
+ *  Path to the notebook file to execute. Must be in a Google Cloud Storage
+ *  bucket. Format: gs://{project_id}/{folder}/{notebook_file_name} Ex:
+ *  gs://notebook_user/scheduled_notebooks/sentiment_notebook.ipynb
+ */
+@property(nonatomic, copy, nullable) NSString *inputNotebookFile;
+
+/**
+ *  Labels for execution. If execution is scheduled, a field included will be
+ *  'nbs-scheduled'. Otherwise, it is an immediate execution, and an included
+ *  field will be 'nbs-immediate'. Use fields to efficiently index between
+ *  various types of executions.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ExecutionTemplate_Labels *labels;
+
+/**
+ *  Specifies the type of virtual machine to use for your training job's master
+ *  worker. You must specify this field when `scaleTier` is set to `CUSTOM`. You
+ *  can use certain Compute Engine machine types directly in this field. The
+ *  following types are supported: - `n1-standard-4` - `n1-standard-8` -
+ *  `n1-standard-16` - `n1-standard-32` - `n1-standard-64` - `n1-standard-96` -
+ *  `n1-highmem-2` - `n1-highmem-4` - `n1-highmem-8` - `n1-highmem-16` -
+ *  `n1-highmem-32` - `n1-highmem-64` - `n1-highmem-96` - `n1-highcpu-16` -
+ *  `n1-highcpu-32` - `n1-highcpu-64` - `n1-highcpu-96` Alternatively, you can
+ *  use the following legacy machine types: - `standard` - `large_model` -
+ *  `complex_model_s` - `complex_model_m` - `complex_model_l` - `standard_gpu` -
+ *  `complex_model_m_gpu` - `complex_model_l_gpu` - `standard_p100` -
+ *  `complex_model_m_p100` - `standard_v100` - `large_model_v100` -
+ *  `complex_model_m_v100` - `complex_model_l_v100` Finally, if you want to use
+ *  a TPU for training, specify `cloud_tpu` in this field. Learn more about the
+ *  [special configuration options for training with TPU.
+ */
+@property(nonatomic, copy, nullable) NSString *masterType;
+
+/**
+ *  Path to the notebook folder to write to. Must be in a Google Cloud Storage
+ *  bucket path. Format: gs://{project_id}/{folder} Ex:
+ *  gs://notebook_user/scheduled_notebooks
+ */
+@property(nonatomic, copy, nullable) NSString *outputNotebookFolder;
+
+/**
+ *  Parameters to be overridden in the notebook during execution. Ref
+ *  https://papermill.readthedocs.io/en/latest/usage-parameterize.html on how to
+ *  specifying parameters in the input notebook and pass them here in an YAML
+ *  file. Ex:
+ *  gs://notebook_user/scheduled_notebooks/sentiment_notebook_params.yaml
+ */
+@property(nonatomic, copy, nullable) NSString *paramsYamlFile;
+
+/**
+ *  Required. Scale tier of the hardware used for notebook execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Basic A
+ *        single worker instance. This tier is suitable for learning how to use
+ *        Cloud ML, and for experimenting with new models using small datasets.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicGpu A
+ *        single worker instance with a K80 GPU. (Value: "BASIC_GPU")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_BasicTpu A
+ *        single worker instance with a Cloud TPU. (Value: "BASIC_TPU")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Custom The
+ *        CUSTOM tier is not a set tier, but rather enables you to use your own
+ *        cluster specification. When you use this tier, set values to configure
+ *        your processing cluster according to these guidelines: * You _must_
+ *        set `TrainingInput.masterType` to specify the type of machine to use
+ *        for your master node. This is the only required setting. * You _may_
+ *        set `TrainingInput.workerCount` to specify the number of workers to
+ *        use. If you specify one or more workers, you _must_ also set
+ *        `TrainingInput.workerType` to specify the type of machine to use for
+ *        your worker nodes. * You _may_ set
+ *        `TrainingInput.parameterServerCount` to specify the number of
+ *        parameter servers to use. If you specify one or more parameter
+ *        servers, you _must_ also set `TrainingInput.parameterServerType` to
+ *        specify the type of machine to use for your parameter servers. Note
+ *        that all of your workers must use the same machine type, which can be
+ *        different from your parameter server type and master type. Your
+ *        parameter servers must likewise use the same machine type, which can
+ *        be different from your worker type and master type. (Value: "CUSTOM")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Premium1 A
+ *        large number of workers with many parameter servers. (Value:
+ *        "PREMIUM_1")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_ScaleTierUnspecified
+ *        Unspecified Scale Tier. (Value: "SCALE_TIER_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Standard1
+ *        Many workers and a few parameter servers. (Value: "STANDARD_1")
+ */
+@property(nonatomic, copy, nullable) NSString *scaleTier;
+
+@end
+
+
+/**
+ *  Labels for execution. If execution is scheduled, a field included will be
+ *  'nbs-scheduled'. Otherwise, it is an immediate execution, and an included
+ *  field will be 'nbs-immediate'. Use fields to efficiently index between
+ *  various types of executions.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_ExecutionTemplate_Labels : GTLRObject
 @end
 
 
@@ -1182,6 +1584,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Response for listing scheduled notebook executions
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "executions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAIPlatformNotebooks_ListExecutionsResponse : GTLRCollectionObject
+
+/**
+ *  A list of returned instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Execution *> *executions;
+
+/**
+ *  Page token that can be used to continue listing from the last result in the
+ *  next list call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Executions IDs that could not be reached. For example,
+ *  ['projects/{project_id}/location/{location}/executions/imagenet_test1',
+ *  'projects/{project_id}/location/{location}/executions/classifier_train1'].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for listing notebook instances.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1259,6 +1695,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Operation *> *operations;
+
+@end
+
+
+/**
+ *  Response for listing scheduled notebook job.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "schedules" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAIPlatformNotebooks_ListSchedulesResponse : GTLRCollectionObject
+
+/**
+ *  Page token that can be used to continue listing from the last result in the
+ *  next list call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of returned instances.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Schedule *> *schedules;
+
+/**
+ *  Schedules that could not be reached. For example,
+ *  ['projects/{project_id}/location/{location}/schedules/monthly_digest',
+ *  'projects/{project_id}/location/{location}/schedules/weekly_sentiment'].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1581,6 +2051,122 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  The definition of a schedule.
+ */
+@interface GTLRAIPlatformNotebooks_Schedule : GTLRObject
+
+/** Output only. Time the schedule was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Cron-tab formatted schedule by which the job will execute Format: minute,
+ *  hour, day of month, month, day of week e.g. 0 0 * * WED = every Wednesday
+ *  More examples: https://crontab.guru/examples.html
+ */
+@property(nonatomic, copy, nullable) NSString *cronSchedule;
+
+/**
+ *  A brief description of this environment.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Display name used for UI purposes. Name can only contain
+ *  alphanumeric characters, hyphens ‘-’, and underscores ‘_’.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Notebook Execution Template corresponding to this schedule. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ExecutionTemplate *executionTemplate;
+
+/**
+ *  Output only. The name of this schedule. Format:
+ *  `projects/{project_id}/locations/{location}/schedules/{schedule_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Disabled The job is
+ *        disabled by the system due to error. The user cannot directly set a
+ *        job to be disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Enabled The job is
+ *        executing normally. (Value: "ENABLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Paused The job is paused
+ *        by the user. It will not execute. A user can intentionally pause the
+ *        job using PauseJobRequest. (Value: "PAUSED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_UpdateFailed The job state
+ *        resulting from a failed CloudScheduler.UpdateJob operation. To recover
+ *        a job from this state, retry CloudScheduler.UpdateJob until a
+ *        successful response is received. (Value: "UPDATE_FAILED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Timezone on which the cron_schedule. The value of this field must be a time
+ *  zone name from the tz database. TZ Database:
+ *  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones Note that some
+ *  time zones include a provision for daylight savings time. The rules for
+ *  daylight saving time are determined by the chosen tz. For UTC use the string
+ *  "utc". If a time zone is not specified, the default will be in UTC (also
+ *  known as GMT).
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
+
+/** Output only. TIme the schedule was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Definition of a hardware accelerator. Note that not all combinations of
+ *  `type` and `core_count` are valid. Check GPUs on Compute Engine to find a
+ *  valid combination. TPUs are not supported.
+ */
+@interface GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig : GTLRObject
+
+/**
+ *  Count of cores of this accelerator.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCount;
+
+/**
+ *  Type of this accelerator.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaK80
+ *        Nvidia Tesla K80 GPU. (Value: "NVIDIA_TESLA_K80")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP100
+ *        Nvidia Tesla P100 GPU. (Value: "NVIDIA_TESLA_P100")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaP4
+ *        Nvidia Tesla P4 GPU. (Value: "NVIDIA_TESLA_P4")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaT4
+ *        Nvidia Tesla T4 GPU. (Value: "NVIDIA_TESLA_T4")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_NvidiaTeslaV100
+ *        Nvidia Tesla V100 GPU. (Value: "NVIDIA_TESLA_V100")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_SchedulerAcceleratorTypeUnspecified
+ *        Unspecified accelerator type. Default to no GPU. (Value:
+ *        "SCHEDULER_ACCELERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV2 TPU
+ *        v2. (Value: "TPU_V2")
+ *    @arg @c kGTLRAIPlatformNotebooks_SchedulerAcceleratorConfig_Type_TpuV3 TPU
+ *        v3. (Value: "TPU_V3")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRAIPlatformNotebooks_SetIamPolicyRequest : GTLRObject
@@ -1810,6 +2396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Request for created scheduled notebooks
+ */
+@interface GTLRAIPlatformNotebooks_TriggerScheduleRequest : GTLRObject
 @end
 
 

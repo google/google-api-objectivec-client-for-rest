@@ -243,6 +243,23 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @end
 
+@implementation GTLRPeopleServiceQuery_OtherContactsSearch
+
+@dynamic pageSize, query, readMask;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/otherContacts:search";
+  GTLRPeopleServiceQuery_OtherContactsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_SearchResponse class];
+  query.loggingName = @"people.otherContacts.search";
+  return query;
+}
+
+@end
+
 @implementation GTLRPeopleServiceQuery_PeopleConnectionsList
 
 @dynamic pageSize, pageToken, personFields, requestMaskIncludeField,
@@ -430,6 +447,23 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
                        pathParameterNames:nil];
   query.expectedObjectClass = [GTLRPeopleService_ListDirectoryPeopleResponse class];
   query.loggingName = @"people.people.listDirectoryPeople";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleSearchContacts
+
+@dynamic pageSize, query, readMask;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/people:searchContacts";
+  GTLRPeopleServiceQuery_PeopleSearchContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRPeopleService_SearchResponse class];
+  query.loggingName = @"people.people.searchContacts";
   return query;
 }
 

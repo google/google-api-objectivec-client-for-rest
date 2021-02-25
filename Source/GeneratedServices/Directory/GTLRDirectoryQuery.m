@@ -1115,7 +1115,7 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_OrgunitsDelete
 
-@dynamic customerId, orgUnitPath;
+@dynamic allowPlus, customerId, orgUnitPath;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                         orgUnitPath:(NSString *)orgUnitPath {
@@ -1137,7 +1137,7 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_OrgunitsGet
 
-@dynamic customerId, orgUnitPath;
+@dynamic allowPlus, customerId, orgUnitPath;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                         orgUnitPath:(NSString *)orgUnitPath {
@@ -1206,7 +1206,7 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_OrgunitsPatch
 
-@dynamic customerId, orgUnitPath;
+@dynamic allowPlus, customerId, orgUnitPath;
 
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
@@ -1237,7 +1237,7 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_OrgunitsUpdate
 
-@dynamic customerId, orgUnitPath;
+@dynamic allowPlus, customerId, orgUnitPath;
 
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId

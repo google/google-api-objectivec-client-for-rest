@@ -35,11 +35,13 @@
 @class GTLRAndroidManagement_ChoosePrivateKeyRule;
 @class GTLRAndroidManagement_CommonCriteriaModeInfo;
 @class GTLRAndroidManagement_ComplianceRule;
+@class GTLRAndroidManagement_ContactInfo;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceSettings;
 @class GTLRAndroidManagement_Display;
+@class GTLRAndroidManagement_Enterprise;
 @class GTLRAndroidManagement_ExternalData;
 @class GTLRAndroidManagement_FreezePeriod;
 @class GTLRAndroidManagement_HardwareInfo;
@@ -212,25 +214,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 
 /**
- *  This feature is not generally available.
+ *  This feature is not generally available yet.
  *
  *  Value: "AUTO_UPDATE_DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
- *  This feature is not generally available.
+ *  This feature is not generally available yet.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority;
 /**
- *  This feature is not generally available.
+ *  This feature is not generally available yet.
  *
  *  Value: "AUTO_UPDATE_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified;
 /**
- *  This feature is not generally available.
+ *  This feature is not generally available yet.
  *
  *  Value: "AUTO_UPDATE_POSTPONED"
  */
@@ -2308,20 +2310,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
- *  This feature is not generally available.
+ *  This feature is not generally available yet.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault
- *        This feature is not generally available. (Value:
+ *        This feature is not generally available yet. (Value:
  *        "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
- *        This feature is not generally available. (Value:
+ *        This feature is not generally available yet. (Value:
  *        "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
- *        This feature is not generally available. (Value:
+ *        This feature is not generally available yet. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed
- *        This feature is not generally available. (Value:
+ *        This feature is not generally available yet. (Value:
  *        "AUTO_UPDATE_POSTPONED")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdateMode;
@@ -2802,6 +2804,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  the list, but app data is preserved.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageNamesToDisable;
+
+@end
+
+
+/**
+ *  Contact details for LaForge enterprises.
+ */
+@interface GTLRAndroidManagement_ContactInfo : GTLRObject
+
+/**
+ *  Email address for a point of contact, which will be used to send important
+ *  announcements related to managed Google Play.
+ */
+@property(nonatomic, copy, nullable) NSString *contactEmail;
+
+/**
+ *  The email of the data protection officer. The email is validated but not
+ *  verified.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerEmail;
+
+/** The name of the data protection officer. */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerName;
+
+/**
+ *  The phone number of the data protection officer The phone number is
+ *  validated but not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProtectionOfficerPhone;
+
+/**
+ *  The email of the EU representative. The email is validated but not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *euRepresentativeEmail;
+
+/** The name of the EU representative. */
+@property(nonatomic, copy, nullable) NSString *euRepresentativeName;
+
+/**
+ *  The phone number of the EU representative. The phone number is validated but
+ *  not verified.
+ */
+@property(nonatomic, copy, nullable) NSString *euRepresentativePhone;
 
 @end
 
@@ -3373,6 +3418,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *appAutoApprovalEnabled;
 
+/**
+ *  This feature is not generally available yet. The enterprise contact info of
+ *  an EMM owned enterprise
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ContactInfo *contactInfo;
+
 /** The types of Google Pub/Sub notifications enabled for the enterprise. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledNotificationTypes;
 
@@ -3808,6 +3859,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  This feature is not generally available yet. Response to a request to list
+ *  enterprises.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "enterprises" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAndroidManagement_ListEnterprisesResponse : GTLRCollectionObject
+
+/**
+ *  This feature is not generally available yet. The list of enterprises.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Enterprise *> *enterprises;
+
+/**
+ *  This feature is not generally available yet. If there are more results, a
+ *  token to retrieve next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4078,8 +4157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Provides telephony information associated with each SIM card on the device.
- *  Only supported on fully managed devices starting from Android API level 23
- *  and above.
+ *  Only supported on fully managed devices starting from Android API level 23.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TelephonyInfo *> *telephonyInfos;
 
@@ -4627,7 +4705,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *cameraDisabled;
 
 /**
- *  Controls how long the work profile can stay off.
+ *  Controls how long the work profile can stay off. The duration must be at
+ *  least 3 days.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4686,7 +4765,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *addUserDisabled;
 
 /**
- *  Whether adjusting the master volume is disabled.
+ *  Whether adjusting the master volume is disabled. Also mutes the device.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5874,8 +5953,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 /**
  *  Telephony information associated with a given SIM card on the device. Only
- *  supported on fully managed devices starting from Android API level 23 and
- *  above.
+ *  supported on fully managed devices starting from Android API level 23.
  */
 @interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
 

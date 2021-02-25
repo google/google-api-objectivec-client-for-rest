@@ -250,7 +250,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
-@dynamic exclude, maintenancePolicies;
+@dynamic exclude, isRollback, maintenancePolicies;
 @end
 
 

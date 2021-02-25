@@ -643,6 +643,18 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_ContactInfo
+//
+
+@implementation GTLRAndroidManagement_ContactInfo
+@dynamic contactEmail, dataProtectionOfficerEmail, dataProtectionOfficerName,
+         dataProtectionOfficerPhone, euRepresentativeEmail,
+         euRepresentativeName, euRepresentativePhone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Date
 //
 
@@ -744,7 +756,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Enterprise
-@dynamic appAutoApprovalEnabled, enabledNotificationTypes,
+@dynamic appAutoApprovalEnabled, contactInfo, enabledNotificationTypes,
          enterpriseDisplayName, logo, name, primaryColor, pubsubTopic,
          signinDetails, termsAndConditions;
 
@@ -881,6 +893,28 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 + (NSString *)collectionItemsKey {
   return @"devices";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_ListEnterprisesResponse
+//
+
+@implementation GTLRAndroidManagement_ListEnterprisesResponse
+@dynamic enterprises, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enterprises" : [GTLRAndroidManagement_Enterprise class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"enterprises";
 }
 
 @end
