@@ -289,6 +289,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_RequestLinkRequest
+//
+
+@implementation GTLRHomeGraphService_RequestLinkRequest
+@dynamic payload, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_RequestLinkRequestPayload
+//
+
+@implementation GTLRHomeGraphService_RequestLinkRequestPayload
+@dynamic detectionTime, potentialCastDeviceIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"potentialCastDeviceIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_RequestSyncDevicesRequest
 //
 

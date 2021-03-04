@@ -171,7 +171,7 @@ NS_ASSUME_NONNULL_BEGIN
 //   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsPatchWithObject:name:]
 
 /**
- *  A field name of the form
+ *  Required. A field name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *  A field path may be a simple field name, e.g. `address` or a path to fields
  *  within map_value , e.g. `address.city`, or a special field path. The only
@@ -216,7 +216,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirestore_GoogleFirestoreAdminV1Field to include in
  *    the query.
- *  @param name A field name of the form
+ *  @param name Required. A field name of the form
  *    `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *    A field path may be a simple field name, e.g. `address` or a path to
  *    fields within map_value , e.g. `address.city`, or a special field path.

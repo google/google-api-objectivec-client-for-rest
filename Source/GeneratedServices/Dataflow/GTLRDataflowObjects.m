@@ -671,12 +671,14 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @implementation GTLRDataflow_Environment
 @dynamic clusterManagerApiService, dataset, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
-         serviceAccountEmail, serviceKmsKeyName, shuffleMode, tempStoragePrefix,
-         userAgent, version, workerPools, workerRegion, workerZone;
+         serviceAccountEmail, serviceKmsKeyName, serviceOptions, shuffleMode,
+         tempStoragePrefix, userAgent, version, workerPools, workerRegion,
+         workerZone;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"experiments" : [NSString class],
+    @"serviceOptions" : [NSString class],
     @"workerPools" : [GTLRDataflow_WorkerPool class]
   };
   return map;

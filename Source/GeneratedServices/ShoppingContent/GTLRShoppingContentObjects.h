@@ -261,6 +261,23 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRShoppingContent_AccountCredentials.purpose
+
+/**
+ *  Unknown purpose.
+ *
+ *  Value: "ACCOUNT_CREDENTIALS_PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredentialsPurposeUnspecified;
+/**
+ *  The credentials allow Google to manage Shopify orders on behalf of the
+ *  merchant.
+ *
+ *  Value: "SHOPIFY_ORDER_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement;
+
+// ----------------------------------------------------------------------------
 // GTLRShoppingContent_AccountLabel.labelType
 
 /**
@@ -876,6 +893,37 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /** The phone number of the business. */
 @property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
+ *  Credentials allowing Google to call a partner's API on behalf of a merchant.
+ */
+@interface GTLRShoppingContent_AccountCredentials : GTLRObject
+
+/** An OAuth access token. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/**
+ *  The amount of time, in seconds, after which the access token is no longer
+ *  valid.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresIn;
+
+/**
+ *  Indicates to Google how Google should use these OAuth tokens.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredentialsPurposeUnspecified
+ *        Unknown purpose. (Value: "ACCOUNT_CREDENTIALS_PURPOSE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement
+ *        The credentials allow Google to manage Shopify orders on behalf of the
+ *        merchant. (Value: "SHOPIFY_ORDER_MANAGEMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
 
 @end
 

@@ -31,11 +31,13 @@
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Directory;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2DirectoryNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata;
+@class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteResponse_ServerLogs;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionPolicy;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2LogFile;
+@class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputDirectory;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile;
@@ -90,6 +92,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value: "MD5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Md5;
+/**
+ *  Murmur3 128-bit digest function, x64 variant. Note that this is not a
+ *  cryptographic hash function and its collision properties are not strongly
+ *  guaranteed. See https://github.com/aappleby/smhasher/wiki/MurmurHash3 .
+ *
+ *  Value: "MURMUR3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Murmur3;
 /**
  *  The SHA-1 digest function.
  *
@@ -198,6 +208,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5;
 /**
+ *  Murmur3 128-bit digest function, x64 variant. Note that this is not a
+ *  cryptographic hash function and its collision properties are not strongly
+ *  guaranteed. See https://github.com/aappleby/smhasher/wiki/MurmurHash3 .
+ *
+ *  Value: "MURMUR3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Murmur3;
+/**
  *  The SHA-1 digest function.
  *
  *  Value: "SHA1"
@@ -256,9 +274,48 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /**
  *  Container Manager is disabled or not running for this execution.
  *
- *  Value: "NONE"
+ *  Value: "CONFIG_NONE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None;
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigNone;
+
+// ----------------------------------------------------------------------------
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents.outputLocation
+
+/**
+ *  Output files or directories were found both relative to the execution root
+ *  directory and relative to the working directory.
+ *
+ *  Value: "LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelative;
+/**
+ *  Output files or directories were found relative to the execution root
+ *  directory but not relative to the working directory.
+ *
+ *  Value: "LOCATION_EXEC_ROOT_RELATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelative;
+/**
+ *  No output files or directories were found neither relative to the execution
+ *  root directory nor relative to the working directory.
+ *
+ *  Value: "LOCATION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationNone;
+/**
+ *  Location is set to LOCATION_UNDEFINED for tasks where the working directorty
+ *  is not specified or is identical to the execution root directory.
+ *
+ *  Value: "LOCATION_UNDEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationUndefined;
+/**
+ *  Output files or directories were found relative to the working directory but
+ *  not relative to the execution root directory.
+ *
+ *  Value: "LOCATION_WORKING_DIR_RELATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationWorkingDirRelative;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
@@ -344,6 +401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "DOCKER_IMAGE_PULL_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError;
+/**
+ *  Docker failed because a request was denied by the organization's policy.
+ *
+ *  Value: "DOCKER_IMAGE_VPCSC_PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageVpcscPermissionDenied;
 /**
  *  Docker incompatible operating system error.
  *
@@ -721,14 +784,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Digest *inputRootDigest;
 
 /**
- *  List of required supported NodeProperty keys. In order to ensure that
- *  equivalent `Action`s always hash to the same value, the supported node
- *  properties MUST be lexicographically sorted by name. Sorting of strings is
- *  done by code point, equivalently, by the UTF-8 bytes. The interpretation of
- *  these properties is server-dependent. If a property is not recognized by the
- *  server, the server will return an `INVALID_ARGUMENT` error.
+ *  The optional platform requirements for the execution environment. The server
+ *  MAY choose to execute the action on any worker satisfying the requirements,
+ *  so the client SHOULD ensure that running the action on any such worker will
+ *  have the same result. A detailed lexicon for this can be found in the
+ *  accompanying platform.md. New in version 2.2: clients SHOULD set these
+ *  platform properties as well as those in the Command. Servers SHOULD prefer
+ *  those set here.
  */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *outputNodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Platform *platform;
+
+/**
+ *  An optional additional salt value used to place this `Action` into a
+ *  separate cache namespace from other instances having the same field
+ *  contents. This salt typically comes from operational configuration specific
+ *  to sources such as repo and service configuration, and allows disowning an
+ *  entire set of ActionResults that might have been poisoned by buggy software
+ *  or tool failures.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *salt;
 
 /**
  *  A timeout after which the execution should be killed. If the timeout is
@@ -766,7 +843,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  An ActionResult represents the result of an Action being run.
+ *  An ActionResult represents the result of an Action being run. It is advised
+ *  that at least one field (for example
+ *  `ActionResult.execution_metadata.Worker`) have a non-default value, to
+ *  ensure that the serialized value is non-empty, which can then be used as a
+ *  basic data sanity check.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ActionResult : GTLRObject
 
@@ -1121,6 +1202,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSArray<NSString *> *outputFiles;
 
 /**
+ *  A list of keys for node properties the client expects to retrieve for output
+ *  files and directories. Keys are either names of string-based NodeProperty or
+ *  names of fields in NodeProperties. In order to ensure that equivalent
+ *  `Action`s always hash to the same value, the node properties MUST be
+ *  lexicographically sorted by name. Sorting of strings is done by code point,
+ *  equivalently, by the UTF-8 bytes. The interpretation of string-based
+ *  properties is server-dependent. If a property is not recognized by the
+ *  server, the server will return an `INVALID_ARGUMENT`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputNodeProperties;
+
+/**
  *  A list of the output paths that the client expects to retrieve from the
  *  action. Only the listed paths will be returned to the client as output. The
  *  type of the output (file or directory) is not specified, and will be
@@ -1148,7 +1241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  choose to execute the action on any worker satisfying the requirements, so
  *  the client SHOULD ensure that running the action on any such worker will
  *  have the same result. A detailed lexicon for this can be found in the
- *  accompanying platform.md.
+ *  accompanying platform.md. DEPRECATED as of v2.2: platform properties are now
+ *  specified directly in the action. See documentation note in the Action for
+ *  migration.
  */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Platform *platform;
 
@@ -1260,8 +1355,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /** The files in the directory. */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode *> *files;
 
-/** The node properties of the Directory. */
-@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties *nodeProperties;
 
 /** The symlinks in the directory. */
 @property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode *> *symlinks;
@@ -1291,6 +1385,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  ExecutedActionMetadata contains details about a completed execution.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata : GTLRObject
+
+/**
+ *  Details that are specific to the kind of worker used. For example, on
+ *  POSIX-like systems this could contain a message with getrusage(2)
+ *  statistics.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item *> *auxiliaryMetadata;
 
 /** When the worker completed executing the action command. */
 @property(nonatomic, strong, nullable) GTLRDateTime *executionCompletedTimestamp;
@@ -1326,6 +1427,18 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
+ *  GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item : GTLRObject
+@end
+
+
+/**
  *  Metadata about an ongoing execution, which will be contained in the metadata
  *  field of the Operation.
  */
@@ -1352,14 +1465,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, copy, nullable) NSString *stage;
 
 /**
- *  If set, the client can use this name with ByteStream.Read to stream the
- *  standard error.
+ *  If set, the client can use this resource name with ByteStream.Read to stream
+ *  the standard error from the endpoint hosting streamed responses.
  */
 @property(nonatomic, copy, nullable) NSString *stderrStreamName;
 
 /**
- *  If set, the client can use this name with ByteStream.Read to stream the
- *  standard output.
+ *  If set, the client can use this resource name with ByteStream.Read to stream
+ *  the standard output from the endpoint hosting streamed responses.
  */
 @property(nonatomic, copy, nullable) NSString *stdoutStreamName;
 
@@ -1487,6 +1600,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Likely values:
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5
  *        The MD5 digest function. (Value: "MD5")
+ *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Murmur3
+ *        Murmur3 128-bit digest function, x64 variant. Note that this is not a
+ *        cryptographic hash function and its collision properties are not
+ *        strongly guaranteed. See
+ *        https://github.com/aappleby/smhasher/wiki/MurmurHash3 . (Value:
+ *        "MURMUR3")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1
  *        The SHA-1 digest function. (Value: "SHA1")
  *    @arg @c kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256
@@ -1561,8 +1680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /** The name of the file. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The node properties of the FileNode. */
-@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties *nodeProperties;
 
 @end
 
@@ -1640,6 +1758,28 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
+ *  Node properties for FileNodes, DirectoryNodes, and SymlinkNodes. The server
+ *  is responsible for specifying the properties that it accepts.
+ */
+@interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties : GTLRObject
+
+/** The file's last modification timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *mtime;
+
+/** A list of string-based NodeProperties. */
+@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *properties;
+
+/**
+ *  The UNIX file mode, e.g., 0755.
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unixMode;
+
+@end
+
+
+/**
  *  A single property for FileNodes, DirectoryNodes, and SymlinkNodes. The
  *  server is responsible for specifying the property `name`s that it accepts.
  *  If permitted by the server, the same `name` may occur multiple times.
@@ -1705,10 +1845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @property(nonatomic, strong, nullable) NSNumber *isExecutable;
 
-/**
- *  The supported node properties of the OutputFile, if requested by the Action.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties *nodeProperties;
 
 /**
  *  The full path of the file relative to the working directory, including the
@@ -1726,11 +1863,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink : GTLRObject
 
-/**
- *  The supported node properties of the OutputSymlink, if requested by the
- *  Action.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties *nodeProperties;
 
 /**
  *  The full path of the symlink relative to the working directory, including
@@ -1743,9 +1876,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  The target path of the symlink. The path separator is a forward slash `/`.
  *  The target path can be relative to the parent directory of the symlink or it
  *  can be an absolute path starting with `/`. Support for absolute paths can be
- *  checked using the Capabilities API. The canonical form forbids the
- *  substrings `/./` and `//` in the target path. `..` components are allowed
- *  anywhere in the target path.
+ *  checked using the Capabilities API. `..` components are allowed anywhere in
+ *  the target path.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -1783,7 +1915,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  on which the action must be performed may require an exact match with the
  *  worker's OS. The server MAY use the `value` of one or more properties to
  *  determine how it sets up the execution environment, such as by making
- *  specific system files available to the worker.
+ *  specific system files available to the worker. Both names and values are
+ *  typically case-sensitive. Note that the platform is implicitly part of the
+ *  action digest, so even tiny changes in the names or values (like changing
+ *  case) may result in different action cache entries.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PlatformProperty : GTLRObject
 
@@ -1797,8 +1932,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 
 /**
- *  Allowed values for priority in ResultsCachePolicy Used for querying both
- *  cache and execution valid priority ranges.
+ *  Allowed values for priority in ResultsCachePolicy and ExecutionPolicy Used
+ *  for querying both cache and execution valid priority ranges.
  */
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PriorityCapabilities : GTLRObject
 
@@ -1813,14 +1948,16 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @interface GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2PriorityCapabilitiesPriorityRange : GTLRObject
 
 /**
- *  maxPriority
+ *  The maximum numeric value for this priority range, which represents the
+ *  least urgent task or shortest retained item.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxPriority;
 
 /**
- *  minPriority
+ *  The minimum numeric value for this priority range, which represents the most
+ *  urgent task or longest retained item.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1922,16 +2059,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 /** The name of the symlink. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The node properties of the SymlinkNode. */
-@property(nonatomic, strong, nullable) NSArray<GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty *> *nodeProperties;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties *nodeProperties;
 
 /**
  *  The target path of the symlink. The path separator is a forward slash `/`.
  *  The target path can be relative to the parent directory of the symlink or it
  *  can be an absolute path starting with `/`. Support for absolute paths can be
- *  checked using the Capabilities API. The canonical form forbids the
- *  substrings `/./` and `//` in the target path. `..` components are allowed
- *  anywhere in the target path.
+ *  checked using the Capabilities API. `..` components are allowed anywhere in
+ *  the target path as logical canonicalization may lead to different behavior
+ *  in the presence of directory symlinks (e.g. `foo/../bar` may not be the same
+ *  as `bar`). To reduce potential cache misses, canonicalization is still
+ *  recommended where this is possible without impacting correctness.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
@@ -2021,6 +2159,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 @interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandDurations : GTLRObject
 
+/** The time spent to release the CAS blobs used by the task. */
+@property(nonatomic, strong, nullable) GTLRDuration *casRelease;
+
 /**
  *  The time spent waiting for Container Manager to assign an asynchronous
  *  container for execution.
@@ -2087,9 +2228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMismatch
  *        Container Manager is enabled, but there was no matching container
  *        available for execution. (Value: "CONFIG_MISMATCH")
- *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigNone
  *        Container Manager is disabled or not running for this execution.
- *        (Value: "NONE")
+ *        (Value: "CONFIG_NONE")
  */
 @property(nonatomic, copy, nullable) NSString *cmUsage;
 
@@ -2124,6 +2265,35 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWarnings;
+
+/**
+ *  Indicates whether output files and/or output directories were found relative
+ *  to the execution root or to the user provided work directory or both or
+ *  none.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelative
+ *        Output files or directories were found both relative to the execution
+ *        root directory and relative to the working directory. (Value:
+ *        "LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelative
+ *        Output files or directories were found relative to the execution root
+ *        directory but not relative to the working directory. (Value:
+ *        "LOCATION_EXEC_ROOT_RELATIVE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationNone
+ *        No output files or directories were found neither relative to the
+ *        execution root directory nor relative to the working directory.
+ *        (Value: "LOCATION_NONE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationUndefined
+ *        Location is set to LOCATION_UNDEFINED for tasks where the working
+ *        directorty is not specified or is identical to the execution root
+ *        directory. (Value: "LOCATION_UNDEFINED")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationWorkingDirRelative
+ *        Output files or directories were found relative to the working
+ *        directory but not relative to the execution root directory. (Value:
+ *        "LOCATION_WORKING_DIR_RELATIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *outputLocation;
 
 /**
  *  Indicates whether an asynchronous container was used for execution.
@@ -2183,6 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError
  *        The bot failed to pull docker image. (Value:
  *        "DOCKER_IMAGE_PULL_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageVpcscPermissionDenied
+ *        Docker failed because a request was denied by the organization's
+ *        policy. (Value: "DOCKER_IMAGE_VPCSC_PERMISSION_DENIED")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError
  *        Docker incompatible operating system error. (Value:
  *        "DOCKER_INCOMPATIBLE_OS_ERROR")

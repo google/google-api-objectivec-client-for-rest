@@ -20,6 +20,7 @@
 
 @class GTLRHomeGraphService_QueryRequest;
 @class GTLRHomeGraphService_ReportStateAndNotificationRequest;
+@class GTLRHomeGraphService_RequestLinkRequest;
 @class GTLRHomeGraphService_RequestSyncDevicesRequest;
 @class GTLRHomeGraphService_SyncRequest;
 
@@ -160,6 +161,38 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRHomeGraphServiceQuery_DevicesReportStateAndNotification
  */
 + (instancetype)queryWithObject:(GTLRHomeGraphService_ReportStateAndNotificationRequest *)object;
+
+@end
+
+/**
+ *  Sends an account linking suggestion to users associated with any potential
+ *  Cast devices detected by third-party devices. This request must be
+ *  authorized using service account credentials from your Actions console
+ *  project.
+ *
+ *  Method: homegraph.devices.requestLink
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHomeGraphService
+ */
+@interface GTLRHomeGraphServiceQuery_DevicesRequestLink : GTLRHomeGraphServiceQuery
+// Previous library name was
+//   +[GTLQueryHomeGraphService queryForDevicesRequestLinkWithObject:]
+
+/**
+ *  Fetches a @c GTLRHomeGraphService_Empty.
+ *
+ *  Sends an account linking suggestion to users associated with any potential
+ *  Cast devices detected by third-party devices. This request must be
+ *  authorized using service account credentials from your Actions console
+ *  project.
+ *
+ *  @param object The @c GTLRHomeGraphService_RequestLinkRequest to include in
+ *    the query.
+ *
+ *  @return GTLRHomeGraphServiceQuery_DevicesRequestLink
+ */
++ (instancetype)queryWithObject:(GTLRHomeGraphService_RequestLinkRequest *)object;
 
 @end
 

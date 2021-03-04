@@ -4427,6 +4427,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 @property(nonatomic, copy, nullable) NSString *domain;
 
 /**
+ *  Event on which subscription is intended (if subscribing)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryEventEventUndefined Value "eventUndefined"
+ *    @arg @c kGTLRDirectoryEventAdd User Created Event (Value: "add")
+ *    @arg @c kGTLRDirectoryEventDelete User Deleted Event (Value: "delete")
+ *    @arg @c kGTLRDirectoryEventMakeAdmin User Admin Status Change Event
+ *        (Value: "makeAdmin")
+ *    @arg @c kGTLRDirectoryEventUndelete User Undeleted Event (Value:
+ *        "undelete")
+ *    @arg @c kGTLRDirectoryEventUpdate User Updated Event (Value: "update")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
  *  Maximum number of results to return.
  *
  *  @note If not set, the documented server-side default will be 100 (from the

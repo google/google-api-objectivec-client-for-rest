@@ -24,6 +24,16 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecifie
 NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql = @"MYSQL";
 
+// GTLRDataprocMetastore_DatabaseDump.type
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
@@ -33,6 +43,11 @@ NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Sunday = @"S
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Thursday = @"THURSDAY";
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Tuesday = @"TUESDAY";
 NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY";
+
+// GTLRDataprocMetastore_MetadataExport.databaseDumpType
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRDataprocMetastore_MetadataExport.state
 NSString * const kGTLRDataprocMetastore_MetadataExport_State_Cancelled = @"CANCELLED";
@@ -135,7 +150,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_DatabaseDump
-@dynamic databaseType, gcsUri, sourceDatabase;
+@dynamic databaseType, gcsUri, sourceDatabase, type;
 @end
 
 
@@ -154,7 +169,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_ExportMetadataRequest
-@dynamic destinationGcsFolder, requestId;
+@dynamic databaseDumpType, destinationGcsFolder, requestId;
 @end
 
 
@@ -379,7 +394,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_MetadataExport
-@dynamic destinationGcsUri, endTime, startTime, state;
+@dynamic databaseDumpType, destinationGcsUri, endTime, startTime, state;
 @end
 
 
@@ -493,7 +508,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_Restore
-@dynamic backup, endTime, startTime, state, type;
+@dynamic backup, details, endTime, startTime, state, type;
 @end
 
 

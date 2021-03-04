@@ -38,8 +38,8 @@ NS_ASSUME_NONNULL_BEGIN
 // applicationName
 
 /**
- *  The G Suite Access Transparency activity reports return information about
- *  different types of Access Transparency activity events.
+ *  The Google Workspace Access Transparency activity reports return information
+ *  about different types of Access Transparency activity events.
  *
  *  Value: "access_transparency"
  */
@@ -56,7 +56,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUnd
 /** Value: "application_name_unspecified" */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified;
 /**
- *  The G Suite Calendar application's activity reports return information about
+ *  The Google Calendar application's activity reports return information about
  *  various Calendar activity events.
  *
  *  Value: "calendar"
@@ -90,13 +90,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContextAwareAccess
  *  Value: "data_studio"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDataStudio;
-/**
- *  The Google Drive application's activity reports return information about
- *  various Google Drive activity events. The Drive activity report is only
- *  available for G Suite Business customers.
- *
- *  Value: "drive"
- */
+/** Value: "drive" */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
 /**
  *  The Google Cloud Platform application's activity reports return information
@@ -261,21 +255,22 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Likely values:
  *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
  *        "application_name_undefined"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Enterprise customers. (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -348,14 +343,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  The name of the event being queried by the API. Each `eventName` is related
- *  to a specific G Suite service or feature which the API organizes into types
- *  of events. An example is the Google Calendar events in the Admin console
- *  application's reports. The Calendar Settings `type` structure has all of the
- *  Calendar `eventName` activities reported by the API. When an administrator
- *  changes a Calendar setting, the API reports this activity in the Calendar
- *  Settings `type` and `eventName` parameters. For more information about
- *  `eventName` query strings and parameters, see the list of event names for
- *  various applications above in `applicationName`.
+ *  to a specific Google Workspace service or feature which the API organizes
+ *  into types of events. An example is the Google Calendar events in the Admin
+ *  console application's reports. The Calendar Settings `type` structure has
+ *  all of the Calendar `eventName` activities reported by the API. When an
+ *  administrator changes a Calendar setting, the API reports this activity in
+ *  the Calendar Settings `type` and `eventName` parameters. For more
+ *  information about `eventName` query strings and parameters, see the list of
+ *  event names for various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
@@ -441,7 +436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -456,28 +451,30 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
  *  Likely values for @c applicationName:
  *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
  *        "application_name_undefined"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Enterprise customers. (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -566,21 +563,23 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Likely values:
  *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
  *        "application_name_unspecified"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Google Workspace Enterprise customers.
+ *        (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -653,14 +652,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 
 /**
  *  The name of the event being queried by the API. Each `eventName` is related
- *  to a specific G Suite service or feature which the API organizes into types
- *  of events. An example is the Google Calendar events in the Admin console
- *  application's reports. The Calendar Settings `type` structure has all of the
- *  Calendar `eventName` activities reported by the API. When an administrator
- *  changes a Calendar setting, the API reports this activity in the Calendar
- *  Settings `type` and `eventName` parameters. For more information about
- *  `eventName` query strings and parameters, see the list of event names for
- *  various applications above in `applicationName`.
+ *  to a specific Google Workspace service or feature which the API organizes
+ *  into types of events. An example is the Google Calendar events in the Admin
+ *  console application's reports. The Calendar Settings `type` structure has
+ *  all of the Calendar `eventName` activities reported by the API. When an
+ *  administrator changes a Calendar setting, the API reports this activity in
+ *  the Calendar Settings `type` and `eventName` parameters. For more
+ *  information about `eventName` query strings and parameters, see the list of
+ *  event names for various applications above in `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
@@ -746,7 +745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -759,28 +758,31 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  @param object The @c GTLRReports_Channel to include in the query.
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address.
  *  @param applicationName Application name for which the events are to be
  *    retrieved.
  *
  *  Likely values for @c applicationName:
  *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
  *        "application_name_unspecified"
- *    @arg @c kGTLRReportsApplicationNameAccessTransparency The G Suite Access
- *        Transparency activity reports return information about different types
- *        of Access Transparency activity events. (Value: "access_transparency")
+ *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
+ *        Access Transparency activity reports return information about
+ *        different types of Access Transparency activity events. (Value:
+ *        "access_transparency")
  *    @arg @c kGTLRReportsApplicationNameAdmin The Admin console application's
  *        activity reports return account information about different types of
  *        administrator activity events. (Value: "admin")
- *    @arg @c kGTLRReportsApplicationNameCalendar The G Suite Calendar
+ *    @arg @c kGTLRReportsApplicationNameCalendar The Google Calendar
  *        application's activity reports return information about various
  *        Calendar activity events. (Value: "calendar")
  *    @arg @c kGTLRReportsApplicationNameChat The Chat activity reports return
  *        information about various Chat activity events. (Value: "chat")
  *    @arg @c kGTLRReportsApplicationNameDrive The Google Drive application's
  *        activity reports return information about various Google Drive
- *        activity events. The Drive activity report is only available for G
- *        Suite Business customers. (Value: "drive")
+ *        activity events. The Drive activity report is only available for
+ *        Google Workspace Business and Google Workspace Enterprise customers.
+ *        (Value: "drive")
  *    @arg @c kGTLRReportsApplicationNameGcp The Google Cloud Platform
  *        application's activity reports return information about various GCP
  *        activity events. (Value: "gcp")
@@ -1173,7 +1175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 /**
  *  Represents the profile ID or the user email for which the data should be
  *  filtered. Can be `all` for all information, or `userKey` for a user's unique
- *  G Suite profile ID or their primary email address.
+ *  Google Workspace profile ID or their primary email address.
  */
 @property(nonatomic, copy, nullable) NSString *userKey;
 
@@ -1187,7 +1189,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *
  *  @param userKey Represents the profile ID or the user email for which the
  *    data should be filtered. Can be `all` for all information, or `userKey`
- *    for a user's unique G Suite profile ID or their primary email address.
+ *    for a user's unique Google Workspace profile ID or their primary email
+ *    address.
  *  @param date Represents the date the usage occurred. The timestamp is in the
  *    ISO 8601 format, yyyy-mm-dd. We recommend you use your account's time zone
  *    for this.

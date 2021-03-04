@@ -15,6 +15,7 @@
 
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.digestFunction
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Md5 = @"MD5";
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Murmur3 = @"MURMUR3";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha1 = @"SHA1";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha256 = @"SHA256";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Sha384 = @"SHA384";
@@ -36,6 +37,7 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecuteOpe
 
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities.digestFunction
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Md5 = @"MD5";
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Murmur3 = @"MURMUR3";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha1 = @"SHA1";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha256 = @"SHA256";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionCapabilities_DigestFunction_Sha384 = @"SHA384";
@@ -46,7 +48,14 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutionC
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents.cmUsage
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMatch = @"CONFIG_MATCH";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigMismatch = @"CONFIG_MISMATCH";
-NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_None = @"NONE";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_CmUsage_ConfigNone = @"CONFIG_NONE";
+
+// GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents.outputLocation
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelative = @"LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelative = @"LOCATION_EXEC_ROOT_RELATIVE";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationNone = @"LOCATION_NONE";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationUndefined = @"LOCATION_UNDEFINED";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationWorkingDirRelative = @"LOCATION_WORKING_DIR_RELATIVE";
 
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus.code
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_Aborted = @"ABORTED";
@@ -62,6 +71,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageNotFound = @"DOCKER_IMAGE_NOT_FOUND";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePermissionDenied = @"DOCKER_IMAGE_PERMISSION_DENIED";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImagePullError = @"DOCKER_IMAGE_PULL_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerImageVpcscPermissionDenied = @"DOCKER_IMAGE_VPCSC_PERMISSION_DENIED";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError = @"DOCKER_INCOMPATIBLE_OS_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit = @"DOCKER_INVALID_ULIMIT";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError = @"DOCKER_LOGIN_ERROR";
@@ -128,16 +138,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Action
-@dynamic commandDigest, doNotCache, inputRootDigest, outputNodeProperties,
-         timeout;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"outputNodeProperties" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic commandDigest, doNotCache, inputRootDigest, platform, salt, timeout;
 @end
 
 
@@ -303,7 +304,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2Command
 @dynamic arguments, environmentVariables, outputDirectories, outputFiles,
-         outputPaths, platform, workingDirectory;
+         outputNodeProperties, outputPaths, platform, workingDirectory;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -311,6 +312,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
     @"environmentVariables" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CommandEnvironmentVariable class],
     @"outputDirectories" : [NSString class],
     @"outputFiles" : [NSString class],
+    @"outputNodeProperties" : [NSString class],
     @"outputPaths" : [NSString class]
   };
   return map;
@@ -356,7 +358,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
   NSDictionary<NSString *, Class> *map = @{
     @"directories" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2DirectoryNode class],
     @"files" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode class],
-    @"nodeProperties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class],
     @"symlinks" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode class]
   };
   return map;
@@ -381,11 +382,33 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata
-@dynamic executionCompletedTimestamp, executionStartTimestamp,
-         inputFetchCompletedTimestamp, inputFetchStartTimestamp,
-         outputUploadCompletedTimestamp, outputUploadStartTimestamp,
-         queuedTimestamp, worker, workerCompletedTimestamp,
-         workerStartTimestamp;
+@dynamic auxiliaryMetadata, executionCompletedTimestamp,
+         executionStartTimestamp, inputFetchCompletedTimestamp,
+         inputFetchStartTimestamp, outputUploadCompletedTimestamp,
+         outputUploadStartTimestamp, queuedTimestamp, worker,
+         workerCompletedTimestamp, workerStartTimestamp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auxiliaryMetadata" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item
+//
+
+@implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ExecutedActionMetadata_AuxiliaryMetadata_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -469,14 +492,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2FileNode
 @dynamic digest, isExecutable, name, nodeProperties;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"nodeProperties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -550,6 +565,24 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties
+//
+
+@implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperties
+@dynamic mtime, properties, unixMode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty
 //
 
@@ -575,14 +608,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputFile
 @dynamic contents, digest, isExecutable, nodeProperties, path;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"nodeProperties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -593,14 +618,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2OutputSymlink
 @dynamic nodeProperties, path, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"nodeProperties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -698,14 +715,6 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode
 @dynamic name, nodeProperties, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"nodeProperties" : [GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2NodeProperty class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -762,9 +771,9 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandDurations
-@dynamic cmWaitForAssignment, dockerPrep, dockerPrepStartTime, download,
-         downloadStartTime, execStartTime, execution, isoPrepDone, overall,
-         stdout, upload, uploadStartTime;
+@dynamic casRelease, cmWaitForAssignment, dockerPrep, dockerPrepStartTime,
+         download, downloadStartTime, execStartTime, execution, isoPrepDone,
+         overall, stdout, upload, uploadStartTime;
 @end
 
 
@@ -775,7 +784,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents
 @dynamic cmUsage, dockerCacheHit, dockerImageName, inputCacheMiss, numErrors,
-         numWarnings, usedAsyncContainer;
+         numWarnings, outputLocation, usedAsyncContainer;
 @end
 
 

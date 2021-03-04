@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRShoppingContent_Account;
+@class GTLRShoppingContent_AccountCredentials;
 @class GTLRShoppingContent_AccountLabel;
 @class GTLRShoppingContent_AccountReturnCarrier;
 @class GTLRShoppingContent_AccountsCustomBatchRequest;
@@ -264,6 +265,42 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Uploads credentials for the Merchant Center account. If credentials already
+ *  exist for this Merchant Center account and purpose, this method updates
+ *  them.
+ *
+ *  Method: content.accounts.credentials.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsCredentialsCreate : GTLRShoppingContentQuery
+// Previous library name was
+//   +[GTLQueryShoppingContent queryForAccountsCredentialsCreateWithObject:accountId:]
+
+/** Required. The merchant id of the account these credentials belong to. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_AccountCredentials.
+ *
+ *  Uploads credentials for the Merchant Center account. If credentials already
+ *  exist for this Merchant Center account and purpose, this method updates
+ *  them.
+ *
+ *  @param object The @c GTLRShoppingContent_AccountCredentials to include in
+ *    the query.
+ *  @param accountId Required. The merchant id of the account these credentials
+ *    belong to.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsCredentialsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountCredentials *)object
+                      accountId:(long long)accountId;
 
 @end
 
@@ -1267,7 +1304,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  Onboards BoG in your Merchant Center account. By using this method, you
- *  agree to the Terms of Service.
+ *  agree to the [Terms of
+ *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
  *
  *  Method: content.buyongoogleprograms.onboard
  *
@@ -1293,7 +1331,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  be nil. This query does not fetch an object.
  *
  *  Onboards BoG in your Merchant Center account. By using this method, you
- *  agree to the Terms of Service.
+ *  agree to the [Terms of
+ *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
  *
  *  @param object The @c GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest to
  *    include in the query.

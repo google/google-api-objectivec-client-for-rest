@@ -14,6 +14,15 @@
 
 #import "GTLRChromeManagement.h"
 
+// ----------------------------------------------------------------------------
+// Authorization scope
+
+NSString * const kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly = @"https://www.googleapis.com/auth/chrome.management.reports.readonly";
+
+// ----------------------------------------------------------------------------
+//   GTLRChromeManagementService
+//
+
 @implementation GTLRChromeManagementService
 
 - (instancetype)init {

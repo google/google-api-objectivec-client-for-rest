@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -117,6 +117,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1TlsInfo;
 @class GTLRApigee_GoogleCloudApigeeV1TlsInfoCommonName;
 @class GTLRApigee_GoogleCloudApigeeV1TlsInfoConfig;
+@class GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride;
+@class GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig;
 @class GTLRApigee_GoogleCloudApigeeV1UpdateError;
 @class GTLRApigee_GoogleIamV1AuditConfig;
 @class GTLRApigee_GoogleIamV1AuditLogConfig;
@@ -319,19 +321,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DataCollectorC
 // GTLRApigee_GoogleCloudApigeeV1Deployment.state
 
 /**
- *  There is an error with the deployment that requires intervention.
+ *  Encountered an error with the deployment that requires intervention.
  *
  *  Value: "ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Error;
 /**
- *  The deployment is not fully ready in the runtime.
+ *  Deployment is not fully ready in the runtime.
  *
  *  Value: "PROGRESSING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing;
 /**
- *  The runtime has loaded the deployment.
+ *  Runtime has loaded the deployment.
  *
  *  Value: "READY"
  */
@@ -409,13 +411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGro
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified;
 /**
- *  The "/16" CIDR range.
+ *  `/16` CIDR range.
  *
  *  Value: "SLASH_16"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16;
 /**
- *  The "/20" CIDR range.
+ *  `/20` CIDR range.
  *
  *  Value: "SLASH_20"
  */
@@ -676,6 +678,51 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
  *  Value: "SAMPLER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
+
+/**
+ *  Cloudtrace exporter
+ *
+ *  Value: "CLOUD_TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace;
+/**
+ *  Exporter unspecified
+ *
+ *  Value: "EXPORTER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified;
+/**
+ *  Jaeger exporter
+ *
+ *  Value: "JAEGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig.sampler
+
+/**
+ *  OFF means distributed trace is disabled, or the sampling probability is 0.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Off;
+/**
+ *  PROBABILITY means traces are captured on a probability that defined by
+ *  sampling_rate. The sampling rate is limited to 0 to 0.5 when this is set.
+ *
+ *  Value: "PROBABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Probability;
+/**
+ *  Sampler unspecified.
+ *
+ *  Value: "SAMPLER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_SamplerUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1UpdateError.code
@@ -2346,6 +2393,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Status reported by runtime pods. This field is not populated for List APIs.
+ *  **Note**: **This field is deprecated**. Runtime versions 1.3 and above
+ *  report instance level status rather than pod status.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1PodStatus *> *pods;
 
@@ -2354,11 +2403,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Conflicts in the desired state routing configuration. The presence of
- *  conflicts does not cause the state to be ERROR, but it will mean that some
- *  of the deployments basepaths are not routed to its environment. If the
- *  conflicts change, the state will transition to PROGRESSING until the latest
- *  configuration is rolled out to all instances. This field is not populated in
- *  List APIs.
+ *  conflicts does not cause the state to be `ERROR`, but it will mean that some
+ *  of the deployment's base paths are not routed to its environment. If the
+ *  conflicts change, the state will transition to `PROGRESSING` until the
+ *  latest configuration is rolled out to all instances. This field is not
+ *  populated in List APIs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingConflict *> *routeConflicts;
 
@@ -2366,12 +2415,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Current state of the deployment. This field is not populated in List APIs.
  *
  *  Likely values:
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Error There is an
- *        error with the deployment that requires intervention. (Value: "ERROR")
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing The
- *        deployment is not fully ready in the runtime. (Value: "PROGRESSING")
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Ready The runtime
- *        has loaded the deployment. (Value: "READY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Error Encountered
+ *        an error with the deployment that requires intervention. (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Progressing
+ *        Deployment is not fully ready in the runtime. (Value: "PROGRESSING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_Ready Runtime has
+ *        loaded the deployment. (Value: "READY")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Deployment_State_RuntimeStateUnspecified
  *        This value should never be returned. (Value:
  *        "RUNTIME_STATE_UNSPECIFIED")
@@ -2390,17 +2440,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  of the deployment request is to effect a routing change. The primary
  *  purposes of the routing messages are: 1) To inform users of routing changes
  *  that may have an effect on traffic currently being routed to other existing
- *  deployments. 2) To warn users if some basepath in the proxy will not receive
- *  traffic due to an existing deployment having already claimed that basepath.
- *  The presence of routing conflicts/changes will not cause non-dry-run
- *  DeployApiProxy/UndeployApiProxy requests to be rejected.
+ *  deployments. 2) To warn users if some base path in the proxy will not
+ *  receive traffic due to an existing deployment having already claimed that
+ *  base path. The presence of routing conflicts/changes will not cause
+ *  non-dry-run DeployApiProxy/UndeployApiProxy requests to be rejected.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReport : GTLRObject
 
 /** All routing changes that may result from a deployment request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingChange *> *routingChanges;
 
-/** All basepath conflicts detected for a deployment request. */
+/** All base path conflicts detected for a deployment request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingConflict *> *routingConflicts;
 
 /**
@@ -2419,30 +2469,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingChange : GTLRObject
 
 /**
- *  A human-readable description of this routing change.
+ *  Human-readable description of this routing change.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The name of the environment group affected by this routing change. */
+/** Name of the environment group affected by this routing change. */
 @property(nonatomic, copy, nullable) NSString *environmentGroup;
 
-/** The basepath/deployment that may stop receiving some traffic. */
+/** Base path/deployment that may stop receiving some traffic. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment *fromDeployment;
 
 /**
- *  True if using sequenced rollout would make this routing change safer. Note:
- *  this does not necessarily imply that automated sequenced rollout mode is
- *  supported for the operation.
+ *  Set to `true` if using sequenced rollout would make this routing change
+ *  safer. **Note**: This does not necessarily imply that automated sequenced
+ *  rollout mode is supported for the operation.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *shouldSequenceRollout;
 
 /**
- *  The basepath/deployment that may start receiving that traffic. May be null
- *  if no deployment is able to receive the traffic.
+ *  Base path/deployment that may start receiving that traffic. May be null if
+ *  no deployment is able to receive the traffic.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment *toDeployment;
 
@@ -2451,41 +2501,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Describes a routing conflict that may cause a deployment not to receive
- *  traffic at some basepath.
+ *  traffic at some base path.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingConflict : GTLRObject
 
-/** The existing basepath/deployment causing the conflict. */
+/** Existing base path/deployment causing the conflict. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment *conflictingDeployment;
 
 /**
- *  A human-readable description of this conflict.
+ *  Human-readable description of this conflict.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The name of the environment group in which this conflict exists. */
+/** Name of the environment group in which this conflict exists. */
 @property(nonatomic, copy, nullable) NSString *environmentGroup;
 
 @end
 
 
 /**
- *  A tuple representing a basepath and the deployment containing it.
+ *  Tuple representing a base path and the deployment containing it.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentChangeReportRoutingDeployment : GTLRObject
 
-/** The name of the deployed proxy revision containing the basepath. */
+/** Name of the deployed API proxy revision containing the base path. */
 @property(nonatomic, copy, nullable) NSString *apiProxy;
 
-/** The basepath receiving traffic. */
+/** Base path receiving traffic. */
 @property(nonatomic, copy, nullable) NSString *basepath;
 
-/** The name of the environment in which the proxy is deployed. */
+/** Name of the environment in which the proxy is deployed. */
 @property(nonatomic, copy, nullable) NSString *environment;
 
-/** The name of the deployed proxy revision containing the basepath. */
+/** Name of the deployed API proxy revision containing the base path. */
 @property(nonatomic, copy, nullable) NSString *revision;
 
 @end
@@ -3146,7 +3196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Optional. Flag that specifies whether execution should continue if the flow
  *  hook throws an exception. Set to `true` to continue execution. Set to
- *  `false` to stop execution if the flow hook throws an exception.Defaults to
+ *  `false` to stop execution if the flow hook throws an exception. Defaults to
  *  `true`.
  *
  *  Uses NSNumber of boolValue.
@@ -3276,7 +3326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Hostname or IP address of the exposed Apigee endpoint used by
+ *  Output only. Internal hostname or IP address of the Apigee endpoint used by
  *  clients to connect to the service.
  */
 @property(nonatomic, copy, nullable) NSString *host;
@@ -3299,16 +3349,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The size of the CIDR block range that will be reserved by the
- *  instance. If not specified, default to SLASH_16.
+ *  Optional. Size of the CIDR block range that will be reserved by the
+ *  instance. PAID organizations support `SLASH_16` to `SLASH_20` and defaults
+ *  to `SLASH_16`. Evaluation organizations support only `SLASH_23`.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified
  *        Range not specified. (Value: "CIDR_RANGE_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16
- *        The "/16" CIDR range. (Value: "SLASH_16")
+ *        `/16` CIDR range. (Value: "SLASH_16")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20
- *        The "/20" CIDR range. (Value: "SLASH_20")
+ *        `/20` CIDR range. (Value: "SLASH_20")
  */
 @property(nonatomic, copy, nullable) NSString *peeringCidrRange;
 
@@ -3316,7 +3367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *port;
 
 /**
- *  Output only. State of the instance. Values other than ACTIVE means the
+ *  Output only. State of the instance. Values other than `ACTIVE` means the
  *  resource is not ready to use.
  *
  *  Likely values:
@@ -3365,8 +3416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRevision *> *deployedRevisions;
 
 /**
- *  The current routes deployed in the ingress routing table. A route which is
- *  missing will appear in missing_routes.
+ *  Current routes deployed in the ingress routing table. A route which is
+ *  missing will appear in `missing_routes`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute *> *deployedRoutes;
 
@@ -3382,37 +3433,37 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @interface GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRevision : GTLRObject
 
 /**
- *  The percentage of MP replicas reporting this revision
+ *  Percentage of MP replicas reporting this revision.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentage;
 
-/** The proxy revision reported as deployed. */
+/** API proxy revision reported as deployed. */
 @property(nonatomic, copy, nullable) NSString *revision;
 
 @end
 
 
 /**
- *  A route deployed in the ingress routing table.
+ *  Route deployed in the ingress routing table.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute : GTLRObject
 
-/** The basepath in the routing table. */
+/** Base path in the routing table. */
 @property(nonatomic, copy, nullable) NSString *basepath;
 
-/** The envgroup where this route is installed. */
+/** Environment group where this route is installed. */
 @property(nonatomic, copy, nullable) NSString *envgroup;
 
 /**
- *  The destination environment. This will be empty if the route is not yet
+ *  Destination environment. This will be empty if the route is not yet
  *  reported.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
 /**
- *  The percentage of ingress replicas reporting this route.
+ *  Percentage of ingress replicas reporting this route.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3854,6 +3905,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListTraceConfigOverrides.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "traceConfigOverrides" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse : GTLRCollectionObject
+
+/**
+ *  Token value that can be passed as `page_token` to retrieve the next page of
+ *  content.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List all trace configuration overrides in an environment.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *> *traceConfigOverrides;
+
+@end
+
+
+/**
  *  This message type encapsulates additional information about query execution.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Metadata : GTLRObject
@@ -3901,14 +3979,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1NatAddress : GTLRObject
 
-/** Required. The static IPV4 address. */
+/** Output only. The static IPV4 address. */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /** Required. Resource ID of the NAT address. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. State of the nat address.
+ *  Output only. State of the nat address.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active The NAT
@@ -4198,6 +4276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Output only. List of environments in the Apigee organization. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
+/**
+ *  Output only. Time that the Apigee organization is scheduled for deletion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *expiresAt;
 
 /**
  *  Output only. Time that the Apigee organization was last modified in
@@ -5614,6 +5699,93 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `organizations/{org}/environments/{env}/references/{reference}`
  */
 @property(nonatomic, copy, nullable) NSString *trustStore;
+
+@end
+
+
+/**
+ *  TraceConfig defines the configurations in an environment of distributed
+ *  trace.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1TraceConfig : GTLRObject
+
+/** Required. Endpoint of the exporter. */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Required. Exporter that is used to view the distributed trace captured using
+ *  OpenCensus. An exporter sends traces to any backend that is capable of
+ *  consuming them. Recorded spans can be exported by registered exporters.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace
+ *        Cloudtrace exporter (Value: "CLOUD_TRACE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified
+ *        Exporter unspecified (Value: "EXPORTER_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger Jaeger
+ *        exporter (Value: "JAEGER")
+ */
+@property(nonatomic, copy, nullable) NSString *exporter;
+
+/**
+ *  Distributed trace configuration for all API proxies in an environment. You
+ *  can also override the configuration for a specific API proxy using the
+ *  distributed trace configuration overrides API.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig *samplingConfig;
+
+@end
+
+
+/**
+ *  A representation of a configuration override.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride : GTLRObject
+
+/** ID of the API proxy that will have its trace configuration overridden. */
+@property(nonatomic, copy, nullable) NSString *apiProxy;
+
+/**
+ *  ID of the trace configuration override specified as a system-generated UUID.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Trace configuration to override. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig *samplingConfig;
+
+@end
+
+
+/**
+ *  TraceSamplingConfig represents the detail settings of distributed tracing.
+ *  Only the fields that are defined in the distributed trace configuration can
+ *  be overridden using the distribute trace configuration override APIs.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig : GTLRObject
+
+/**
+ *  Sampler of distributed tracing. OFF is the default value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Off OFF
+ *        means distributed trace is disabled, or the sampling probability is 0.
+ *        (Value: "OFF")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Probability
+ *        PROBABILITY means traces are captured on a probability that defined by
+ *        sampling_rate. The sampling rate is limited to 0 to 0.5 when this is
+ *        set. (Value: "PROBABILITY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_SamplerUnspecified
+ *        Sampler unspecified. (Value: "SAMPLER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sampler;
+
+/**
+ *  Field sampling rate. This value is only applicable when using the
+ *  PROBABILITY sampler. The supported values are > 0 and <= 0.5.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *samplingRate;
 
 @end
 

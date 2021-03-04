@@ -32,6 +32,550 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsCreate
+
+@dynamic attributeDefinitionId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_AttributeDefinition *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attributeDefinitions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_AttributeDefinition class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.attributeDefinitions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.attributeDefinitions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_AttributeDefinition class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.attributeDefinitions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/attributeDefinitions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListAttributeDefinitionsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.attributeDefinitions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_AttributeDefinition *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_AttributeDefinition class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.attributeDefinitions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCheckDataAccess
+
+@dynamic consentStore;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_CheckDataAccessRequest *)object
+                   consentStore:(NSString *)consentStore {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"consentStore" ];
+  NSString *pathURITemplate = @"v1/{+consentStore}:checkDataAccess";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCheckDataAccess *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.consentStore = consentStore;
+  query.expectedObjectClass = [GTLRCloudHealthcare_CheckDataAccessResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.checkDataAccess";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ConsentArtifact *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consentArtifacts";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ConsentArtifact class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consentArtifacts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consentArtifacts.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ConsentArtifact class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consentArtifacts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consentArtifacts";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListConsentArtifactsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consentArtifacts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsActivate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ActivateConsentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:activate";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.activate";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_Consent *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consents";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDeleteRevision
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteRevision";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDeleteRevision *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.deleteRevision";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consents";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListConsentsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsListRevisions
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:listRevisions";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsListRevisions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListConsentRevisionsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.listRevisions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_Consent *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsReject
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RejectConsentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:reject";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsReject *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.reject";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsRevoke
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_RevokeConsentRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:revoke";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsRevoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Consent class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.consents.revoke";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCreate
+
+@dynamic consentStoreId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ConsentStore *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consentStores";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ConsentStore class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresEvaluateUserConsents
+
+@dynamic consentStore;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_EvaluateUserConsentsRequest *)object
+                   consentStore:(NSString *)consentStore {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"consentStore" ];
+  NSString *pathURITemplate = @"v1/{+consentStore}:evaluateUserConsents";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresEvaluateUserConsents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.consentStore = consentStore;
+  query.expectedObjectClass = [GTLRCloudHealthcare_EvaluateUserConsentsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.evaluateUserConsents";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ConsentStore class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -50,6 +594,79 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudHealthcare_Policy class];
   query.loggingName = @"healthcare.projects.locations.datasets.consentStores.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/consentStores";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListConsentStoresResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ConsentStore *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ConsentStore class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresQueryAccessibleData
+
+@dynamic consentStore;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_QueryAccessibleDataRequest *)object
+                   consentStore:(NSString *)consentStore {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"consentStore" ];
+  NSString *pathURITemplate = @"v1/{+consentStore}:queryAccessibleData";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresQueryAccessibleData *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.consentStore = consentStore;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.queryAccessibleData";
   return query;
 }
 
@@ -104,6 +721,144 @@ NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudHealthcare_TestIamPermissionsResponse class];
   query.loggingName = @"healthcare.projects.locations.datasets.consentStores.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsArchive
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_ArchiveUserDataMappingRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:archive";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsArchive *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ArchiveUserDataMappingResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.archive";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_UserDataMapping *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userDataMappings";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_UserDataMapping class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Empty class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_UserDataMapping class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userDataMappings";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudHealthcare_ListUserDataMappingsResponse class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_UserDataMapping *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_UserDataMapping class];
+  query.loggingName = @"healthcare.projects.locations.datasets.consentStores.userDataMappings.patch";
   return query;
 }
 

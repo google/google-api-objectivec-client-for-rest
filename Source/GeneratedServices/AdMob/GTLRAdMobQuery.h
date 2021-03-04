@@ -75,8 +75,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List the AdMob publisher account accessible with the client credential.
- *  Currently, all credentials have access to at most one AdMob account.
+ *  Lists the AdMob publisher account that was most recently signed in to from
+ *  the AdMob UI. For more information, see
+ *  https://support.google.com/admob/answer/10243672.
  *
  *  Method: admob.accounts.list
  *
@@ -101,8 +102,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAdMob_ListPublisherAccountsResponse.
  *
- *  List the AdMob publisher account accessible with the client credential.
- *  Currently, all credentials have access to at most one AdMob account.
+ *  Lists the AdMob publisher account that was most recently signed in to from
+ *  the AdMob UI. For more information, see
+ *  https://support.google.com/admob/answer/10243672.
  *
  *  @return GTLRAdMobQuery_AccountsList
  *

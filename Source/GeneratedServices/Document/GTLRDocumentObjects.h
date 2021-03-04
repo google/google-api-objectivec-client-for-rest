@@ -106,6 +106,7 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2OutputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2ProcessDocumentResponse;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta2Vertex;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadataIndividualProcessStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig;
@@ -146,6 +147,9 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextAnchorTextSegment;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTextChange;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentTranslation;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocuments;
+@class GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3NormalizedVertex;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3RawDocument;
@@ -921,35 +925,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Doc
  *  Some error happened during triggering human review, see the [state_message]
  *  for details.
  *
- *  Value: "HUMAN_REVIEW_ERROR"
+ *  Value: "ERROR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error;
 /**
  *  Human review validation is triggered and the document is under review.
  *
- *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ *  Value: "IN_PROGRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress;
 /**
  *  Human review is skipped for the document. This can happen because human
  *  review is not enabled on the processor or the processing request has been
  *  set to skip this document.
  *
- *  Value: "HUMAN_REVIEW_SKIPPED"
+ *  Value: "SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped;
-/**
- *  Human review validation is triggered and passed, so no review is needed.
- *
- *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped;
 /**
  *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_ValidationPassed;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata.state
@@ -1038,35 +1042,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOp
  *  Some error happened during triggering human review, see the [state_message]
  *  for details.
  *
- *  Value: "HUMAN_REVIEW_ERROR"
+ *  Value: "ERROR"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error;
 /**
  *  Human review validation is triggered and the document is under review.
  *
- *  Value: "HUMAN_REVIEW_IN_PROGRESS"
+ *  Value: "IN_PROGRESS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress;
 /**
  *  Human review is skipped for the document. This can happen because human
  *  review is not enabled on the processor or the processing request has been
  *  set to skip this document.
  *
- *  Value: "HUMAN_REVIEW_SKIPPED"
+ *  Value: "SKIPPED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped;
-/**
- *  Human review validation is triggered and passed, so no review is needed.
- *
- *  Value: "HUMAN_REVIEW_VALIDATION_PASSED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed;
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped;
 /**
  *  Human review state is unspecified. Most likely due to an internal error.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified;
+/**
+ *  Human review validation is triggered and passed, so no review is needed.
+ *
+ *  Value: "VALIDATION_PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed;
 
 /**
  *  The common metadata for long running operations.
@@ -1580,6 +1584,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
+
+/**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
 /**
  *  DateTime value. Includes date, time, and timezone. See also:
@@ -2803,6 +2815,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
 
 /**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
+
+/**
  *  DateTime value. Includes date, time, and timezone. See also:
  *  https://github.com/googleapis/googleapis/blob/master/google/type/datetime.proto
  */
@@ -3880,6 +3900,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  The common config to specify a set of documents used as input.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig : GTLRObject
+
+/** The set of documents individually specified on Cloud Storage. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocuments *gcsDocuments;
+
+/**
+ *  The set of documents that match the specified Cloud Storage [gcs_prefix].
+ */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix *gcsPrefix;
+
+@end
+
+
+/**
  *  The long running operation metadata for batch process method.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata : GTLRObject
@@ -3972,7 +4008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig *> *inputConfigs;
 
 /** The input documents for batch process. */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchInputConfig *inputDocuments;
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig *inputDocuments;
 
 /** The overall output config for batch process. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequestBatchOutputConfig *outputConfig;
@@ -4230,6 +4266,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  https://github.com/googleapis/googleapis/blob/master/google/type/postal_address.proto
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleTypePostalAddress *addressValue;
+
+/**
+ *  Boolean value. Can be used for entities with binary values, or for
+ *  checkboxes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *booleanValue;
 
 /**
  *  DateTime value. Includes date, time, and timezone. See also:
@@ -5117,6 +5161,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  Specifies a document stored on Cloud Storage.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument : GTLRObject
+
+/** The Cloud Storage object uri. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** An IANA MIME type (RFC6838) of the content. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Specifies a set of documents on Cloud Storage.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocuments : GTLRObject
+
+/** The list of documents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument *> *documents;
+
+@end
+
+
+/**
+ *  Specifies all documents on Cloud Storage with a common prefix.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix : GTLRObject
+
+/** The URI prefix. */
+@property(nonatomic, copy, nullable) NSString *gcsUriPrefix;
+
+@end
+
+
+/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
@@ -5133,22 +5213,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The state of human review on the processing request.
  *
  *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress
+ *        [state_message] for details. (Value: "ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
- *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped
  *        Human review is skipped for the document. This can happen because
  *        human review is not enabled on the processor or the processing request
- *        has been set to skip this document. (Value: "HUMAN_REVIEW_SKIPPED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed
- *        Human review validation is triggered and passed, so no review is
- *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified
  *        Human review state is unspecified. Most likely due to an internal
  *        error. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_ValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "VALIDATION_PASSED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5396,22 +5476,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  The state of human review on the processing request.
  *
  *  Likely values:
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error
  *        Some error happened during triggering human review, see the
- *        [state_message] for details. (Value: "HUMAN_REVIEW_ERROR")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress
+ *        [state_message] for details. (Value: "ERROR")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress
  *        Human review validation is triggered and the document is under review.
- *        (Value: "HUMAN_REVIEW_IN_PROGRESS")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped
+ *        (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped
  *        Human review is skipped for the document. This can happen because
  *        human review is not enabled on the processor or the processing request
- *        has been set to skip this document. (Value: "HUMAN_REVIEW_SKIPPED")
- *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed
- *        Human review validation is triggered and passed, so no review is
- *        needed. (Value: "HUMAN_REVIEW_VALIDATION_PASSED")
+ *        has been set to skip this document. (Value: "SKIPPED")
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified
  *        Human review state is unspecified. Most likely due to an internal
  *        error. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed
+ *        Human review validation is triggered and passed, so no review is
+ *        needed. (Value: "VALIDATION_PASSED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

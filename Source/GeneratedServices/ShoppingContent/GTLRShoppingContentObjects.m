@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRShoppingContent_AccountCredentials.purpose
+NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_AccountCredentialsPurposeUnspecified = @"ACCOUNT_CREDENTIALS_PURPOSE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_AccountCredentials_Purpose_ShopifyOrderManagement = @"SHOPIFY_ORDER_MANAGEMENT";
+
 // GTLRShoppingContent_AccountLabel.labelType
 NSString * const kGTLRShoppingContent_AccountLabel_LabelType_Automatic = @"AUTOMATIC";
 NSString * const kGTLRShoppingContent_AccountLabel_LabelType_LabelTypeUnspecified = @"LABEL_TYPE_UNSPECIFIED";
@@ -167,6 +171,16 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 @implementation GTLRShoppingContent_AccountBusinessInformation
 @dynamic address, customerService, phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_AccountCredentials
+//
+
+@implementation GTLRShoppingContent_AccountCredentials
+@dynamic accessToken, expiresIn, purpose;
 @end
 
 

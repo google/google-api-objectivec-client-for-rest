@@ -246,7 +246,8 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_ExecutionTemplate
 @dynamic acceleratorConfig, containerImageUri, inputNotebookFile, labels,
-         masterType, outputNotebookFolder, paramsYamlFile, scaleTier;
+         masterType, outputNotebookFolder, parameters, paramsYamlFile,
+         scaleTier;
 @end
 
 
@@ -674,10 +675,17 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_Schedule
 @dynamic createTime, cronSchedule, descriptionProperty, displayName,
-         executionTemplate, name, state, timeZone, updateTime;
+         executionTemplate, name, recentExecutions, state, timeZone, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentExecutions" : [GTLRAIPlatformNotebooks_Execution class]
+  };
+  return map;
 }
 
 @end
@@ -859,7 +867,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 @implementation GTLRAIPlatformNotebooks_UpgradeHistoryEntry
 @dynamic action, containerImage, createTime, framework, snapshot, state,
-         targetImage, version, vmImage;
+         targetImage, targetVersion, version, vmImage;
 @end
 
 

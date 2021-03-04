@@ -39,6 +39,11 @@
 @class GTLRCloudAsset_GoogleCloudAssetV1GcsDestination;
 @class GTLRCloudAsset_GoogleCloudAssetV1Identity;
 @class GTLRCloudAsset_GoogleCloudAssetV1IdentityList;
+@class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset;
+@class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets;
+@class GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes;
+@class GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource;
+@class GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data;
 @class GTLRCloudAsset_GoogleCloudAssetV1Resource;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1BooleanPolicy;
 @class GTLRCloudAsset_GoogleCloudOrgpolicyV1ListPolicy;
@@ -1371,7 +1376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  gsutil. Example: "gs://bucket_name/object_name". See [Viewing and Editing
  *  Object
  *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
- *  for more information.
+ *  for more information. If the specified Cloud Storage object already exists
+ *  and there is no [hold](https://cloud.google.com/storage/docs/object-holds),
+ *  it will be overwritten with the exported result.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1529,9 +1536,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Required. The uri of the Cloud Storage object. It's the same uri that is
- *  used by gsutil. For example: "gs://bucket_name/object_name". See
- *  [Quickstart: Using the gsutil tool]
- *  (https://cloud.google.com/storage/docs/quickstart-gsutil) for examples.
+ *  used by gsutil. Example: "gs://bucket_name/object_name". See [Viewing and
+ *  Editing Object
+ *  Metadata](https://cloud.google.com/storage/docs/viewing-editing-metadata)
+ *  for more information. If the specified Cloud Storage object already exists
+ *  and there is no [hold](https://cloud.google.com/storage/docs/object-holds),
+ *  it will be overwritten with the analysis result.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -1580,6 +1590,252 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1Identity *> *identities;
 
+@end
+
+
+/**
+ *  An asset in Google Cloud. An asset can be any resource in the Google Cloud
+ *  [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  a resource outside the Google Cloud resource hierarchy (such as Google
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
+ *  policy). See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1Asset : GTLRObject
+
+/**
+ *  Please also refer to the [access level user
+ *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-levels).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessLevel *accessLevel;
+
+/**
+ *  Please also refer to the [access policy user
+ *  guide](https://cloud.google.com/access-context-manager/docs/overview#access-policies).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1AccessPolicy *accessPolicy;
+
+/**
+ *  The ancestry path of an asset in Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  represented as a list of relative resource names. An ancestry path starts
+ *  with the closest ancestor in the hierarchy and ends at root. If the asset is
+ *  a project, folder, or organization, the ancestry path starts from the asset
+ *  itself. Example: `["projects/123456789", "folders/5432",
+ *  "organizations/1234"]`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
+
+/**
+ *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
+ *  asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  A representation of the Cloud IAM policy set on a Google Cloud resource.
+ *  There can be a maximum of one Cloud IAM policy set on any given resource. In
+ *  addition, Cloud IAM policies inherit their granted access scope from any
+ *  policies set on parent resources in the resource hierarchy. Therefore, the
+ *  effectively policy is the union of both the policy set on this resource and
+ *  each policy set on all of the resource's ancestry resource levels in the
+ *  hierarchy. See [this
+ *  topic](https://cloud.google.com/iam/docs/policies#inheritance) for more
+ *  information.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Policy *iamPolicy;
+
+/**
+ *  The full name of the asset. Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
+ *  See [Resource
+ *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A representation of an [organization
+ *  policy](https://cloud.google.com/resource-manager/docs/organization-policy/overview#organization_policy).
+ *  There can be more than one organization policy with different constraints
+ *  set on a given resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy *> *orgPolicy;
+
+/**
+ *  The related assets of the asset of one relationship type. One asset only
+ *  represents one type of relationship.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets *relatedAssets;
+
+/** A representation of the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource *resource;
+
+/**
+ *  Please also refer to the [service perimeter user
+ *  guide](https://cloud.google.com/vpc-service-controls/docs/overview).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ServicePerimeter *servicePerimeter;
+
+/**
+ *  The last update timestamp of an asset. update_time is updated when
+ *  create/update/delete operation is performed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  An asset identify in Google Cloud which contains its name, type and
+ *  ancestors. An asset can be any resource in the Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  a resource outside the Google Cloud resource hierarchy (such as Google
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
+ *  policy). See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset : GTLRObject
+
+/**
+ *  The ancestors of an asset in Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  represented as a list of relative resource names. An ancestry path starts
+ *  with the closest ancestor in the hierarchy and ends at root. Example:
+ *  `["projects/123456789", "folders/5432", "organizations/1234"]`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
+
+/**
+ *  The full name of the asset. Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
+ *  See [Resource
+ *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/**
+ *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
+ *  asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+@end
+
+
+/**
+ *  The detailed related assets with the `relationship_type`.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets : GTLRObject
+
+/** The peer resources of the relationship. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset *> *assets;
+
+/** The detailed relation attributes. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes *relationshipAttributes;
+
+@end
+
+
+/**
+ *  The relationship attributes which include `type`, `source_resource_type`,
+ *  `target_resource_type` and `action`.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes : GTLRObject
+
+/** The detail of the relationship, e.g. `contains`, `attaches` */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** The source asset type. Example: `compute.googleapis.com/Instance` */
+@property(nonatomic, copy, nullable) NSString *sourceResourceType;
+
+/** The target asset type. Example: `compute.googleapis.com/Disk` */
+@property(nonatomic, copy, nullable) NSString *targetResourceType;
+
+/**
+ *  The unique identifier of the relationship type. Example:
+ *  `INSTANCE_TO_INSTANCEGROUP`
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A representation of a Google Cloud resource.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource : GTLRObject
+
+/**
+ *  The content of the resource, in which some sensitive fields are removed and
+ *  may not be present.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data *data;
+
+/**
+ *  The URL of the discovery document containing the resource's JSON schema.
+ *  Example: `https://www.googleapis.com/discovery/v1/apis/compute/v1/rest` This
+ *  value is unspecified for resources that do not have an API based on a
+ *  discovery document, such as Cloud Bigtable.
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryDocumentUri;
+
+/**
+ *  The JSON schema name listed in the discovery document. Example: `Project`
+ *  This value is unspecified for resources that do not have an API based on a
+ *  discovery document, such as Cloud Bigtable.
+ */
+@property(nonatomic, copy, nullable) NSString *discoveryName;
+
+/**
+ *  The location of the resource in Google Cloud, such as its zone and region.
+ *  For more information, see https://cloud.google.com/about/locations/.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  The full name of the immediate parent of this resource. See [Resource
+ *  Names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more information. For Google Cloud assets, this value is the parent
+ *  resource defined in the [Cloud IAM policy
+ *  hierarchy](https://cloud.google.com/iam/docs/overview#policy_hierarchy).
+ *  Example: `//cloudresourcemanager.googleapis.com/projects/my_project_123` For
+ *  third-party assets, this field may be set differently.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The REST URL for accessing the resource. An HTTP `GET` request using this
+ *  URL returns the resource itself. Example:
+ *  `https://cloudresourcemanager.googleapis.com/v1/projects/my-project-123`
+ *  This value is unspecified for resources without a REST API.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceUrl;
+
+/** The API version. Example: `v1` */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  The content of the resource, in which some sensitive fields are removed and
+ *  may not be present.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data : GTLRObject
 @end
 
 

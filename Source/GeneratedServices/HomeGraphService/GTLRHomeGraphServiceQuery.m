@@ -79,6 +79,28 @@
 
 @end
 
+@implementation GTLRHomeGraphServiceQuery_DevicesRequestLink
+
++ (instancetype)queryWithObject:(GTLRHomeGraphService_RequestLinkRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/devices:requestLink";
+  GTLRHomeGraphServiceQuery_DevicesRequestLink *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRHomeGraphService_Empty class];
+  query.loggingName = @"homegraph.devices.requestLink";
+  return query;
+}
+
+@end
+
 @implementation GTLRHomeGraphServiceQuery_DevicesRequestSync
 
 + (instancetype)queryWithObject:(GTLRHomeGraphService_RequestSyncDevicesRequest *)object {

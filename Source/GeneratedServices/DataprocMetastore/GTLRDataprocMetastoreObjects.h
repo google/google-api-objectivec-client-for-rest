@@ -104,6 +104,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseT
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql;
 
 // ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_DatabaseDump.type
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
 
 /**
@@ -154,6 +198,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayO
  *  Value: "WEDNESDAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRDataprocMetastore_MetadataExport.databaseDumpType
+
+/**
+ *  Database dump contains Avro files.
+ *
+ *  Value: "AVRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro;
+/**
+ *  Database dump is a MySQL dump file.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql;
+/**
+ *  The type of the database dump is unknown.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataprocMetastore_MetadataExport.state
@@ -499,13 +565,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @property(nonatomic, copy, nullable) NSString *databaseType;
 
 /**
- *  A Cloud Storage object URI that specifies the source from which to import
- *  metadata. It must begin with gs://.
+ *  A Cloud Storage object or folder URI that specifies the source from which to
+ *  import metadata. It must begin with gs://.
  */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /** The name of the source database. */
 @property(nonatomic, copy, nullable) NSString *sourceDatabase;
+
+/**
+ *  Optional. The type of the database dump. If unspecified, defaults to MYSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_Avro Database dump
+ *        contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_Mysql Database dump is a
+ *        MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified The type
+ *        of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -525,6 +604,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  Request message for DataprocMetastore.ExportMetadata.
  */
 @interface GTLRDataprocMetastore_ExportMetadataRequest : GTLRObject
+
+/**
+ *  Optional. The type of the database dump. If unspecified, defaults to MYSQL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro
+ *        Database dump contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql
+ *        Database dump is a MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified
+ *        The type of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDumpType;
 
 /**
  *  Required. A Cloud Storage URI of a folder that metadata are exported to, in
@@ -916,6 +1008,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 @interface GTLRDataprocMetastore_MetadataExport : GTLRObject
 
 /**
+ *  Output only. The type of the database dump.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro
+ *        Database dump contains Avro files. (Value: "AVRO")
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql
+ *        Database dump is a MySQL dump file. (Value: "MYSQL")
+ *    @arg @c kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified
+ *        The type of the database dump is unknown. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseDumpType;
+
+/**
  *  Output only. A Cloud Storage URI of a folder that metadata are exported to,
  *  in the form of gs:////, where ` is automatically generated.
  */
@@ -1192,6 +1297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  form:projects/{project_id}/locations/{location_id}/services/{service_id}/backups/{backup_id}
  */
 @property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Output only. The restore details containing the revision of the service to
+ *  be restored to, in format of JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *details;
 
 /** Output only. The time when the restore ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

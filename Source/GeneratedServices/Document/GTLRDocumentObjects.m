@@ -161,11 +161,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Ty
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentProvenance_Type_Replace = @"REPLACE";
 
 // GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus.state
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewError = @"HUMAN_REVIEW_ERROR";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewInProgress = @"HUMAN_REVIEW_IN_PROGRESS";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewSkipped = @"HUMAN_REVIEW_SKIPPED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_HumanReviewValidationPassed = @"HUMAN_REVIEW_VALIDATION_PASSED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Error = @"ERROR";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_Skipped = @"SKIPPED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus_State_ValidationPassed = @"VALIDATION_PASSED";
 
 // GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata.state
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentOperationMetadata_State_Cancelled = @"CANCELLED";
@@ -184,11 +184,11 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_St
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1CommonOperationMetadata_State_Succeeded = @"SUCCEEDED";
 
 // GTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus.state
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewError = @"HUMAN_REVIEW_ERROR";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewInProgress = @"HUMAN_REVIEW_IN_PROGRESS";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewSkipped = @"HUMAN_REVIEW_SKIPPED";
-NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_HumanReviewValidationPassed = @"HUMAN_REVIEW_VALIDATION_PASSED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Error = @"ERROR";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Skipped = @"SKIPPED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed = @"VALIDATION_PASSED";
 
 // ----------------------------------------------------------------------------
 //
@@ -523,7 +523,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_St
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentEntityNormalizedValue
-@dynamic addressValue, datetimeValue, dateValue, moneyValue, text;
+@dynamic addressValue, booleanValue, datetimeValue, dateValue, moneyValue, text;
 @end
 
 
@@ -1154,7 +1154,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_St
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentEntityNormalizedValue
-@dynamic addressValue, datetimeValue, dateValue, moneyValue, text;
+@dynamic addressValue, booleanValue, datetimeValue, dateValue, moneyValue, text;
 @end
 
 
@@ -1705,6 +1705,16 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_St
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3BatchDocumentsInputConfig
+@dynamic gcsDocuments, gcsPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessMetadata
 //
 
@@ -1863,7 +1873,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_St
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentEntityNormalizedValue
-@dynamic addressValue, datetimeValue, dateValue, moneyValue, text;
+@dynamic addressValue, booleanValue, datetimeValue, dateValue, moneyValue, text;
 @end
 
 
@@ -2339,6 +2349,44 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_St
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument
+@dynamic gcsUri, mimeType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocuments
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocuments
+@dynamic documents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"documents" : [GTLRDocument_GoogleCloudDocumentaiV1beta3GcsDocument class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix
+@dynamic gcsUriPrefix;
 @end
 
 

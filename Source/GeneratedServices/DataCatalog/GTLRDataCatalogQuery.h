@@ -58,7 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  query. This is a custom method
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
  *  the complete resource, only the resource identifier and high level fields.
- *  Clients can subsequentally call `Get` methods. Note that Data Catalog search
+ *  Clients can subsequently call `Get` methods. Note that Data Catalog search
  *  queries do not guarantee full recall. Query results that match your query
  *  may not be returned, even in subsequent result pages. Also note that results
  *  returned (and not returned) can vary across repeated search queries. See
@@ -83,7 +83,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  query. This is a custom method
  *  (https://cloud.google.com/apis/design/custom_methods) and does not return
  *  the complete resource, only the resource identifier and high level fields.
- *  Clients can subsequentally call `Get` methods. Note that Data Catalog search
+ *  Clients can subsequently call `Get` methods. Note that Data Catalog search
  *  queries do not guarantee full recall. Query results that match your query
  *  may not be returned, even in subsequent result pages. Also note that results
  *  returned (and not returned) can vary across repeated search queries. See
@@ -510,13 +510,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update on the entry. If absent or empty, all modifiable fields
- *  are updated. The following fields are modifiable: * For entries with type
- *  `DATA_STREAM`: * `schema` * For entries with type `FILESET` * `schema` *
- *  `display_name` * `description` * `gcs_fileset_spec` *
- *  `gcs_fileset_spec.file_patterns` * For entries with `user_specified_type` *
- *  `schema` * `display_name` * `description` * user_specified_type *
- *  user_specified_system * linked_resource * source_system_timestamps
+ *  Names of fields whose values to overwrite on an entry. If this parameter is
+ *  absent or empty, all modifiable fields are overwritten. If such fields are
+ *  non-required and omitted in the request body, their values are emptied. The
+ *  following fields are modifiable: * For entries with type `DATA_STREAM`: *
+ *  `schema` * For entries with type `FILESET`: * `schema` * `display_name` *
+ *  `description` * `gcs_fileset_spec` * `gcs_fileset_spec.file_patterns` * For
+ *  entries with `user_specified_type`: * `schema` * `display_name` *
+ *  `description` * `user_specified_type` * `user_specified_system` *
+ *  `linked_resource` * `source_system_timestamps`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -699,8 +701,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update on the Tag. If absent or empty, all modifiable fields
- *  are updated. Currently the only modifiable field is the field `fields`.
+ *  Note: Currently, this parameter can only take `"fields"` as value. Names of
+ *  fields whose values to overwrite on a tag. Currently, a tag has the only
+ *  modifiable field with the name `fields`. In general, if this parameter is
+ *  absent or empty, all modifiable fields are overwritten. If such fields are
+ *  non-required and omitted in the request body, their values are emptied.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -942,8 +947,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update on the entry group. If absent or empty, all modifiable
- *  fields are updated.
+ *  Names of fields whose values to overwrite on an entry group. If this
+ *  parameter is absent or empty, all modifiable fields are overwritten. If such
+ *  fields are non-required and omitted in the request body, their values are
+ *  emptied.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1175,8 +1182,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The fields to update on the Tag. If absent or empty, all modifiable fields
- *  are updated. Currently the only modifiable field is the field `fields`.
+ *  Note: Currently, this parameter can only take `"fields"` as value. Names of
+ *  fields whose values to overwrite on a tag. Currently, a tag has the only
+ *  modifiable field with the name `fields`. In general, if this parameter is
+ *  absent or empty, all modifiable fields are overwritten. If such fields are
+ *  non-required and omitted in the request body, their values are emptied.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1510,13 +1520,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The field mask specifies the parts of the template to be updated.
- *  Allowed fields: * `display_name` * `type.enum_type` * `is_required` If
- *  `update_mask` is not set or empty, all of the allowed fields above will be
- *  updated. When updating an enum type, the provided values will be merged with
- *  the existing values. Therefore, enum values can only be added, existing enum
- *  values cannot be deleted nor renamed. Updating a template field from
- *  optional to required is NOT allowed.
+ *  Optional. Names of fields whose values to overwrite on an individual field
+ *  of a tag template. The following fields are modifiable: * `display_name` *
+ *  `type.enum_type` * `is_required` If this parameter is absent or empty, all
+ *  modifiable fields are overwritten. If such fields are non-required and
+ *  omitted in the request body, their values are emptied with one exception:
+ *  when updating an enum type, the provided values are merged with the existing
+ *  values. Therefore, enum values can only be added, existing enum values
+ *  cannot be deleted or renamed. Additionally, updating a template field from
+ *  optional to required is *not* allowed.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1701,9 +1713,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The field mask specifies the parts of the template to overwrite. Allowed
- *  fields: * `display_name` If absent or empty, all of the allowed fields above
- *  will be updated.
+ *  Names of fields whose values to overwrite on a tag template. Currently, only
+ *  `display_name` can be overwritten. In general, if this parameter is absent
+ *  or empty, all modifiable fields are overwritten. If such fields are
+ *  non-required and omitted in the request body, their values are emptied.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -58,6 +58,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1Subscription;
 @class GTLRApigee_GoogleCloudApigeeV1SyncAuthorization;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServer;
+@class GTLRApigee_GoogleCloudApigeeV1TraceConfig;
+@class GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride;
 @class GTLRApigee_GoogleIamV1SetIamPolicyRequest;
 @class GTLRApigee_GoogleIamV1TestIamPermissionsRequest;
 
@@ -3845,24 +3847,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Flag that specifies whether the new deployment replaces other deployed
- *  revisions of the API proxy in the environment. Set override to true to
- *  replace other deployed revisions. By default, override is false and the
+ *  revisions of the API proxy in the environment. Set `override` to `true` to
+ *  replace other deployed revisions. By default, `override` is `false` and the
  *  deployment is rejected if other revisions of the API proxy are deployed in
  *  the environment.
  */
 @property(nonatomic, assign) BOOL override;
 
 /**
- *  If true, a best-effort attempt will be made to roll out the routing rules
- *  corresponding to this deployment and the environment changes to add this
- *  deployment in a safe order. This reduces the risk of downtime that could be
- *  caused by changing the environment group's routing before the new
- *  destination for the affected traffic is ready to receive it. This should
- *  only be necessary if the new deployment will be capturing traffic from
- *  another environment under a shared environment group or if traffic will be
- *  rerouted to a different environment due to a basepath removal. The
- *  GenerateDeployChangeReport API may be used to examine routing changes before
- *  issuing the deployment request, and its response will indicate if a
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
+ *  best-effort attempt will be made to roll out the routing rules corresponding
+ *  to this deployment and the environment changes to add this deployment in a
+ *  safe order. This reduces the risk of downtime that could be caused by
+ *  changing the environment group's routing before the new destination for the
+ *  affected traffic is ready to receive it. This should only be necessary if
+ *  the new deployment will be capturing traffic from another environment under
+ *  a shared environment group or if traffic will be rerouted to a different
+ *  environment due to a base path removal. The [GenerateDeployChangeReport
+ *  API](GenerateDeployChangeReport) may be used to examine routing changes
+ *  before issuing the deployment request, and its response will indicate if a
  *  sequenced rollout is recommended for the deployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
@@ -4062,15 +4065,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If true, a best-effort attempt will be made to remove the environment group
- *  routing rules corresponding to this deployment before removing the
- *  deployment from the runtime. This is likely to be a rare use case; it is
- *  only needed when the intended effect of undeploying this proxy is to cause
- *  the traffic it currently handles to be rerouted to some other existing proxy
- *  in the environment group. The GenerateUndeployChangeReport API may be used
- *  to examine routing changes before issuing the undeployment request, and its
- *  response will indicate if a sequenced rollout is recommended for the
- *  undeployment.
+ *  Flag that specifies whether to enable sequenced rollout. If set to `true`, a
+ *  best-effort attempt will be made to remove the environment group routing
+ *  rules corresponding to this deployment before removing the deployment from
+ *  the runtime. This is likely to be a rare use case; it is only needed when
+ *  the intended effect of undeploying this proxy is to cause the traffic it
+ *  currently handles to be rerouted to some other existing proxy in the
+ *  environment group. The [GenerateUndeployChangeReport
+ *  API](GenerateUndeployChangeReport) may be used to examine routing changes
+ *  before issuing the undeployment request, and its response will indicate if a
+ *  sequenced rollout is recommended for the undeployment.
  */
 @property(nonatomic, assign) BOOL sequencedRollout;
 
@@ -4491,6 +4495,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Get distributed trace configuration in an environment.
+ *
+ *  Method: apigee.organizations.environments.getTraceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetTraceConfigWithname:]
+
+/**
+ *  Required. Name of the trace configuration. Use the following structure in
+ *  your request: "organizations/ * /environments/ * /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfig.
+ *
+ *  Get distributed trace configuration in an environment.
+ *
+ *  @param name Required. Name of the trace configuration. Use the following
+ *    structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -5783,13 +5820,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Flag that specifies whether to force the deployment of the new revision over
- *  the currently deployed revision by overriding conflict checks. If an
- *  existing shared flow revision is deployed, to ensure seamless deployment
- *  with no downtime, set this parameter to `true`. In this case, hybrid deploys
- *  the new revision fully before undeploying the existing revision. If set to
- *  `false`, you must undeploy the existing revision before deploying the new
- *  revision.
+ *  Flag that specifies whether the new deployment replaces other deployed
+ *  revisions of the shared flow in the environment. Set `override` to `true` to
+ *  replace other deployed revisions. By default, `override` is `false` and the
+ *  deployment is rejected if other revisions of the shared flow are deployed in
+ *  the environment.
  */
 @property(nonatomic, assign) BOOL override;
 
@@ -6255,6 +6290,219 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a trace configuration override. The response contains a
+ *  system-generated UUID, that can be used to view, update, or delete the
+ *  configuration override. Use the List API to view the existing trace
+ *  configuration overrides.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesCreateWithObject:parent:]
+
+/**
+ *  Required. Parent resource of the trace configuration override. Use the
+ *  following structure in your request. "organizations/ * /environments/ *
+ *  /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Creates a trace configuration override. The response contains a
+ *  system-generated UUID, that can be used to view, update, or delete the
+ *  configuration override. Use the List API to view the existing trace
+ *  configuration overrides.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride to
+ *    include in the query.
+ *  @param parent Required. Parent resource of the trace configuration override.
+ *    Use the following structure in your request. "organizations/ *
+ *    /environments/ * /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a distributed trace configuration override.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesDeleteWithname:]
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
+ *
+ *  Deletes a distributed trace configuration override.
+ *
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a trace configuration override.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesGetWithname:]
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Gets a trace configuration override.
+ *
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all of the distributed trace configuration overrides in an
+ *  environment.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesListWithparent:]
+
+/**
+ *  Maximum number of trace configuration overrides to return. If not specified,
+ *  the maximum number returned is 25. The maximum number cannot exceed 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, returned from a previous `ListTraceConfigOverrides` call.
+ *  Token value that can be used to retrieve the subsequent page. When
+ *  paginating, all other parameters provided to `ListTraceConfigOverrides` must
+ *  match those specified in the call to obtain the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Parent resource of the trace configuration override. Use the
+ *  following structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse.
+ *
+ *  Lists all of the distributed trace configuration overrides in an
+ *  environment.
+ *
+ *  @param parent Required. Parent resource of the trace configuration override.
+ *    Use the following structure in your request: "organizations/ *
+ *    /environments/ * /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a distributed trace configuration override. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  Method: apigee.organizations.environments.traceConfig.overrides.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesPatchWithObject:name:]
+
+/**
+ *  Required. Name of the trace configuration override. Use the following
+ *  structure in your request: "organizations/ * /environments/ *
+ *  /traceConfig/overrides/ *".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride.
+ *
+ *  Updates a distributed trace configuration override. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride to
+ *    include in the query.
+ *  @param name Required. Name of the trace configuration override. Use the
+ *    following structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig/overrides/ *".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a subscription for the environment's Pub/Sub topic.
  *
  *  Method: apigee.organizations.environments.unsubscribe
@@ -6416,6 +6664,53 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateEnvironment
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Environment *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the trace configurations in an environment. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  Method: apigee.organizations.environments.updateTraceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig : GTLRApigeeQuery
+// Previous library name was
+//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateTraceConfigWithObject:name:]
+
+/**
+ *  Required. Name of the trace configuration. Use the following structure in
+ *  your request: "organizations/ * /environments/ * /traceConfig".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1TraceConfig.
+ *
+ *  Updates the trace configurations in an environment. Note that the repeated
+ *  fields have replace semantics when included in the field mask and that they
+ *  will be overwritten by the value of the fields in the request body.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1TraceConfig to include in
+ *    the query.
+ *  @param name Required. Name of the trace configuration. Use the following
+ *    structure in your request: "organizations/ * /environments/ *
+ *    /traceConfig".
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1TraceConfig *)object
                            name:(NSString *)name;
 
 @end

@@ -37,6 +37,7 @@
 @class GTLREventarc_Pubsub;
 @class GTLREventarc_Transport;
 @class GTLREventarc_Trigger;
+@class GTLREventarc_Trigger_Labels;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -822,10 +823,16 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The list of filters that applies to event attributes. Only events
- *  that match all the provided filters will be sent to the destination.
+ *  Required. null The list of filters that applies to event attributes. Only
+ *  events that match all the provided filters will be sent to the destination.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLREventarc_EventFilter *> *eventFilters;
+
+/**
+ *  Optional. User labels attached to the triggers that can be used to group
+ *  resources.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_Trigger_Labels *labels;
 
 /**
  *  Required. The resource name of the trigger. Must be unique within the
@@ -845,7 +852,7 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
  *  https://cloud.google.com/run/docs/triggering/pubsub-push#create-service-account
  *  for information on how to invoke authenticated Cloud Run services. In order
  *  to create Audit Log triggers, the service account should also have
- *  'eventarc.events.receiveAuditLogV1Written' permission.
+ *  `roles/eventarc.eventReceiver` IAM role.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -866,6 +873,19 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeU
 /** Output only. The last-modified time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. User labels attached to the triggers that can be used to group
+ *  resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLREventarc_Trigger_Labels : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

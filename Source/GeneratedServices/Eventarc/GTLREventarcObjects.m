@@ -415,8 +415,8 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 //
 
 @implementation GTLREventarc_Trigger
-@dynamic createTime, destination, ETag, eventFilters, name, serviceAccount,
-         transport, uid, updateTime;
+@dynamic createTime, destination, ETag, eventFilters, labels, name,
+         serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -427,6 +427,20 @@ NSString * const kGTLREventarc_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
     @"eventFilters" : [GTLREventarc_EventFilter class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_Trigger_Labels
+//
+
+@implementation GTLREventarc_Trigger_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

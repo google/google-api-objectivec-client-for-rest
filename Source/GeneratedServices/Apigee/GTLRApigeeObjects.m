@@ -7,8 +7,8 @@
 //   Use the Apigee API to programmatically develop and manage APIs with a set
 //   of RESTful operations. Develop and secure API proxies, deploy and undeploy
 //   API proxy revisions, monitor APIs, configure environments, manage users,
-//   and more. Get started using the APIs. *Note:* This product is available as
-//   a free trial for a time period of 60 days.
+//   and more. Note: This product is available as a free trial for a time period
+//   of 60 days.
 // Documentation:
 //   https://cloud.google.com/apigee-api-management/
 
@@ -138,6 +138,16 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeg
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off = @"OFF";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified = @"SAMPLER_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified = @"EXPORTER_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger = @"JAEGER";
+
+// GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig.sampler
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Off = @"OFF";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig_Sampler_SamplerUnspecified = @"SAMPLER_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1UpdateError.code
 NSString * const kGTLRApigee_GoogleCloudApigeeV1UpdateError_Code_Aborted = @"ABORTED";
@@ -1722,6 +1732,28 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListTraceConfigOverridesResponse
+@dynamic nextPageToken, traceConfigOverrides;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"traceConfigOverrides" : [GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"traceConfigOverrides";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1Metadata
 //
 
@@ -1886,9 +1918,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1Organization
 @dynamic analyticsRegion, attributes, authorizedNetwork, billingType,
          caCertificate, createdAt, customerName, descriptionProperty,
-         displayName, environments, lastModifiedAt, name, projectId, properties,
-         runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,
-         type;
+         displayName, environments, expiresAt, lastModifiedAt, name, projectId,
+         properties, runtimeDatabaseEncryptionKeyName, runtimeType, state,
+         subscriptionType, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2575,6 +2607,36 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1TraceConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1TraceConfig
+@dynamic endpoint, exporter, samplingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride
+@dynamic apiProxy, name, samplingConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig
+@dynamic sampler, samplingRate;
 @end
 
 

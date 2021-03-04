@@ -742,7 +742,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Creates a new Policy
+ *  Creates a new Policy.
  *
  *  Method: dns.policies.create
  *
@@ -767,7 +767,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Policy.
  *
- *  Creates a new Policy
+ *  Creates a new Policy.
  *
  *  @param object The @c GTLRDns_Policy to include in the query.
  *  @param project Identifies the project addressed by this request.
@@ -780,7 +780,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Delete a previously created Policy. Fails if the policy is still being
+ *  Deletes a previously created Policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  Method: dns.policies.delete
@@ -810,7 +810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete a previously created Policy. Fails if the policy is still being
+ *  Deletes a previously created Policy. Fails if the policy is still being
  *  referenced by a network.
  *
  *  @param project Identifies the project addressed by this request.
@@ -1042,7 +1042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Enumerate ResourceRecordSets that you have created but not yet deleted.
+ *  Enumerates ResourceRecordSets that you have created but not yet deleted.
  *
  *  Method: dns.resourceRecordSets.list
  *
@@ -1092,7 +1092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_ResourceRecordSetsListResponse.
  *
- *  Enumerate ResourceRecordSets that you have created but not yet deleted.
+ *  Enumerates ResourceRecordSets that you have created but not yet deleted.
  *
  *  @param project Identifies the project addressed by this request.
  *  @param managedZone Identifies the managed zone addressed by this request.

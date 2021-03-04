@@ -109,6 +109,33 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_AccountsCredentialsCreate
+
+@dynamic accountId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_AccountCredentials *)object
+                      accountId:(long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"accountId" ];
+  NSString *pathURITemplate = @"content/v2.1/accounts/{accountId}/credentials";
+  GTLRShoppingContentQuery_AccountsCredentialsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_AccountCredentials class];
+  query.loggingName = @"content.accounts.credentials.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_AccountsCustombatch
 
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountsCustomBatchRequest *)object {
