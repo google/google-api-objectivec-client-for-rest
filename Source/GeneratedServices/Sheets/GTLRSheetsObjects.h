@@ -5642,8 +5642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_ChartData : GTLRObject
 
 /**
- *  The aggregation type for the series of a data source chart. Not supported
- *  for regular charts.
+ *  The aggregation type for the series of a data source chart. Only supported
+ *  for data source charts.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_ChartData_AggregateType_Average Average aggregate
@@ -5668,7 +5668,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The rule to group the data by if the ChartData backs the domain of a data
- *  source chart. Not supported for regular charts.
+ *  source chart. Only supported for data source charts.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartGroupRule *groupRule;
 

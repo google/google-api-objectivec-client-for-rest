@@ -222,6 +222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
  *  Likely values:
  *    @arg @c kGTLRBloggerStatusLive Value "LIVE"
  *    @arg @c kGTLRBloggerStatusDeleted Value "DELETED"
+ *
+ *  @note If not set, the documented server-side default will be
+ *        kGTLRBloggerStatusLive.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *status;
 

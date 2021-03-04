@@ -92,6 +92,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Generate report of installed Chrome versions.
  *
  *  Method: chromemanagement.customers.reports.countChromeVersions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsCountChromeVersions : GTLRChromeManagementQuery
 // Previous library name was
@@ -142,6 +145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Generate report of app installations.
  *
  *  Method: chromemanagement.customers.reports.countInstalledApps
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsCountInstalledApps : GTLRChromeManagementQuery
 // Previous library name was
@@ -199,6 +205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  Generate report of devices that have a specified app installed.
  *
  *  Method: chromemanagement.customers.reports.findInstalledAppDevices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsFindInstalledAppDevices : GTLRChromeManagementQuery
 // Previous library name was

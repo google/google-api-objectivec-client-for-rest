@@ -96,6 +96,29 @@ NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIE
 
 @end
 
+@implementation GTLRPubsubQuery_ProjectsSchemasGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRPubsubQuery_ProjectsSchemasGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_Policy class];
+  query.loggingName = @"pubsub.projects.schemas.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubQuery_ProjectsSchemasList
 
 @dynamic pageSize, pageToken, parent, view;
@@ -110,6 +133,60 @@ NSString * const kGTLRPubsubViewSchemaViewUnspecified = @"SCHEMA_VIEW_UNSPECIFIE
   query.parent = parent;
   query.expectedObjectClass = [GTLRPubsub_ListSchemasResponse class];
   query.loggingName = @"pubsub.projects.schemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRPubsub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRPubsubQuery_ProjectsSchemasSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_Policy class];
+  query.loggingName = @"pubsub.projects.schemas.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRPubsubQuery_ProjectsSchemasTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRPubsub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRPubsubQuery_ProjectsSchemasTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRPubsub_TestIamPermissionsResponse class];
+  query.loggingName = @"pubsub.projects.schemas.testIamPermissions";
   return query;
 }
 

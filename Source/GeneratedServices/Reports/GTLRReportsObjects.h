@@ -104,10 +104,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  IP address of the user doing the action. This is the Internet Protocol (IP)
- *  address of the user when logging into G Suite which may or may not reflect
- *  the user's physical location. For example, the IP address can be the user's
- *  proxy server's address or a virtual private network (VPN) address. The API
- *  supports IPv4 and IPv6.
+ *  address of the user when logging into Google Workspace, which may or may not
+ *  reflect the user's physical location. For example, the IP address can be the
+ *  user's proxy server's address or a virtual private network (VPN) address.
+ *  The API supports IPv4 and IPv6.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
@@ -147,8 +147,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  The unique G Suite profile ID of the actor. May be absent if the actor is
- *  not a G Suite user.
+ *  The unique Google Workspace profile ID of the actor. May be absent if the
+ *  actor is not a Google Workspace user.
  */
 @property(nonatomic, copy, nullable) NSString *profileId;
 
@@ -162,8 +162,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Name of the event. This is the specific name of the activity reported by the
- *  API. And each `eventName` is related to a specific G Suite service or
- *  feature which the API organizes into types of events. For `eventName`
+ *  API. And each `eventName` is related to a specific Google Workspace service
+ *  or feature which the API organizes into types of events. For `eventName`
  *  request parameters in general: - If no `eventName` is given, the report
  *  returns all possible instances of an `eventName`. - When you request an
  *  `eventName`, the API's response returns all activities which contain that
@@ -182,10 +182,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_Parameters_Item *> *parameters;
 
 /**
- *  Type of event. The G Suite service or feature that an administrator changes
- *  is identified in the `type` property which identifies an event using the
- *  `eventName` property. For a full list of the API's `type` categories, see
- *  the list of event names for various applications above in `applicationName`.
+ *  Type of event. The Google Workspace service or feature that an administrator
+ *  changes is identified in the `type` property which identifies an event using
+ *  the `eventName` property. For a full list of the API's `type` categories,
+ *  see the list of event names for various applications above in
+ *  `applicationName`.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -203,7 +204,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
-/** The unique identifier for a G suite account. */
+/** The unique identifier for a Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
@@ -459,7 +460,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *entityId;
 
-/** Output only. The user's immutable G Suite profile identifier. */
+/** Output only. The user's immutable Google Workspace profile identifier. */
 @property(nonatomic, copy, nullable) NSString *profileId;
 
 /** Output only. The type of item. The value is `user`. */

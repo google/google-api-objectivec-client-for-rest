@@ -1138,7 +1138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Arbitrary client data that is populated by clients. Duplicate keys and
- *  values are allowed. LINT.IfChange(GroupClientData)
+ *  values are allowed.
  */
 @interface GTLRPeopleService_GroupClientData : GTLRObject
 

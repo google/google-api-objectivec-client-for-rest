@@ -1062,6 +1062,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, copy, nullable) NSString *outputNotebookFolder;
 
+/** Parameters used within the 'input_notebook_file' notebook. */
+@property(nonatomic, copy, nullable) NSString *parameters;
+
 /**
  *  Parameters to be overridden in the notebook during execution. Ref
  *  https://papermill.readthedocs.io/en/latest/usage-parameterize.html on how to
@@ -2088,6 +2091,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The most recent execution names triggered from this schedule
+ *  and their corresponding states.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Execution *> *recentExecutions;
+
+/**
  *  state
  *
  *  Likely values:
@@ -2119,7 +2128,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
-/** Output only. TIme the schedule was last updated. */
+/** Output only. Time the schedule was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -2453,6 +2462,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Target VM Image. Format: ainotebooks-vm/project/image-name/name. */
 @property(nonatomic, copy, nullable) NSString *targetImage;
+
+/** Target VM Version, like m63. */
+@property(nonatomic, copy, nullable) NSString *targetVersion;
 
 /** The version of the notebook instance before this upgrade. */
 @property(nonatomic, copy, nullable) NSString *version;

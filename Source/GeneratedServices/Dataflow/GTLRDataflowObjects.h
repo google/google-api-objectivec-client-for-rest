@@ -2669,7 +2669,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
-/** The list of experiments to enable. */
+/**
+ *  The list of experiments to enable. This field should be used for SDK related
+ *  experiments and not for service related experiments. The proper field for
+ *  service related experiments is service_options. For more details see the
+ *  rationale at go/user-specified-service-options.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
 /**
@@ -2704,6 +2709,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  projects/PROJECT_ID/locations/LOCATION/keyRings/KEY_RING/cryptoKeys/KEY
  */
 @property(nonatomic, copy, nullable) NSString *serviceKmsKeyName;
+
+/**
+ *  The list of service options to enable. This field should be used for service
+ *  related experiments only. These experiments, when graduating to GA, should
+ *  be replaced by dedicated fields or become default (i.e. always on). For more
+ *  details see the rationale at go/user-specified-service-options.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceOptions;
 
 /**
  *  Output only. The shuffle mode used for the job.

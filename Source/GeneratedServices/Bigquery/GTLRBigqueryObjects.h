@@ -101,6 +101,7 @@
 @class GTLRBigquery_ModelReference;
 @class GTLRBigquery_ModelTraining;
 @class GTLRBigquery_MultiClassClassificationMetrics;
+@class GTLRBigquery_ParquetOptions;
 @class GTLRBigquery_Policy;
 @class GTLRBigquery_PrincipalComponentInfo;
 @class GTLRBigquery_ProjectList_Projects_Item;
@@ -1502,7 +1503,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
 
-/** The id to indicate different time series. */
+/**
+ *  The time_series_id value for this time series. It will be one of the unique
+ *  values from the time_series_id_column specified during ARIMA model training.
+ *  Only present when time_series_id_column training option was used.
+ */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
 
 @end
@@ -1582,7 +1587,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *seasonalPeriods;
 
-/** The id to indicate different time series. */
+/**
+ *  The time_series_id value for this time series. It will be one of the unique
+ *  values from the time_series_id_column specified during ARIMA model training.
+ *  Only present when time_series_id_column training option was used.
+ */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
 
 @end
@@ -3235,6 +3244,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *maxBadRecords;
 
+/** Additional properties to set if sourceFormat is set to Parquet. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
+
 /**
  *  [Optional] The schema for the data. Schema is required for CSV and JSON
  *  formats. Schema is disallowed for Google Cloud Bigtable, Cloud Datastore
@@ -3919,6 +3931,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  BYTE columns, BigQuery interprets the empty string as an empty value.
  */
 @property(nonatomic, copy, nullable) NSString *nullMarker;
+
+/** [Optional] Options to configure parquet support. */
+@property(nonatomic, strong, nullable) GTLRBigquery_ParquetOptions *parquetOptions;
 
 /**
  *  If sourceFormat is set to "DATASTORE_BACKUP", indicates which entity
@@ -5190,6 +5205,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Confusion matrix at different thresholds. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConfusionMatrix *> *confusionMatrixList;
+
+@end
+
+
+/**
+ *  GTLRBigquery_ParquetOptions
+ */
+@interface GTLRBigquery_ParquetOptions : GTLRObject
+
+/**
+ *  [Optional] Indicates whether to use schema inference specifically for
+ *  Parquet LIST logical type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableListInference;
+
+/**
+ *  [Optional] Indicates whether to infer Parquet ENUM logical type as STRING
+ *  instead of BYTES by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enumAsString;
 
 @end
 
@@ -7520,10 +7559,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Column to be designated as time series data for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesDataColumn;
 
-/**
- *  The id column that will be used to indicate different time series to
- *  forecast in parallel.
- */
+/** The time series id column that was used during ARIMA model training. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesIdColumn;
 
 /** Column to be designated as time series timestamp for ARIMA model. */

@@ -480,6 +480,97 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1Asset
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1Asset
+@dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
+         orgPolicy, relatedAssets, resource, servicePerimeter, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ancestors" : [NSString class],
+    @"orgPolicy" : [GTLRCloudAsset_GoogleCloudOrgpolicyV1Policy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset
+@dynamic ancestors, asset, assetType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ancestors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAssets
+@dynamic assets, relationshipAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assets" : [GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelatedAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1RelationshipAttributes
+@dynamic action, sourceResourceType, targetResourceType, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource
+@dynamic data, discoveryDocumentUri, discoveryName, location, parent,
+         resourceUrl, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data
+//
+
+@implementation GTLRCloudAsset_GoogleCloudAssetV1p7beta1Resource_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_GoogleCloudAssetV1Resource
 //
 

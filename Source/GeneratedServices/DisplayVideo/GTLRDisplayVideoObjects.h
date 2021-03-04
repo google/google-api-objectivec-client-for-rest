@@ -9819,60 +9819,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @interface GTLRDisplayVideo_AssignedTargetingOption : GTLRObject
 
 /**
- *  Age range details. This field will be populated when the TargetingType is
+ *  Age range details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_AGE_RANGE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AgeRangeAssignedTargetingOptionDetails *ageRangeDetails;
 
 /**
- *  App category details. This field will be populated when the TargetingType is
- *  `TARGETING_TYPE_APP_CATEGORY`.
+ *  App category details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_APP_CATEGORY`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AppCategoryAssignedTargetingOptionDetails *appCategoryDetails;
 
 /**
- *  App details. This field will be populated when the TargetingType is
+ *  App details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_APP`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AppAssignedTargetingOptionDetails *appDetails;
 
 /**
  *  Output only. The unique ID of the assigned targeting option. The ID is only
- *  unique within a given line item and targeting type. It may be reused in
- *  other contexts.
+ *  unique within a given resource and targeting type. It may be reused in other
+ *  contexts.
  */
 @property(nonatomic, copy, nullable) NSString *assignedTargetingOptionId;
 
 /**
  *  Audience targeting details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_AUDIENCE_GROUP`. You can only target one
- *  audience group option per line item.
+ *  targeting_type is `TARGETING_TYPE_AUDIENCE_GROUP`. You can only target one
+ *  audience group option per resource.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudienceGroupAssignedTargetingOptionDetails *audienceGroupDetails;
 
 /**
  *  Authorized seller status details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. You can only
- *  target one authorized seller status option per line item. If a line item
+ *  targeting_type is `TARGETING_TYPE_AUTHORIZED_SELLER_STATUS`. You can only
+ *  target one authorized seller status option per resource. If a resource
  *  doesn't have an authorized seller status option, all authorized sellers
  *  indicated as DIRECT or RESELLER in the ads.txt file are targeted by default.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AuthorizedSellerStatusAssignedTargetingOptionDetails *authorizedSellerStatusDetails;
 
 /**
- *  Browser details. This field will be populated when the TargetingType is
+ *  Browser details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_BROWSER`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BrowserAssignedTargetingOptionDetails *browserDetails;
 
 /**
- *  Carrier and ISP details. This field will be populated when the TargetingType
- *  is `TARGETING_TYPE_CARRIER_AND_ISP`.
+ *  Carrier and ISP details. This field will be populated when the
+ *  targeting_type is `TARGETING_TYPE_CARRIER_AND_ISP`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CarrierAndIspAssignedTargetingOptionDetails *carrierAndIspDetails;
 
 /**
- *  Category details. This field will be populated when the TargetingType is
+ *  Category details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_CATEGORY`. Targeting a category will also target its
  *  subcategories. If a category is excluded from targeting and a subcategory is
  *  included, the exclusion will take precedence.
@@ -9880,80 +9880,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CategoryAssignedTargetingOptionDetails *categoryDetails;
 
 /**
- *  Channel details. This field will be populated when the TargetingType is
+ *  Channel details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_CHANNEL`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ChannelAssignedTargetingOptionDetails *channelDetails;
 
 /**
  *  Content instream position details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`.
+ *  targeting_type is `TARGETING_TYPE_CONTENT_INSTREAM_POSITION`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentInstreamPositionAssignedTargetingOptionDetails *contentInstreamPositionDetails;
 
 /**
  *  Content outstream position details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION`.
+ *  targeting_type is `TARGETING_TYPE_CONTENT_OUTSTREAM_POSITION`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContentOutstreamPositionAssignedTargetingOptionDetails *contentOutstreamPositionDetails;
 
 /**
- *  Day and time details. This field will be populated when the TargetingType is
- *  `TARGETING_TYPE_DAY_AND_TIME`.
+ *  Day and time details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_DAY_AND_TIME`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails *dayAndTimeDetails;
 
 /**
  *  Device make and model details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_DEVICE_MAKE_MODEL`.
+ *  targeting_type is `TARGETING_TYPE_DEVICE_MAKE_MODEL`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DeviceMakeModelAssignedTargetingOptionDetails *deviceMakeModelDetails;
 
 /**
- *  Device Type details. This field will be populated when the TargetingType is
+ *  Device Type details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_DEVICE_TYPE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DeviceTypeAssignedTargetingOptionDetails *deviceTypeDetails;
 
 /**
  *  Digital content label details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`. Digital
+ *  targeting_type is `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`. Digital
  *  content labels are targeting exclusions. Advertiser level digital content
  *  label exclusions, if set, are always applied in serving (even though they
- *  aren't visible in line item settings). Line item settings can exclude
- *  content labels in addition to advertiser exclusions, but can't override
- *  them. A line item won't serve if all the digital content labels are
- *  excluded.
+ *  aren't visible in resource settings). Resource settings can exclude content
+ *  labels in addition to advertiser exclusions, but can't override them. A line
+ *  item won't serve if all the digital content labels are excluded.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DigitalContentLabelAssignedTargetingOptionDetails *digitalContentLabelExclusionDetails;
 
 /**
- *  Environment details. This field will be populated when the TargetingType is
+ *  Environment details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_ENVIRONMENT`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_EnvironmentAssignedTargetingOptionDetails *environmentDetails;
 
 /**
- *  Exchange details. This field will be populated when the TargetingType is
+ *  Exchange details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_EXCHANGE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails *exchangeDetails;
 
 /**
- *  Gender details. This field will be populated when the TargetingType is
+ *  Gender details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_GENDER`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GenderAssignedTargetingOptionDetails *genderDetails;
 
 /**
  *  Geographic region details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_GEO_REGION`.
+ *  targeting_type is `TARGETING_TYPE_GEO_REGION`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails *geoRegionDetails;
 
 /**
  *  Household income details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_HOUSEHOLD_INCOME`.
+ *  targeting_type is `TARGETING_TYPE_HOUSEHOLD_INCOME`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_HouseholdIncomeAssignedTargetingOptionDetails *householdIncomeDetails;
 
@@ -9978,26 +9977,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Inventory source details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_INVENTORY_SOURCE`.
+ *  targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceAssignedTargetingOptionDetails *inventorySourceDetails;
 
 /**
  *  Inventory source group details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_INVENTORY_SOURCE_GROUP`.
+ *  targeting_type is `TARGETING_TYPE_INVENTORY_SOURCE_GROUP`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InventorySourceGroupAssignedTargetingOptionDetails *inventorySourceGroupDetails;
 
 /**
- *  Keyword details. This field will be populated when the TargetingType is
+ *  Keyword details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_KEYWORD`. A maximum of 5000 direct negative keywords can be
- *  assigned to a line item. No limit on number of positive keywords that can be
+ *  assigned to a resource. No limit on number of positive keywords that can be
  *  assigned.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_KeywordAssignedTargetingOptionDetails *keywordDetails;
 
 /**
- *  Language details. This field will be populated when the TargetingType is
+ *  Language details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_LANGUAGE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_LanguageAssignedTargetingOptionDetails *languageDetails;
@@ -10006,55 +10005,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Keyword details. This field will be populated when the TargetingType is
+ *  Keyword details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST`. A maximum of 4 negative keyword
- *  lists can be assigned to a line item.
+ *  lists can be assigned to a resource.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NegativeKeywordListAssignedTargetingOptionDetails *negativeKeywordListDetails;
 
 /**
  *  On screen position details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_ON_SCREEN_POSITION`.
+ *  targeting_type is `TARGETING_TYPE_ON_SCREEN_POSITION`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_OnScreenPositionAssignedTargetingOptionDetails *onScreenPositionDetails;
 
 /**
  *  Operating system details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_OPERATING_SYSTEM`.
+ *  targeting_type is `TARGETING_TYPE_OPERATING_SYSTEM`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_OperatingSystemAssignedTargetingOptionDetails *operatingSystemDetails;
 
 /**
- *  Parental status details. This field will be populated when the TargetingType
- *  is `TARGETING_TYPE_PARENTAL_STATUS`.
+ *  Parental status details. This field will be populated when the
+ *  targeting_type is `TARGETING_TYPE_PARENTAL_STATUS`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ParentalStatusAssignedTargetingOptionDetails *parentalStatusDetails;
 
 /**
  *  Proximity location list details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_PROXIMITY_LOCATION_LIST`.
+ *  targeting_type is `TARGETING_TYPE_PROXIMITY_LOCATION_LIST`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails *proximityLocationListDetails;
 
 /**
  *  Regional location list details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_REGIONAL_LOCATION_LIST`.
+ *  targeting_type is `TARGETING_TYPE_REGIONAL_LOCATION_LIST`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_RegionalLocationListAssignedTargetingOptionDetails *regionalLocationListDetails;
 
 /**
  *  Sensitive category details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`. Sensitive
+ *  targeting_type is `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION`. Sensitive
  *  categories are targeting exclusions. Advertiser level sensitive category
  *  exclusions, if set, are always applied in serving (even though they aren't
- *  visible in line item settings). Line item settings can exclude sensitive
+ *  visible in resource settings). Resource settings can exclude sensitive
  *  categories in addition to advertiser exclusions, but can't override them.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails *sensitiveCategoryExclusionDetails;
 
 /**
- *  Sub-exchange details. This field will be populated when the TargetingType is
- *  `TARGETING_TYPE_SUB_EXCHANGE`.
+ *  Sub-exchange details. This field will be populated when the targeting_type
+ *  is `TARGETING_TYPE_SUB_EXCHANGE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SubExchangeAssignedTargetingOptionDetails *subExchangeDetails;
 
@@ -10185,32 +10184,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Third party verification details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_THIRD_PARTY_VERIFIER`.
+ *  targeting_type is `TARGETING_TYPE_THIRD_PARTY_VERIFIER`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ThirdPartyVerifierAssignedTargetingOptionDetails *thirdPartyVerifierDetails;
 
 /**
- *  URL details. This field will be populated when the TargetingType is
+ *  URL details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_URL`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_UrlAssignedTargetingOptionDetails *urlDetails;
 
 /**
  *  User rewarded content details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_USER_REWARDED_CONTENT`.
+ *  targeting_type is `TARGETING_TYPE_USER_REWARDED_CONTENT`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails *userRewardedContentDetails;
 
 /**
  *  Video player size details. This field will be populated when the
- *  TargetingType is `TARGETING_TYPE_VIDEO_PLAYER_SIZE`.
+ *  targeting_type is `TARGETING_TYPE_VIDEO_PLAYER_SIZE`.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoPlayerSizeAssignedTargetingOptionDetails *videoPlayerSizeDetails;
 
 /**
- *  Viewability details. This field will be populated when the TargetingType is
+ *  Viewability details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_VIEWABILITY`. You can only target one viewability option per
- *  line item.
+ *  resource.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ViewabilityAssignedTargetingOptionDetails *viewabilityDetails;
 
@@ -10583,7 +10582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Indicates if this option is being negatively targeted. All assigned browser
- *  targeting options on the same line item must have the same value for this
+ *  targeting options on the same resource must have the same value for this
  *  field.
  *
  *  Uses NSNumber of boolValue.
@@ -11167,7 +11166,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Indicates if this option is being negatively targeted. All assigned carrier
- *  and ISP targeting options on the same line item must have the same value for
+ *  and ISP targeting options on the same resource must have the same value for
  *  this field.
  *
  *  Uses NSNumber of boolValue.
@@ -16034,7 +16033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  Indicates if this option is being negatively targeted. All assigned language
- *  targeting options on the same line item must have the same value for this
+ *  targeting options on the same resource must have the same value for this
  *  field.
  *
  *  Uses NSNumber of boolValue.
@@ -18461,10 +18460,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /**
  *  Required. Radius range for proximity location list. This represents the size
  *  of the area around a chosen location that will be targeted. `All` proximity
- *  location targeting under a single line item must have the same radius range
+ *  location targeting under a single resource must have the same radius range
  *  value. Set this value to match any existing targeting. If updated, this
  *  field will change the radius range for all proximity targeting under the
- *  line item.
+ *  resource.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails_ProximityRadiusRange_ProximityRadiusRangeLarge
@@ -19013,7 +19012,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The URL or app ID of the site. Must be UTF-8 encoded with a
+ *  Required. The app ID or URL of the site. Must be UTF-8 encoded with a
  *  maximum length of 240 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *urlOrAppId;

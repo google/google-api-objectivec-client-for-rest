@@ -1005,7 +1005,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, bigtableOptions, compression, connectionId, csvOptions,
          googleSheetsOptions, hivePartitioningOptions, ignoreUnknownValues,
-         maxBadRecords, schema, sourceFormat, sourceUris;
+         maxBadRecords, parquetOptions, schema, sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1232,10 +1232,10 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
          destinationEncryptionConfiguration, destinationTable,
          destinationTableProperties, encoding, fieldDelimiter,
          hivePartitioningOptions, ignoreUnknownValues, jsonExtension,
-         maxBadRecords, nullMarker, projectionFields, quote, rangePartitioning,
-         schema, schemaInline, schemaInlineFormat, schemaUpdateOptions,
-         skipLeadingRows, sourceFormat, sourceUris, timePartitioning,
-         useAvroLogicalTypes, writeDisposition;
+         maxBadRecords, nullMarker, parquetOptions, projectionFields, quote,
+         rangePartitioning, schema, schemaInline, schemaInlineFormat,
+         schemaUpdateOptions, skipLeadingRows, sourceFormat, sourceUris,
+         timePartitioning, useAvroLogicalTypes, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1704,6 +1704,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_ParquetOptions
+//
+
+@implementation GTLRBigquery_ParquetOptions
+@dynamic enableListInference, enumAsString;
 @end
 
 

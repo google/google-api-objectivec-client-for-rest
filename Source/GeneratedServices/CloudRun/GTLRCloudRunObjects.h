@@ -683,8 +683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *containerPort;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported If specified, used to specify which protocol to use. Allowed
+ *  (Optional) If specified, used to specify which protocol to use. Allowed
  *  values are "http1" and "h2c".
  */
 @property(nonatomic, copy, nullable) NSString *name;

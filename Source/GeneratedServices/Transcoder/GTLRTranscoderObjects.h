@@ -661,8 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) GTLRTranscoder_NormalizedCoordinate *resolution;
 
 /**
- *  Required. URI of the image in Cloud Storage. For example,
- *  `gs://bucket/inputs/image.jpeg`.
+ *  Required. URI of the JPEG image in Cloud Storage. For example,
+ *  `gs://bucket/inputs/image.jpeg`. JPEG is the only supported image type.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 

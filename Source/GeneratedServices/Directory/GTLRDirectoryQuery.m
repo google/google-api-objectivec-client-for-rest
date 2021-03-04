@@ -2409,8 +2409,8 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @implementation GTLRDirectoryQuery_UsersList
 
-@dynamic customer, customFieldMask, domain, maxResults, orderBy, pageToken,
-         projection, query, showDeleted, sortOrder, viewType;
+@dynamic customer, customFieldMask, domain, event, maxResults, orderBy,
+         pageToken, projection, query, showDeleted, sortOrder, viewType;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"admin/directory/v1/users";

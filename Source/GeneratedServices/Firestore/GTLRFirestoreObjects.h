@@ -1452,7 +1452,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1IndexConfig *indexConfig;
 
 /**
- *  A field name of the form
+ *  Required. A field name of the form
  *  `projects/{project_id}/databases/{database_id}/collectionGroups/{collection_id}/fields/{field_path}`
  *  A field path may be a simple field name, e.g. `address` or a path to fields
  *  within map_value , e.g. `address.city`, or a special field path. The only
@@ -1785,7 +1785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Indicates that this field supports ordering by the specified order or
- *  comparing using =, <, <=, >, >=.
+ *  comparing using =, !=, <, <=, >, >=.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1IndexField_Order_Ascending
@@ -2055,8 +2055,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
- *  An object representing a latitude/longitude pair. This is expressed as a
- *  pair of doubles representing degrees latitude and degrees longitude. Unless
+ *  An object that represents a latitude/longitude pair. This is expressed as a
+ *  pair of doubles to represent degrees latitude and degrees longitude. Unless
  *  specified otherwise, this must conform to the WGS84 standard. Values must be
  *  within normalized ranges.
  */

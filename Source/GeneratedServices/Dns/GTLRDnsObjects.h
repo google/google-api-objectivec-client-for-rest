@@ -185,7 +185,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
 // GTLRDns_PolicyAlternativeNameServerConfigTargetNameServer.forwardingPath
 
 /**
- *  Cloud DNS will make forwarding decision based on address ranges; that is,
+ *  Cloud DNS makes forwarding decision based on IP address ranges; that is,
  *  RFC1918 addresses forward to the target through the VPC and non-RFC1918
  *  addresses forward to the target through the internet
  *
@@ -193,7 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_Operation_Status_Pending;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default;
 /**
- *  Cloud DNS will always forward to this target through the VPC.
+ *  Cloud DNS always forwards to this target through the VPC.
  *
  *  Value: "private"
  */
@@ -240,7 +240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Status of the operation (output only). A status of "done" means that the
- *  request to update the authoritative servers has been sent but the servers
+ *  request to update the authoritative servers has been sent, but the servers
  *  might not be updated yet.
  *
  *  Likely values:
@@ -339,15 +339,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Active keys are used to sign subsequent changes to the ManagedZone. Inactive
- *  keys will still be present as DNSKEY Resource Records for the use of
- *  resolvers validating existing signatures.
+ *  keys are still present as DNSKEY Resource Records for the use of resolvers
+ *  validating existing signatures.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isActive;
 
 /**
- *  Length of the key in bits. Specified at creation time, then immutable.
+ *  Length of the key in bits. Specified at creation time, and then immutable.
  *
  *  Uses NSNumber of unsignedIntValue.
  */
@@ -374,7 +374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
  *  One of "KEY_SIGNING" or "ZONE_SIGNING". Keys of type KEY_SIGNING have the
  *  Secure Entry Point flag set and, when active, are used to sign only resource
  *  record sets of type DNSKEY. Otherwise, the Secure Entry Point flag is
- *  cleared and this key is used to sign only resource record sets of other
+ *  cleared, and this key is used to sign only resource record sets of other
  *  types. Immutable after creation time.
  *
  *  Likely values:
@@ -557,8 +557,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /**
  *  Optionally specifies the NameServerSet for this ManagedZone. A NameServerSet
  *  is a set of DNS name servers that all host the same ManagedZones. Most users
- *  will leave this field unset. If you need to use this field, please reach out
- *  to your account team.
+ *  leave this field unset. If you need to use this field, contact your account
+ *  team.
  */
 @property(nonatomic, copy, nullable) NSString *nameServerSet;
 
@@ -583,8 +583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneReverseLookupConfig *reverseLookupConfig;
 
 /**
- *  This field links to the associated service directory namespace. This field
- *  should not be set for public zones or forwarding zones.
+ *  This field links to the associated service directory namespace. Do not set
+ *  this field for public zones or forwarding zones.
  */
 @property(nonatomic, strong, nullable) GTLRDns_ManagedZoneServiceDirectoryConfig *serviceDirectoryConfig;
 
@@ -675,9 +675,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud
- *  DNS makes forwarding decisions based on address ranges; that is, RFC1918
- *  addresses go to the VPC, non-RFC1918 addresses go to the internet. When set
- *  to PRIVATE, Cloud DNS always sends queries through VPC for this target.
+ *  DNS makes forwarding decisions based on IP address ranges; that is, RFC1918
+ *  addresses go to the VPC network, non-RFC1918 addresses go to the internet.
+ *  When set to PRIVATE, Cloud DNS always sends queries through the VPC network
+ *  for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_ManagedZoneForwardingConfigNameServerTarget_ForwardingPath_Default
@@ -794,8 +795,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The fully qualified URL of the VPC network to bind to. This should be
- *  formatted like
+ *  The fully qualified URL of the VPC network to bind to. Format this URL like
  *  https://www.googleapis.com/compute/v1/projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *networkUrl;
@@ -836,8 +836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ManagedZoneServiceDirectoryConfigNamespace : GTLRObject
 
 /**
- *  The time that the namespace backing this zone was deleted, empty string if
- *  it still exists. This is in RFC3339 text format. Output only.
+ *  The time that the namespace backing this zone was deleted; an empty string
+ *  if it still exists. This is in RFC3339 text format. Output only.
  */
 @property(nonatomic, copy, nullable) NSString *deletionTime;
 
@@ -1063,7 +1063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 /**
  *  Allows networks bound to this policy to receive DNS queries sent by VMs or
  *  applications over VPN connections. When enabled, a virtual IP address is
- *  allocated from each of the sub-networks that are bound to this policy.
+ *  allocated from each of the subnetworks that are bound to this policy.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1123,18 +1123,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 /**
  *  Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud
- *  DNS makes forwarding decision based on address ranges; that is, RFC1918
- *  addresses go to the VPC, non-RFC1918 addresses go to the internet. When set
- *  to PRIVATE, Cloud DNS always sends queries through VPC for this target.
+ *  DNS makes forwarding decisions based on address ranges; that is, RFC1918
+ *  addresses go to the VPC network, non-RFC1918 addresses go to the internet.
+ *  When set to PRIVATE, Cloud DNS always sends queries through the VPC network
+ *  for this target.
  *
  *  Likely values:
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Default
- *        Cloud DNS will make forwarding decision based on address ranges; that
+ *        Cloud DNS makes forwarding decision based on IP address ranges; that
  *        is, RFC1918 addresses forward to the target through the VPC and
  *        non-RFC1918 addresses forward to the target through the internet
  *        (Value: "default")
  *    @arg @c kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_ForwardingPath_Private
- *        Cloud DNS will always forward to this target through the VPC. (Value:
+ *        Cloud DNS always forwards to this target through the VPC. (Value:
  *        "private")
  */
 @property(nonatomic, copy, nullable) NSString *forwardingPath;
@@ -1302,7 +1303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
- *  A unit of data that will be returned by the DNS servers.
+ *  A unit of data that is returned by the DNS servers.
  */
 @interface GTLRDns_ResourceRecordSet : GTLRObject
 

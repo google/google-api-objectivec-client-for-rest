@@ -2995,8 +2995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 @interface GTLRCloudchannel_GoogleCloudChannelV1Plan : GTLRObject
 
 /**
- *  Reseller Billing account that will be charged when this offer is transacted.
- *  Only present for GCP offers.
+ *  Reseller Billing account to charge after an offer transaction. Only present
+ *  for Google Cloud Platform offers.
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
