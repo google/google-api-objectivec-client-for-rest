@@ -176,6 +176,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ChromeManagement/*.{h,m}'
   end
+  s.subspec 'ChromePolicy' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ChromePolicy/*.{h,m}'
+  end
   s.subspec 'ChromeUXReport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/ChromeUXReport/*.{h,m}'
@@ -484,6 +488,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseRules/*.{h,m}'
   end
+  s.subspec 'Firebasestorage' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Firebasestorage/*.{h,m}'
+  end
   s.subspec 'Firestore' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Firestore/*.{h,m}'
@@ -491,6 +499,10 @@ Pod::Spec.new do |s|
   s.subspec 'Fitness' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Fitness/*.{h,m}'
+  end
+  s.subspec 'GKEHub' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/GKEHub/*.{h,m}'
   end
   s.subspec 'GameServices' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -607,6 +619,10 @@ Pod::Spec.new do |s|
   s.subspec 'OnDemandScanning' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/OnDemandScanning/*.{h,m}'
+  end
+  s.subspec 'OrgPolicyAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/OrgPolicyAPI/*.{h,m}'
   end
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -10730,8 +10730,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  "`incorrectItemReceived`" - "`itemMissing`" - "`qualityNotExpected`" -
  *  "`receivedTooLate`" - "`storePackageMissing`" - "`transitPackageMissing`" -
  *  "`unsuccessfulDeliveryUndeliverable`" - "`wrongChargeInStore`" -
- *  "`wrongItem`" - "`returns`" - "`undeliverable`" - "`refundFromMerchant`" -
- *  "`returnLabelShippingFee`" - "`pspFee`"
+ *  "`wrongItem`" - "`returns`" - "`undeliverable`" -
+ *  "`issueRelatedRefundAndReplacementAmountDescription`" -
+ *  "`refundFromMerchant`" - "`returnLabelShippingFee`" - "`lumpSumCorrection`"
+ *  - "`pspFee`"
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -10743,7 +10745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /**
  *  The type of the amount. Acceptable values are: - "`itemPrice`" -
  *  "`orderPrice`" - "`refund`" - "`earlyRefund`" - "`courtesyRefund`" -
- *  "`returnRefund`" - "`returnLabelShippingFeeAmount`"
+ *  "`returnRefund`" - "`returnLabelShippingFeeAmount`" -
+ *  "`lumpSumCorrectionAmount`"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

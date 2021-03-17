@@ -1338,6 +1338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 
 
 /**
+ *  GTLRDns_ResourceRecordSetsDeleteResponse
+ */
+@interface GTLRDns_ResourceRecordSetsDeleteResponse : GTLRObject
+@end
+
+
+/**
  *  GTLRDns_ResourceRecordSetsListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over

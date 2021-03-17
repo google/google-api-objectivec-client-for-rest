@@ -1544,6 +1544,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, strong, nullable) NSNumber *upgradeable;
 
+/**
+ *  The new image self link this instance will be upgraded to if calling the
+ *  upgrade endpoint. This field will only be populated if field upgradeable is
+ *  true.
+ */
+@property(nonatomic, copy, nullable) NSString *upgradeImage;
+
 /** Additional information about upgrade. */
 @property(nonatomic, copy, nullable) NSString *upgradeInfo;
 

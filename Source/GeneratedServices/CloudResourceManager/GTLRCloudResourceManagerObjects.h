@@ -25,11 +25,15 @@
 @class GTLRCloudResourceManager_AuditLogConfig;
 @class GTLRCloudResourceManager_Binding;
 @class GTLRCloudResourceManager_Expr;
+@class GTLRCloudResourceManager_Folder;
 @class GTLRCloudResourceManager_GetPolicyOptions;
 @class GTLRCloudResourceManager_Lien;
 @class GTLRCloudResourceManager_Operation_Metadata;
 @class GTLRCloudResourceManager_Operation_Response;
+@class GTLRCloudResourceManager_Organization;
 @class GTLRCloudResourceManager_Policy;
+@class GTLRCloudResourceManager_Project;
+@class GTLRCloudResourceManager_Project_Labels;
 @class GTLRCloudResourceManager_Status;
 @class GTLRCloudResourceManager_Status_Details_Item;
 @class GTLRCloudResourceManager_TagBinding;
@@ -73,6 +77,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogT
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Folder.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_State_Active;
+/**
+ *  The folder has been marked for deletion by the user.
+ *
+ *  Value: "DELETE_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_State_DeleteRequested;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Folder_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudResourceManager_FolderOperation.operationType
@@ -205,6 +231,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResourcemanagerV2beta1FolderOperation_OperationType_OperationTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Organization.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Organization_State_Active;
+/**
+ *  The Organization has been marked for deletion by the user.
+ *
+ *  Value: "DELETE_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Organization_State_DeleteRequested;
+/**
+ *  Unspecified state. This is only useful for distinguishing unset values.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Organization_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudResourceManager_Project.state
+
+/**
+ *  The normal and active state.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_Active;
+/**
+ *  The project has been marked for deletion by the user (by invoking
+ *  DeleteProject) or by the system (Google Cloud Platform). This can generally
+ *  be reversed by invoking UndeleteProject.
+ *
+ *  Value: "DELETE_REQUESTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_DeleteRequested;
+/**
+ *  Unspecified state. This is only used/useful for distinguishing unset values.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified;
+
 /**
  *  Specifies the audit configuration for a service. The configuration
  *  determines which permission types are logged, and what identities, if any,
@@ -329,6 +401,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
+ *  Metadata pertaining to the Folder creation process.
+ */
+@interface GTLRCloudResourceManager_CreateFolderMetadata : GTLRObject
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The resource name of the folder or organization we are creating the folder
+ *  under.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by CreateProject. It provides insight for when significant phases
+ *  of Project creation have completed.
+ */
+@interface GTLRCloudResourceManager_CreateProjectMetadata : GTLRObject
+
+/** Creation time of the project creation workflow. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  True if the project can be retrieved using GetProject. No other operations
+ *  on the project are guaranteed to work until the project creation is
+ *  complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gettable;
+
+/**
+ *  True if the project creation process is complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ready;
+
+@end
+
+
+/**
  *  Runtime operation information for creating a TagKey.
  */
 @interface GTLRCloudResourceManager_CreateTagKeyMetadata : GTLRObject
@@ -339,6 +457,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *  Runtime operation information for creating a TagValue.
  */
 @interface GTLRCloudResourceManager_CreateTagValueMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteFolder.
+ */
+@interface GTLRCloudResourceManager_DeleteFolderMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteOrganization.
+ */
+@interface GTLRCloudResourceManager_DeleteOrganizationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by DeleteProject.
+ */
+@interface GTLRCloudResourceManager_DeleteProjectMetadata : GTLRObject
 @end
 
 
@@ -412,6 +554,67 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A Folder in an Organization's resource hierarchy, used to organize that
+ *  Organization's resources.
+ */
+@interface GTLRCloudResourceManager_Folder : GTLRObject
+
+/** Output only. Timestamp when the Folder was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Timestamp when the Folder was requested to be deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  The folder's display name. A folder's display name must be unique amongst
+ *  its siblings, e.g. no two folders with the same parent can share the same
+ *  display name. The display name must start and end with a letter or digit,
+ *  may contain letters, digits, spaces, hyphens and underscores and can be no
+ *  longer than 30 characters. This is captured by the regular expression:
+ *  `[\\p{L}\\p{N}]([\\p{L}\\p{N}_- ]{0,28}[\\p{L}\\p{N}])?`.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. A checksum computed by the server based on the current value of
+ *  the Folder resource. This may be sent on update and delete requests to
+ *  ensure the client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the Folder. Its format is
+ *  `folders/{folder_id}`, for example: "folders/1234".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The Folder's parent's resource name. Updates to the folder's
+ *  parent must be performed via MoveFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Output only. The lifecycle state of the folder. Updates to the state must be
+ *  performed via DeleteFolder and UndeleteFolder.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Folder_State_Active The normal and
+ *        active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudResourceManager_Folder_State_DeleteRequested The folder
+ *        has been marked for deletion by the user. (Value: "DELETE_REQUESTED")
+ *    @arg @c kGTLRCloudResourceManager_Folder_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the Folder was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -653,6 +856,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
+ *  The ListFolders response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "folders" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListFoldersResponse : GTLRCollectionObject
+
+/**
+ *  A possibly paginated list of Folders that are direct descendants of the
+ *  specified parent resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Folder *> *folders;
+
+/**
+ *  A pagination token returned from a previous call to `ListFolders` that
+ *  indicates from where listing should continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Liens.ListLiens.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -680,6 +911,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
+ *  A page of the response received from the ListProjects method. A paginated
+ *  response where more pages are available has `next_page_token` set. This
+ *  token can be used in a subsequent request to retrieve the next request page.
+ *  NOTE: A response may contain fewer elements than the request `page_size` and
+ *  still have a `next_page_token`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "projects" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_ListProjectsResponse : GTLRCollectionObject
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set. Pagination tokens have a
+ *  limited lifetime.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Projects under the parent. This list can be paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Project *> *projects;
+
+@end
+
+
+/**
  *  The ListTagBindings response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -691,8 +958,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 /**
  *  A pagination token returned from a previous call to `ListTagBindings` that
- *  indicates from where listing should continue. This is currently not used,
- *  but the server may at any point start supplying a valid token.
+ *  indicates from where listing should continue.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -720,8 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 /**
  *  A pagination token returned from a previous call to `ListTagKeys` that
- *  indicates from where listing should continue. This is currently not used,
- *  but the server may at any point start supplying a valid token.
+ *  indicates from where listing should continue.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -761,6 +1026,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_TagValue *> *tagValues;
+
+@end
+
+
+/**
+ *  Metadata pertaining to the Folder move process.
+ */
+@interface GTLRCloudResourceManager_MoveFolderMetadata : GTLRObject
+
+/** The resource name of the folder or organization to move the folder to. */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/** The display name of the folder. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The resource name of the folder's parent. */
+@property(nonatomic, copy, nullable) NSString *sourceParent;
+
+@end
+
+
+/**
+ *  The MoveFolder request message.
+ */
+@interface GTLRCloudResourceManager_MoveFolderRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the Folder or Organization to reparent the
+ *  folder under. Must be of the form `folders/{folder_id}` or
+ *  `organizations/{org_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by MoveProject.
+ */
+@interface GTLRCloudResourceManager_MoveProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request sent to MoveProject method.
+ */
+@interface GTLRCloudResourceManager_MoveProjectRequest : GTLRObject
+
+/** Required. The new parent to move the Project under. */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
 
 @end
 
@@ -842,6 +1158,68 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudResourceManager_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  The root node in the resource hierarchy to which a particular entity's
+ *  (e.g., company) resources belong.
+ */
+@interface GTLRCloudResourceManager_Organization : GTLRObject
+
+/** Output only. Timestamp when the Organization was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Timestamp when the Organization was requested for deletion.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Immutable. The G Suite / Workspace customer id used in the Directory API.
+ */
+@property(nonatomic, copy, nullable) NSString *directoryCustomerId;
+
+/**
+ *  Output only. A human-readable string that refers to the Organization in the
+ *  GCP Console UI. This string is set by the server and cannot be changed. The
+ *  string will be set to the primary domain (for example, "google.com") of the
+ *  G Suite customer that owns the organization.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. A checksum computed by the server based on the current value of
+ *  the Organization resource. This may be sent on update and delete requests to
+ *  ensure the client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the organization. This is the
+ *  organization's relative path in the API. Its format is
+ *  "organizations/[organization_id]". For example, "organizations/1234".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The organization's current lifecycle state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Organization_State_Active The normal and
+ *        active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudResourceManager_Organization_State_DeleteRequested The
+ *        Organization has been marked for deletion by the user. (Value:
+ *        "DELETE_REQUESTED")
+ *    @arg @c kGTLRCloudResourceManager_Organization_State_StateUnspecified
+ *        Unspecified state. This is only useful for distinguishing unset
+ *        values. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Timestamp when the Organization was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
 @end
 
 
@@ -931,6 +1309,109 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
 
 
 /**
+ *  A Project is a high-level Google Cloud Platform entity. It is a container
+ *  for ACLs, APIs, App Engine Apps, VMs, and other Google Cloud Platform
+ *  resources.
+ */
+@interface GTLRCloudResourceManager_Project : GTLRObject
+
+/** Output only. Creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time at which this resource was requested for deletion.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Optional. A user-assigned display name of the Project. When present it must
+ *  be between 4 to 30 characters. Allowed characters are: lowercase and
+ *  uppercase letters, numbers, hyphen, single-quote, double-quote, space, and
+ *  exclamation point. Example: `My Project`
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. A checksum computed by the server based on the current value of
+ *  the Project resource. This may be sent on update and delete requests to
+ *  ensure the client has an up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels associated with this Project. Label keys must be
+ *  between 1 and 63 characters long and must conform to the following regular
+ *  expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?. No more than 256 labels can be
+ *  associated with a given resource. Clients should store labels in a
+ *  representation such as JSON that does not depend on specific characters
+ *  being disallowed. Example: `"myBusinessDimension" : "businessValue"`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudResourceManager_Project_Labels *labels;
+
+/**
+ *  Output only. The unique resource name of the Project. It is an int64
+ *  generated number prefixed by "projects/". Example: `projects/415104041262`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A reference to a parent Resource. eg., `organizations/123` or
+ *  `folders/876`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Immutable. The unique, user-assigned id of the Project. It must be 6 to 30
+ *  lowercase ASCII letters, digits, or hyphens. It must start with a letter.
+ *  Trailing hyphens are prohibited. Example: `tokyo-rain-123`
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Output only. The Project lifecycle state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudResourceManager_Project_State_Active The normal and
+ *        active state. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudResourceManager_Project_State_DeleteRequested The
+ *        project has been marked for deletion by the user (by invoking
+ *        DeleteProject) or by the system (Google Cloud Platform). This can
+ *        generally be reversed by invoking UndeleteProject. (Value:
+ *        "DELETE_REQUESTED")
+ *    @arg @c kGTLRCloudResourceManager_Project_State_StateUnspecified
+ *        Unspecified state. This is only used/useful for distinguishing unset
+ *        values. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The most recent time this resource was modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels associated with this Project. Label keys must be
+ *  between 1 and 63 characters long and must conform to the following regular
+ *  expression: \\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?. Label values must be
+ *  between 0 and 63 characters long and must conform to the regular expression
+ *  (\\[a-z\\](\\[-a-z0-9\\]*\\[a-z0-9\\])?)?. No more than 256 labels can be
+ *  associated with a given resource. Clients should store labels in a
+ *  representation such as JSON that does not depend on specific characters
+ *  being disallowed. Example: `"myBusinessDimension" : "businessValue"`
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudResourceManager_Project_Labels : GTLRObject
+@end
+
+
+/**
  *  A status object which is used as the `metadata` field for the Operation
  *  returned by CreateProject. It provides insight for when significant phases
  *  of Project creation have completed.
@@ -955,6 +1436,98 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *ready;
+
+@end
+
+
+/**
+ *  The response message for searching folders.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "folders" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_SearchFoldersResponse : GTLRCollectionObject
+
+/**
+ *  A possibly paginated folder search results. the specified parent resource.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Folder *> *folders;
+
+/**
+ *  A pagination token returned from a previous call to `SearchFolders` that
+ *  indicates from where searching should continue.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response returned from the `SearchOrganizations` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "organizations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_SearchOrganizationsResponse : GTLRCollectionObject
+
+/**
+ *  A pagination token to be used to retrieve the next page of results. If the
+ *  result is too large to fit within the page size specified in the request,
+ *  this field will be set with a token that can be used to fetch the next page
+ *  of results. If this field is empty, it indicates that this response contains
+ *  the last page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Organizations that matched the search query, possibly paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Organization *> *organizations;
+
+@end
+
+
+/**
+ *  A page of the response received from the SearchProjects method. A paginated
+ *  response where more pages are available has `next_page_token` set. This
+ *  token can be used in a subsequent request to retrieve the next request page.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "projects" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudResourceManager_SearchProjectsResponse : GTLRCollectionObject
+
+/**
+ *  Pagination token. If the result set is too large to fit in a single
+ *  response, this token is returned. It encodes the position of the current
+ *  result cursor. Feeding this value into a new list request with the
+ *  `page_token` parameter gives the next page of the results. When
+ *  `next_page_token` is not filled in, there is no next page and the list
+ *  returned is the last page in the result set. Pagination tokens have a
+ *  limited lifetime.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Projects that matched the list filter query. This list can be
+ *  paginated.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudResourceManager_Project *> *projects;
 
 @end
 
@@ -1187,6 +1760,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_GoogleCloudResource
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteFolder.
+ */
+@interface GTLRCloudResourceManager_UndeleteFolderMetadata : GTLRObject
+@end
+
+
+/**
+ *  The UndeleteFolder request message.
+ */
+@interface GTLRCloudResourceManager_UndeleteFolderRequest : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteOrganization.
+ */
+@interface GTLRCloudResourceManager_UndeleteOrganizationMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UndeleteProject.
+ */
+@interface GTLRCloudResourceManager_UndeleteProjectMetadata : GTLRObject
+@end
+
+
+/**
+ *  The request sent to the UndeleteProject method.
+ */
+@interface GTLRCloudResourceManager_UndeleteProjectRequest : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateFolder.
+ */
+@interface GTLRCloudResourceManager_UpdateFolderMetadata : GTLRObject
+@end
+
+
+/**
+ *  A status object which is used as the `metadata` field for the Operation
+ *  returned by UpdateProject.
+ */
+@interface GTLRCloudResourceManager_UpdateProjectMetadata : GTLRObject
 @end
 
 

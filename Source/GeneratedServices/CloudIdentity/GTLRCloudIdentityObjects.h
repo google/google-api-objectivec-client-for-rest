@@ -831,7 +831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1ApproveDeviceUserRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -860,7 +860,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1BlockDeviceUserRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -889,7 +889,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -921,7 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1CancelWipeDeviceUserRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -1507,7 +1507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -1539,7 +1539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_GoogleAppsCloudidentityDevicesV1WipeDeviceUserRequest : GTLRObject
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -2209,11 +2209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 
 /**
- *  The `UserInvitation` resource represents an email sent to an unmanaged user
- *  account (an email address that shares the domain of the Google Workspace
- *  customer but is not managed by it yet), inviting them to join the customer’s
- *  domain. If the user accepts the `UserInvitation`, the account will become a
- *  managed account.
+ *  The `UserInvitation` resource represents an email that can be sent to an
+ *  unmanaged user account inviting them to join the customer’s Google Workspace
+ *  or Cloud Identity account. An unmanaged account shares an email address
+ *  domain with the Google Workspace or Cloud Identity account but is not
+ *  managed by it yet. If the user accepts the `UserInvitation`, the user
+ *  account will become managed.
  */
 @interface GTLRCloudIdentity_UserInvitation : GTLRObject
 

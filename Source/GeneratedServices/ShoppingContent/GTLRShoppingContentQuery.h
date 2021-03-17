@@ -1306,6 +1306,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Onboards BoG in your Merchant Center account. By using this method, you
  *  agree to the [Terms of
  *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
+ *  Calling this method is only possible if the authenticated account is the
+ *  same as the merchant id in the request. Calling this method multiple times
+ *  will only accept Terms of Service if the latest version is not currently
+ *  signed.
  *
  *  Method: content.buyongoogleprograms.onboard
  *
@@ -1333,6 +1337,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Onboards BoG in your Merchant Center account. By using this method, you
  *  agree to the [Terms of
  *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
+ *  Calling this method is only possible if the authenticated account is the
+ *  same as the merchant id in the request. Calling this method multiple times
+ *  will only accept Terms of Service if the latest version is not currently
+ *  signed.
  *
  *  @param object The @c GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest to
  *    include in the query.

@@ -195,12 +195,19 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentMessage;
@@ -251,6 +258,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswers;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1Message;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1OriginalDetectIntentRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult;
@@ -260,6 +269,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Context_Parameters;
@@ -267,6 +281,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2EntityTypeEntity;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput;
 @class GTLRDialogflow_GoogleCloudDialogflowV2EventInput_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentFollowupIntentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentMessage;
@@ -312,6 +328,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2Sentiment;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2SessionEntityType;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult;
 @class GTLRDialogflow_GoogleCloudDialogflowV2WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOperationMetadata;
 @class GTLRDialogflow_GoogleLongrunningOperation;
@@ -1050,6 +1069,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Page
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3PageInfoFormInfoParameterInfo_State_ParameterStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest.restoreOption
+
+/**
+ *  Fallback to default settings if some settings are not supported in the
+ *  target agent.
+ *
+ *  Value: "FALLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_Fallback;
+/**
+ *  Always respect the settings from the exported agent file. It may cause a
+ *  restoration failure if some settings (e.g. model type) are not supported in
+ *  the target agent.
+ *
+ *  Value: "KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_Keep;
+/**
+ *  Unspecified. Treated as KEEP.
+ *
+ *  Value: "RESTORE_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_RestoreOptionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings.purgeDataTypes
 
 /**
@@ -1379,6 +1423,48 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Webh
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent.type
+
+/**
+ *  An existing conversation has closed. This is fired when a telephone call is
+ *  terminated, or a conversation is closed via the API.
+ *
+ *  Value: "CONVERSATION_FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished;
+/**
+ *  A new conversation has been opened. This is fired when a telephone call is
+ *  answered, or a conversation is created via the API.
+ *
+ *  Value: "CONVERSATION_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted;
+/**
+ *  An existing conversation has received a new message, either from API or
+ *  telephony. It is configured in
+ *  ConversationProfile.new_message_event_notification_config
+ *
+ *  Value: "NEW_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage;
+/**
+ *  Type not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified;
+/**
+ *  Unrecoverable error during a telephone call. In general non-recoverable
+ *  errors only occur if something was misconfigured in the ConversationProfile
+ *  corresponding to the call. After a non-recoverable error, Dialogflow may
+ *  stop responding. We don't fire this event: * in an API call because we can
+ *  directly return the error, or, * when we can recover from an error.
+ *
+ *  Value: "UNRECOVERABLE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType.autoExpansionMode
@@ -1878,6 +1964,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1K
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1Message.participantRole
+
+/**
+ *  Participant is an automated agent, such as a Dialogflow agent.
+ *
+ *  Value: "AUTOMATED_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_AutomatedAgent;
+/**
+ *  Participant is an end user that has called or chatted with Dialogflow
+ *  services.
+ *
+ *  Value: "END_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_EndUser;
+/**
+ *  Participant is a human agent.
+ *
+ *  Value: "HUMAN_AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_HumanAgent;
+/**
+ *  Participant role not set.
+ *
+ *  Value: "ROLE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_RoleUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1SessionEntityType.entityOverrideMode
 
 /**
@@ -2287,6 +2402,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata.state
+
+/**
+ *  The operation is done, either cancelled or completed.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done;
+/**
+ *  The operation has been created.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending;
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running;
+/**
+ *  State unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2Message.participantRole
@@ -5042,7 +5185,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** End time of this experiment. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** Maximum number of days to run the experiment. */
+/**
+ *  Maximum number of days to run the experiment/rollout. If auto-rollout is not
+ *  enabled, default value and maximum will be 30 days. If auto-rollout is
+ *  enabled, default value and maximum will be 6 days.
+ */
 @property(nonatomic, strong, nullable) GTLRDuration *experimentLength;
 
 /** Last update time of this experiment. */
@@ -7658,6 +7805,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
+/**
+ *  Agent restore mode. If not specified, `KEEP` is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_Fallback
+ *        Fallback to default settings if some settings are not supported in the
+ *        target agent. (Value: "FALLBACK")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_Keep
+ *        Always respect the settings from the exported agent file. It may cause
+ *        a restoration failure if some settings (e.g. model type) are not
+ *        supported in the target agent. (Value: "KEEP")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest_RestoreOption_RestoreOptionUnspecified
+ *        Unspecified. Treated as KEEP. (Value: "RESTORE_OPTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *restoreOption;
+
 @end
 
 
@@ -8968,6 +9131,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents article answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Article match confidence. The system's confidence score that this article is
+ *  a good match for this conversation, as a value from 0.0 (completely
+ *  uncertain) to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata *metadata;
+
+/** Article snippets. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *snippets;
+
+/** The article title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The article URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata : GTLRObject
+@end
+
+
+/**
  *  The response message for EntityTypes.BatchUpdateEntityTypes.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2BatchUpdateEntityTypesResponse : GTLRObject
@@ -8986,6 +9200,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** The collection of updated or created intents. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Intent *> *intents;
 
+@end
+
+
+/**
+ *  Represents a part of a message possibly annotated with an entity. The part
+ *  can be an entity or purely a part of the message between two entities or
+ *  message start/end.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart : GTLRObject
+
+/**
+ *  Optional. The [Dialogflow system entity
+ *  type](https://cloud.google.com/dialogflow/docs/reference/system-entities) of
+ *  this message part. If this is empty, Dialogflow could not annotate the
+ *  phrase part with a system entity.
+ */
+@property(nonatomic, copy, nullable) NSString *entityType;
+
+/**
+ *  Optional. The [Dialogflow system entity formatted value
+ *  ](https://cloud.google.com/dialogflow/docs/reference/system-entities) of
+ *  this message part. For example for a system entity of type
+ *  `\@sys.unit-currency`, this may contain: { "amount": 5, "currency": "USD" }
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id formattedValue;
+
+/** Required. A part of a message possibly annotated with an entity. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Represents article answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata *metadata;
+
+/** Output only. Article snippets. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *snippets;
+
+/** The article title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The article URI. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata : GTLRObject
 @end
 
 
@@ -9086,6 +9373,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Context_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Represents a notification sent to Pub/Sub subscribers for conversation
+ *  lifecycle events.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent : GTLRObject
+
+/**
+ *  Required. The unique identifier of the conversation this notification refers
+ *  to. Format: `projects//conversations/`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  Optional. More detailed information about an error. Only set for type
+ *  UNRECOVERABLE_ERROR_IN_PHONE_CALL.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *errorStatus;
+
+/** Payload of NEW_MESSAGE event. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1Message *newMessagePayload NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Required. The type of the event that this notification refers to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished
+ *        An existing conversation has closed. This is fired when a telephone
+ *        call is terminated, or a conversation is closed via the API. (Value:
+ *        "CONVERSATION_FINISHED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted
+ *        A new conversation has been opened. This is fired when a telephone
+ *        call is answered, or a conversation is created via the API. (Value:
+ *        "CONVERSATION_STARTED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_NewMessage
+ *        An existing conversation has received a new message, either from API
+ *        or telephony. It is configured in
+ *        ConversationProfile.new_message_event_notification_config (Value:
+ *        "NEW_MESSAGE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_TypeUnspecified
+ *        Type not set. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_UnrecoverableError
+ *        Unrecoverable error during a telephone call. In general
+ *        non-recoverable errors only occur if something was misconfigured in
+ *        the ConversationProfile corresponding to the call. After a
+ *        non-recoverable error, Dialogflow may stop responding. We don't fire
+ *        this event: * in an API call because we can directly return the error,
+ *        or, * when we can recover from an error. (Value:
+ *        "UNRECOVERABLE_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -9264,6 +9605,102 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents answer from "frequently asked questions".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer : GTLRObject
+
+/** The piece of text from the `source` knowledge base document. */
+@property(nonatomic, copy, nullable) NSString *answer;
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The system's confidence score that this Knowledge answer is a good match for
+ *  this conversational query, range from 0.0 (completely uncertain) to 1.0
+ *  (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata *metadata;
+
+/** The corresponding FAQ question. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+/**
+ *  Indicates which Knowledge Document this answer was extracted from. Format:
+ *  `projects//locations//agent/knowledgeBases//documents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Output only. Represents a notification sent to Pub/Sub subscribers for agent
+ *  assistant events in a specific conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1HumanAgentAssistantEvent : GTLRObject
+
+/**
+ *  The conversation this notification refers to. Format:
+ *  `projects//conversations/`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  The participant that the suggestion is compiled for. And This field is used
+ *  to call Participants.ListSuggestions API. Format:
+ *  `projects//conversations//participants/`. It will not be set in legacy
+ *  workflow. HumanAgentAssistantConfig.name for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *participant;
+
+/**
+ *  The suggestion results payload that this notification refers to. It will
+ *  only be set when
+ *  HumanAgentAssistantConfig.SuggestionConfig.group_suggestion_responses sets
+ *  to true.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult *> *suggestionResults;
+
+@end
+
+
+/**
+ *  Response message for Documents.ImportDocuments.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1ImportDocumentsResponse : GTLRObject
+
+/** Includes details about skipped documents or any other warnings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
  *  An intent categorizes an end-user's intention for one conversation turn. For
  *  each agent, you define many intents, where your combined intents can handle
  *  a complete conversation. When an end-user writes or says something, referred
@@ -9325,6 +9762,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
+
+/**
+ *  Optional. Indicates that a live agent should be brought in to handle the
+ *  interaction with the user. In most cases, when you set this flag to true,
+ *  you would also want to set end_interaction to true as well. Default is
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *liveAgentHandoff;
 
 /**
  *  Optional. The collection of rich messages corresponding to the `Response`
@@ -10676,6 +11123,86 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a message posted into a conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1Message : GTLRObject
+
+/** Required. The message content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Output only. The time when the message was created in Contact Center AI.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The message language. This should be a
+ *  [BCP-47](https://www.rfc-editor.org/rfc/bcp/bcp47.txt) language tag.
+ *  Example: "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Output only. The annotation for the message. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation *messageAnnotation;
+
+/**
+ *  Optional. The unique identifier of the message. Format:
+ *  `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The participant that sends this message. */
+@property(nonatomic, copy, nullable) NSString *participant;
+
+/**
+ *  Output only. The role of the participant.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_AutomatedAgent
+ *        Participant is an automated agent, such as a Dialogflow agent. (Value:
+ *        "AUTOMATED_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_EndUser
+ *        Participant is an end user that has called or chatted with Dialogflow
+ *        services. (Value: "END_USER")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_HumanAgent
+ *        Participant is a human agent. (Value: "HUMAN_AGENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1Message_ParticipantRole_RoleUnspecified
+ *        Participant role not set. (Value: "ROLE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *participantRole;
+
+/** Optional. The time when the message was sent. */
+@property(nonatomic, strong, nullable) GTLRDateTime *sendTime;
+
+/** Output only. The sentiment analysis result for the message. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult *sentimentAnalysis;
+
+@end
+
+
+/**
+ *  Represents the result of annotation for the message.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1MessageAnnotation : GTLRObject
+
+/**
+ *  Required. Indicates whether the text message contains entities.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containEntities;
+
+/**
+ *  Optional. The collection of annotated message parts ordered by their
+ *  position in the message. You can recover the annotated message by
+ *  concatenating [AnnotatedMessagePart.text].
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart *> *parts;
+
+@end
+
+
+/**
  *  Represents the contents of the original request that was passed to the
  *  `[Streaming]DetectIntent` call.
  */
@@ -11010,6 +11537,137 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a smart reply answer.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer : GTLRObject
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Smart reply confidence. The system's confidence score that this reply is a
+ *  good match for this conversation, as a value from 0.0 (completely uncertain)
+ *  to 1.0 (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/** The content of the reply. */
+@property(nonatomic, copy, nullable) NSString *reply;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestArticles.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse : GTLRObject
+
+/** Output only. Articles ordered by score in descending order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer *> *articleAnswers;
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the SuggestArticlesResponse.context_size
+ *  field in the request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  The request message for Participants.SuggestFaqAnswers.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the SuggestFaqAnswersRequest.context_size
+ *  field in the request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/** Output only. Answers extracted from FAQ documents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1FaqAnswer *> *faqAnswers;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  One response of different type of suggestion response which is used in the
+ *  response of Participants.AnalyzeContent and Participants.AnalyzeContent, as
+ *  well as HumanAgentAssistantEvent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestionResult : GTLRObject
+
+/** Error status if the request failed. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
+
+/** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestArticlesResponse *suggestArticlesResponse;
+
+/** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
+
+/** SuggestSmartRepliesResponse if request is for SMART_REPLY. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse *suggestSmartRepliesResponse;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestSmartReplies.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1SuggestSmartRepliesResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the
+ *  SuggestSmartRepliesRequest.context_size field in the request if there aren't
+ *  that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+/**
+ *  Output only. Multiple reply options provided by smart reply service. The
+ *  order is based on the rank of the model prediction. The maximum number of
+ *  the returned replies is set in SmartReplyConfig.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1SmartReplyAnswer *> *smartReplyAnswers;
+
+@end
+
+
+/**
  *  The request message for a webhook call.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1WebhookRequest : GTLRObject
@@ -11088,6 +11746,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  QueryResult.fulfillment_text sent to the integration or API caller.
  */
 @property(nonatomic, copy, nullable) NSString *fulfillmentText;
+
+/**
+ *  Indicates that a live agent should be brought in to handle the interaction
+ *  with the user. In most cases, when you set this flag to true, you would also
+ *  want to set end_interaction to true as well. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *liveAgentHandoff;
 
 /**
  *  Optional. The collection of output contexts that will overwrite currently
@@ -11457,6 +12124,85 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents answer from "frequently asked questions".
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer : GTLRObject
+
+/** The piece of text from the `source` knowledge base document. */
+@property(nonatomic, copy, nullable) NSString *answer;
+
+/**
+ *  The name of answer record, in the format of
+ *  "projects//locations//answerRecords/"
+ */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  The system's confidence score that this Knowledge answer is a good match for
+ *  this conversational query, range from 0.0 (completely uncertain) to 1.0
+ *  (completely certain).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata *metadata;
+
+/** The corresponding FAQ question. */
+@property(nonatomic, copy, nullable) NSString *question;
+
+/**
+ *  Indicates which Knowledge Document this answer was extracted from. Format:
+ *  `projects//locations//agent/knowledgeBases//documents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+@end
+
+
+/**
+ *  A map that contains metadata about the answer and the document from which it
+ *  originates.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Represents a notification sent to Cloud Pub/Sub subscribers for human agent
+ *  assistant events in a specific conversation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2HumanAgentAssistantEvent : GTLRObject
+
+/**
+ *  The conversation this notification refers to. Format:
+ *  `projects//conversations/`.
+ */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/**
+ *  The participant that the suggestion is compiled for. Format:
+ *  `projects//conversations//participants/`. It will not be set in legacy
+ *  workflow.
+ */
+@property(nonatomic, copy, nullable) NSString *participant;
+
+/** The suggestion results payload that this notification refers to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult *> *suggestionResults;
+
+@end
+
+
+/**
  *  An intent categorizes an end-user's intention for one conversation turn. For
  *  each agent, you define many intents, where your combined intents can handle
  *  a complete conversation. When an end-user writes or says something, referred
@@ -11481,6 +12227,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Required. The name of this intent. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Indicates that this intent ends an interaction. Some integrations
+ *  (e.g., Actions on Google or Dialogflow phone gateway) use this information
+ *  to close interaction with an end user. Default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endInteraction;
 
 /**
  *  Optional. The collection of event names that trigger the intent. If the
@@ -11508,6 +12263,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
+
+/**
+ *  Optional. Indicates that a live agent should be brought in to handle the
+ *  interaction with the user. In most cases, when you set this flag to true,
+ *  you would also want to set end_interaction to true as well. Default is
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *liveAgentHandoff;
 
 /**
  *  Optional. The collection of rich messages corresponding to the `Response`
@@ -12413,6 +13178,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata in google::longrunning::Operation for Knowledge operations.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata : GTLRObject
+
+/**
+ *  Output only. The current state of this operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done
+ *        The operation is done, either cancelled or completed. (Value: "DONE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Pending
+ *        The operation has been created. (Value: "PENDING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Running
+ *        The operation is currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_StateUnspecified
+ *        State unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Represents a message posted into a conversation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2Message : GTLRObject
@@ -12805,6 +13593,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  overridden or supplemented.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The response message for Participants.SuggestArticles.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse : GTLRObject
+
+/** Articles ordered by score in descending order. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer *> *articleAnswers;
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the SuggestArticlesRequest.context_size
+ *  field in the request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  The request message for Participants.SuggestFaqAnswers.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse : GTLRObject
+
+/**
+ *  Number of messages prior to and including latest_message to compile the
+ *  suggestion. It may be smaller than the SuggestFaqAnswersRequest.context_size
+ *  field in the request if there aren't that many messages in the conversation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *contextSize;
+
+/** Answers extracted from FAQ documents. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2FaqAnswer *> *faqAnswers;
+
+/**
+ *  The name of the latest conversation message used to compile suggestion for.
+ *  Format: `projects//locations//conversations//messages/`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestMessage;
+
+@end
+
+
+/**
+ *  One response of different type of suggestion response which is used in the
+ *  response of Participants.AnalyzeContent and Participants.AnalyzeContent, as
+ *  well as HumanAgentAssistantEvent.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2SuggestionResult : GTLRObject
+
+/** Error status if the request failed. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleRpcStatus *error;
+
+/** SuggestArticlesResponse if request is for ARTICLE_SUGGESTION. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestArticlesResponse *suggestArticlesResponse;
+
+/** SuggestFaqAnswersResponse if request is for FAQ_ANSWER. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2SuggestFaqAnswersResponse *suggestFaqAnswersResponse;
 
 @end
 

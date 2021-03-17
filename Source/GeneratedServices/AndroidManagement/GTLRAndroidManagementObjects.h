@@ -36,6 +36,7 @@
 @class GTLRAndroidManagement_CommonCriteriaModeInfo;
 @class GTLRAndroidManagement_ComplianceRule;
 @class GTLRAndroidManagement_ContactInfo;
+@class GTLRAndroidManagement_ContentProviderEndpoint;
 @class GTLRAndroidManagement_Date;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
@@ -58,6 +59,7 @@
 @class GTLRAndroidManagement_NetworkInfo;
 @class GTLRAndroidManagement_NonComplianceDetail;
 @class GTLRAndroidManagement_NonComplianceDetailCondition;
+@class GTLRAndroidManagement_OncCertificateProvider;
 @class GTLRAndroidManagement_Operation;
 @class GTLRAndroidManagement_Operation_Metadata;
 @class GTLRAndroidManagement_Operation_Response;
@@ -2852,6 +2854,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  This feature is not generally available.
+ */
+@interface GTLRAndroidManagement_ContentProviderEndpoint : GTLRObject
+
+/** This feature is not generally available. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/** Required. This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *signingCertsSha256;
+
+/** This feature is not generally available. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Represents a whole or partial calendar date, such as a birthday. The time of
  *  day and time zone are either specified elsewhere or are insignificant. The
  *  date is relative to the Gregorian Calendar. This can represent one of the
@@ -4350,6 +4369,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
+ *  This feature is not generally available.
+ */
+@interface GTLRAndroidManagement_OncCertificateProvider : GTLRObject
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *certificateReferences;
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_ContentProviderEndpoint *contentProviderEndpoint;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -5003,8 +5036,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *installAppsDisabled;
 
 /**
- *  Whether the user is allowed to enable the "Unknown Sources" setting, which
- *  allows installation of apps from unknown sources.
+ *  This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5134,6 +5166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *networkResetDisabled;
+
+/** This feature is not generally available. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_OncCertificateProvider *> *oncCertificateProviders;
 
 /**
  *  Network configuration for the device. See configure networks for more

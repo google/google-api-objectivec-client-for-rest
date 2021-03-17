@@ -22,6 +22,9 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccountSummary;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource;
+@class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
@@ -42,6 +45,62 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
+
+/**
+ *  Action type unknown or not specified.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified;
+/**
+ *  Resource was created in this change.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created;
+/**
+ *  Resource was deleted in this change.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted;
+/**
+ *  Resource was updated in this change.
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent.actorType
+
+/**
+ *  Unknown or unspecified actor type.
+ *
+ *  Value: "ACTOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified;
+/**
+ *  Changes made by Google Analytics support team staff.
+ *
+ *  Value: "SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support;
+/**
+ *  Changes made by the Google Analytics system.
+ *
+ *  Value: "SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System;
+/**
+ *  Changes made by the user specified in actor_email.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
@@ -244,6 +303,86 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  Value: "TRAVEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
+
+/**
+ *  Action type unknown or not specified.
+ *
+ *  Value: "ACTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified;
+/**
+ *  Resource was created in this change.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Created;
+/**
+ *  Resource was deleted in this change.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Deleted;
+/**
+ *  Resource was updated in this change.
+ *
+ *  Value: "UPDATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Updated;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.resourceType
+
+/**
+ *  Account resource
+ *
+ *  Value: "ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account;
+/**
+ *  AndroidAppDataStream resource
+ *
+ *  Value: "ANDROID_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AndroidAppDataStream;
+/**
+ *  Resource type unknown or not specified.
+ *
+ *  Value: "CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified;
+/**
+ *  FirebaseLink resource
+ *
+ *  Value: "FIREBASE_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink;
+/**
+ *  GoogleAdsLink resource
+ *
+ *  Value: "GOOGLE_ADS_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink;
+/**
+ *  IosAppDataStream resource
+ *
+ *  Value: "IOS_APP_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream;
+/**
+ *  Property resource
+ *
+ *  Value: "PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Property;
+/**
+ *  WebDataStream resource
+ *
+ *  Value: "WEB_DATA_STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_WebDataStream;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -517,6 +656,135 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /** The user links updated. */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaUserLink *> *userLinks;
+
+@end
+
+
+/**
+ *  A description of a change to a single Google Analytics resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange : GTLRObject
+
+/**
+ *  The type of action that changed this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified
+ *        Action type unknown or not specified. (Value:
+ *        "ACTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created
+ *        Resource was created in this change. (Value: "CREATED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted
+ *        Resource was deleted in this change. (Value: "DELETED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated
+ *        Resource was updated in this change. (Value: "UPDATED")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Resource name of the resource whose changes are described by this entry.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Resource contents from after the change was made. If this resource was
+ *  deleted in this change, this field will be missing.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource *resourceAfterChange;
+
+/**
+ *  Resource contents from before the change was made. If this resource was
+ *  created in this change, this field will be missing.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource *resourceBeforeChange;
+
+@end
+
+
+/**
+ *  A snapshot of a resource as before or after the result of a change in change
+ *  history.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource : GTLRObject
+
+/** A snapshot of an Account resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAccount *account;
+
+/** A snapshot of an AndroidAppDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *androidAppDataStream;
+
+/** A snapshot of a FirebaseLink resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *firebaseLink;
+
+/** A snapshot of a GoogleAdsLink resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *googleAdsLink;
+
+/** A snapshot of an IosAppDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream *iosAppDataStream;
+
+/** A snapshot of a Property resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaProperty *property;
+
+/** A snapshot of a WebDataStream resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream *webDataStream;
+
+@end
+
+
+/**
+ *  A set of changes within a Google Analytics account or its child properties
+ *  that resulted from the same cause. Common causes would be updates made in
+ *  the Google Analytics UI, changes from customer support, or automatic Google
+ *  Analytics system changes.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent : GTLRObject
+
+/**
+ *  The type of actor that made this change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified
+ *        Unknown or unspecified actor type. (Value: "ACTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support
+ *        Changes made by Google Analytics support team staff. (Value:
+ *        "SUPPORT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System
+ *        Changes made by the Google Analytics system. (Value: "SYSTEM")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User
+ *        Changes made by the user specified in actor_email. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *actorType;
+
+/**
+ *  A list of changes made in this change history event that fit the filters
+ *  specified in SearchChangeHistoryEventsRequest.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange *> *changes;
+
+/**
+ *  If true, then the list of changes returned was filtered, and does not
+ *  represent all changes that occurred in this event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *changesFiltered;
+
+/** Time when change was made. */
+@property(nonatomic, strong, nullable) GTLRDateTime *changeTime;
+
+/**
+ *  ID of this change history event. This ID is unique across Google Analytics.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Email address of the Google account that made the change. This will be a
+ *  valid email address if the actor field is set to USER, and empty otherwise.
+ *  Google accounts that have been deleted will cause an error.
+ */
+@property(nonatomic, copy, nullable) NSString *userActorEmail;
 
 @end
 
@@ -1268,6 +1536,91 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
 
 /** The param to be passed in the ToS link. */
 @property(nonatomic, copy, nullable) NSString *accountTicketId;
+
+@end
+
+
+/**
+ *  Request message for SearchChangeHistoryEvents RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest : GTLRObject
+
+/**
+ *  Optional. If set, only return changes that match one or more of these types
+ *  of actions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *action;
+
+/**
+ *  Optional. If set, only return changes if they are made by a user in this
+ *  list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actorEmail;
+
+/** Optional. If set, only return changes made after this time (inclusive). */
+@property(nonatomic, strong, nullable) GTLRDateTime *earliestChangeTime;
+
+/**
+ *  Optional. If set, only return changes made before this time (inclusive).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestChangeTime;
+
+/**
+ *  Optional. The maximum number of ChangeHistoryEvent items to return. The
+ *  service may return fewer than this value, even if there are additional
+ *  pages. If unspecified, at most 50 items will be returned. The maximum value
+ *  is 200 (higher values will be coerced to the maximum).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `SearchChangeHistoryEvents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `SearchChangeHistoryEvents` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. Resource name for a child property. If set, only return changes
+ *  made to this property or its child resources.
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  Optional. If set, only return changes if they are for a resource that
+ *  matches at least one of these types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceType;
+
+@end
+
+
+/**
+ *  Response message for SearchAccounts RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "changeHistoryEvents" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse : GTLRCollectionObject
+
+/**
+ *  Results that were accessible to the caller.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent *> *changeHistoryEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

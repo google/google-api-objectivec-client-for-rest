@@ -446,6 +446,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_AuthenticationFailure;
 /**
+ *  Migration is already running at the time of restart request.
+ *
+ *  Value: "CANT_RESTART_RUNNING_MIGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_CantRestartRunningMigration;
+/**
  *  We failed to connect to one of the connection profile.
  *
  *  Value: "CONNECTION_FAILURE"
@@ -1447,6 +1453,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_AuthenticationFailure
  *        We failed to authenticate to one of the connection profile. (Value:
  *        "AUTHENTICATION_FAILURE")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_CantRestartRunningMigration
+ *        Migration is already running at the time of restart request. (Value:
+ *        "CANT_RESTART_RUNNING_MIGRATION")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ConnectionFailure
  *        We failed to connect to one of the connection profile. (Value:
  *        "CONNECTION_FAILURE")

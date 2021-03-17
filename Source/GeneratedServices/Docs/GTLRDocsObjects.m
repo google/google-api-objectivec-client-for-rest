@@ -1542,7 +1542,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_ParagraphElement
 @dynamic autoText, columnBreak, endIndex, equation, footnoteReference,
-         horizontalRule, inlineObjectElement, pageBreak, startIndex, textRun;
+         horizontalRule, inlineObjectElement, pageBreak, person, startIndex,
+         textRun;
 @end
 
 
@@ -1582,6 +1583,50 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          keepWithNextSuggested, lineSpacingSuggested, namedStyleTypeSuggested,
          shadingSuggestionState, spaceAboveSuggested, spaceBelowSuggested,
          spacingModeSuggested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Person
+//
+
+@implementation GTLRDocs_Person
+@dynamic personId, personProperties, suggestedDeletionIds,
+         suggestedInsertionIds, suggestedTextStyleChanges, textStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedDeletionIds" : [NSString class],
+    @"suggestedInsertionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_Person_SuggestedTextStyleChanges
+//
+
+@implementation GTLRDocs_Person_SuggestedTextStyleChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedTextStyle class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_PersonProperties
+//
+
+@implementation GTLRDocs_PersonProperties
+@dynamic email, name;
 @end
 
 

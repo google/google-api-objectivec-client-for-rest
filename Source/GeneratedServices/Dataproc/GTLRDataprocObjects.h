@@ -178,6 +178,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Running;
 /**
+ *  The cluster is being started. It is not ready for use.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Starting;
+/**
+ *  The cluster is currently stopped. It is not ready for use.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Stopped;
+/**
+ *  The cluster is being stopped. It cannot be used.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Stopping;
+/**
  *  The cluster state is unknown.
  *
  *  Value: "UNKNOWN"
@@ -1246,6 +1264,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        error. It is not ready for use. (Value: "ERROR")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
  *        running and healthy. It is ready for use. (Value: "RUNNING")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Starting The cluster is being
+ *        started. It is not ready for use. (Value: "STARTING")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopped The cluster is currently
+ *        stopped. It is not ready for use. (Value: "STOPPED")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_Stopping The cluster is being
+ *        stopped. It cannot be used. (Value: "STOPPING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Unknown The cluster state is
  *        unknown. (Value: "UNKNOWN")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Updating The cluster is being
@@ -1908,8 +1932,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
- *  Optional. The number of VM instances in the instance group. For master
- *  instance groups, must be set to 1.
+ *  Optional. The number of VM instances in the instance group. For HA cluster
+ *  master_config groups, must be set to 3. For standard cluster master_config
+ *  groups, must be set to 1.
  *
  *  Uses NSNumber of intValue.
  */

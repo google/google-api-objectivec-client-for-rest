@@ -292,9 +292,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesDatasetsDeleteWithuserId:dataSourceId:datasetId:]
 
-/** The client's current time in milliseconds since epoch. */
-@property(nonatomic, assign) long long currentTimeMillis;
-
 /**
  *  Dataset identifier that is a composite of the minimum data point start time
  *  and maximum data point end time represented as nanoseconds from the epoch.
@@ -305,9 +302,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The data stream ID of the data source that created the dataset. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
-
-/** When the operation was performed on the client. */
-@property(nonatomic, assign) long long modifiedTimeMillis;
 
 /**
  *  Delete a dataset for the person identified. Use me to indicate the
@@ -470,13 +464,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsPatch : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersDataSourcesDatasetsPatchWithObject:userId:dataSourceId:datasetId:]
-
-/**
- *  The client's current time in milliseconds since epoch. Note that the
- *  minStartTimeNs and maxEndTimeNs properties in the request body are in
- *  nanoseconds instead of milliseconds.
- */
-@property(nonatomic, assign) long long currentTimeMillis;
 
 /** This field is not used, and can be safely omitted. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -753,9 +740,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersSessionsDeleteWithuserId:sessionId:]
 
-/** The client's current time in milliseconds since epoch. */
-@property(nonatomic, assign) long long currentTimeMillis;
-
 /** The ID of the session to be deleted. */
 @property(nonatomic, copy, nullable) NSString *sessionId;
 
@@ -884,9 +868,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFitnessQuery_UsersSessionsUpdate : GTLRFitnessQuery
 // Previous library name was
 //   +[GTLQueryFitness queryForUsersSessionsUpdateWithObject:userId:sessionId:]
-
-/** The client's current time in milliseconds since epoch. */
-@property(nonatomic, assign) long long currentTimeMillis;
 
 /** The ID of the session to be created. */
 @property(nonatomic, copy, nullable) NSString *sessionId;

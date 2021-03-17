@@ -191,6 +191,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -721,6 +723,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -1371,6 +1375,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClientCostEcpmAdvertiserCurrency;
 /** Value: "METRIC_CLIENT_COST_VIEWABLE_ECPM_ADVERTISER_CURRENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricClientCostViewableEcpmAdvertiserCurrency;
+/** Value: "METRIC_CM360_POST_CLICK_REVENUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostClickRevenue;
+/** Value: "METRIC_CM360_POST_CLICK_REVENUE_CROSS_ENVIRONMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostClickRevenueCrossEnvironment;
+/** Value: "METRIC_CM360_POST_VIEW_REVENUE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostViewRevenue;
+/** Value: "METRIC_CM360_POST_VIEW_REVENUE_CROSS_ENVIRONMENT" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCm360PostViewRevenueCrossEnvironment;
 /** Value: "METRIC_CM_POST_CLICK_REVENUE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCmPostClickRevenue;
 /** Value: "METRIC_CM_POST_CLICK_REVENUE_CROSS_ENVIRONMENT" */
@@ -1455,6 +1467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoCorrectedClicks;
 /** Value: "METRIC_DEMO_POPULATION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoPopulation;
+/** Value: "METRIC_ENGAGEMENT_RATE" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagementRate;
 /** Value: "METRIC_ENGAGEMENTS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagements;
 /**
@@ -2273,6 +2287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCity;
 /** Value: "FILTER_CITY_NAME" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCityName;
+/** Value: "FILTER_CM360_PLACEMENT_ID" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCm360PlacementId;
 /** Value: "FILTER_CM_PLACEMENT_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCmPlacementId;
 /** Value: "FILTER_COMPANION_CREATIVE_ID" */
@@ -3190,6 +3206,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        "FILTER_CITY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCityName Value
  *        "FILTER_CITY_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCm360PlacementId
+ *        Value "FILTER_CM360_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCmPlacementId
  *        Value "FILTER_CM_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterCompanionCreativeId
@@ -3961,6 +3979,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_CITY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCityName
  *        Value "FILTER_CITY_NAME"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCm360PlacementId
+ *        Value "FILTER_CM360_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCmPlacementId
  *        Value "FILTER_CM_PLACEMENT_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterCompanionCreativeId

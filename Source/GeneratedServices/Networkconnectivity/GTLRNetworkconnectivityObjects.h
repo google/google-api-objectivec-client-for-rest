@@ -1732,8 +1732,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_S
 
 /**
  *  Private Preview. This feature is only available for approved services. User
- *  defined labels for the resource that this operation is associated with. Only
- *  a combination of 1000 user labels per consumer project are allowed.
+ *  defined labels for the resource that this operation is associated with.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Operation_UserLabels *userLabels;
 
@@ -1776,8 +1775,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_S
 
 /**
  *  Private Preview. This feature is only available for approved services. User
- *  defined labels for the resource that this operation is associated with. Only
- *  a combination of 1000 user labels per consumer project are allowed.
+ *  defined labels for the resource that this operation is associated with.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

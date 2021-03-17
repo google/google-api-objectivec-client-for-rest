@@ -901,8 +901,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Autopilot is the configuration for Autopilot settings on the cluster. It is
- *  the official product name of what is previously known as AutoGKE
+ *  Autopilot is the configuration for Autopilot settings on the cluster.
  */
 @interface GTLRContainer_Autopilot : GTLRObject
 
@@ -1133,10 +1132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration controlling RBAC group membership information. */
 @property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *authenticatorGroupsConfig;
 
-/**
- *  Autopilot configuration for the cluster. It has the same semantics as
- *  AutoGKE and overrides the setting in autogke.
- */
+/** Autopilot configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_Autopilot *autopilot;
 
 /** Cluster-level autoscaling configuration. */

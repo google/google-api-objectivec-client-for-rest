@@ -1023,7 +1023,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
-/** Data transfer specific parameters. */
+/**
+ *  Parameters specific to each data source. For more information see the bq tab
+ *  in the 'Setting up a data transfer' section for each data source. For
+ *  example the parameters for Cloud Storage transfers are listed here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferConfig_Params *params;
 
 /**
@@ -1077,7 +1082,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Data transfer specific parameters.
+ *  Parameters specific to each data source. For more information see the bq tab
+ *  in the 'Setting up a data transfer' section for each data source. For
+ *  example the parameters for Cloud Storage transfers are listed here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1157,7 +1165,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  */
 @property(nonatomic, copy, nullable) NSString *notificationPubsubTopic;
 
-/** Output only. Data transfer specific parameters. */
+/**
+ *  Output only. Parameters specific to each data source. For more information
+ *  see the bq tab in the 'Setting up a data transfer' section for each data
+ *  source. For example the parameters for Cloud Storage transfers are listed
+ *  here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRun_Params *params;
 
 /**
@@ -1217,7 +1231,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
- *  Output only. Data transfer specific parameters.
+ *  Output only. Parameters specific to each data source. For more information
+ *  see the bq tab in the 'Setting up a data transfer' section for each data
+ *  source. For example the parameters for Cloud Storage transfers are listed
+ *  here:
+ *  https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

@@ -95,6 +95,7 @@ NSString * const kGTLRBigquery_Routine_Language_Sql            = @"SQL";
 NSString * const kGTLRBigquery_Routine_RoutineType_Procedure   = @"PROCEDURE";
 NSString * const kGTLRBigquery_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction = @"SCALAR_FUNCTION";
+NSString * const kGTLRBigquery_Routine_RoutineType_TableValuedFunction = @"TABLE_VALUED_FUNCTION";
 
 // GTLRBigquery_StandardSqlDataType.typeKind
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Array = @"ARRAY";
@@ -1257,11 +1258,12 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_JobConfigurationQuery
 @dynamic allowLargeResults, clustering, connectionProperties, createDisposition,
-         defaultDataset, destinationEncryptionConfiguration, destinationTable,
-         flattenResults, maximumBillingTier, maximumBytesBilled, parameterMode,
-         preserveNulls, priority, query, queryParameters, rangePartitioning,
-         schemaUpdateOptions, tableDefinitions, timePartitioning, useLegacySql,
-         useQueryCache, userDefinedFunctionResources, writeDisposition;
+         createSession, defaultDataset, destinationEncryptionConfiguration,
+         destinationTable, flattenResults, maximumBillingTier,
+         maximumBytesBilled, parameterMode, preserveNulls, priority, query,
+         queryParameters, rangePartitioning, schemaUpdateOptions,
+         tableDefinitions, timePartitioning, useLegacySql, useQueryCache,
+         userDefinedFunctionResources, writeDisposition;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1595,9 +1597,10 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_Model
-@dynamic creationTime, descriptionProperty, encryptionConfiguration, ETag,
-         expirationTime, featureColumns, friendlyName, labelColumns, labels,
-         lastModifiedTime, location, modelReference, modelType, trainingRuns;
+@dynamic bestTrialId, creationTime, descriptionProperty,
+         encryptionConfiguration, ETag, expirationTime, featureColumns,
+         friendlyName, labelColumns, labels, lastModifiedTime, location,
+         modelReference, modelType, trainingRuns;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1883,9 +1886,10 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_QueryRequest
-@dynamic connectionProperties, defaultDataset, dryRun, kind, labels, location,
-         maximumBytesBilled, maxResults, parameterMode, preserveNulls, query,
-         queryParameters, requestId, timeoutMs, useLegacySql, useQueryCache;
+@dynamic connectionProperties, createSession, defaultDataset, dryRun, kind,
+         labels, location, maximumBytesBilled, maxResults, parameterMode,
+         preserveNulls, query, queryParameters, requestId, timeoutMs,
+         useLegacySql, useQueryCache;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1992,7 +1996,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_Routine
 @dynamic arguments, creationTime, definitionBody, descriptionProperty,
          determinismLevel, ETag, importedLibraries, language, lastModifiedTime,
-         returnType, routineReference, routineType;
+         returnTableType, returnType, routineReference, routineType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2156,6 +2160,24 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fields" : [GTLRBigquery_StandardSqlField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_StandardSqlTableType
+//
+
+@implementation GTLRBigquery_StandardSqlTableType
+@dynamic columns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRBigquery_StandardSqlField class]
   };
   return map;
 }

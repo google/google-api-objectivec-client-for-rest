@@ -104,6 +104,8 @@
 @class GTLRCompute_ProjectsEnableXpnResourceRequest;
 @class GTLRCompute_ProjectsListXpnHostsRequest;
 @class GTLRCompute_ProjectsSetDefaultNetworkTierRequest;
+@class GTLRCompute_PublicAdvertisedPrefix;
+@class GTLRCompute_PublicDelegatedPrefix;
 @class GTLRCompute_RegionDisksAddResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksRemoveResourcePoliciesRequest;
 @class GTLRCompute_RegionDisksResizeRequest;
@@ -2259,7 +2261,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Sets the security policy for the specified backend service.
+ *  Sets the Google Cloud Armor security policy for the specified backend
+ *  service. For more information, see Google Cloud Armor Overview
  *
  *  Method: compute.backendServices.setSecurityPolicy
  *
@@ -2297,7 +2300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the security policy for the specified backend service.
+ *  Sets the Google Cloud Armor security policy for the specified backend
+ *  service. For more information, see Google Cloud Armor Overview
  *
  *  @param object The @c GTLRCompute_SecurityPolicyReference to include in the
  *    query.
@@ -6849,6 +6853,284 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *        information.
  */
 + (instancetype)query;
+
+@end
+
+/**
+ *  Deletes the specified global PublicDelegatedPrefix.
+ *
+ *  Method: compute.globalPublicDelegatedPrefixes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesDeleteWithproject:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to delete. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified global PublicDelegatedPrefix.
+ *
+ *  @param project Project ID for this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    delete.
+ *
+ *  @return GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
+
+@end
+
+/**
+ *  Returns the specified global PublicDelegatedPrefix resource.
+ *
+ *  Method: compute.globalPublicDelegatedPrefixes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesGetWithproject:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to return. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicDelegatedPrefix.
+ *
+ *  Returns the specified global PublicDelegatedPrefix resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    return.
+ *
+ *  @return GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
+
+@end
+
+/**
+ *  Creates a global PublicDelegatedPrefix in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  Method: compute.globalPublicDelegatedPrefixes.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a global PublicDelegatedPrefix in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_PublicDelegatedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the global PublicDelegatedPrefixes for a project.
+ *
+ *  Method: compute.globalPublicDelegatedPrefixes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicDelegatedPrefixList.
+ *
+ *  Lists the global PublicDelegatedPrefixes for a project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_GlobalPublicDelegatedPrefixesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified global PublicDelegatedPrefix resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  Method: compute.globalPublicDelegatedPrefixes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesPatchWithObject:project:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to patch. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified global PublicDelegatedPrefix resource with the data
+ *  included in the request. This method supports PATCH semantics and uses JSON
+ *  merge patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_PublicDelegatedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    patch.
+ *
+ *  @return GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
 
 @end
 
@@ -19250,6 +19532,685 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  */
 + (instancetype)queryWithObject:(GTLRCompute_UsageExportLocation *)object
                         project:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified PublicAdvertisedPrefix
+ *
+ *  Method: compute.publicAdvertisedPrefixes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesDeleteWithproject:publicAdvertisedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicAdvertisedPrefix resource to delete. */
+@property(nonatomic, copy, nullable) NSString *publicAdvertisedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified PublicAdvertisedPrefix
+ *
+ *  @param project Project ID for this request.
+ *  @param publicAdvertisedPrefix Name of the PublicAdvertisedPrefix resource to
+ *    delete.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix;
+
+@end
+
+/**
+ *  Returns the specified PublicAdvertisedPrefix resource.
+ *
+ *  Method: compute.publicAdvertisedPrefixes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesGetWithproject:publicAdvertisedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicAdvertisedPrefix resource to return. */
+@property(nonatomic, copy, nullable) NSString *publicAdvertisedPrefix;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicAdvertisedPrefix.
+ *
+ *  Returns the specified PublicAdvertisedPrefix resource.
+ *
+ *  @param project Project ID for this request.
+ *  @param publicAdvertisedPrefix Name of the PublicAdvertisedPrefix resource to
+ *    return.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix;
+
+@end
+
+/**
+ *  Creates a PublicAdvertisedPrefix in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  Method: compute.publicAdvertisedPrefixes.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesInsertWithObject:project:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a PublicAdvertisedPrefix in the specified project using the
+ *  parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_PublicAdvertisedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project;
+
+@end
+
+/**
+ *  Lists the PublicAdvertisedPrefixes for a project.
+ *
+ *  Method: compute.publicAdvertisedPrefixes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicAdvertisedPrefixList.
+ *
+ *  Lists the PublicAdvertisedPrefixes for a project.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the specified Router resource with the data included in the request.
+ *  This method supports PATCH semantics and uses JSON merge patch format and
+ *  processing rules.
+ *
+ *  Method: compute.publicAdvertisedPrefixes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicAdvertisedPrefixesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesPatchWithObject:project:publicAdvertisedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicAdvertisedPrefix resource to patch. */
+@property(nonatomic, copy, nullable) NSString *publicAdvertisedPrefix;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified Router resource with the data included in the request.
+ *  This method supports PATCH semantics and uses JSON merge patch format and
+ *  processing rules.
+ *
+ *  @param object The @c GTLRCompute_PublicAdvertisedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param publicAdvertisedPrefix Name of the PublicAdvertisedPrefix resource to
+ *    patch.
+ *
+ *  @return GTLRComputeQuery_PublicAdvertisedPrefixesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project
+         publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix;
+
+@end
+
+/**
+ *  Lists all PublicDelegatedPrefix resources owned by the specific project
+ *  across all scopes.
+ *
+ *  Method: compute.publicDelegatedPrefixes.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesAggregatedListWithproject:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicDelegatedPrefixAggregatedList.
+ *
+ *  Lists all PublicDelegatedPrefix resources owned by the specific project
+ *  across all scopes.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified PublicDelegatedPrefix in the given region.
+ *
+ *  Method: compute.publicDelegatedPrefixes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesDelete : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesDeleteWithproject:region:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to delete. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified PublicDelegatedPrefix in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    delete.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
+
+@end
+
+/**
+ *  Returns the specified PublicDelegatedPrefix resource in the given region.
+ *
+ *  Method: compute.publicDelegatedPrefixes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesGet : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesGetWithproject:region:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to return. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicDelegatedPrefix.
+ *
+ *  Returns the specified PublicDelegatedPrefix resource in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    return.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
+
+@end
+
+/**
+ *  Creates a PublicDelegatedPrefix in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.publicDelegatedPrefixes.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesInsert : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesInsertWithObject:project:region:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a PublicDelegatedPrefix in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_PublicDelegatedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the PublicDelegatedPrefixes for a project in the given region.
+ *
+ *  Method: compute.publicDelegatedPrefixes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesList : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesListWithproject:region:]
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example: ``` (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
+ *  expression. However, you can include `AND` and `OR` expressions explicitly.
+ *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
+ *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
+ *  on the `creationTimestamp` field in reverse chronological order (newest
+ *  result first). Use this to sort resources like operations so that the newest
+ *  operation is returned first.
+ *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_PublicDelegatedPrefixList.
+ *
+ *  Lists the PublicDelegatedPrefixes for a project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified PublicDelegatedPrefix resource with the data included
+ *  in the request. This method supports PATCH semantics and uses JSON merge
+ *  patch format and processing rules.
+ *
+ *  Method: compute.publicDelegatedPrefixes.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PublicDelegatedPrefixesPatch : GTLRComputeQuery
+// Previous library name was
+//   +[GTLQueryCompute queryForPublicDelegatedPrefixesPatchWithObject:project:region:publicDelegatedPrefix:]
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the PublicDelegatedPrefix resource to patch. */
+@property(nonatomic, copy, nullable) NSString *publicDelegatedPrefix;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and the
+ *  request times out. If you make the request again with the same request ID,
+ *  the server can check if original operation with the same request ID was
+ *  received, and if so, will ignore the second request. This prevents clients
+ *  from accidentally creating duplicate commitments.
+ *  The request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified PublicDelegatedPrefix resource with the data included
+ *  in the request. This method supports PATCH semantics and uses JSON merge
+ *  patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_PublicDelegatedPrefix to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *  @param publicDelegatedPrefix Name of the PublicDelegatedPrefix resource to
+ *    patch.
+ *
+ *  @return GTLRComputeQuery_PublicDelegatedPrefixesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix;
 
 @end
 

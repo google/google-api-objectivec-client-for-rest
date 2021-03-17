@@ -2322,8 +2322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -2353,8 +2352,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignBlobResponse.
  *
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signBlob`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signBlob)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -2379,8 +2377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 @end
 
 /**
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration
@@ -2410,8 +2407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
 /**
  *  Fetches a @c GTLRIam_SignJwtResponse.
  *
- *  **Note:** This method is deprecated and will stop working on July 1, 2021.
- *  Use the
+ *  **Note:** This method is deprecated. Use the
  *  [`signJwt`](https://cloud.google.com/iam/help/rest-credentials/v1/projects.serviceAccounts/signJwt)
  *  method in the IAM Service Account Credentials API instead. If you currently
  *  use this method, see the [migration

@@ -260,6 +260,72 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @end
 
+@implementation GTLRPeopleServiceQuery_PeopleBatchCreateContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchCreateContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchCreateContacts";
+  GTLRPeopleServiceQuery_PeopleBatchCreateContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_BatchCreateContactsResponse class];
+  query.loggingName = @"people.people.batchCreateContacts";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleBatchDeleteContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchDeleteContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchDeleteContacts";
+  GTLRPeopleServiceQuery_PeopleBatchDeleteContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_Empty class];
+  query.loggingName = @"people.people.batchDeleteContacts";
+  return query;
+}
+
+@end
+
+@implementation GTLRPeopleServiceQuery_PeopleBatchUpdateContacts
+
++ (instancetype)queryWithObject:(GTLRPeopleService_BatchUpdateContactsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/people:batchUpdateContacts";
+  GTLRPeopleServiceQuery_PeopleBatchUpdateContacts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPeopleService_BatchUpdateContactsResponse class];
+  query.loggingName = @"people.people.batchUpdateContacts";
+  return query;
+}
+
+@end
+
 @implementation GTLRPeopleServiceQuery_PeopleConnectionsList
 
 @dynamic pageSize, pageToken, personFields, requestMaskIncludeField,

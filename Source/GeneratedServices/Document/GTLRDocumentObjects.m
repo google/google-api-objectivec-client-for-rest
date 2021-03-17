@@ -319,6 +319,25 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadata
 //
 

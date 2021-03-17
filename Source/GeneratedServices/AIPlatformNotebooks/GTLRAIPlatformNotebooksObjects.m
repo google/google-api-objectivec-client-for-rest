@@ -376,7 +376,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_IsInstanceUpgradeableResponse
-@dynamic upgradeable, upgradeInfo, upgradeVersion;
+@dynamic upgradeable, upgradeImage, upgradeInfo, upgradeVersion;
 @end
 
 

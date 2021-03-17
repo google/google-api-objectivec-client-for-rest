@@ -64,6 +64,15 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_ActionInfo
+//
+
+@implementation GTLRAlertCenter_ActionInfo
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_ActivityRule
 //
 
@@ -616,14 +625,15 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_RuleViolationInfo
 @dynamic dataSource, matchInfo, recipients, resourceInfo, ruleInfo,
-         suppressedActionTypes, trigger, triggeredActionTypes,
-         triggeringUserEmail;
+         suppressedActionTypes, trigger, triggeredActionInfo,
+         triggeredActionTypes, triggeringUserEmail;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"matchInfo" : [GTLRAlertCenter_MatchInfo class],
     @"recipients" : [NSString class],
     @"suppressedActionTypes" : [NSString class],
+    @"triggeredActionInfo" : [GTLRAlertCenter_ActionInfo class],
     @"triggeredActionTypes" : [NSString class]
   };
   return map;

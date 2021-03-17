@@ -625,10 +625,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Previous library name was
 //   +[GTLQueryHangoutsChat queryForSpacesMessagesUpdateWithObject:name:]
 
-/**
- *  Resource name, in the form "spaces/ * /messages/ *". Example:
- *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -645,8 +641,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates a message.
  *
  *  @param object The @c GTLRHangoutsChat_Message to include in the query.
- *  @param name Resource name, in the form "spaces/ * /messages/ *". Example:
- *    spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
+ *  @param name NSString
  *
  *  @return GTLRHangoutsChatQuery_SpacesMessagesUpdate
  */

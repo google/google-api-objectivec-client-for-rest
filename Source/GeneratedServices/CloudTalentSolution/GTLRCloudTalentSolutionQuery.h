@@ -151,6 +151,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolutionTypeJobTitle;
 @end
 
 /**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: jobs.projects.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudTalentSolution
+ *    @c kGTLRAuthScopeCloudTalentSolutionCloudPlatform
+ */
+@interface GTLRCloudTalentSolutionQuery_ProjectsOperationsGet : GTLRCloudTalentSolutionQuery
+// Previous library name was
+//   +[GTLQueryCloudTalentSolution queryForProjectsOperationsGetWithname:]
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudTalentSolution_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudTalentSolutionQuery_ProjectsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Report events issued when end user interacts with customer's application
  *  that uses Cloud Talent Solution. You may inspect the created events in [self
  *  service tools](https://console.cloud.google.com/talent-solution/overview).

@@ -97,7 +97,7 @@
 
 @implementation GTLRFitnessQuery_UsersDataSourcesDatasetsDelete
 
-@dynamic currentTimeMillis, datasetId, dataSourceId, modifiedTimeMillis, userId;
+@dynamic datasetId, dataSourceId, userId;
 
 + (instancetype)queryWithUserId:(NSString *)userId
                    dataSourceId:(NSString *)dataSourceId
@@ -146,7 +146,7 @@
 
 @implementation GTLRFitnessQuery_UsersDataSourcesDatasetsPatch
 
-@dynamic currentTimeMillis, datasetId, dataSourceId, userId;
+@dynamic datasetId, dataSourceId, userId;
 
 + (instancetype)queryWithObject:(GTLRFitness_Dataset *)object
                          userId:(NSString *)userId
@@ -282,7 +282,7 @@
 
 @implementation GTLRFitnessQuery_UsersSessionsDelete
 
-@dynamic currentTimeMillis, sessionId, userId;
+@dynamic sessionId, userId;
 
 + (instancetype)queryWithUserId:(NSString *)userId
                       sessionId:(NSString *)sessionId {
@@ -330,7 +330,7 @@
 
 @implementation GTLRFitnessQuery_UsersSessionsUpdate
 
-@dynamic currentTimeMillis, sessionId, userId;
+@dynamic sessionId, userId;
 
 + (instancetype)queryWithObject:(GTLRFitness_Session *)object
                          userId:(NSString *)userId

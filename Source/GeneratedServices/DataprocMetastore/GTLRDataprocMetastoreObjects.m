@@ -156,6 +156,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_DataCatalogConfig
+//
+
+@implementation GTLRDataprocMetastore_DataCatalogConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Empty
 //
 
@@ -419,6 +429,7 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_MetadataIntegration
+@dynamic dataCatalogConfig;
 @end
 
 

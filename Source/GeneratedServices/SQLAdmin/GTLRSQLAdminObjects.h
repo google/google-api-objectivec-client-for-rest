@@ -1685,7 +1685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  A Cloud SQL instance resource. Next field: 36
+ *  A Cloud SQL instance resource.
  */
 @interface GTLRSQLAdmin_DatabaseInstance : GTLRObject
 
@@ -1873,8 +1873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *rootPassword;
 
 /**
- *  The status indicating if instance satisfies physical zone separation.
- *  Reserved for future use.
+ *  The status indicating if instance satisfiesPzs. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1911,10 +1910,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  following. *SQL_INSTANCE_STATE_UNSPECIFIED*: The state of the instance is
  *  unknown. *RUNNABLE*: The instance is running, or has been stopped by owner.
  *  *SUSPENDED*: The instance is not available, for example due to problems with
- *  billing. for example due to problems with billing. *PENDING_DELETE*: The
- *  instance is being deleted. *PENDING_CREATE*: The instance is being created.
- *  *MAINTENANCE*: The instance is down for maintenance. *FAILED*: The instance
- *  creation failed.
+ *  billing. *PENDING_DELETE*: The instance is being deleted. *PENDING_CREATE*:
+ *  The instance is being created. *MAINTENANCE*: The instance is down for
+ *  maintenance. *FAILED*: The instance creation failed.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_State_Failed The creation of the
@@ -2155,7 +2153,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  property, which takes precedence over this property. *PostgreSQL instances:*
  *  You must specify one database to be exported. If *fileType* is *CSV*, this
  *  database must match the one specified in the *csvExportOptions.selectQuery*
- *  property.
+ *  property. *SQL Server instances:* You must specify one database to be
+ *  exported, and the *fileType* must be *BAK*.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
@@ -2503,7 +2502,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  Maximum query length stored in bytes. Default value: 1024 bytes. Range:
  *  256-4500 bytes. Query length more than this field value will be truncated to
- *  this value. When unset, query length will be the default value.
+ *  this value. When unset, query length will be the default value. Changing
+ *  query length will restart the database.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2925,7 +2925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  An Operation resource. For successful operations that return an Operation
  *  resource, only the fields relevant to the operation are populated in the
- *  resource. Next field: 18
+ *  resource.
  */
 @interface GTLRSQLAdmin_Operation : GTLRObject
 
@@ -3495,14 +3495,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  External primary instance migration setting error.
+ *  External primary instance migration setting error/warning.
  */
 @interface GTLRSQLAdmin_SqlExternalSyncSettingError : GTLRObject
 
 /** Additional information about the error encountered. */
 @property(nonatomic, copy, nullable) NSString *detail;
 
-/** This is always *sql#migrationSettingError*. */
+/**
+ *  Can be *sql#externalSyncSettingError* or *sql#externalSyncSettingWarning*.
+ */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3596,6 +3598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** This is always *sql#migrationSettingErrorList*. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/** List of migration warnings. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SqlExternalSyncSettingError *> *warnings;
 
 @end
 

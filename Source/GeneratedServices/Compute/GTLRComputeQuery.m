@@ -3001,6 +3001,129 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete
+
+@dynamic project, publicDelegatedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet
+
+@dynamic project, publicDelegatedPrefix;
+
++ (instancetype)queryWithProject:(NSString *)project
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefix class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixList class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch
+
+@dynamic project, publicDelegatedPrefix, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.globalPublicDelegatedPrefixes.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_HealthChecksAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
@@ -8765,6 +8888,287 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.project = project;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.projects.setUsageExportBucket";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesDelete
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesGet
+
+@dynamic project, publicAdvertisedPrefix;
+
++ (instancetype)queryWithProject:(NSString *)project
+          publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicAdvertisedPrefix class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesInsert
+
+@dynamic project, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes";
+  GTLRComputeQuery_PublicAdvertisedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes";
+  GTLRComputeQuery_PublicAdvertisedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicAdvertisedPrefixList class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicAdvertisedPrefixesPatch
+
+@dynamic project, publicAdvertisedPrefix, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicAdvertisedPrefix *)object
+                        project:(NSString *)project
+         publicAdvertisedPrefix:(NSString *)publicAdvertisedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicAdvertisedPrefix"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/global/publicAdvertisedPrefixes/{publicAdvertisedPrefix}";
+  GTLRComputeQuery_PublicAdvertisedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.publicAdvertisedPrefix = publicAdvertisedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicAdvertisedPrefixes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList
+
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/aggregated/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixAggregatedList class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesDelete
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesGet
+
+@dynamic project, publicDelegatedPrefix, region;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+           publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefix class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes";
+  GTLRComputeQuery_PublicDelegatedPrefixesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_PublicDelegatedPrefixList class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_PublicDelegatedPrefixesPatch
+
+@dynamic project, publicDelegatedPrefix, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_PublicDelegatedPrefix *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+          publicDelegatedPrefix:(NSString *)publicDelegatedPrefix {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"publicDelegatedPrefix", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/publicDelegatedPrefixes/{publicDelegatedPrefix}";
+  GTLRComputeQuery_PublicDelegatedPrefixesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.publicDelegatedPrefix = publicDelegatedPrefix;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.publicDelegatedPrefixes.patch";
   return query;
 }
 

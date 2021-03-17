@@ -1182,13 +1182,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Gets an API proxy revision. To download the API proxy configuration bundle
- *  for the specified revision as a zip file, do the following: * Set the
- *  `format` query parameter to `bundle`. * Set the `Accept` header to
- *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
- *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
- *  API proxy configuration locally and upload the updated API proxy
- *  configuration revision, as described in
- *  [updateApiProxyRevision](updateApiProxyRevision).
+ *  for the specified revision as a zip file, set the `format` query parameter
+ *  to `bundle`. If you are using curl, specify `-o filename.zip` to save the
+ *  output to a file; otherwise, it displays to `stdout`. Then, develop the API
+ *  proxy configuration locally and upload the updated API proxy configuration
+ *  revision, as described in [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  Method: apigee.organizations.apis.revisions.get
  *
@@ -1215,13 +1213,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
  *  Gets an API proxy revision. To download the API proxy configuration bundle
- *  for the specified revision as a zip file, do the following: * Set the
- *  `format` query parameter to `bundle`. * Set the `Accept` header to
- *  `application/zip`. If you are using curl, specify `-o filename.zip` to save
- *  the output to a file; otherwise, it displays to `stdout`. Then, develop the
- *  API proxy configuration locally and upload the updated API proxy
- *  configuration revision, as described in
- *  [updateApiProxyRevision](updateApiProxyRevision).
+ *  for the specified revision as a zip file, set the `format` query parameter
+ *  to `bundle`. If you are using curl, specify `-o filename.zip` to save the
+ *  output to a file; otherwise, it displays to `stdout`. Then, develop the API
+ *  proxy configuration locally and upload the updated API proxy configuration
+ *  revision, as described in [updateApiProxyRevision](updateApiProxyRevision).
  *
  *  @param name Required. API proxy revision in the following format:
  *    `organizations/{org}/apis/{api}/revisions/{rev}`
@@ -8585,9 +8581,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
- *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
- *  files.
+ *  Gets a revision of a shared flow. To download the shared flow configuration
+ *  bundle for the specified revision as a zip file, set the `format` query
+ *  parameter to `bundle`. If you are using curl, specify `-o filename.zip` to
+ *  save the output to a file; otherwise, it displays to `stdout`. Then, develop
+ *  the shared flow configuration locally and upload the updated sharedFlow
+ *  configuration revision, as described in
+ *  [updateSharedFlowRevision](updateSharedFlowRevision).
  *
  *  Method: apigee.organizations.sharedflows.revisions.get
  *
@@ -8613,9 +8613,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleApiHttpBody.
  *
- *  Gets a revision of a shared flow. If `format=bundle` is passed, it instead
- *  outputs a shared flow revision as a ZIP-formatted bundle of code and config
- *  files.
+ *  Gets a revision of a shared flow. To download the shared flow configuration
+ *  bundle for the specified revision as a zip file, set the `format` query
+ *  parameter to `bundle`. If you are using curl, specify `-o filename.zip` to
+ *  save the output to a file; otherwise, it displays to `stdout`. Then, develop
+ *  the shared flow configuration locally and upload the updated sharedFlow
+ *  configuration revision, as described in
+ *  [updateSharedFlowRevision](updateSharedFlowRevision).
  *
  *  @param name Required. The name of the shared flow revision to get. Must be
  *    of the form:

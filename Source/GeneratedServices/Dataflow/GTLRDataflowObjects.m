@@ -591,6 +591,16 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataflow_DebugOptions
+//
+
+@implementation GTLRDataflow_DebugOptions
+@dynamic enableHotKeyLogging;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataflow_DeleteSnapshotResponse
 //
 
@@ -669,7 +679,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_Environment
-@dynamic clusterManagerApiService, dataset, experiments,
+@dynamic clusterManagerApiService, dataset, debugOptions, experiments,
          flexResourceSchedulingGoal, internalExperiments, sdkPipelineOptions,
          serviceAccountEmail, serviceKmsKeyName, serviceOptions, shuffleMode,
          tempStoragePrefix, userAgent, version, workerPools, workerRegion,
