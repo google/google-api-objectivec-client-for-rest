@@ -23,6 +23,8 @@
 #endif
 
 @class GTLRDirectory_Alias;
+@class GTLRDirectory_BatchCreatePrintersRequest;
+@class GTLRDirectory_BatchDeletePrintersRequest;
 @class GTLRDirectory_Building;
 @class GTLRDirectory_CalendarResource;
 @class GTLRDirectory_Channel;
@@ -39,6 +41,7 @@
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDeviceAction;
 @class GTLRDirectory_OrgUnit;
+@class GTLRDirectory_Printer;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_RoleAssignment;
 @class GTLRDirectory_Schema;
@@ -920,6 +923,305 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeViewTypeUndefined;
 + (instancetype)queryWithObject:(GTLRDirectory_ChromeosdevicesIssueCommandRequest *)object
                      customerId:(NSString *)customerId
                        deviceId:(NSString *)deviceId;
+
+@end
+
+/**
+ *  Creates printers under given Organization Unit.
+ *
+ *  Method: admin.customers.chrome.printers.batchCreatePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersBatchCreatePrintersWithObject:parent:]
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchCreatePrintersResponse.
+ *
+ *  Creates printers under given Organization Unit.
+ *
+ *  @param object The @c GTLRDirectory_BatchCreatePrintersRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchCreatePrintersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes printers in batch.
+ *
+ *  Method: admin.customers.chrome.printers.batchDeletePrinters
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersBatchDeletePrintersWithObject:parent:]
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_BatchDeletePrintersResponse.
+ *
+ *  Deletes printers in batch.
+ *
+ *  @param object The @c GTLRDirectory_BatchDeletePrintersRequest to include in
+ *    the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_BatchDeletePrintersRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a printer under given Organization Unit.
+ *
+ *  Method: admin.customers.chrome.printers.create
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersCreate : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersCreateWithObject:parent:]
+
+/** Required. The name of the customer. Format: customers/{customer_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Creates a printer under given Organization Unit.
+ *
+ *  @param object The @c GTLRDirectory_Printer to include in the query.
+ *  @param parent Required. The name of the customer. Format:
+ *    customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `Printer`.
+ *
+ *  Method: admin.customers.chrome.printers.delete
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersDelete : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersDeleteWithname:]
+
+/**
+ *  Required. The name of the printer to be updated. Format:
+ *  customers/{customer_id}/chrome/printers/{printer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_Empty.
+ *
+ *  Deletes a `Printer`.
+ *
+ *  @param name Required. The name of the printer to be updated. Format:
+ *    customers/{customer_id}/chrome/printers/{printer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a `Printer` resource (printer's config).
+ *
+ *  Method: admin.customers.chrome.printers.get
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersGet : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersGetWithname:]
+
+/**
+ *  Required. The name of the printer to retrieve. Format:
+ *  customers/{customer_id}/chrome/printers/{printer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Returns a `Printer` resource (printer's config).
+ *
+ *  @param name Required. The name of the printer to retrieve. Format:
+ *    customers/{customer_id}/chrome/printers/{printer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List printers configs.
+ *
+ *  Method: admin.customers.chrome.printers.list
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersList : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersListWithparent:]
+
+/**
+ *  Search query. Search syntax is shared between this api and Admin Console
+ *  printers pages.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Organization Unit that we want to list the printers for. When org_unit is
+ *  not present in the request then all printers of the customer are returned
+ *  (or filtered). When org_unit is present in the request then only printers
+ *  available to this OU will be returned (owned or inherited). You may see if
+ *  printer is owned or inherited for this OU by looking at Printer.org_unit_id.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  The maximum number of objects to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token, received from a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the customer who owns this collection of printers.
+ *  Format: customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_ListPrintersResponse.
+ *
+ *  List printers configs.
+ *
+ *  @param parent Required. The name of the customer who owns this collection of
+ *    printers. Format: customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the supported printer models.
+ *
+ *  Method: admin.customers.chrome.printers.listPrinterModels
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersListPrinterModelsWithparent:]
+
+/**
+ *  Filer to list only models by a given manufacturer in format:
+ *  "manufacturer:Brother". Search syntax is shared between this api and Admin
+ *  Console printers pages.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of objects to return. The service may return fewer than
+ *  this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A page token, received from a previous call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the customer who owns this collection of printers.
+ *  Format: customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDirectory_ListPrinterModelsResponse.
+ *
+ *  Lists the supported printer models.
+ *
+ *  @param parent Required. The name of the customer who owns this collection of
+ *    printers. Format: customers/{customer_id}
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a `Printer` resource.
+ *
+ *  Method: admin.customers.chrome.printers.patch
+ */
+@interface GTLRDirectoryQuery_CustomersChromePrintersPatch : GTLRDirectoryQuery
+// Previous library name was
+//   +[GTLQueryDirectory queryForCustomersChromePrintersPatchWithObject:name:]
+
+/**
+ *  The list of fields to be cleared. Note, some of the fields are read only and
+ *  cannot be updated. Values for not specified fields will be patched.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *clearMask;
+
+/**
+ *  The resource name of the Printer object, in the format
+ *  customers/{customer-id}/printers/{printer-id} (During printer creation leave
+ *  empty)
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Note, some of the fields are read only and
+ *  cannot be updated. Values for not specified fields will be patched.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDirectory_Printer.
+ *
+ *  Updates a `Printer` resource.
+ *
+ *  @param object The @c GTLRDirectory_Printer to include in the query.
+ *  @param name The resource name of the Printer object, in the format
+ *    customers/{customer-id}/printers/{printer-id} (During printer creation
+ *    leave empty)
+ *
+ *  @return GTLRDirectoryQuery_CustomersChromePrintersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                           name:(NSString *)name;
 
 @end
 

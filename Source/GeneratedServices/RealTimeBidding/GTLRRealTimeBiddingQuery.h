@@ -231,6 +231,160 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Gets a bidder endpoint by its name.
+ *
+ *  Method: realtimebidding.bidders.endpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsGet : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBiddersEndpointsGetWithname:]
+
+/**
+ *  Required. Name of the bidder endpoint to get. Format:
+ *  `bidders/{bidderAccountId}/endpoints/{endpointId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Endpoint.
+ *
+ *  Gets a bidder endpoint by its name.
+ *
+ *  @param name Required. Name of the bidder endpoint to get. Format:
+ *    `bidders/{bidderAccountId}/endpoints/{endpointId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the bidder's endpoints.
+ *
+ *  Method: realtimebidding.bidders.endpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersEndpointsList : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBiddersEndpointsListWithparent:]
+
+/**
+ *  The maximum number of endpoints to return. If unspecified, at most 100
+ *  endpoints will be returned. The maximum value is 500; values above 500 will
+ *  be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListEndpoints` call in
+ *  ListEndpointsResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the bidder whose endpoints will be listed. Format:
+ *  `bidders/{bidderAccountId}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListEndpointsResponse.
+ *
+ *  Lists all the bidder's endpoints.
+ *
+ *  @param parent Required. Name of the bidder whose endpoints will be listed.
+ *    Format: `bidders/{bidderAccountId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a bidder account by its name.
+ *
+ *  Method: realtimebidding.bidders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersGet : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBiddersGetWithname:]
+
+/**
+ *  Required. Name of the bidder to get. Format: `bidders/{bidderAccountId}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Bidder.
+ *
+ *  Gets a bidder account by its name.
+ *
+ *  @param name Required. Name of the bidder to get. Format:
+ *    `bidders/{bidderAccountId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the bidder accounts that belong to the caller.
+ *
+ *  Method: realtimebidding.bidders.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BiddersList : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBiddersList]
+
+/**
+ *  The maximum number of bidders to return. If unspecified, at most 100 bidders
+ *  will be returned. The maximum value is 500; values above 500 will be coerced
+ *  to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListBidders` call in
+ *  ListBiddersResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListBiddersResponse.
+ *
+ *  Lists all the bidder accounts that belong to the caller.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BiddersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Activates a pretargeting configuration.
  *
  *  Method: realtimebidding.bidders.pretargetingConfigs.activate
@@ -950,6 +1104,34 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @end
 
 /**
+ *  Gets a buyer account by its name.
+ *
+ *  Method: realtimebidding.buyers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BuyersGet : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBuyersGetWithname:]
+
+/** Required. Name of the buyer to get. Format: `buyers/{buyerId}` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_Buyer.
+ *
+ *  Gets a buyer account by its name.
+ *
+ *  @param name Required. Name of the buyer to get. Format: `buyers/{buyerId}`
+ *
+ *  @return GTLRRealTimeBiddingQuery_BuyersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets remarketing tag for a buyer. A remarketing tag is a piece of JavaScript
  *  code that can be placed on a web page. When a user visits a page containing
  *  a remarketing tag, Google adds the user to a user list.
@@ -992,6 +1174,49 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  @return GTLRRealTimeBiddingQuery_BuyersGetRemarketingTag
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all buyer account information the calling buyer user or service
+ *  account is permissioned to manage.
+ *
+ *  Method: realtimebidding.buyers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeRealTimeBiddingRealtimeBidding
+ */
+@interface GTLRRealTimeBiddingQuery_BuyersList : GTLRRealTimeBiddingQuery
+// Previous library name was
+//   +[GTLQueryRealTimeBidding queryForBuyersList]
+
+/**
+ *  The maximum number of buyers to return. If unspecified, at most 100 buyers
+ *  will be returned. The maximum value is 500; values above 500 will be coerced
+ *  to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. This value
+ *  is received from a previous `ListBuyers` call in
+ *  ListBuyersResponse.nextPageToken.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRRealTimeBidding_ListBuyersResponse.
+ *
+ *  Lists all buyer account information the calling buyer user or service
+ *  account is permissioned to manage.
+ *
+ *  @return GTLRRealTimeBiddingQuery_BuyersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
 
 @end
 

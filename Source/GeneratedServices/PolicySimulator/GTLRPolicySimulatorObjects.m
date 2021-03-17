@@ -93,6 +93,17 @@ NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay_St
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayConfig_LogSource_LogSourceUnspecified = @"LOG_SOURCE_UNSPECIFIED";
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayConfig_LogSource_RecentAccesses = @"RECENT_ACCESSES";
 
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay.state
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Failed = @"FAILED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Pending = @"PENDING";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Running = @"RUNNING";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Succeeded = @"SUCCEEDED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig.logSource
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig_LogSource_LogSourceUnspecified = @"LOG_SOURCE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig_LogSource_RecentAccesses = @"RECENT_ACCESSES";
+
 // GTLRPolicySimulator_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
 NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
@@ -283,6 +294,61 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayResultsSummary
+@dynamic differenceCount, errorCount, logCount, newestDate, oldestDate,
+         unchangedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay
+@dynamic config, name, resultsSummary, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig
+@dynamic logSource, policyOverlay;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig_PolicyOverlay
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayConfig_PolicyOverlay
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicySimulator_GoogleIamV1Policy class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayOperationMetadata
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayOperationMetadata
+@dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResultsSummary
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResultsSummary
 @dynamic differenceCount, errorCount, logCount, newestDate, oldestDate,
          unchangedCount;
 @end

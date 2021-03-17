@@ -3454,6 +3454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 @property(nonatomic, copy, nullable) NSString *runtimeMainExecutablePath;
 
 /**
+ *  The identity that the deployed version will run as. Admin API will use the
+ *  App Engine Appspot service account as default if this field is neither
+ *  provided in app.yaml file nor through CLI flag.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
  *  Current serving status of this version. Only the versions with a SERVING
  *  status create instances and can be billed.SERVING_STATUS_UNSPECIFIED is an
  *  invalid value. Defaults to SERVING.

@@ -1091,10 +1091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  */
 @property(nonatomic, copy, nullable) NSString *fallbackText;
 
-/**
- *  Resource name, in the form "spaces/ * /messages/ *". Example:
- *  spaces/AAAAMpdlehY/messages/UMxbHmzDlr4.UMxbHmzDlr4
- */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1165,7 +1161,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A Slash Command in Hangouts Chat.
+ *  A Slash Command in Chat.
  */
 @interface GTLRHangoutsChat_SlashCommand : GTLRObject
 

@@ -757,6 +757,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  A response message for AssetService.AnalyzeIamPolicyLongrunning.
+ */
+@interface GTLRCloudAsset_AnalyzeIamPolicyLongrunningResponse : GTLRObject
+@end
+
+
+/**
  *  A response message for AssetService.AnalyzeIamPolicy.
  */
 @interface GTLRCloudAsset_AnalyzeIamPolicyResponse : GTLRObject

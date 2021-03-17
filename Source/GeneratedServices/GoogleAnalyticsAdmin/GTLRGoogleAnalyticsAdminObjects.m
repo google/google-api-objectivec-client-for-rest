@@ -11,6 +11,18 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange.action
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Created = @"CREATED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Deleted = @"DELETED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange_Action_Updated = @"UPDATED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent.actorType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_ActorTypeUnspecified = @"ACTOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_Support = @"SUPPORT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System = @"SYSTEM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User = @"USER";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement = @"EDITOR_INCLUDING_LINK_MANAGEMENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement = @"EDITOR_WITHOUT_LINK_MANAGEMENT";
@@ -46,6 +58,22 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Shop
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Sports = @"SPORTS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Technology = @"TECHNOLOGY";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel = @"TRAVEL";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Created = @"CREATED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Deleted = @"DELETED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_Updated = @"UPDATED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.resourceType
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream = @"IOS_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Property = @"PROPERTY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_WebDataStream = @"WEB_DATA_STREAM";
 
 // ----------------------------------------------------------------------------
 //
@@ -246,6 +274,50 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"userLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaUserLink class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange
+@dynamic action, resource, resourceAfterChange, resourceBeforeChange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
+@dynamic account, androidAppDataStream, firebaseLink, googleAdsLink,
+         iosAppDataStream, property, webDataStream;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent
+@dynamic actorType, changes, changesFiltered, changeTime, identifier,
+         userActorEmail;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changes" : [GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange class]
   };
   return map;
 }
@@ -576,6 +648,49 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Trav
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse
 @dynamic accountTicketId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest
+@dynamic action, actorEmail, earliestChangeTime, latestChangeTime, pageSize,
+         pageToken, property, resourceType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"action" : [NSString class],
+    @"actorEmail" : [NSString class],
+    @"resourceType" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse
+@dynamic changeHistoryEvents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changeHistoryEvents" : [GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"changeHistoryEvents";
+}
+
 @end
 
 

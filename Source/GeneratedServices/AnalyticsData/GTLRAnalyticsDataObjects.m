@@ -117,13 +117,19 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunPivotReportsResponse
-@dynamic pivotReports;
+@dynamic kind, pivotReports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"pivotReports" : [GTLRAnalyticsData_RunPivotReportResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -153,13 +159,19 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunReportsResponse
-@dynamic reports;
+@dynamic kind, reports;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"reports" : [GTLRAnalyticsData_RunReportResponse class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -602,8 +614,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_PropertyQuota
-@dynamic concurrentRequests, serverErrorsPerProjectPerHour, tokensPerDay,
-         tokensPerHour;
+@dynamic concurrentRequests, potentiallyThresholdedRequestsPerHour,
+         serverErrorsPerProjectPerHour, tokensPerDay, tokensPerHour;
 @end
 
 
@@ -675,8 +687,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunPivotReportResponse
-@dynamic aggregates, dimensionHeaders, metadata, metricHeaders, pivotHeaders,
-         propertyQuota, rows;
+@dynamic aggregates, dimensionHeaders, kind, metadata, metricHeaders,
+         pivotHeaders, propertyQuota, rows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -687,6 +699,12 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
     @"rows" : [GTLRAnalyticsData_Row class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -720,8 +738,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunRealtimeReportResponse
-@dynamic dimensionHeaders, maximums, metricHeaders, minimums, propertyQuota,
-         rowCount, rows, totals;
+@dynamic dimensionHeaders, kind, maximums, metricHeaders, minimums,
+         propertyQuota, rowCount, rows, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -733,6 +751,12 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
     @"totals" : [GTLRAnalyticsData_Row class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -768,7 +792,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_RunReportResponse
-@dynamic dimensionHeaders, maximums, metadata, metricHeaders, minimums,
+@dynamic dimensionHeaders, kind, maximums, metadata, metricHeaders, minimums,
          propertyQuota, rowCount, rows, totals;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -781,6 +805,12 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
     @"totals" : [GTLRAnalyticsData_Row class]
   };
   return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

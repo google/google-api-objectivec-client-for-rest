@@ -600,6 +600,15 @@ NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTargetNameServer_Forw
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_ResourceRecordSetsDeleteResponse
+//
+
+@implementation GTLRDns_ResourceRecordSetsDeleteResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_ResourceRecordSetsListResponse
 //
 

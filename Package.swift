@@ -156,6 +156,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ChromeManagement"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ChromePolicy",
+            targets: ["GoogleAPIClientForREST_ChromePolicy"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_ChromeUXReport",
             targets: ["GoogleAPIClientForREST_ChromeUXReport"]
         ),
@@ -464,12 +468,20 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_FirebaseRules"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Firebasestorage",
+            targets: ["GoogleAPIClientForREST_Firebasestorage"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Firestore",
             targets: ["GoogleAPIClientForREST_Firestore"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Fitness",
             targets: ["GoogleAPIClientForREST_Fitness"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_GKEHub",
+            targets: ["GoogleAPIClientForREST_GKEHub"]
         ),
         .library(
             name: "GoogleAPIClientForREST_GameServices",
@@ -586,6 +598,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_OnDemandScanning",
             targets: ["GoogleAPIClientForREST_OnDemandScanning"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_OrgPolicyAPI",
+            targets: ["GoogleAPIClientForREST_OrgPolicyAPI"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PagespeedInsights",
@@ -1094,6 +1110,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_ChromePolicy",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ChromePolicy",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_ChromeUXReport",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/ChromeUXReport",
@@ -1556,6 +1578,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Firebasestorage",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Firebasestorage",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Firestore",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Firestore",
@@ -1565,6 +1593,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Fitness",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Fitness",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_GKEHub",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/GKEHub",
             publicHeadersPath: "."
         ),
         .target(
@@ -1739,6 +1773,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_OnDemandScanning",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/OnDemandScanning",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_OrgPolicyAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/OrgPolicyAPI",
             publicHeadersPath: "."
         ),
         .target(

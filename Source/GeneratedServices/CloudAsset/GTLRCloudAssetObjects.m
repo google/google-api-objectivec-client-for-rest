@@ -156,6 +156,15 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_AnalyzeIamPolicyLongrunningResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeIamPolicyLongrunningResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_AnalyzeIamPolicyResponse
 //
 

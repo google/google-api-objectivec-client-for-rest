@@ -22,6 +22,8 @@
 
 @class GTLRPeopleService_Address;
 @class GTLRPeopleService_AgeRangeType;
+@class GTLRPeopleService_BatchUpdateContactsRequest_Contacts;
+@class GTLRPeopleService_BatchUpdateContactsResponse_UpdateResult;
 @class GTLRPeopleService_Biography;
 @class GTLRPeopleService_Birthday;
 @class GTLRPeopleService_BraggingRights;
@@ -31,6 +33,7 @@
 @class GTLRPeopleService_ContactGroupMembership;
 @class GTLRPeopleService_ContactGroupMetadata;
 @class GTLRPeopleService_ContactGroupResponse;
+@class GTLRPeopleService_ContactToCreate;
 @class GTLRPeopleService_CoverPhoto;
 @class GTLRPeopleService_Date;
 @class GTLRPeopleService_DomainMembership;
@@ -108,6 +111,64 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_Less
  *  Value: "TWENTY_ONE_OR_OLDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_AgeRangeType_AgeRange_TwentyOneOrOlder;
+
+// ----------------------------------------------------------------------------
+// GTLRPeopleService_BatchCreateContactsRequest.sources
+
+/**
+ *  Returns SourceType.CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeContact;
+/**
+ *  Returns SourceType.DOMAIN_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeDomainContact;
+/**
+ *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
+ *  SourceType.PROFILE.
+ *
+ *  Value: "READ_SOURCE_TYPE_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeProfile;
+/**
+ *  Unspecified.
+ *
+ *  Value: "READ_SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchCreateContactsRequest_Sources_ReadSourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPeopleService_BatchUpdateContactsRequest.sources
+
+/**
+ *  Returns SourceType.CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeContact;
+/**
+ *  Returns SourceType.DOMAIN_CONTACT.
+ *
+ *  Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeDomainContact;
+/**
+ *  Returns SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and
+ *  SourceType.PROFILE.
+ *
+ *  Value: "READ_SOURCE_TYPE_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeProfile;
+/**
+ *  Unspecified.
+ *
+ *  Value: "READ_SOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPeopleService_BatchUpdateContactsRequest_Sources_ReadSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPeopleService_Biography.contentType
@@ -569,6 +630,69 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
+ *  A request to create a batch of contacts.
+ */
+@interface GTLRPeopleService_BatchCreateContactsRequest : GTLRObject
+
+/**
+ *  Required. The contact to create. Allows up to 200 contacts in a single
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ContactToCreate *> *contacts;
+
+/**
+ *  Required. A field mask to restrict which fields on each person are returned
+ *  in the response. Multiple fields can be specified by separating them with
+ *  commas. If read mask is left empty, the post-mutate-get is skipped and no
+ *  data will be returned in the response. Valid values are: * addresses *
+ *  ageRanges * biographies * birthdays * calendarUrls * clientData *
+ *  coverPhotos * emailAddresses * events * externalIds * genders * imClients *
+ *  interests * locales * locations * memberships * metadata * miscKeywords *
+ *  names * nicknames * occupations * organizations * phoneNumbers * photos *
+ *  relations * sipAddresses * skills * urls * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Optional. A mask of what source types to return in the post mutate read.
+ *  Defaults to READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not
+ *  set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+@end
+
+
+/**
+ *  The response to a request to create a batch of contacts.
+ */
+@interface GTLRPeopleService_BatchCreateContactsResponse : GTLRObject
+
+/**
+ *  The contacts that were created, unless the request `read_mask` is empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PersonResponse *> *createdPeople;
+
+@end
+
+
+/**
+ *  A request to delete a batch of existing contacts.
+ */
+@interface GTLRPeopleService_BatchDeleteContactsRequest : GTLRObject
+
+/**
+ *  Required. The resource names of the contact to delete. It's repeatable.
+ *  Allows up to 500 resource names in a single request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+@end
+
+
+/**
  *  The response to a batch get contact groups request.
  */
 @interface GTLRPeopleService_BatchGetContactGroupsResponse : GTLRObject
@@ -576,6 +700,95 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /** The list of responses for each requested contact group resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_ContactGroupResponse *> *responses;
 
+@end
+
+
+/**
+ *  A request to update a batch of contacts.
+ */
+@interface GTLRPeopleService_BatchUpdateContactsRequest : GTLRObject
+
+/**
+ *  Required. A map of resource names to the person data to be updated. Allows
+ *  up to 200 contacts in a single request.
+ */
+@property(nonatomic, strong, nullable) GTLRPeopleService_BatchUpdateContactsRequest_Contacts *contacts;
+
+/**
+ *  Required. A field mask to restrict which fields on each person are returned.
+ *  Multiple fields can be specified by separating them with commas. If read
+ *  mask is left empty, the post-mutate-get is skipped and no data will be
+ *  returned in the response. Valid values are: * addresses * ageRanges *
+ *  biographies * birthdays * calendarUrls * clientData * coverPhotos *
+ *  emailAddresses * events * externalIds * genders * imClients * interests *
+ *  locales * locations * memberships * metadata * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * photos * relations
+ *  * sipAddresses * skills * urls * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
+
+/**
+ *  Optional. A mask of what source types to return. Defaults to
+ *  READ_SOURCE_TYPE_CONTACT and READ_SOURCE_TYPE_PROFILE if not set.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+/**
+ *  Required. A field mask to restrict which fields on the person are updated.
+ *  Multiple fields can be specified by separating them with commas. All
+ *  specified fields will be replaced, or cleared if left empty for each person.
+ *  Valid values are: * addresses * biographies * birthdays * calendarUrls *
+ *  clientData * emailAddresses * events * externalIds * genders * imClients *
+ *  interests * locales * locations * memberships * miscKeywords * names *
+ *  nicknames * occupations * organizations * phoneNumbers * relations *
+ *  sipAddresses * urls * userDefined
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  Required. A map of resource names to the person data to be updated. Allows
+ *  up to 200 contacts in a single request.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRPeopleService_Person. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRPeopleService_BatchUpdateContactsRequest_Contacts : GTLRObject
+@end
+
+
+/**
+ *  The response to a request to create a batch of contacts.
+ */
+@interface GTLRPeopleService_BatchUpdateContactsResponse : GTLRObject
+
+/**
+ *  A map of resource names to the contacts that were updated, unless the
+ *  request `read_mask` is empty.
+ */
+@property(nonatomic, strong, nullable) GTLRPeopleService_BatchUpdateContactsResponse_UpdateResult *updateResult;
+
+@end
+
+
+/**
+ *  A map of resource names to the contacts that were updated, unless the
+ *  request `read_mask` is empty.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRPeopleService_PersonResponse. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRPeopleService_BatchUpdateContactsResponse_UpdateResult : GTLRObject
 @end
 
 
@@ -804,6 +1017,17 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** The status of the response. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_Status *status;
+
+@end
+
+
+/**
+ *  A wrapper that contains the person data to populate a newly created source.
+ */
+@interface GTLRPeopleService_ContactToCreate : GTLRObject
+
+/** Required. The person data to populate a newly created source. */
+@property(nonatomic, strong, nullable) GTLRPeopleService_Person *contactPerson;
 
 @end
 

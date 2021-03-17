@@ -49,6 +49,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListDockerImagesResponse
+//
+
+@implementation GTLRArtifactRegistry_ListDockerImagesResponse
+@dynamic dockerImages, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dockerImages" : [GTLRArtifactRegistry_DockerImage class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dockerImages";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_ListOperationsResponse
 //
 

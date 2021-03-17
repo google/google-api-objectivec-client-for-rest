@@ -3801,7 +3801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)
@@ -4198,7 +4198,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
 
 /**
- *  A filter (https://cloud.google.com/monitoring/api/v3/filters) that
+ *  Required. A filter (https://cloud.google.com/monitoring/api/v3/filters) that
  *  identifies which time series should be compared with the threshold.The
  *  filter is similar to the one that is specified in the ListTimeSeries request
  *  (https://cloud.google.com/monitoring/api/ref_v3/rest/v3/projects.timeSeries/list)

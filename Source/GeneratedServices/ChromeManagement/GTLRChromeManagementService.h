@@ -5,10 +5,8 @@
 //   Chrome Management API (chromemanagement/v1)
 // Description:
 //   The Chrome Management API is a suite of services that allows Chrome
-//   administrators to view, manage and gain insights on their Chrome OS The
-//   Chrome Management API is a suite of services that allows GSuite domain
 //   administrators to view, manage and gain insights on their Chrome OS and
-//   Chrome Browser devices and users.
+//   Chrome Browser devices.
 // Documentation:
 //   http://developers.google.com/chrome/management/
 
@@ -50,10 +48,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagemen
  *  Service for executing Chrome Management API queries.
  *
  *  The Chrome Management API is a suite of services that allows Chrome
- *  administrators to view, manage and gain insights on their Chrome OS The
- *  Chrome Management API is a suite of services that allows GSuite domain
  *  administrators to view, manage and gain insights on their Chrome OS and
- *  Chrome Browser devices and users.
+ *  Chrome Browser devices.
  */
 @interface GTLRChromeManagementService : GTLRService
 

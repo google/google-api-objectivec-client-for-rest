@@ -995,9 +995,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled? By default, it's true and API
- *  needs to do explicitly check whether it's set, if it's set as false
- *  explicitly, it's false
+ *  This field will be deprecated, and will be always set to true since
+ *  reschedule can happen multiple times now.
  *
  *  Uses NSNumber of boolValue.
  */

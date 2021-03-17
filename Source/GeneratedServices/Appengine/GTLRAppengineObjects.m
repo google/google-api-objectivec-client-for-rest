@@ -1180,8 +1180,8 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
          inboundServices, instanceClass, libraries, livenessCheck,
          manualScaling, name, network, nobuildFilesRegex, readinessCheck,
          resources, runtime, runtimeApiVersion, runtimeChannel,
-         runtimeMainExecutablePath, servingStatus, threadsafe, versionUrl, vm,
-         vpcAccessConnector, zones;
+         runtimeMainExecutablePath, serviceAccount, servingStatus, threadsafe,
+         versionUrl, vm, vpcAccessConnector, zones;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

@@ -516,6 +516,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @interface GTLRAnalyticsData_BatchRunPivotReportsResponse : GTLRObject
 
 /**
+ *  Identifies what kind of resource this message is. This `kind` is always the
+ *  fixed string "analyticsData#batchRunPivotReports". Useful to distinguish
+ *  between response types in JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
  *  Individual responses. Each response has a separate pivot report request.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_RunPivotReportResponse *> *pivotReports;
@@ -548,6 +555,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The batch response containing multiple reports.
  */
 @interface GTLRAnalyticsData_BatchRunReportsResponse : GTLRObject
+
+/**
+ *  Identifies what kind of resource this message is. This `kind` is always the
+ *  fixed string "analyticsData#batchRunReports". Useful to distinguish between
+ *  response types in JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** Individual responses. Each response has a separate report request. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_RunReportResponse *> *reports;
@@ -1332,11 +1346,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldNames;
 
 /**
- *  The number of rows to return in this pivot. If the `limit` parameter is
- *  unspecified, up to 10,000 rows are returned. The product of the `limit` for
- *  each `pivot` in a `RunPivotReportRequest` must not exceed 100,000. For
- *  example, a two pivot request with `limit: 1000` in each pivot will fail
- *  because the product is `1,000,000`.
+ *  The number of rows to return in this pivot. The `limit` parameter is
+ *  required. A `limit` of 10,000 is common for single pivot requests. The
+ *  product of the `limit` for each `pivot` in a `RunPivotReportRequest` must
+ *  not exceed 100,000. For example, a two pivot request with `limit: 1000` in
+ *  each pivot will fail because the product is `1,000,000`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1460,6 +1474,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  Analytics 360 Properties can use up to 50 concurrent requests.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *concurrentRequests;
+
+/**
+ *  Analytics Properties can send up to 120 requests with potentially
+ *  thresholded dimensions per hour. In a batch request, each report request is
+ *  individually counted for this quota if the request contains potentially
+ *  thresholded dimensions.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsData_QuotaStatus *potentiallyThresholdedRequestsPerHour;
 
 /**
  *  Standard Analytics Properties and cloud project pairs can have up to 10
@@ -1652,6 +1674,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionHeader *> *dimensionHeaders;
 
+/**
+ *  Identifies what kind of resource this message is. This `kind` is always the
+ *  fixed string "analyticsData#runPivotReport". Useful to distinguish between
+ *  response types in JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
 /** Metadata for the report. */
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_ResponseMetaData *metadata;
 
@@ -1747,6 +1776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionHeader *> *dimensionHeaders;
 
+/**
+ *  Identifies what kind of resource this message is. This `kind` is always the
+ *  fixed string "analyticsData#runRealtimeReport". Useful to distinguish
+ *  between response types in JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
 /** If requested, the maximum values of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *maximums;
 
@@ -1834,7 +1870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 /**
  *  The number of rows to return. If the `limit` parameter is unspecified,
  *  10,000 rows are returned. The API returns a maximum of 100,000 rows per
- *  request, no matter how many you ask for.
+ *  request, no matter how many you ask for. To learn more about this pagination
+ *  parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1857,7 +1895,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
 
 /**
- *  The row count of the start row. The first row is counted as row 0.
+ *  The row count of the start row. The first row is counted as row 0. To learn
+ *  more about this pagination parameter, see
+ *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1887,6 +1927,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  DimensionHeaders matches the dimensions present in rows.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_DimensionHeader *> *dimensionHeaders;
+
+/**
+ *  Identifies what kind of resource this message is. This `kind` is always the
+ *  fixed string "analyticsData#runReport". Useful to distinguish between
+ *  response types in JSON.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 /** If requested, the maximum values of metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Row *> *maximums;

@@ -413,7 +413,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflows_Workflow_State_StateUnspecifie
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
-/** Workflow code to be executed. The size limit is 32KB. */
+/** Workflow code to be executed. The size limit is 128KB. */
 @property(nonatomic, copy, nullable) NSString *sourceContents;
 
 /**

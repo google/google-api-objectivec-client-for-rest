@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesCreateWithObject:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -214,7 +214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeleteWithname:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -378,7 +378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesGetWithname:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -392,14 +392,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  name](https://cloud.google.com/apis/design/resource_names) of the
  *  ClientState in format:
  *  `devices/{device_id}/deviceUsers/{device_user_id}/clientStates/{partner_id}`,
- *  where device_id is the unique ID assigned to the Device, device_user_id is
- *  the unique ID assigned to the User and partner_id identifies the partner
- *  storing the data. To get the client state for devices belonging to your own
- *  organization, the `partnerId` is in the format: `customerId-*anystring*`.
- *  Where the `customerId` is your organization's customer ID and `anystring` is
- *  any suffix. This suffix is used in setting up Custom Access Levels in
- *  Context-Aware Access. You may use `my_customer` instead of the customer ID
- *  for devices managed by your own organization.
+ *  where `device_id` is the unique ID assigned to the Device, `device_user_id`
+ *  is the unique ID assigned to the User and `partner_id` identifies the
+ *  partner storing the data. To get the client state for devices belonging to
+ *  your own organization, the `partnerId` is in the format:
+ *  `customerId-*anystring*`. Where the `customerId` is your organization's
+ *  customer ID and `anystring` is any suffix. This suffix is used in setting up
+ *  Custom Access Levels in Context-Aware Access. You may use `my_customer`
+ *  instead of the customer ID for devices managed by your own organization. You
+ *  may specify `-` in place of the `{device_id}`, so the ClientState resource
+ *  name can be:
+ *  `devices/-/deviceUsers/{device_user_resource_id}/clientStates/{partner_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -412,14 +415,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    name](https://cloud.google.com/apis/design/resource_names) of the
  *    ClientState in format:
  *    `devices/{device_id}/deviceUsers/{device_user_id}/clientStates/{partner_id}`,
- *    where device_id is the unique ID assigned to the Device, device_user_id is
- *    the unique ID assigned to the User and partner_id identifies the partner
- *    storing the data. To get the client state for devices belonging to your
- *    own organization, the `partnerId` is in the format:
- *    `customerId-*anystring*`. Where the `customerId` is your organization's
- *    customer ID and `anystring` is any suffix. This suffix is used in setting
- *    up Custom Access Levels in Context-Aware Access. You may use `my_customer`
- *    instead of the customer ID for devices managed by your own organization.
+ *    where `device_id` is the unique ID assigned to the Device,
+ *    `device_user_id` is the unique ID assigned to the User and `partner_id`
+ *    identifies the partner storing the data. To get the client state for
+ *    devices belonging to your own organization, the `partnerId` is in the
+ *    format: `customerId-*anystring*`. Where the `customerId` is your
+ *    organization's customer ID and `anystring` is any suffix. This suffix is
+ *    used in setting up Custom Access Levels in Context-Aware Access. You may
+ *    use `my_customer` instead of the customer ID for devices managed by your
+ *    own organization. You may specify `-` in place of the `{device_id}`, so
+ *    the ClientState resource name can be:
+ *    `devices/-/deviceUsers/{device_user_resource_id}/clientStates/{partner_id}`.
  *
  *  @return GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet
  */
@@ -437,7 +443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesListWithparent:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -501,7 +507,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesPatchWithObject:name:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -584,7 +590,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersDeleteWithname:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -630,7 +636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersGetWithname:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -675,7 +681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersListWithparent:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer.
  *  If you're using this API for your own organization, use
  *  `customers/my_customer` If you're using this API to manage another
@@ -888,7 +894,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesGetWithname:]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the Customer
  *  in the format: `customers/{customer_id}`, where customer_id is the customer
  *  to whom the device belongs. If you're using this API for your own
@@ -932,7 +938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 //   +[GTLQueryCloudIdentity queryForDevicesList]
 
 /**
- *  Required. [Resource
+ *  Optional. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the customer
  *  in the format: `customers/{customer_id}`, where customer_id is the customer
  *  to whom the device belongs. If you're using this API for your own

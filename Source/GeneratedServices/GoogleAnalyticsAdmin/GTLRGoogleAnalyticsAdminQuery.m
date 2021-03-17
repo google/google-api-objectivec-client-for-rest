@@ -139,6 +139,33 @@
 
 @end
 
+@implementation GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
+
+@dynamic account;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest *)object
+                        account:(NSString *)account {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"account" ];
+  NSString *pathURITemplate = @"v1alpha/{+account}:searchChangeHistoryEvents";
+  GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.account = account;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse class];
+  query.loggingName = @"analyticsadmin.accounts.searchChangeHistoryEvents";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleAnalyticsAdminQuery_AccountSummariesList
 
 @dynamic pageSize, pageToken;

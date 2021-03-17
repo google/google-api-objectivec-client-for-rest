@@ -4218,10 +4218,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Compute Engine network used for Service Networking to be peered with Apigee
  *  runtime instances. See [Getting started with the Service Networking
  *  API](https://cloud.google.com/service-infrastructure/docs/service-networking/getting-started).
- *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value can
- *  be updated only when there are no runtime instances. For example: `default`.
- *  Apigee also supports shared VPC (that is, the host network project is not
- *  the same as the one that is peering with Apigee). See [Shared VPC
+ *  Valid only when [RuntimeType](#RuntimeType) is set to `CLOUD`. The value
+ *  must be set before the creation of a runtime instance and can be updated
+ *  only when there are no runtime instances. For example: `default`. Apigee
+ *  also supports shared VPC (that is, the host network project is not the same
+ *  as the one that is peering with Apigee). See [Shared VPC
  *  overview](https://cloud.google.com/vpc/docs/shared-vpc). To use a shared VPC
  *  network, use the following format:
  *  `projects/{host-project-id}/{region}/networks/{network-name}`. For example:
@@ -4295,7 +4296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Output only. Name of the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Project ID associated with the Apigee organization. */
+/** Output only. Project ID associated with the Apigee organization. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /** Properties defined in the Apigee organization profile. */
@@ -4304,10 +4305,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /**
  *  Cloud KMS key name used for encrypting the data that is stored and
  *  replicated across runtime instances. Update is not allowed after the
- *  organization is created. If not specified, a Google-Managed encryption key
- *  will be used. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`. For
- *  example: "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:**
- *  Not supported for Apigee hybrid.
+ *  organization is created. Required when [RuntimeType](#RuntimeType) is
+ *  `CLOUD`. If not specified when [RuntimeType](#RuntimeType) is `TRIAL`, a
+ *  Google-Managed encryption key will be used. For example:
+ *  "projects/foo/locations/us/keyRings/bar/cryptoKeys/baz". **Note:** Not
+ *  supported for Apigee hybrid.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeDatabaseEncryptionKeyName;
 

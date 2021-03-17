@@ -30,6 +30,7 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUserLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream;
 
@@ -288,6 +289,44 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest *)object;
+
+@end
+
+/**
+ *  Searches through all changes to an account or its children given the
+ *  specified set of filters.
+ *
+ *  Method: analyticsadmin.accounts.searchChangeHistoryEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents : GTLRGoogleAnalyticsAdminQuery
+// Previous library name was
+//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsSearchChangeHistoryEventsWithObject:account:]
+
+/**
+ *  Required. The account resource for which to return change history resources.
+ */
+@property(nonatomic, copy, nullable) NSString *account;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsResponse.
+ *
+ *  Searches through all changes to an account or its children given the
+ *  specified set of filters.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest to
+ *    include in the query.
+ *  @param account Required. The account resource for which to return change
+ *    history resources.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest *)object
+                        account:(NSString *)account;
 
 @end
 

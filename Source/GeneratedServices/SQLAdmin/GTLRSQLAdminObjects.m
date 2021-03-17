@@ -1273,11 +1273,12 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse
-@dynamic errors, kind;
+@dynamic errors, kind, warnings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRSQLAdmin_SqlExternalSyncSettingError class]
+    @"errors" : [GTLRSQLAdmin_SqlExternalSyncSettingError class],
+    @"warnings" : [GTLRSQLAdmin_SqlExternalSyncSettingError class]
   };
   return map;
 }

@@ -129,6 +129,7 @@
 @class GTLRBigquery_StandardSqlDataType;
 @class GTLRBigquery_StandardSqlField;
 @class GTLRBigquery_StandardSqlStructType;
+@class GTLRBigquery_StandardSqlTableType;
 @class GTLRBigquery_Streamingbuffer;
 @class GTLRBigquery_Table_Labels;
 @class GTLRBigquery_TableCell;
@@ -537,6 +538,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_RoutineType
  *  Value: "SCALAR_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_ScalarFunction;
+/**
+ *  Non-builtin permanent TVF.
+ *
+ *  Value: "TABLE_VALUED_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_RoutineType_TableValuedFunction;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_StandardSqlDataType.typeKind
@@ -4090,6 +4097,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
+ *  If true, creates a new session, where session id will be a server generated
+ *  random id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs query in non-session mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSession;
+
+/**
  *  [Optional] Specifies the default dataset to use for unqualified table names
  *  in the query. Note that this does not alter behavior of unqualified dataset
  *  names.
@@ -4980,6 +4996,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_Model : GTLRObject
 
 /**
+ *  The best trial_id across all training runs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *bestTrialId;
+
+/**
  *  Output only. The time when this model was created, in millisecs since the
  *  epoch.
  *
@@ -5542,6 +5565,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ConnectionProperty *> *connectionProperties;
 
 /**
+ *  If true, creates a new session, where session id will be a server generated
+ *  random id. If false, runs query with an existing session_id passed in
+ *  ConnectionProperty, otherwise runs query in non-session mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createSession;
+
+/**
  *  [Optional] Specifies the default datasetId and projectId to assume for any
  *  unqualified table names in the query. If not set, all table names in the
  *  query string must be qualified in the format 'datasetId.tableId'.
@@ -6044,6 +6076,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedTime;
 
 /**
+ *  Optional. Set only if Routine is a "TABLE_VALUED_FUNCTION".
+ *  TODO(b/173344646) - Update return_type documentation to say it cannot be set
+ *  for TABLE_VALUED_FUNCTION before preview launch.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_StandardSqlTableType *returnTableType;
+
+/**
  *  Optional if language = "SQL"; required otherwise. If absent, the return type
  *  is inferred from definition_body at query time in each query that references
  *  this routine. If present, then the evaluated result will be cast to the
@@ -6073,6 +6112,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        "ROUTINE_TYPE_UNSPECIFIED"
  *    @arg @c kGTLRBigquery_Routine_RoutineType_ScalarFunction Non-builtin
  *        permanent scalar function. (Value: "SCALAR_FUNCTION")
+ *    @arg @c kGTLRBigquery_Routine_RoutineType_TableValuedFunction Non-builtin
+ *        permanent TVF. (Value: "TABLE_VALUED_FUNCTION")
  */
 @property(nonatomic, copy, nullable) NSString *routineType;
 
@@ -6377,6 +6418,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_StandardSqlStructType : GTLRObject
 
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *fields;
+
+@end
+
+
+/**
+ *  A table type
+ */
+@interface GTLRBigquery_StandardSqlTableType : GTLRObject
+
+/** The columns in this table type */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_StandardSqlField *> *columns;
 
 @end
 

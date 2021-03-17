@@ -24,6 +24,9 @@ NSString * const kGTLRDataproc_ClusterStatus_State_Creating = @"CREATING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Deleting = @"DELETING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Error    = @"ERROR";
 NSString * const kGTLRDataproc_ClusterStatus_State_Running  = @"RUNNING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Starting = @"STARTING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Stopped  = @"STOPPED";
+NSString * const kGTLRDataproc_ClusterStatus_State_Stopping = @"STOPPING";
 NSString * const kGTLRDataproc_ClusterStatus_State_Unknown  = @"UNKNOWN";
 NSString * const kGTLRDataproc_ClusterStatus_State_Updating = @"UPDATING";
 

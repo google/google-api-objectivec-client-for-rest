@@ -1752,13 +1752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Operation payload for DisableService method.
- */
-@interface GTLRServiceManagement_DisableServiceResponse : GTLRObject
-@end
-
-
-/**
  *  `Documentation` provides the information for describing a service. Example:
  *  documentation: summary: > The Google Calendar API gives access to most
  *  calendar features. pages: - name: Overview content: (== include

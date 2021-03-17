@@ -1260,7 +1260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Truncate MySQL general and slow query log tables
+ *  Truncate MySQL general and slow query log tables MySQL only.
  *
  *  Method: sql.instances.truncateLog
  *
@@ -1281,7 +1281,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Truncate MySQL general and slow query log tables
+ *  Truncate MySQL general and slow query log tables MySQL only.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesTruncateLogRequest to include in
  *    the query.

@@ -22,6 +22,9 @@
 
 @class GTLRWorkflowExecutions_Error;
 @class GTLRWorkflowExecutions_Execution;
+@class GTLRWorkflowExecutions_Position;
+@class GTLRWorkflowExecutions_StackTrace;
+@class GTLRWorkflowExecutions_StackTraceElement;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -79,11 +82,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  */
 @interface GTLRWorkflowExecutions_Error : GTLRObject
 
-/** Human readable error context, helpful for debugging purposes. */
+/** Human readable stack trace string. */
 @property(nonatomic, copy, nullable) NSString *context;
 
-/** Error payload returned by the execution, represented as a JSON string. */
+/** Error message and data returned represented as a JSON string. */
 @property(nonatomic, copy, nullable) NSString *payload;
+
+/** Stack trace with detailed information of where error was generated. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_StackTrace *stackTrace;
 
 @end
 
@@ -172,6 +178,66 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkflowExecutions_Execution_State_Succe
  *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Position contains source position information about the stack trace element
+ *  such as line number, column number and length of the code block in bytes.
+ */
+@interface GTLRWorkflowExecutions_Position : GTLRObject
+
+/**
+ *  The source code column position (of the line) the current instruction was
+ *  generated from.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *column;
+
+/**
+ *  The length in bytes of text in this character group, e.g. digits of a
+ *  number, string length, or AST (abstract syntax tree) node.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *length;
+
+/**
+ *  The source code line number the current instruction was generated from.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *line;
+
+@end
+
+
+/**
+ *  A collection of stack elements (frames) where an error occurred.
+ */
+@interface GTLRWorkflowExecutions_StackTrace : GTLRObject
+
+/** An array of Stack elements. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkflowExecutions_StackTraceElement *> *elements;
+
+@end
+
+
+/**
+ *  A single stack element (frame) where an error occurred.
+ */
+@interface GTLRWorkflowExecutions_StackTraceElement : GTLRObject
+
+/** The source position information of the stacktrace element. */
+@property(nonatomic, strong, nullable) GTLRWorkflowExecutions_Position *position;
+
+/** The routine where the error occurred. */
+@property(nonatomic, copy, nullable) NSString *routine;
+
+/** The step the error occurred at. */
+@property(nonatomic, copy, nullable) NSString *step;
 
 @end
 

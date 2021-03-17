@@ -210,6 +210,51 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Lists docker images.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.dockerImages.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList : GTLRArtifactRegistryQuery
+// Previous library name was
+//   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesDockerImagesListWithparent:]
+
+/** The maximum number of artifacts to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose docker images will be
+ *  listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListDockerImagesResponse.
+ *
+ *  Lists docker images.
+ *
+ *  @param parent Required. The name of the parent resource whose docker images
+ *    will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

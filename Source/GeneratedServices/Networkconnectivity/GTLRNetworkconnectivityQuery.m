@@ -226,6 +226,83 @@
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1alpha1/{+resource}:getIamPolicy";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
+  query.loggingName = @"networkconnectivity.projects.locations.internalRanges.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1alpha1/{+resource}:setIamPolicy";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
+  query.loggingName = @"networkconnectivity.projects.locations.internalRanges.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1alpha1/{+resource}:testIamPermissions";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsInternalRangesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.internalRanges.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsList
 
 @dynamic filter, name, pageSize, pageToken;
@@ -401,83 +478,6 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
   query.loggingName = @"networkconnectivity.projects.locations.policyBasedRoutes.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:getIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.privateRanges.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:setIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.privateRanges.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1alpha1/{+resource}:testIamPermissions";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsPrivateRangesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
-  query.loggingName = @"networkconnectivity.projects.locations.privateRanges.testIamPermissions";
   return query;
 }
 

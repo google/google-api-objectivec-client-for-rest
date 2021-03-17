@@ -122,6 +122,9 @@
 @class GTLRDocs_ParagraphElement;
 @class GTLRDocs_ParagraphStyle;
 @class GTLRDocs_ParagraphStyleSuggestionState;
+@class GTLRDocs_Person;
+@class GTLRDocs_Person_SuggestedTextStyleChanges;
+@class GTLRDocs_PersonProperties;
 @class GTLRDocs_PositionedObject;
 @class GTLRDocs_PositionedObject_SuggestedPositionedObjectPropertiesChanges;
 @class GTLRDocs_PositionedObjectPositioning;
@@ -4016,6 +4019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /** A page break paragraph element. */
 @property(nonatomic, strong, nullable) GTLRDocs_PageBreak *pageBreak;
 
+/** A paragraph element that links to a person or email address. */
+@property(nonatomic, strong, nullable) GTLRDocs_Person *person;
+
 /**
  *  The zero-based start index of this paragraph element, in UTF-16 code units.
  *
@@ -4398,6 +4404,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spacingModeSuggested;
+
+@end
+
+
+/**
+ *  A person or email address mentioned in a document. These mentions behave as
+ *  a single, immutable element containing the person's name or email address.
+ */
+@interface GTLRDocs_Person : GTLRObject
+
+/** Output only. The unique ID of this link. */
+@property(nonatomic, copy, nullable) NSString *personId;
+
+/**
+ *  Output only. The properties of this Person. This field is always present.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_PersonProperties *personProperties;
+
+/**
+ *  IDs for suggestions that remove this person link from the document. A Person
+ *  might have multiple deletion IDs if, for example, multiple users suggest to
+ *  delete it. If empty, then this person link isn't suggested for deletion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
+
+/**
+ *  IDs for suggestions that insert this person link into the document. A Person
+ *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  suggestion within a suggestion made by a different user, for example). If
+ *  empty, then this person link isn't a suggested insertion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
+
+/**
+ *  The suggested text style changes to this Person, keyed by suggestion ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Person_SuggestedTextStyleChanges *suggestedTextStyleChanges;
+
+/** The text style of this Person. */
+@property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
+
+@end
+
+
+/**
+ *  The suggested text style changes to this Person, keyed by suggestion ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedTextStyle. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_Person_SuggestedTextStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  Properties specific to a linked Person.
+ */
+@interface GTLRDocs_PersonProperties : GTLRObject
+
+/**
+ *  Output only. The email address linked to this Person. This field is always
+ *  present.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/**
+ *  Output only. The name of the person if it is displayed in the link text
+ *  instead of the person's email address.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

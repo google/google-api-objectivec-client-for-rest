@@ -25,6 +25,7 @@
 @class GTLRDataprocMetastore_AuditLogConfig;
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_DatabaseDump;
+@class GTLRDataprocMetastore_DataCatalogConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
@@ -590,6 +591,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 
 /**
+ *  Specifies how metastore metadata should be integrated with the Data Catalog
+ *  service.
+ */
+@interface GTLRDataprocMetastore_DataCatalogConfig : GTLRObject
+
+/**
+ *  Defines whether the metastore metadata should be synced to Data Catalog. The
+ *  default value is to disable syncing metastore metadata to Data Catalog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1105,6 +1123,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  services.
  */
 @interface GTLRDataprocMetastore_MetadataIntegration : GTLRObject
+
+/** The integration config for the Data Catalog service. */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_DataCatalogConfig *dataCatalogConfig;
+
 @end
 
 

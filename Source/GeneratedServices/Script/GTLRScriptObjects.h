@@ -416,7 +416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRScript_Value_NullValue_NullValue;
 
 
 /**
- *  Request to create a script project.
+ *  Request to create a script project. Request to create a script project.
  */
 @interface GTLRScript_CreateProjectRequest : GTLRObject
 

@@ -1231,6 +1231,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  The long running operation metadata for set default processor version
+ *  method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for set default processor version method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3SetDefaultProcessorVersionResponse : GTLRObject
+@end
+
+
+/**
  *  The metadata that represents a processor version being created.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadata : GTLRObject

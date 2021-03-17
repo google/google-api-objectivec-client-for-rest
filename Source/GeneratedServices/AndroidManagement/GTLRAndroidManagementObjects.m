@@ -655,6 +655,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_ContentProviderEndpoint
+//
+
+@implementation GTLRAndroidManagement_ContentProviderEndpoint
+@dynamic packageName, signingCertsSha256, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signingCertsSha256" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Date
 //
 
@@ -1105,6 +1123,24 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_OncCertificateProvider
+//
+
+@implementation GTLRAndroidManagement_OncCertificateProvider
+@dynamic certificateReferences, contentProviderEndpoint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificateReferences" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Operation
 //
 
@@ -1256,17 +1292,17 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
          maximumTimeToLock, minimumApiLevel, mobileNetworksConfigDisabled,
          modifyAccountsDisabled, mountPhysicalMediaDisabled, name,
          networkEscapeHatchEnabled, networkResetDisabled,
-         openNetworkConfiguration, outgoingBeamDisabled, outgoingCallsDisabled,
-         passwordPolicies, passwordRequirements, permissionGrants,
-         permittedAccessibilityServices, permittedInputMethods,
-         persistentPreferredActivities, personalUsagePolicies, playStoreMode,
-         policyEnforcementRules, privateKeySelectionEnabled,
-         recommendedGlobalProxy, removeUserDisabled, safeBootDisabled,
-         screenCaptureDisabled, setupActions, setUserIconDisabled,
-         setWallpaperDisabled, shareLocationDisabled, shortSupportMessage,
-         skipFirstUseHintsEnabled, smsDisabled, statusBarDisabled,
-         statusReportingSettings, stayOnPluggedModes, systemUpdate,
-         tetheringConfigDisabled, uninstallAppsDisabled,
+         oncCertificateProviders, openNetworkConfiguration,
+         outgoingBeamDisabled, outgoingCallsDisabled, passwordPolicies,
+         passwordRequirements, permissionGrants, permittedAccessibilityServices,
+         permittedInputMethods, persistentPreferredActivities,
+         personalUsagePolicies, playStoreMode, policyEnforcementRules,
+         privateKeySelectionEnabled, recommendedGlobalProxy, removeUserDisabled,
+         safeBootDisabled, screenCaptureDisabled, setupActions,
+         setUserIconDisabled, setWallpaperDisabled, shareLocationDisabled,
+         shortSupportMessage, skipFirstUseHintsEnabled, smsDisabled,
+         statusBarDisabled, statusReportingSettings, stayOnPluggedModes,
+         systemUpdate, tetheringConfigDisabled, uninstallAppsDisabled,
          unmuteMicrophoneDisabled, usbFileTransferDisabled,
          usbMassStorageEnabled, version, vpnConfigDisabled, wifiConfigDisabled,
          wifiConfigsLockdownEnabled;
@@ -1280,6 +1316,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
     @"complianceRules" : [GTLRAndroidManagement_ComplianceRule class],
     @"frpAdminEmails" : [NSString class],
     @"keyguardDisabledFeatures" : [NSString class],
+    @"oncCertificateProviders" : [GTLRAndroidManagement_OncCertificateProvider class],
     @"passwordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
     @"persistentPreferredActivities" : [GTLRAndroidManagement_PersistentPreferredActivity class],

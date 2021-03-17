@@ -579,15 +579,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceManagement_DisableServiceResponse
-//
-
-@implementation GTLRServiceManagement_DisableServiceResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceManagement_Documentation
 //
 

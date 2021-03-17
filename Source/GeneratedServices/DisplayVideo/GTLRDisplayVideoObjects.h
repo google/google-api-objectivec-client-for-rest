@@ -14506,14 +14506,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 /**
  *  The maximum number of times a user may be shown with the same ad during this
- *  period. Must be greater than 0. Applicable when unlimited is `false`.
+ *  period. Must be greater than 0. Required when unlimited is `false`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxImpressions;
 
 /**
- *  The time unit in which the frequency cap will be applied. Applicable when
+ *  The time unit in which the frequency cap will be applied. Required when
  *  unlimited is `false`.
  *
  *  Likely values:
@@ -14541,8 +14541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *timeUnit;
 
 /**
- *  The number of time_unit the frequency cap will last. Applicable when
- *  unlimited is `false`. The following restrictions apply based on the value of
+ *  The number of time_unit the frequency cap will last. Required when unlimited
+ *  is `false`. The following restrictions apply based on the value of
  *  time_unit: * `TIME_UNIT_LIFETIME` - this field is output only and will
  *  default to 1 * `TIME_UNIT_MONTHS` - must be between 1 and 2 *
  *  `TIME_UNIT_WEEKS` - must be between 1 and 4 * `TIME_UNIT_DAYS` - must be

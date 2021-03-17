@@ -100,3 +100,22 @@
 }
 
 @end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dockerImages";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ListDockerImagesResponse class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.dockerImages.list";
+  return query;
+}
+
+@end

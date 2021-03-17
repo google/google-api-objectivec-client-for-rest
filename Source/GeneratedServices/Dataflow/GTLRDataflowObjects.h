@@ -42,6 +42,7 @@
 @class GTLRDataflow_CustomSourceLocation;
 @class GTLRDataflow_DataDiskAssignment;
 @class GTLRDataflow_DatastoreIODetails;
+@class GTLRDataflow_DebugOptions;
 @class GTLRDataflow_DerivedSource;
 @class GTLRDataflow_Disk;
 @class GTLRDataflow_DisplayData;
@@ -2437,6 +2438,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
+ *  Describes any options that have an effect on the debugging of pipelines.
+ */
+@interface GTLRDataflow_DebugOptions : GTLRObject
+
+/**
+ *  When true, enables the logging of the literal hot key to the user's Cloud
+ *  Logging.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHotKeyLogging;
+
+@end
+
+
+/**
  *  Response from deleting a snapshot.
  */
 @interface GTLRDataflow_DeleteSnapshotResponse : GTLRObject
@@ -2668,6 +2685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  bigquery.googleapis.com/{dataset}
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
+
+/** Any debugging options to be supplied to the job. */
+@property(nonatomic, strong, nullable) GTLRDataflow_DebugOptions *debugOptions;
 
 /**
  *  The list of experiments to enable. This field should be used for SDK related

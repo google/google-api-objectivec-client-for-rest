@@ -388,6 +388,190 @@ NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined
 
 @end
 
+@implementation GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_BatchCreatePrintersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:batchCreatePrinters";
+  GTLRDirectoryQuery_CustomersChromePrintersBatchCreatePrinters *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_BatchCreatePrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.batchCreatePrinters";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_BatchDeletePrintersRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:batchDeletePrinters";
+  GTLRDirectoryQuery_CustomersChromePrintersBatchDeletePrinters *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_BatchDeletePrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.batchDeletePrinters";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers";
+  GTLRDirectoryQuery_CustomersChromePrintersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Empty class];
+  query.loggingName = @"admin.customers.chrome.printers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersList
+
+@dynamic filter, orgUnitId, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers";
+  GTLRDirectoryQuery_CustomersChromePrintersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_ListPrintersResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+parent}/chrome/printers:listPrinterModels";
+  GTLRDirectoryQuery_CustomersChromePrintersListPrinterModels *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDirectory_ListPrinterModelsResponse class];
+  query.loggingName = @"admin.customers.chrome.printers.listPrinterModels";
+  return query;
+}
+
+@end
+
+@implementation GTLRDirectoryQuery_CustomersChromePrintersPatch
+
+@dynamic clearMask, name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDirectory_Printer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"admin/directory/v1/{+name}";
+  GTLRDirectoryQuery_CustomersChromePrintersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDirectory_Printer class];
+  query.loggingName = @"admin.customers.chrome.printers.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_CustomersGet
 
 @dynamic customerKey;

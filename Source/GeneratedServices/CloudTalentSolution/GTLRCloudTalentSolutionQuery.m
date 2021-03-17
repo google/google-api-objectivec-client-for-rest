@@ -44,6 +44,25 @@ NSString * const kGTLRCloudTalentSolutionTypeJobTitle          = @"JOB_TITLE";
 
 @end
 
+@implementation GTLRCloudTalentSolutionQuery_ProjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v4/{+name}";
+  GTLRCloudTalentSolutionQuery_ProjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudTalentSolution_Operation class];
+  query.loggingName = @"jobs.projects.operations.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudTalentSolutionQuery_ProjectsTenantsClientEventsCreate
 
 @dynamic parent;
