@@ -97,6 +97,19 @@ NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRa
 NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnknown = @"AGE_RANGE_UNKNOWN";
 NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnspecified = @"AGE_RANGE_UNSPECIFIED";
 
+// GTLRDisplayVideo_AppAssignedTargetingOptionDetails.appPlatform
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAmazonFiretv = @"APP_PLATFORM_AMAZON_FIRETV";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroid = @"APP_PLATFORM_ANDROID";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroidTv = @"APP_PLATFORM_ANDROID_TV";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAppleTv = @"APP_PLATFORM_APPLE_TV";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformGenericCtv = @"APP_PLATFORM_GENERIC_CTV";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos = @"APP_PLATFORM_IOS";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformPlaystation = @"APP_PLATFORM_PLAYSTATION";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku = @"APP_PLATFORM_ROKU";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformSamsungTv = @"APP_PLATFORM_SAMSUNG_TV";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified = @"APP_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox = @"APP_PLATFORM_XBOX";
+
 // GTLRDisplayVideo_AssetAssociation.role
 NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAdvertiserName = @"ASSET_ROLE_ADVERTISER_NAME";
 NSString * const kGTLRDisplayVideo_AssetAssociation_Role_AssetRoleAndroidAppId = @"ASSET_ROLE_ANDROID_APP_ID";
@@ -876,6 +889,17 @@ NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderFem
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderMale = @"GENDER_MALE";
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnknown = @"GENDER_UNKNOWN";
 NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnspecified = @"GENDER_UNSPECIFIED";
+
+// GTLRDisplayVideo_GenerateDefaultLineItemRequest.lineItemType
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeAudioDefault = @"LINE_ITEM_TYPE_AUDIO_DEFAULT";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayDefault = @"LINE_ITEM_TYPE_DISPLAY_DEFAULT";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInstall = @"LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInventory = @"LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeUnspecified = @"LINE_ITEM_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoDefault = @"LINE_ITEM_TYPE_VIDEO_DEFAULT";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInstall = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInventory = @"LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY";
+NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoOverTheTop = @"LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP";
 
 // GTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails.geoRegionType
 NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeAirport = @"GEO_REGION_TYPE_AIRPORT";
@@ -1752,7 +1776,7 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_AppAssignedTargetingOptionDetails
-@dynamic appId, displayName, negative;
+@dynamic appId, appPlatform, displayName, negative;
 @end
 
 
@@ -2246,6 +2270,28 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_BulkListAdvertiserAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse
 @dynamic assignedTargetingOptions, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -3098,6 +3144,16 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_GenerateDefaultLineItemRequest
+//
+
+@implementation GTLRDisplayVideo_GenerateDefaultLineItemRequest
+@dynamic displayName, insertionOrderId, lineItemType, mobileApp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails
 //
 
@@ -3562,6 +3618,28 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 + (NSString *)collectionItemsKey {
   return @"assignedLocations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse
+//
+
+@implementation GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse
+@dynamic assignedTargetingOptions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignedTargetingOptions" : [GTLRDisplayVideo_AssignedTargetingOption class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assignedTargetingOptions";
 }
 
 @end
@@ -4433,6 +4511,78 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 
 @implementation GTLRDisplayVideo_RegionalLocationListAssignedTargetingOptionDetails
 @dynamic negative, regionalLocationListId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReplaceNegativeKeywordsRequest
+//
+
+@implementation GTLRDisplayVideo_ReplaceNegativeKeywordsRequest
+@dynamic newNegativeKeywords;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"newNegativeKeywords" : [GTLRDisplayVideo_NegativeKeyword class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReplaceNegativeKeywordsResponse
+//
+
+@implementation GTLRDisplayVideo_ReplaceNegativeKeywordsResponse
+@dynamic negativeKeywords;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"negativeKeywords" : [GTLRDisplayVideo_NegativeKeyword class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReplaceSitesRequest
+//
+
+@implementation GTLRDisplayVideo_ReplaceSitesRequest
+@dynamic advertiserId, newSites, partnerId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"newSites" : [GTLRDisplayVideo_Site class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ReplaceSitesResponse
+//
+
+@implementation GTLRDisplayVideo_ReplaceSitesResponse
+@dynamic sites;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sites" : [GTLRDisplayVideo_Site class]
+  };
+  return map;
+}
+
 @end
 
 

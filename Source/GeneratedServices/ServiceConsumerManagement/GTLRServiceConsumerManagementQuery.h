@@ -63,8 +63,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsCancel : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -105,8 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsDelete : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -138,8 +134,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsGet : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -176,8 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_OperationsList : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -225,8 +217,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesSearch : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesSearchWithparent:]
 
 /**
  *  Optional. The maximum number of results returned by this request. Currently,
@@ -296,8 +286,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAddProject : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAddProjectWithObject:parent:]
 
 /**
  *  Required. Name of the tenancy unit. Such as
@@ -347,8 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsApplyProjectConfig : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsApplyProjectConfigWithObject:name:]
 
 /**
  *  Required. Name of the tenancy unit. Such as
@@ -403,8 +389,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsAttachProject : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsAttachProjectWithObject:name:]
 
 /**
  *  Required. Name of the tenancy unit that the project will be attached to.
@@ -451,8 +435,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsCreate : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsCreateWithObject:parent:]
 
 /**
  *  Required. services/{service}/{collection id}/{resource id} {collection id}
@@ -498,8 +480,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDelete : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsDeleteWithname:]
 
 /** Required. Name of the tenancy unit to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -533,8 +513,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsDeleteProject : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsDeleteProjectWithObject:name:]
 
 /**
  *  Required. Name of the tenancy unit. Such as
@@ -578,8 +556,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsList : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsListWithparent:]
 
 /** Optional. Filter expression over tenancy resources field. Optional. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -644,8 +620,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsRemoveProject : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsRemoveProjectWithObject:name:]
 
 /**
  *  Required. Name of the tenancy unit. Such as
@@ -690,8 +664,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceConsumerManagementCloudPlatform
  */
 @interface GTLRServiceConsumerManagementQuery_ServicesTenancyUnitsUndeleteProject : GTLRServiceConsumerManagementQuery
-// Previous library name was
-//   +[GTLQueryServiceConsumerManagement queryForServicesTenancyUnitsUndeleteProjectWithObject:name:]
 
 /**
  *  Required. Name of the tenancy unit. Such as

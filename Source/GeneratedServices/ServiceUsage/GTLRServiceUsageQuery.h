@@ -62,8 +62,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_OperationsCancel : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -105,8 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_OperationsDelete : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -139,8 +135,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_OperationsGet : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -178,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_OperationsList : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForOperationsList]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -228,8 +220,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_ServicesBatchEnable : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesBatchEnableWithObject:parent:]
 
 /**
  *  Parent to enable services on. An example name would be: `projects/123` where
@@ -269,8 +259,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageCloudPlatformReadOnly
  */
 @interface GTLRServiceUsageQuery_ServicesBatchGet : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesBatchGetWithparent:]
 
 /**
  *  Names of the services to retrieve. An example name would be:
@@ -318,8 +306,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_ServicesDisable : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesDisableWithObject:name:]
 
 /**
  *  Name of the consumer and service to disable the service on. The enable and
@@ -362,8 +348,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageServiceManagement
  */
 @interface GTLRServiceUsageQuery_ServicesEnable : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesEnableWithObject:name:]
 
 /**
  *  Name of the consumer and service to enable the service on. The
@@ -406,8 +390,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageCloudPlatformReadOnly
  */
 @interface GTLRServiceUsageQuery_ServicesGet : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesGetWithname:]
 
 /**
  *  Name of the consumer and service to get the `ConsumerState` for. An example
@@ -451,8 +433,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceUsageCloudPlatformReadOnly
  */
 @interface GTLRServiceUsageQuery_ServicesList : GTLRServiceUsageQuery
-// Previous library name was
-//   +[GTLQueryServiceUsage queryForServicesListWithparent:]
 
 /**
  *  Only list services that conform to the given filter. The allowed filter

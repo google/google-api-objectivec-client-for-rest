@@ -19,6 +19,7 @@
 #endif
 
 @class GTLRSASPortal_Assignment;
+@class GTLRSASPortal_ChannelWithScore;
 @class GTLRSASPortal_Customer;
 @class GTLRSASPortal_Deployment;
 @class GTLRSASPortal_Device;
@@ -273,6 +274,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 
 
 /**
+ *  The channel with score.
+ */
+@interface GTLRSASPortal_ChannelWithScore : GTLRObject
+
+/** The frequency range of the channel. */
+@property(nonatomic, strong, nullable) GTLRSASPortal_FrequencyRange *frequencyRange;
+
+/**
+ *  The channel score, normalized to be in [0,100].
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *score;
+
+@end
+
+
+/**
  *  Request for CreateSignedDevice.
  */
 @interface GTLRSASPortal_CreateSignedDeviceRequest : GTLRObject
@@ -360,6 +379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  Output only. Current configuration of the device as registered to the SAS.
  */
 @property(nonatomic, strong, nullable) GTLRSASPortal_DeviceConfig *activeConfig;
+
+/** Output only. Current channels with scores. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSASPortal_ChannelWithScore *> *currentChannels;
 
 /**
  *  Device parameters that can be overridden by both SAS Portal and SAS

@@ -306,8 +306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesAliasesCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAliasesCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course to alias. This identifier can be either the
@@ -351,8 +349,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesAliasesDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAliasesDeleteWithcourseId:alias:]
 
 /** Alias to delete. This may not be the Classroom-assigned identifier. */
 @property(nonatomic, copy, nullable) NSString *alias;
@@ -398,8 +394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCoursesReadonly
  */
 @interface GTLRClassroomQuery_CoursesAliasesList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAliasesListWithcourseId:]
 
 /**
  *  The identifier of the course. This identifier can be either the
@@ -457,8 +451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncements
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -505,8 +497,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncements
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsDeleteWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -561,8 +551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncementsReadonly
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsGetWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -613,8 +601,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncementsReadonly
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsListWithcourseId:]
 
 /**
  *  Restriction on the `state` of announcements returned. If this argument is
@@ -704,8 +690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncements
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsModifyAssignees : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsModifyAssigneesWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -758,8 +742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomAnnouncements
  */
 @interface GTLRClassroomQuery_CoursesAnnouncementsPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesAnnouncementsPatchWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -831,8 +813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -884,8 +864,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkDeleteWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -942,8 +920,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkGetWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -996,8 +972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkListWithcourseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1088,8 +1062,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkmaterials
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1137,8 +1109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkmaterials
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsDeleteWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1193,8 +1163,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkmaterialsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsGetWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1245,8 +1213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkmaterialsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsListWithcourseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1351,8 +1317,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkmaterials
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkMaterialsPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkMaterialsPatchWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1419,8 +1383,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkModifyAssignees : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkModifyAssigneesWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1479,8 +1441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkPatchWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1557,8 +1517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsGetWithcourseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1620,8 +1578,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomStudentSubmissionsStudentsReadonly
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsListWithcourseId:courseWorkId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1743,8 +1699,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsModifyAttachments : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsModifyAttachmentsWithObject:courseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1813,8 +1767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsPatchWithObject:courseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1895,8 +1847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkMe
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReclaim : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReclaimWithObject:courseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -1969,8 +1919,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkStudents
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsReturn : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsReturnWithObject:courseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2041,8 +1989,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourseworkMe
  */
 @interface GTLRClassroomQuery_CoursesCourseWorkStudentSubmissionsTurnIn : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCourseWorkStudentSubmissionsTurnInWithObject:courseId:courseWorkId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2108,8 +2054,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRClassroom_Course.
@@ -2143,8 +2087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesDeleteWithidentifier:]
 
 /**
  *  Identifier of the course to delete. This identifier can be either the
@@ -2184,8 +2126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCoursesReadonly
  */
 @interface GTLRClassroomQuery_CoursesGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesGetWithidentifier:]
 
 /**
  *  Identifier of the course to return. This identifier can be either the
@@ -2227,8 +2167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCoursesReadonly
  */
 @interface GTLRClassroomQuery_CoursesList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesList]
 
 /**
  *  Restricts returned courses to those in one of the specified states The
@@ -2326,8 +2264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesPatchWithObject:identifier:]
 
 /**
  *  Identifier of the course to update. This identifier can be either the
@@ -2391,8 +2327,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_CoursesStudentsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesStudentsCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course to create the student in. This identifier can be
@@ -2443,8 +2377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_CoursesStudentsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesStudentsDeleteWithcourseId:userId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2496,8 +2428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_CoursesStudentsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesStudentsGetWithcourseId:userId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2548,8 +2478,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_CoursesStudentsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesStudentsListWithcourseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2608,8 +2536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_CoursesTeachersCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTeachersCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2654,8 +2580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_CoursesTeachersDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTeachersDeleteWithcourseId:userId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2709,8 +2633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_CoursesTeachersGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTeachersGetWithcourseId:userId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2761,8 +2683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_CoursesTeachersList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTeachersListWithcourseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2816,8 +2736,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomTopics
  */
 @interface GTLRClassroomQuery_CoursesTopicsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTopicsCreateWithObject:courseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2858,8 +2776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomTopics
  */
 @interface GTLRClassroomQuery_CoursesTopicsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTopicsDeleteWithcourseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -2908,8 +2824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomTopicsReadonly
  */
 @interface GTLRClassroomQuery_CoursesTopicsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTopicsGetWithcourseId:identifier:]
 
 /** Identifier of the course. */
 @property(nonatomic, copy, nullable) NSString *courseId;
@@ -2954,8 +2868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomTopicsReadonly
  */
 @interface GTLRClassroomQuery_CoursesTopicsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTopicsListWithcourseId:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -3012,8 +2924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomTopics
  */
 @interface GTLRClassroomQuery_CoursesTopicsPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesTopicsPatchWithObject:courseId:identifier:]
 
 /**
  *  Identifier of the course. This identifier can be either the
@@ -3076,8 +2986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomCourses
  */
 @interface GTLRClassroomQuery_CoursesUpdate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForCoursesUpdateWithObject:identifier:]
 
 /**
  *  Identifier of the course to update. This identifier can be either the
@@ -3124,8 +3032,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_InvitationsAccept : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForInvitationsAcceptWithidentifier:]
 
 /**
  *  Identifier of the invitation to accept.
@@ -3172,8 +3078,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_InvitationsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForInvitationsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRClassroom_Invitation.
@@ -3208,8 +3112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRosters
  */
 @interface GTLRClassroomQuery_InvitationsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForInvitationsDeleteWithidentifier:]
 
 /**
  *  Identifier of the invitation to delete.
@@ -3247,8 +3149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_InvitationsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForInvitationsGetWithidentifier:]
 
 /**
  *  Identifier of the invitation to return.
@@ -3287,8 +3187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_InvitationsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForInvitationsList]
 
 /**
  *  Restricts returned invitations to those for a course with the specified
@@ -3366,8 +3264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomPushNotifications
  */
 @interface GTLRClassroomQuery_RegistrationsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForRegistrationsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRClassroom_Registration.
@@ -3413,8 +3309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomPushNotifications
  */
 @interface GTLRClassroomQuery_RegistrationsDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForRegistrationsDeleteWithregistrationId:]
 
 /** The `registration_id` of the `Registration` to be deleted. */
 @property(nonatomic, copy, nullable) NSString *registrationId;
@@ -3449,8 +3343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomRostersReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGetWithuserId:]
 
 /**
  *  Identifier of the profile to return. The identifier can be one of the
@@ -3508,8 +3400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsCreate : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardianInvitationsCreateWithObject:studentId:]
 
 /** ID of the student (in standard format) */
 @property(nonatomic, copy, nullable) NSString *studentId;
@@ -3570,8 +3460,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardianInvitationsGetWithstudentId:invitationId:]
 
 /** The `id` field of the `GuardianInvitation` being requested. */
 @property(nonatomic, copy, nullable) NSString *invitationId;
@@ -3626,8 +3514,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardianInvitationsListWithstudentId:]
 
 /**
  *  If specified, only results with the specified `invited_email_address` are
@@ -3728,8 +3614,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardianInvitationsPatch : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardianInvitationsPatchWithObject:studentId:invitationId:]
 
 /** The `id` field of the `GuardianInvitation` to be modified. */
 @property(nonatomic, copy, nullable) NSString *invitationId;
@@ -3799,8 +3683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudents
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansDelete : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardiansDeleteWithstudentId:guardianId:]
 
 /** The `id` field from a `Guardian`. */
 @property(nonatomic, copy, nullable) NSString *guardianId;
@@ -3861,8 +3743,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansGet : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardiansGetWithstudentId:guardianId:]
 
 /** The `id` field from a `Guardian`. */
 @property(nonatomic, copy, nullable) NSString *guardianId;
@@ -3926,8 +3806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *    @c kGTLRAuthScopeClassroomGuardianlinksStudentsReadonly
  */
 @interface GTLRClassroomQuery_UserProfilesGuardiansList : GTLRClassroomQuery
-// Previous library name was
-//   +[GTLQueryClassroom queryForUserProfilesGuardiansListWithstudentId:]
 
 /**
  *  Filter results by the email address that the original invitation was sent

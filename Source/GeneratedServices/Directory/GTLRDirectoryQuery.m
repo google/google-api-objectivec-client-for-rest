@@ -19,60 +19,49 @@
 
 // coordinatesSource
 NSString * const kGTLRDirectoryCoordinatesSourceClientSpecified = @"CLIENT_SPECIFIED";
-NSString * const kGTLRDirectoryCoordinatesSourceCoordinatesSourceUndefined = @"COORDINATES_SOURCE_UNDEFINED";
 NSString * const kGTLRDirectoryCoordinatesSourceResolvedFromAddress = @"RESOLVED_FROM_ADDRESS";
 NSString * const kGTLRDirectoryCoordinatesSourceSourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // event
-NSString * const kGTLRDirectoryEventAdd                  = @"add";
-NSString * const kGTLRDirectoryEventDelete               = @"delete";
-NSString * const kGTLRDirectoryEventEventTypeUnspecified = @"eventTypeUnspecified";
-NSString * const kGTLRDirectoryEventEventUndefined       = @"eventUndefined";
-NSString * const kGTLRDirectoryEventMakeAdmin            = @"makeAdmin";
-NSString * const kGTLRDirectoryEventUndelete             = @"undelete";
-NSString * const kGTLRDirectoryEventUpdate               = @"update";
+NSString * const kGTLRDirectoryEventAdd       = @"add";
+NSString * const kGTLRDirectoryEventDelete    = @"delete";
+NSString * const kGTLRDirectoryEventMakeAdmin = @"makeAdmin";
+NSString * const kGTLRDirectoryEventUndelete  = @"undelete";
+NSString * const kGTLRDirectoryEventUpdate    = @"update";
 
 // orderBy
-NSString * const kGTLRDirectoryOrderByAnnotatedLocation  = @"annotatedLocation";
-NSString * const kGTLRDirectoryOrderByAnnotatedUser      = @"annotatedUser";
-NSString * const kGTLRDirectoryOrderByDeviceId           = @"deviceId";
-NSString * const kGTLRDirectoryOrderByEmail              = @"email";
-NSString * const kGTLRDirectoryOrderByFamilyName         = @"familyName";
-NSString * const kGTLRDirectoryOrderByGivenName          = @"givenName";
-NSString * const kGTLRDirectoryOrderByLastSync           = @"lastSync";
-NSString * const kGTLRDirectoryOrderByModel              = @"model";
-NSString * const kGTLRDirectoryOrderByName               = @"name";
-NSString * const kGTLRDirectoryOrderByNotes              = @"notes";
-NSString * const kGTLRDirectoryOrderByOrderByUndefined   = @"orderByUndefined";
-NSString * const kGTLRDirectoryOrderByOrderByUnspecified = @"orderByUnspecified";
-NSString * const kGTLRDirectoryOrderByOs                 = @"os";
-NSString * const kGTLRDirectoryOrderBySerialNumber       = @"serialNumber";
-NSString * const kGTLRDirectoryOrderByStatus             = @"status";
-NSString * const kGTLRDirectoryOrderBySupportEndDate     = @"supportEndDate";
-NSString * const kGTLRDirectoryOrderByType               = @"type";
+NSString * const kGTLRDirectoryOrderByAnnotatedLocation = @"annotatedLocation";
+NSString * const kGTLRDirectoryOrderByAnnotatedUser     = @"annotatedUser";
+NSString * const kGTLRDirectoryOrderByDeviceId          = @"deviceId";
+NSString * const kGTLRDirectoryOrderByEmail             = @"email";
+NSString * const kGTLRDirectoryOrderByFamilyName        = @"familyName";
+NSString * const kGTLRDirectoryOrderByGivenName         = @"givenName";
+NSString * const kGTLRDirectoryOrderByLastSync          = @"lastSync";
+NSString * const kGTLRDirectoryOrderByModel             = @"model";
+NSString * const kGTLRDirectoryOrderByName              = @"name";
+NSString * const kGTLRDirectoryOrderByNotes             = @"notes";
+NSString * const kGTLRDirectoryOrderByOs                = @"os";
+NSString * const kGTLRDirectoryOrderBySerialNumber      = @"serialNumber";
+NSString * const kGTLRDirectoryOrderByStatus            = @"status";
+NSString * const kGTLRDirectoryOrderBySupportEndDate    = @"supportEndDate";
+NSString * const kGTLRDirectoryOrderByType              = @"type";
 
 // projection
-NSString * const kGTLRDirectoryProjectionBasic                 = @"basic";
-NSString * const kGTLRDirectoryProjectionCustom                = @"custom";
-NSString * const kGTLRDirectoryProjectionFull                  = @"full";
-NSString * const kGTLRDirectoryProjectionProjectionUndefined   = @"PROJECTION_UNDEFINED";
-NSString * const kGTLRDirectoryProjectionProjectionUnspecified = @"projectionUnspecified";
+NSString * const kGTLRDirectoryProjectionBasic  = @"basic";
+NSString * const kGTLRDirectoryProjectionCustom = @"custom";
+NSString * const kGTLRDirectoryProjectionFull   = @"full";
 
 // sortOrder
-NSString * const kGTLRDirectorySortOrderAscending            = @"ASCENDING";
-NSString * const kGTLRDirectorySortOrderDescending           = @"DESCENDING";
-NSString * const kGTLRDirectorySortOrderSortOrderUndefined   = @"SORT_ORDER_UNDEFINED";
-NSString * const kGTLRDirectorySortOrderSortOrderUnspecified = @"sortOrderUnspecified";
+NSString * const kGTLRDirectorySortOrderAscending  = @"ASCENDING";
+NSString * const kGTLRDirectorySortOrderDescending = @"DESCENDING";
 
 // type
-NSString * const kGTLRDirectoryTypeAll           = @"all";
-NSString * const kGTLRDirectoryTypeChildren      = @"children";
-NSString * const kGTLRDirectoryTypeTypeUndefined = @"typeUndefined";
+NSString * const kGTLRDirectoryTypeAll      = @"all";
+NSString * const kGTLRDirectoryTypeChildren = @"children";
 
 // viewType
-NSString * const kGTLRDirectoryViewTypeAdminView         = @"admin_view";
-NSString * const kGTLRDirectoryViewTypeDomainPublic      = @"domain_public";
-NSString * const kGTLRDirectoryViewTypeViewTypeUndefined = @"view_type_undefined";
+NSString * const kGTLRDirectoryViewTypeAdminView    = @"admin_view";
+NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 // ----------------------------------------------------------------------------
 // Query Classes

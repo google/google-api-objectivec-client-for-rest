@@ -51,8 +51,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDocsDocumentsReadonly;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDocsDrive;
 /**
- *  Authorization scope: View and manage Google Drive files and folders that you
- *  have opened or created with this app
+ *  Authorization scope: See, edit, create, and delete only the specific Google
+ *  Drive files you use with this app
  *
  *  Value "https://www.googleapis.com/auth/drive.file"
  */

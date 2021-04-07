@@ -88,8 +88,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoCreate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_Photo.
@@ -127,8 +125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoDelete : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoDeleteWithphotoId:]
 
 /** Required. ID of the Photo. */
 @property(nonatomic, copy, nullable) NSString *photoId;
@@ -162,8 +158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoGet : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoGetWithphotoId:]
 
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -221,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchDelete : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchDeleteWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_BatchDeletePhotosResponse.
@@ -257,8 +249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchGet : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchGet]
 
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". For more
@@ -324,8 +314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosBatchUpdate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosBatchUpdateWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_BatchUpdatePhotosResponse.
@@ -362,8 +350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotosList : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotosList]
 
 /**
  *  Required. The filter expression. For example:
@@ -442,8 +428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoStartUpload : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoStartUploadWithObject:]
 
 /**
  *  Fetches a @c GTLRStreetViewPublish_UploadRef.
@@ -485,8 +469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *    @c kGTLRAuthScopeStreetViewPublish
  */
 @interface GTLRStreetViewPublishQuery_PhotoUpdate : GTLRStreetViewPublishQuery
-// Previous library name was
-//   +[GTLQueryStreetViewPublish queryForPhotoUpdateWithObject:identifier:]
 
 /**
  *  Required. A unique identifier for a photo.

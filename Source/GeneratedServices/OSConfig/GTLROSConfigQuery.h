@@ -43,6 +43,87 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: osconfig.operations.delete
+ */
+@interface GTLROSConfigQuery_OperationsDelete : GTLROSConfigQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLROSConfigQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  Method: osconfig.operations.list
+ */
+@interface GTLROSConfigQuery_OperationsList : GTLROSConfigQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLROSConfig_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
+ *  `name` binding allows API services to override the binding to use different
+ *  resource name schemes, such as `users/ * /operations`. To override the
+ *  binding, API services can add a binding such as `"/v1/{name=users/
+ *  *}/operations"` to their service configuration. For backwards compatibility,
+ *  the default name includes the operations collection id, however overriding
+ *  users must ensure the name binding is the parent resource, without the
+ *  operations collection id.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLROSConfigQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Create an OS Config patch deployment.
  *
  *  Method: osconfig.projects.patchDeployments.create
@@ -51,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchDeploymentsCreate : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchDeploymentsCreateWithObject:parent:]
 
 /**
  *  Required. The project to apply this patch deployment to in the form
@@ -94,8 +173,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchDeploymentsDelete : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchDeploymentsDeleteWithname:]
 
 /**
  *  Required. The resource name of the patch deployment in the form `projects/ *
@@ -126,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchDeploymentsGet : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchDeploymentsGetWithname:]
 
 /**
  *  Required. The resource name of the patch deployment in the form `projects/ *
@@ -158,8 +233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchDeploymentsList : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchDeploymentsListWithparent:]
 
 /**
  *  Optional. The maximum number of patch deployments to return. Default is 100.
@@ -203,8 +276,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchJobsCancel : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchJobsCancelWithObject:name:]
 
 /** Required. Name of the patch in the form `projects/ * /patchJobs/ *` */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -236,8 +307,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchJobsExecute : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchJobsExecuteWithObject:parent:]
 
 /**
  *  Required. The project in which to run this patch in the form `projects/ *`
@@ -271,8 +340,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchJobsGet : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchJobsGetWithname:]
 
 /** Required. Name of the patch in the form `projects/ * /patchJobs/ *` */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -301,8 +368,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchJobsInstanceDetailsList : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchJobsInstanceDetailsListWithparent:]
 
 /**
  *  A filter expression that filters results listed in the response. This field
@@ -355,8 +420,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_ProjectsPatchJobsList : GTLROSConfigQuery
-// Previous library name was
-//   +[GTLQueryOSConfig queryForProjectsPatchJobsListWithparent:]
 
 /**
  *  If provided, this field specifies the criteria that must be met by patch

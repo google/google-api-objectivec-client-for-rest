@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudProfilerMonitoringWrite
  */
 @interface GTLRCloudProfilerQuery_ProjectsProfilesCreate : GTLRCloudProfilerQuery
-// Previous library name was
-//   +[GTLQueryCloudProfiler queryForProjectsProfilesCreateWithObject:parent:]
 
 /** Parent project to create the profile in. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -104,8 +102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudProfilerMonitoringWrite
  */
 @interface GTLRCloudProfilerQuery_ProjectsProfilesCreateOffline : GTLRCloudProfilerQuery
-// Previous library name was
-//   +[GTLQueryCloudProfiler queryForProjectsProfilesCreateOfflineWithObject:parent:]
 
 /** Parent project to create the profile in. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -141,8 +137,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudProfilerMonitoringWrite
  */
 @interface GTLRCloudProfilerQuery_ProjectsProfilesPatch : GTLRCloudProfilerQuery
-// Previous library name was
-//   +[GTLQueryCloudProfiler queryForProjectsProfilesPatchWithObject:name:]
 
 /** Output only. Opaque, server-assigned, unique ID for this profile. */
 @property(nonatomic, copy, nullable) NSString *name;

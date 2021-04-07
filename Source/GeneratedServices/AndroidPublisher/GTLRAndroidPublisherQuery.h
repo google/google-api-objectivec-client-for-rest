@@ -172,8 +172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsApksAddexternallyhosted : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsApksAddexternallyhostedWithObject:packageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -211,8 +209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsApksList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsApksListWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -244,8 +240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsApksUpload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsApksUploadWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -281,8 +275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsBundlesList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsBundlesListWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -319,8 +311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsBundlesUpload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsBundlesUploadWithpackageName:editId:]
 
 /**
  *  Must be set to true if the bundle installation may trigger a warning on user
@@ -367,8 +357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsCommit : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsCommitWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -400,8 +388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsDelete : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsDeleteWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -434,8 +420,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsDeobfuscationfilesUpload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsDeobfuscationfilesUploadWithpackageName:editId:apkVersionCode:deobfuscationFileType:]
 
 /** The version code of the APK whose Deobfuscation File is being uploaded. */
 @property(nonatomic, assign) NSInteger apkVersionCode;
@@ -501,8 +485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsDetailsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsDetailsGetWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -534,8 +516,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsDetailsPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsDetailsPatchWithObject:packageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -570,8 +550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsDetailsUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsDetailsUpdateWithObject:packageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -606,8 +584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsExpansionfilesGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesGetWithpackageName:editId:apkVersionCode:expansionFileType:]
 
 /**
  *  The version code of the APK whose expansion file configuration is being read
@@ -675,8 +651,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsExpansionfilesPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesPatchWithObject:packageName:editId:apkVersionCode:expansionFileType:]
 
 /**
  *  The version code of the APK whose expansion file configuration is being read
@@ -748,8 +722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsExpansionfilesUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesUpdateWithObject:packageName:editId:apkVersionCode:expansionFileType:]
 
 /**
  *  The version code of the APK whose expansion file configuration is being read
@@ -820,8 +792,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsExpansionfilesUpload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsExpansionfilesUploadWithpackageName:editId:apkVersionCode:expansionFileType:]
 
 /**
  *  The version code of the APK whose expansion file configuration is being read
@@ -891,8 +861,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsGetWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -924,8 +892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsImagesDelete : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteWithpackageName:editId:language:imageType:imageId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1021,8 +987,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsImagesDeleteall : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsImagesDeleteallWithpackageName:editId:language:imageType:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1113,8 +1077,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsImagesList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsImagesListWithpackageName:editId:language:imageType:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1204,8 +1166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsImagesUpload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsImagesUploadWithpackageName:editId:language:imageType:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1297,8 +1257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsInsert : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsInsertWithObject:packageName:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -1327,8 +1285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsDelete : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteWithpackageName:editId:language:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1370,8 +1326,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsDeleteall : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsDeleteallWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1404,8 +1358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsGetWithpackageName:editId:language:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1446,8 +1398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsListWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1479,8 +1429,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsPatchWithObject:packageName:editId:language:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1523,8 +1471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsListingsUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsListingsUpdateWithObject:packageName:editId:language:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1567,8 +1513,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTestersGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTestersGetWithpackageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1605,8 +1549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTestersPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTestersPatchWithObject:packageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1645,8 +1587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTestersUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTestersUpdateWithObject:packageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1685,8 +1625,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTracksGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTracksGetWithpackageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1723,8 +1661,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTracksList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTracksListWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1756,8 +1692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTracksPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTracksPatchWithObject:packageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1796,8 +1730,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsTracksUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsTracksUpdateWithObject:packageName:editId:track:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1836,8 +1768,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsValidate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForEditsValidateWithpackageName:editId:]
 
 /** Identifier of the edit. */
 @property(nonatomic, copy, nullable) NSString *editId;
@@ -1869,8 +1799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsDelete : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsDeleteWithpackageName:sku:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -1903,8 +1831,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsGetWithpackageName:sku:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -1936,8 +1862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsInsert : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsInsertWithObject:packageName:]
 
 /**
  *  If true the prices for all regions targeted by the parent app that don't
@@ -1974,8 +1898,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsListWithpackageName:]
 
 /** How many results the list operation should return. */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -2011,8 +1933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsPatch : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsPatchWithObject:packageName:sku:]
 
 /**
  *  If true the prices for all regions targeted by the parent app that don't
@@ -2054,8 +1974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InappproductsUpdate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInappproductsUpdateWithObject:packageName:sku:]
 
 /**
  *  If true the prices for all regions targeted by the parent app that don't
@@ -2102,8 +2020,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadapk : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadapkWithpackageName:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2144,8 +2060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_InternalappsharingartifactsUploadbundle : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForInternalappsharingartifactsUploadbundleWithpackageName:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2180,8 +2094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_OrdersRefund : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForOrdersRefundWithpackageName:orderId:]
 
 /**
  *  The order ID provided to the user when the subscription or in-app order was
@@ -2230,8 +2142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesProductsAcknowledge : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesProductsAcknowledgeWithObject:packageName:productId:token:]
 
 /**
  *  The package name of the application the inapp product was sold in (for
@@ -2281,8 +2191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesProductsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesProductsGetWithpackageName:productId:token:]
 
 /**
  *  The package name of the application the inapp product was sold in (for
@@ -2328,8 +2236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsAcknowledge : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsAcknowledgeWithObject:packageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2380,8 +2286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsCancel : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsCancelWithpackageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2429,8 +2333,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsDefer : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsDeferWithObject:packageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2480,8 +2382,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsGetWithpackageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2528,8 +2428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRefund : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsRefundWithpackageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2577,8 +2475,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsRevoke : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesSubscriptionsRevokeWithpackageName:subscriptionId:token:]
 
 /**
  *  The package name of the application for which this subscription was
@@ -2625,8 +2521,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_PurchasesVoidedpurchasesList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForPurchasesVoidedpurchasesListWithpackageName:]
 
 /**
  *  The time, in milliseconds since the Epoch, of the newest voided purchase
@@ -2708,8 +2602,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_ReviewsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForReviewsGetWithpackageName:reviewId:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2744,8 +2636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_ReviewsList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForReviewsListWithpackageName:]
 
 /** How many results the list operation should return. */
 @property(nonatomic, assign) NSUInteger maxResults;
@@ -2784,8 +2674,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_ReviewsReply : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForReviewsReplyWithObject:packageName:reviewId:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2821,8 +2709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_SystemapksVariantsCreate : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsCreateWithObject:packageName:versionCode:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2858,8 +2744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_SystemapksVariantsDownload : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsDownloadWithpackageName:versionCode:variantId:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2897,8 +2781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_SystemapksVariantsGet : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsGetWithpackageName:versionCode:variantId:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;
@@ -2935,8 +2817,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_SystemapksVariantsList : GTLRAndroidPublisherQuery
-// Previous library name was
-//   +[GTLQueryAndroidPublisher queryForSystemapksVariantsListWithpackageName:versionCode:]
 
 /** Package name of the app. */
 @property(nonatomic, copy, nullable) NSString *packageName;

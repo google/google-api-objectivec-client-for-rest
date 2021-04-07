@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -88,8 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsAttachTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsAttachTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name and location using the
@@ -126,8 +122,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsCreate : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsCreateWithObject:parent:]
 
 /**
  *  Required. The fully qualified domain name. e.g. mydomain.myorganization.com,
@@ -174,8 +168,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsDeleteWithname:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -207,8 +199,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsDetachTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsDetachTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name, and location using the
@@ -245,8 +235,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsGetWithname:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -279,8 +267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -325,8 +311,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsListWithparent:]
 
 /**
  *  Optional. A filter specifying constraints of a list operation. For example,
@@ -389,8 +373,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsPatch : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsPatchWithObject:name:]
 
 /**
  *  Required. The unique name of the domain using the form:
@@ -435,8 +417,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsReconfigureTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsReconfigureTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name and location using the
@@ -473,8 +453,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsResetAdminPassword : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsResetAdminPasswordWithObject:name:]
 
 /**
  *  Required. The domain resource name using the form:
@@ -512,8 +490,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSetIamPolicy : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -556,8 +532,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsTestIamPermissions : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -599,8 +573,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsValidateTrust : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalDomainsValidateTrustWithObject:name:]
 
 /**
  *  Required. The resource domain name, project name, and location using the
@@ -646,8 +618,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsCancel : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -689,8 +659,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsDelete : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -722,8 +690,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -761,8 +727,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalOperationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsGlobalOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -811,19 +775,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
-// Previous library name was
-//   +[GTLQueryManagedServiceforMicrosoftActiveDirectoryConsumerAPI queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

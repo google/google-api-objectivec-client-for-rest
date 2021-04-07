@@ -25,10 +25,12 @@
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadIL4Settings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Labels;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadKMSSettings;
 @class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo;
+@class GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Metadata;
 @class GTLRAssuredworkloads_GoogleLongrunningOperation_Response;
@@ -73,6 +75,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
+/**
  *  Information protection as per DoD IL4 requirements.
  *
  *  Value: "IL4"
@@ -113,6 +127,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampModerate;
 /**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hitrust;
+/**
  *  Information protection as per DoD IL4 requirements.
  *
  *  Value: "IL4"
@@ -146,6 +172,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings.resourceType
+
+/**
+ *  Consumer project.
+ *
+ *  Value: "CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject;
+/**
+ *  Consumer project containing encryption keys.
+ *
+ *  Value: "ENCRYPTION_KEYS_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Unknown resource type.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
@@ -249,6 +297,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings.resourceType
+
+/**
+ *  Consumer project.
+ *
+ *  Value: "CONSUMER_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject;
+/**
+ *  Consumer project containing encryption keys.
+ *
+ *  Value: "ENCRYPTION_KEYS_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Unknown resource type.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified;
+
 /**
  *  Operation metadata to give request details of CreateWorkload.
  */
@@ -268,6 +338,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -324,6 +399,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_UsRegionalAccess
@@ -398,6 +478,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  exist, the workload creation will fail. Always read only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo *> *resources;
+
+/**
+ *  Input only. Resource properties that are used to customize workload
+ *  resources. These properties (such as custom project id) will be used to
+ *  create workload resources if possible. This field is optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings *> *resourceSettings;
 
 @end
 
@@ -510,6 +597,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
+ *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Represent the custom settings for the resources to be created.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  Resource identifier. For a project this represents project_id. If the
+ *  project is already taken, the workload creation will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Indicates the type of resource. This field should be specified to correspond
+ *  the id to the right project type (CONSUMER_PROJECT or
+ *  ENCRYPTION_KEYS_PROJECT)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject
+ *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
+ *        Consumer project containing encryption keys. (Value:
+ *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
@@ -667,6 +784,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo *> *resources;
 
+/**
+ *  Input only. Resource properties that are used to customize workload
+ *  resources. These properties (such as custom project id) will be used to
+ *  create workload resources if possible. This field is optional.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings *> *resourceSettings;
+
 @end
 
 
@@ -726,6 +850,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
+ *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Represent the custom settings for the resources to be created.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  Resource identifier. For a project this represents project_id. If the
+ *  project is already taken, the workload creation will fail.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+/**
+ *  Indicates the type of resource. This field should be specified to correspond
+ *  the id to the right project type (CONSUMER_PROJECT or
+ *  ENCRYPTION_KEYS_PROJECT)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject
+ *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
+ *        Consumer project containing encryption keys. (Value:
+ *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;

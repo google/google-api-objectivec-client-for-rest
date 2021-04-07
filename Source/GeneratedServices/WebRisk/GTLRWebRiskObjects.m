@@ -34,6 +34,13 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_SocialE
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
+// GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata.state
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded = @"SUCCEEDED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse
@@ -176,6 +183,16 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_Unwante
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata
+//
+
+@implementation GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata
+@dynamic createTime, state, updateTime;
 @end
 
 

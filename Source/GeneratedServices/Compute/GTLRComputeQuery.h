@@ -243,8 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AcceleratorTypesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAcceleratorTypesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -339,8 +337,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AcceleratorTypesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAcceleratorTypesGetWithproject:zoneProperty:acceleratorType:]
 
 /** Name of the accelerator type to return. */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
@@ -384,8 +380,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AcceleratorTypesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAcceleratorTypesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -483,8 +477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AddressesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAddressesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -578,8 +570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AddressesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAddressesDeleteWithproject:region:address:]
 
 /** Name of the address resource to delete. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -632,8 +622,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AddressesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAddressesGetWithproject:region:address:]
 
 /** Name of the address resource to return. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -672,8 +660,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AddressesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAddressesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -724,8 +710,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AddressesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAddressesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -818,8 +802,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AutoscalersAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -913,8 +895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AutoscalersDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersDeleteWithproject:zoneProperty:autoscaler:]
 
 /** Name of the autoscaler to delete. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -972,8 +952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AutoscalersGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersGetWithproject:zoneProperty:autoscaler:]
 
 /** Name of the autoscaler to return. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -1017,8 +995,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AutoscalersInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1073,8 +1049,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_AutoscalersList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -1172,8 +1146,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AutoscalersPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersPatchWithObject:project:zoneProperty:]
 
 /** Name of the autoscaler to patch. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -1232,8 +1204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_AutoscalersUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForAutoscalersUpdateWithObject:project:zoneProperty:]
 
 /** Name of the autoscaler to update. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -1290,8 +1260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsAddSignedUrlKey : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsAddSignedUrlKeyWithObject:project:backendBucket:]
 
 /**
  *  Name of the BackendBucket resource to which the Signed URL Key should be
@@ -1344,8 +1312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsDeleteWithproject:backendBucket:]
 
 /** Name of the BackendBucket resource to delete. */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
@@ -1393,8 +1359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsDeleteSignedUrlKey : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsDeleteSignedUrlKeyWithproject:backendBucket:keyName:]
 
 /**
  *  Name of the BackendBucket resource to which the Signed URL Key should be
@@ -1453,8 +1417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendBucketsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsGetWithproject:backendBucket:]
 
 /** Name of the BackendBucket resource to return. */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
@@ -1489,8 +1451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1537,8 +1497,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendBucketsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -1628,8 +1586,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsPatchWithObject:project:backendBucket:]
 
 /** Name of the BackendBucket resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
@@ -1681,8 +1637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendBucketsUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendBucketsUpdateWithObject:project:backendBucket:]
 
 /** Name of the BackendBucket resource to update. */
 @property(nonatomic, copy, nullable) NSString *backendBucket;
@@ -1733,8 +1687,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesAddSignedUrlKey : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesAddSignedUrlKeyWithObject:project:backendService:]
 
 /**
  *  Name of the BackendService resource to which the Signed URL Key should be
@@ -1790,8 +1742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -1886,8 +1836,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesDeleteWithproject:backendService:]
 
 /** Name of the BackendService resource to delete. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -1935,8 +1883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesDeleteSignedUrlKey : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesDeleteSignedUrlKeyWithproject:backendService:keyName:]
 
 /**
  *  Name of the BackendService resource to which the Signed URL Key should be
@@ -1995,8 +1941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesGetWithproject:backendService:]
 
 /** Name of the BackendService resource to return. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -2033,8 +1977,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesGetHealth : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesGetHealthWithObject:project:backendService:]
 
 /**
  *  Name of the BackendService resource to which the queried instance belongs.
@@ -2076,8 +2018,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2125,8 +2065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_BackendServicesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -2217,8 +2155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesPatchWithObject:project:backendService:]
 
 /** Name of the BackendService resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -2271,8 +2207,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesSetSecurityPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesSetSecurityPolicyWithObject:project:backendService:]
 
 /**
  *  Name of the BackendService resource to which the security policy should be
@@ -2328,8 +2262,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_BackendServicesUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForBackendServicesUpdateWithObject:project:backendService:]
 
 /** Name of the BackendService resource to update. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -2380,8 +2312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksAddResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksAddResourcePoliciesWithObject:project:zoneProperty:disk:]
 
 /** The disk name for this request. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -2442,8 +2372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DisksAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -2537,8 +2465,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksCreateSnapshot : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksCreateSnapshotWithObject:project:zoneProperty:disk:]
 
 /** Name of the persistent disk to snapshot. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -2606,8 +2532,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksDeleteWithproject:zoneProperty:disk:]
 
 /** Name of the persistent disk to delete. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -2668,8 +2592,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DisksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksGetWithproject:zoneProperty:disk:]
 
 /** Name of the persistent disk to return. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -2714,8 +2636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DisksGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksGetIamPolicyWithproject:zoneProperty:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -2765,8 +2685,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -2827,8 +2745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DisksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -2924,8 +2840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksRemoveResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksRemoveResourcePoliciesWithObject:project:zoneProperty:disk:]
 
 /** The disk name for this request. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -2985,8 +2899,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksResize : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksResizeWithObject:project:zoneProperty:disk:]
 
 /** The name of the persistent disk. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -3046,8 +2958,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksSetIamPolicyWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3094,8 +3004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_DisksSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksSetLabelsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3156,8 +3064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DisksTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDisksTestIamPermissionsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3203,8 +3109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DiskTypesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDiskTypesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -3300,8 +3204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DiskTypesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDiskTypesGetWithproject:zoneProperty:diskType:]
 
 /** Name of the disk type to return. */
 @property(nonatomic, copy, nullable) NSString *diskType;
@@ -3345,8 +3247,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_DiskTypesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForDiskTypesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -3442,8 +3342,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysDeleteWithproject:externalVpnGateway:]
 
 /** Name of the externalVpnGateways to delete. */
 @property(nonatomic, copy, nullable) NSString *externalVpnGateway;
@@ -3492,8 +3390,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysGetWithproject:externalVpnGateway:]
 
 /** Name of the externalVpnGateway to return. */
 @property(nonatomic, copy, nullable) NSString *externalVpnGateway;
@@ -3528,8 +3424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3575,8 +3469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -3664,8 +3556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysSetLabelsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3703,8 +3593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ExternalVpnGatewaysTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForExternalVpnGatewaysTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3740,8 +3628,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesAddAssociation : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesAddAssociationWithObject:firewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3793,8 +3679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesAddRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesAddRuleWithObject:firewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3838,8 +3722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesCloneRules : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesCloneRulesWithfirewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3884,8 +3766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesDeleteWithfirewallPolicy:]
 
 /** Name of the firewall policy to delete. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3928,8 +3808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesGetWithfirewallPolicy:]
 
 /** Name of the firewall policy to get. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3958,8 +3836,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesGetAssociation : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesGetAssociationWithfirewallPolicy:]
 
 /** Name of the firewall policy to which the queried rule belongs. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -3993,8 +3869,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesGetIamPolicyWithresource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -4027,8 +3901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesGetRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesGetRuleWithfirewallPolicy:]
 
 /** Name of the firewall policy to which the queried rule belongs. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4061,8 +3933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesInsertWithObject:]
 
 /**
  *  Parent ID for this request. The ID can be either be "folders/[FOLDER_ID]" if
@@ -4110,8 +3980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesList]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -4196,8 +4064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesListAssociations : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesListAssociations]
 
 /**
  *  The target resource to list associations. It is an organization, or a
@@ -4226,8 +4092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesMove : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesMoveWithfirewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4272,8 +4136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesPatchWithObject:firewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4317,8 +4179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesPatchRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesPatchRuleWithObject:firewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4365,8 +4225,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesRemoveAssociation : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesRemoveAssociationWithfirewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4411,8 +4269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesRemoveRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesRemoveRuleWithfirewallPolicy:]
 
 /** Name of the firewall policy to update. */
 @property(nonatomic, copy, nullable) NSString *firewallPolicy;
@@ -4458,8 +4314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallPoliciesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesSetIamPolicyWithObject:resource:]
 
 /** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -4492,8 +4346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallPoliciesTestIamPermissionsWithObject:resource:]
 
 /** Name or id of the resource for this request. */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -4524,8 +4376,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsDeleteWithproject:firewall:]
 
 /** Name of the firewall rule to delete. */
 @property(nonatomic, copy, nullable) NSString *firewall;
@@ -4573,8 +4423,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsGetWithproject:firewall:]
 
 /** Name of the firewall rule to return. */
 @property(nonatomic, copy, nullable) NSString *firewall;
@@ -4608,8 +4456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -4655,8 +4501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -4745,8 +4589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsPatchWithObject:project:firewall:]
 
 /** Name of the firewall rule to patch. */
 @property(nonatomic, copy, nullable) NSString *firewall;
@@ -4799,8 +4641,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_FirewallsUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForFirewallsUpdateWithObject:project:firewall:]
 
 /** Name of the firewall rule to update. */
 @property(nonatomic, copy, nullable) NSString *firewall;
@@ -4852,8 +4692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ForwardingRulesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -4947,8 +4785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ForwardingRulesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesDeleteWithproject:region:forwardingRule:]
 
 /** Name of the ForwardingRule resource to delete. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5001,8 +4837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ForwardingRulesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesGetWithproject:region:forwardingRule:]
 
 /** Name of the ForwardingRule resource to return. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5041,8 +4875,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ForwardingRulesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5094,8 +4926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ForwardingRulesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -5190,8 +5020,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ForwardingRulesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesPatchWithObject:project:region:forwardingRule:]
 
 /** Name of the ForwardingRule resource to patch. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5248,8 +5076,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ForwardingRulesSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesSetLabelsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5306,8 +5132,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ForwardingRulesSetTarget : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForForwardingRulesSetTargetWithObject:project:region:forwardingRule:]
 
 /** Name of the ForwardingRule resource in which target is to be set. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5363,8 +5187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalAddressesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalAddressesDeleteWithproject:address:]
 
 /** Name of the address resource to delete. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -5413,8 +5235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalAddressesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalAddressesGetWithproject:address:]
 
 /** Name of the address resource to return. */
 @property(nonatomic, copy, nullable) NSString *address;
@@ -5449,8 +5269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalAddressesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalAddressesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5496,8 +5314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalAddressesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalAddressesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -5584,8 +5400,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesDeleteWithproject:forwardingRule:]
 
 /** Name of the ForwardingRule resource to delete. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5634,8 +5448,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesGetWithproject:forwardingRule:]
 
 /** Name of the ForwardingRule resource to return. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5670,8 +5482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5718,8 +5528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -5809,8 +5617,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesPatchWithObject:project:forwardingRule:]
 
 /** Name of the ForwardingRule resource to patch. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5862,8 +5668,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesSetLabelsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -5901,8 +5705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalForwardingRulesSetTarget : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalForwardingRulesSetTargetWithObject:project:forwardingRule:]
 
 /** Name of the ForwardingRule resource in which target is to be set. */
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
@@ -5953,8 +5755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsAttachNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsAttachNetworkEndpointsWithObject:project:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group where you are attaching network
@@ -6010,8 +5810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsDeleteWithproject:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group to delete. It should comply with
@@ -6063,8 +5861,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsDetachNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsDetachNetworkEndpointsWithObject:project:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group where you are removing network
@@ -6121,8 +5917,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsGetWithproject:networkEndpointGroup:]
 
 /** The name of the network endpoint group. It should comply with RFC1035. */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
@@ -6158,8 +5952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -6207,8 +5999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -6297,8 +6087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalNetworkEndpointGroupsListNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalNetworkEndpointGroupsListNetworkEndpointsWithproject:networkEndpointGroup:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -6396,8 +6184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOperationsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOperationsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -6491,8 +6277,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalOperationsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOperationsDeleteWithproject:operation:]
 
 /** Name of the Operations resource to delete. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -6528,8 +6312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOperationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOperationsGetWithproject:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -6565,8 +6347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOperationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOperationsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -6665,8 +6445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOperationsWait : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOperationsWaitWithproject:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -6709,8 +6487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOrganizationOperationsDeleteWithoperation:]
 
 /** Name of the Operations resource to delete. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -6744,8 +6520,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOrganizationOperationsGetWithoperation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -6779,8 +6553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalOrganizationOperationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalOrganizationOperationsList]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -6866,8 +6638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesDeleteWithproject:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -6916,8 +6686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesGetWithproject:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -6952,8 +6720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -7000,8 +6766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -7090,8 +6854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_GlobalPublicDelegatedPrefixesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForGlobalPublicDelegatedPrefixesPatchWithObject:project:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -7146,8 +6908,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HealthChecksAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -7242,8 +7002,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HealthChecksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksDeleteWithproject:healthCheck:]
 
 /** Name of the HealthCheck resource to delete. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -7292,8 +7050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HealthChecksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksGetWithproject:healthCheck:]
 
 /** Name of the HealthCheck resource to return. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -7328,8 +7084,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HealthChecksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -7376,8 +7130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HealthChecksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -7467,8 +7219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HealthChecksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksPatchWithObject:project:healthCheck:]
 
 /** Name of the HealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -7520,8 +7270,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HealthChecksUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHealthChecksUpdateWithObject:project:healthCheck:]
 
 /** Name of the HealthCheck resource to update. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -7571,8 +7319,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpHealthChecksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksDeleteWithproject:httpHealthCheck:]
 
 /** Name of the HttpHealthCheck resource to delete. */
 @property(nonatomic, copy, nullable) NSString *httpHealthCheck;
@@ -7621,8 +7367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpHealthChecksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksGetWithproject:httpHealthCheck:]
 
 /** Name of the HttpHealthCheck resource to return. */
 @property(nonatomic, copy, nullable) NSString *httpHealthCheck;
@@ -7657,8 +7401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpHealthChecksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -7705,8 +7447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpHealthChecksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -7796,8 +7536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpHealthChecksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksPatchWithObject:project:httpHealthCheck:]
 
 /** Name of the HttpHealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *httpHealthCheck;
@@ -7849,8 +7587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpHealthChecksUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpHealthChecksUpdateWithObject:project:httpHealthCheck:]
 
 /** Name of the HttpHealthCheck resource to update. */
 @property(nonatomic, copy, nullable) NSString *httpHealthCheck;
@@ -7900,8 +7636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpsHealthChecksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksDeleteWithproject:httpsHealthCheck:]
 
 /** Name of the HttpsHealthCheck resource to delete. */
 @property(nonatomic, copy, nullable) NSString *httpsHealthCheck;
@@ -7950,8 +7684,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpsHealthChecksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksGetWithproject:httpsHealthCheck:]
 
 /** Name of the HttpsHealthCheck resource to return. */
 @property(nonatomic, copy, nullable) NSString *httpsHealthCheck;
@@ -7986,8 +7718,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpsHealthChecksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -8034,8 +7764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_HttpsHealthChecksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -8125,8 +7853,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpsHealthChecksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksPatchWithObject:project:httpsHealthCheck:]
 
 /** Name of the HttpsHealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *httpsHealthCheck;
@@ -8178,8 +7904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_HttpsHealthChecksUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForHttpsHealthChecksUpdateWithObject:project:httpsHealthCheck:]
 
 /** Name of the HttpsHealthCheck resource to update. */
 @property(nonatomic, copy, nullable) NSString *httpsHealthCheck;
@@ -8229,8 +7953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ImagesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesDeleteWithproject:image:]
 
 /** Name of the image resource to delete. */
 @property(nonatomic, copy, nullable) NSString *image;
@@ -8278,8 +8000,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ImagesDeprecate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesDeprecateWithObject:project:image:]
 
 /** Image name. */
 @property(nonatomic, copy, nullable) NSString *image;
@@ -8331,8 +8051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ImagesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesGetWithproject:image:]
 
 /** Name of the image resource to return. */
 @property(nonatomic, copy, nullable) NSString *image;
@@ -8368,8 +8086,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ImagesGetFromFamily : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesGetFromFamilyWithproject:family:]
 
 /** Name of the image family to search for. */
 @property(nonatomic, copy, nullable) NSString *family;
@@ -8405,8 +8121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ImagesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -8447,8 +8161,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeDevstorageReadWrite
  */
 @interface GTLRComputeQuery_ImagesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesInsertWithObject:project:]
 
 /** Force image creation if true. */
 @property(nonatomic, assign) BOOL forceCreate;
@@ -8502,8 +8214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ImagesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -8596,8 +8306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ImagesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesPatchWithObject:project:image:]
 
 /** Name of the image resource to patch. */
 @property(nonatomic, copy, nullable) NSString *image;
@@ -8648,8 +8356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ImagesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -8687,8 +8393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ImagesSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesSetLabelsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -8726,8 +8430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ImagesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForImagesTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -8774,8 +8476,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersAbandonInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersAbandonInstancesWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -8848,8 +8548,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -8944,8 +8642,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersApplyUpdatesToInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersApplyUpdatesToInstancesWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group, should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -8999,8 +8695,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersCreateInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersCreateInstancesWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9068,8 +8762,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersDeleteWithproject:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group to delete. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9139,8 +8831,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersDeleteInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersDeleteInstancesWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9210,8 +8900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersDeletePerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersDeletePerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9262,8 +8950,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersGetWithproject:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9314,8 +9000,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -9379,8 +9063,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -9480,8 +9162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersListErrors : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersListErrorsWithproject:zoneProperty:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -9598,8 +9278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersListManagedInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersListManagedInstancesWithproject:zoneProperty:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -9708,8 +9386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupManagersListPerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersListPerInstanceConfigsWithproject:zoneProperty:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -9819,8 +9495,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersPatchWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the instance group manager. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9887,8 +9561,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersPatchPerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersPatchPerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9944,12 +9616,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Flags the specified instances in the managed instance group to be
- *  immediately recreated. The instances are deleted and recreated using the
- *  current instance template for the managed instance group. This operation is
- *  marked as DONE when the flag is set even if the instances have not yet been
- *  recreated. You must separately verify the status of the recreating action
- *  with the listmanagedinstances method.
+ *  Flags the specified VM instances in the managed instance group to be
+ *  immediately recreated. Each instance is recreated using the group's current
+ *  configuration. This operation is marked as DONE when the flag is set even if
+ *  the instances have not yet been recreated. You must separately verify the
+ *  status of each instance by checking its currentAction field; for more
+ *  information, see Checking the status of managed instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -9962,8 +9634,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersRecreateInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersRecreateInstancesWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -9995,12 +9665,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Flags the specified instances in the managed instance group to be
- *  immediately recreated. The instances are deleted and recreated using the
- *  current instance template for the managed instance group. This operation is
- *  marked as DONE when the flag is set even if the instances have not yet been
- *  recreated. You must separately verify the status of the recreating action
- *  with the listmanagedinstances method.
+ *  Flags the specified VM instances in the managed instance group to be
+ *  immediately recreated. Each instance is recreated using the group's current
+ *  configuration. This operation is marked as DONE when the flag is set even if
+ *  the instances have not yet been recreated. You must separately verify the
+ *  status of each instance by checking its currentAction field; for more
+ *  information, see Checking the status of managed instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -10048,8 +9718,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersResize : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersResizeWithproject:zoneProperty:instanceGroupManager:size:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -10135,8 +9803,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersSetInstanceTemplate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersSetInstanceTemplateWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -10205,8 +9871,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersSetTargetPools : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersSetTargetPoolsWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -10273,8 +9937,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupManagersUpdatePerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupManagersUpdatePerInstanceConfigsWithObject:project:zoneProperty:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -10341,8 +10003,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupsAddInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsAddInstancesWithObject:project:zoneProperty:instanceGroup:]
 
 /** The name of the instance group where you are adding instances. */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
@@ -10406,8 +10066,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -10503,8 +10161,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsDeleteWithproject:zoneProperty:instanceGroup:]
 
 /** The name of the instance group to delete. */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
@@ -10567,8 +10223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsGetWithproject:zoneProperty:instanceGroup:]
 
 /** The name of the instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
@@ -10615,8 +10269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -10675,8 +10327,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -10778,8 +10428,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceGroupsListInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsListInstancesWithObject:project:zoneProperty:instanceGroup:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -10893,8 +10541,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupsRemoveInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsRemoveInstancesWithObject:project:zoneProperty:instanceGroup:]
 
 /**
  *  The name of the instance group where the specified instances will be
@@ -10962,8 +10608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceGroupsSetNamedPorts : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceGroupsSetNamedPortsWithObject:project:zoneProperty:instanceGroup:]
 
 /** The name of the instance group where the named ports are updated. */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
@@ -11024,8 +10668,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesAddAccessConfig : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesAddAccessConfigWithObject:project:zoneProperty:instance:networkInterface:]
 
 /** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11091,8 +10733,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesAddResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesAddResourcePoliciesWithObject:project:zoneProperty:instance:]
 
 /** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11155,8 +10795,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -11254,8 +10892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesAttachDisk : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesAttachDiskWithObject:project:zoneProperty:instance:]
 
 /**
  *  Whether to force attach the regional disk even if it's currently attached to
@@ -11324,8 +10960,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesBulkInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesBulkInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -11371,8 +11005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Deletes the specified Instance resource. For more information, see Stopping
- *  or Deleting an Instance.
+ *  Deletes the specified Instance resource. For more information, see Deleting
+ *  an instance.
  *
  *  Method: compute.instances.delete
  *
@@ -11381,8 +11015,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesDeleteWithproject:zoneProperty:instance:]
 
 /** Name of the instance resource to delete. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11414,8 +11046,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified Instance resource. For more information, see Stopping
- *  or Deleting an Instance.
+ *  Deletes the specified Instance resource. For more information, see Deleting
+ *  an instance.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone for this request.
@@ -11439,8 +11071,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesDeleteAccessConfig : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesDeleteAccessConfigWithproject:zoneProperty:instance:accessConfig:networkInterface:]
 
 /** The name of the access config to delete. */
 @property(nonatomic, copy, nullable) NSString *accessConfig;
@@ -11506,8 +11136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesDetachDisk : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesDetachDiskWithproject:zoneProperty:instance:deviceName:]
 
 /**
  *  The device name of the disk to detach. Make a get() request on the instance
@@ -11574,8 +11202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetWithproject:zoneProperty:instance:]
 
 /** Name of the instance resource to return. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11619,8 +11245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetEffectiveFirewalls : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetEffectiveFirewallsWithproject:zoneProperty:instance:networkInterface:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11669,8 +11293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetGuestAttributes : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetGuestAttributesWithproject:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11720,8 +11342,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetIamPolicyWithproject:zoneProperty:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -11768,8 +11388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetScreenshot : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetScreenshotWithproject:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11812,8 +11430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetSerialPortOutput : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetSerialPortOutputWithproject:zoneProperty:instance:]
 
 /** Name of the instance for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11881,8 +11497,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesGetShieldedInstanceIdentity : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesGetShieldedInstanceIdentityWithproject:zoneProperty:instance:]
 
 /** Name or id of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -11925,8 +11539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -11992,8 +11604,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -12093,8 +11703,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesListReferrers : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesListReferrersWithproject:zoneProperty:instance:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -12202,8 +11810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesRemoveResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesRemoveResourcePoliciesWithObject:project:zoneProperty:instance:]
 
 /** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12263,8 +11869,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesReset : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesResetWithproject:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12321,8 +11925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetDeletionProtection : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetDeletionProtectionWithproject:zoneProperty:resource:]
 
 /**
  *  Whether the resource should be protected against deletion.
@@ -12385,8 +11987,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetDiskAutoDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetDiskAutoDeleteWithproject:zoneProperty:instance:autoDelete:deviceName:]
 
 /** Whether to auto-delete the disk when the instance is deleted. */
 @property(nonatomic, assign) BOOL autoDelete;
@@ -12458,8 +12058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetIamPolicyWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -12506,8 +12104,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetLabelsWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12568,8 +12164,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetMachineResources : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetMachineResourcesWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12630,8 +12224,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetMachineType : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetMachineTypeWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12692,8 +12284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetMetadata : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetMetadataWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12754,8 +12344,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetMinCpuPlatform : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetMinCpuPlatformWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12819,8 +12407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetScheduling : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetSchedulingWithObject:project:zoneProperty:instance:]
 
 /** Instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12882,8 +12468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetServiceAccount : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetServiceAccountWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance resource to start. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -12945,8 +12529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetShieldedInstanceIntegrityPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetShieldedInstanceIntegrityPolicyWithObject:project:zoneProperty:instance:]
 
 /** Name or id of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13008,8 +12590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSetTags : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSetTagsWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13068,8 +12648,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesSimulateMaintenanceEvent : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesSimulateMaintenanceEventWithproject:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13112,8 +12690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesStart : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesStartWithproject:zoneProperty:instance:]
 
 /** Name of the instance resource to start. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13171,8 +12747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesStartWithEncryptionKey : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesStartWithEncryptionKeyWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance resource to start. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13237,8 +12811,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesStop : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesStopWithproject:zoneProperty:instance:]
 
 /** Name of the instance resource to stop. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13300,8 +12872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstancesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesTestIamPermissionsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -13348,8 +12918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesUpdateWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance resource to update. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13438,8 +13006,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesUpdateAccessConfig : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesUpdateAccessConfigWithObject:project:zoneProperty:instance:networkInterface:]
 
 /** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13507,8 +13073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesUpdateDisplayDevice : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesUpdateDisplayDeviceWithObject:project:zoneProperty:instance:]
 
 /** Name of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13572,8 +13136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesUpdateNetworkInterface : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesUpdateNetworkInterfaceWithObject:project:zoneProperty:instance:networkInterface:]
 
 /** The instance name for this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13642,8 +13204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstancesUpdateShieldedInstanceConfig : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstancesUpdateShieldedInstanceConfigWithObject:project:zoneProperty:instance:]
 
 /** Name or id of the instance scoping this request. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -13706,8 +13266,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceTemplatesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesDeleteWithproject:instanceTemplate:]
 
 /** The name of the instance template to delete. */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
@@ -13758,8 +13316,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceTemplatesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesGetWithproject:instanceTemplate:]
 
 /** The name of the instance template. */
 @property(nonatomic, copy, nullable) NSString *instanceTemplate;
@@ -13795,8 +13351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceTemplatesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -13836,8 +13390,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceTemplatesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -13886,8 +13438,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceTemplatesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -13976,8 +13526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InstanceTemplatesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14015,8 +13563,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InstanceTemplatesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInstanceTemplatesTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14053,8 +13599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -14148,8 +13692,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsDeleteWithproject:region:interconnectAttachment:]
 
 /** Name of the interconnect attachment to delete. */
 @property(nonatomic, copy, nullable) NSString *interconnectAttachment;
@@ -14202,8 +13744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsGetWithproject:region:interconnectAttachment:]
 
 /** Name of the interconnect attachment to return. */
 @property(nonatomic, copy, nullable) NSString *interconnectAttachment;
@@ -14242,8 +13782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14299,8 +13837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -14395,8 +13931,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectAttachmentsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectAttachmentsPatchWithObject:project:region:interconnectAttachment:]
 
 /** Name of the interconnect attachment to patch. */
 @property(nonatomic, copy, nullable) NSString *interconnectAttachment;
@@ -14455,8 +13989,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectLocationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectLocationsGetWithproject:interconnectLocation:]
 
 /** Name of the interconnect location to return. */
 @property(nonatomic, copy, nullable) NSString *interconnectLocation;
@@ -14492,8 +14024,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectLocationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectLocationsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -14581,8 +14111,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsDeleteWithproject:interconnect:]
 
 /** Name of the interconnect to delete. */
 @property(nonatomic, copy, nullable) NSString *interconnect;
@@ -14631,8 +14159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsGetWithproject:interconnect:]
 
 /** Name of the interconnect to return. */
 @property(nonatomic, copy, nullable) NSString *interconnect;
@@ -14667,8 +14193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectsGetDiagnostics : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsGetDiagnosticsWithproject:interconnect:]
 
 /** Name of the interconnect resource to query. */
 @property(nonatomic, copy, nullable) NSString *interconnect;
@@ -14702,8 +14226,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14749,8 +14271,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_InterconnectsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -14839,8 +14359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_InterconnectsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForInterconnectsPatchWithObject:project:interconnect:]
 
 /** Name of the interconnect to update. */
 @property(nonatomic, copy, nullable) NSString *interconnect;
@@ -14895,8 +14413,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicenseCodesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicenseCodesGetWithproject:licenseCode:]
 
 /** Number corresponding to the License code resource to return. */
 @property(nonatomic, copy, nullable) NSString *licenseCode;
@@ -14936,8 +14452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicenseCodesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicenseCodesTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -14976,8 +14490,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_LicensesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesDeleteWithproject:license:]
 
 /** Name of the license resource to delete. */
 @property(nonatomic, copy, nullable) NSString *license;
@@ -15028,8 +14540,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicensesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesGetWithproject:license:]
 
 /** Name of the License resource to return. */
 @property(nonatomic, copy, nullable) NSString *license;
@@ -15067,8 +14577,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicensesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -15111,8 +14619,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeDevstorageReadWrite
  */
 @interface GTLRComputeQuery_LicensesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -15165,8 +14671,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicensesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -15261,8 +14765,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_LicensesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -15303,8 +14805,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_LicensesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForLicensesTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -15343,8 +14843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_MachineTypesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForMachineTypesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -15440,8 +14938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_MachineTypesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForMachineTypesGetWithproject:zoneProperty:machineType:]
 
 /** Name of the machine type to return. */
 @property(nonatomic, copy, nullable) NSString *machineType;
@@ -15485,8 +14981,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_MachineTypesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForMachineTypesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -15583,8 +15077,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -15678,8 +15170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsAttachNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsAttachNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group where you are attaching network
@@ -15747,8 +15237,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsDeleteWithproject:zoneProperty:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group to delete. It should comply with
@@ -15814,8 +15302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsDetachNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsDetachNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group where you are removing network
@@ -15883,8 +15369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsGetWithproject:zoneProperty:networkEndpointGroup:]
 
 /** The name of the network endpoint group. It should comply with RFC1035. */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
@@ -15931,8 +15415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -15991,8 +15473,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -16092,8 +15572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsListNetworkEndpoints : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsListNetworkEndpointsWithObject:project:zoneProperty:networkEndpointGroup:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -16205,8 +15683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworkEndpointGroupsTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworkEndpointGroupsTestIamPermissionsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -16251,8 +15727,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksAddPeering : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksAddPeeringWithObject:project:network:]
 
 /** Name of the network resource to add peering to. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16302,8 +15776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksDeleteWithproject:network:]
 
 /** Name of the network to delete. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16352,8 +15824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksGetWithproject:network:]
 
 /** Name of the network to return. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16388,8 +15858,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworksGetEffectiveFirewalls : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksGetEffectiveFirewallsWithproject:network:]
 
 /** Name of the network for this request. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16423,8 +15891,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -16470,8 +15936,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -16559,8 +16023,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NetworksListPeeringRoutes : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksListPeeringRoutesWithproject:network:]
 
 /**
  *  The direction of the exchanged routes.
@@ -16673,8 +16135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksPatchWithObject:project:network:]
 
 /** Name of the network to update. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16724,8 +16184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksRemovePeering : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksRemovePeeringWithObject:project:network:]
 
 /** Name of the network resource to remove peering from. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16775,8 +16233,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksSwitchToCustomMode : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksSwitchToCustomModeWithproject:network:]
 
 /** Name of the network to be updated. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16825,8 +16281,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NetworksUpdatePeering : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNetworksUpdatePeeringWithObject:project:network:]
 
 /** Name of the network resource which the updated peering is belonging to. */
 @property(nonatomic, copy, nullable) NSString *network;
@@ -16879,8 +16333,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsAddNodes : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsAddNodesWithObject:project:zoneProperty:nodeGroup:]
 
 /** Name of the NodeGroup resource. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -16941,8 +16393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -17037,8 +16487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsDeleteWithproject:zoneProperty:nodeGroup:]
 
 /** Name of the NodeGroup resource to delete. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -17094,8 +16542,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsDeleteNodes : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsDeleteNodesWithObject:project:zoneProperty:nodeGroup:]
 
 /** Name of the NodeGroup resource whose nodes will be deleted. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -17157,8 +16603,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsGetWithproject:zoneProperty:nodeGroup:]
 
 /** Name of the node group to return. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -17204,8 +16648,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsGetIamPolicyWithproject:zoneProperty:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -17252,8 +16694,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsInsertWithObject:project:zoneProperty:initialNodeCount:]
 
 /** Initial count of nodes in the node group. */
 @property(nonatomic, assign) NSInteger initialNodeCount;
@@ -17314,8 +16754,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -17413,8 +16851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsListNodes : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsListNodesWithproject:zoneProperty:nodeGroup:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -17516,8 +16952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsPatchWithObject:project:zoneProperty:nodeGroup:]
 
 /** Name of the NodeGroup resource to update. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -17576,8 +17010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsSetIamPolicyWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -17623,8 +17055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeGroupsSetNodeTemplate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsSetNodeTemplateWithObject:project:zoneProperty:nodeGroup:]
 
 /** Name of the NodeGroup resource to update. */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
@@ -17684,8 +17114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeGroupsTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeGroupsTestIamPermissionsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -17731,8 +17159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTemplatesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -17826,8 +17252,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeTemplatesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesDeleteWithproject:region:nodeTemplate:]
 
 /** Name of the NodeTemplate resource to delete. */
 @property(nonatomic, copy, nullable) NSString *nodeTemplate;
@@ -17881,8 +17305,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTemplatesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesGetWithproject:region:nodeTemplate:]
 
 /** Name of the node template to return. */
 @property(nonatomic, copy, nullable) NSString *nodeTemplate;
@@ -17923,8 +17345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTemplatesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesGetIamPolicyWithproject:region:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -17967,8 +17387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeTemplatesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18019,8 +17437,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTemplatesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -18113,8 +17529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_NodeTemplatesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesSetIamPolicyWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18157,8 +17571,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTemplatesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTemplatesTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18200,8 +17612,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTypesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTypesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -18297,8 +17707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTypesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTypesGetWithproject:zoneProperty:nodeType:]
 
 /** Name of the node type to return. */
 @property(nonatomic, copy, nullable) NSString *nodeType;
@@ -18342,8 +17750,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_NodeTypesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForNodeTypesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -18440,8 +17846,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PacketMirroringsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -18535,8 +17939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PacketMirroringsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsDeleteWithproject:region:packetMirroring:]
 
 /** Name of the PacketMirroring resource to delete. */
 @property(nonatomic, copy, nullable) NSString *packetMirroring;
@@ -18589,8 +17991,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PacketMirroringsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsGetWithproject:region:packetMirroring:]
 
 /** Name of the PacketMirroring resource to return. */
 @property(nonatomic, copy, nullable) NSString *packetMirroring;
@@ -18629,8 +18029,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PacketMirroringsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18682,8 +18080,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PacketMirroringsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -18778,8 +18174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PacketMirroringsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsPatchWithObject:project:region:packetMirroring:]
 
 /** Name of the PacketMirroring resource to patch. */
 @property(nonatomic, copy, nullable) NSString *packetMirroring;
@@ -18836,8 +18230,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PacketMirroringsTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPacketMirroringsTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18878,8 +18270,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsDisableXpnHost : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsDisableXpnHostWithproject:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18922,8 +18312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsDisableXpnResource : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsDisableXpnResourceWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -18969,8 +18357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsEnableXpnHost : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsEnableXpnHostWithproject:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19013,8 +18399,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsEnableXpnResource : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsEnableXpnResourceWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19061,8 +18445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ProjectsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsGetWithproject:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19091,8 +18473,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsGetXpnHost : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsGetXpnHostWithproject:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19122,8 +18502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsGetXpnResources : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsGetXpnResourcesWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -19211,8 +18589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsListXpnHosts : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsListXpnHostsWithObject:project:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -19302,8 +18678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsMoveDisk : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsMoveDiskWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19348,8 +18722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsMoveInstance : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsMoveInstanceWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19396,8 +18768,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsSetCommonInstanceMetadata : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsSetCommonInstanceMetadataWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19444,8 +18814,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ProjectsSetDefaultNetworkTier : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsSetDefaultNetworkTierWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19497,8 +18865,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeDevstorageReadWrite
  */
 @interface GTLRComputeQuery_ProjectsSetUsageExportBucket : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForProjectsSetUsageExportBucketWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19545,8 +18911,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicAdvertisedPrefixesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesDeleteWithproject:publicAdvertisedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19595,8 +18959,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PublicAdvertisedPrefixesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesGetWithproject:publicAdvertisedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19631,8 +18993,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicAdvertisedPrefixesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19679,8 +19039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PublicAdvertisedPrefixesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -19769,8 +19127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicAdvertisedPrefixesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicAdvertisedPrefixesPatchWithObject:project:publicAdvertisedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19825,8 +19181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -19921,8 +19275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesDeleteWithproject:region:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -19976,8 +19328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesGetWithproject:region:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -20017,8 +19367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -20070,8 +19418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -20165,8 +19511,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_PublicDelegatedPrefixesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForPublicDelegatedPrefixesPatchWithObject:project:region:publicDelegatedPrefix:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -20224,8 +19568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionAutoscalersDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersDeleteWithproject:region:autoscaler:]
 
 /** Name of the autoscaler to delete. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -20278,8 +19620,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionAutoscalersGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersGetWithproject:region:autoscaler:]
 
 /** Name of the autoscaler to return. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -20318,8 +19658,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionAutoscalersInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -20370,8 +19708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionAutoscalersList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -20465,8 +19801,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionAutoscalersPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersPatchWithObject:project:region:]
 
 /** Name of the autoscaler to patch. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -20521,8 +19855,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionAutoscalersUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionAutoscalersUpdateWithObject:project:region:]
 
 /** Name of the autoscaler to update. */
 @property(nonatomic, copy, nullable) NSString *autoscaler;
@@ -20575,8 +19907,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionBackendServicesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesDeleteWithproject:region:backendService:]
 
 /** Name of the BackendService resource to delete. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -20629,8 +19959,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionBackendServicesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesGetWithproject:region:backendService:]
 
 /** Name of the BackendService resource to return. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -20669,8 +19997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionBackendServicesGetHealth : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesGetHealthWithObject:project:region:backendService:]
 
 /** Name of the BackendService resource for which to get health. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -20713,8 +20039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionBackendServicesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -20767,8 +20091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionBackendServicesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -20864,8 +20186,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionBackendServicesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesPatchWithObject:project:region:backendService:]
 
 /** Name of the BackendService resource to patch. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -20924,8 +20244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionBackendServicesUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionBackendServicesUpdateWithObject:project:region:backendService:]
 
 /** Name of the BackendService resource to update. */
 @property(nonatomic, copy, nullable) NSString *backendService;
@@ -20982,8 +20300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionCommitmentsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionCommitmentsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -21079,8 +20395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionCommitmentsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionCommitmentsGetWithproject:region:commitment:]
 
 /** Name of the commitment to return. */
 @property(nonatomic, copy, nullable) NSString *commitment;
@@ -21120,8 +20434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionCommitmentsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionCommitmentsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -21172,8 +20484,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionCommitmentsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionCommitmentsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -21266,8 +20576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksAddResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksAddResourcePoliciesWithObject:project:region:disk:]
 
 /** The disk name for this request. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21323,8 +20631,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksCreateSnapshot : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksCreateSnapshotWithObject:project:region:disk:]
 
 /** Name of the regional persistent disk to snapshot. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21381,8 +20687,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksDeleteWithproject:region:disk:]
 
 /** Name of the regional persistent disk to delete. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21438,8 +20742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDisksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksGetWithproject:region:disk:]
 
 /** Name of the regional persistent disk to return. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21479,8 +20781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDisksGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksGetIamPolicyWithproject:region:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -21523,8 +20823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -21579,8 +20877,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDisksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -21673,8 +20969,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksRemoveResourcePolicies : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksRemoveResourcePoliciesWithObject:project:region:disk:]
 
 /** The disk name for this request. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21729,8 +21023,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksResize : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksResizeWithObject:project:region:disk:]
 
 /** Name of the regional persistent disk. */
 @property(nonatomic, copy, nullable) NSString *disk;
@@ -21786,8 +21078,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksSetIamPolicyWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -21829,8 +21119,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionDisksSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksSetLabelsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -21886,8 +21174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDisksTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDisksTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -21930,8 +21216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDiskTypesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDiskTypesGetWithproject:region:diskType:]
 
 /** Name of the disk type to return. */
 @property(nonatomic, copy, nullable) NSString *diskType;
@@ -21971,8 +21255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionDiskTypesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionDiskTypesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -22064,8 +21346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthChecksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksDeleteWithproject:region:healthCheck:]
 
 /** Name of the HealthCheck resource to delete. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -22117,8 +21397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthCheckServicesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthCheckServicesDeleteWithproject:region:healthCheckService:]
 
 /**
  *  Name of the HealthCheckService to delete. The name must be 1-63 characters
@@ -22175,8 +21453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionHealthCheckServicesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthCheckServicesGetWithproject:region:healthCheckService:]
 
 /**
  *  Name of the HealthCheckService to update. The name must be 1-63 characters
@@ -22219,8 +21495,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthCheckServicesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthCheckServicesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -22272,8 +21546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionHealthCheckServicesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthCheckServicesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -22368,8 +21640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthCheckServicesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthCheckServicesPatchWithObject:project:region:healthCheckService:]
 
 /**
  *  Name of the HealthCheckService to update. The name must be 1-63 characters
@@ -22431,8 +21701,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionHealthChecksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksGetWithproject:region:healthCheck:]
 
 /** Name of the HealthCheck resource to return. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -22472,8 +21740,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthChecksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -22525,8 +21791,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionHealthChecksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -22621,8 +21885,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthChecksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksPatchWithObject:project:region:healthCheck:]
 
 /** Name of the HealthCheck resource to patch. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -22679,8 +21941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionHealthChecksUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionHealthChecksUpdateWithObject:project:region:healthCheck:]
 
 /** Name of the HealthCheck resource to update. */
 @property(nonatomic, copy, nullable) NSString *healthCheck;
@@ -22746,8 +22006,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersAbandonInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersAbandonInstancesWithObject:project:region:instanceGroupManager:]
 
 /** Name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -22814,8 +22072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersApplyUpdatesToInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersApplyUpdatesToInstancesWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group, should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -22864,8 +22120,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersCreateInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersCreateInstancesWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -22931,8 +22185,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeleteWithproject:region:instanceGroupManager:]
 
 /** Name of the managed instance group to delete. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -22996,8 +22248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersDeleteInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeleteInstancesWithObject:project:region:instanceGroupManager:]
 
 /** Name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23064,8 +22314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersDeletePerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersDeletePerInstanceConfigsWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23110,8 +22358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersGetWithproject:region:instanceGroupManager:]
 
 /** Name of the managed instance group to return. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23155,8 +22401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -23214,8 +22458,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -23310,8 +22552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersListErrors : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListErrorsWithproject:region:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -23423,8 +22663,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersListManagedInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListManagedInstancesWithproject:region:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -23526,8 +22764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersListPerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersListPerInstanceConfigsWithproject:region:instanceGroupManager:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -23632,8 +22868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersPatchWithObject:project:region:instanceGroupManager:]
 
 /** The name of the instance group manager. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23695,8 +22929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersPatchPerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersPatchPerInstanceConfigsWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23747,12 +22979,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Flags the specified instances in the managed instance group to be
- *  immediately recreated. The instances are deleted and recreated using the
- *  current instance template for the managed instance group. This operation is
- *  marked as DONE when the flag is set even if the instances have not yet been
- *  recreated. You must separately verify the status of the recreating action
- *  with the listmanagedinstances method.
+ *  Flags the specified VM instances in the managed instance group to be
+ *  immediately recreated. Each instance is recreated using the group's current
+ *  configuration. This operation is marked as DONE when the flag is set even if
+ *  the instances have not yet been recreated. You must separately verify the
+ *  status of each instance by checking its currentAction field; for more
+ *  information, see Checking the status of managed instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -23765,8 +22997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersRecreateInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersRecreateInstancesWithObject:project:region:instanceGroupManager:]
 
 /** Name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23794,12 +23024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Flags the specified instances in the managed instance group to be
- *  immediately recreated. The instances are deleted and recreated using the
- *  current instance template for the managed instance group. This operation is
- *  marked as DONE when the flag is set even if the instances have not yet been
- *  recreated. You must separately verify the status of the recreating action
- *  with the listmanagedinstances method.
+ *  Flags the specified VM instances in the managed instance group to be
+ *  immediately recreated. Each instance is recreated using the group's current
+ *  configuration. This operation is marked as DONE when the flag is set even if
+ *  the instances have not yet been recreated. You must separately verify the
+ *  status of each instance by checking its currentAction field; for more
+ *  information, see Checking the status of managed instances.
  *  If the group is part of a backend service that has enabled connection
  *  draining, it can take up to 60 seconds after the connection draining
  *  duration has elapsed before the VM instance is removed or deleted.
@@ -23839,8 +23069,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersResize : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersResizeWithproject:region:instanceGroupManager:size:]
 
 /** Name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23908,8 +23136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersSetInstanceTemplate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersSetInstanceTemplateWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -23967,8 +23193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersSetTargetPools : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersSetTargetPoolsWithObject:project:region:instanceGroupManager:]
 
 /** Name of the managed instance group. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -24027,8 +23251,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupManagersUpdatePerInstanceConfigs : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupManagersUpdatePerInstanceConfigsWithObject:project:region:instanceGroupManager:]
 
 /** The name of the managed instance group. It should conform to RFC1035. */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
@@ -24089,8 +23311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupsGetWithproject:region:instanceGroup:]
 
 /** Name of the instance group resource to return. */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
@@ -24130,8 +23350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -24228,8 +23446,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionInstanceGroupsListInstances : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupsListInstancesWithObject:project:region:instanceGroup:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -24335,8 +23551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstanceGroupsSetNamedPorts : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstanceGroupsSetNamedPortsWithObject:project:region:instanceGroup:]
 
 /**
  *  The name of the regional instance group where the named ports are updated.
@@ -24395,8 +23609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionInstancesBulkInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionInstancesBulkInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -24448,8 +23660,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionNetworkEndpointGroupsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsDeleteWithproject:region:networkEndpointGroup:]
 
 /**
  *  The name of the network endpoint group to delete. It should comply with
@@ -24512,8 +23722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionNetworkEndpointGroupsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsGetWithproject:region:networkEndpointGroup:]
 
 /** The name of the network endpoint group. It should comply with RFC1035. */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
@@ -24558,8 +23766,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionNetworkEndpointGroupsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -24616,8 +23822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionNetworkEndpointGroupsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNetworkEndpointGroupsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -24714,8 +23918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionNotificationEndpointsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNotificationEndpointsDeleteWithproject:region:notificationEndpoint:]
 
 /** Name of the NotificationEndpoint resource to delete. */
 @property(nonatomic, copy, nullable) NSString *notificationEndpoint;
@@ -24769,8 +23971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionNotificationEndpointsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNotificationEndpointsGetWithproject:region:notificationEndpoint:]
 
 /** Name of the NotificationEndpoint resource to return. */
 @property(nonatomic, copy, nullable) NSString *notificationEndpoint;
@@ -24810,8 +24010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionNotificationEndpointsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNotificationEndpointsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -24863,8 +24061,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionNotificationEndpointsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionNotificationEndpointsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -24956,8 +24152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionOperationsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionOperationsDeleteWithproject:region:operation:]
 
 /** Name of the Operations resource to delete. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -24997,8 +24191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionOperationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionOperationsGetWithproject:region:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -25038,8 +24230,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionOperationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionOperationsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -25143,8 +24333,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionOperationsWait : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionOperationsWaitWithproject:region:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -25194,8 +24382,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionsGetWithproject:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25230,8 +24416,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -25318,8 +24502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionSslCertificatesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionSslCertificatesDeleteWithproject:region:sslCertificate:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25373,8 +24555,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionSslCertificatesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionSslCertificatesGetWithproject:region:sslCertificate:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25414,8 +24594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionSslCertificatesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionSslCertificatesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25467,8 +24645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionSslCertificatesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionSslCertificatesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -25561,8 +24737,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpProxiesDeleteWithproject:region:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25616,8 +24790,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionTargetHttpProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpProxiesGetWithproject:region:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25657,8 +24829,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpProxiesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25710,8 +24880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionTargetHttpProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpProxiesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -25804,8 +24972,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpProxiesSetUrlMap : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpProxiesSetUrlMapWithObject:project:region:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25859,8 +25025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesDeleteWithproject:region:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25914,8 +25078,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesGetWithproject:region:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -25955,8 +25117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26008,8 +25168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -26102,8 +25260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesSetSslCertificates : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesSetSslCertificatesWithObject:project:region:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26163,8 +25319,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionTargetHttpsProxiesSetUrlMap : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionTargetHttpsProxiesSetUrlMapWithObject:project:region:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26218,8 +25372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionUrlMapsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsDeleteWithproject:region:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26265,8 +25417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionUrlMapsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsGetWithproject:region:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26306,8 +25456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionUrlMapsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26351,8 +25499,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RegionUrlMapsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -26447,8 +25593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionUrlMapsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsPatchWithObject:project:region:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26496,8 +25640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionUrlMapsUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsUpdateWithObject:project:region:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26544,8 +25686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RegionUrlMapsValidate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRegionUrlMapsValidateWithObject:project:region:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26588,8 +25728,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ReservationsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -26683,8 +25821,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ReservationsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsDeleteWithproject:zoneProperty:reservation:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26741,8 +25877,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ReservationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsGetWithproject:zoneProperty:reservation:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26786,8 +25920,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ReservationsGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsGetIamPolicyWithproject:zoneProperty:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -26834,8 +25966,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ReservationsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -26891,8 +26021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ReservationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -26990,8 +26118,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ReservationsResize : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsResizeWithObject:project:zoneProperty:reservation:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27052,8 +26178,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ReservationsSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsSetIamPolicyWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27100,8 +26224,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ReservationsTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForReservationsTestIamPermissionsWithObject:project:zoneProperty:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27147,8 +26269,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ResourcePoliciesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -27242,8 +26362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ResourcePoliciesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesDeleteWithproject:region:resourcePolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27296,8 +26414,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ResourcePoliciesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesGetWithproject:region:resourcePolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27337,8 +26453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ResourcePoliciesGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesGetIamPolicyWithproject:region:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -27380,8 +26494,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ResourcePoliciesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27432,8 +26544,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ResourcePoliciesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -27527,8 +26637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ResourcePoliciesSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesSetIamPolicyWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27571,8 +26679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ResourcePoliciesTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForResourcePoliciesTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27614,8 +26720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -27709,8 +26813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutersDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersDeleteWithproject:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27764,8 +26866,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersGetWithproject:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27805,8 +26905,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersGetNatMappingInfo : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersGetNatMappingInfoWithproject:region:router:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -27908,8 +27006,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersGetRouterStatus : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersGetRouterStatusWithproject:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -27948,8 +27044,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutersInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28000,8 +27094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -28095,8 +27187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutersPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersPatchWithObject:project:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28154,8 +27244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutersPreview : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersPreviewWithObject:project:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28199,8 +27287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutersUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutersUpdateWithObject:project:region:router:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28257,8 +27343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutesDeleteWithproject:route:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28307,8 +27391,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutesGetWithproject:route:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28343,8 +27425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_RoutesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28390,8 +27470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_RoutesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForRoutesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -28478,8 +27556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesAddRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesAddRuleWithObject:project:securityPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28514,8 +27590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesDeleteWithproject:securityPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28563,8 +27637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SecurityPoliciesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesGetWithproject:securityPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28598,8 +27670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SecurityPoliciesGetRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesGetRuleWithproject:securityPolicy:]
 
 /** The priority of the rule to get from the security policy. */
 @property(nonatomic, assign) NSInteger priority;
@@ -28637,8 +27707,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28684,8 +27752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SecurityPoliciesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -28773,8 +27839,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesListPreconfiguredExpressionSetsWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -28861,8 +27925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesPatchWithObject:project:securityPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -28913,8 +27975,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesPatchRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesPatchRuleWithObject:project:securityPolicy:]
 
 /** The priority of the rule to patch. */
 @property(nonatomic, assign) NSInteger priority;
@@ -28952,8 +28012,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SecurityPoliciesRemoveRule : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSecurityPoliciesRemoveRuleWithproject:securityPolicy:]
 
 /** The priority of the rule to remove from the security policy. */
 @property(nonatomic, assign) NSInteger priority;
@@ -28993,8 +28051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SnapshotsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsDeleteWithproject:snapshot:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29047,8 +28103,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SnapshotsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsGetWithproject:snapshot:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29084,8 +28138,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SnapshotsGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -29124,8 +28176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SnapshotsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -29214,8 +28264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SnapshotsSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29253,8 +28301,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SnapshotsSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsSetLabelsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29292,8 +28338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SnapshotsTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSnapshotsTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29331,8 +28375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslCertificatesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslCertificatesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -29427,8 +28469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SslCertificatesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslCertificatesDeleteWithproject:sslCertificate:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29477,8 +28517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslCertificatesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslCertificatesGetWithproject:sslCertificate:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29513,8 +28551,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SslCertificatesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslCertificatesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29561,8 +28597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslCertificatesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslCertificatesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -29652,8 +28686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SslPoliciesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesDeleteWithproject:sslPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29707,8 +28739,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslPoliciesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesGetWithproject:sslPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29746,8 +28776,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SslPoliciesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -29794,8 +28822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslPoliciesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -29885,8 +28911,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SslPoliciesListAvailableFeatures : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesListAvailableFeaturesWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -29970,8 +28994,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SslPoliciesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSslPoliciesPatchWithObject:project:sslPolicy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30025,8 +29047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -30120,8 +29140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksDeleteWithproject:region:subnetwork:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30173,8 +29191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksExpandIpCidrRange : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksExpandIpCidrRangeWithObject:project:region:subnetwork:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30231,8 +29247,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksGetWithproject:region:subnetwork:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30273,8 +29287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksGetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksGetIamPolicyWithproject:region:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -30317,8 +29329,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30369,8 +29379,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -30463,8 +29471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksListUsable : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksListUsableWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -30554,8 +29560,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksPatchWithObject:project:region:subnetwork:]
 
 /**
  *  The drain timeout specifies the upper bound in seconds on the amount of time
@@ -30625,8 +29629,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksSetIamPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksSetIamPolicyWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30669,8 +29671,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_SubnetworksSetPrivateIpGoogleAccess : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksSetPrivateIpGoogleAccessWithObject:project:region:subnetwork:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30727,8 +29727,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SubnetworksTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForSubnetworksTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30769,8 +29767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetGrpcProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetGrpcProxiesDeleteWithproject:targetGrpcProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30818,8 +29814,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetGrpcProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetGrpcProxiesGetWithproject:targetGrpcProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30853,8 +29847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetGrpcProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetGrpcProxiesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -30900,8 +29892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetGrpcProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetGrpcProxiesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -30990,8 +29980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetGrpcProxiesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetGrpcProxiesPatchWithObject:project:targetGrpcProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31044,8 +30032,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpProxiesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -31140,8 +30126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesDeleteWithproject:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31190,8 +30174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesGetWithproject:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31226,8 +30208,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31274,8 +30254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -31365,8 +30343,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpProxiesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesPatchWithObject:project:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31417,8 +30393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpProxiesSetUrlMap : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpProxiesSetUrlMapWithObject:project:targetHttpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31469,8 +30443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -31565,8 +30537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesDeleteWithproject:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31615,8 +30585,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesGetWithproject:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31651,8 +30619,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31699,8 +30665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -31790,8 +30754,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesPatchWithObject:project:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31842,8 +30804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesSetQuicOverride : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesSetQuicOverrideWithObject:project:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31897,8 +30857,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesSetSslCertificates : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesSetSslCertificatesWithObject:project:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -31955,8 +30913,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesSetSslPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesSetSslPolicyWithObject:project:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32013,8 +30969,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetHttpsProxiesSetUrlMap : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetHttpsProxiesSetUrlMapWithObject:project:targetHttpsProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32065,8 +31019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetInstancesAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetInstancesAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -32160,8 +31112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetInstancesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetInstancesDeleteWithproject:zoneProperty:targetInstance:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32219,8 +31169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetInstancesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetInstancesGetWithproject:zoneProperty:targetInstance:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32264,8 +31212,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetInstancesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetInstancesInsertWithObject:project:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32321,8 +31267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetInstancesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetInstancesListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -32419,8 +31363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsAddHealthCheck : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsAddHealthCheckWithObject:project:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32475,8 +31417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsAddInstance : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsAddInstanceWithObject:project:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32532,8 +31472,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetPoolsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -32627,8 +31565,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsDeleteWithproject:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32682,8 +31618,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetPoolsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsGetWithproject:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32724,8 +31658,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetPoolsGetHealth : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsGetHealthWithObject:project:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32768,8 +31700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32821,8 +31751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetPoolsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -32915,8 +31843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsRemoveHealthCheck : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsRemoveHealthCheckWithObject:project:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -32971,8 +31897,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsRemoveInstance : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsRemoveInstanceWithObject:project:region:targetPool:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33027,8 +31951,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetPoolsSetBackup : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetPoolsSetBackupWithObject:project:region:targetPool:]
 
 /** New failoverRatio value for the target pool. */
 @property(nonatomic, assign) float failoverRatio;
@@ -33085,8 +32007,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesDeleteWithproject:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33135,8 +32055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetSslProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesGetWithproject:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33171,8 +32089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33219,8 +32135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetSslProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -33308,8 +32222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesSetBackendService : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesSetBackendServiceWithObject:project:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33363,8 +32275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesSetProxyHeader : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesSetProxyHeaderWithObject:project:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33415,8 +32325,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesSetSslCertificates : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesSetSslCertificatesWithObject:project:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33473,8 +32381,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetSslProxiesSetSslPolicy : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetSslProxiesSetSslPolicyWithObject:project:targetSslProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33531,8 +32437,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetTcpProxiesDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesDeleteWithproject:targetTcpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33581,8 +32485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetTcpProxiesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesGetWithproject:targetTcpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33617,8 +32519,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetTcpProxiesInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33665,8 +32565,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetTcpProxiesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -33754,8 +32652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetTcpProxiesSetBackendService : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesSetBackendServiceWithObject:project:targetTcpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33809,8 +32705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetTcpProxiesSetProxyHeader : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetTcpProxiesSetProxyHeaderWithObject:project:targetTcpProxy:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -33862,8 +32756,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetVpnGatewaysAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetVpnGatewaysAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -33957,8 +32849,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetVpnGatewaysDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetVpnGatewaysDeleteWithproject:region:targetVpnGateway:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34012,8 +32902,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetVpnGatewaysGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetVpnGatewaysGetWithproject:region:targetVpnGateway:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34053,8 +32941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_TargetVpnGatewaysInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetVpnGatewaysInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34106,8 +32992,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_TargetVpnGatewaysList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForTargetVpnGatewaysListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -34202,8 +33086,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_UrlMapsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -34298,8 +33180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsDeleteWithproject:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34348,8 +33228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_UrlMapsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsGetWithproject:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34384,8 +33262,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsInsertWithObject:project:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34433,8 +33309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsInvalidateCache : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsInvalidateCacheWithObject:project:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34488,8 +33362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_UrlMapsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -34578,8 +33450,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsPatch : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsPatchWithObject:project:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34630,8 +33500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsUpdate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsUpdateWithObject:project:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34681,8 +33549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_UrlMapsValidate : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForUrlMapsValidateWithObject:project:urlMap:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34720,8 +33586,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnGatewaysAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -34815,8 +33679,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_VpnGatewaysDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysDeleteWithproject:region:vpnGateway:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34870,8 +33732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnGatewaysGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysGetWithproject:region:vpnGateway:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34911,8 +33771,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnGatewaysGetStatus : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysGetStatusWithproject:region:vpnGateway:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -34951,8 +33809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_VpnGatewaysInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35004,8 +33860,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnGatewaysList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -35099,8 +33953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_VpnGatewaysSetLabels : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysSetLabelsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35157,8 +34009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnGatewaysTestIamPermissions : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnGatewaysTestIamPermissionsWithObject:project:region:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35200,8 +34050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnTunnelsAggregatedList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnTunnelsAggregatedListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -35295,8 +34143,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_VpnTunnelsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnTunnelsDeleteWithproject:region:vpnTunnel:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35350,8 +34196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnTunnelsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnTunnelsGetWithproject:region:vpnTunnel:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35391,8 +34235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_VpnTunnelsInsert : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnTunnelsInsertWithObject:project:region:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35444,8 +34286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_VpnTunnelsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForVpnTunnelsListWithproject:region:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -35538,8 +34378,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
 @interface GTLRComputeQuery_ZoneOperationsDelete : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZoneOperationsDeleteWithproject:zoneProperty:operation:]
 
 /** Name of the Operations resource to delete. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -35583,8 +34421,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ZoneOperationsGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZoneOperationsGetWithproject:zoneProperty:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -35627,8 +34463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ZoneOperationsList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZoneOperationsListWithproject:zoneProperty:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -35735,8 +34569,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ZoneOperationsWait : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZoneOperationsWaitWithproject:zoneProperty:operation:]
 
 /** Name of the Operations resource to return. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -35790,8 +34622,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ZonesGet : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZonesGetWithproject:zoneProperty:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -35830,8 +34660,6 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_ZonesList : GTLRComputeQuery
-// Previous library name was
-//   +[GTLQueryCompute queryForZonesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The

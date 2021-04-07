@@ -25,6 +25,7 @@
 @class GTLRMyBusinessAccountManagement_Account;
 @class GTLRMyBusinessAccountManagement_Admin;
 @class GTLRMyBusinessAccountManagement_DeclineInvitationRequest;
+@class GTLRMyBusinessAccountManagement_TransferLocationRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -52,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.admins.create
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsAdminsCreate : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsAdminsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the account this admin is created for.
@@ -87,8 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.admins.delete
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsAdminsDelete : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsAdminsDeleteWithname:]
 
 /**
  *  Required. The resource name of the admin to remove from the account.
@@ -116,8 +113,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.admins.list
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsAdminsList : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsAdminsListWithparent:]
 
 /**
  *  Required. The name of the account from which to retrieve a list of admins.
@@ -145,8 +140,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.admins.patch
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsAdminsPatch : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsAdminsPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name. For account admins, this is in the form:
@@ -194,8 +187,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.create
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsCreate : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRMyBusinessAccountManagement_Account.
@@ -223,8 +214,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.get
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsGet : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsGetWithname:]
 
 /** Required. The name of the account to fetch. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -249,8 +238,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.invitations.accept
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsInvitationsAccept : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsInvitationsAcceptWithObject:name:]
 
 /**
  *  Required. The name of the invitation that is being accepted.
@@ -281,8 +268,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.invitations.decline
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsInvitationsDecline : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsInvitationsDeclineWithObject:name:]
 
 /**
  *  Required. The name of the account invitation that is being declined.
@@ -314,8 +299,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.invitations.list
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsInvitationsList : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsInvitationsListWithparent:]
 
 /**
  *  Optional. Filtering the response is supported via the Invitation.target_type
@@ -351,8 +334,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.list
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsList : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsList]
 
 /**
  *  Optional. A filter constraining the accounts to return. The response
@@ -408,8 +389,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.accounts.patch
  */
 @interface GTLRMyBusinessAccountManagementQuery_AccountsPatch : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForAccountsPatchWithObject:name:]
 
 /** Immutable. The resource name, in the format `accounts/{account_id}`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -455,8 +434,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.locations.admins.create
  */
 @interface GTLRMyBusinessAccountManagementQuery_LocationsAdminsCreate : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForLocationsAdminsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the location this admin is created for.
@@ -490,8 +467,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.locations.admins.delete
  */
 @interface GTLRMyBusinessAccountManagementQuery_LocationsAdminsDelete : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForLocationsAdminsDeleteWithname:]
 
 /** Required. The resource name of the admin to remove from the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -516,8 +491,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.locations.admins.list
  */
 @interface GTLRMyBusinessAccountManagementQuery_LocationsAdminsList : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForLocationsAdminsListWithparent:]
 
 /**
  *  Required. The name of the location to list admins of.
@@ -546,8 +519,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: mybusinessaccountmanagement.locations.admins.patch
  */
 @interface GTLRMyBusinessAccountManagementQuery_LocationsAdminsPatch : GTLRMyBusinessAccountManagementQuery
-// Previous library name was
-//   +[GTLQueryMyBusinessAccountManagement queryForLocationsAdminsPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name. For account admins, this is in the form:
@@ -582,6 +553,37 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRMyBusinessAccountManagement_Admin *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Moves a location from an account that the user owns to another account that
+ *  the same user administers. The user must be an owner of the account the
+ *  location is currently associated with and must also be at least a manager of
+ *  the destination account.
+ *
+ *  Method: mybusinessaccountmanagement.locations.transferLocation
+ */
+@interface GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation : GTLRMyBusinessAccountManagementQuery
+
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Fetches a @c GTLRMyBusinessAccountManagement_Empty.
+ *
+ *  Moves a location from an account that the user owns to another account that
+ *  the same user administers. The user must be an owner of the account the
+ *  location is currently associated with and must also be at least a manager of
+ *  the destination account.
+ *
+ *  @param object The @c GTLRMyBusinessAccountManagement_TransferLocationRequest
+ *    to include in the query.
+ *  @param locationsId NSString
+ *
+ *  @return GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation
+ */
++ (instancetype)queryWithObject:(GTLRMyBusinessAccountManagement_TransferLocationRequest *)object
+                    locationsId:(NSString *)locationsId;
 
 @end
 

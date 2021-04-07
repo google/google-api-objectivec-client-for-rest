@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   On-Demand Scanning API (ondemandscanning/v1beta1)
+//   On-Demand Scanning API (ondemandscanning/v1)
 // Description:
 //   A service to scan container images for vulnerabilities.
 // Documentation:

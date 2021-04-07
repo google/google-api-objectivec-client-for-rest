@@ -1318,14 +1318,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *rowCount;
 
 /**
- *  Required. The height of sprite in pixels. Must be an even integer.
+ *  Required. The height of sprite in pixels. Must be an even integer. To
+ *  preserve the source aspect ratio, set the SpriteSheet.sprite_height_pixels
+ *  field or the SpriteSheet.sprite_width_pixels field, but not both (the API
+ *  will automatically calculate the missing field).
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *spriteHeightPixels;
 
 /**
- *  Required. The width of sprite in pixels. Must be an even integer.
+ *  Required. The width of sprite in pixels. Must be an even integer. To
+ *  preserve the source aspect ratio, set the SpriteSheet.sprite_width_pixels
+ *  field or the SpriteSheet.sprite_height_pixels field, but not both (the API
+ *  will automatically calculate the missing field).
  *
  *  Uses NSNumber of intValue.
  */
@@ -1488,16 +1494,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
  *  Required. The target video frame rate in frames per second (FPS). Must be
  *  less than or equal to 120. Will default to the input frame rate if larger
  *  than the input frame rate. The API will generate an output FPS that is
- *  divisible by the input FPS, and smaller or equal to the target FPS. The
- *  following table shows the computed video FPS given the target FPS (in
- *  parenthesis) and input FPS (in the first column): ``` | | (30) | (60) | (25)
- *  | (50) | |--------|--------|--------|------|------| | 240 | Fail | Fail |
- *  Fail | Fail | | 120 | 30 | 60 | 20 | 30 | | 100 | 25 | 50 | 20 | 30 | | 50 |
- *  25 | 50 | 20 | 30 | | 60 | 30 | 60 | 20 | 30 | | 59.94 | 29.97 | 59.94 | 20
- *  | 30 | | 48 | 24 | 48 | 20 | 30 | | 30 | 30 | 30 | 20 | 30 | | 25 | 25 | 25
- *  | 20 | 30 | | 24 | 24 | 24 | 20 | 30 | | 23.976 | 23.976 | 23.976 | 20 | 30
- *  | | 15 | 15 | 15 | 20 | 30 | | 12 | 12 | 12 | 20 | 30 | | 10 | 10 | 10 | 20
- *  | 30 | ```
+ *  divisible by the input FPS, and smaller or equal to the target FPS. See
+ *  [Calculate frame
+ *  rate](https://cloud.google.com/transcoder/docs/concepts/frame-rate) for more
+ *  information.
  *
  *  Uses NSNumber of doubleValue.
  */

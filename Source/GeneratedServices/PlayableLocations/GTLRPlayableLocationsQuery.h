@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: playablelocations.logImpressions
  */
 @interface GTLRPlayableLocationsQuery_V3LogImpressions : GTLRPlayableLocationsQuery
-// Previous library name was
-//   +[GTLQueryPlayableLocations queryForLogImpressionsWithObject:]
 
 /**
  *  Fetches a @c
@@ -78,8 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: playablelocations.logPlayerReports
  */
 @interface GTLRPlayableLocationsQuery_V3LogPlayerReports : GTLRPlayableLocationsQuery
-// Previous library name was
-//   +[GTLQueryPlayableLocations queryForLogPlayerReportsWithObject:]
 
 /**
  *  Fetches a @c
@@ -108,8 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: playablelocations.samplePlayableLocations
  */
 @interface GTLRPlayableLocationsQuery_V3SamplePlayableLocations : GTLRPlayableLocationsQuery
-// Previous library name was
-//   +[GTLQueryPlayableLocations queryForSamplePlayableLocationsWithObject:]
 
 /**
  *  Fetches a @c

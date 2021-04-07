@@ -97,8 +97,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_InfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForInfoTypesList]
 
 /**
  *  filter to only return infoTypes supported by certain parts of the API.
@@ -143,8 +141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_LocationsInfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForLocationsInfoTypesListWithparent:]
 
 /**
  *  filter to only return infoTypes supported by certain parts of the API.
@@ -193,8 +189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsDeidentifyTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -254,8 +248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsDeidentifyTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -291,8 +283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsDeidentifyTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -328,8 +318,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsDeidentifyTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -414,8 +402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsDeidentifyTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsDeidentifyTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and deidentify template to be
@@ -456,8 +442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -516,8 +500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsInspectTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
@@ -553,8 +535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsInspectTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
@@ -590,8 +570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsInspectTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -676,8 +654,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsInspectTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsInspectTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
@@ -717,8 +693,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -778,8 +752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -815,8 +787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -852,8 +822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -938,8 +906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDeidentifyTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDeidentifyTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and deidentify template to be
@@ -980,8 +946,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsDlpJobsList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsDlpJobsListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -1088,8 +1052,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -1148,8 +1110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
@@ -1185,8 +1145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
@@ -1222,8 +1180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -1308,8 +1264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsInspectTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsInspectTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
@@ -1349,8 +1303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsJobTriggersCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -1402,8 +1354,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsJobTriggersDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersDeleteWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -1436,8 +1386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsJobTriggersGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersGetWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -1470,8 +1418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsJobTriggersList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -1566,8 +1512,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsJobTriggersPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsJobTriggersPatchWithObject:name:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -1603,8 +1547,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -1662,8 +1604,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
@@ -1699,8 +1639,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
@@ -1736,8 +1674,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -1823,8 +1759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsLocationsStoredInfoTypesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsLocationsStoredInfoTypesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
@@ -1863,8 +1797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsStoredInfoTypesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -1922,8 +1854,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsStoredInfoTypesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
@@ -1959,8 +1889,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsStoredInfoTypesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
@@ -1996,8 +1924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsStoredInfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -2083,8 +2009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_OrganizationsStoredInfoTypesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForOrganizationsStoredInfoTypesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
@@ -2127,8 +2051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsContentDeidentify : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsContentDeidentifyWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -2188,8 +2110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsContentInspect : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsContentInspectWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -2246,8 +2166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsContentReidentify : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsContentReidentifyWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -2300,8 +2218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDeidentifyTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -2361,8 +2277,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDeidentifyTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -2398,8 +2312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDeidentifyTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -2435,8 +2347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDeidentifyTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -2521,8 +2431,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDeidentifyTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDeidentifyTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and deidentify template to be
@@ -2564,8 +2472,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDlpJobsCancel : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDlpJobsCancelWithObject:name:]
 
 /** Required. The name of the DlpJob resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2603,8 +2509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDlpJobsCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDlpJobsCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -2661,8 +2565,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDlpJobsDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDlpJobsDeleteWithname:]
 
 /** Required. The name of the DlpJob resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2694,8 +2596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDlpJobsGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDlpJobsGetWithname:]
 
 /** Required. The name of the DlpJob resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2726,8 +2626,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsDlpJobsList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsDlpJobsListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -2837,8 +2735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsImageRedact : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsImageRedactWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -2894,8 +2790,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsInspectTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -2954,8 +2848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsInspectTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsInspectTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
@@ -2991,8 +2883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsInspectTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsInspectTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
@@ -3028,8 +2918,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsInspectTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsInspectTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -3114,8 +3002,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsInspectTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsInspectTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
@@ -3154,8 +3040,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersActivate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersActivateWithObject:name:]
 
 /**
  *  Required. Resource name of the trigger to activate, for example
@@ -3192,8 +3076,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -3245,8 +3127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersDeleteWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -3279,8 +3159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersGetWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -3313,8 +3191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -3409,8 +3285,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsJobTriggersPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsJobTriggersPatchWithObject:name:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -3450,8 +3324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentDeidentify : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentDeidentifyWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -3511,8 +3383,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentInspect : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentInspectWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -3569,8 +3439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsContentReidentify : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsContentReidentifyWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -3623,8 +3491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -3684,8 +3550,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -3721,8 +3585,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and deidentify template to be
@@ -3758,8 +3620,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -3844,8 +3704,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDeidentifyTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDeidentifyTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and deidentify template to be
@@ -3887,8 +3745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsCancel : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCancelWithObject:name:]
 
 /** Required. The name of the DlpJob resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3926,8 +3782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -3984,8 +3838,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsDeleteWithname:]
 
 /** Required. The name of the DlpJob resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4016,8 +3868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsFinish : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsFinishWithObject:name:]
 
 /** Required. The name of the DlpJob resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4050,8 +3900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsGetWithname:]
 
 /** Required. The name of the DlpJob resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4081,8 +3929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsHybridInspect : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsHybridInspectWithObject:name:]
 
 /**
  *  Required. Resource name of the job to execute a hybrid inspect on, for
@@ -4119,8 +3965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsDlpJobsList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsDlpJobsListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -4230,8 +4074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsImageRedact : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsImageRedactWithObject:parent:]
 
 /**
  *  Parent resource name. The format of this value varies depending on whether
@@ -4287,8 +4129,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -4347,8 +4187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be
@@ -4384,8 +4222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and inspectTemplate to be read,
@@ -4421,8 +4257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -4507,8 +4341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsInspectTemplatesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsInspectTemplatesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and inspectTemplate to be updated,
@@ -4547,8 +4379,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersActivate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersActivateWithObject:name:]
 
 /**
  *  Required. Resource name of the trigger to activate, for example
@@ -4585,8 +4415,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -4638,8 +4466,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersDeleteWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -4672,8 +4498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersGetWithname:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -4707,8 +4531,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersHybridInspect : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersHybridInspectWithObject:name:]
 
 /**
  *  Required. Resource name of the trigger to execute a hybrid inspect on, for
@@ -4746,8 +4568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersListWithparent:]
 
 /**
  *  Allows filtering. Supported syntax: * Filter expressions are made up of one
@@ -4842,8 +4662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsJobTriggersPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsJobTriggersPatchWithObject:name:]
 
 /**
  *  Required. Resource name of the project and the triggeredJob, for example
@@ -4879,8 +4697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -4938,8 +4754,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
@@ -4975,8 +4789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
@@ -5012,8 +4824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -5099,8 +4909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsLocationsStoredInfoTypesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsLocationsStoredInfoTypesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,
@@ -5139,8 +4947,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesCreate : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsStoredInfoTypesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource name. The format of this value varies depending on
@@ -5198,8 +5004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesDelete : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsStoredInfoTypesDeleteWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be
@@ -5235,8 +5039,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesGet : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsStoredInfoTypesGetWithname:]
 
 /**
  *  Required. Resource name of the organization and storedInfoType to be read,
@@ -5272,8 +5074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesList : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsStoredInfoTypesListWithparent:]
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -5359,8 +5159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *    @c kGTLRAuthScopeDLPCloudPlatform
  */
 @interface GTLRDLPQuery_ProjectsStoredInfoTypesPatch : GTLRDLPQuery
-// Previous library name was
-//   +[GTLQueryDLP queryForProjectsStoredInfoTypesPatchWithObject:name:]
 
 /**
  *  Required. Resource name of organization and storedInfoType to be updated,

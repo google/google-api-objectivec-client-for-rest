@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: sts.token
  */
 @interface GTLRCloudSecurityTokenQuery_V1Token : GTLRCloudSecurityTokenQuery
-// Previous library name was
-//   +[GTLQueryCloudSecurityToken queryForTokenWithObject:]
 
 /**
  *  Fetches a @c

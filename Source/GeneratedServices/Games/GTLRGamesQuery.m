@@ -586,33 +586,6 @@ NSString * const kGTLRGamesTimeSpanWeekly                   = @"WEEKLY";
 
 @end
 
-@implementation GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead
-
-@dynamic snapshotName;
-
-+ (instancetype)queryWithObject:(GTLRGames_ResolveSnapshotHeadRequest *)object
-                   snapshotName:(NSString *)snapshotName {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"snapshotName" ];
-  NSString *pathURITemplate = @"games/v1/snapshotsExtended/{snapshotName}:resolveHead";
-  GTLRGamesQuery_SnapshotsExtendedResolveSnapshotHead *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.snapshotName = snapshotName;
-  query.expectedObjectClass = [GTLRGames_ResolveSnapshotHeadResponse class];
-  query.loggingName = @"games.snapshotsExtended.resolveSnapshotHead";
-  return query;
-}
-
-@end
-
 @implementation GTLRGamesQuery_SnapshotsGet
 
 @dynamic language, snapshotId;

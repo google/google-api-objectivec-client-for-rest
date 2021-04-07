@@ -119,8 +119,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresAttributeDefinitionsCreateWithObject:parent:]
 
 /**
  *  Required. The ID of the Attribute definition to create. The string must
@@ -164,8 +162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresAttributeDefinitionsDeleteWithname:]
 
 /**
  *  Required. The resource name of the Attribute definition to delete. To
@@ -201,8 +197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresAttributeDefinitionsGetWithname:]
 
 /** Required. The resource name of the Attribute definition to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -229,8 +223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresAttributeDefinitionsListWithparent:]
 
 /**
  *  Optional. Restricts the attributes returned to those matching a filter. The
@@ -283,8 +275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresAttributeDefinitionsPatchWithObject:name:]
 
 /**
  *  Resource name of the Attribute definition, of the form
@@ -333,8 +323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCheckDataAccess : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresCheckDataAccessWithObject:consentStore:]
 
 /**
  *  Required. Name of the consent store where the requested data_id is stored,
@@ -371,8 +359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentArtifactsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the consent store this Consent artifact belongs to.
@@ -406,8 +392,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentArtifactsDeleteWithname:]
 
 /**
  *  Required. The resource name of the Consent artifact to delete. To preserve
@@ -441,8 +425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentArtifactsGetWithname:]
 
 /** Required. The resource name of the Consent artifact to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -469,8 +451,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentArtifactsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentArtifactsListWithparent:]
 
 /**
  *  Optional. Restricts the artifacts returned to those matching a filter. The
@@ -548,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsActivate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsActivateWithObject:name:]
 
 /**
  *  Required. The resource name of the Consent to activate, of the form
@@ -591,8 +569,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsCreateWithObject:parent:]
 
 /** Required. Name of the consent store. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -624,8 +600,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsDeleteWithname:]
 
 /**
  *  Required. The resource name of the Consent to delete, of the form
@@ -664,8 +638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsDeleteRevision : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsDeleteRevisionWithname:]
 
 /**
  *  Required. The resource name of the Consent revision to delete, of the form
@@ -703,8 +675,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsGetWithname:]
 
 /**
  *  Required. The resource name of the Consent to retrieve, of the form
@@ -744,8 +714,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsListWithparent:]
 
 /**
  *  Optional. Restricts the Consents returned to those matching a filter. The
@@ -819,8 +787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsListRevisions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsListRevisionsWithname:]
 
 /**
  *  Optional. Restricts the revisions returned to those matching a filter. The
@@ -896,8 +862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsPatchWithObject:name:]
 
 /**
  *  Resource name of the Consent, of the form
@@ -949,8 +913,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsReject : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsRejectWithObject:name:]
 
 /**
  *  Required. The resource name of the Consent to reject, of the form
@@ -996,8 +958,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresConsentsRevoke : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresConsentsRevokeWithObject:name:]
 
 /**
  *  Required. The resource name of the Consent to revoke, of the form
@@ -1041,8 +1001,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresCreateWithObject:parent:]
 
 /**
  *  Required. The ID of the consent store to create. The string must match the
@@ -1083,8 +1041,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresDeleteWithname:]
 
 /** Required. The resource name of the consent store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1115,8 +1071,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresEvaluateUserConsents : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresEvaluateUserConsentsWithObject:consentStore:]
 
 /**
  *  Required. Name of the consent store to retrieve User data mappings from.
@@ -1152,8 +1106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresGetWithname:]
 
 /** Required. The resource name of the consent store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1181,8 +1133,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1226,8 +1176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresListWithparent:]
 
 /**
  *  Optional. Restricts the stores returned to those matching a filter. Only
@@ -1276,8 +1224,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresPatchWithObject:name:]
 
 /**
  *  Resource name of the consent store, of the form
@@ -1319,10 +1265,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Queries all data_ids that are consented for a specified use in the given
  *  consent store and writes them to a specified destination. The returned
  *  Operation includes a progress counter for the number of User data mappings
- *  processed. Errors are logged to Cloud Logging (see [Viewing logs]
- *  (cloud.google.com/healthcare/docs/how-tos/logging)). For example, the
- *  following sample log entry shows a `failed to evaluate consent policy` error
- *  that occurred during a QueryAccessibleData call to consent store
+ *  processed. Errors are logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  For example, the following sample log entry shows a `failed to evaluate
+ *  consent policy` error that occurred during a QueryAccessibleData call to
+ *  consent store
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  ```json jsonPayload: { \@type:
  *  "type.googleapis.com/google.cloud.healthcare.logging.QueryAccessibleDataLogEntry"
@@ -1345,8 +1292,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresQueryAccessibleData : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresQueryAccessibleDataWithObject:consentStore:]
 
 /**
  *  Required. Name of the consent store to retrieve User data mappings from.
@@ -1359,10 +1304,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Queries all data_ids that are consented for a specified use in the given
  *  consent store and writes them to a specified destination. The returned
  *  Operation includes a progress counter for the number of User data mappings
- *  processed. Errors are logged to Cloud Logging (see [Viewing logs]
- *  (cloud.google.com/healthcare/docs/how-tos/logging)). For example, the
- *  following sample log entry shows a `failed to evaluate consent policy` error
- *  that occurred during a QueryAccessibleData call to consent store
+ *  processed. Errors are logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  For example, the following sample log entry shows a `failed to evaluate
+ *  consent policy` error that occurred during a QueryAccessibleData call to
+ *  consent store
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  ```json jsonPayload: { \@type:
  *  "type.googleapis.com/google.cloud.healthcare.logging.QueryAccessibleDataLogEntry"
@@ -1402,8 +1348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1444,8 +1388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1484,8 +1426,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsArchive : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsArchiveWithObject:name:]
 
 /** Required. The resource name of the User data mapping to archive. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1515,8 +1455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsCreateWithObject:parent:]
 
 /** Required. Name of the consent store. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1546,8 +1484,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsDeleteWithname:]
 
 /** Required. The resource name of the User data mapping to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1574,8 +1510,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsGetWithname:]
 
 /** Required. The resource name of the User data mapping to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1603,8 +1537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsListWithparent:]
 
 /**
  *  Optional. Restricts the User data mappings returned to those matching a
@@ -1678,8 +1610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsConsentStoresUserDataMappingsPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsConsentStoresUserDataMappingsPatchWithObject:name:]
 
 /**
  *  Resource name of the User data mapping, of the form
@@ -1726,8 +1656,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsCreateWithObject:parent:]
 
 /**
  *  The ID of the dataset that is being created. The string must match the
@@ -1767,7 +1695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  DICOM instances. The new de-identified dataset will not contain these failed
  *  resources. Failed resource totals are tracked in Operation.metadata. Error
  *  details are also logged to Cloud Logging. For more information, see [Viewing
- *  logs](/healthcare/docs/how-tos/logging).
+ *  error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging).
  *
  *  Method: healthcare.projects.locations.datasets.deidentify
  *
@@ -1775,8 +1704,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDeidentify : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDeidentifyWithObject:sourceDataset:]
 
 /**
  *  Source dataset resource name. For example,
@@ -1794,7 +1721,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  DICOM instances. The new de-identified dataset will not contain these failed
  *  resources. Failed resource totals are tracked in Operation.metadata. Error
  *  details are also logged to Cloud Logging. For more information, see [Viewing
- *  logs](/healthcare/docs/how-tos/logging).
+ *  error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging).
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDatasetRequest to include
  *    in the query.
@@ -1819,8 +1747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDeleteWithname:]
 
 /**
  *  The name of the dataset to delete. For example,
@@ -1853,8 +1779,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresCreateWithObject:parent:]
 
 /**
  *  The ID of the DICOM store that is being created. Any string value up to 256
@@ -1888,7 +1812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  de-identification fails for some DICOM instances. The output DICOM store
  *  will not contain these failed resources. Failed resource totals are tracked
  *  in Operation.metadata. Error details are also logged to Cloud Logging (see
- *  [Viewing logs](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.deidentify
  *
@@ -1896,8 +1820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDeidentify : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDeidentifyWithObject:sourceStore:]
 
 /**
  *  Source DICOM store resource name. For example,
@@ -1915,7 +1837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  de-identification fails for some DICOM instances. The output DICOM store
  *  will not contain these failed resources. Failed resource totals are tracked
  *  in Operation.metadata. Error details are also logged to Cloud Logging (see
- *  [Viewing logs](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud Logging](/healthcare/docs/how-tos/logging)).
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyDicomStoreRequest to
  *    include in the query.
@@ -1939,8 +1861,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresDeleteWithname:]
 
 /** The resource name of the DICOM store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1962,8 +1882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 /**
  *  Exports data to the specified destination by copying it from the DICOM
  *  store. Errors are also logged to Cloud Logging. For more information, see
- *  [Viewing logs](/healthcare/docs/how-tos/logging). The metadata field type is
- *  OperationMetadata.
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The
+ *  metadata field type is OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.export
  *
@@ -1971,8 +1892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresExport : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresExportWithObject:name:]
 
 /**
  *  The DICOM store resource name from which to export the data. For example,
@@ -1985,8 +1904,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *
  *  Exports data to the specified destination by copying it from the DICOM
  *  store. Errors are also logged to Cloud Logging. For more information, see
- *  [Viewing logs](/healthcare/docs/how-tos/logging). The metadata field type is
- *  OperationMetadata.
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The
+ *  metadata field type is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ExportDicomDataRequest to include
  *    in the query.
@@ -2010,8 +1930,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresGetWithname:]
 
 /** The resource name of the DICOM store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2039,8 +1957,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -2077,9 +1993,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Imports data into the DICOM store by copying it from the specified source.
- *  Errors are logged to Cloud Logging. For more information, see [Viewing
- *  logs](/healthcare/docs/how-tos/logging). The metadata field type is
- *  OperationMetadata.
+ *  Errors are logged to Cloud Logging. For more information, see [Viewing error
+ *  logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The
+ *  metadata field type is OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.dicomStores.import
  *
@@ -2087,8 +2004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresImport : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresImportWithObject:name:]
 
 /**
  *  The name of the DICOM store resource into which the data is imported. For
@@ -2101,9 +2016,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Operation.
  *
  *  Imports data into the DICOM store by copying it from the specified source.
- *  Errors are logged to Cloud Logging. For more information, see [Viewing
- *  logs](/healthcare/docs/how-tos/logging). The metadata field type is
- *  OperationMetadata.
+ *  Errors are logged to Cloud Logging. For more information, see [Viewing error
+ *  logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging). The
+ *  metadata field type is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ImportDicomDataRequest to include
  *    in the query.
@@ -2127,8 +2043,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresListWithparent:]
 
 /**
  *  Restricts stores returned to those matching a filter. The following syntax
@@ -2196,8 +2110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresPatchWithObject:name:]
 
 /**
  *  Resource name of the DICOM store, of the form
@@ -2246,8 +2158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresSearchForInstancesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForInstancesRequest DICOMweb request. For example,
@@ -2304,8 +2214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForSeries : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresSearchForSeriesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForSeries DICOMweb request. For example, `series` or
@@ -2359,8 +2267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForStudies : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresSearchForStudiesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForStudies DICOMweb request. For example, `studies`.
@@ -2409,8 +2315,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2454,8 +2358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStoreInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStoreInstancesWithObject:parent:dicomWebPath:]
 
 /**
  *  The path of the StoreInstances DICOMweb request. For example,
@@ -2512,8 +2414,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesDeleteWithparent:dicomWebPath:]
 
 /**
  *  The path of the DeleteStudy request. For example, `studies/{study_uid}`.
@@ -2561,8 +2461,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadata : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesRetrieveMetadataWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveStudyMetadata DICOMweb request. For example,
@@ -2617,8 +2515,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesRetrieveStudyWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveStudy DICOMweb request. For example,
@@ -2674,8 +2570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSearchForInstancesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForInstancesRequest DICOMweb request. For example,
@@ -2732,8 +2626,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForSeries : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSearchForSeriesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForSeries DICOMweb request. For example, `series` or
@@ -2788,8 +2680,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesDeleteWithparent:dicomWebPath:]
 
 /**
  *  The path of the DeleteSeries request. For example,
@@ -2844,8 +2734,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesDeleteWithparent:dicomWebPath:]
 
 /**
  *  The path of the DeleteInstance request. For example,
@@ -2899,8 +2787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFrames : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveFramesWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveFrames DICOMweb request. For example,
@@ -2957,8 +2843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRendered : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesFramesRetrieveRenderedWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveRenderedFrames DICOMweb request. For example,
@@ -3017,8 +2901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstance : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveInstanceWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveInstance DICOMweb request. For example,
@@ -3077,8 +2959,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadata : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveMetadataWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveInstanceMetadata DICOMweb request. For example,
@@ -3136,8 +3016,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRendered : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesInstancesRetrieveRenderedWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveRenderedInstance DICOMweb request. For example,
@@ -3195,8 +3073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadata : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveMetadataWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveSeriesMetadata DICOMweb request. For example,
@@ -3252,8 +3128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeries : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesRetrieveSeriesWithparent:dicomWebPath:]
 
 /**
  *  The path of the RetrieveSeries DICOMweb request. For example,
@@ -3309,8 +3183,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstancesWithparent:dicomWebPath:]
 
 /**
  *  The path of the SearchForInstancesRequest DICOMweb request. For example,
@@ -3368,8 +3240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesStoreInstances : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresStudiesStoreInstancesWithObject:parent:dicomWebPath:]
 
 /**
  *  The path of the StoreInstances DICOMweb request. For example,
@@ -3423,8 +3293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsDicomStoresTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -3463,8 +3331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresCreateWithObject:parent:]
 
 /**
  *  The ID of the FHIR store that is being created. The string must match the
@@ -3495,7 +3361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  store. The metadata field type is OperationMetadata. If the request is
  *  successful, the response field type is DeidentifyFhirStoreSummary. If errors
  *  occur, error is set. Error details are also logged to Cloud Logging (see
- *  [Viewing logs](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.deidentify
  *
@@ -3503,8 +3370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDeidentify : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresDeidentifyWithObject:sourceStore:]
 
 /**
  *  Source FHIR store resource name. For example,
@@ -3519,7 +3384,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  store. The metadata field type is OperationMetadata. If the request is
  *  successful, the response field type is DeidentifyFhirStoreSummary. If errors
  *  occur, error is set. Error details are also logged to Cloud Logging (see
- *  [Viewing logs](/healthcare/docs/how-tos/logging)).
+ *  [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *
  *  @param object The @c GTLRCloudHealthcare_DeidentifyFhirStoreRequest to
  *    include in the query.
@@ -3542,8 +3408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresDeleteWithname:]
 
 /** The resource name of the FHIR store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3565,11 +3429,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Export resources from the FHIR store to the specified destination. This
  *  method returns an Operation that can be used to track the status of the
  *  export by calling GetOperation. Immediate fatal errors appear in the error
- *  field, errors are also logged to Cloud Logging (see [Viewing
- *  logs](/healthcare/docs/how-tos/logging)). Otherwise, when the operation
- *  finishes, a detailed response of type ExportResourcesResponse is returned in
- *  the response field. The metadata field type for this operation is
- *  OperationMetadata.
+ *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ExportResourcesResponse is returned in the response field. The metadata
+ *  field type for this operation is OperationMetadata.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.export
  *
@@ -3577,8 +3441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresExport : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresExportWithObject:name:]
 
 /**
  *  The name of the FHIR store to export resource from, in the format of
@@ -3592,11 +3454,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Export resources from the FHIR store to the specified destination. This
  *  method returns an Operation that can be used to track the status of the
  *  export by calling GetOperation. Immediate fatal errors appear in the error
- *  field, errors are also logged to Cloud Logging (see [Viewing
- *  logs](/healthcare/docs/how-tos/logging)). Otherwise, when the operation
- *  finishes, a detailed response of type ExportResourcesResponse is returned in
- *  the response field. The metadata field type for this operation is
- *  OperationMetadata.
+ *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
+ *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
+ *  ExportResourcesResponse is returned in the response field. The metadata
+ *  field type for this operation is OperationMetadata.
  *
  *  @param object The @c GTLRCloudHealthcare_ExportResourcesRequest to include
  *    in the query.
@@ -3624,7 +3486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#capabilities)), or
  *  the [conformance
  *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
- *  in the DSTU2 case. On success, the response body will contain a JSON-encoded
+ *  in the DSTU2 case. On success, the response body contains a JSON-encoded
  *  representation of a `CapabilityStatement` resource.
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.capabilities
@@ -3633,8 +3495,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCapabilities : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirCapabilitiesWithname:]
 
 /** Name of the FHIR store to retrieve the capabilities for. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3654,7 +3514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#capabilities)), or
  *  the [conformance
  *  interaction](http://hl7.org/implement/standards/fhir/DSTU2/http.html#conformance)
- *  in the DSTU2 case. On success, the response body will contain a JSON-encoded
+ *  in the DSTU2 case. On success, the response body contains a JSON-encoded
  *  representation of a `CapabilityStatement` resource.
  *
  *  @param name Name of the FHIR store to retrieve the capabilities for.
@@ -3673,13 +3533,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  creates a new resource with a server-assigned resource ID. The request body
  *  must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. On success, the response body
- *  will contain a JSON-encoded representation of the resource as it was created
- *  on the server, including the server-assigned resource ID and version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead. For samples that show how to call
- *  `create`, see [Creating a FHIR
+ *  contains a JSON-encoded representation of the resource as it was created on
+ *  the server, including the server-assigned resource ID and version ID. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. For samples that show how to call `create`, see [Creating
+ *  a FHIR
  *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.create
@@ -3688,8 +3548,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirCreateWithObject:parent:type:]
 
 /** The name of the FHIR store this resource belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3714,13 +3572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  creates a new resource with a server-assigned resource ID. The request body
  *  must contain a JSON-encoded FHIR resource, and the request headers must
  *  contain `Content-Type: application/fhir+json`. On success, the response body
- *  will contain a JSON-encoded representation of the resource as it was created
- *  on the server, including the server-assigned resource ID and version ID.
- *  Errors generated by the FHIR store will contain a JSON-encoded
- *  `OperationOutcome` resource describing the reason for the error. If the
- *  request cannot be mapped to a valid API method on a FHIR store, a generic
- *  GCP error might be returned instead. For samples that show how to call
- *  `create`, see [Creating a FHIR
+ *  contains a JSON-encoded representation of the resource as it was created on
+ *  the server, including the server-assigned resource ID and version ID. Errors
+ *  generated by the FHIR store contain a JSON-encoded `OperationOutcome`
+ *  resource describing the reason for the error. If the request cannot be
+ *  mapped to a valid API method on a FHIR store, a generic GCP error might be
+ *  returned instead. For samples that show how to call `create`, see [Creating
+ *  a FHIR
  *  resource](/healthcare/docs/how-tos/fhir-resources#creating_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
@@ -3758,8 +3616,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirDeleteWithname:]
 
 /** The name of the resource to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3821,8 +3677,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirExecuteBundle : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirExecuteBundleWithObject:parent:]
 
 /** Name of the FHIR store in which this bundle will be executed. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3875,9 +3729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)). On
- *  success, the response body will contain a JSON-encoded representation of a
+ *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `history`, containing the version history sorted
- *  from most recent to oldest versions. Errors generated by the FHIR store will
+ *  from most recent to oldest versions. Errors generated by the FHIR store
  *  contain a JSON-encoded `OperationOutcome` resource describing the reason for
  *  the error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3890,8 +3744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirHistory : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirHistoryWithname:]
 
 /**
  *  Only include resource versions that were current at some point during the
@@ -3939,9 +3791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#history),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#history),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#history)). On
- *  success, the response body will contain a JSON-encoded representation of a
+ *  success, the response body contains a JSON-encoded representation of a
  *  `Bundle` resource of type `history`, containing the version history sorted
- *  from most recent to oldest versions. Errors generated by the FHIR store will
+ *  from most recent to oldest versions. Errors generated by the FHIR store
  *  contain a JSON-encoded `OperationOutcome` resource describing the reason for
  *  the error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
@@ -3965,9 +3817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  doesn't define a patch method, but the server supports it in the same way it
  *  supports STU3. The request body must contain a JSON Patch document, and the
  *  request headers must contain `Content-Type: application/json-patch+json`. On
- *  success, the response body will contain a JSON-encoded representation of the
+ *  success, the response body contains a JSON-encoded representation of the
  *  updated resource, including the server-assigned version ID. Errors generated
- *  by the FHIR store will contain a JSON-encoded `OperationOutcome` resource
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
  *  instead. For samples that show how to call `patch`, see [Patching a FHIR
@@ -3979,8 +3831,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatchWithObject:name:]
 
 /** The name of the resource to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3996,9 +3846,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  doesn't define a patch method, but the server supports it in the same way it
  *  supports STU3. The request body must contain a JSON Patch document, and the
  *  request headers must contain `Content-Type: application/json-patch+json`. On
- *  success, the response body will contain a JSON-encoded representation of the
+ *  success, the response body contains a JSON-encoded representation of the
  *  updated resource, including the server-assigned version ID. Errors generated
- *  by the FHIR store will contain a JSON-encoded `OperationOutcome` resource
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
  *  describing the reason for the error. If the request cannot be mapped to a
  *  valid API method on a FHIR store, a generic GCP error might be returned
  *  instead. For samples that show how to call `patch`, see [Patching a FHIR
@@ -4020,9 +3870,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/patient-operations.html#everything),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/patient-operations.html#everything)).
- *  On success, the response body will contain a JSON-encoded representation of
- *  a `Bundle` resource of type `searchset`, containing the results of the
- *  operation. Errors generated by the FHIR store will contain a JSON-encoded
+ *  On success, the response body contains a JSON-encoded representation of a
+ *  `Bundle` resource of type `searchset`, containing the results of the
+ *  operation. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. The resources in scope for the response
@@ -4044,8 +3894,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirPatientEverything : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirPatientEverythingWithname:]
 
 /**
  *  Maximum number of resources in a page. If not specified, 100 is used. May
@@ -4099,9 +3947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/patient-operations.html#everything),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/patient-operations.html#everything),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/patient-operations.html#everything)).
- *  On success, the response body will contain a JSON-encoded representation of
- *  a `Bundle` resource of type `searchset`, containing the results of the
- *  operation. Errors generated by the FHIR store will contain a JSON-encoded
+ *  On success, the response body contains a JSON-encoded representation of a
+ *  `Bundle` resource of type `searchset`, containing the results of the
+ *  operation. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. The resources in scope for the response
@@ -4138,11 +3986,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cread)) specified
  *  by supplying an `If-Modified-Since` header with a date/time value or an
  *  `If-None-Match` header with an ETag value. On success, the response body
- *  will contain a JSON-encoded representation of the resource. Errors generated
- *  by the FHIR store will contain a JSON-encoded `OperationOutcome` resource
- *  describing the reason for the error. If the request cannot be mapped to a
- *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `read`, see [Getting a FHIR
+ *  contains a JSON-encoded representation of the resource. Errors generated by
+ *  the FHIR store contain a JSON-encoded `OperationOutcome` resource describing
+ *  the reason for the error. If the request cannot be mapped to a valid API
+ *  method on a FHIR store, a generic GCP error might be returned instead. For
+ *  samples that show how to call `read`, see [Getting a FHIR
  *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.read
@@ -4151,8 +3999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirRead : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirReadWithname:]
 
 /** The name of the resource to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4171,11 +4017,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#cread)) specified
  *  by supplying an `If-Modified-Since` header with a date/time value or an
  *  `If-None-Match` header with an ETag value. On success, the response body
- *  will contain a JSON-encoded representation of the resource. Errors generated
- *  by the FHIR store will contain a JSON-encoded `OperationOutcome` resource
- *  describing the reason for the error. If the request cannot be mapped to a
- *  valid API method on a FHIR store, a generic GCP error might be returned
- *  instead. For samples that show how to call `read`, see [Getting a FHIR
+ *  contains a JSON-encoded representation of the resource. Errors generated by
+ *  the FHIR store contain a JSON-encoded `OperationOutcome` resource describing
+ *  the reason for the error. If the request cannot be mapped to a valid API
+ *  method on a FHIR store, a generic GCP error might be returned instead. For
+ *  samples that show how to call `read`, see [Getting a FHIR
  *  resource](/healthcare/docs/how-tos/fhir-resources#getting_a_fhir_resource).
  *
  *  @param name The name of the resource to retrieve.
@@ -4200,8 +4046,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirResourcePurge : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirResourcePurgeWithname:]
 
 /** The name of the resource to purge. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4243,9 +4087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  having the same semantics as the `GET` method for the specified type. The
  *  `GET` and `POST` methods do not support compartment searches. The `POST`
  *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body will contain a JSON-encoded
+ *  parameters. On success, the response body contains a JSON-encoded
  *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store will contain a
+ *  results of the search. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. The server's
@@ -4278,8 +4122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirSearchWithObject:parent:]
 
 /** Name of the FHIR store to retrieve resources from. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4305,9 +4147,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  having the same semantics as the `GET` method for the specified type. The
  *  `GET` and `POST` methods do not support compartment searches. The `POST`
  *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body will contain a JSON-encoded
+ *  parameters. On success, the response body contains a JSON-encoded
  *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store will contain a
+ *  results of the search. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. The server's
@@ -4364,9 +4206,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  having the same semantics as the `GET` method for the specified type. The
  *  `GET` and `POST` methods do not support compartment searches. The `POST`
  *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body will contain a JSON-encoded
+ *  parameters. On success, the response body contains a JSON-encoded
  *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store will contain a
+ *  results of the search. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. The server's
@@ -4399,8 +4241,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirSearchTypeWithObject:parent:resourceType:]
 
 /** Name of the FHIR store to retrieve resources from. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4435,9 +4275,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  having the same semantics as the `GET` method for the specified type. The
  *  `GET` and `POST` methods do not support compartment searches. The `POST`
  *  method does not support `application/x-www-form-urlencoded` search
- *  parameters. On success, the response body will contain a JSON-encoded
+ *  parameters. On success, the response body contains a JSON-encoded
  *  representation of a `Bundle` resource of type `searchset`, containing the
- *  results of the search. Errors generated by the FHIR store will contain a
+ *  results of the search. Errors generated by the FHIR store contain a
  *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. The server's
@@ -4491,15 +4331,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  enable_update_create set, creates the resource with the client-specified ID.
  *  It is strongly advised not to include or encode any sensitive data such as
  *  patient identifiers in client-specified resource IDs. Those IDs are part of
- *  the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
+ *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
  *  notifications. Those IDs can also be contained in reference fields within
  *  other resources. The request body must contain a JSON-encoded FHIR resource,
  *  and the request headers must contain `Content-Type: application/fhir+json`.
  *  The resource must contain an `id` element having an identical value to the
- *  ID in the REST path of the request. On success, the response body will
- *  contain a JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store will contain
- *  a JSON-encoded `OperationOutcome` resource describing the reason for the
+ *  ID in the REST path of the request. On success, the response body contains a
+ *  JSON-encoded representation of the updated resource, including the
+ *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `update`, see [Updating a FHIR
@@ -4511,8 +4351,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirUpdate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirUpdateWithObject:name:]
 
 /** The name of the resource to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4529,15 +4367,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  enable_update_create set, creates the resource with the client-specified ID.
  *  It is strongly advised not to include or encode any sensitive data such as
  *  patient identifiers in client-specified resource IDs. Those IDs are part of
- *  the FHIR resource path recorded in Cloud audit logs and Cloud Pub/Sub
+ *  the FHIR resource path recorded in Cloud Audit Logs and Pub/Sub
  *  notifications. Those IDs can also be contained in reference fields within
  *  other resources. The request body must contain a JSON-encoded FHIR resource,
  *  and the request headers must contain `Content-Type: application/fhir+json`.
  *  The resource must contain an `id` element having an identical value to the
- *  ID in the REST path of the request. On success, the response body will
- *  contain a JSON-encoded representation of the updated resource, including the
- *  server-assigned version ID. Errors generated by the FHIR store will contain
- *  a JSON-encoded `OperationOutcome` resource describing the reason for the
+ *  ID in the REST path of the request. On success, the response body contains a
+ *  JSON-encoded representation of the updated resource, including the
+ *  server-assigned version ID. Errors generated by the FHIR store contain a
+ *  JSON-encoded `OperationOutcome` resource describing the reason for the
  *  error. If the request cannot be mapped to a valid API method on a FHIR
  *  store, a generic GCP error might be returned instead. For samples that show
  *  how to call `update`, see [Updating a FHIR
@@ -4559,8 +4397,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)). On
- *  success, the response body will contain a JSON-encoded representation of the
- *  resource. Errors generated by the FHIR store will contain a JSON-encoded
+ *  success, the response body contains a JSON-encoded representation of the
+ *  resource. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. For samples that show how to call
@@ -4573,8 +4411,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirVread : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresFhirVreadWithname:]
 
 /** The name of the resource version to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4587,8 +4423,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  ([DSTU2](http://hl7.org/implement/standards/fhir/DSTU2/http.html#vread),
  *  [STU3](http://hl7.org/implement/standards/fhir/STU3/http.html#vread),
  *  [R4](http://hl7.org/implement/standards/fhir/R4/http.html#vread)). On
- *  success, the response body will contain a JSON-encoded representation of the
- *  resource. Errors generated by the FHIR store will contain a JSON-encoded
+ *  success, the response body contains a JSON-encoded representation of the
+ *  resource. Errors generated by the FHIR store contain a JSON-encoded
  *  `OperationOutcome` resource describing the reason for the error. If the
  *  request cannot be mapped to a valid API method on a FHIR store, a generic
  *  GCP error might be returned instead. For samples that show how to call
@@ -4612,8 +4448,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresGetWithname:]
 
 /** The resource name of the FHIR store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4641,8 +4475,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -4688,8 +4520,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  is stored using the supplied ID regardless of the enable_update_create
  *  setting on the FHIR store. It is strongly advised not to include or encode
  *  any sensitive data such as patient identifiers in client-specified resource
- *  IDs. Those IDs are part of the FHIR resource path recorded in Cloud audit
- *  logs and Cloud Pub/Sub notifications. Those IDs can also be contained in
+ *  IDs. Those IDs are part of the FHIR resource path recorded in Cloud Audit
+ *  Logs and Cloud Pub/Sub notifications. Those IDs can also be contained in
  *  reference fields within other resources. The import process does not enforce
  *  referential integrity, regardless of the disable_referential_integrity
  *  setting on the FHIR store. This allows the import of resources with
@@ -4728,8 +4560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Patient-everything operation. This method returns an Operation that can be
  *  used to track the status of the import by calling GetOperation. Immediate
  *  fatal errors appear in the error field, errors are also logged to Cloud
- *  Logging (see [Viewing logs](/healthcare/docs/how-tos/logging)). Otherwise,
- *  when the operation finishes, a detailed response of type
+ *  Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
  *  ImportResourcesResponse is returned in the response field. The metadata
  *  field type for this operation is OperationMetadata.
  *
@@ -4739,8 +4572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresImport : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresImportWithObject:name:]
 
 /**
  *  The name of the FHIR store to import FHIR resources to, in the format of
@@ -4761,8 +4592,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  is stored using the supplied ID regardless of the enable_update_create
  *  setting on the FHIR store. It is strongly advised not to include or encode
  *  any sensitive data such as patient identifiers in client-specified resource
- *  IDs. Those IDs are part of the FHIR resource path recorded in Cloud audit
- *  logs and Cloud Pub/Sub notifications. Those IDs can also be contained in
+ *  IDs. Those IDs are part of the FHIR resource path recorded in Cloud Audit
+ *  Logs and Cloud Pub/Sub notifications. Those IDs can also be contained in
  *  reference fields within other resources. The import process does not enforce
  *  referential integrity, regardless of the disable_referential_integrity
  *  setting on the FHIR store. This allows the import of resources with
@@ -4801,8 +4632,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Patient-everything operation. This method returns an Operation that can be
  *  used to track the status of the import by calling GetOperation. Immediate
  *  fatal errors appear in the error field, errors are also logged to Cloud
- *  Logging (see [Viewing logs](/healthcare/docs/how-tos/logging)). Otherwise,
- *  when the operation finishes, a detailed response of type
+ *  Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  Otherwise, when the operation finishes, a detailed response of type
  *  ImportResourcesResponse is returned in the response field. The metadata
  *  field type for this operation is OperationMetadata.
  *
@@ -4828,8 +4660,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresListWithparent:]
 
 /**
  *  Restricts stores returned to those matching a filter. The following syntax
@@ -4897,8 +4727,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the FHIR store, of the form
@@ -4941,8 +4769,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -4983,8 +4809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsFhirStoresTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -5023,8 +4847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsGetWithname:]
 
 /**
  *  The name of the dataset to read. For example,
@@ -5056,8 +4878,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -5101,8 +4921,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresCreateWithObject:parent:]
 
 /**
  *  The ID of the HL7v2 store that is being created. The string must match the
@@ -5137,8 +4955,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresDeleteWithname:]
 
 /** The resource name of the HL7v2 store to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5165,8 +4981,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresGetWithname:]
 
 /** The resource name of the HL7v2 store to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5194,8 +5008,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresGetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -5239,8 +5051,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresListWithparent:]
 
 /**
  *  Restricts stores returned to those matching a filter. The following syntax
@@ -5301,11 +5111,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Parses and stores an HL7v2 message. This method triggers an asynchronous
- *  notification to any Cloud Pub/Sub topic configured in
- *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
- *  filtering matches the message. If an MLLP adapter is configured to listen to
- *  a Cloud Pub/Sub topic, the adapter transmits the message when a notification
- *  is received.
+ *  notification to any Pub/Sub topic configured in
+ *  Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If
+ *  an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter
+ *  transmits the message when a notification is received.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.create
  *
@@ -5313,8 +5122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesCreate : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesCreateWithObject:parent:]
 
 /** The name of the dataset this message belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -5323,11 +5130,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_Message.
  *
  *  Parses and stores an HL7v2 message. This method triggers an asynchronous
- *  notification to any Cloud Pub/Sub topic configured in
- *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
- *  filtering matches the message. If an MLLP adapter is configured to listen to
- *  a Cloud Pub/Sub topic, the adapter transmits the message when a notification
- *  is received.
+ *  notification to any Pub/Sub topic configured in
+ *  Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If
+ *  an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter
+ *  transmits the message when a notification is received.
  *
  *  @param object The @c GTLRCloudHealthcare_CreateMessageRequest to include in
  *    the query.
@@ -5349,8 +5155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesDelete : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesDeleteWithname:]
 
 /** The resource name of the HL7v2 message to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5377,8 +5181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesGetWithname:]
 
 /** The resource name of the HL7v2 message to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5416,14 +5218,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
 
 /**
  *  Parses and stores an HL7v2 message. This method triggers an asynchronous
- *  notification to any Cloud Pub/Sub topic configured in
- *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
- *  filtering matches the message. If an MLLP adapter is configured to listen to
- *  a Cloud Pub/Sub topic, the adapter transmits the message when a notification
- *  is received. This method also generates a response containing an HL7v2
- *  acknowledgement (`ACK`) message when successful or a negative
- *  acknowledgement (`NACK`) message in case of error, suitable for replying to
- *  HL7v2 interface systems that expect these acknowledgements.
+ *  notification to any Pub/Sub topic configured in
+ *  Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If
+ *  an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter
+ *  transmits the message when a notification is received. If the method is
+ *  successful, it generates a response containing an HL7v2 acknowledgment
+ *  (`ACK`) message. If the method encounters an error, it returns a negative
+ *  acknowledgment (`NACK`) message. This behavior is suitable for replying to
+ *  HL7v2 interface systems that expect these acknowledgments.
  *
  *  Method: healthcare.projects.locations.datasets.hl7V2Stores.messages.ingest
  *
@@ -5431,8 +5233,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesIngest : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesIngestWithObject:parent:]
 
 /** The name of the HL7v2 store this message belongs to. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -5441,14 +5241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Fetches a @c GTLRCloudHealthcare_IngestMessageResponse.
  *
  *  Parses and stores an HL7v2 message. This method triggers an asynchronous
- *  notification to any Cloud Pub/Sub topic configured in
- *  projects.locations.datasets.hl7V2Stores.Hl7V2NotificationConfig, if the
- *  filtering matches the message. If an MLLP adapter is configured to listen to
- *  a Cloud Pub/Sub topic, the adapter transmits the message when a notification
- *  is received. This method also generates a response containing an HL7v2
- *  acknowledgement (`ACK`) message when successful or a negative
- *  acknowledgement (`NACK`) message in case of error, suitable for replying to
- *  HL7v2 interface systems that expect these acknowledgements.
+ *  notification to any Pub/Sub topic configured in
+ *  Hl7V2Store.Hl7V2NotificationConfig, if the filtering matches the message. If
+ *  an MLLP adapter is configured to listen to a Pub/Sub topic, the adapter
+ *  transmits the message when a notification is received. If the method is
+ *  successful, it generates a response containing an HL7v2 acknowledgment
+ *  (`ACK`) message. If the method encounters an error, it returns a negative
+ *  acknowledgment (`NACK`) message. This behavior is suitable for replying to
+ *  HL7v2 interface systems that expect these acknowledgments.
  *
  *  @param object The @c GTLRCloudHealthcare_IngestMessageRequest to include in
  *    the query.
@@ -5473,8 +5273,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesListWithparent:]
 
 /**
  *  Restricts messages returned to those matching a filter. The following syntax
@@ -5592,8 +5390,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresMessagesPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresMessagesPatchWithObject:name:]
 
 /**
  *  Resource name of the Message, of the form
@@ -5640,8 +5436,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresPatchWithObject:name:]
 
 /**
  *  Resource name of the HL7v2 store, of the form
@@ -5684,8 +5478,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -5726,8 +5518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsHl7V2StoresTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsHl7V2StoresTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -5766,8 +5556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsListWithparent:]
 
 /**
  *  The maximum number of items to return. If not specified, 100 is used. May
@@ -5821,8 +5609,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsCancel : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5862,8 +5648,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -5900,8 +5684,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsOperationsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -5949,8 +5731,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsPatch : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsPatchWithObject:name:]
 
 /**
  *  Resource name of the dataset, of the form
@@ -5993,8 +5773,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsSetIamPolicy : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -6035,8 +5813,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsTestIamPermissions : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsDatasetsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -6075,8 +5851,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsGet : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6103,19 +5877,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
  */
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
-// Previous library name was
-//   +[GTLQueryCloudHealthcare queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

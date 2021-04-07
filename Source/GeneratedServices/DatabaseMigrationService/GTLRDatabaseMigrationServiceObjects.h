@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Database Migration API (datamigration/v1)
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
@@ -41,6 +41,7 @@
 @class GTLRDatabaseMigrationService_Operation_Metadata;
 @class GTLRDatabaseMigrationService_Operation_Response;
 @class GTLRDatabaseMigrationService_Policy;
+@class GTLRDatabaseMigrationService_PostgreSqlConnectionProfile;
 @class GTLRDatabaseMigrationService_ReverseSshConnectivity;
 @class GTLRDatabaseMigrationService_SqlAclEntry;
 @class GTLRDatabaseMigrationService_SqlIpConfig;
@@ -133,6 +134,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSetting
  *  Value: "MYSQL_8_0"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80;
+/**
+ *  PostgreSQL 10.
+ *
+ *  Value: "POSTGRES_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10;
+/**
+ *  PostgreSQL 11.
+ *
+ *  Value: "POSTGRES_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11;
+/**
+ *  PostgreSQL 12.
+ *
+ *  Value: "POSTGRES_12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12;
+/**
+ *  PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13;
+/**
+ *  PostgreSQL 9.6.
+ *
+ *  Value: "POSTGRES_9_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96;
 /**
  *  Unspecified version.
  *
@@ -251,6 +282,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_En
  *  Value: "MYSQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql;
+/**
+ *  The source engine is PostgreSQL.
+ *
+ *  Value: "POSTGRESQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_DatabaseType.provider
@@ -470,11 +507,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified;
 /**
+ *  The value of parameter max_replication_slots is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots;
+/**
+ *  The value of parameter max_wal_senders is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_WAL_SENDERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWalSenders;
+/**
+ *  The value of parameter max_worker_processes is not sufficient.
+ *
+ *  Value: "INSUFFICIENT_MAX_WORKER_PROCESSES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWorkerProcesses;
+/**
  *  One of the involved connection profiles has an invalid configuration.
  *
  *  Value: "INVALID_CONNECTION_PROFILE_CONFIG"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidConnectionProfileConfig;
+/**
+ *  Invalid RDS logical replication.
+ *
+ *  Value: "INVALID_RDS_LOGICAL_REPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidRdsLogicalReplication;
+/**
+ *  The value of parameter shared_preload_libraries does not include pglogical.
+ *
+ *  Value: "INVALID_SHARED_PRELOAD_LIBRARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidSharedPreloadLibrary;
+/**
+ *  The value of parameter wal_level is not set to logical.
+ *
+ *  Value: "INVALID_WAL_LEVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidWalLevel;
+/**
+ *  No pglogical extension installed on databases, applicable for postgres.
+ *
+ *  Value: "NO_PGLOGICAL_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_NoPglogicalInstalled;
+/**
+ *  pglogical node already exists on databases, applicable for postgres.
+ *
+ *  Value: "PGLOGICAL_NODE_ALREADY_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists;
 /**
  *  The definer is not supported.
  *
@@ -482,11 +567,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVer
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner;
 /**
+ *  Extensions installed are either not supported or having unsupported
+ *  versions.
+ *
+ *  Value: "UNSUPPORTED_EXTENSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions;
+/**
  *  The gtid_mode is not supported, applicable for MySQL.
  *
  *  Value: "UNSUPPORTED_GTID_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedGtidMode;
+/**
+ *  Unsupported migration type.
+ *
+ *  Value: "UNSUPPORTED_MIGRATION_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedMigrationType;
+/**
+ *  The table definition is not support due to missing primary key or replica
+ *  identity.
+ *
+ *  Value: "UNSUPPORTED_TABLE_DEFINITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedTableDefinition;
 /**
  *  The versions of the source and the destination are incompatible.
  *
@@ -704,6 +809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  */
 @property(nonatomic, strong, nullable) NSNumber *autoStorageIncrease;
 
+/** The Cloud SQL default instance level collation. */
+@property(nonatomic, copy, nullable) NSString *collation;
+
 /**
  *  The database flags passed to the Cloud SQL instance at startup. An object
  *  containing a list of "key": value pairs. Example: { "name": "wrench",
@@ -721,6 +829,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *        MySQL 5.7. (Value: "MYSQL_5_7")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80
  *        MySQL 8.0. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10
+ *        PostgreSQL 10. (Value: "POSTGRES_10")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11
+ *        PostgreSQL 11. (Value: "POSTGRES_11")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12
+ *        PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13
+ *        PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96
+ *        PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
  *        Unspecified version. (Value: "SQL_DATABASE_VERSION_UNSPECIFIED")
  */
@@ -780,8 +898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 
 /**
  *  The tier (or machine type) for this instance, for example:
- *  `db-n1-standard-1` (MySQL instances). For more information, see [Cloud SQL
- *  Instance
+ *  `db-n1-standard-1` (MySQL instances) or `db-custom-1-3840` (PostgreSQL
+ *  instances). For more information, see [Cloud SQL Instance
  *  Settings](https://cloud.google.com/sql/docs/mysql/instance-settings).
  */
 @property(nonatomic, copy, nullable) NSString *tier;
@@ -872,6 +990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** A PostgreSQL database connection profile. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgreSqlConnectionProfile *postgresql;
+
 /**
  *  The database provider.
  *
@@ -950,6 +1071,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *        "DATABASE_ENGINE_UNSPECIFIED")
  *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql The source
  *        engine is MySQL. (Value: "MYSQL")
+ *    @arg @c kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql The
+ *        source engine is PostgreSQL. (Value: "POSTGRESQL")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
@@ -1057,7 +1180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 /**
  *  Represents the metadata of the long-running operation.
  */
-@interface GTLRDatabaseMigrationService_GoogleCloudClouddmsV1beta1OperationMetadata : GTLRObject
+@interface GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
@@ -1464,14 +1587,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *        "CONNECTION_PROFILE_TYPES_INCOMPATIBILITY")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified
  *        An unknown error occurred (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots
+ *        The value of parameter max_replication_slots is not sufficient.
+ *        (Value: "INSUFFICIENT_MAX_REPLICATION_SLOTS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWalSenders
+ *        The value of parameter max_wal_senders is not sufficient. (Value:
+ *        "INSUFFICIENT_MAX_WAL_SENDERS")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWorkerProcesses
+ *        The value of parameter max_worker_processes is not sufficient. (Value:
+ *        "INSUFFICIENT_MAX_WORKER_PROCESSES")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidConnectionProfileConfig
  *        One of the involved connection profiles has an invalid configuration.
  *        (Value: "INVALID_CONNECTION_PROFILE_CONFIG")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidRdsLogicalReplication
+ *        Invalid RDS logical replication. (Value:
+ *        "INVALID_RDS_LOGICAL_REPLICATION")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidSharedPreloadLibrary
+ *        The value of parameter shared_preload_libraries does not include
+ *        pglogical. (Value: "INVALID_SHARED_PRELOAD_LIBRARY")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidWalLevel
+ *        The value of parameter wal_level is not set to logical. (Value:
+ *        "INVALID_WAL_LEVEL")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_NoPglogicalInstalled
+ *        No pglogical extension installed on databases, applicable for
+ *        postgres. (Value: "NO_PGLOGICAL_INSTALLED")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists
+ *        pglogical node already exists on databases, applicable for postgres.
+ *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner
  *        The definer is not supported. (Value: "UNSUPPORTED_DEFINER")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions
+ *        Extensions installed are either not supported or having unsupported
+ *        versions. (Value: "UNSUPPORTED_EXTENSIONS")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedGtidMode
  *        The gtid_mode is not supported, applicable for MySQL. (Value:
  *        "UNSUPPORTED_GTID_MODE")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedMigrationType
+ *        Unsupported migration type. (Value: "UNSUPPORTED_MIGRATION_TYPE")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedTableDefinition
+ *        The table definition is not support due to missing primary key or
+ *        replica identity. (Value: "UNSUPPORTED_TABLE_DEFINITION")
  *    @arg @c kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_VersionIncompatibility
  *        The versions of the source and the destination are incompatible.
  *        (Value: "VERSION_INCOMPATIBILITY")
@@ -1709,6 +1864,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 
 
 /**
+ *  Specifies connection parameters required specifically for PostgreSQL
+ *  databases.
+ */
+@interface GTLRDatabaseMigrationService_PostgreSqlConnectionProfile : GTLRObject
+
+/**
+ *  If the source is a Cloud SQL database, use this field to provide the Cloud
+ *  SQL instance ID of the source.
+ */
+@property(nonatomic, copy, nullable) NSString *cloudSqlId;
+
+/** Required. The IP or hostname of the source PostgreSQL database. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Required. Input only. The password for the user that Database Migration
+ *  Service will be using to connect to the database. This field is not returned
+ *  on request, and the value is encrypted when stored in Database Migration
+ *  Service.
+ */
+@property(nonatomic, copy, nullable) NSString *password;
+
+/**
+ *  Output only. Indicates If this connection profile password is stored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *passwordSet;
+
+/**
+ *  Required. The network port of the source PostgreSQL database.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  SSL configuration for the destination to connect to the source database.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SslConfig *ssl;
+
+/**
+ *  Required. The username that Database Migration Service will use to connect
+ *  to the database. The value is encrypted when stored in Database Migration
+ *  Service.
+ */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
  *  Request message for 'PromoteMigrationJob' request.
  */
 @interface GTLRDatabaseMigrationService_PromoteMigrationJobRequest : GTLRObject
@@ -1733,7 +1940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
  *  The details needed to configure a reverse SSH tunnel between the source and
  *  destination databases. These details will be used when calling the
  *  generateSshScript method (see
- *  https://cloud.google.com/database-migration/docs/reference/rest/v1beta1/projects.locations.migrationJobs/generateSshScript)
+ *  https://cloud.google.com/database-migration/docs/reference/rest/v1/projects.locations.migrationJobs/generateSshScript)
  *  to produce the script that will help set up the reverse SSH tunnel, and to
  *  set up the VPC peering between the Cloud SQL private network and the VPC.
  */

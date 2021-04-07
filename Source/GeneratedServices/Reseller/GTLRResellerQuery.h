@@ -88,8 +88,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_CustomersGet : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersGetWithcustomerId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -144,8 +142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersInsert : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersInsertWithObject:]
 
 /**
  *  The `customerAuthToken` query string is required when creating a resold
@@ -193,8 +189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersPatch : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersPatchWithObject:customerId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -234,8 +228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_CustomersUpdate : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForCustomersUpdateWithObject:customerId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -276,8 +268,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_ResellernotifyGetwatchdetails : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyGetwatchdetails]
 
 /**
  *  Fetches a @c GTLRReseller_NotifyGetwatchdetailsResponse.
@@ -299,8 +289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_ResellernotifyRegister : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyRegister]
 
 /** The service account which will own the created Cloud-PubSub topic. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
@@ -325,8 +313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_ResellernotifyUnregister : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForResellernotifyUnregister]
 
 /** The service account which owns the Cloud-PubSub topic. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
@@ -354,8 +340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsActivate : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsActivateWithcustomerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -413,8 +397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangePlan : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangePlanWithObject:customerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -474,8 +456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangeRenewalSettings : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangeRenewalSettingsWithObject:customerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -534,8 +514,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsChangeSeats : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsChangeSeatsWithObject:customerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -591,8 +569,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsDelete : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsDeleteWithcustomerId:subscriptionId:deletionType:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -685,8 +661,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_SubscriptionsGet : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsGetWithcustomerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -754,8 +728,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsInsert : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsInsertWithObject:customerId:]
 
 /**
  *  The `customerAuthToken` query string is required when creating a resold
@@ -819,8 +791,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrderReadonly
  */
 @interface GTLRResellerQuery_SubscriptionsList : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsList]
 
 /**
  *  The `customerAuthToken` query string is required when creating a resold
@@ -894,8 +864,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsStartPaidService : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsStartPaidServiceWithcustomerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique
@@ -959,8 +927,6 @@ FOUNDATION_EXTERN NSString * const kGTLRResellerDeletionTypeTransferToDirect;
  *    @c kGTLRAuthScopeResellerAppsOrder
  */
 @interface GTLRResellerQuery_SubscriptionsSuspend : GTLRResellerQuery
-// Previous library name was
-//   +[GTLQueryReseller queryForSubscriptionsSuspendWithcustomerId:subscriptionId:]
 
 /**
  *  Either the customer's primary domain name or the customer's unique

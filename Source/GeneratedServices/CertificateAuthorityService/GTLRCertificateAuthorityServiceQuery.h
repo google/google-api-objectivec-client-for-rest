@@ -65,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesActivate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesActivateWithObject:name:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -104,8 +102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetWithname:]
 
 /** Required. The name of the CertificateRevocationList to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -133,8 +129,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -178,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsListWithparent:]
 
 /** Optional. Only include resources that match the filter in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -238,8 +230,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsPatchWithObject:name:]
 
 /**
  *  Output only. The resource path for this CertificateRevocationList in the
@@ -299,8 +289,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -341,8 +329,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificateRevocationListsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -383,8 +369,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesCreate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesCreateWithObject:parent:]
 
 /**
  *  Optional. It must be unique within a location and match the regular
@@ -443,8 +427,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesGetWithname:]
 
 /** Required. The name of the Certificate to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -471,8 +453,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesListWithparent:]
 
 /**
  *  Optional. Only include resources that match the filter in the response. For
@@ -538,8 +518,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesPatchWithObject:name:]
 
 /**
  *  Output only. The resource path for this Certificate in the format `projects/
@@ -596,8 +574,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCertificatesRevoke : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCertificatesRevokeWithObject:name:]
 
 /**
  *  Required. The resource name for this Certificate in the format `projects/ *
@@ -632,8 +608,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesCreate : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesCreateWithObject:parent:]
 
 /**
  *  Required. It must be unique within a location and match the regular
@@ -687,8 +661,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesDisable : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesDisableWithObject:name:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -723,8 +695,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesEnable : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesEnableWithObject:name:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -763,8 +733,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesFetch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesFetchWithname:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -800,8 +768,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesGetWithname:]
 
 /** Required. The name of the CertificateAuthority to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -829,8 +795,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -874,8 +838,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesListWithparent:]
 
 /** Optional. Only include resources that match the filter in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -932,8 +894,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesPatch : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesPatchWithObject:name:]
 
 /**
  *  Output only. The resource name for this CertificateAuthority in the format
@@ -988,8 +948,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesRestore : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesRestoreWithObject:name:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -1024,8 +982,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesScheduleDelete : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesScheduleDeleteWithObject:name:]
 
 /**
  *  Required. The resource name for this CertificateAuthority in the format
@@ -1062,8 +1018,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1104,8 +1058,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCertificateAuthoritiesTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsCertificateAuthoritiesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1145,8 +1097,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1173,19 +1123,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1222,8 +1180,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsCancel : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1264,8 +1220,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsDelete : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1297,8 +1251,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1335,8 +1287,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsOperationsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1384,8 +1334,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGet : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsGetWithname:]
 
 /** Required. The name of the ReusableConfigs to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1413,8 +1361,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsGetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1458,8 +1404,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsList : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsListWithparent:]
 
 /** Optional. Only include resources that match the filter in the response. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1516,8 +1460,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsSetIamPolicy : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1558,8 +1500,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCertificateAuthorityServiceCloudPlatform
  */
 @interface GTLRCertificateAuthorityServiceQuery_ProjectsLocationsReusableConfigsTestIamPermissions : GTLRCertificateAuthorityServiceQuery
-// Previous library name was
-//   +[GTLQueryCertificateAuthorityService queryForProjectsLocationsReusableConfigsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

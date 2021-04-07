@@ -57,8 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
  */
 @interface GTLRChromePolicyQuery_CustomersPoliciesOrgunitsBatchInherit : GTLRChromePolicyQuery
-// Previous library name was
-//   +[GTLQueryChromePolicy queryForCustomersPoliciesOrgunitsBatchInheritWithObject:customer:]
 
 /**
  *  ID of the G Suite account or literal "my_customer" for the customer
@@ -102,8 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
  */
 @interface GTLRChromePolicyQuery_CustomersPoliciesOrgunitsBatchModify : GTLRChromePolicyQuery
-// Previous library name was
-//   +[GTLQueryChromePolicy queryForCustomersPoliciesOrgunitsBatchModifyWithObject:customer:]
 
 /**
  *  ID of the G Suite account or literal "my_customer" for the customer
@@ -144,8 +140,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicyReadonly
  */
 @interface GTLRChromePolicyQuery_CustomersPoliciesResolve : GTLRChromePolicyQuery
-// Previous library name was
-//   +[GTLQueryChromePolicy queryForCustomersPoliciesResolveWithObject:customer:]
 
 /**
  *  ID of the G Suite account or literal "my_customer" for the customer
@@ -181,8 +175,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicyReadonly
  */
 @interface GTLRChromePolicyQuery_CustomersPolicySchemasGet : GTLRChromePolicyQuery
-// Previous library name was
-//   +[GTLQueryChromePolicy queryForCustomersPolicySchemasGetWithname:]
 
 /** Required. The policy schema resource name to query. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -211,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicyReadonly
  */
 @interface GTLRChromePolicyQuery_CustomersPolicySchemasList : GTLRChromePolicyQuery
-// Previous library name was
-//   +[GTLQueryChromePolicy queryForCustomersPolicySchemasListWithparent:]
 
 /**
  *  The schema filter used to find a particular schema based on fields like its

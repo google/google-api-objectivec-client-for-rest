@@ -74,8 +74,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDatasetAggregate : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDatasetAggregateWithObject:userId:]
 
 /**
  *  Aggregate data for the person identified. Use me to indicate the
@@ -144,8 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesCreate : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesCreateWithObject:userId:]
 
 /**
  *  Create the data source for the person identified. Use me to indicate the
@@ -223,8 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDataPointChangesList : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesDataPointChangesListWithuserId:dataSourceId:]
 
 /** The data stream ID of the data source that created the dataset. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
@@ -289,8 +283,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsDelete : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesDatasetsDeleteWithuserId:dataSourceId:datasetId:]
 
 /**
  *  Dataset identifier that is a composite of the minimum data point start time
@@ -371,8 +363,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsGet : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesDatasetsGetWithuserId:dataSourceId:datasetId:]
 
 /**
  *  Dataset identifier that is a composite of the minimum data point start time
@@ -462,8 +452,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDatasetsPatch : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesDatasetsPatchWithObject:userId:dataSourceId:datasetId:]
 
 /** This field is not used, and can be safely omitted. */
 @property(nonatomic, copy, nullable) NSString *datasetId;
@@ -522,8 +510,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesDelete : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesDeleteWithuserId:dataSourceId:]
 
 /** The data stream ID of the data source to delete. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
@@ -581,8 +567,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesGet : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesGetWithuserId:dataSourceId:]
 
 /** The data stream ID of the data source to retrieve. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
@@ -642,8 +626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesList : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesListWithuserId:]
 
 /**
  *  The names of data types to include in the list. If not specified, all data
@@ -695,8 +677,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersDataSourcesUpdate : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersDataSourcesUpdateWithObject:userId:dataSourceId:]
 
 /** The data stream ID of the data source to update. */
 @property(nonatomic, copy, nullable) NSString *dataSourceId;
@@ -737,8 +717,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersSessionsDelete : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersSessionsDeleteWithuserId:sessionId:]
 
 /** The ID of the session to be deleted. */
 @property(nonatomic, copy, nullable) NSString *sessionId;
@@ -796,8 +774,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersSessionsList : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersSessionsListWithuserId:]
 
 /**
  *  If non-empty, only sessions with these activity types should be returned.
@@ -866,8 +842,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFitnessSleepWrite
  */
 @interface GTLRFitnessQuery_UsersSessionsUpdate : GTLRFitnessQuery
-// Previous library name was
-//   +[GTLQueryFitness queryForUsersSessionsUpdateWithObject:userId:sessionId:]
 
 /** The ID of the session to be created. */
 @property(nonatomic, copy, nullable) NSString *sessionId;

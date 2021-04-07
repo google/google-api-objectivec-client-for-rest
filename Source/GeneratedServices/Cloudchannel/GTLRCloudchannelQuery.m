@@ -60,6 +60,117 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1Customer *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleProtobufEmpty class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1ListCustomersResponse class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1Customer *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksGet
 
 @dynamic name, view;

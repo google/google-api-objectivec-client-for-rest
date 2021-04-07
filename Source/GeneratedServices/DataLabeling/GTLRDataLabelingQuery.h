@@ -61,8 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsAnnotationSpecSetsCreate : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsAnnotationSpecSetsCreateWithObject:parent:]
 
 /**
  *  Required. AnnotationSpecSet resource parent, format: projects/{project_id}
@@ -97,8 +95,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsAnnotationSpecSetsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsAnnotationSpecSetsDeleteWithname:]
 
 /**
  *  Required. AnnotationSpec resource name, format:
@@ -129,8 +125,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsAnnotationSpecSetsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsAnnotationSpecSetsGetWithname:]
 
 /**
  *  Required. AnnotationSpecSet resource name, format:
@@ -162,8 +156,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsAnnotationSpecSetsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsAnnotationSpecSetsListWithparent:]
 
 /** Optional. Filter is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -217,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsDataItemsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsDataItemsGetWithname:]
 
 /**
  *  Required. The name of the data item to get, format:
@@ -251,8 +241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsDataItemsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsDataItemsListWithparent:]
 
 /** Optional. Filter is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -305,8 +293,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsDeleteWithname:]
 
 /**
  *  Required. Name of the annotated dataset to delete, format:
@@ -339,8 +325,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsExamplesGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsExamplesGetWithname:]
 
 /**
  *  Optional. An expression for filtering Examples. Filter by
@@ -380,8 +364,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsExamplesList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsExamplesListWithparent:]
 
 /**
  *  Optional. An expression for filtering Examples. For annotated datasets that
@@ -433,8 +415,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsDeleteWithname:]
 
 /**
  *  Required. Name of the FeedbackThread that is going to be deleted. Format:
@@ -466,8 +446,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesCreate : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesCreateWithObject:parent:]
 
 /**
  *  Required. FeedbackMessage resource parent, format:
@@ -502,8 +480,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesDeleteWithname:]
 
 /**
  *  Required. Name of the FeedbackMessage that is going to be deleted. Format:
@@ -535,8 +511,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesGetWithname:]
 
 /**
  *  Required. Name of the feedback. Format:
@@ -567,8 +541,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsFeedbackMessagesListWithparent:]
 
 /**
  *  Optional. Requested page size. Server may return fewer results than
@@ -617,8 +589,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsGetWithname:]
 
 /**
  *  Required. Name of the feedback. Format:
@@ -649,8 +619,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsFeedbackThreadsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsFeedbackThreadsListWithparent:]
 
 /**
  *  Optional. Requested page size. Server may return fewer results than
@@ -699,8 +667,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsGetWithname:]
 
 /**
  *  Required. Name of the annotated dataset to get, format:
@@ -734,8 +700,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsAnnotatedDatasetsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsAnnotatedDatasetsListWithparent:]
 
 /** Optional. Filter is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -788,8 +752,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsCreate : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsCreateWithObject:parent:]
 
 /** Required. Dataset resource parent, format: projects/{project_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -822,8 +784,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsDataItemsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsDataItemsGetWithname:]
 
 /**
  *  Required. The name of the data item to get, format:
@@ -856,8 +816,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsDataItemsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsDataItemsListWithparent:]
 
 /** Optional. Filter is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -910,8 +868,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsDeleteWithname:]
 
 /**
  *  Required. Dataset resource name, format:
@@ -944,8 +900,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsEvaluationsExampleComparisonsSearch : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsEvaluationsExampleComparisonsSearchWithObject:parent:]
 
 /**
  *  Required. Name of the Evaluation resource to search for example comparisons
@@ -986,8 +940,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsEvaluationsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsEvaluationsGetWithname:]
 
 /**
  *  Required. Name of the evaluation. Format: "projects/{project_id}/datasets/
@@ -1019,8 +971,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsExportData : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsExportDataWithObject:name:]
 
 /**
  *  Required. Dataset resource name, format:
@@ -1055,8 +1005,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsGetWithname:]
 
 /**
  *  Required. Dataset resource name, format:
@@ -1088,8 +1036,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsImageLabel : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsImageLabelWithObject:parent:]
 
 /**
  *  Required. Name of the dataset to request labeling task, format:
@@ -1129,8 +1075,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsImportData : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsImportDataWithObject:name:]
 
 /**
  *  Required. Dataset resource name, format:
@@ -1169,8 +1113,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsListWithparent:]
 
 /** Optional. Filter on dataset is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1220,8 +1162,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsTextLabel : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsTextLabelWithObject:parent:]
 
 /**
  *  Required. Name of the data set to request labeling task, format:
@@ -1258,8 +1198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsDatasetsVideoLabel : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsDatasetsVideoLabelWithObject:parent:]
 
 /**
  *  Required. Name of the dataset to request labeling task, format:
@@ -1295,8 +1233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsCreate : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsCreateWithObject:parent:]
 
 /**
  *  Required. Evaluation job resource parent. Format: "projects/{project_id}"
@@ -1330,8 +1266,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsDeleteWithname:]
 
 /**
  *  Required. Name of the evaluation job that is going to be deleted. Format:
@@ -1363,8 +1297,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsGetWithname:]
 
 /**
  *  Required. Name of the evaluation job. Format: "projects/{project_id}
@@ -1396,8 +1328,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsListWithparent:]
 
 /**
  *  Optional. You can filter the jobs to list by model_id (also known as
@@ -1459,8 +1389,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsPatch : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsPatchWithObject:name:]
 
 /**
  *  Output only. After you create a job, Data Labeling Service assigns a name to
@@ -1512,8 +1440,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsPause : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsPauseWithObject:name:]
 
 /**
  *  Required. Name of the evaluation job that is going to be paused. Format:
@@ -1550,8 +1476,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationJobsResume : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationJobsResumeWithObject:name:]
 
 /**
  *  Required. Name of the evaluation job that is going to be resumed. Format:
@@ -1588,8 +1512,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsEvaluationsSearch : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsEvaluationsSearchWithparent:]
 
 /**
  *  Optional. To search evaluations, you can filter by the following: *
@@ -1659,8 +1581,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsInstructionsCreate : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsInstructionsCreateWithObject:parent:]
 
 /** Required. Instruction resource parent, format: projects/{project_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1692,8 +1612,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsInstructionsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsInstructionsDeleteWithname:]
 
 /**
  *  Required. Instruction resource name, format:
@@ -1724,8 +1642,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsInstructionsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsInstructionsGetWithname:]
 
 /**
  *  Required. Instruction resource name, format:
@@ -1756,8 +1672,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsInstructionsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsInstructionsListWithparent:]
 
 /** Optional. Filter is not supported at this moment. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1815,8 +1729,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsOperationsCancel : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1854,8 +1766,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsOperationsDelete : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1887,8 +1797,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsOperationsGet : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1925,8 +1833,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataLabelingCloudPlatform
  */
 @interface GTLRDataLabelingQuery_ProjectsOperationsList : GTLRDataLabelingQuery
-// Previous library name was
-//   +[GTLQueryDataLabeling queryForProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

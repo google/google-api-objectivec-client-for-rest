@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Document AI API (documentai/v1beta3)
+//   Cloud Document AI API (documentai/v1)
 // Description:
 //   Service to parse structured information from unstructured or
 //   semi-structured documents using state-of-the-art Google AI such as natural
@@ -33,8 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

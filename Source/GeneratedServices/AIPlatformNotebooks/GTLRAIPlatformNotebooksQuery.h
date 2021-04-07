@@ -28,15 +28,21 @@
 @class GTLRAIPlatformNotebooks_RegisterInstanceRequest;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest;
 @class GTLRAIPlatformNotebooks_ResetInstanceRequest;
+@class GTLRAIPlatformNotebooks_ResetRuntimeRequest;
+@class GTLRAIPlatformNotebooks_Runtime;
 @class GTLRAIPlatformNotebooks_Schedule;
 @class GTLRAIPlatformNotebooks_SetIamPolicyRequest;
 @class GTLRAIPlatformNotebooks_SetInstanceAcceleratorRequest;
 @class GTLRAIPlatformNotebooks_SetInstanceLabelsRequest;
 @class GTLRAIPlatformNotebooks_SetInstanceMachineTypeRequest;
 @class GTLRAIPlatformNotebooks_StartInstanceRequest;
+@class GTLRAIPlatformNotebooks_StartRuntimeRequest;
 @class GTLRAIPlatformNotebooks_StopInstanceRequest;
+@class GTLRAIPlatformNotebooks_StopRuntimeRequest;
+@class GTLRAIPlatformNotebooks_SwitchRuntimeRequest;
 @class GTLRAIPlatformNotebooks_TestIamPermissionsRequest;
 @class GTLRAIPlatformNotebooks_TriggerScheduleRequest;
+@class GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceRequest;
 
@@ -66,8 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsEnvironmentsCreate : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  Required. User-defined unique ID of this environment. The `environment_id`
@@ -105,8 +109,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsEnvironmentsDelete : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsEnvironmentsDeleteWithname:]
 
 /**
  *  Required. Format:
@@ -137,8 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsEnvironmentsGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsEnvironmentsGetWithname:]
 
 /**
  *  Required. Format:
@@ -169,8 +169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsEnvironmentsList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsEnvironmentsListWithparent:]
 
 /** Maximum return size of the list call. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -210,8 +208,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsCreate : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsCreateWithObject:parent:]
 
 /** Required. User-defined unique ID of this execution. */
 @property(nonatomic, copy, nullable) NSString *executionId;
@@ -245,8 +241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsDelete : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsDeleteWithname:]
 
 /**
  *  Required. Format:
@@ -277,8 +271,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsGetWithname:]
 
 /**
  *  Required. Format:
@@ -309,8 +301,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsExecutionsListWithparent:]
 
 /** Filter applied to resulting executions. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -357,8 +347,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -385,8 +373,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesCreate : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /** Required. User-defined unique ID of this instance. */
 @property(nonatomic, copy, nullable) NSString *instanceId;
@@ -420,8 +406,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesDelete : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  Required. Format:
@@ -452,8 +436,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  Required. Format:
@@ -485,8 +467,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -530,8 +510,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesGetInstanceHealth : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesGetInstanceHealthWithname:]
 
 /**
  *  Required. Format:
@@ -562,8 +540,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesIsUpgradeable : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesIsUpgradeableWithnotebookInstance:]
 
 /**
  *  Required. Format:
@@ -594,8 +570,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesListWithparent:]
 
 /** Maximum return size of the list call. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -639,8 +613,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRegister : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesRegisterWithObject:parent:]
 
 /** Required. Format: `parent=projects/{project_id}/locations/{location}` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -676,8 +648,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReport : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesReportWithObject:name:]
 
 /**
  *  Required. Format:
@@ -713,8 +683,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesResetWithObject:name:]
 
 /**
  *  Required. Format:
@@ -748,8 +716,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetAccelerator : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesSetAcceleratorWithObject:name:]
 
 /**
  *  Required. Format:
@@ -785,8 +751,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -823,8 +787,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetLabels : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesSetLabelsWithObject:name:]
 
 /**
  *  Required. Format:
@@ -858,8 +820,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesSetMachineType : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesSetMachineTypeWithObject:name:]
 
 /**
  *  Required. Format:
@@ -893,8 +853,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStart : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesStartWithObject:name:]
 
 /**
  *  Required. Format:
@@ -928,8 +886,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesStop : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesStopWithObject:name:]
 
 /**
  *  Required. Format:
@@ -967,8 +923,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -999,6 +953,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates the Shielded instance configuration of a single Instance.
+ *
+ *  Method: notebooks.projects.locations.instances.updateShieldedInstanceConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateShieldedInstanceConfig : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Updates the Shielded instance configuration of a single Instance.
+ *
+ *  @param object The @c
+ *    GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest to include in
+ *    the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateShieldedInstanceConfig
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Upgrades a notebook instance to the latest version.
  *
  *  Method: notebooks.projects.locations.instances.upgrade
@@ -1007,8 +995,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgrade : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesUpgradeWithObject:name:]
 
 /**
  *  Required. Format:
@@ -1043,8 +1029,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpgradeInternal : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsInstancesUpgradeInternalWithObject:name:]
 
 /**
  *  Required. Format:
@@ -1079,19 +1063,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1128,8 +1120,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsCancel : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1170,8 +1160,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsDelete : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1203,8 +1191,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1241,8 +1227,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsOperationsList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1282,6 +1266,285 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new Runtime in a given project and location.
+ *
+ *  Method: notebooks.projects.locations.runtimes.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesCreate : GTLRAIPlatformNotebooksQuery
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. User-defined unique ID of this Runtime. */
+@property(nonatomic, copy, nullable) NSString *runtimeId;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Creates a new Runtime in a given project and location.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_Runtime to include in the
+ *    query.
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesCreate
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_Runtime *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Runtime.
+ *
+ *  Method: notebooks.projects.locations.runtimes.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDelete : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Deletes a single Runtime.
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Runtime. The location must be a regional endpoint
+ *  rather than zonal.
+ *
+ *  Method: notebooks.projects.locations.runtimes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGet : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Runtime.
+ *
+ *  Gets details of a single Runtime. The location must be a regional endpoint
+ *  rather than zonal.
+ *
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Runtimes in a given project and location.
+ *
+ *  Method: notebooks.projects.locations.runtimes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesList : GTLRAIPlatformNotebooksQuery
+
+/** Maximum return size of the list call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A previous returned page token that can be used to continue listing from the
+ *  last result.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_ListRuntimesResponse.
+ *
+ *  Lists Runtimes in a given project and location.
+ *
+ *  @param parent Required. Format:
+ *    `parent=projects/{project_id}/locations/{location}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Resets a Managed Notebook Runtime.
+ *
+ *  Method: notebooks.projects.locations.runtimes.reset
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesReset : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Resets a Managed Notebook Runtime.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_ResetRuntimeRequest to include
+ *    in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesReset
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResetRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts a Managed Notebook Runtime. Perform "Start" on GPU instances;
+ *  "Resume" on CPU instances See:
+ *  https://cloud.google.com/compute/docs/instances/stop-start-instance
+ *  https://cloud.google.com/compute/docs/instances/suspend-resume-instance
+ *
+ *  Method: notebooks.projects.locations.runtimes.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesStart : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Starts a Managed Notebook Runtime. Perform "Start" on GPU instances;
+ *  "Resume" on CPU instances See:
+ *  https://cloud.google.com/compute/docs/instances/stop-start-instance
+ *  https://cloud.google.com/compute/docs/instances/suspend-resume-instance
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_StartRuntimeRequest to include
+ *    in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesStart
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_StartRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend"
+ *  on CPU instances See:
+ *  https://cloud.google.com/compute/docs/instances/stop-start-instance
+ *  https://cloud.google.com/compute/docs/instances/suspend-resume-instance
+ *
+ *  Method: notebooks.projects.locations.runtimes.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesStop : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Stops a Managed Notebook Runtime. Perform "Stop" on GPU instances; "Suspend"
+ *  on CPU instances See:
+ *  https://cloud.google.com/compute/docs/instances/stop-start-instance
+ *  https://cloud.google.com/compute/docs/instances/suspend-resume-instance
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_StopRuntimeRequest to include
+ *    in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesStop
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_StopRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Switch a Managed Notebook Runtime.
+ *
+ *  Method: notebooks.projects.locations.runtimes.switch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSwitch : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Switch a Managed Notebook Runtime.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_SwitchRuntimeRequest to include
+ *    in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesSwitch
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_SwitchRuntimeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new Scheduled Notebook in a given project and location.
  *
  *  Method: notebooks.projects.locations.schedules.create
@@ -1290,8 +1553,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesCreate : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesCreateWithObject:parent:]
 
 /** Required. Format: `parent=projects/{project_id}/locations/{location}` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1325,8 +1586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesDelete : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesDeleteWithname:]
 
 /**
  *  Required. Format:
@@ -1357,8 +1616,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesGet : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesGetWithname:]
 
 /**
  *  Required. Format:
@@ -1389,8 +1646,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesList : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesListWithparent:]
 
 /** Filter applied to resulting schedules. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1437,8 +1692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsSchedulesTrigger : GTLRAIPlatformNotebooksQuery
-// Previous library name was
-//   +[GTLQueryAIPlatformNotebooks queryForProjectsLocationsSchedulesTriggerWithObject:name:]
 
 /**
  *  Required. Format:

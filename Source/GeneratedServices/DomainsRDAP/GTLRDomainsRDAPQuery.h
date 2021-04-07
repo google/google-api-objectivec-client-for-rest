@@ -45,8 +45,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.autnum.get
  */
 @interface GTLRDomainsRDAPQuery_AutnumGet : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForAutnumGetWithautnumId:]
 
 @property(nonatomic, copy, nullable) NSString *autnumId;
 
@@ -70,8 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.domain.get
  */
 @interface GTLRDomainsRDAPQuery_DomainGet : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForDomainGetWithdomainName:]
 
 /** Full domain name to look up. Example: "example.com" */
 @property(nonatomic, copy, nullable) NSString *domainName;
@@ -96,8 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.entity.get
  */
 @interface GTLRDomainsRDAPQuery_EntityGet : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForEntityGetWithentityId:]
 
 @property(nonatomic, copy, nullable) NSString *entityId;
 
@@ -122,8 +116,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.ip.get
  */
 @interface GTLRDomainsRDAPQuery_IpGet : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForIpGetWithipId:ipId1:]
 
 @property(nonatomic, copy, nullable) NSString *ipId;
 
@@ -152,8 +144,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.nameserver.get
  */
 @interface GTLRDomainsRDAPQuery_NameserverGet : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForNameserverGetWithnameserverId:]
 
 @property(nonatomic, copy, nullable) NSString *nameserverId;
 
@@ -178,8 +168,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.getDomains
  */
 @interface GTLRDomainsRDAPQuery_V1GetDomains : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForGetDomains]
 
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
@@ -200,8 +188,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.getEntities
  */
 @interface GTLRDomainsRDAPQuery_V1GetEntities : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForGetEntities]
 
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.
@@ -221,8 +207,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.getHelp
  */
 @interface GTLRDomainsRDAPQuery_V1GetHelp : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForGetHelp]
 
 /**
  *  Fetches a @c GTLRDomainsRDAP_HttpBody.
@@ -242,8 +226,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.getIp
  */
 @interface GTLRDomainsRDAPQuery_V1GetIp : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForGetIp]
 
 /**
  *  Fetches a @c GTLRDomainsRDAP_HttpBody.
@@ -264,8 +246,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: domainsrdap.getNameservers
  */
 @interface GTLRDomainsRDAPQuery_V1GetNameservers : GTLRDomainsRDAPQuery
-// Previous library name was
-//   +[GTLQueryDomainsRDAP queryForGetNameservers]
 
 /**
  *  Fetches a @c GTLRDomainsRDAP_RdapResponse.

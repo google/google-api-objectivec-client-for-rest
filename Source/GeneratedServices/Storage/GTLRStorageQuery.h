@@ -189,8 +189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsDeleteWithbucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -242,8 +240,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsGetWithbucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -293,8 +289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsInsertWithObject:bucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -337,8 +331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsListWithbucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -378,8 +370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsPatch : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsPatchWithObject:bucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -432,8 +422,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketAccessControlsUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketAccessControlsUpdateWithObject:bucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -487,8 +475,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsDeleteWithbucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -543,8 +529,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsGetWithbucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -606,8 +590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketsGetIamPolicy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsGetIamPolicyWithbucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -655,8 +637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsInsertWithObject:project:]
 
 /**
  *  Apply a predefined set of access controls to this bucket.
@@ -751,8 +731,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsListWithproject:]
 
 /**
  *  Maximum number of buckets to return in a single response. The service will
@@ -821,8 +799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsLockRetentionPolicy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsLockRetentionPolicyWithbucket:ifMetagenerationMatch:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -872,8 +848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketsPatch : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsPatchWithObject:bucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -980,8 +954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketsSetIamPolicy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsSetIamPolicyWithObject:bucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1027,8 +999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_BucketsTestIamPermissions : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsTestIamPermissionsWithbucket:permissions:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1075,8 +1045,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_BucketsUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForBucketsUpdateWithObject:bucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1186,8 +1154,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ChannelsStop : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1214,8 +1180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsDeleteWithbucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1268,8 +1232,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsGetWithbucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1320,8 +1282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsInsertWithObject:bucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1364,8 +1324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsListWithbucket:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1417,8 +1375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsPatch : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsPatchWithObject:bucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1471,8 +1427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_DefaultObjectAccessControlsUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForDefaultObjectAccessControlsUpdateWithObject:bucket:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1526,8 +1480,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_NotificationsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForNotificationsDeleteWithbucket:notification:]
 
 /** The parent bucket of the notification. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1576,8 +1528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_NotificationsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForNotificationsGetWithbucket:notification:]
 
 /** The parent bucket of the notification. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1623,8 +1573,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_NotificationsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForNotificationsInsertWithObject:bucket:]
 
 /** The parent bucket of the notification. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1669,8 +1617,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_NotificationsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForNotificationsListWithbucket:]
 
 /** Name of a Google Cloud Storage bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1711,8 +1657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsDeleteWithbucket:object:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1779,8 +1723,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsGetWithbucket:object:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1845,8 +1787,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsInsertWithObject:bucket:object:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1904,8 +1844,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsListWithbucket:object:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -1960,8 +1898,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsPatch : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsPatchWithObject:bucket:object:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2029,8 +1965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectAccessControlsUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectAccessControlsUpdateWithObject:bucket:object:entity:]
 
 /** Name of a bucket. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2100,8 +2034,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsCompose : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsComposeWithObject:destinationBucket:destinationObject:]
 
 /**
  *  Name of the bucket containing the source objects. The destination object is
@@ -2203,8 +2135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsCopy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsCopyWithObject:sourceBucket:sourceObject:destinationBucket:destinationObject:]
 
 /**
  *  Name of the bucket in which to store the new object. Overrides the provided
@@ -2379,8 +2309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsDeleteWithbucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2467,8 +2395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsGetWithbucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2577,8 +2503,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsGetIamPolicy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsGetIamPolicyWithbucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2634,8 +2558,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsInsert : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsInsertWithObject:bucket:]
 
 /**
  *  Name of the bucket in which to store the new object. Overrides the provided
@@ -2772,8 +2694,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsListWithbucket:]
 
 /** Name of the bucket in which to look for objects. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2881,8 +2801,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectsPatch : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsPatchWithObject:bucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -2998,8 +2916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsRewrite : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsRewriteWithObject:sourceBucket:sourceObject:destinationBucket:destinationObject:]
 
 /**
  *  Name of the bucket in which to store the new object. Overrides the provided
@@ -3193,8 +3109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsSetIamPolicy : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsSetIamPolicyWithObject:bucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -3255,8 +3169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsTestIamPermissions : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsTestIamPermissionsWithbucket:object:permissions:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -3317,8 +3229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ObjectsUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsUpdateWithObject:bucket:object:]
 
 /** Name of the bucket in which the object resides. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -3438,8 +3348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ObjectsWatchAll : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForObjectsWatchAllWithObject:bucket:]
 
 /** Name of the bucket in which to look for objects. */
 @property(nonatomic, copy, nullable) NSString *bucket;
@@ -3545,8 +3453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysCreate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsHmacKeysCreateWithprojectId:serviceAccountEmail:]
 
 /** Project ID owning the service account. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -3583,8 +3489,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysDelete : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsHmacKeysDeleteWithprojectId:accessId:]
 
 /** Name of the HMAC key to be deleted. */
 @property(nonatomic, copy, nullable) NSString *accessId;
@@ -3623,8 +3527,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadOnly
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsHmacKeysGetWithprojectId:accessId:]
 
 /** Name of the HMAC key. */
 @property(nonatomic, copy, nullable) NSString *accessId;
@@ -3662,8 +3564,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadOnly
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysList : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsHmacKeysListWithprojectId:]
 
 /**
  *  Maximum number of items to return in a single page of responses. The service
@@ -3723,8 +3623,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageFullControl
  */
 @interface GTLRStorageQuery_ProjectsHmacKeysUpdate : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsHmacKeysUpdateWithObject:projectId:accessId:]
 
 /** Name of the HMAC key being updated. */
 @property(nonatomic, copy, nullable) NSString *accessId;
@@ -3767,8 +3665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *    @c kGTLRAuthScopeStorageDevstorageReadWrite
  */
 @interface GTLRStorageQuery_ProjectsServiceAccountGet : GTLRStorageQuery
-// Previous library name was
-//   +[GTLQueryStorage queryForProjectsServiceAccountGetWithprojectId:]
 
 /** Project ID */
 @property(nonatomic, copy, nullable) NSString *projectId;

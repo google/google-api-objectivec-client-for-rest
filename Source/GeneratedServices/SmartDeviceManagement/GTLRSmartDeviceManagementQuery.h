@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesExecuteCommand : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesDevicesExecuteCommandWithObject:name:]
 
 /**
  *  The name of the device requested. For example: "enterprises/XYZ/devices/123"
@@ -85,8 +83,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesGet : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesDevicesGetWithname:]
 
 /**
  *  The name of the device requested. For example: "enterprises/XYZ/devices/123"
@@ -116,8 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesDevicesList : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesDevicesListWithparent:]
 
 /**
  *  Optional filter to list devices. Filters can be done on: Device custom name
@@ -165,8 +159,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresGet : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesStructuresGetWithname:]
 
 /**
  *  The name of the structure requested. For example:
@@ -197,8 +189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresList : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesStructuresListWithparent:]
 
 /** Optional filter to list structures. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -243,8 +233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsGet : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesStructuresRoomsGetWithname:]
 
 /**
  *  The name of the room requested. For example:
@@ -275,8 +263,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSmartDeviceManagementSdmService
  */
 @interface GTLRSmartDeviceManagementQuery_EnterprisesStructuresRoomsList : GTLRSmartDeviceManagementQuery
-// Previous library name was
-//   +[GTLQuerySmartDeviceManagement queryForEnterprisesStructuresRoomsListWithparent:]
 
 /**
  *  Requested page size. Server may return fewer rooms than requested. If

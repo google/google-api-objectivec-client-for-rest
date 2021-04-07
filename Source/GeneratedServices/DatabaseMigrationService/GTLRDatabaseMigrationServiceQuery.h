@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Database Migration API (datamigration/v1)
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesCreate : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesCreateWithObject:parent:]
 
 /** Required. The connection profile identifier. */
 @property(nonatomic, copy, nullable) NSString *connectionProfileId;
@@ -107,8 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesDelete : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesDeleteWithname:]
 
 /**
  *  In case of force delete, the CloudSQL replica database is also deleted (only
@@ -152,8 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesGet : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesGetWithname:]
 
 /** Required. Name of the connection profile resource to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -181,8 +175,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesGetIamPolicy : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -226,8 +218,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesList : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesListWithparent:]
 
 /**
  *  A filter expression that filters connection profiles listed in the response.
@@ -293,8 +283,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesPatch : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesPatchWithObject:name:]
 
 /**
  *  The name of this connection profile resource in the form of
@@ -347,8 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesSetIamPolicy : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -389,8 +375,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesTestIamPermissions : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsConnectionProfilesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -429,8 +413,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsGet : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -457,19 +439,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsList : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -498,8 +488,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsCreate : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsCreateWithObject:parent:]
 
 /** Required. The ID of the instance to create. */
 @property(nonatomic, copy, nullable) NSString *migrationJobId;
@@ -542,8 +530,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDelete : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsDeleteWithname:]
 
 /**
  *  The destination CloudSQL connection profile is always deleted with the
@@ -587,8 +573,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateSshScript : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsGenerateSshScriptWithObject:migrationJob:]
 
 /** Name of the migration job resource to generate the SSH script. */
 @property(nonatomic, copy, nullable) NSString *migrationJob;
@@ -620,8 +604,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGet : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsGetWithname:]
 
 /** Required. Name of the migration job resource to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -649,8 +631,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGetIamPolicy : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -694,8 +674,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsList : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsListWithparent:]
 
 /**
  *  A filter expression that filters migration jobs listed in the response. The
@@ -762,8 +740,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsPatch : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsPatchWithObject:name:]
 
 /**
  *  The name (URI) of this migration job resource, in the form of:
@@ -815,8 +791,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsPromote : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsPromoteWithObject:name:]
 
 /** Name of the migration job resource to promote. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -849,8 +823,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsRestart : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsRestartWithObject:name:]
 
 /** Name of the migration job resource to restart. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -883,8 +855,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsResume : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsResumeWithObject:name:]
 
 /** Name of the migration job resource to resume. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -917,8 +887,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsSetIamPolicy : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -955,8 +923,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsStart : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsStartWithObject:name:]
 
 /** Name of the migration job resource to start. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -986,8 +952,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsStop : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsStopWithObject:name:]
 
 /** Name of the migration job resource to stop. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1021,8 +985,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsTestIamPermissions : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1062,8 +1024,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsVerify : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsMigrationJobsVerifyWithObject:name:]
 
 /** Name of the migration job resource to verify. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1102,8 +1062,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsCancel : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1144,8 +1102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsDelete : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1177,8 +1133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsGet : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1215,8 +1169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatabaseMigrationServiceCloudPlatform
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsList : GTLRDatabaseMigrationServiceQuery
-// Previous library name was
-//   +[GTLQueryDatabaseMigrationService queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

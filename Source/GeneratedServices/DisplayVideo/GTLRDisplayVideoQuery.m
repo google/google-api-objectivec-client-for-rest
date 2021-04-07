@@ -160,6 +160,29 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 
 @end
 
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsBulkListCampaignAssignedTargetingOptions
+
+@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"campaignId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/campaigns/{+campaignId}:bulkListCampaignAssignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsBulkListCampaignAssignedTargetingOptions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.expectedObjectClass = [GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.bulkListCampaignAssignedTargetingOptions";
+  return query;
+}
+
+@end
+
 @implementation GTLRDisplayVideoQuery_AdvertisersCampaignsCreate
 
 @dynamic advertiserId;
@@ -278,6 +301,60 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.campaignId = campaignId;
   query.expectedObjectClass = [GTLRDisplayVideo_Campaign class];
   query.loggingName = @"displayvideo.advertisers.campaigns.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
+
+@dynamic advertiserId, assignedTargetingOptionId, campaignId, targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId
+                        targetingType:(NSString *)targetingType
+            assignedTargetingOptionId:(NSString *)assignedTargetingOptionId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"assignedTargetingOptionId", @"campaignId",
+    @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions/{+assignedTargetingOptionId}";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.targetingType = targetingType;
+  query.assignedTargetingOptionId = assignedTargetingOptionId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AssignedTargetingOption class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
+
+@dynamic advertiserId, campaignId, filter, orderBy, pageSize, pageToken,
+         targetingType;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           campaignId:(long long)campaignId
+                        targetingType:(NSString *)targetingType {
+  NSArray *pathParams = @[
+    @"advertiserId", @"campaignId", @"targetingType"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/campaigns/{+campaignId}/targetingTypes/{+targetingType}/assignedTargetingOptions";
+  GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.campaignId = campaignId;
+  query.targetingType = targetingType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse class];
+  query.loggingName = @"displayvideo.advertisers.campaigns.targetingTypes.assignedTargetingOptions.list";
   return query;
 }
 
@@ -489,6 +566,37 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.channelId = channelId;
   query.expectedObjectClass = [GTLRDisplayVideo_ListSitesResponse class];
   query.loggingName = @"displayvideo.advertisers.channels.sites.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersChannelsSitesReplace
+
+@dynamic advertiserId, channelId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ReplaceSitesRequest *)object
+                   advertiserId:(long long)advertiserId
+                      channelId:(long long)channelId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"channelId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{advertiserId}/channels/{+channelId}/sites:replace";
+  GTLRDisplayVideoQuery_AdvertisersChannelsSitesReplace *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.channelId = channelId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ReplaceSitesResponse class];
+  query.loggingName = @"displayvideo.advertisers.channels.sites.replace";
   return query;
 }
 
@@ -977,6 +1085,33 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.lineItemId = lineItemId;
   query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
   query.loggingName = @"displayvideo.advertisers.lineItems.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersLineItemsGenerateDefault
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_GenerateDefaultLineItemRequest *)object
+                   advertiserId:(long long)advertiserId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/lineItems:generateDefault";
+  GTLRDisplayVideoQuery_AdvertisersLineItemsGenerateDefault *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_LineItem class];
+  query.loggingName = @"displayvideo.advertisers.lineItems.generateDefault";
   return query;
 }
 
@@ -1757,6 +1892,37 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.negativeKeywordListId = negativeKeywordListId;
   query.expectedObjectClass = [GTLRDisplayVideo_ListNegativeKeywordsResponse class];
   query.loggingName = @"displayvideo.advertisers.negativeKeywordLists.negativeKeywords.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsReplace
+
+@dynamic advertiserId, negativeKeywordListId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ReplaceNegativeKeywordsRequest *)object
+                   advertiserId:(long long)advertiserId
+          negativeKeywordListId:(long long)negativeKeywordListId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"negativeKeywordListId"
+  ];
+  NSString *pathURITemplate = @"v1/advertisers/{advertiserId}/negativeKeywordLists/{+negativeKeywordListId}/negativeKeywords:replace";
+  GTLRDisplayVideoQuery_AdvertisersNegativeKeywordListsNegativeKeywordsReplace *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.negativeKeywordListId = negativeKeywordListId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ReplaceNegativeKeywordsResponse class];
+  query.loggingName = @"displayvideo.advertisers.negativeKeywordLists.negativeKeywords.replace";
   return query;
 }
 
@@ -2650,6 +2816,37 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.channelId = channelId;
   query.expectedObjectClass = [GTLRDisplayVideo_ListSitesResponse class];
   query.loggingName = @"displayvideo.partners.channels.sites.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_PartnersChannelsSitesReplace
+
+@dynamic channelId, partnerId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_ReplaceSitesRequest *)object
+                      partnerId:(long long)partnerId
+                      channelId:(long long)channelId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"channelId", @"partnerId"
+  ];
+  NSString *pathURITemplate = @"v1/partners/{partnerId}/channels/{+channelId}/sites:replace";
+  GTLRDisplayVideoQuery_PartnersChannelsSitesReplace *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.partnerId = partnerId;
+  query.channelId = channelId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ReplaceSitesResponse class];
+  query.loggingName = @"displayvideo.partners.channels.sites.replace";
   return query;
 }
 

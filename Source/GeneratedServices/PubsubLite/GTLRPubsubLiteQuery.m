@@ -18,7 +18,7 @@
 
 @implementation GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsCreate
 
-@dynamic parent, subscriptionId;
+@dynamic parent, skipBacklog, subscriptionId;
 
 + (instancetype)queryWithObject:(GTLRPubsubLite_Subscription *)object
                          parent:(NSString *)parent {

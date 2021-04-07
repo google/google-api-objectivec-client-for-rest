@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Database Migration API (datamigration/v1)
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
@@ -28,6 +28,11 @@ NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_ActivationPolicy
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRDatabaseMigrationService_CloudSqlSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 
 // GTLRDatabaseMigrationService_CloudSqlSettings.dataDiskType
@@ -53,6 +58,7 @@ NSString * const kGTLRDatabaseMigrationService_ConnectionProfile_State_Updating 
 // GTLRDatabaseMigrationService_DatabaseType.engine
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_DatabaseEngineUnspecified = @"DATABASE_ENGINE_UNSPECIFIED";
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Mysql = @"MYSQL";
+NSString * const kGTLRDatabaseMigrationService_DatabaseType_Engine_Postgresql = @"POSTGRESQL";
 
 // GTLRDatabaseMigrationService_DatabaseType.provider
 NSString * const kGTLRDatabaseMigrationService_DatabaseType_Provider_Cloudsql = @"CLOUDSQL";
@@ -96,9 +102,20 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_Err
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ConnectionFailure = @"CONNECTION_FAILURE";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ConnectionProfileTypesIncompatibility = @"CONNECTION_PROFILE_TYPES_INCOMPATIBILITY";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxReplicationSlots = @"INSUFFICIENT_MAX_REPLICATION_SLOTS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWalSenders = @"INSUFFICIENT_MAX_WAL_SENDERS";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InsufficientMaxWorkerProcesses = @"INSUFFICIENT_MAX_WORKER_PROCESSES";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidConnectionProfileConfig = @"INVALID_CONNECTION_PROFILE_CONFIG";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidRdsLogicalReplication = @"INVALID_RDS_LOGICAL_REPLICATION";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidSharedPreloadLibrary = @"INVALID_SHARED_PRELOAD_LIBRARY";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_InvalidWalLevel = @"INVALID_WAL_LEVEL";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
+NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 NSString * const kGTLRDatabaseMigrationService_MigrationJobVerificationError_ErrorCode_VersionIncompatibility = @"VERSION_INCOMPATIBILITY";
 
 // GTLRDatabaseMigrationService_SslConfig.type
@@ -185,9 +202,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 //
 
 @implementation GTLRDatabaseMigrationService_CloudSqlSettings
-@dynamic activationPolicy, autoStorageIncrease, databaseFlags, databaseVersion,
-         dataDiskSizeGb, dataDiskType, ipConfig, rootPassword, rootPasswordSet,
-         sourceId, storageAutoResizeLimit, tier, userLabels, zoneProperty;
+@dynamic activationPolicy, autoStorageIncrease, collation, databaseFlags,
+         databaseVersion, dataDiskSizeGb, dataDiskType, ipConfig, rootPassword,
+         rootPasswordSet, sourceId, storageAutoResizeLimit, tier, userLabels,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -231,7 +249,7 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 @implementation GTLRDatabaseMigrationService_ConnectionProfile
 @dynamic cloudsql, createTime, displayName, error, labels, mysql, name,
-         provider, state, updateTime;
+         postgresql, provider, state, updateTime;
 @end
 
 
@@ -295,10 +313,10 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDatabaseMigrationService_GoogleCloudClouddmsV1beta1OperationMetadata
+//   GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata
 //
 
-@implementation GTLRDatabaseMigrationService_GoogleCloudClouddmsV1beta1OperationMetadata
+@implementation GTLRDatabaseMigrationService_GoogleCloudClouddmsV1OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
 @end
@@ -537,6 +555,16 @@ NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_SslTypeUnspecified
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
+//
+
+@implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
+@dynamic cloudSqlId, host, password, passwordSet, port, ssl, username;
 @end
 
 

@@ -156,8 +156,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsBatchGet : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsBatchGet]
 
 /**
  *  Optional. A field mask to restrict which fields on the group are returned.
@@ -199,8 +197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsCreate : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRPeopleService_ContactGroup.
@@ -226,8 +222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsDelete : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsDeleteWithresourceName:]
 
 /**
  *  Optional. Set to true to also delete the contacts in the specified group.
@@ -263,8 +257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsGet : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsGetWithresourceName:]
 
 /**
  *  Optional. A field mask to restrict which fields on the group are returned.
@@ -310,8 +302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsList : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsList]
 
 /**
  *  Optional. A field mask to restrict which fields on the group are returned.
@@ -370,8 +360,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsMembersModify : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsMembersModifyWithObject:resourceName:]
 
 /** Required. The resource name of the contact group to modify. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -406,8 +394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_ContactGroupsUpdate : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForContactGroupsUpdateWithObject:resourceName:]
 
 /**
  *  The resource name for the contact group, assigned by the server. An ASCII
@@ -444,8 +430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
  */
 @interface GTLRPeopleServiceQuery_OtherContactsCopyOtherContactToMyContactsGroup : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForOtherContactsCopyOtherContactToMyContactsGroupWithObject:resourceName:]
 
 /** Required. The resource name of the "Other contact" to copy. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -478,8 +462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
  */
 @interface GTLRPeopleServiceQuery_OtherContactsList : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForOtherContactsList]
 
 /**
  *  Optional. The number of "Other contacts" to include in the response. Valid
@@ -540,7 +522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Provides a list of contacts in the authenticated user's other contacts that
- *  matches the search query.
+ *  matches the search query. The query matches on a contact's `names`,
+ *  `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT
+ *  source.
  *
  *  Method: people.otherContacts.search
  *
@@ -548,8 +532,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsOtherReadonly
  */
 @interface GTLRPeopleServiceQuery_OtherContactsSearch : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForOtherContactsSearch]
 
 /**
  *  Optional. The number of results to return. Defaults to 10 if field is not
@@ -578,7 +560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_SearchResponse.
  *
  *  Provides a list of contacts in the authenticated user's other contacts that
- *  matches the search query.
+ *  matches the search query. The query matches on a contact's `names`,
+ *  `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT
+ *  source.
  *
  *  @return GTLRPeopleServiceQuery_OtherContactsSearch
  */
@@ -588,7 +572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Create a batch of new contacts and return the PersonResponses for the newly
- *  created contacts.
+ *  created contacts. Limited to 10 parallel requests per user.
  *
  *  Method: people.people.batchCreateContacts
  *
@@ -596,14 +580,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleBatchCreateContacts : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleBatchCreateContactsWithObject:]
 
 /**
  *  Fetches a @c GTLRPeopleService_BatchCreateContactsResponse.
  *
  *  Create a batch of new contacts and return the PersonResponses for the newly
- *  created contacts.
+ *  created contacts. Limited to 10 parallel requests per user.
  *
  *  @param object The @c GTLRPeopleService_BatchCreateContactsRequest to include
  *    in the query.
@@ -616,6 +598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Delete a batch of contacts. Any non-contact data will not be deleted.
+ *  Limited to 10 parallel requests per user.
  *
  *  Method: people.people.batchDeleteContacts
  *
@@ -623,13 +606,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleBatchDeleteContacts : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleBatchDeleteContactsWithObject:]
 
 /**
  *  Fetches a @c GTLRPeopleService_Empty.
  *
  *  Delete a batch of contacts. Any non-contact data will not be deleted.
+ *  Limited to 10 parallel requests per user.
  *
  *  @param object The @c GTLRPeopleService_BatchDeleteContactsRequest to include
  *    in the query.
@@ -642,7 +624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Update a batch of contacts and return a map of resource names to
- *  PersonResponses for the updated contacts.
+ *  PersonResponses for the updated contacts. Limited to 10 parallel requests
+ *  per user.
  *
  *  Method: people.people.batchUpdateContacts
  *
@@ -650,14 +633,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleBatchUpdateContacts : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleBatchUpdateContactsWithObject:]
 
 /**
  *  Fetches a @c GTLRPeopleService_BatchUpdateContactsResponse.
  *
  *  Update a batch of contacts and return a map of resource names to
- *  PersonResponses for the updated contacts.
+ *  PersonResponses for the updated contacts. Limited to 10 parallel requests
+ *  per user.
  *
  *  @param object The @c GTLRPeopleService_BatchUpdateContactsRequest to include
  *    in the query.
@@ -683,8 +665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
 @interface GTLRPeopleServiceQuery_PeopleConnectionsList : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleConnectionsListWithresourceName:]
 
 /**
  *  Optional. The number of connections to include in the response. Valid values
@@ -820,8 +800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleCreateContact : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleCreateContactWithObject:]
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
@@ -879,8 +857,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleDeleteContact : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleDeleteContactWithresourceName:]
 
 /** Required. The resource name of the contact to delete. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -907,8 +883,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleDeleteContactPhoto : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleDeleteContactPhotoWithresourceName:]
 
 /**
  *  Optional. A field mask to restrict which fields on the person are returned.
@@ -979,8 +953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
 @interface GTLRPeopleServiceQuery_PeopleGet : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleGetWithresourceName:]
 
 /**
  *  Required. A field mask to restrict which fields on the person are returned.
@@ -1073,8 +1045,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceUserPhonenumbersRead
  */
 @interface GTLRPeopleServiceQuery_PeopleGetBatchGet : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleGetBatchGet]
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
@@ -1151,8 +1121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  */
 @interface GTLRPeopleServiceQuery_PeopleListDirectoryPeople : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleListDirectoryPeople]
 
 /**
  *  Optional. Additional data to merge into the directory sources if they are
@@ -1241,7 +1209,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Provides a list of contacts in the authenticated user's grouped contacts
- *  that matches the search query.
+ *  that matches the search query. The query matches on a contact's `names`,
+ *  `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields
+ *  that are from the CONTACT" source.
  *
  *  Method: people.people.searchContacts
  *
@@ -1250,8 +1220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContactsReadonly
  */
 @interface GTLRPeopleServiceQuery_PeopleSearchContacts : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleSearchContacts]
 
 /** Optional. The number of results to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1279,10 +1247,29 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @property(nonatomic, copy, nullable) NSString *readMask;
 
 /**
+ *  Optional. A mask of what source types to return. Defaults to
+ *  READ_SOURCE_TYPE_CONTACT if not set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeUnspecified Unspecified.
+ *        (Value: "READ_SOURCE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeProfile Returns
+ *        SourceType.ACCOUNT, SourceType.DOMAIN_PROFILE, and SourceType.PROFILE.
+ *        (Value: "READ_SOURCE_TYPE_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeContact Returns
+ *        SourceType.CONTACT. (Value: "READ_SOURCE_TYPE_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesReadSourceTypeDomainContact Returns
+ *        SourceType.DOMAIN_CONTACT. (Value: "READ_SOURCE_TYPE_DOMAIN_CONTACT")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+/**
  *  Fetches a @c GTLRPeopleService_SearchResponse.
  *
  *  Provides a list of contacts in the authenticated user's grouped contacts
- *  that matches the search query.
+ *  that matches the search query. The query matches on a contact's `names`,
+ *  `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields
+ *  that are from the CONTACT" source.
  *
  *  @return GTLRPeopleServiceQuery_PeopleSearchContacts
  */
@@ -1300,8 +1287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceDirectoryReadonly
  */
 @interface GTLRPeopleServiceQuery_PeopleSearchDirectoryPeople : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleSearchDirectoryPeople]
 
 /**
  *  Optional. Additional data to merge into the directory sources if they are
@@ -1400,8 +1385,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleUpdateContact : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleUpdateContactWithObject:resourceName:]
 
 /**
  *  Optional. A field mask to restrict which fields on each person are returned.
@@ -1491,8 +1474,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *    @c kGTLRAuthScopePeopleServiceContacts
  */
 @interface GTLRPeopleServiceQuery_PeopleUpdateContactPhoto : GTLRPeopleServiceQuery
-// Previous library name was
-//   +[GTLQueryPeopleService queryForPeopleUpdateContactPhotoWithObject:resourceName:]
 
 /** Required. Person resource name */
 @property(nonatomic, copy, nullable) NSString *resourceName;

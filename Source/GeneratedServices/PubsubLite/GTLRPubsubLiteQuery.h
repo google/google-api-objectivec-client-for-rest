@@ -49,14 +49,19 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsCreate : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsSubscriptionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent location in which to create the subscription.
  *  Structured like `projects/{project_number}/locations/{location}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If true, the newly created subscription will only receive messages published
+ *  after the subscription was created. Otherwise, the entire message backlog
+ *  will be received on the subscription. Defaults to false.
+ */
+@property(nonatomic, assign) BOOL skipBacklog;
 
 /**
  *  Required. The ID to use for the subscription, which will become the final
@@ -91,8 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsDelete : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsSubscriptionsDeleteWithname:]
 
 /** Required. The name of the subscription to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -119,8 +122,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsGet : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsSubscriptionsGetWithname:]
 
 /** Required. The name of the subscription whose configuration to return. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -148,8 +149,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsList : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsSubscriptionsListWithparent:]
 
 /**
  *  The maximum number of subscriptions to return. The service may return fewer
@@ -199,8 +198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsSubscriptionsPatch : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsSubscriptionsPatchWithObject:name:]
 
 /**
  *  The name of the subscription. Structured like:
@@ -240,8 +237,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsCreate : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsCreateWithObject:parent:]
 
 /**
  *  Required. The parent location in which to create the topic. Structured like
@@ -280,8 +275,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsDelete : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsDeleteWithname:]
 
 /** Required. The name of the topic to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -308,8 +301,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsGet : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsGetWithname:]
 
 /** Required. The name of the topic whose configuration to return. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -336,8 +327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsGetPartitions : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsGetPartitionsWithname:]
 
 /** Required. The topic whose partition information to return. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -364,8 +353,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsList : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsListWithparent:]
 
 /**
  *  The maximum number of topics to return. The service may return fewer than
@@ -413,8 +400,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsPatch : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsPatchWithObject:name:]
 
 /**
  *  The name of the topic. Structured like:
@@ -454,8 +439,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_AdminProjectsLocationsTopicsSubscriptionsList : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForAdminProjectsLocationsTopicsSubscriptionsListWithname:]
 
 /** Required. The name of the topic whose subscriptions to list. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -497,8 +480,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCursorsList : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForCursorProjectsLocationsSubscriptionsCursorsListWithparent:]
 
 /**
  *  The maximum number of cursors to return. The service may return fewer than
@@ -552,8 +533,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeHeadCursor : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForTopicStatsProjectsLocationsTopicsComputeHeadCursorWithObject:topic:]
 
 /** Required. The topic for which we should compute the head cursor. */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -588,8 +567,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePubsubLiteCloudPlatform
  */
 @interface GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeMessageStats : GTLRPubsubLiteQuery
-// Previous library name was
-//   +[GTLQueryPubsubLite queryForTopicStatsProjectsLocationsTopicsComputeMessageStatsWithObject:topic:]
 
 /** Required. The topic for which we should compute message stats. */
 @property(nonatomic, copy, nullable) NSString *topic;

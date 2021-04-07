@@ -58,8 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntities : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeEntitiesWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitiesResponse.
@@ -88,8 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeEntitySentiment : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeEntitySentimentWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeEntitySentimentResponse.
@@ -116,8 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSentiment : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeSentimentWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeSentimentResponse.
@@ -145,8 +139,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnalyzeSyntax : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnalyzeSyntaxWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnalyzeSyntaxResponse.
@@ -175,8 +167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsAnnotateText : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsAnnotateTextWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_AnnotateTextResponse.
@@ -203,8 +193,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudNaturalLanguageCloudPlatform
  */
 @interface GTLRCloudNaturalLanguageQuery_DocumentsClassifyText : GTLRCloudNaturalLanguageQuery
-// Previous library name was
-//   +[GTLQueryCloudNaturalLanguage queryForDocumentsClassifyTextWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudNaturalLanguage_ClassifyTextResponse.

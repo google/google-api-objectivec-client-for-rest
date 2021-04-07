@@ -130,7 +130,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_Primary;
 /**
- *  Default value. Default to Type.PRIMARY if unset.
+ *  Default value. Default to
+ *  Catalog.product_level_config.ingestion_product_type if unset.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -1548,7 +1549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Immutable. The type of the product. This field is output-only.
+ *  Immutable. The type of the product. This field is output-only. Default to
+ *  Catalog.product_level_config.ingestion_product_type if unset.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_Collection The
@@ -1560,7 +1562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *        serving, a Type.PRIMARY Product is grouped with multiple Type.VARIANT
  *        Products. (Value: "PRIMARY")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_TypeUnspecified
- *        Default value. Default to Type.PRIMARY if unset. (Value:
+ *        Default value. Default to
+ *        Catalog.product_level_config.ingestion_product_type if unset. (Value:
  *        "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_Variant The
  *        variant type. Type.VARIANT Products usually share some common
@@ -1680,9 +1683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  be empty. If this field is set to an invalid value other than these, an
  *  INVALID_ARGUMENT error is returned. If this field is `variant` and
  *  merchant_center_product_id_field is `itemGroupId`, an INVALID_ARGUMENT error
- *  is returned. See [Using catalog
- *  levels](/retail/recommendations-ai/docs/catalog#catalog-levels) for more
- *  details.
+ *  is returned. See [Using product
+ *  levels](https://cloud.google.com/retail/recommendations-ai/docs/catalog#product-levels)
+ *  for more details.
  */
 @property(nonatomic, copy, nullable) NSString *ingestionProductType;
 
@@ -1695,9 +1698,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  the same `itemGroupId`, and use it to represent the item group. If this
  *  field is set to an invalid value other than these, an INVALID_ARGUMENT error
  *  is returned. If this field is `itemGroupId` and ingestion_product_type is
- *  `variant`, an INVALID_ARGUMENT error is returned. See [Using catalog
- *  levels](/retail/recommendations-ai/docs/catalog#catalog-levels) for more
- *  details.
+ *  `variant`, an INVALID_ARGUMENT error is returned. See [Using product
+ *  levels](https://cloud.google.com/retail/recommendations-ai/docs/catalog#product-levels)
+ *  for more details.
  */
 @property(nonatomic, copy, nullable) NSString *merchantCenterProductIdField;
 

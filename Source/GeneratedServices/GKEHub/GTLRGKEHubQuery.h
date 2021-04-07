@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsGet : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -77,19 +75,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsList : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -118,8 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsCreate : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsCreateWithObject:parent:]
 
 /**
  *  Required. Client chosen ID for the membership. `membership_id` must be a
@@ -135,6 +139,21 @@ NS_ASSUME_NONNULL_BEGIN
  *  created. Specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRGKEHub_Operation.
@@ -162,14 +181,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsDeleteWithname:]
 
 /**
  *  Required. The Membership resource name in the format `projects/ *
  *  /locations/ * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRGKEHub_Operation.
@@ -194,8 +226,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGenerateConnectManifest : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsGenerateConnectManifestWithname:]
 
 /**
  *  Optional. The image pull secret content for the registry, if not public.
@@ -274,8 +304,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGet : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsGetWithname:]
 
 /**
  *  Required. The Membership resource name in the format `projects/ *
@@ -307,8 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsGetIamPolicy : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -352,8 +378,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsList : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsListWithparent:]
 
 /**
  *  Optional. Lists Memberships that match the filter expression, following the
@@ -420,14 +444,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsPatch : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsPatchWithObject:name:]
 
 /**
  *  Required. The Membership resource name in the format `projects/ *
  *  /locations/ * /memberships/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes after the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Required. Mask of fields to update.
@@ -463,8 +500,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsSetIamPolicy : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -504,8 +539,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsMembershipsTestIamPermissions : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsMembershipsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -552,8 +585,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsOperationsCancel : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -594,8 +625,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsOperationsDelete : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -627,8 +656,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsOperationsGet : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -665,8 +692,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGKEHubCloudPlatform
  */
 @interface GTLRGKEHubQuery_ProjectsLocationsOperationsList : GTLRGKEHubQuery
-// Previous library name was
-//   +[GTLQueryGKEHub queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

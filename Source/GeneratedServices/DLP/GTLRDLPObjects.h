@@ -2108,7 +2108,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FieldId *context;
 
-/** The key used by the encryption function. */
+/**
+ *  The key used by the encryption function. For deterministic encryption using
+ *  AES-SIV, the provided key is internally expanded to 64 bytes prior to use.
+ */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CryptoKey *cryptoKey;
 
 /**

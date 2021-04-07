@@ -448,6 +448,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  */
 @interface GTLRSecurityCommandCenter_Asset : GTLRObject
 
+/**
+ *  The canonical name of the resource. It's either
+ *  "organizations/{organization_id}/assets/{asset_id}",
+ *  "folders/{folder_id}/assets/{asset_id}" or
+ *  "projects/{project_number}/assets/{asset_id}", depending on the closest CRM
+ *  ancestor of the resource.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
 /** The time at which the asset was created in Security Command Center. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -730,6 +739,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_Finding : GTLRObject
 
 /**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}",
+ *  depending on the closest CRM ancestor of the resource associated with the
+ *  finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  The additional taxonomy group within findings from a given source. This
  *  field is immutable after creation time. Example: "XSS_FLASH_INJECTION"
  */
@@ -743,7 +762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  occurred. For example, if the finding represents an open firewall it would
  *  capture the time the detector believes the firewall became open. The
  *  accuracy is determined by the detector. If the finding were to be resolved
- *  afterward, this time would reflect when the finding was resolved.
+ *  afterward, this time would reflect when the finding was resolved. Must not
+ *  be set to a value greater than the current timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
@@ -987,6 +1007,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding : GTLRObject
 
 /**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}",
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}" or
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}",
+ *  depending on the closest CRM ancestor of the resource associated with the
+ *  finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  The additional taxonomy group within findings from a given source. This
  *  field is immutable after creation time. Example: "XSS_FLASH_INJECTION"
  */
@@ -1000,7 +1030,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  occurred. For example, if the finding represents an open firewall it would
  *  capture the time the detector believes the firewall became open. The
  *  accuracy is determined by the detector. If the finding were to be resolved
- *  afterward, this time would reflect when the finding was resolved.
+ *  afterward, this time would reflect when the finding was resolved. Must not
+ *  be set to a value greater than the current timestamp.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
 
@@ -1210,6 +1241,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  proper permissions on the organization.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks : GTLRObject
+
+/**
+ *  The canonical name of the marks. Examples:
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "folders/{folder_id}/assets/{asset_id}/securityMarks"
+ *  "projects/{project_number}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
 
 /**
  *  Mutable user specified security marks belonging to the parent resource.
@@ -2186,6 +2228,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 @interface GTLRSecurityCommandCenter_SecurityMarks : GTLRObject
 
 /**
+ *  The canonical name of the marks. Examples:
+ *  "organizations/{organization_id}/assets/{asset_id}/securityMarks"
+ *  "folders/{folder_id}/assets/{asset_id}/securityMarks"
+ *  "projects/{project_number}/assets/{asset_id}/securityMarks"
+ *  "organizations/{organization_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "folders/{folder_id}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ *  "projects/{project_number}/sources/{source_id}/findings/{finding_id}/securityMarks"
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
+
+/**
  *  Mutable user specified security marks belonging to the parent resource.
  *  Constraints are as follows: * Keys and values are treated as case
  *  insensitive * Keys must be between 1 - 256 characters (inclusive) * Keys
@@ -2279,6 +2332,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  findings that come from the same scanner, logger, monitor, and other tools.
  */
 @interface GTLRSecurityCommandCenter_Source : GTLRObject
+
+/**
+ *  The canonical name of the finding. It's either
+ *  "organizations/{organization_id}/sources/{source_id}",
+ *  "folders/{folder_id}/sources/{source_id}" or
+ *  "projects/{project_number}/sources/{source_id}", depending on the closest
+ *  CRM ancestor of the resource associated with the finding.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalName;
 
 /**
  *  The description of the source (max of 1024 characters). Example: "Web

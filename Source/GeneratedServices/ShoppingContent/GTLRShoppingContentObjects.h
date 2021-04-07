@@ -1296,8 +1296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  Acceptable values are: - "`shoppingAdsProductManagement`" -
- *  "`shoppingAdsOther`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingActionsOrderManagement`" - "`shoppingActionsOther`"
+ *  "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -4477,8 +4476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 @property(nonatomic, strong, nullable) NSNumber *clicks;
 
 /**
- *  Number of clicks merchant's products receive (clicks) divided by the number
- *  of times the products are shown (impressions).
+ *  Click-through rate - the number of clicks merchant's products receive
+ *  (clicks) divided by the number of times the products are shown
+ *  (impressions).
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -7964,6 +7964,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalImageLinks;
 
 /**
+ *  Additional cut of the item. Used together with size_type to represent
+ *  combined size types for apparel items.
+ */
+@property(nonatomic, copy, nullable) NSString *additionalSizeType;
+
+/**
  *  Used to group items in an arbitrary way. Only for CPA%, discouraged
  *  otherwise.
  */
@@ -10494,7 +10500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  time of the corresponding event, e.g., impression or order. Segment fields
  *  cannot be selected in queries without also selecting at least one metric
  *  field. Values are only set for dimensions requested explicitly in the
- *  request's search query.
+ *  request's search query. Next id: 22
  */
 @interface GTLRShoppingContent_Segments : GTLRObject
 

@@ -1891,7 +1891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceUsage_Billing *billing;
 
 /**
- *  Deprecated. The service config compiler always sets this field to `3`.
+ *  Obsolete. Do not use. This field has no semantic meaning. The service config
+ *  compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

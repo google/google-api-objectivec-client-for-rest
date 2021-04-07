@@ -1729,7 +1729,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
 
-@dynamic name, type;
+@dynamic disableCache, name, type;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

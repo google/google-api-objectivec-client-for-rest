@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   On-Demand Scanning API (ondemandscanning/v1beta1)
+//   On-Demand Scanning API (ondemandscanning/v1)
 // Description:
 //   A service to scan container images for vulnerabilities.
 // Documentation:
@@ -100,10 +100,20 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROnDemandScanning_AnalyzePackagesRequest
+//   GTLROnDemandScanning_AnalyzePackagesMetadataV1
 //
 
-@implementation GTLROnDemandScanning_AnalyzePackagesRequest
+@implementation GTLROnDemandScanning_AnalyzePackagesMetadataV1
+@dynamic createTime, resourceUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_AnalyzePackagesRequestV1
+//
+
+@implementation GTLROnDemandScanning_AnalyzePackagesRequestV1
 @dynamic packages, resourceUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -122,6 +132,16 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_AnalyzePackagesResponse
+@dynamic scan;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_AnalyzePackagesResponseV1
+//
+
+@implementation GTLROnDemandScanning_AnalyzePackagesResponseV1
 @dynamic scan;
 @end
 
@@ -437,10 +457,10 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
-//   GTLROnDemandScanning_ListVulnerabilitiesResponse
+//   GTLROnDemandScanning_ListVulnerabilitiesResponseV1
 //
 
-@implementation GTLROnDemandScanning_ListVulnerabilitiesResponse
+@implementation GTLROnDemandScanning_ListVulnerabilitiesResponseV1
 @dynamic nextPageToken, occurrences;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

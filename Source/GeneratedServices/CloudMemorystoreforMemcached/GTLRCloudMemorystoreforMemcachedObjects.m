@@ -133,12 +133,45 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata
+@dynamic availableZones;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata
 @dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
          verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata
 @end
 
 
@@ -288,6 +321,30 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility
+@dynamic eligibilities;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+//
+
+@implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource
 //
 
@@ -322,7 +379,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic eligibility, exclusions, nodes, tier;
+@dynamic eligibility, exclusions, nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

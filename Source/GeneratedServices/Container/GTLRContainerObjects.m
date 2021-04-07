@@ -125,6 +125,25 @@ NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetPassword = @"SET_
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_SetUsername = @"SET_USERNAME";
 NSString * const kGTLRContainer_SetMasterAuthRequest_Action_Unknown = @"UNKNOWN";
 
+// GTLRContainer_StatusCondition.canonicalCode
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Aborted = @"ABORTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Cancelled = @"CANCELLED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Internal = @"INTERNAL";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_NotFound = @"NOT_FOUND";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Ok = @"OK";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unknown = @"UNKNOWN";
+
 // GTLRContainer_StatusCondition.code
 NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError = @"CLOUD_KMS_KEY_ERROR";
 NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded = @"GCE_QUOTA_EXCEEDED";
@@ -1003,9 +1022,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_Operation
-@dynamic clusterConditions, detail, endTime, location, name, nodepoolConditions,
-         operationType, progress, selfLink, startTime, status, statusMessage,
-         targetLink, zoneProperty;
+@dynamic clusterConditions, detail, endTime, error, location, name,
+         nodepoolConditions, operationType, progress, selfLink, startTime,
+         status, statusMessage, targetLink, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1435,11 +1454,43 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_Status
+//
+
+@implementation GTLRContainer_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRContainer_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_Status_Details_Item
+//
+
+@implementation GTLRContainer_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_StatusCondition
 //
 
 @implementation GTLRContainer_StatusCondition
-@dynamic code, message;
+@dynamic canonicalCode, code, message;
 @end
 
 

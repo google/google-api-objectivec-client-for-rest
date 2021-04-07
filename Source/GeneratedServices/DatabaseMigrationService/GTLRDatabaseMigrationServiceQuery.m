@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Database Migration API (datamigration/v1)
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
@@ -31,7 +31,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connectionProfiles";
+  NSString *pathURITemplate = @"v1/{+parent}/connectionProfiles";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -51,7 +51,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -70,7 +70,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -93,7 +93,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -112,7 +112,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/connectionProfiles";
+  NSString *pathURITemplate = @"v1/{+parent}/connectionProfiles";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -138,7 +138,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -165,7 +165,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -192,7 +192,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -212,7 +212,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -231,7 +231,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -257,7 +257,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/migrationJobs";
+  NSString *pathURITemplate = @"v1/{+parent}/migrationJobs";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -277,7 +277,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -303,7 +303,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"migrationJob" ];
-  NSString *pathURITemplate = @"v1beta1/{+migrationJob}:generateSshScript";
+  NSString *pathURITemplate = @"v1/{+migrationJob}:generateSshScript";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGenerateSshScript *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -323,7 +323,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -346,7 +346,7 @@
 
 + (instancetype)queryWithResource:(NSString *)resource {
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -365,7 +365,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/migrationJobs";
+  NSString *pathURITemplate = @"v1/{+parent}/migrationJobs";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -391,7 +391,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -418,7 +418,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:promote";
+  NSString *pathURITemplate = @"v1/{+name}:promote";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsPromote *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -445,7 +445,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:restart";
+  NSString *pathURITemplate = @"v1/{+name}:restart";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsRestart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -472,7 +472,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:resume";
+  NSString *pathURITemplate = @"v1/{+name}:resume";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsResume *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -499,7 +499,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -526,7 +526,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:start";
+  NSString *pathURITemplate = @"v1/{+name}:start";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsStart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -553,7 +553,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:stop";
+  NSString *pathURITemplate = @"v1/{+name}:stop";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsStop *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -580,7 +580,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -607,7 +607,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:verify";
+  NSString *pathURITemplate = @"v1/{+name}:verify";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsVerify *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -634,7 +634,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -654,7 +654,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -673,7 +673,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -692,7 +692,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLRDatabaseMigrationServiceQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebasestorageFirebase
  */
 @interface GTLRFirebasestorageQuery_ProjectsBucketsAddFirebase : GTLRFirebasestorageQuery
-// Previous library name was
-//   +[GTLQueryFirebasestorage queryForProjectsBucketsAddFirebaseWithObject:bucket:]
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
@@ -90,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebasestorageFirebase
  */
 @interface GTLRFirebasestorageQuery_ProjectsBucketsGet : GTLRFirebasestorageQuery
-// Previous library name was
-//   +[GTLQueryFirebasestorage queryForProjectsBucketsGetWithname:]
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
@@ -126,8 +122,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebasestorageFirebase
  */
 @interface GTLRFirebasestorageQuery_ProjectsBucketsList : GTLRFirebasestorageQuery
-// Previous library name was
-//   +[GTLQueryFirebasestorage queryForProjectsBucketsListWithparent:]
 
 /**
  *  The maximum number of buckets to return. If not set, the server will use a
@@ -176,8 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebasestorageFirebase
  */
 @interface GTLRFirebasestorageQuery_ProjectsBucketsRemoveFirebase : GTLRFirebasestorageQuery
-// Previous library name was
-//   +[GTLQueryFirebasestorage queryForProjectsBucketsRemoveFirebaseWithObject:bucket:]
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying

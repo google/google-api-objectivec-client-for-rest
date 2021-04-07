@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsLocationsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -83,8 +81,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsLocationsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsLocationsListWithname:]
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -135,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsAddVersion : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsAddVersionWithObject:parent:]
 
 /**
  *  Required. The resource name of the Secret to associate with the
@@ -171,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsCreate : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the project to associate with the Secret, in
@@ -213,8 +205,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsDelete : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsDeleteWithname:]
 
 /**
  *  Required. The resource name of the Secret to delete in the format `projects/
@@ -245,8 +235,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsGetWithname:]
 
 /**
  *  Required. The resource name of the Secret, in the format `projects/ *
@@ -278,8 +266,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsGetIamPolicy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -323,8 +309,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If
@@ -372,8 +356,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsPatch : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsPatchWithObject:name:]
 
 /**
  *  Output only. The resource name of the Secret in the format `projects/ *
@@ -415,8 +397,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsSetIamPolicy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -457,8 +437,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsTestIamPermissions : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -498,8 +476,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsAccess : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsAccessWithname:]
 
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
@@ -532,8 +508,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsDestroy : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsDestroyWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to destroy in the format
@@ -568,8 +542,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsDisable : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsDisableWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to disable in the format
@@ -603,8 +575,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsEnable : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsEnableWithObject:name:]
 
 /**
  *  Required. The resource name of the SecretVersion to enable in the format
@@ -639,8 +609,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsGet : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsGetWithname:]
 
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
@@ -674,8 +642,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsList : GTLRSecretManagerQuery
-// Previous library name was
-//   +[GTLQuerySecretManager queryForProjectsSecretsVersionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If

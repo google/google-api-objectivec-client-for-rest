@@ -208,8 +208,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsAuthinfo : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsAuthinfo]
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsAuthInfoResponse.
@@ -231,8 +229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsClaimwebsite : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsClaimwebsiteWithmerchantId:accountId:]
 
 /** The ID of the account whose website is claimed. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -279,8 +275,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsCredentialsCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsCredentialsCreateWithObject:accountId:]
 
 /** Required. The merchant id of the account these credentials belong to. */
 @property(nonatomic, assign) long long accountId;
@@ -314,8 +308,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountsCustomBatchResponse.
@@ -341,8 +333,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsDeleteWithmerchantId:accountId:]
 
 /** The ID of the account. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -387,8 +377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsGetWithmerchantId:accountId:]
 
 /** The ID of the account. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -436,8 +424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsInsertWithObject:merchantId:]
 
 /** The ID of the managing account. This must be a multi-client account. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -467,8 +453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsLabelsCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsLabelsCreateWithObject:accountId:]
 
 /** Required. The id of the account this label belongs to. */
 @property(nonatomic, assign) long long accountId;
@@ -498,8 +482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsLabelsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsLabelsDeleteWithaccountId:labelId:]
 
 /** Required. The id of the account that owns the label. */
 @property(nonatomic, assign) long long accountId;
@@ -532,8 +514,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsLabelsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsLabelsListWithaccountId:]
 
 /** Required. The account id for whose labels are to be listed. */
 @property(nonatomic, assign) long long accountId;
@@ -579,8 +559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsLabelsPatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsLabelsPatchWithObject:accountId:labelId:]
 
 /** Required. The id of the account this label belongs to. */
 @property(nonatomic, assign) long long accountId;
@@ -616,8 +594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsLink : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsLinkWithObject:merchantId:accountId:]
 
 /** The ID of the account that should be linked. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -659,8 +635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsListWithmerchantId:]
 
 /**
  *  If view is set to "css", only return accounts that are assigned label with
@@ -716,8 +690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsListlinks : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsListlinksWithmerchantId:accountId:]
 
 /** The ID of the account for which to list links. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -767,8 +739,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsReturncarrierCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsReturncarrierCreateWithObject:accountId:]
 
 /**
  *  Required. The Merchant Center Account Id under which the Return Carrier is
@@ -802,8 +772,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsReturncarrierDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsReturncarrierDeleteWithaccountId:carrierAccountId:]
 
 /**
  *  Required. The Merchant Center Account Id under which the Return Carrier is
@@ -844,8 +812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsReturncarrierList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsReturncarrierListWithaccountId:]
 
 /**
  *  Required. The Merchant Center Account Id under which the Return Carrier is
@@ -876,8 +842,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsReturncarrierPatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsReturncarrierPatchWithObject:accountId:carrierAccountId:]
 
 /**
  *  Required. The Merchant Center Account Id under which the Return Carrier is
@@ -920,8 +884,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountstatusesCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountstatusesCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccountstatusesCustomBatchResponse.
@@ -947,8 +909,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountstatusesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountstatusesGetWithmerchantId:accountId:]
 
 /** The ID of the account. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -993,8 +953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountstatusesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountstatusesListWithmerchantId:]
 
 /**
  *  If set, only issues for the specified destinations are returned, otherwise
@@ -1042,8 +1000,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -1084,8 +1040,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccountsUpdatelabels : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccountsUpdatelabelsWithObject:merchantId:accountId:]
 
 /** The ID of the account whose labels are updated. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -1120,8 +1074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccounttaxCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccounttaxCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_AccounttaxCustomBatchResponse.
@@ -1146,8 +1098,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccounttaxGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccounttaxGetWithmerchantId:accountId:]
 
 /** The ID of the account for which to get/update account tax settings. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -1186,8 +1136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccounttaxList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccounttaxListWithmerchantId:]
 
 /**
  *  The maximum number of tax settings to return in the response, used for
@@ -1229,8 +1177,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_AccounttaxUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForAccounttaxUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account for which to get/update account tax settings. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -1272,8 +1218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_BuyongoogleprogramsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForBuyongoogleprogramsGetWithmerchantId:regionCode:]
 
 /** Required. The ID of the account. */
 @property(nonatomic, assign) long long merchantId;
@@ -1317,8 +1261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_BuyongoogleprogramsOnboard : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForBuyongoogleprogramsOnboardWithObject:merchantId:regionCode:]
 
 /** Required. The ID of the account. */
 @property(nonatomic, assign) long long merchantId;
@@ -1369,8 +1311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionsCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionsCreateWithObject:merchantId:]
 
 /**
  *  Required. The ID of the account that contains the collection. This account
@@ -1406,8 +1346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionsDeleteWithmerchantId:collectionId:]
 
 /**
  *  Required. The collectionId of the collection. CollectionId is the same as
@@ -1448,8 +1386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionsGetWithmerchantId:collectionId:]
 
 /** Required. The REST ID of the collection. */
 @property(nonatomic, copy, nullable) NSString *collectionId;
@@ -1487,8 +1423,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionsListWithmerchantId:]
 
 /**
  *  Required. The ID of the account that contains the collection. This account
@@ -1537,8 +1471,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionstatusesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionstatusesGetWithmerchantId:collectionId:]
 
 /**
  *  Required. The collectionId of the collection. CollectionId is the same as
@@ -1578,8 +1510,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CollectionstatusesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCollectionstatusesListWithmerchantId:]
 
 /**
  *  Required. The ID of the account that contains the collection. This account
@@ -1626,8 +1556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CssesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCssesGetWithcssGroupId:cssDomainId:]
 
 /** Required. The ID of the CSS domain to return. */
 @property(nonatomic, assign) long long cssDomainId;
@@ -1666,8 +1594,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CssesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCssesListWithcssGroupId:]
 
 /** Required. The CSS group ID of CSS domains to be listed. */
 @property(nonatomic, assign) long long cssGroupId;
@@ -1712,8 +1638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_CssesUpdatelabels : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForCssesUpdatelabelsWithObject:cssGroupId:cssDomainId:]
 
 /** Required. The ID of the updated CSS domain. */
 @property(nonatomic, assign) long long cssDomainId;
@@ -1748,8 +1672,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedsCustomBatchResponse.
@@ -1775,8 +1697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsDeleteWithmerchantId:datafeedId:]
 
 /** The ID of the datafeed. */
 @property(nonatomic, assign) unsigned long long datafeedId;
@@ -1815,8 +1735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsFetchnow : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsFetchnowWithmerchantId:datafeedId:]
 
 /** The ID of the datafeed to be fetched. */
 @property(nonatomic, assign) unsigned long long datafeedId;
@@ -1854,8 +1772,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsGetWithmerchantId:datafeedId:]
 
 /** The ID of the datafeed. */
 @property(nonatomic, assign) unsigned long long datafeedId;
@@ -1891,8 +1807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsInsertWithObject:merchantId:]
 
 /**
  *  The ID of the account that manages the datafeed. This account cannot be a
@@ -1925,8 +1839,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsListWithmerchantId:]
 
 /**
  *  The maximum number of products to return in the response, used for paging.
@@ -1969,8 +1881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedstatusesCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedstatusesCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_DatafeedstatusesCustomBatchResponse.
@@ -1995,8 +1905,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedstatusesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedstatusesGetWithmerchantId:datafeedId:]
 
 /**
  *  The country for which to get the datafeed status. If this parameter is
@@ -2048,8 +1956,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedstatusesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedstatusesListWithmerchantId:]
 
 /**
  *  The maximum number of products to return in the response, used for paging.
@@ -2093,8 +1999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_DatafeedsUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForDatafeedsUpdateWithObject:merchantId:datafeedId:]
 
 /** The ID of the datafeed. */
 @property(nonatomic, assign) unsigned long long datafeedId;
@@ -2134,8 +2038,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_LiasettingsCustomBatchResponse.
@@ -2161,8 +2063,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsGetWithmerchantId:accountId:]
 
 /** The ID of the account for which to get or update LIA settings. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -2201,8 +2101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsGetaccessiblegmbaccounts : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsGetaccessiblegmbaccountsWithmerchantId:accountId:]
 
 /**
  *  The ID of the account for which to retrieve accessible Google My Business
@@ -2245,8 +2143,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsListWithmerchantId:]
 
 /**
  *  The maximum number of LIA settings to return in the response, used for
@@ -2288,8 +2184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsListposdataproviders : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsListposdataproviders]
 
 /**
  *  Fetches a @c GTLRShoppingContent_LiasettingsListPosDataProvidersResponse.
@@ -2312,8 +2206,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsRequestgmbaccess : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsRequestgmbaccessWithmerchantId:accountId:gmbEmail:]
 
 /** The ID of the account for which GMB access is requested. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -2356,8 +2248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsRequestinventoryverification : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsRequestinventoryverificationWithmerchantId:accountId:country:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2405,8 +2295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsSetinventoryverificationcontact : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsSetinventoryverificationcontactWithmerchantId:accountId:country:language:contactName:contactEmail:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2469,8 +2357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsSetposdataprovider : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsSetposdataproviderWithmerchantId:accountId:country:]
 
 /**
  *  The ID of the account for which to retrieve accessible Google My Business
@@ -2526,8 +2412,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LiasettingsUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLiasettingsUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account for which to get or update LIA settings. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -2570,8 +2454,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LocalinventoryCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLocalinventoryCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_LocalinventoryCustomBatchResponse.
@@ -2596,8 +2478,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_LocalinventoryInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForLocalinventoryInsertWithObject:merchantId:productId:]
 
 /**
  *  The ID of the account that contains the product. This account cannot be a
@@ -2638,8 +2518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderinvoicesCreatechargeinvoice : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderinvoicesCreatechargeinvoiceWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2684,8 +2562,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderinvoicesCreaterefundinvoice : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderinvoicesCreaterefundinvoiceWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2729,8 +2605,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreportsListdisbursements : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListdisbursementsWithmerchantId:]
 
 /**
  *  The last date which disbursements occurred. In ISO 8601 format. Default:
@@ -2784,8 +2658,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreportsListtransactions : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreportsListtransactionsWithmerchantId:disbursementId:]
 
 /** The Google-provided ID of the disbursement (found in Wallet). */
 @property(nonatomic, copy, nullable) NSString *disbursementId;
@@ -2845,8 +2717,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreturnsAcknowledge : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreturnsAcknowledgeWithObject:merchantId:returnId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2885,8 +2755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreturnsCreateorderreturn : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreturnsCreateorderreturnWithObject:merchantId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2921,8 +2789,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreturnsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreturnsGetWithmerchantId:returnId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -2958,8 +2824,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreturnsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreturnsListWithmerchantId:]
 
 /**
  *  Obtains order returns that match the acknowledgement status. When set to
@@ -3097,8 +2961,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrderreturnsProcess : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrderreturnsProcessWithObject:merchantId:returnId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3137,8 +2999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersAcknowledge : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersAcknowledgeWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3178,8 +3038,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersAdvancetestorder : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersAdvancetestorderWithmerchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3216,8 +3074,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersCancel : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersCancelWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3256,8 +3112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersCancellineitem : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersCancellineitemWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3296,8 +3150,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersCanceltestorderbycustomer : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersCanceltestorderbycustomerWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3337,8 +3189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersCreatetestorder : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersCreatetestorderWithObject:merchantId:]
 
 /**
  *  The ID of the account that should manage the order. This cannot be a
@@ -3372,8 +3222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersCreatetestreturn : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersCreatetestreturnWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3412,8 +3260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersGetWithmerchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3449,8 +3295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersGetbymerchantorderid : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersGetbymerchantorderidWithmerchantId:merchantOrderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3487,8 +3331,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersGettestordertemplate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersGettestordertemplateWithmerchantId:templateName:]
 
 /** The country of the template to retrieve. Defaults to `US`. */
 @property(nonatomic, copy, nullable) NSString *country;
@@ -3553,8 +3395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersInstorerefundlineitem : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersInstorerefundlineitemWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3600,8 +3440,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersListWithmerchantId:]
 
 /**
  *  Obtains orders that match the acknowledgement status. When set to true,
@@ -3696,8 +3534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersRefunditem : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersRefunditemWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3736,8 +3572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersRefundorder : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersRefundorderWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3776,8 +3610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersRejectreturnlineitem : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersRejectreturnlineitemWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3821,8 +3653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersReturnrefundlineitem : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersReturnrefundlineitemWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3870,8 +3700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersSetlineitemmetadata : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersSetlineitemmetadataWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3914,8 +3742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersShiplineitems : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersShiplineitemsWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3954,8 +3780,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersUpdatelineitemshippingdetails : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersUpdatelineitemshippingdetailsWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -3996,8 +3820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersUpdatemerchantorderid : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersUpdatemerchantorderidWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -4036,8 +3858,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdersUpdateshipment : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdersUpdateshipmentWithObject:merchantId:orderId:]
 
 /**
  *  The ID of the account that manages the order. This cannot be a multi-client
@@ -4076,8 +3896,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_OrdertrackingsignalsCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForOrdertrackingsignalsCreateWithObject:merchantId:]
 
 /** The ID of the merchant for which the order signal is created. */
 @property(nonatomic, assign) long long merchantId;
@@ -4108,8 +3926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_PosCustomBatchResponse.
@@ -4134,8 +3950,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosDeleteWithmerchantId:targetMerchantId:storeCode:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4173,8 +3987,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosGetWithmerchantId:targetMerchantId:storeCode:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4211,8 +4023,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosInsertWithObject:merchantId:targetMerchantId:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4246,8 +4056,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosInventory : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosInventoryWithObject:merchantId:targetMerchantId:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4282,8 +4090,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosListWithmerchantId:targetMerchantId:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4315,8 +4121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PosSale : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPosSaleWithObject:merchantId:targetMerchantId:]
 
 /** The ID of the POS or inventory data provider. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4351,8 +4155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductsCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductsCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductsCustomBatchResponse.
@@ -4377,8 +4179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductsDeleteWithmerchantId:productId:]
 
 /** The Content API Supplemental Feed ID. */
 @property(nonatomic, assign) unsigned long long feedId;
@@ -4418,8 +4218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductsGetWithmerchantId:productId:]
 
 /**
  *  The ID of the account that contains the product. This account cannot be a
@@ -4457,8 +4255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductsInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductsInsertWithObject:merchantId:]
 
 /** The Content API Supplemental Feed ID. */
 @property(nonatomic, assign) unsigned long long feedId;
@@ -4498,8 +4294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductsListWithmerchantId:]
 
 /**
  *  The maximum number of products to return in the response, used for paging.
@@ -4544,8 +4338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductstatusesCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductstatusesCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_ProductstatusesCustomBatchResponse.
@@ -4570,8 +4362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductstatusesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductstatusesGetWithmerchantId:productId:]
 
 /**
  *  If set, only issues for the specified destinations are returned, otherwise
@@ -4613,8 +4403,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductstatusesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductstatusesListWithmerchantId:]
 
 /**
  *  If set, only issues for the specified destinations are returned, otherwise
@@ -4664,8 +4452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ProductstatusesRepricingreportsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForProductstatusesRepricingreportsListWithmerchantId:productId:]
 
 /**
  *  Gets Repricing reports on and before this date in the merchant's timezone.
@@ -4739,8 +4525,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PubsubnotificationsettingsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPubsubnotificationsettingsGetWithmerchantId:]
 
 /** The ID of the account for which to get pubsub notification settings. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4769,8 +4553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_PubsubnotificationsettingsUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForPubsubnotificationsettingsUpdateWithObject:merchantId:]
 
 /** The ID of the account. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -4802,8 +4584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionalinventoryCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionalinventoryCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_RegionalinventoryCustomBatchResponse.
@@ -4831,8 +4611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionalinventoryInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionalinventoryInsertWithObject:merchantId:productId:]
 
 /**
  *  The ID of the account that contains the product. This account cannot be a
@@ -4874,8 +4652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionsCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionsCreateWithObject:merchantId:]
 
 /** Required. The id of the merchant for which to create region definition. */
 @property(nonatomic, assign) long long merchantId;
@@ -4908,8 +4684,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionsDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionsDeleteWithmerchantId:regionId:]
 
 /** Required. The id of the merchant for which to delete region definition. */
 @property(nonatomic, assign) long long merchantId;
@@ -4943,8 +4717,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionsGetWithmerchantId:regionId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve region definition.
@@ -4979,8 +4751,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionsListWithmerchantId:]
 
 /** Required. The id of the merchant for which to list region definitions. */
 @property(nonatomic, assign) long long merchantId;
@@ -5026,8 +4796,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RegionsPatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRegionsPatchWithObject:merchantId:regionId:]
 
 /** Required. The id of the merchant for which to update region definition. */
 @property(nonatomic, assign) long long merchantId;
@@ -5070,8 +4838,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReportsSearch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReportsSearchWithObject:merchantId:]
 
 /**
  *  Required. Id of the merchant making the call. Must be a standalone account
@@ -5106,8 +4872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesCreateWithObject:merchantId:]
 
 /** Required. The id of the merchant who owns the repricing rule. */
 @property(nonatomic, assign) long long merchantId;
@@ -5141,8 +4905,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesDeleteWithmerchantId:ruleId:]
 
 /** Required. The id of the merchant who owns the repricing rule. */
 @property(nonatomic, assign) long long merchantId;
@@ -5176,8 +4938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesGetWithmerchantId:ruleId:]
 
 /** Required. The id of the merchant who owns the repricing rule. */
 @property(nonatomic, assign) long long merchantId;
@@ -5210,8 +4970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesListWithmerchantId:]
 
 /**
  *  [CLDR country
@@ -5275,8 +5033,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesPatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesPatchWithObject:merchantId:ruleId:]
 
 /** Required. The id of the merchant who owns the repricing rule. */
 @property(nonatomic, assign) long long merchantId;
@@ -5316,8 +5072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_RepricingrulesRepricingreportsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForRepricingrulesRepricingreportsListWithmerchantId:ruleId:]
 
 /**
  *  Gets Repricing reports on and before this date in the merchant's timezone.
@@ -5381,8 +5135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnaddressCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnaddressCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_ReturnaddressCustomBatchResponse.
@@ -5407,8 +5159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnaddressDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnaddressDeleteWithmerchantId:returnAddressId:]
 
 /**
  *  The Merchant Center account from which to delete the given return address.
@@ -5444,8 +5194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnaddressGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnaddressGetWithmerchantId:returnAddressId:]
 
 /** The Merchant Center account to get a return address for. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5477,8 +5225,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnaddressInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnaddressInsertWithObject:merchantId:]
 
 /** The Merchant Center account to insert a return address for. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5509,8 +5255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnaddressList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnaddressListWithmerchantId:]
 
 /**
  *  List only return addresses applicable to the given country of sale. When
@@ -5553,8 +5297,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_ReturnpolicyCustomBatchResponse.
@@ -5579,8 +5321,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyDeleteWithmerchantId:returnPolicyId:]
 
 /**
  *  The Merchant Center account from which to delete the given return policy.
@@ -5616,8 +5356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyGetWithmerchantId:returnPolicyId:]
 
 /** The Merchant Center account to get a return policy for. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5649,8 +5387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyInsert : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyInsertWithObject:merchantId:]
 
 /** The Merchant Center account to insert a return policy for. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5680,8 +5416,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyListWithmerchantId:]
 
 /** The Merchant Center account to list return policies for. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5708,8 +5442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyonlineCreate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyonlineCreateWithObject:merchantId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve the return policy
@@ -5743,8 +5475,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyonlineDelete : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyonlineDeleteWithmerchantId:returnPolicyId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve the return policy
@@ -5781,8 +5511,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyonlineGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyonlineGetWithmerchantId:returnPolicyId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve the return policy
@@ -5818,8 +5546,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyonlineList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyonlineListWithmerchantId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve the return policy
@@ -5850,8 +5576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ReturnpolicyonlinePatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForReturnpolicyonlinePatchWithObject:merchantId:returnPolicyId:]
 
 /**
  *  Required. The id of the merchant for which to retrieve the return policy
@@ -5890,8 +5614,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_SettlementreportsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForSettlementreportsGetWithmerchantId:settlementId:]
 
 /** The Merchant Center account of the settlement report. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -5923,8 +5645,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_SettlementreportsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForSettlementreportsListWithmerchantId:]
 
 /**
  *  The maximum number of settlements to return in the response, used for
@@ -5977,8 +5697,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_SettlementtransactionsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForSettlementtransactionsListWithmerchantId:settlementId:]
 
 /**
  *  The maximum number of transactions to return in the response, used for
@@ -6031,8 +5749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsCustombatch : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsCustombatchWithObject:]
 
 /**
  *  Fetches a @c GTLRShoppingContent_ShippingsettingsCustomBatchResponse.
@@ -6058,8 +5774,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsGet : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsGetWithmerchantId:accountId:]
 
 /** The ID of the account for which to get/update shipping settings. */
 @property(nonatomic, assign) unsigned long long accountId;
@@ -6098,8 +5812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsGetsupportedcarriers : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsGetsupportedcarriersWithmerchantId:]
 
 /** The ID of the account for which to retrieve the supported carriers. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -6128,8 +5840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsGetsupportedholidays : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsGetsupportedholidaysWithmerchantId:]
 
 /** The ID of the account for which to retrieve the supported holidays. */
 @property(nonatomic, assign) unsigned long long merchantId;
@@ -6158,8 +5868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsGetsupportedpickupservices : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsGetsupportedpickupservicesWithmerchantId:]
 
 /**
  *  The ID of the account for which to retrieve the supported pickup services.
@@ -6191,8 +5899,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsList : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsListWithmerchantId:]
 
 /**
  *  The maximum number of shipping settings to return in the response, used for
@@ -6235,8 +5941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *    @c kGTLRAuthScopeShoppingContent
  */
 @interface GTLRShoppingContentQuery_ShippingsettingsUpdate : GTLRShoppingContentQuery
-// Previous library name was
-//   +[GTLQueryShoppingContent queryForShippingsettingsUpdateWithObject:merchantId:accountId:]
 
 /** The ID of the account for which to get/update shipping settings. */
 @property(nonatomic, assign) unsigned long long accountId;

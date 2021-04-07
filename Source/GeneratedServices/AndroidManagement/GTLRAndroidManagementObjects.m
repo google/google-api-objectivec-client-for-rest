@@ -19,6 +19,16 @@ NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteria
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeEnabled = @"COMMON_CRITERIA_MODE_ENABLED";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified = @"COMMON_CRITERIA_MODE_UNSPECIFIED";
 
+// GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed = @"DEVELOPER_SETTINGS_ALLOWED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled = @"DEVELOPER_SETTINGS_DISABLED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified = @"DEVELOPER_SETTINGS_UNSPECIFIED";
+
+// GTLRAndroidManagement_AdvancedSecurityOverrides.googlePlayProtectVerifyApps
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified = @"GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced = @"VERIFY_APPS_ENFORCED";
+NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice = @"VERIFY_APPS_USER_CHOICE";
+
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallDeviceWide = @"ALLOW_INSTALL_DEVICE_WIDE";
 NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_UntrustedAppsPolicy_AllowInstallInPersonalProfileOnly = @"ALLOW_INSTALL_IN_PERSONAL_PROFILE_ONLY";
@@ -417,7 +427,8 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_AdvancedSecurityOverrides
-@dynamic commonCriteriaMode, untrustedAppsPolicy;
+@dynamic commonCriteriaMode, developerSettings, googlePlayProtectVerifyApps,
+         untrustedAppsPolicy;
 @end
 
 

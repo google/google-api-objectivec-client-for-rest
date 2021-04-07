@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.configurations.create
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsCreate : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersConfigurationsCreateWithObject:parent:]
 
 /**
  *  Required. The customer that manages the configuration. An API resource name
@@ -93,8 +91,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.configurations.delete
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsDelete : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersConfigurationsDeleteWithname:]
 
 /**
  *  Required. The configuration to delete. An API resource name in the format
@@ -125,8 +121,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.configurations.get
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsGet : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersConfigurationsGetWithname:]
 
 /**
  *  Required. The configuration to get. An API resource name in the format
@@ -154,8 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.configurations.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersConfigurationsListWithparent:]
 
 /**
  *  Required. The customer that manages the listed configurations. An API
@@ -184,8 +176,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.configurations.patch
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersConfigurationsPatch : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersConfigurationsPatchWithObject:name:]
 
 /**
  *  Output only. The API resource name in the format
@@ -230,8 +220,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.devices.applyConfiguration
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesApplyConfiguration : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesApplyConfigurationWithObject:parent:]
 
 /**
  *  Required. The customer managing the device. An API resource name in the
@@ -265,8 +253,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.devices.get
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesGet : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesGetWithname:]
 
 /**
  *  Required. The device to get. An API resource name in the format
@@ -294,8 +280,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.devices.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesListWithparent:]
 
 /**
  *  The maximum number of devices to show in a page of results. Must be between
@@ -336,8 +320,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.devices.removeConfiguration
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesRemoveConfiguration : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesRemoveConfigurationWithObject:parent:]
 
 /**
  *  Required. The customer managing the device in the format
@@ -371,8 +353,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.devices.unclaim
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDevicesUnclaim : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDevicesUnclaimWithObject:parent:]
 
 /**
  *  Required. The customer managing the device. An API resource name in the
@@ -407,8 +387,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.dpcs.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersDpcsList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersDpcsListWithparent:]
 
 /**
  *  Required. The customer that can use the DPCs in configurations. An API
@@ -438,8 +416,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.customers.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_CustomersList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForCustomersList]
 
 /**
  *  The maximum number of customers to show in a page of results. A number
@@ -473,8 +449,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.operations.get
  */
 @interface GTLRAndroidProvisioningPartnerQuery_OperationsGet : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -504,8 +478,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.customers.create
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersCustomersCreate : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource ID in the format `partners/[PARTNER_ID]` that
@@ -542,8 +514,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.customers.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersCustomersList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersCustomersListWithpartnerId:]
 
 /**
  *  The maximum number of results to be returned. If not specified or 0, all the
@@ -583,8 +553,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.claim
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaim : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesClaimWithObject:partnerId:]
 
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
@@ -614,8 +582,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.claimAsync
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesClaimAsync : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesClaimAsyncWithObject:partnerId:]
 
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
@@ -644,8 +610,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.findByIdentifier
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByIdentifier : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesFindByIdentifierWithObject:partnerId:]
 
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
@@ -677,8 +641,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.findByOwner
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesFindByOwner : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesFindByOwnerWithObject:partnerId:]
 
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
@@ -709,8 +671,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.get
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesGet : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesGetWithname:]
 
 /**
  *  Required. The device API resource name in the format
@@ -738,8 +698,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.metadata
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesMetadata : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesMetadataWithObject:metadataOwnerId:deviceId:]
 
 /** Required. The ID of the device. */
 @property(nonatomic, assign) long long deviceId;
@@ -775,8 +733,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.unclaim
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaim : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUnclaimWithObject:partnerId:]
 
 /** Required. The ID of the reseller partner. */
 @property(nonatomic, assign) long long partnerId;
@@ -805,8 +761,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.unclaimAsync
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUnclaimAsync : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUnclaimAsyncWithObject:partnerId:]
 
 /** Required. The reseller partner ID. */
 @property(nonatomic, assign) long long partnerId;
@@ -838,8 +792,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.devices.updateMetadataAsync
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersDevicesUpdateMetadataAsync : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersDevicesUpdateMetadataAsyncWithObject:partnerId:]
 
 /** Required. The reseller partner ID. */
 @property(nonatomic, assign) long long partnerId;
@@ -870,8 +822,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.vendors.customers.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersVendorsCustomersList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersVendorsCustomersListWithparent:]
 
 /** The maximum number of results to be returned. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -909,8 +859,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: androiddeviceprovisioning.partners.vendors.list
  */
 @interface GTLRAndroidProvisioningPartnerQuery_PartnersVendorsList : GTLRAndroidProvisioningPartnerQuery
-// Previous library name was
-//   +[GTLQueryAndroidProvisioningPartner queryForPartnersVendorsListWithparent:]
 
 /** The maximum number of results to be returned. */
 @property(nonatomic, assign) NSInteger pageSize;

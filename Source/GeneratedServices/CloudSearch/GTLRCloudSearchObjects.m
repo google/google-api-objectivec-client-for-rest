@@ -291,6 +291,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_CustomerSettings
+//
+
+@implementation GTLRCloudSearch_CustomerSettings
+@dynamic vpcSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_CustomerUserStats
 //
 
@@ -2318,4 +2328,14 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_ValueFilter
 @dynamic operatorName, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_VPCSettings
+//
+
+@implementation GTLRCloudSearch_VPCSettings
+@dynamic project;
 @end

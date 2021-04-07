@@ -157,6 +157,33 @@
 
 @end
 
+@implementation GTLRServiceNetworkingQuery_ServicesConnectionsDeleteConnection
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRServiceNetworking_DeleteConnectionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRServiceNetworkingQuery_ServicesConnectionsDeleteConnection *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRServiceNetworking_Operation class];
+  query.loggingName = @"servicenetworking.services.connections.deleteConnection";
+  return query;
+}
+
+@end
+
 @implementation GTLRServiceNetworkingQuery_ServicesConnectionsList
 
 @dynamic network, parent;

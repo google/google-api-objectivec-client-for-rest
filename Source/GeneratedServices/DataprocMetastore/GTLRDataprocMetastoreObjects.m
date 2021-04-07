@@ -20,6 +20,13 @@ NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_Backup.state
+NSString * const kGTLRDataprocMetastore_Backup_State_Active    = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Backup_State_Creating  = @"CREATING";
+NSString * const kGTLRDataprocMetastore_Backup_State_Deleting  = @"DELETING";
+NSString * const kGTLRDataprocMetastore_Backup_State_Failed    = @"FAILED";
+NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDataprocMetastore_DatabaseDump.databaseType
 NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql = @"MYSQL";
@@ -75,6 +82,16 @@ NSString * const kGTLRDataprocMetastore_Restore_Type_Full      = @"FULL";
 NSString * const kGTLRDataprocMetastore_Restore_Type_MetadataOnly = @"METADATA_ONLY";
 NSString * const kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
 
+// GTLRDataprocMetastore_RestoreServiceRequest.restoreType
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full = @"FULL";
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly = @"METADATA_ONLY";
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
+
+// GTLRDataprocMetastore_Service.releaseChannel
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Canary = @"CANARY";
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Stable = @"STABLE";
+
 // GTLRDataprocMetastore_Service.state
 NSString * const kGTLRDataprocMetastore_Service_State_Active   = @"ACTIVE";
 NSString * const kGTLRDataprocMetastore_Service_State_Creating = @"CREATING";
@@ -121,6 +138,21 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
     @"exemptedMembers" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Backup
+//
+
+@implementation GTLRDataprocMetastore_Backup
+@dynamic createTime, descriptionProperty, endTime, name, serviceRevision, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -239,6 +271,29 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 @implementation GTLRDataprocMetastore_KerberosConfig
 @dynamic keytab, krb5ConfigGcsUri, principal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListBackupsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListBackupsResponse
+@dynamic backups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRDataprocMetastore_Backup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
+}
+
 @end
 
 
@@ -492,6 +547,17 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_OperationMetadata
+//
+
+@implementation GTLRDataprocMetastore_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Policy
 //
 
@@ -525,6 +591,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataprocMetastore_RestoreServiceRequest
+//
+
+@implementation GTLRDataprocMetastore_RestoreServiceRequest
+@dynamic backup, requestId, restoreType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataprocMetastore_Secret
 //
 
@@ -541,7 +617,8 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 @implementation GTLRDataprocMetastore_Service
 @dynamic artifactGcsUri, createTime, endpointUri, hiveMetastoreConfig, labels,
          maintenanceWindow, metadataIntegration, metadataManagementActivity,
-         name, network, port, state, stateMessage, tier, uid, updateTime;
+         name, network, port, releaseChannel, state, stateMessage, tier, uid,
+         updateTime;
 @end
 
 

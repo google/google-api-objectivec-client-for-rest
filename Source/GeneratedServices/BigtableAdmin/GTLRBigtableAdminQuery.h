@@ -49,6 +49,12 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Only populates 'name' and fields related to the table's encryption state.
+ *
+ *  Value: "ENCRYPTION_VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewEncryptionView;
+/**
  *  Populates all fields.
  *
  *  Value: "FULL"
@@ -115,8 +121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_OperationsCancel : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -159,8 +163,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_OperationsDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -198,8 +200,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_OperationsGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -242,8 +242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_OperationsProjectsOperationsList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForOperationsProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -296,8 +294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesCreate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesCreateWithObject:parent:]
 
 /**
  *  Required. The ID to be used when referring to the new app profile within its
@@ -346,8 +342,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesDeleteWithname:]
 
 /** Required. If true, ignore safety checks when deleting the app profile. */
 @property(nonatomic, assign) BOOL ignoreWarnings;
@@ -389,8 +383,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesGetWithname:]
 
 /**
  *  Required. The unique name of the requested app profile. Values are of the
@@ -427,8 +419,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesListWithparent:]
 
 /**
  *  Maximum number of results per page. A page_size of zero lets the server
@@ -487,8 +477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesAppProfilesPatch : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesAppProfilesPatchWithObject:name:]
 
 /** If true, ignore safety checks when updating the app profile. */
 @property(nonatomic, assign) BOOL ignoreWarnings;
@@ -540,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsCreate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsCreateWithObject:parent:]
 
 /**
  *  Required. The id of the backup to be created. The `backup_id` along with the
@@ -595,8 +581,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsDeleteWithname:]
 
 /**
  *  Required. Name of the backup to delete. Values are of the form
@@ -631,8 +615,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsGetWithname:]
 
 /**
  *  Required. Name of the backup. Values are of the form
@@ -668,8 +650,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsGetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -709,8 +689,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsListWithparent:]
 
 /**
  *  A filter expression that filters backups listed in the response. The
@@ -804,8 +782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsPatch : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsPatchWithObject:name:]
 
 /**
  *  A globally unique identifier for the backup which cannot be changed. Values
@@ -863,8 +839,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsSetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -904,8 +878,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersBackupsTestIamPermissions : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersBackupsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -945,8 +917,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersCreate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersCreateWithObject:parent:]
 
 /**
  *  Required. The ID to be used when referring to the new cluster within its
@@ -992,8 +962,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersDeleteWithname:]
 
 /**
  *  Required. The unique name of the cluster to be deleted. Values are of the
@@ -1031,8 +999,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersGetWithname:]
 
 /**
  *  Required. The unique name of the requested cluster. Values are of the form
@@ -1069,8 +1035,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersListWithparent:]
 
 /** DEPRECATED: This field is unused and ignored. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1118,8 +1082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersUpdate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesClustersUpdateWithObject:name:]
 
 /**
  *  The unique name of the cluster. Values are of the form
@@ -1157,8 +1119,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesCreate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The unique name of the project in which to create the new
@@ -1197,8 +1157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesDeleteWithname:]
 
 /**
  *  Required. The unique name of the instance to be deleted. Values are of the
@@ -1235,8 +1193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesGetWithname:]
 
 /**
  *  Required. The unique name of the requested instance. Values are of the form
@@ -1273,8 +1229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesGetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1316,8 +1270,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesListWithparent:]
 
 /** DEPRECATED: This field is unused and ignored. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1361,8 +1313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesPartialUpdateInstance : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesPartialUpdateInstanceWithObject:name:]
 
 /**
  *  The unique name of the instance. Values are of the form
@@ -1410,8 +1360,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesSetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1453,8 +1401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesCheckConsistency : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesCheckConsistencyWithObject:name:]
 
 /**
  *  Required. The unique name of the Table for which to check replication
@@ -1497,8 +1443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesCreate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesCreateWithObject:parent:]
 
 /**
  *  Required. The unique name of the instance in which to create the table.
@@ -1538,8 +1482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesDelete : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesDeleteWithname:]
 
 /**
  *  Required. The unique name of the table to be deleted. Values are of the form
@@ -1576,8 +1518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesDropRowRange : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesDropRowRangeWithObject:name:]
 
 /**
  *  Required. The unique name of the table on which to drop a range of rows.
@@ -1622,8 +1562,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesGenerateConsistencyToken : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesGenerateConsistencyTokenWithObject:name:]
 
 /**
  *  Required. The unique name of the Table for which to create a consistency
@@ -1667,8 +1605,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesGetWithname:]
 
 /**
  *  Required. The unique name of the requested table. Values are of the form
@@ -1690,6 +1626,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
  *        fields related to the table's replication state. (Value:
  *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates 'name' and
+ *        fields related to the table's encryption state. (Value:
+ *        "ENCRYPTION_VIEW")
  *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -1722,8 +1661,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesGetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1764,8 +1701,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesListWithparent:]
 
 /**
  *  Maximum number of results per page. A page_size of zero lets the server
@@ -1800,6 +1735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
  *        fields related to the table's replication state. (Value:
  *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates 'name' and
+ *        fields related to the table's encryption state. (Value:
+ *        "ENCRYPTION_VIEW")
  *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
@@ -1839,8 +1777,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesModifyColumnFamilies : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesModifyColumnFamiliesWithObject:name:]
 
 /**
  *  Required. The unique name of the table whose families should be modified.
@@ -1887,8 +1823,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesRestoreWithObject:parent:]
 
 /**
  *  Required. The name of the instance in which to create the restored table.
@@ -1933,8 +1867,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesSetIamPolicy : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1974,8 +1906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTablesTestIamPermissions : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTablesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2015,8 +1945,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesTestIamPermissions : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2058,8 +1986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
  */
 @interface GTLRBigtableAdminQuery_ProjectsInstancesUpdate : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsInstancesUpdateWithObject:name:]
 
 /**
  *  The unique name of the instance. Values are of the form
@@ -2100,8 +2026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsLocationsGet : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2134,19 +2058,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
  */
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
-// Previous library name was
-//   +[GTLQueryBigtableAdmin queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

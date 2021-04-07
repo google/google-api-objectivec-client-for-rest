@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsCreate : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  The parent must be of the form
@@ -82,8 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsDelete : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsEnvironmentsDeleteWithname:]
 
 /**
  *  The environment to delete, in the form:
@@ -114,8 +110,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsGet : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsEnvironmentsGetWithname:]
 
 /**
  *  The resource name of the environment to get, in the form:
@@ -146,8 +140,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsList : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsEnvironmentsListWithparent:]
 
 /** The maximum number of environments to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -190,8 +182,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPatch : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsEnvironmentsPatchWithObject:name:]
 
 /**
  *  The relative resource name of the environment to update, in the form:
@@ -296,8 +286,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsImageVersionsListWithparent:]
 
 /** Whether or not image versions from old releases should be included. */
 @property(nonatomic, assign) BOOL includePastReleases;
@@ -346,8 +334,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsOperationsDelete : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -379,8 +365,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsOperationsGet : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -417,8 +401,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsOperationsList : GTLRCloudComposerQuery
-// Previous library name was
-//   +[GTLQueryCloudComposer queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

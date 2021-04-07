@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersConstraintsList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersConstraintsListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -104,8 +102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesCreate : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesCreateWithObject:parent:]
 
 /**
  *  Required. The Cloud resource that will parent the new Policy. Must be in one
@@ -147,8 +143,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesDelete : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesDeleteWithname:]
 
 /** Required. Name of the policy to delete. See `Policy` for naming rules. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -179,8 +173,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGet : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesGetWithname:]
 
 /**
  *  Required. Resource name of the policy. See `Policy` for naming requirements.
@@ -216,8 +208,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesGetEffectivePolicyWithname:]
 
 /**
  *  Required. The effective policy to compute. See `Policy` for naming rules.
@@ -251,8 +241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -309,8 +297,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_FoldersPoliciesPatch : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForFoldersPoliciesPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name of the Policy. Must be one of the following
@@ -363,8 +349,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsConstraintsList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsConstraintsListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -418,8 +402,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesCreate : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesCreateWithObject:parent:]
 
 /**
  *  Required. The Cloud resource that will parent the new Policy. Must be in one
@@ -461,8 +443,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesDelete : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesDeleteWithname:]
 
 /** Required. Name of the policy to delete. See `Policy` for naming rules. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -493,8 +473,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGet : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesGetWithname:]
 
 /**
  *  Required. Resource name of the policy. See `Policy` for naming requirements.
@@ -530,8 +508,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesGetEffectivePolicyWithname:]
 
 /**
  *  Required. The effective policy to compute. See `Policy` for naming rules.
@@ -565,8 +541,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -623,8 +597,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_OrganizationsPoliciesPatch : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForOrganizationsPoliciesPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name of the Policy. Must be one of the following
@@ -677,8 +649,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsConstraintsList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsConstraintsListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -732,8 +702,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesCreate : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesCreateWithObject:parent:]
 
 /**
  *  Required. The Cloud resource that will parent the new Policy. Must be in one
@@ -775,8 +743,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesDelete : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesDeleteWithname:]
 
 /** Required. Name of the policy to delete. See `Policy` for naming rules. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -807,8 +773,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGet : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesGetWithname:]
 
 /**
  *  Required. Resource name of the policy. See `Policy` for naming requirements.
@@ -844,8 +808,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesGetEffectivePolicy : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesGetEffectivePolicyWithname:]
 
 /**
  *  Required. The effective policy to compute. See `Policy` for naming rules.
@@ -879,8 +841,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesList : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesListWithparent:]
 
 /**
  *  Size of the pages to be returned. This is currently unsupported and will be
@@ -937,8 +897,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOrgPolicyAPICloudPlatform
  */
 @interface GTLROrgPolicyAPIQuery_ProjectsPoliciesPatch : GTLROrgPolicyAPIQuery
-// Previous library name was
-//   +[GTLQueryOrgPolicyAPI queryForProjectsPoliciesPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name of the Policy. Must be one of the following

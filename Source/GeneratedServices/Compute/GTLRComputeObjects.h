@@ -1407,6 +1407,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyScale
 FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyUp;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_AutoscalingPolicyCpuUtilization.predictiveMethod
+
+/** Value: "NONE" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_None;
+/** Value: "OPTIMIZE_AVAILABILITY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_OptimizeAvailability;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
 
 /** Value: "DELTA_PER_MINUTE" */
@@ -1547,6 +1555,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_Protocol_Udp;
 
 /** Value: "CLIENT_IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp;
+/** Value: "CLIENT_IP_NO_DESTINATION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpNoDestination;
 /** Value: "CLIENT_IP_PORT_PROTO" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpPortProto;
 /** Value: "CLIENT_IP_PROTO" */
@@ -2345,6 +2355,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_UndeclaredProperties;
 /** Value: "UNREACHABLE" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRCompute_DistributionPolicy.targetShape
+
+/** Value: "ANY" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Any;
+/** Value: "BALANCED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Balanced;
+/** Value: "EVEN" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Even;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_ExchangedPeeringRoute.type
@@ -9527,6 +9547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetInstancesScopedList_Warnin
 
 /** Value: "CLIENT_IP" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp;
+/** Value: "CLIENT_IP_NO_DESTINATION" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpNoDestination;
 /** Value: "CLIENT_IP_PORT_PROTO" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpPortProto;
 /** Value: "CLIENT_IP_PROTO" */
@@ -13210,6 +13232,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_AutoscalingPolicyCpuUtilization : GTLRObject
 
 /**
+ *  Indicates whether predictive autoscaling based on CPU metric is enabled.
+ *  Valid values are:
+ *  * NONE (default). No predictive method is used. The autoscaler scales the
+ *  group to meet current demand based on real-time metrics. *
+ *  OPTIMIZE_AVAILABILITY. Predictive autoscaling improves availability by
+ *  monitoring daily and weekly load patterns and scaling out ahead of
+ *  anticipated demand.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_None
+ *        Value "NONE"
+ *    @arg @c kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_OptimizeAvailability
+ *        Value "OPTIMIZE_AVAILABILITY"
+ */
+@property(nonatomic, copy, nullable) NSString *predictiveMethod;
+
+/**
  *  The target CPU utilization that the autoscaler maintains. Must be a float
  *  value in the range (0, 1]. If not specified, the default is 0.6.
  *  If the CPU level is below the target utilization, the autoscaler scales in
@@ -13730,6 +13769,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  exists.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendBucketCdnPolicyNegativeCachingPolicy *> *negativeCachingPolicy;
+
+/**
+ *  If true then Cloud CDN will combine multiple concurrent cache fill requests
+ *  into a small number of requests to the origin.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestCoalescing;
 
 /**
  *  Serve existing content from the cache (if available) when revalidating
@@ -14311,6 +14358,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Likely values:
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_ClientIp Value
  *        "CLIENT_IP"
+ *    @arg @c kGTLRCompute_BackendService_SessionAffinity_ClientIpNoDestination
+ *        Value "CLIENT_IP_NO_DESTINATION"
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_ClientIpPortProto
  *        Value "CLIENT_IP_PORT_PROTO"
  *    @arg @c kGTLRCompute_BackendService_SessionAffinity_ClientIpProto Value
@@ -14602,6 +14651,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  exists.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_BackendServiceCdnPolicyNegativeCachingPolicy *> *negativeCachingPolicy;
+
+/**
+ *  If true then Cloud CDN will combine multiple concurrent cache fill requests
+ *  into a small number of requests to the origin.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestCoalescing;
 
 /**
  *  Serve existing content from the cache (if available) when revalidating
@@ -15174,12 +15231,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) GTLRCompute_InstanceProperties *instanceProperties;
 
+/** Policy for chosing target zone. */
 @property(nonatomic, strong, nullable) GTLRCompute_LocationPolicy *locationPolicy;
 
 /**
  *  The minimum number of instances to create. If no min_count is specified then
  *  count is used as the default value. If min_count instances cannot be
- *  created, then no instances will be created.
+ *  created, then no instances will be created and instances already created
+ *  will be deleted.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15187,10 +15246,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The string pattern used for the names of the VMs. Either name_pattern or
- *  predefined_names must be set. The pattern should contain one consecutive
- *  sequence of placeholder hash characters (#) with each character
+ *  per_instance_properties must be set. The pattern should contain one
+ *  continuous sequence of placeholder hash characters (#) with each character
  *  corresponding to one digit of the generated instance name. Example:
- *  name_pattern of inst-#### will generate instance names like inst-0001,
+ *  name_pattern of inst-#### will generate instance names such as inst-0001,
  *  inst-0002, ... . If there already exist instance(s) whose names match the
  *  name pattern in the same project and zone, then the generated instance
  *  numbers will start after the biggest existing number. For example, if there
@@ -17567,6 +17626,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  GTLRCompute_DistributionPolicy
  */
 @interface GTLRCompute_DistributionPolicy : GTLRObject
+
+/**
+ *  The distribution shape to which the group converges either proactively or on
+ *  resize events (depending on the value set in
+ *  updatePolicy.instanceRedistributionType).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_DistributionPolicy_TargetShape_Any Value "ANY"
+ *    @arg @c kGTLRCompute_DistributionPolicy_TargetShape_Balanced Value
+ *        "BALANCED"
+ *    @arg @c kGTLRCompute_DistributionPolicy_TargetShape_Even Value "EVEN"
+ */
+@property(nonatomic, copy, nullable) NSString *targetShape;
 
 /**
  *  Zones where the regional managed instance group will create and manage its
@@ -21041,6 +21113,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /** Metadata defined as annotations for network endpoint. */
 @property(nonatomic, strong, nullable) GTLRCompute_HealthStatus_Annotations *annotations;
+
+/**
+ *  URL of the forwarding rule associated with the health status of the
+ *  instance.
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/** A forwarding rule IP address assigned to this instance. */
+@property(nonatomic, copy, nullable) NSString *forwardingRuleIp;
 
 /**
  *  Health state of the instance.
@@ -26979,6 +27060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  IPsec device such as an HA VPN gateway. VMs cannot directly send traffic to,
  *  or receive traffic from, such an attachment. To use IPsec-encrypted Cloud
  *  Interconnect, create the attachment using this option.
+ *  Not currently available in all Interconnect locations.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_InterconnectAttachment_Encryption_Ipsec Value "IPSEC"
@@ -27023,6 +27105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  option as IPSEC, later on when creating HA VPN gateway on this interconnect
  *  attachment, the HA VPN gateway's IP address will be allocated from regional
  *  external IP address pool.
+ *  Not currently available in all Interconnect locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ipsecInternalAddresses;
 
@@ -28763,7 +28846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Location configurations mapped by location name. Currently only zone names
- *  are supported and must be represented as valid internal URLs, like:
+ *  are supported and must be represented as valid internal URLs, such as
  *  zones/us-central1-a.
  */
 @property(nonatomic, strong, nullable) GTLRCompute_LocationPolicy_Locations *locations;
@@ -28773,7 +28856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  Location configurations mapped by location name. Currently only zone names
- *  are supported and must be represented as valid internal URLs, like:
+ *  are supported and must be represented as valid internal URLs, such as
  *  zones/us-central1-a.
  *
  *  @note This class is documented as having more properties of
@@ -28791,7 +28874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_LocationPolicyLocation : GTLRObject
 
 /**
- *  preference
+ *  Preference for a given locaction: ALLOW or DENY.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_LocationPolicyLocation_Preference_Allow Value "ALLOW"
@@ -40031,6 +40114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Field to indicate if a router is dedicated to use with encrypted
  *  Interconnect Attachment (IPsec-encrypted Cloud Interconnect feature).
+ *  Not currently available in all Interconnect locations.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -41501,7 +41585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @interface GTLRCompute_SecurityPolicyRule : GTLRObject
 
 /**
- *  The Action to preform when the client connection triggers the rule. Can
+ *  The Action to perform when the client connection triggers the rule. Can
  *  currently be either "allow" or "deny()" where valid values for status are
  *  403, 404, and 502.
  */
@@ -43844,7 +43928,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Can only be specified if VPC flow logs for this subnetwork is enabled.
  *  Configures whether all, none or a subset of metadata fields should be added
- *  to the reported VPC flow logs. Default is INCLUDE_ALL_METADATA.
+ *  to the reported VPC flow logs. Default is EXCLUDE_ALL_METADATA.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_SubnetworkLogConfig_Metadata_CustomMetadata Value
@@ -45915,6 +45999,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_ClientIp Value "CLIENT_IP"
+ *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_ClientIpNoDestination
+ *        Value "CLIENT_IP_NO_DESTINATION"
  *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_ClientIpPortProto Value
  *        "CLIENT_IP_PORT_PROTO"
  *    @arg @c kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto Value
@@ -49384,6 +49470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  present, the VPN Gateway will be used for IPsec-encrypted Cloud
  *  Interconnect; all Egress or Ingress traffic for this VPN Gateway interface
  *  will go through the specified interconnect attachment resource.
+ *  Not currently available in all Interconnect locations.
  */
 @property(nonatomic, copy, nullable) NSString *interconnectAttachment;
 
@@ -49527,8 +49614,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  - DEPROVISIONING: Resources are being deallocated for the VPN tunnel.
  *  - FAILED: Tunnel creation has failed and the tunnel is not ready to be used.
  *  - NO_INCOMING_PACKETS: No incoming packets from peer.
- *  - REJECTED: Tunnel configuration was rejected, can be result of being
- *  blacklisted.
+ *  - REJECTED: Tunnel configuration was rejected, can be result of being denied
+ *  access.
  *  - ALLOCATING_RESOURCES: Cloud VPN is in the process of allocating all
  *  required resources.
  *  - STOPPED: Tunnel is stopped due to its Forwarding Rules being deleted for

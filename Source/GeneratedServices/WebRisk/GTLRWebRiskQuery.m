@@ -64,7 +64,7 @@ NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware      = @"UNWANTED_SOFTW
 
 @end
 
-@implementation GTLRWebRiskQuery_OperationsCancel
+@implementation GTLRWebRiskQuery_ProjectsOperationsCancel
 
 @dynamic name;
 
@@ -78,71 +78,71 @@ NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware      = @"UNWANTED_SOFTW
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRWebRiskQuery_OperationsCancel *query =
+  GTLRWebRiskQuery_ProjectsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRWebRisk_GoogleProtobufEmpty class];
-  query.loggingName = @"webrisk.operations.cancel";
+  query.loggingName = @"webrisk.projects.operations.cancel";
   return query;
 }
 
 @end
 
-@implementation GTLRWebRiskQuery_OperationsDelete
+@implementation GTLRWebRiskQuery_ProjectsOperationsDelete
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWebRiskQuery_OperationsDelete *query =
+  GTLRWebRiskQuery_ProjectsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRWebRisk_GoogleProtobufEmpty class];
-  query.loggingName = @"webrisk.operations.delete";
+  query.loggingName = @"webrisk.projects.operations.delete";
   return query;
 }
 
 @end
 
-@implementation GTLRWebRiskQuery_OperationsGet
+@implementation GTLRWebRiskQuery_ProjectsOperationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWebRiskQuery_OperationsGet *query =
+  GTLRWebRiskQuery_ProjectsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRWebRisk_GoogleLongrunningOperation class];
-  query.loggingName = @"webrisk.operations.get";
+  query.loggingName = @"webrisk.projects.operations.get";
   return query;
 }
 
 @end
 
-@implementation GTLRWebRiskQuery_OperationsList
+@implementation GTLRWebRiskQuery_ProjectsOperationsList
 
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRWebRiskQuery_OperationsList *query =
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRWebRiskQuery_ProjectsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
   query.expectedObjectClass = [GTLRWebRisk_GoogleLongrunningListOperationsResponse class];
-  query.loggingName = @"webrisk.operations.list";
+  query.loggingName = @"webrisk.projects.operations.list";
   return query;
 }
 

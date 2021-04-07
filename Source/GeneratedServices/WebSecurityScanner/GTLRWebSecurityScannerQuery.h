@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsCreate : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name where the scan is created, which should
@@ -86,8 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsDelete : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsDeleteWithname:]
 
 /**
  *  Required. The resource name of the ScanConfig to be deleted. The name
@@ -119,8 +115,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsGet : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsGetWithname:]
 
 /**
  *  Required. The resource name of the ScanConfig to be returned. The name
@@ -152,8 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsList : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsListWithparent:]
 
 /**
  *  The maximum number of ScanConfigs to return, can be limited by server. If
@@ -202,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsPatch : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsPatchWithObject:name:]
 
 /**
  *  The resource name of the ScanConfig. The name follows the format of
@@ -248,8 +238,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsCrawledUrlsList : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsCrawledUrlsListWithparent:]
 
 /**
  *  The maximum number of CrawledUrls to return, can be limited by server. If
@@ -300,8 +288,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsFindingsGet : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsFindingsGetWithname:]
 
 /**
  *  Required. The resource name of the Finding to be returned. The name follows
@@ -334,8 +320,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsFindingsList : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsFindingsListWithparent:]
 
 /**
  *  The filter expression. The expression must be in the format: . Supported
@@ -392,8 +376,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsFindingTypeStatsList : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsFindingTypeStatsListWithparent:]
 
 /**
  *  Required. The parent resource name, which should be a scan run resource name
@@ -426,8 +408,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsGet : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsGetWithname:]
 
 /**
  *  Required. The resource name of the ScanRun to be returned. The name follows
@@ -461,8 +441,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsList : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsListWithparent:]
 
 /**
  *  The maximum number of ScanRuns to return, can be limited by server. If not
@@ -513,8 +491,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsScanRunsStop : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsScanRunsStopWithObject:name:]
 
 /**
  *  Required. The resource name of the ScanRun to be stopped. The name follows
@@ -550,8 +526,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebSecurityScannerCloudPlatform
  */
 @interface GTLRWebSecurityScannerQuery_ProjectsScanConfigsStart : GTLRWebSecurityScannerQuery
-// Previous library name was
-//   +[GTLQueryWebSecurityScanner queryForProjectsScanConfigsStartWithObject:name:]
 
 /**
  *  Required. The resource name of the ScanConfig to be used. The name follows

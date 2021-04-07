@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesBatchCreate : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesBatchCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in the form of `projects/[PROJECT_ID]`,
@@ -91,8 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesCreate : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesCreateWithObject:parent:]
 
 /** Required. The ID to use for this note. */
 @property(nonatomic, copy, nullable) NSString *noteId;
@@ -128,8 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesDelete : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesDeleteWithname:]
 
 /**
  *  Required. The name of the note in the form of
@@ -160,8 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesGet : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesGetWithname:]
 
 /**
  *  Required. The name of the note in the form of
@@ -197,8 +189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesGetIamPolicy : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -238,8 +228,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesList : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesListWithparent:]
 
 /** The filter expression. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -288,8 +276,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesOccurrencesList : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesOccurrencesListWithname:]
 
 /** The filter expression. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -335,8 +321,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesPatch : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesPatchWithObject:name:]
 
 /**
  *  Required. The name of the note in the form of
@@ -381,8 +365,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesSetIamPolicy : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -426,8 +408,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsNotesTestIamPermissions : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsNotesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -466,8 +446,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesBatchCreate : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesBatchCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in the form of `projects/[PROJECT_ID]`,
@@ -501,8 +479,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesCreate : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in the form of `projects/[PROJECT_ID]`,
@@ -538,8 +514,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesDelete : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesDeleteWithname:]
 
 /**
  *  Required. The name of the occurrence in the form of
@@ -572,8 +546,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesGet : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesGetWithname:]
 
 /**
  *  Required. The name of the occurrence in the form of
@@ -609,8 +581,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesGetIamPolicy : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -651,8 +621,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesGetNotes : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesGetNotesWithname:]
 
 /**
  *  Required. The name of the occurrence in the form of
@@ -684,8 +652,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesGetVulnerabilitySummary : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesGetVulnerabilitySummaryWithparent:]
 
 /** The filter expression. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -719,8 +685,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesList : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesListWithparent:]
 
 /** The filter expression. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -767,8 +731,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesPatch : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesPatchWithObject:name:]
 
 /**
  *  Required. The name of the occurrence in the form of
@@ -814,8 +776,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesSetIamPolicy : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -859,8 +819,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsOccurrencesTestIamPermissions : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsOccurrencesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -899,8 +857,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsScanConfigsGet : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsScanConfigsGetWithname:]
 
 /**
  *  Required. The name of the scan configuration in the form of
@@ -931,8 +887,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsScanConfigsList : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsScanConfigsListWithparent:]
 
 /** Required. The filter expression. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -976,8 +930,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerAnalysisCloudPlatform
  */
 @interface GTLRContainerAnalysisQuery_ProjectsScanConfigsUpdate : GTLRContainerAnalysisQuery
-// Previous library name was
-//   +[GTLQueryContainerAnalysis queryForProjectsScanConfigsUpdateWithObject:name:]
 
 /**
  *  Required. The name of the scan configuration in the form of

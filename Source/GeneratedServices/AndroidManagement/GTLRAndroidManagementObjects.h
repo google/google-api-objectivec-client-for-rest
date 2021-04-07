@@ -126,6 +126,52 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverri
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_CommonCriteriaMode_CommonCriteriaModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.developerSettings
+
+/**
+ *  Allows all developer settings. The user can access and optionally configure
+ *  the settings.
+ *
+ *  Value: "DEVELOPER_SETTINGS_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed;
+/**
+ *  Default. Disables all developer settings and prevents the user from
+ *  accessing them.
+ *
+ *  Value: "DEVELOPER_SETTINGS_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled;
+/**
+ *  Unspecified. Defaults to DEVELOPER_SETTINGS_DISABLED.
+ *
+ *  Value: "DEVELOPER_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_AdvancedSecurityOverrides.googlePlayProtectVerifyApps
+
+/**
+ *  Unspecified. Defaults to VERIFY_APPS_ENFORCED.
+ *
+ *  Value: "GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified;
+/**
+ *  Default. Force-enables app verification.
+ *
+ *  Value: "VERIFY_APPS_ENFORCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced;
+/**
+ *  Allows the user to choose whether to enable app verification.
+ *
+ *  Value: "VERIFY_APPS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_AdvancedSecurityOverrides.untrustedAppsPolicy
 
 /**
@@ -2148,6 +2194,42 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *commonCriteriaMode;
 
 /**
+ *  Controls access to developer settings: developer options and safe boot.
+ *  Replaces safeBootDisabled (deprecated) and debuggingFeaturesAllowed
+ *  (deprecated).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsAllowed
+ *        Allows all developer settings. The user can access and optionally
+ *        configure the settings. (Value: "DEVELOPER_SETTINGS_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsDisabled
+ *        Default. Disables all developer settings and prevents the user from
+ *        accessing them. (Value: "DEVELOPER_SETTINGS_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_DeveloperSettings_DeveloperSettingsUnspecified
+ *        Unspecified. Defaults to DEVELOPER_SETTINGS_DISABLED. (Value:
+ *        "DEVELOPER_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *developerSettings;
+
+/**
+ *  Whether Google Play Protect verification
+ *  (https://support.google.com/accounts/answer/2812853) is enforced. Replaces
+ *  ensureVerifyAppsEnabled (deprecated).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_GooglePlayProtectVerifyAppsUnspecified
+ *        Unspecified. Defaults to VERIFY_APPS_ENFORCED. (Value:
+ *        "GOOGLE_PLAY_PROTECT_VERIFY_APPS_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsEnforced
+ *        Default. Force-enables app verification. (Value:
+ *        "VERIFY_APPS_ENFORCED")
+ *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_GooglePlayProtectVerifyApps_VerifyAppsUserChoice
+ *        Allows the user to choose whether to enable app verification. (Value:
+ *        "VERIFY_APPS_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *googlePlayProtectVerifyApps;
+
+/**
  *  The policy for untrusted apps (apps from unknown sources) enforced on the
  *  device. Replaces install_unknown_sources_allowed (deprecated).
  *
@@ -2634,18 +2716,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  A rule for automatically choosing a private key and certificate to
- *  authenticate the device to a server.
+ *  Controls apps' access to private keys. The rule determines which private
+ *  key, if any, Android Device Policy grants to the specified app. Access is
+ *  granted either when the app calls KeyChain.choosePrivateKeyAlias
+ *  (https://developer.android.com/reference/android/security/KeyChain#choosePrivateKeyAlias%28android.app.Activity,%20android.security.KeyChainAliasCallback,%20java.lang.String[],%20java.security.Principal[],%20java.lang.String,%20int,%20java.lang.String%29)
+ *  (or any overloads) to request a private key alias for a given URL, or for
+ *  rules that are not URL-specific (that is, if urlPattern is not set, or set
+ *  to the empty string or .*) on Android 11 and above, directly so that the app
+ *  can call KeyChain.getPrivateKey
+ *  (https://developer.android.com/reference/android/security/KeyChain#getPrivateKey%28android.content.Context,%20java.lang.String%29),
+ *  without first having to call KeyChain.choosePrivateKeyAlias.When an app
+ *  calls KeyChain.choosePrivateKeyAlias if more than one choosePrivateKeyRules
+ *  matches, the last matching rule defines which key alias to return.
  */
 @interface GTLRAndroidManagement_ChoosePrivateKeyRule : GTLRObject
 
 /**
- *  The package names for which outgoing requests are subject to this rule. If
- *  no package names are specified, then the rule applies to all packages. For
- *  each package name listed, the rule applies to that package and all other
- *  packages that shared the same Android UID. The SHA256 hash of the signing
- *  key signatures of each package_name will be verified against those provided
- *  by Play
+ *  The package names to which this rule applies. The hash of the signing
+ *  certificate for each app is verified against the hash provided by Play. If
+ *  no package names are specified, then the alias is provided to all apps that
+ *  call KeyChain.choosePrivateKeyAlias
+ *  (https://developer.android.com/reference/android/security/KeyChain#choosePrivateKeyAlias%28android.app.Activity,%20android.security.KeyChainAliasCallback,%20java.lang.String[],%20java.security.Principal[],%20java.lang.String,%20int,%20java.lang.String%29)
+ *  or any overloads (but not without calling KeyChain.choosePrivateKeyAlias,
+ *  even on Android 11 and above). Any app with the same Android UID as a
+ *  package specified here will have access when they call
+ *  KeyChain.choosePrivateKeyAlias.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *packageNames;
 
@@ -2653,9 +2748,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, copy, nullable) NSString *privateKeyAlias;
 
 /**
- *  The URL pattern to match against the URL of the outgoing request. The
- *  pattern may contain asterisk (*) wildcards. Any URL is matched if
- *  unspecified.
+ *  The URL pattern to match against the URL of the request. If not set or
+ *  empty, it matches all URLs. This uses the regular expression syntax of
+ *  java.util.regex.Pattern.
  */
 @property(nonatomic, copy, nullable) NSString *urlPattern;
 
@@ -3242,8 +3337,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *unknownSourcesEnabled;
 
 /**
- *  Whether Verify Apps (Google Play Protect
- *  (https://support.google.com/googleplay/answer/2812853)) is enabled on the
+ *  Whether Google Play Protect verification
+ *  (https://support.google.com/accounts/answer/2812853) is enforced on the
  *  device.
  *
  *  Uses NSNumber of boolValue.
@@ -4919,10 +5014,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *cellBroadcastsConfigDisabled;
 
 /**
- *  Rules for automatically choosing a private key and certificate to
- *  authenticate the device to a server. The rules are ordered by increasing
- *  precedence, so if an outgoing request matches more than one rule, the last
- *  rule defines which private key to use.
+ *  Rules for determining apps' access to private keys. See ChoosePrivateKeyRule
+ *  for details.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ChoosePrivateKeyRule *> *choosePrivateKeyRules;
 
@@ -5200,7 +5293,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 /**
  *  Password requirements. The field
  *  password_requirements.require_password_unlock must not be set. DEPRECATED -
- *  Use password_policies.
+ *  Use password_policies.Note:Complexity-based values of PasswordQuality, that
+ *  is, COMPLEXITY_LOW, COMPLEXITY_MEDIUM, and COMPLEXITY_HIGH, cannot be used
+ *  here.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PasswordRequirements *passwordRequirements;
 

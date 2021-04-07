@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud Document AI API (documentai/v1beta3)
+//   Cloud Document AI API (documentai/v1)
 // Description:
 //   Service to parse structured information from unstructured or
 //   semi-structured documents using state-of-the-art Google AI such as natural
@@ -20,13 +20,78 @@
 
 @end
 
+@implementation GTLRDocumentQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRDocumentQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
+  query.loggingName = @"documentai.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
+  query.loggingName = @"documentai.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"documentai.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsLocationsGet
 
 @dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDocumentQuery_ProjectsLocationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -45,7 +110,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}/locations";
+  NSString *pathURITemplate = @"v1/{+name}/locations";
   GTLRDocumentQuery_ProjectsLocationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -64,7 +129,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDocumentQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -81,7 +146,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequest *)object
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -90,7 +155,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}:batchProcess";
+  NSString *pathURITemplate = @"v1/{+name}:batchProcess";
   GTLRDocumentQuery_ProjectsLocationsProcessorsBatchProcess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -108,7 +173,7 @@
 
 @dynamic humanReviewConfig;
 
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1beta3ReviewDocumentRequest *)object
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest *)object
               humanReviewConfig:(NSString *)humanReviewConfig {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -117,7 +182,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"humanReviewConfig" ];
-  NSString *pathURITemplate = @"v1beta3/{+humanReviewConfig}:reviewDocument";
+  NSString *pathURITemplate = @"v1/{+humanReviewConfig}:reviewDocument";
   GTLRDocumentQuery_ProjectsLocationsProcessorsHumanReviewConfigReviewDocument *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -135,7 +200,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessRequest *)object
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -144,14 +209,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}:process";
+  NSString *pathURITemplate = @"v1/{+name}:process";
   GTLRDocumentQuery_ProjectsLocationsProcessorsProcess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessResponse class];
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse class];
   query.loggingName = @"documentai.projects.locations.processors.process";
   return query;
 }
@@ -162,7 +227,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1beta3BatchProcessRequest *)object
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1BatchProcessRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -171,7 +236,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}:batchProcess";
+  NSString *pathURITemplate = @"v1/{+name}:batchProcess";
   GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsBatchProcess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -189,7 +254,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessRequest *)object
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1ProcessRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -198,15 +263,91 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta3/{+name}:process";
+  NSString *pathURITemplate = @"v1/{+name}:process";
   GTLRDocumentQuery_ProjectsLocationsProcessorsProcessorVersionsProcess *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessResponse class];
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ProcessResponse class];
   query.loggingName = @"documentai.projects.locations.processors.processorVersions.process";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"uiv1beta3/{+name}";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudLocationLocation class];
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"uiv1beta3/{+name}/locations";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudLocationListLocationsResponse class];
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"uiv1beta3/{+name}";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.get";
   return query;
 }
 

@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsGet : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -78,19 +76,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsList : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -125,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsOperationsCancel : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -166,8 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsOperationsGet : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -201,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsOperationsList : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsOperationsListWithname:]
 
 /**
  *  A string for filtering Operations. The following filter fields are
@@ -264,8 +264,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudLifeSciencesCloudPlatform
  */
 @interface GTLRCloudLifeSciencesQuery_ProjectsLocationsPipelinesRun : GTLRCloudLifeSciencesQuery
-// Previous library name was
-//   +[GTLQueryCloudLifeSciences queryForProjectsLocationsPipelinesRunWithObject:parent:]
 
 /** The project and location that this request should be executed against. */
 @property(nonatomic, copy, nullable) NSString *parent;

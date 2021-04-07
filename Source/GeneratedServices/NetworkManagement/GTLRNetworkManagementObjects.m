@@ -63,6 +63,12 @@ NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork = @"GCP_
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified = @"NETWORK_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork = @"NON_GCP_NETWORK";
 
+// GTLRNetworkManagement_FirewallInfo.firewallRuleType
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_FirewallRuleTypeUnspecified = @"FIREWALL_RULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_HierarchicalFirewallPolicyRule = @"HIERARCHICAL_FIREWALL_POLICY_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule = @"IMPLIED_VPC_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";
+
 // GTLRNetworkManagement_ForwardInfo.target
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_GkeMaster = @"GKE_MASTER";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_ImportedCustomRouteNextHop = @"IMPORTED_CUSTOM_ROUTE_NEXT_HOP";
@@ -199,7 +205,7 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Binding
-@dynamic bindingId, condition, members, role;
+@dynamic condition, members, role;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -329,8 +335,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_FirewallInfo
-@dynamic action, direction, displayName, networkUri, priority,
-         targetServiceAccounts, targetTags, uri;
+@dynamic action, direction, displayName, firewallRuleType, networkUri, policy,
+         priority, targetServiceAccounts, targetTags, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

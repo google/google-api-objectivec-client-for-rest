@@ -57,8 +57,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
  */
 @interface GTLRArtifactRegistryQuery_OperationsCancel : GTLRArtifactRegistryQuery
-// Previous library name was
-//   +[GTLQueryArtifactRegistry queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -99,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
  */
 @interface GTLRArtifactRegistryQuery_OperationsDelete : GTLRArtifactRegistryQuery
-// Previous library name was
-//   +[GTLQueryArtifactRegistry queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -133,8 +129,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
  */
 @interface GTLRArtifactRegistryQuery_OperationsGet : GTLRArtifactRegistryQuery
-// Previous library name was
-//   +[GTLQueryArtifactRegistry queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -172,8 +166,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
  */
 @interface GTLRArtifactRegistryQuery_OperationsList : GTLRArtifactRegistryQuery
-// Previous library name was
-//   +[GTLQueryArtifactRegistry queryForOperationsList]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -220,8 +212,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
  */
 @interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesDockerImagesList : GTLRArtifactRegistryQuery
-// Previous library name was
-//   +[GTLQueryArtifactRegistry queryForProjectsLocationsRepositoriesDockerImagesListWithparent:]
 
 /** The maximum number of artifacts to return. */
 @property(nonatomic, assign) NSInteger pageSize;

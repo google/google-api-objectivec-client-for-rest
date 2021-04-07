@@ -613,16 +613,6 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceManagement_EnableServiceRequest
-//
-
-@implementation GTLRServiceManagement_EnableServiceRequest
-@dynamic consumerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceManagement_EnableServiceResponse
 //
 

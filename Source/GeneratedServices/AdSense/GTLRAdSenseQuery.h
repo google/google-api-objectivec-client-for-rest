@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdclientsGetAdCode : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdclientsGetAdCodeWithaccountId:adClientId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -84,8 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdclientsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdclientsListWithaccountId:]
 
 /** Account for which to list ad clients. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -132,8 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdunitsCustomchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdunitsCustomchannelsListWithaccountId:adClientId:adUnitId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -191,8 +185,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdunitsGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdunitsGetWithaccountId:adClientId:adUnitId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -231,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdunitsGetAdCode : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdunitsGetAdCodeWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -270,8 +260,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAdunitsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAdunitsListWithaccountId:adClientId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -325,8 +313,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSense
  */
 @interface GTLRAdSenseQuery_AccountsAlertsDelete : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAlertsDeleteWithaccountId:alertId:]
 
 /** Account which contains the ad unit. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -361,8 +347,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsAlertsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsAlertsListWithaccountId:]
 
 /** Account for which to retrieve the alerts. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -397,8 +381,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsCustomchannelsAdunitsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsCustomchannelsAdunitsListWithaccountId:adClientId:customChannelId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -458,8 +440,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsCustomchannelsGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsCustomchannelsGetWithaccountId:adClientId:customChannelId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -499,8 +479,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsCustomchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsCustomchannelsListWithaccountId:adClientId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -553,8 +531,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsGetWithaccountId:]
 
 /** Account to get information about. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -585,8 +561,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsList]
 
 /**
  *  The maximum number of accounts to include in the response, used for paging.
@@ -627,8 +601,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsPaymentsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsPaymentsListWithaccountId:]
 
 /** Account for which to retrieve the payments. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -658,8 +630,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsReportsGenerate : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsReportsGenerateWithaccountId:startDate:endDate:]
 
 /** Account upon which to report. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -769,8 +739,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsReportsSavedGenerate : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsReportsSavedGenerateWithaccountId:savedReportId:]
 
 /** Account to which the saved reports belong. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -824,8 +792,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsReportsSavedList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsReportsSavedListWithaccountId:]
 
 /** Account to which the saved reports belong. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -872,8 +838,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsSavedadstylesGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsSavedadstylesGetWithaccountId:savedAdStyleId:]
 
 /** Account for which to get the saved ad style. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -906,8 +870,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsSavedadstylesList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsSavedadstylesListWithaccountId:]
 
 /** Account for which to list saved ad styles. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -954,8 +916,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AccountsUrlchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAccountsUrlchannelsListWithaccountId:adClientId:]
 
 /** Account to which the ad client belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1007,8 +967,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AdclientsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAdclientsList]
 
 /**
  *  The maximum number of ad clients to include in the response, used for
@@ -1050,8 +1008,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AdunitsCustomchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAdunitsCustomchannelsListWithadClientId:adUnitId:]
 
 /** Ad client which contains the ad unit. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1103,8 +1059,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AdunitsGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAdunitsGetWithadClientId:adUnitId:]
 
 /** Ad client for which to get the ad unit. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1137,8 +1091,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AdunitsGetAdCode : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAdunitsGetAdCodeWithadClientId:adUnitId:]
 
 /** Ad client with contains the ad unit. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1171,8 +1123,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AdunitsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAdunitsListWithadClientId:]
 
 /** Ad client for which to list ad units. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1220,8 +1170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSense
  */
 @interface GTLRAdSenseQuery_AlertsDelete : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAlertsDeleteWithalertId:]
 
 /** Alert to delete. */
 @property(nonatomic, copy, nullable) NSString *alertId;
@@ -1250,8 +1198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_AlertsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForAlertsList]
 
 /**
  *  The locale to use for translating alert messages. The account locale will be
@@ -1281,8 +1227,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_CustomchannelsAdunitsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForCustomchannelsAdunitsListWithadClientId:customChannelId:]
 
 /** Ad client which contains the custom channel. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1336,8 +1280,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_CustomchannelsGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForCustomchannelsGetWithadClientId:customChannelId:]
 
 /** Ad client which contains the custom channel. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1371,8 +1313,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_CustomchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForCustomchannelsListWithadClientId:]
 
 /** Ad client for which to list custom channels. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1420,8 +1360,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_MetadataDimensionsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForMetadataDimensionsList]
 
 /**
  *  Fetches a @c GTLRAdSense_Metadata.
@@ -1444,8 +1382,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_MetadataMetricsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForMetadataMetricsList]
 
 /**
  *  Fetches a @c GTLRAdSense_Metadata.
@@ -1468,8 +1404,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_PaymentsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForPaymentsList]
 
 /**
  *  Fetches a @c GTLRAdSense_Payments.
@@ -1494,8 +1428,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_ReportsGenerate : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForReportsGenerateWithstartDate:endDate:]
 
 /** Accounts upon which to report. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accountId;
@@ -1601,8 +1533,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_ReportsSavedGenerate : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForReportsSavedGenerateWithsavedReportId:]
 
 /**
  *  Optional locale to use for translating report output to a local language.
@@ -1651,8 +1581,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_ReportsSavedList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForReportsSavedList]
 
 /**
  *  The maximum number of saved reports to include in the response, used for
@@ -1694,8 +1622,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_SavedadstylesGet : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForSavedadstylesGetWithsavedAdStyleId:]
 
 /** Saved ad style to retrieve. */
 @property(nonatomic, copy, nullable) NSString *savedAdStyleId;
@@ -1723,8 +1649,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_SavedadstylesList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForSavedadstylesList]
 
 /**
  *  The maximum number of saved ad styles to include in the response, used for
@@ -1766,8 +1690,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdSenseReadonly
  */
 @interface GTLRAdSenseQuery_UrlchannelsList : GTLRAdSenseQuery
-// Previous library name was
-//   +[GTLQueryAdSense queryForUrlchannelsListWithadClientId:]
 
 /** Ad client for which to list URL channels. */
 @property(nonatomic, copy, nullable) NSString *adClientId;

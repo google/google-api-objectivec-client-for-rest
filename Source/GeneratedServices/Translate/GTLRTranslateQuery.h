@@ -54,8 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsDetectLanguage : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsDetectLanguageWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -101,8 +99,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsGetSupportedLanguages : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsGetSupportedLanguagesWithparent:]
 
 /**
  *  Optional. The language to use to return localized, human readable names of
@@ -167,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudPlatform
  */
 @interface GTLRTranslateQuery_ProjectsLocationsBatchTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsBatchTranslateTextWithObject:parent:]
 
 /**
  *  Required. Location to make a call. Must refer to a caller's project. Format:
@@ -215,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsDetectLanguage : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsDetectLanguageWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -262,8 +254,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -291,8 +281,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGetSupportedLanguages : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGetSupportedLanguagesWithparent:]
 
 /**
  *  Optional. The language to use to return localized, human readable names of
@@ -353,8 +341,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudPlatform
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesCreate : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesCreateWithObject:parent:]
 
 /** Required. The project name. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -386,8 +372,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesDelete : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesDeleteWithname:]
 
 /** Required. The name of the glossary to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -416,8 +400,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesGetWithname:]
 
 /** Required. The name of the glossary to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -446,8 +428,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsGlossariesListWithparent:]
 
 /**
  *  Optional. Filter specifying constraints of a list operation. Specify the
@@ -515,8 +495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsListWithname:]
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -575,8 +553,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsCancel : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -618,8 +594,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsDelete : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -652,8 +626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsGet : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -691,8 +663,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsList : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -749,8 +719,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsOperationsWait : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsOperationsWaitWithObject:name:]
 
 /** The name of the operation resource to wait on. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -789,8 +757,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsLocationsTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsLocationsTranslateTextWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's
@@ -836,8 +802,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTranslateCloudTranslation
  */
 @interface GTLRTranslateQuery_ProjectsTranslateText : GTLRTranslateQuery
-// Previous library name was
-//   +[GTLQueryTranslate queryForProjectsTranslateTextWithObject:parent:]
 
 /**
  *  Required. Project or location to make a call. Must refer to a caller's

@@ -309,8 +309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersCreateWithObject:parent:]
 
 /** GTM Account's API relative path. Example: accounts/{account_id}. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -340,8 +338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerDeleteContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersDeleteWithpath:]
 
 /**
  *  GTM Container's API relative path. Example:
@@ -373,8 +369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsCreateWithObject:parent:]
 
 /**
  *  GTM Container's API relative path. Example:
@@ -407,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsDeleteWithpath:]
 
 /**
  *  GTM Environment's API relative path. Example:
@@ -441,8 +433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsGetWithpath:]
 
 /**
  *  GTM Environment's API relative path. Example:
@@ -474,8 +464,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -513,8 +501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerPublish
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsReauthorize : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsReauthorizeWithObject:path:]
 
 /**
  *  GTM Environment's API relative path. Example:
@@ -547,8 +533,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersEnvironmentsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersEnvironmentsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
@@ -588,8 +572,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersGetWithpath:]
 
 /**
  *  GTM Container's API relative path. Example:
@@ -621,8 +603,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -657,8 +637,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
@@ -698,8 +676,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionHeadersLatest : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersLatestWithparent:]
 
 /**
  *  GTM Container's API relative path. Example:
@@ -732,8 +708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionHeadersList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionHeadersListWithparent:]
 
 /** Also retrieve deleted (archived) versions when true. */
 @property(nonatomic, assign) BOOL includeDeleted;
@@ -774,8 +748,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainerversions
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsDeleteWithpath:]
 
 /**
  *  GTM ContainerVersion's API relative path. Example:
@@ -809,8 +781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsGetWithpath:]
 
 /**
  *  The GTM ContainerVersion ID. Specify published to retrieve the currently
@@ -848,8 +818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsLive : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsLiveWithparent:]
 
 /**
  *  GTM Container's API relative path. Example:
@@ -880,8 +848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerPublish
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsPublish : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsPublishWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
@@ -919,8 +885,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsSetLatest : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsSetLatestWithpath:]
 
 /**
  *  GTM ContainerVersion's API relative path. Example:
@@ -952,8 +916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainerversions
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsUndelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsUndeleteWithpath:]
 
 /**
  *  GTM ContainerVersion's API relative path. Example:
@@ -984,8 +946,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainerversions
  */
 @interface GTLRTagManagerQuery_AccountsContainersVersionsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersVersionsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the container
@@ -1025,8 +985,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesCreateWithparent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -1211,8 +1169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesDeleteWithpath:]
 
 /**
  *  GTM BuiltInVariable's API relative path. Example:
@@ -1399,8 +1355,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1438,8 +1392,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesBuiltInVariablesRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesBuiltInVariablesRevertWithpath:]
 
 /**
  *  GTM BuiltInVariable's API relative path. Example:
@@ -1624,8 +1576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateWithObject:parent:]
 
 /**
  *  GTM parent Container's API relative path. Example:
@@ -1660,8 +1610,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainerversions
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesCreateVersion : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesCreateVersionWithObject:path:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -1698,8 +1646,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerDeleteContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesDeleteWithpath:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -1731,8 +1677,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersCreateWithObject:parent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -1765,8 +1709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersDeleteWithpath:]
 
 /**
  *  GTM Folder's API relative path. Example:
@@ -1799,8 +1741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersEntities : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersEntitiesWithpath:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1835,8 +1775,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersGetWithpath:]
 
 /**
  *  GTM Folder's API relative path. Example:
@@ -1868,8 +1806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -1907,8 +1843,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersMoveEntitiesToFolder : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersMoveEntitiesToFolderWithObject:path:]
 
 /**
  *  GTM Folder's API relative path. Example:
@@ -1951,8 +1885,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the tag in
@@ -1989,8 +1921,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesFoldersUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesFoldersUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the folder in
@@ -2030,8 +1960,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetWithpath:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2063,8 +1991,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesGetStatus : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesGetStatusWithpath:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2096,8 +2022,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2136,8 +2060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainerversions
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesQuickPreview : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesQuickPreviewWithpath:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2170,8 +2092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesResolveConflict : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesResolveConflictWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the
@@ -2213,8 +2133,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesSync : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesSyncWithpath:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2246,8 +2164,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsCreateWithObject:parent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2280,8 +2196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsDeleteWithpath:]
 
 /**
  *  GTM Tag's API relative path. Example:
@@ -2314,8 +2228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsGetWithpath:]
 
 /**
  *  GTM Tag's API relative path. Example:
@@ -2347,8 +2259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2386,8 +2296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of thetag in
@@ -2424,8 +2332,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTagsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTagsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the tag in
@@ -2464,8 +2370,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesCreateWithObject:parent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2498,8 +2402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesDeleteWithpath:]
 
 /**
  *  GTM Custom Template's API relative path. Example:
@@ -2532,8 +2434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesGetWithpath:]
 
 /**
  *  GTM Custom Template's API relative path. Example:
@@ -2565,8 +2465,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2604,8 +2502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the template
@@ -2642,8 +2538,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTemplatesUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTemplatesUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the templates
@@ -2682,8 +2576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersCreateWithObject:parent:]
 
 /**
  *  GTM Workspaces's API relative path. Example:
@@ -2716,8 +2608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersDeleteWithpath:]
 
 /**
  *  GTM Trigger's API relative path. Example:
@@ -2750,8 +2640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersGetWithpath:]
 
 /**
  *  GTM Trigger's API relative path. Example:
@@ -2783,8 +2671,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -2822,8 +2708,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the trigger in
@@ -2860,8 +2744,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesTriggersUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesTriggersUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the trigger in
@@ -2900,8 +2782,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the workspace
@@ -2940,8 +2820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesCreateWithObject:parent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -2974,8 +2852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesDeleteWithpath:]
 
 /**
  *  GTM Variable's API relative path. Example:
@@ -3008,8 +2884,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesGetWithpath:]
 
 /**
  *  GTM Variable's API relative path. Example:
@@ -3041,8 +2915,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3080,8 +2952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the variable
@@ -3118,8 +2988,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesVariablesUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesVariablesUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the variable
@@ -3158,8 +3026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesCreateWithObject:parent:]
 
 /**
  *  GTM Workspace's API relative path. Example:
@@ -3192,8 +3058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesDeleteWithpath:]
 
 /**
  *  GTM Zone's API relative path. Example:
@@ -3226,8 +3090,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesGetWithpath:]
 
 /**
  *  GTM Zone's API relative path. Example:
@@ -3259,8 +3121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3298,8 +3158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesRevert : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesRevertWithpath:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the zone in
@@ -3336,8 +3194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerEditContainers
  */
 @interface GTLRTagManagerQuery_AccountsContainersWorkspacesZonesUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsContainersWorkspacesZonesUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the zone in
@@ -3378,8 +3234,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsGetWithpath:]
 
 /** GTM Accounts's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *path;
@@ -3408,8 +3262,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerReadonly
  */
 @interface GTLRTagManagerQuery_AccountsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsList]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3438,8 +3290,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageAccounts
  */
 @interface GTLRTagManagerQuery_AccountsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUpdateWithObject:path:]
 
 /**
  *  When provided, this fingerprint must match the fingerprint of the account in
@@ -3474,8 +3324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageUsers
  */
 @interface GTLRTagManagerQuery_AccountsUserPermissionsCreate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUserPermissionsCreateWithObject:parent:]
 
 /** GTM Account's API relative path. Example: accounts/{account_id} */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3506,8 +3354,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageUsers
  */
 @interface GTLRTagManagerQuery_AccountsUserPermissionsDelete : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUserPermissionsDeleteWithpath:]
 
 /**
  *  GTM UserPermission's API relative path. Example:
@@ -3540,8 +3386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageUsers
  */
 @interface GTLRTagManagerQuery_AccountsUserPermissionsGet : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUserPermissionsGetWithpath:]
 
 /**
  *  GTM UserPermission's API relative path. Example:
@@ -3573,8 +3417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageUsers
  */
 @interface GTLRTagManagerQuery_AccountsUserPermissionsList : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUserPermissionsListWithparent:]
 
 /** Continuation token for fetching the next page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -3610,8 +3452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @c kGTLRAuthScopeTagManagerManageUsers
  */
 @interface GTLRTagManagerQuery_AccountsUserPermissionsUpdate : GTLRTagManagerQuery
-// Previous library name was
-//   +[GTLQueryTagManager queryForAccountsUserPermissionsUpdateWithObject:path:]
 
 /**
  *  GTM UserPermission's API relative path. Example:

@@ -53,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_AchievementsReset : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForAchievementsResetWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -85,8 +83,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_AchievementsResetAll : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForAchievementsResetAll]
 
 /**
  *  Fetches a @c GTLRGamesManagement_AchievementResetAllResponse.
@@ -111,8 +107,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_AchievementsResetAllForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForAchievementsResetAllForAllPlayers]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -138,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_AchievementsResetForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForAchievementsResetForAllPlayersWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -171,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_AchievementsResetMultipleForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForAchievementsResetMultipleForAllPlayersWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -202,8 +192,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ApplicationsListHidden : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForApplicationsListHiddenWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -248,8 +236,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_EventsReset : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForEventsResetWitheventId:]
 
 /** The ID of the event. */
 @property(nonatomic, copy, nullable) NSString *eventId;
@@ -281,8 +267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_EventsResetAll : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForEventsResetAll]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -308,8 +292,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_EventsResetAllForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForEventsResetAllForAllPlayers]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -335,8 +317,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_EventsResetForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForEventsResetForAllPlayersWitheventId:]
 
 /** The ID of the event. */
 @property(nonatomic, copy, nullable) NSString *eventId;
@@ -368,8 +348,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_EventsResetMultipleForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForEventsResetMultipleForAllPlayersWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -398,8 +376,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_PlayersHide : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForPlayersHideWithapplicationId:playerId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -439,8 +415,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_PlayersUnhide : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForPlayersUnhideWithapplicationId:playerId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -481,8 +455,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ScoresReset : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForScoresResetWithleaderboardId:]
 
 /** The ID of the leaderboard. */
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
@@ -513,8 +485,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ScoresResetAll : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForScoresResetAll]
 
 /**
  *  Fetches a @c GTLRGamesManagement_PlayerScoreResetAllResponse.
@@ -539,8 +509,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ScoresResetAllForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForScoresResetAllForAllPlayers]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -566,8 +534,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ScoresResetForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForScoresResetForAllPlayersWithleaderboardId:]
 
 /** The ID of the leaderboard. */
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
@@ -599,8 +565,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGamesManagementGames
  */
 @interface GTLRGamesManagementQuery_ScoresResetMultipleForAllPlayers : GTLRGamesManagementQuery
-// Previous library name was
-//   +[GTLQueryGamesManagement queryForScoresResetMultipleForAllPlayersWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will

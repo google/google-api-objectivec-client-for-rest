@@ -54,8 +54,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_LineitemsDownloadlineitems : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForLineitemsDownloadlineitemsWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_DownloadLineItemsResponse.
@@ -82,8 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_LineitemsUploadlineitems : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForLineitemsUploadlineitemsWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_UploadLineItemsResponse.
@@ -109,8 +105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesCreatequery : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForQueriesCreatequeryWithObject:]
 
 /**
  *  If true, tries to run the query asynchronously. Only applicable when the
@@ -143,8 +137,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesDeletequery : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForQueriesDeletequeryWithqueryId:]
 
 /** Query ID to delete. */
 @property(nonatomic, assign) long long queryId;
@@ -172,8 +164,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesGetquery : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForQueriesGetqueryWithqueryId:]
 
 /** Query ID to retrieve. */
 @property(nonatomic, assign) long long queryId;
@@ -200,8 +190,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesListqueries : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForQueriesListqueries]
 
 /**
  *  Maximum number of results per page. Must be between 1 and 100. Defaults to
@@ -236,8 +224,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_QueriesRunquery : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForQueriesRunqueryWithObject:queryId:]
 
 /**
  *  If true, tries to run the query asynchronously.
@@ -275,8 +261,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_ReportsListreports : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForReportsListreportsWithqueryId:]
 
 /**
  *  Maximum number of results per page. Must be between 1 and 100. Defaults to
@@ -316,8 +300,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleClickBidManager
  */
 @interface GTLRDoubleClickBidManagerQuery_SdfDownload : GTLRDoubleClickBidManagerQuery
-// Previous library name was
-//   +[GTLQueryDoubleClickBidManager queryForSdfDownloadWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleClickBidManager_DownloadResponse.

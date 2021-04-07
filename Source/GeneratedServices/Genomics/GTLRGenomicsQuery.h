@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
 @interface GTLRGenomicsQuery_OperationsCancel : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -96,8 +94,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
 @interface GTLRGenomicsQuery_OperationsGet : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -130,8 +126,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGenomicsCloudPlatform
  */
 @interface GTLRGenomicsQuery_OperationsList : GTLRGenomicsQuery
-// Previous library name was
-//   +[GTLQueryGenomics queryForOperationsListWithname:]
 
 /**
  *  A string for filtering Operations. In v2alpha1, the following filter fields

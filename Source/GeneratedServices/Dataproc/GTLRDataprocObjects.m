@@ -85,7 +85,9 @@ NSString * const kGTLRDataproc_ReservationAffinity_ConsumeReservationType_TypeUn
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Anaconda = @"ANACONDA";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker = @"DOCKER";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Druid = @"DRUID";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink = @"FLINK";
+NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase = @"HBASE";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_HiveWebhcat = @"HIVE_WEBHCAT";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Jupyter = @"JUPYTER";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Presto = @"PRESTO";
@@ -242,9 +244,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ClusterConfig
 @dynamic autoscalingConfig, configBucket, encryptionConfig, endpointConfig,
-         gceClusterConfig, initializationActions, lifecycleConfig, masterConfig,
-         metastoreConfig, secondaryWorkerConfig, securityConfig, softwareConfig,
-         tempBucket, workerConfig;
+         gceClusterConfig, gkeClusterConfig, initializationActions,
+         lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
+         securityConfig, softwareConfig, tempBucket, workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -536,6 +538,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_GkeClusterConfig
+//
+
+@implementation GTLRDataproc_GkeClusterConfig
+@dynamic namespacedGkeDeploymentTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_HadoopJob
 //
 
@@ -609,6 +621,30 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_HiveJob_ScriptVariables
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_IdentityConfig
+//
+
+@implementation GTLRDataproc_IdentityConfig
+@dynamic userServiceAccountMapping;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_IdentityConfig_UserServiceAccountMapping
+//
+
+@implementation GTLRDataproc_IdentityConfig_UserServiceAccountMapping
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -997,6 +1033,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_NamespacedGkeDeploymentTarget
+//
+
+@implementation GTLRDataproc_NamespacedGkeDeploymentTarget
+@dynamic clusterNamespace, targetGkeCluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_NodeGroupAffinity
 //
 
@@ -1295,7 +1341,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SecurityConfig
-@dynamic kerberosConfig;
+@dynamic identityConfig, kerberosConfig;
 @end
 
 

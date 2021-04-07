@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Simulator API (policysimulator/v1beta1)
+//   Policy Simulator API (policysimulator/v1)
 // Description:
 //   Policy Simulator is a collection of endpoints for creating, running, and
 //   viewing a Replay. A `Replay` is a type of simulation that lets you see how
@@ -19,68 +19,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff.accessChange
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_AccessChangeTypeUnspecified = @"ACCESS_CHANGE_TYPE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_AccessGained = @"ACCESS_GAINED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_AccessMaybeGained = @"ACCESS_MAYBE_GAINED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_AccessMaybeRevoked = @"ACCESS_MAYBE_REVOKED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_AccessRevoked = @"ACCESS_REVOKED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_NoChange = @"NO_CHANGE";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff_AccessChange_UnknownChange = @"UNKNOWN_CHANGE";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation.access
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Access_Granted = @"GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Access_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation.relevance
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Relevance_Normal = @"NORMAL";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation.rolePermission
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermission_RolePermissionIncluded = @"ROLE_PERMISSION_INCLUDED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermission_RolePermissionNotIncluded = @"ROLE_PERMISSION_NOT_INCLUDED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied = @"ROLE_PERMISSION_UNKNOWN_INFO_DENIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermission_RolePermissionUnspecified = @"ROLE_PERMISSION_UNSPECIFIED";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation.rolePermissionRelevance
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermissionRelevance_High = @"HIGH";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_RolePermissionRelevance_Normal = @"NORMAL";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership.membership
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded = @"MEMBERSHIP_INCLUDED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded = @"MEMBERSHIP_NOT_INCLUDED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied = @"MEMBERSHIP_UNKNOWN_INFO_DENIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported = @"MEMBERSHIP_UNKNOWN_UNSUPPORTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified = @"MEMBERSHIP_UNSPECIFIED";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership.relevance
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership_Relevance_Normal = @"NORMAL";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess.accessState
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess_AccessState_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess_AccessState_Granted = @"GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess_AccessState_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess_AccessState_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess_AccessState_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy.access
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Access_Granted = @"GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Access_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
-
-// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy.relevance
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy_Relevance_Normal = @"NORMAL";
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff.accessChange
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessChangeTypeUnspecified = @"ACCESS_CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessGained = @"ACCESS_GAINED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeGained = @"ACCESS_MAYBE_GAINED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessMaybeRevoked = @"ACCESS_MAYBE_REVOKED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_AccessRevoked = @"ACCESS_REVOKED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_NoChange = @"NO_CHANGE";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff_AccessChange_UnknownChange = @"UNKNOWN_CHANGE";
 
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay.state
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay_State_Failed = @"FAILED";
@@ -92,6 +38,60 @@ NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay_St
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayConfig.logSource
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayConfig_LogSource_LogSourceUnspecified = @"LOG_SOURCE_UNSPECIFIED";
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayConfig_LogSource_RecentAccesses = @"RECENT_ACCESSES";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.access
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_Granted = @"GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_NotGranted = @"NOT_GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.relevance
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Relevance_High = @"HIGH";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Relevance_Normal = @"NORMAL";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.rolePermission
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionIncluded = @"ROLE_PERMISSION_INCLUDED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionNotIncluded = @"ROLE_PERMISSION_NOT_INCLUDED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied = @"ROLE_PERMISSION_UNKNOWN_INFO_DENIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermission_RolePermissionUnspecified = @"ROLE_PERMISSION_UNSPECIFIED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation.rolePermissionRelevance
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermissionRelevance_High = @"HIGH";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_RolePermissionRelevance_Normal = @"NORMAL";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership.membership
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded = @"MEMBERSHIP_INCLUDED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded = @"MEMBERSHIP_NOT_INCLUDED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied = @"MEMBERSHIP_UNKNOWN_INFO_DENIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported = @"MEMBERSHIP_UNKNOWN_UNSUPPORTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified = @"MEMBERSHIP_UNSPECIFIED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership.relevance
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Relevance_High = @"HIGH";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership_Relevance_Normal = @"NORMAL";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess.accessState
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_Granted = @"GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_NotGranted = @"NOT_GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_UnknownConditional = @"UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess_AccessState_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy.access
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_Granted = @"GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_NotGranted = @"NOT_GRANTED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+
+// GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy.relevance
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_High = @"HIGH";
+NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy_Relevance_Normal = @"NORMAL";
 
 // GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay.state
 NSString * const kGTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay_State_Failed = @"FAILED";
@@ -112,115 +112,21 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff
 //
 
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessStateDiff
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessStateDiff
 @dynamic accessChange, baseline, simulated;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessTuple
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple
 //
 
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1AccessTuple
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1AccessTuple
 @dynamic fullResourceName, permission, principal;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation
-@dynamic access, condition, memberships, relevance, role, rolePermission,
-         rolePermissionRelevance;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Memberships
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation_Memberships
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanationAnnotatedMembership
-@dynamic membership, relevance;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedAccess
-@dynamic accessState, errors, policies;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRPolicySimulator_GoogleRpcStatus class],
-    @"policies" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ExplainedPolicy
-@dynamic access, bindingExplanations, fullResourceName, policy, relevance;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bindingExplanations" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1BindingExplanation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ListReplayResultsResponse
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ListReplayResultsResponse
-@dynamic nextPageToken, replayResults;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"replayResults" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayResult class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"replayResults";
-}
-
 @end
 
 
@@ -260,31 +166,11 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayDiff
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayDiff
-@dynamic accessDiff;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayOperationMetadata
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayOperationMetadata
 @dynamic startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayResult
-//
-
-@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayResult
-@dynamic accessTuple, diff, error, lastSeenDate, name, parent;
 @end
 
 
@@ -296,6 +182,100 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ReplayResultsSummary
 @dynamic differenceCount, errorCount, logCount, newestDate, oldestDate,
          unchangedCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation
+@dynamic access, condition, memberships, relevance, role, rolePermission,
+         rolePermissionRelevance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Memberships
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation_Memberships
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanationAnnotatedMembership
+@dynamic membership, relevance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedAccess
+@dynamic accessState, errors, policies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRPolicySimulator_GoogleRpcStatus class],
+    @"policies" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ExplainedPolicy
+@dynamic access, bindingExplanations, fullResourceName, policy, relevance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindingExplanations" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1BindingExplanation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse
+@dynamic nextPageToken, replayResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replayResults" : [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"replayResults";
+}
+
 @end
 
 
@@ -335,11 +315,31 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayDiff
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayDiff
+@dynamic accessDiff;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayOperationMetadata
 //
 
 @implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayOperationMetadata
 @dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResult
+//
+
+@implementation GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ReplayResult
+@dynamic accessTuple, diff, error, lastSeenDate, name, parent;
 @end
 
 

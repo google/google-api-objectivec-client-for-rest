@@ -97,8 +97,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebase
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesCreate : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesCreateWithObject:name:]
 
 /**
  *  Resource name for the project which owns this `Release`. Format:
@@ -146,8 +144,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebase
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesDelete : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesDeleteWithname:]
 
 /**
  *  Resource name for the `Release` to delete. Format:
@@ -180,8 +176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesGet : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesGetWithname:]
 
 /**
  *  Resource name of the `Release`. Format:
@@ -214,8 +208,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesGetExecutableWithname:]
 
 /**
  *  The requested runtime executable version. Defaults to
@@ -268,8 +260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesList : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesListWithname:]
 
 /**
  *  `Release` filter. The list method supports filters with restrictions on the
@@ -336,8 +326,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebase
  */
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesPatch : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsReleasesPatchWithObject:name:]
 
 /**
  *  Resource name for the project which owns this `Release`. Format:
@@ -377,8 +365,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebase
  */
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsCreate : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsRulesetsCreateWithObject:name:]
 
 /**
  *  Resource name for Project which owns this `Ruleset`. Format:
@@ -416,8 +402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebase
  */
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsDelete : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsRulesetsDeleteWithname:]
 
 /**
  *  Resource name for the ruleset to delete. Format:
@@ -451,8 +435,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsGet : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsRulesetsGetWithname:]
 
 /**
  *  Resource name for the ruleset to get. Format:
@@ -487,8 +469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsList : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsRulesetsListWithname:]
 
 /**
  *  `Ruleset` filter. The list method supports filters with restrictions on
@@ -553,8 +533,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *    @c kGTLRAuthScopeFirebaseRulesFirebaseReadonly
  */
 @interface GTLRFirebaseRulesQuery_ProjectsTest : GTLRFirebaseRulesQuery
-// Previous library name was
-//   +[GTLQueryFirebaseRules queryForProjectsTestWithObject:name:]
 
 /**
  *  Tests may either provide `source` or a `Ruleset` resource name. For tests

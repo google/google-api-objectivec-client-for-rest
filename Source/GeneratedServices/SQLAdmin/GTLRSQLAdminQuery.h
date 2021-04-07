@@ -94,8 +94,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_BackupRunsDelete : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForBackupRunsDeleteWithproject:instance:identifier:]
 
 /**
  *  The ID of the Backup Run to delete. To find a Backup Run ID, use the list
@@ -139,8 +137,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_BackupRunsGet : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForBackupRunsGetWithproject:instance:identifier:]
 
 /**
  *  The ID of this Backup Run.
@@ -183,8 +179,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_BackupRunsInsert : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForBackupRunsInsertWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -221,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_BackupRunsList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForBackupRunsListWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -269,8 +261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesDelete : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesDeleteWithproject:instance:database:]
 
 /** Name of the database to be deleted in the instance. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -309,8 +299,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesGet : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesGetWithproject:instance:database:]
 
 /** Name of the database in the instance. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -350,8 +338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesInsert : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesInsertWithObject:project:instance:]
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -387,8 +373,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesListWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -422,8 +406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesPatch : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesPatchWithObject:project:instance:database:]
 
 /** Name of the database to be updated in the instance. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -465,8 +447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_DatabasesUpdate : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForDatabasesUpdateWithObject:project:instance:database:]
 
 /** Name of the database to be updated in the instance. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -507,8 +487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_FlagsList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForFlagsList]
 
 /**
  *  Database type and version you want to retrieve flags for. By default, this
@@ -541,8 +519,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesAddServerCa : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesAddServerCaWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -580,8 +556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesClone : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesCloneWithObject:project:instance:]
 
 /**
  *  The ID of the Cloud SQL instance to be cloned (source). This does not
@@ -623,8 +597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesDelete : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesDeleteWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -659,8 +631,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesDemoteMaster : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesDemoteMasterWithObject:project:instance:]
 
 /** Cloud SQL instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -697,8 +667,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminCloudPlatform
  */
 @interface GTLRSQLAdminQuery_InstancesExport : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesExportWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -737,8 +705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesFailover : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesFailoverWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -775,8 +741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesGet : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesGetWithproject:instance:]
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -809,8 +773,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminCloudPlatform
  */
 @interface GTLRSQLAdminQuery_InstancesImport : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesImportWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -847,8 +809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesInsert : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesInsertWithObject:project:]
 
 /**
  *  Project ID of the project to which the newly created Cloud SQL instances
@@ -882,8 +842,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -940,8 +898,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesListServerCas : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesListServerCasWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -979,8 +935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesPatch : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesPatchWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1017,8 +971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesPromoteReplica : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesPromoteReplicaWithproject:instance:]
 
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1053,8 +1005,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesResetSslConfig : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesResetSslConfigWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1088,8 +1038,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesRestart : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesRestartWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1124,8 +1072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesRestoreBackup : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesRestoreBackupWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1163,8 +1109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesRotateServerCa : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesRotateServerCaWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1201,8 +1145,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesStartReplica : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesStartReplicaWithproject:instance:]
 
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1235,8 +1177,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesStopReplica : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesStopReplicaWithproject:instance:]
 
 /** Cloud SQL read replica instance name. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1269,8 +1209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesTruncateLog : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesTruncateLogWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1307,8 +1245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_InstancesUpdate : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForInstancesUpdateWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1344,8 +1280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_OperationsGet : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForOperationsGetWithproject:operation:]
 
 /** Instance operation ID. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -1379,8 +1313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_OperationsList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForOperationsListWithproject:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1425,8 +1357,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForProjectsInstancesRescheduleMaintenanceWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1463,8 +1393,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForProjectsInstancesStartExternalSyncWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1515,8 +1443,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForProjectsInstancesVerifyExternalSyncSettingsWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1570,8 +1496,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_SslCertsCreateEphemeral : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForSslCertsCreateEphemeralWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1611,8 +1535,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_SslCertsDelete : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForSslCertsDeleteWithproject:instance:sha1Fingerprint:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1653,8 +1575,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_SslCertsGet : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForSslCertsGetWithproject:instance:sha1Fingerprint:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1696,8 +1616,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_SslCertsInsert : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForSslCertsInsertWithObject:project:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1735,8 +1653,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_SslCertsList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForSslCertsListWithproject:instance:]
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1761,7 +1677,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see Pricing.
+ *  db-custom-1-3840. For related information, see Pricing.
  *
  *  Method: sql.tiers.list
  *
@@ -1770,8 +1686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_TiersList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForTiersListWithproject:]
 
 /** Project ID of the project for which to list tiers. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -1780,7 +1694,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-n1-standard-1. For related information, see Pricing.
+ *  db-custom-1-3840. For related information, see Pricing.
  *
  *  @param project Project ID of the project for which to list tiers.
  *
@@ -1800,8 +1714,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersDelete : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersDeleteWithproject:instance:]
 
 /** Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;
@@ -1840,8 +1752,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersInsert : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersInsertWithObject:project:instance:]
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1876,8 +1786,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersList : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersListWithproject:instance:]
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
@@ -1910,8 +1818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersUpdate : GTLRSQLAdminQuery
-// Previous library name was
-//   +[GTLQuerySQLAdmin queryForUsersUpdateWithObject:project:instance:]
 
 /** Optional. Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;

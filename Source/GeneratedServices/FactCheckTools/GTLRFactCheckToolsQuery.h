@@ -43,8 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: factchecktools.claims.search
  */
 @interface GTLRFactCheckToolsQuery_ClaimsSearch : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForClaimsSearch]
 
 /**
  *  The BCP-47 language code, such as "en-US" or "sr-Latn". Can be used to
@@ -114,8 +112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesCreate : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForPagesCreateWithObject:]
 
 /**
  *  Fetches a @c
@@ -142,8 +138,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesDelete : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForPagesDeleteWithname:]
 
 /** The name of the resource to delete, in the form of `pages/{page_id}`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -171,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesGet : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForPagesGetWithname:]
 
 /** The name of the resource to get, in the form of `pages/{page_id}`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -202,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesList : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForPagesList]
 
 /**
  *  An integer that specifies the current offset (that is, starting result
@@ -270,8 +260,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFactCheckToolsUserinfoEmail
  */
 @interface GTLRFactCheckToolsQuery_PagesUpdate : GTLRFactCheckToolsQuery
-// Previous library name was
-//   +[GTLQueryFactCheckTools queryForPagesUpdateWithObject:name:]
 
 /**
  *  The name of this `ClaimReview` markup page resource, in the form of

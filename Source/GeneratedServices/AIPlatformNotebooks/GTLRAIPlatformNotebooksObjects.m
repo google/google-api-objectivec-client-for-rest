@@ -83,6 +83,46 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopped = @"STOPPED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopping = @"STOPPING";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading = @"UPGRADING";
 
+// GTLRAIPlatformNotebooks_LocalDiskInitializeParams.diskType
+NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdBalanced = @"PD_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdSsd = @"PD_SSD";
+NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard = @"PD_STANDARD";
+
+// GTLRAIPlatformNotebooks_Runtime.healthState
+NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy = @"HEALTHY";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Unhealthy = @"UNHEALTHY";
+
+// GTLRAIPlatformNotebooks_Runtime.state
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Active = @"ACTIVE";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Deleting = @"DELETING";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Initializing = @"INITIALIZING";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Starting = @"STARTING";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Stopped = @"STOPPED";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Stopping = @"STOPPING";
+NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Upgrading = @"UPGRADING";
+
+// GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig.type
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100Vws = @"NVIDIA_TESLA_P100_VWS";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4 = @"NVIDIA_TESLA_P4";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4Vws = @"NVIDIA_TESLA_P4_VWS";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4 = @"NVIDIA_TESLA_T4";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4Vws = @"NVIDIA_TESLA_T4_VWS";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaV100 = @"NVIDIA_TESLA_V100";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV2 = @"TPU_V2";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV3 = @"TPU_V3";
+
+// GTLRAIPlatformNotebooks_RuntimeAccessConfig.accessType
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified = @"RUNTIME_ACCESS_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser = @"SINGLE_USER";
+
 // GTLRAIPlatformNotebooks_Schedule.state
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disabled = @"DISABLED";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Enabled = @"ENABLED";
@@ -204,6 +244,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_EncryptionConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_EncryptionConfig
+@dynamic kmsKey;
 @end
 
 
@@ -495,6 +545,29 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ListRuntimesResponse
+//
+
+@implementation GTLRAIPlatformNotebooks_ListRuntimesResponse
+@dynamic nextPageToken, runtimes, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"runtimes" : [GTLRAIPlatformNotebooks_Runtime class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"runtimes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_ListSchedulesResponse
 //
 
@@ -511,6 +584,61 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 + (NSString *)collectionItemsKey {
   return @"schedules";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_LocalDisk
+//
+
+@implementation GTLRAIPlatformNotebooks_LocalDisk
+@dynamic autoDelete, boot, deviceName, guestOsFeatures, index, initializeParams,
+         interface, kind, licenses, mode, source, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeatures" : [GTLRAIPlatformNotebooks_RuntimeGuestOsFeature class],
+    @"licenses" : [NSString class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_LocalDiskInitializeParams
+//
+
+@implementation GTLRAIPlatformNotebooks_LocalDiskInitializeParams
+@dynamic descriptionProperty, diskName, diskSizeGb, diskType, labels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels
+//
+
+@implementation GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -670,6 +798,102 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_ResetRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_ResetRuntimeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_Runtime
+//
+
+@implementation GTLRAIPlatformNotebooks_Runtime
+@dynamic accessConfig, createTime, healthState, metrics, name, softwareConfig,
+         state, updateTime, virtualMachine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig
+@dynamic coreCount, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeAccessConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeAccessConfig
+@dynamic accessType, proxyUri, runtimeOwner;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeGuestOsFeature
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeGuestOsFeature
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeMetrics
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeMetrics
+@dynamic systemMetrics;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeMetrics_SystemMetrics
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeMetrics_SystemMetrics
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig
+@dynamic enableIntegrityMonitoring, enableSecureBoot, enableVtpm;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_RuntimeSoftwareConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_RuntimeSoftwareConfig
+@dynamic customGpuDriverPath, enableHealthMonitoring, idleShutdown,
+         idleShutdownTimeout, installGpuDriver, notebookUpgradeSchedule,
+         postStartupScript;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Schedule
 //
 
@@ -776,6 +1000,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_StartRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_StartRuntimeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Status
 //
 
@@ -812,6 +1045,25 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_StopInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_StopRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_StopRuntimeRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_SwitchRuntimeRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_SwitchRuntimeRequest
+@dynamic acceleratorConfig, machineType;
 @end
 
 
@@ -862,6 +1114,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest
+@dynamic shieldedInstanceConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_UpgradeHistoryEntry
 //
 
@@ -887,6 +1149,83 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_UpgradeInstanceRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VirtualMachine
+//
+
+@implementation GTLRAIPlatformNotebooks_VirtualMachine
+@dynamic instanceId, instanceName, virtualMachineConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VirtualMachineConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_VirtualMachineConfig
+@dynamic acceleratorConfig, containerImages, dataDisk, encryptionConfig,
+         guestAttributes, internalIpOnly, labels, machineType, metadata,
+         network, shieldedInstanceConfig, subnet, tags, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"containerImages" : [GTLRAIPlatformNotebooks_ContainerImage class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes
+//
+
+@implementation GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VirtualMachineConfig_Labels
+//
+
+@implementation GTLRAIPlatformNotebooks_VirtualMachineConfig_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_VirtualMachineConfig_Metadata
+//
+
+@implementation GTLRAIPlatformNotebooks_VirtualMachineConfig_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

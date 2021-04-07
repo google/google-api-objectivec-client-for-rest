@@ -72,8 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_CatalogSearch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForCatalogSearchWithObject:]
 
 /**
  *  Fetches a @c
@@ -112,8 +110,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_EntriesLookup : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForEntriesLookup]
 
 /**
  *  The full name of the Google Cloud Platform resource the Data Catalog entry
@@ -162,8 +158,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsCreateWithObject:parent:]
 
 /**
  *  Required. The id of the entry group to create. The id must begin with a
@@ -215,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsDeleteWithname:]
 
 /** Optional. If true, deletes all entries in the entry group. */
 @property(nonatomic, assign) BOOL force;
@@ -259,8 +251,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesCreateWithObject:parent:]
 
 /** Required. The id of the entry to create. */
 @property(nonatomic, copy, nullable) NSString *entryId;
@@ -311,8 +301,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesDeleteWithname:]
 
 /**
  *  Required. The name of the entry. Example: *
@@ -347,8 +335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesGetWithname:]
 
 /**
  *  Required. The name of the entry. Example: *
@@ -388,8 +374,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -433,8 +417,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesListWithparent:]
 
 /**
  *  The maximum number of items to return. Default is 10. Max limit is 1000.
@@ -497,8 +479,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesPatchWithObject:name:]
 
 /**
  *  Output only. The Data Catalog resource name of the entry in URL format.
@@ -562,8 +542,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the resource to attach this tag to. Tags can be
@@ -608,8 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsDeleteWithname:]
 
 /**
  *  Required. The name of the tag to delete. Example: *
@@ -640,8 +616,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsListWithparent:]
 
 /** The maximum number of tags to return. Default is 10. Max limit is 1000. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -689,8 +663,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTagsPatchWithObject:name:]
 
 /**
  *  The resource name of the tag in URL format. Example: *
@@ -745,8 +717,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsEntriesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -787,8 +757,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGet : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsGetWithname:]
 
 /**
  *  Required. The name of the entry group. For example,
@@ -835,8 +803,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -880,8 +846,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsListWithparent:]
 
 /**
  *  Optional. The maximum number of items to return. Default is 10. Max limit is
@@ -935,8 +899,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsPatchWithObject:name:]
 
 /**
  *  The resource name of the entry group in URL format. Example: *
@@ -995,8 +957,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1043,8 +1003,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the resource to attach this tag to. Tags can be
@@ -1089,8 +1047,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsDeleteWithname:]
 
 /**
  *  Required. The name of the tag to delete. Example: *
@@ -1121,8 +1077,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsListWithparent:]
 
 /** The maximum number of tags to return. Default is 10. Max limit is 1000. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1170,8 +1124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTagsPatchWithObject:name:]
 
 /**
  *  The resource name of the tag in URL format. Example: *
@@ -1226,8 +1178,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsEntryGroupsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1271,8 +1221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project and the template location
@@ -1319,8 +1267,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesDeleteWithname:]
 
 /**
  *  Required. Currently, this field must always be set to `true`. This confirms
@@ -1366,8 +1312,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project and the template location
@@ -1422,8 +1366,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsDeleteWithname:]
 
 /**
  *  Required. Currently, this field must always be set to `true`. This confirms
@@ -1468,8 +1410,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsEnumValuesRenameWithObject:name:]
 
 /**
  *  Required. The name of the enum field value. Example: *
@@ -1510,8 +1450,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsPatchWithObject:name:]
 
 /**
  *  Required. The name of the tag template field. Example: *
@@ -1569,8 +1507,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesFieldsRenameWithObject:name:]
 
 /**
  *  Required. The name of the tag template. Example: *
@@ -1609,8 +1545,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGet : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesGetWithname:]
 
 /**
  *  Required. The name of the tag template. Example: *
@@ -1650,8 +1584,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -1701,8 +1633,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesPatchWithObject:name:]
 
 /**
  *  The resource name of the tag template in URL format. Example: *
@@ -1764,8 +1694,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1813,8 +1741,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTagTemplatesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1855,8 +1781,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the project that the taxonomy will belong to.
@@ -1890,8 +1814,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesDeleteWithname:]
 
 /**
  *  Required. Resource name of the taxonomy to be deleted. All policy tags in
@@ -1925,8 +1847,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesExport : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesExportWithparent:]
 
 /**
  *  Required. Resource name of the project that taxonomies to be exported will
@@ -1966,8 +1886,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGet : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesGetWithname:]
 
 /** Required. Resource name of the requested taxonomy. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1994,8 +1912,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -2032,8 +1948,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesImport : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesImportWithObject:parent:]
 
 /**
  *  Required. Resource name of project that the imported taxonomies will belong
@@ -2072,8 +1986,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesListWithparent:]
 
 /**
  *  The maximum number of items to return. Must be a value between 1 and 1000.
@@ -2119,8 +2031,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this taxonomy, whose format is:
@@ -2163,8 +2073,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsCreate : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the taxonomy that the policy tag will belong to.
@@ -2197,8 +2105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsDelete : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsDeleteWithname:]
 
 /**
  *  Required. Resource name of the policy tag to be deleted. All of its
@@ -2229,8 +2135,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGet : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsGetWithname:]
 
 /** Required. Resource name of the requested policy tag. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2257,8 +2161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -2293,8 +2195,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsList : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsListWithparent:]
 
 /**
  *  The maximum number of items to return. Must be a value between 1 and 1000.
@@ -2339,8 +2239,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsPatch : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this policy tag, whose format is:
@@ -2387,8 +2285,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsSetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2424,8 +2320,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsTestIamPermissions : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesPolicyTagsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2461,8 +2355,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesSetIamPolicy : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2498,8 +2390,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataCatalogCloudPlatform
  */
 @interface GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesTestIamPermissions : GTLRDataCatalogQuery
-// Previous library name was
-//   +[GTLQueryDataCatalog queryForProjectsLocationsTaxonomiesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

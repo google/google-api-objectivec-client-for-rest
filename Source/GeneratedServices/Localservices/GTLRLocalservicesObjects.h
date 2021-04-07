@@ -81,7 +81,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
 
 /**
  *  An Account Report of a GLS account identified by their account id containing
- *  aggregate data gathered from a particular date range.
+ *  aggregate data gathered from a particular date range. Next ID: 18
  */
 @interface GTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1AccountReport : GTLRObject
 
@@ -145,6 +145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocal
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *currentPeriodTotalCost;
+
+/**
+ *  Number of impressions that customers have had in the past 2 days.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressionsLastTwoDays;
 
 /**
  *  Phone lead responsiveness of the account for the past 90 days from current

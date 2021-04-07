@@ -603,7 +603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Float;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_Type_Integer;
 /**
- *  Type introduced specically for MySQL TimeZone offset. Accept a string value
+ *  Type introduced specially for MySQL TimeZone offset. Accept a string value
  *  with the format [-12:59, 13:00].
  *
  *  Value: "MYSQL_TIMEZONE_OFFSET"
@@ -1724,9 +1724,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The database engine type and version. The *databaseVersion* field cannot be
  *  changed after instance creation. MySQL instances: *MYSQL_8_0*, *MYSQL_5_7*
  *  (default), or *MYSQL_5_6*. PostgreSQL instances: *POSTGRES_9_6*,
- *  *POSTGRES_10*, *POSTGRES_11* or *POSTGRES_12* (default). SQL Server
- *  instances: *SQLSERVER_2017_STANDARD* (default), *SQLSERVER_2017_ENTERPRISE*,
- *  *SQLSERVER_2017_EXPRESS*, or *SQLSERVER_2017_WEB*.
+ *  *POSTGRES_10*, *POSTGRES_11*, *POSTGRES_12*, or *POSTGRES_13* (default). SQL
+ *  Server instances: *SQLSERVER_2017_STANDARD* (default),
+ *  *SQLSERVER_2017_ENTERPRISE*, *SQLSERVER_2017_EXPRESS*, or
+ *  *SQLSERVER_2017_WEB*.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 The
@@ -2344,7 +2345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_Flag_Type_Integer Integer type flag. (Value:
  *        "INTEGER")
  *    @arg @c kGTLRSQLAdmin_Flag_Type_MysqlTimezoneOffset Type introduced
- *        specically for MySQL TimeZone offset. Accept a string value with the
+ *        specially for MySQL TimeZone offset. Accept a string value with the
  *        format [-12:59, 13:00]. (Value: "MYSQL_TIMEZONE_OFFSET")
  *    @arg @c kGTLRSQLAdmin_Flag_Type_None Flag type used for a server startup
  *        option. (Value: "NONE")
@@ -3453,8 +3454,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *storageAutoResizeLimit;
 
 /**
- *  The tier (or machine type) for this instance, for example *db-n1-standard-1*
- *  (MySQL instances) or *db-custom-1-3840* (PostgreSQL instances).
+ *  The tier (or machine type) for this instance, for example *db-custom-1-3840*
+ *  .
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -3824,7 +3825,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *region;
 
 /**
- *  An identifier for the machine type, for example, db-n1-standard-1. For
+ *  An identifier for the machine type, for example, db-custom-1-3840. For
  *  related information, see Pricing.
  */
 @property(nonatomic, copy, nullable) NSString *tier;

@@ -158,7 +158,7 @@ NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_Instance
 @dynamic accelerators, apiEndpoint, availableVersion, createTime,
-         dataprocServiceAccount, descriptionProperty, displayName,
+         dataprocServiceAccount, descriptionProperty, displayName, enableRbac,
          enableStackdriverLogging, enableStackdriverMonitoring, gcsBucket,
          labels, name, networkConfig, options, p4ServiceAccount,
          privateInstance, serviceAccount, serviceEndpoint, state, stateMessage,

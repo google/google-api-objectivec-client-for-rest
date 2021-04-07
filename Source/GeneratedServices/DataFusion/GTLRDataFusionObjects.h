@@ -505,6 +505,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Instance_Type_TypeUnspecified
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Option to enable granular role-based access control.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableRbac;
+
+/**
  *  Option to enable Stackdriver Logging.
  *
  *  Uses NSNumber of boolValue.

@@ -44,8 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discovery.apis.getRest
  */
 @interface GTLRDiscoveryQuery_ApisGetRest : GTLRDiscoveryQuery
-// Previous library name was
-//   +[GTLQueryDiscovery queryForApisGetRestWithapi:version:]
 
 /** The name of the API. */
 @property(nonatomic, copy, nullable) NSString *api;
@@ -74,8 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discovery.apis.list
  */
 @interface GTLRDiscoveryQuery_ApisList : GTLRDiscoveryQuery
-// Previous library name was
-//   +[GTLQueryDiscovery queryForApisList]
 
 /** Only include APIs with the given name. */
 @property(nonatomic, copy, nullable) NSString *name;

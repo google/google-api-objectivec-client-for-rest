@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Simulator API (policysimulator/v1beta1)
+//   Policy Simulator API (policysimulator/v1)
 // Description:
 //   Policy Simulator is a collection of endpoints for creating, running, and
 //   viewing a Replay. A `Replay` is a type of simulation that lets you see how
@@ -28,7 +28,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay *)object
++ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -37,7 +37,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/replays";
+  NSString *pathURITemplate = @"v1/{+parent}/replays";
   GTLRPolicySimulatorQuery_FoldersLocationsReplaysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -57,13 +57,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRPolicySimulatorQuery_FoldersLocationsReplaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay class];
   query.loggingName = @"policysimulator.folders.locations.replays.get";
   return query;
 }
@@ -76,13 +76,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/results";
+  NSString *pathURITemplate = @"v1/{+parent}/results";
   GTLRPolicySimulatorQuery_FoldersLocationsReplaysResultsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ListReplayResultsResponse class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse class];
   query.loggingName = @"policysimulator.folders.locations.replays.results.list";
   return query;
 }
@@ -95,7 +95,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRPolicySimulatorQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -113,7 +113,7 @@
 @dynamic filter, name, pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta1/operations";
+  NSString *pathURITemplate = @"v1/operations";
   GTLRPolicySimulatorQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -129,7 +129,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay *)object
++ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -138,7 +138,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/replays";
+  NSString *pathURITemplate = @"v1/{+parent}/replays";
   GTLRPolicySimulatorQuery_OrganizationsLocationsReplaysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -158,13 +158,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRPolicySimulatorQuery_OrganizationsLocationsReplaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay class];
   query.loggingName = @"policysimulator.organizations.locations.replays.get";
   return query;
 }
@@ -177,13 +177,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/results";
+  NSString *pathURITemplate = @"v1/{+parent}/results";
   GTLRPolicySimulatorQuery_OrganizationsLocationsReplaysResultsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ListReplayResultsResponse class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse class];
   query.loggingName = @"policysimulator.organizations.locations.replays.results.list";
   return query;
 }
@@ -194,7 +194,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay *)object
++ (instancetype)queryWithObject:(GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -203,7 +203,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/replays";
+  NSString *pathURITemplate = @"v1/{+parent}/replays";
   GTLRPolicySimulatorQuery_ProjectsLocationsReplaysCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -223,13 +223,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRPolicySimulatorQuery_ProjectsLocationsReplaysGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1Replay class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1Replay class];
   query.loggingName = @"policysimulator.projects.locations.replays.get";
   return query;
 }
@@ -242,13 +242,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/results";
+  NSString *pathURITemplate = @"v1/{+parent}/results";
   GTLRPolicySimulatorQuery_ProjectsLocationsReplaysResultsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1beta1ListReplayResultsResponse class];
+  query.expectedObjectClass = [GTLRPolicySimulator_GoogleCloudPolicysimulatorV1ListReplayResultsResponse class];
   query.loggingName = @"policysimulator.projects.locations.replays.results.list";
   return query;
 }

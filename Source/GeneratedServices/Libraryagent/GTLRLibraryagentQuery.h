@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesBooksBorrow : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesBooksBorrowWithname:]
 
 /** Required. The name of the book to borrow. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -80,8 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesBooksGet : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesBooksGetWithname:]
 
 /** Required. The name of the book to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -110,8 +106,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesBooksList : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesBooksListWithparent:]
 
 /**
  *  Requested page size. Server may return fewer books than requested. If
@@ -159,8 +153,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesBooksReturn : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesBooksReturnWithname:]
 
 /** Required. The name of the book to return. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -189,8 +181,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesGet : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesGetWithname:]
 
 /** Required. The name of the shelf to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -218,8 +208,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLibraryagentCloudPlatform
  */
 @interface GTLRLibraryagentQuery_ShelvesList : GTLRLibraryagentQuery
-// Previous library name was
-//   +[GTLQueryLibraryagent queryForShelvesList]
 
 /**
  *  Requested page size. Server may return fewer shelves than requested. If

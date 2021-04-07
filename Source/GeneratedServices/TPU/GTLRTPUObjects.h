@@ -47,6 +47,34 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRTPU_Node.apiVersion
+
+/**
+ *  API version is unknown.
+ *
+ *  Value: "API_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified;
+/**
+ *  TPU API V1 version.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1;
+/**
+ *  TPU API V1Alpha1 version.
+ *
+ *  Value: "V1_ALPHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V1Alpha1;
+/**
+ *  TPU API V2Alpha1 version.
+ *
+ *  Value: "V2_ALPHA1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_ApiVersion_V2Alpha1;
+
+// ----------------------------------------------------------------------------
 // GTLRTPU_Node.health
 
 /**
@@ -217,6 +245,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail;
  *  Value: "OUT_OF_MEMORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory;
+/**
+ *  Abusive behaviors have been identified on the current project.
+ *
+ *  Value: "PROJECT_ABUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse;
 /**
  *  Unspecified symptom.
  *
@@ -464,6 +498,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
 
 /** Required. The type of hardware accelerators associated with this node. */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+/**
+ *  Output only. The API version that created this Node.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified API version is
+ *        unknown. (Value: "API_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V1 TPU API V1 version. (Value: "V1")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V1Alpha1 TPU API V1Alpha1 version.
+ *        (Value: "V1_ALPHA1")
+ *    @arg @c kGTLRTPU_Node_ApiVersion_V2Alpha1 TPU API V2Alpha1 version.
+ *        (Value: "V2_ALPHA1")
+ */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
  *  The CIDR block that the TPU node will use when selecting an IP address. This
@@ -862,6 +910,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        "MESH_BUILD_FAIL")
  *    @arg @c kGTLRTPU_Symptom_SymptomType_OutOfMemory TPU runtime is out of
  *        memory. (Value: "OUT_OF_MEMORY")
+ *    @arg @c kGTLRTPU_Symptom_SymptomType_ProjectAbuse Abusive behaviors have
+ *        been identified on the current project. (Value: "PROJECT_ABUSE")
  *    @arg @c kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified Unspecified
  *        symptom. (Value: "SYMPTOM_TYPE_UNSPECIFIED")
  */

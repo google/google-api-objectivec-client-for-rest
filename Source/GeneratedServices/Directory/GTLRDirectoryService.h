@@ -33,6 +33,20 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: See, add, edit, and permanently delete the printers
+ *  that your organization can use with Chrome
+ *
+ *  Value "https://www.googleapis.com/auth/admin.chrome.printers"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrinters;
+/**
+ *  Authorization scope: See the printers that your organization can use with
+ *  Chrome
+ *
+ *  Value "https://www.googleapis.com/auth/admin.chrome.printers.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDirectoryChromePrintersReadonly;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud
  *  Platform data
  *

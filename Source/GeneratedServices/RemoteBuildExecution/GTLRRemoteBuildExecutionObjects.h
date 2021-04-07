@@ -140,6 +140,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExe
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso;
 
 // ----------------------------------------------------------------------------
+// GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.supportedCompressor
+
+/**
+ *  No compression. Servers and clients MUST always support this, and do not
+ *  need to advertise it.
+ *
+ *  Value: "IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SupportedCompressor_Identity;
+/**
+ *  Zstandard compression.
+ *
+ *  Value: "ZSTD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SupportedCompressor_Zstd;
+
+// ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.symlinkAbsolutePathStrategy
 
 /**
@@ -1114,6 +1131,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, strong, nullable) NSNumber *maxBatchTotalSizeBytes;
 
 /**
+ *  Compressors supported by the "compressed-blobs" bytestream resources.
+ *  Servers MUST support identity/no-compression, even if it is not listed here.
+ *  Note that this does not imply which if any compressors are supported by the
+ *  server at the gRPC level.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedCompressor;
+
+/**
  *  Whether absolute symlink targets are supported.
  *
  *  Likely values:
@@ -1989,10 +2014,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 @property(nonatomic, copy, nullable) NSString *actionId;
 
 /**
+ *  A brief description of the kind of action, for example, CppCompile or
+ *  GoLink. There is no standard agreed set of values for this, and they are
+ *  expected to vary between different client tools.
+ */
+@property(nonatomic, copy, nullable) NSString *actionMnemonic;
+
+/**
+ *  An identifier for the configuration in which the target was built, e.g. for
+ *  differentiating building host tools or different target platforms. There is
+ *  no expectation that this value will have any particular structure, or
+ *  equality across invocations, though some client tools may offer these
+ *  guarantees.
+ */
+@property(nonatomic, copy, nullable) NSString *configurationId;
+
+/**
  *  An identifier to tie multiple tool invocations together. For example, runs
  *  of foo_test, bar_test and baz_test on a post-submit of a given patch.
  */
 @property(nonatomic, copy, nullable) NSString *correlatedInvocationsId;
+
+/**
+ *  An identifier for the target which produced this action. No guarantees are
+ *  made around how many actions may relate to a single target.
+ */
+@property(nonatomic, copy, nullable) NSString *targetId;
 
 /** The details for the tool invoking the requests. */
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ToolDetails *toolDetails;

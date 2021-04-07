@@ -118,7 +118,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Identifier of the ACL rule.
+ *  Identifier of the Access Control List (ACL) rule. See Sharing calendars.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -141,14 +141,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
-/** The scope of the rule. */
+/** The extent to which calendar access is granted by this ACL rule. */
 @property(nonatomic, strong, nullable) GTLRCalendar_AclRule_Scope *scope;
 
 @end
 
 
 /**
- *  The scope of the rule.
+ *  The extent to which calendar access is granted by this ACL rule.
  */
 @interface GTLRCalendar_AclRule_Scope : GTLRObject
 

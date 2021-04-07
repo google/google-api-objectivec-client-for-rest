@@ -124,8 +124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_HybridIssuersList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForHybridIssuersListWithname:]
 
 /** Required. Must be of the form `hybrid/issuers`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -154,8 +152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresCreateWithObject:parent:]
 
 /**
  *  Required. The parent organization name. Must be of the form
@@ -189,8 +185,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresDeleteWithname:]
 
 /**
  *  Required. Resource name of the Datastore to be deleted. Must be of the form
@@ -221,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresGetWithname:]
 
 /**
  *  Required. Resource name of the Datastore to be get. Must be of the form
@@ -253,8 +245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresListWithparent:]
 
 /**
  *  Required. The parent organization name. Must be of the form
@@ -292,8 +282,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresTest : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresTestWithObject:parent:]
 
 /**
  *  Required. The parent organization name Must be of the form
@@ -329,8 +317,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAnalyticsDatastoresUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAnalyticsDatastoresUpdateWithObject:name:]
 
 /**
  *  Required. The resource name of datastore to be updated. Must be of the form
@@ -373,8 +359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -417,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the API product attribute. Use the following structure in
@@ -451,8 +433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesGetWithname:]
 
 /**
  *  Required. Name of the API product attribute. Use the following structure in
@@ -485,8 +465,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesListWithparent:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -523,8 +501,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsAttributesUpdateApiProductAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsAttributesUpdateApiProductAttributeWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -580,8 +556,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization in which the API product will be created.
@@ -639,8 +613,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsDeleteWithname:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -682,8 +654,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsGetWithname:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -721,8 +691,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsListWithparent:]
 
 /** Name of the attribute used to filter the search. */
 @property(nonatomic, copy, nullable) NSString *attributename;
@@ -788,8 +756,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApiproductsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApiproductsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the API product. Use the following structure in your
@@ -842,8 +808,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisCreateWithObject:parent:]
 
 /**
  *  Action to perform when importing an API proxy configuration bundle. Set this
@@ -908,8 +872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisDeleteWithname:]
 
 /**
  *  Required. Name of the API proxy in the following format:
@@ -941,8 +903,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy for which to return deployment information
@@ -973,8 +933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisGetWithname:]
 
 /**
  *  Required. Name of the API proxy in the following format:
@@ -1005,8 +963,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the environment in which to create the key value map.
@@ -1041,8 +997,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -1075,8 +1029,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisListWithparent:]
 
 /**
  *  Flag that specifies whether to include API proxy metadata in the response.
@@ -1121,8 +1073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsDeleteWithname:]
 
 /**
  *  Required. API proxy revision in the following format:
@@ -1155,8 +1105,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
@@ -1194,8 +1142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsGetWithname:]
 
 /**
  *  Format used when downloading the API proxy configuration revision. Set to
@@ -1242,8 +1188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsApisRevisionsUpdateApiProxyRevision : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsApisRevisionsUpdateApiProxyRevisionWithObject:name:]
 
 /**
  *  Required. API proxy revision to update in the following format:
@@ -1287,8 +1231,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAppsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAppsGetWithname:]
 
 /**
  *  Required. App ID in the following format: `organizations/{org}/apps/{app}`
@@ -1320,8 +1262,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsAppsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsAppsListWithparent:]
 
 /** API product. */
 @property(nonatomic, copy, nullable) NSString *apiProduct;
@@ -1397,8 +1337,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsCreateWithObject:]
 
 /**
  *  Required. Name of the GCP project in which to associate the Apigee
@@ -1431,8 +1369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsCreateWithObject:parent:]
 
 /**
  *  ID of the data collector. Overrides any ID in the data collector resource.
@@ -1472,8 +1408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsDeleteWithname:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1504,8 +1438,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsGetWithname:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1536,8 +1468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsListWithparent:]
 
 /**
  *  Maximum number of data collectors to return. The page size defaults to 25.
@@ -1583,8 +1513,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDatacollectorsPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDatacollectorsPatchWithObject:name:]
 
 /**
  *  Required. Name of the data collector in the following format:
@@ -1625,8 +1553,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDeleteWithname:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -1657,8 +1583,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the organization for which to return deployment
@@ -1697,8 +1621,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesWithObject:name:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1734,8 +1656,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1768,8 +1688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesGetWithname:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1802,8 +1720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesListWithparent:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1840,8 +1756,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsAttributesUpdateDeveloperAppAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsAttributesUpdateDeveloperAppAttributeWithObject:name:]
 
 /**
  *  Required. Name of the developer app attribute. Use the following structure
@@ -1887,8 +1801,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the developer. Use the following structure in your
@@ -1930,8 +1842,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsDeleteWithname:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -1988,8 +1898,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsGenerateKeyPairOrUpdateDeveloperAppStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsGenerateKeyPairOrUpdateDeveloperAppStatusWithObject:name:]
 
 /** Action. Valid values are `approve` or `revoke`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -2049,8 +1957,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsGetWithname:]
 
 /**
  *  **Note**: Must be used in conjunction with the `query` parameter. Set to
@@ -2099,8 +2005,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsDeleteWithname:]
 
 /**
  *  Name of the API product in the developer app key in the following format:
@@ -2139,8 +2043,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProduct : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysApiproductsUpdateDeveloperAppKeyApiProductWithname:]
 
 /**
  *  Approve or revoke the consumer key by setting this value to `approve` or
@@ -2192,8 +2094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysCreateWithObject:parent:]
 
 /**
  *  Parent of the developer app key. Use the following structure in your
@@ -2247,8 +2147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysCreateCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysCreateCreateWithObject:parent:]
 
 /**
  *  Parent of the developer app key. Use the following structure in your
@@ -2298,8 +2196,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysDeleteWithname:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2338,8 +2234,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysGetWithname:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2377,8 +2271,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysReplaceDeveloperAppKey : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysReplaceDeveloperAppKeyWithObject:name:]
 
 /**
  *  Name of the developer app key. Use the following structure in your request:
@@ -2423,8 +2315,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsKeysUpdateDeveloperAppKey : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsKeysUpdateDeveloperAppKeyWithObject:name:]
 
 /**
  *  Approve or revoke the consumer key by setting this value to `approve` or
@@ -2473,8 +2363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsListWithparent:]
 
 /**
  *  Number of developer apps to return in the API call. Use with the `startKey`
@@ -2545,8 +2433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAppsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAppsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the developer app. Use the following structure in your
@@ -2598,8 +2484,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributes : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesWithObject:parent:]
 
 /**
  *  Required. Email address of the developer for which attributes are being
@@ -2643,8 +2527,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesDeleteWithname:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2677,8 +2559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesGetWithname:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2711,8 +2591,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesListWithparent:]
 
 /**
  *  Required. Email address of the developer for which attributes are being
@@ -2750,8 +2628,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersAttributesUpdateDeveloperAttribute : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersAttributesUpdateDeveloperAttributeWithObject:name:]
 
 /**
  *  Required. Name of the developer attribute. Use the following structure in
@@ -2794,8 +2670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersCreateWithObject:parent:]
 
 /**
  *  Required. Name of the Apigee organization in which the developer is created.
@@ -2839,8 +2713,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersDeleteWithname:]
 
 /**
  *  Required. Email address of the developer. Use the following structure in
@@ -2881,8 +2753,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersGetWithname:]
 
 /** Status of the developer. Valid values are `active` or `inactive`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -2923,8 +2793,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersListWithparent:]
 
 /**
  *  Optional. List only Developers that are associated with the app. Note that
@@ -3000,8 +2868,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersSetDeveloperStatusWithname:]
 
 /** Status of the developer. Valid values are `active` and `inactive`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -3050,8 +2916,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsDevelopersUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsDevelopersUpdateWithObject:name:]
 
 /**
  *  Required. Email address of the developer. Use the following structure in
@@ -3094,8 +2958,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsCreateWithObject:parent:]
 
 /**
  *  Required. EnvironmentGroup under which to create the attachment in the
@@ -3131,8 +2993,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsDeleteWithname:]
 
 /**
  *  Required. Name of the environment group attachment to delete in the
@@ -3165,8 +3025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsGetWithname:]
 
 /**
  *  Required. Name of the environment group attachment in the following format:
@@ -3198,8 +3056,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsAttachmentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsAttachmentsListWithparent:]
 
 /**
  *  Maximum number of environment group attachments to return. The page size
@@ -3247,8 +3103,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsCreateWithObject:parent:]
 
 /**
  *  ID of the environment group. Overrides any ID in the environment_group
@@ -3288,8 +3142,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsDeleteWithname:]
 
 /**
  *  Required. Name of the environment group in the following format:
@@ -3320,8 +3172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsGetWithname:]
 
 /**
  *  Required. Name of the environment group in the following format:
@@ -3352,8 +3202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsListWithparent:]
 
 /**
  *  Maximum number of environment groups to return. The page size defaults to
@@ -3400,8 +3248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvgroupsPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvgroupsPatchWithObject:name:]
 
 /**
  *  Required. Name of the environment group to update in the format:
@@ -3434,9 +3280,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports. Each schema element contains the name of the
- *  field with its associated type and if it is either custom field or standard
+ *  Gets a list of metrics and dimensions that can be used to create analytics
+ *  queries and reports. Each schema element contains the name of the field, its
+ *  associated type, and a flag indicating whether it is a standard or custom
  *  field.
  *
  *  Method: apigee.organizations.environments.analytics.admin.getSchemav2
@@ -3445,31 +3291,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2 : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsAdminGetSchemav2Withname:]
 
 /**
- *  Required. The parent organization and environment names. Must be of the form
+ *  Flag that specifies whether the schema is be read from the database or
+ *  cache. Set to `true` to read the schema from the database. Defaults to
+ *  cache.
+ */
+@property(nonatomic, assign) BOOL disableCache;
+
+/**
+ *  Required. Path to the schema. Use the following structure in your request:
  *  `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Type refers to the dataset name whose schema needs to be retrieved
- *  E.g. type=fact or type=agg_cus1
+ *  Required. Name of the dataset for which you want to retrieve the schema. For
+ *  example: `fact` or `agg_cus1`
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Schema.
  *
- *  Get a list of metrics and dimensions which can be used for creating
- *  analytics queries and reports. Each schema element contains the name of the
- *  field with its associated type and if it is either custom field or standard
+ *  Gets a list of metrics and dimensions that can be used to create analytics
+ *  queries and reports. Each schema element contains the name of the field, its
+ *  associated type, and a flag indicating whether it is a standard or custom
  *  field.
  *
- *  @param name Required. The parent organization and environment names. Must be
- *    of the form
+ *  @param name Required. Path to the schema. Use the following structure in
+ *    your request:
  *    `organizations/{org}/environments/{env}/analytics/admin/schemav2`.
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsAdminGetSchemav2
@@ -3489,8 +3340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsCreateWithObject:parent:]
 
 /**
  *  Required. Names of the parent organization and environment. Must be of the
@@ -3529,8 +3378,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsGetWithname:]
 
 /** Required. Resource name of the export to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3561,8 +3408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsAnalyticsExportsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsAnalyticsExportsListWithparent:]
 
 /**
  *  Required. Names of the parent organization and environment. Must be of the
@@ -3594,8 +3439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisDeploymentsListWithparent:]
 
 /**
  *  Required. Name representing an API proxy in an environment in the following
@@ -3626,8 +3469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the API Proxy revision deployment for which
@@ -3669,8 +3510,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDataGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsDataGetWithname:]
 
 /**
  *  Required. The name of the debug session transaction. Must be of the form:
@@ -3704,8 +3543,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteData : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsDeleteDataWithname:]
 
 /**
  *  Required. The name of the debug session to delete. Must be of the form:
@@ -3739,8 +3576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsGetWithname:]
 
 /**
  *  Required. The name of the debug session to retrieve. Must be of the form:
@@ -3773,8 +3608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDebugsessionsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDebugsessionsListWithparent:]
 
 /**
  *  Maximum number of debug sessions to return. The page size defaults to 25.
@@ -3832,8 +3665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeployWithname:]
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
@@ -3909,8 +3740,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReport : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateDeployChangeReportWithname:]
 
 /**
  *  Name of the API proxy revision deployment in the following format:
@@ -3968,8 +3797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReport : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsDeploymentsGenerateUndeployChangeReportWithname:]
 
 /**
  *  Name of the API proxy revision deployment in the following format:
@@ -4012,8 +3839,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsGetDeployments : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsGetDeploymentsWithname:]
 
 /**
  *  Required. Name representing an API proxy revision in an environment in the
@@ -4051,8 +3876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsApisRevisionsUndeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsApisRevisionsUndeployWithname:]
 
 /**
  *  Required. Name of the API proxy revision deployment in the following format:
@@ -4102,8 +3925,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsCachesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsCachesDeleteWithname:]
 
 /**
  *  Required. Cache resource name of the form:
@@ -4134,8 +3955,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  Optional. Name of the environment. Alternatively, the name may be specified
@@ -4176,8 +3995,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsDeleteWithname:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -4208,8 +4025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the environment for which to return deployment information
@@ -4248,8 +4063,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHook : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksAttachSharedFlowToFlowHookWithObject:name:]
 
 /**
  *  Required. Name of the flow hook to which the shared flow should be attached
@@ -4285,8 +4098,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksDetachSharedFlowFromFlowHook : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksDetachSharedFlowFromFlowHookWithname:]
 
 /**
  *  Required. Name of the flow hook to detach in the following format:
@@ -4319,8 +4130,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsFlowhooksGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsFlowhooksGetWithname:]
 
 /**
  *  Required. Name of the flow hook in the following format:
@@ -4353,8 +4162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetWithname:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -4385,8 +4192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetDebugmask : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetDebugmaskWithname:]
 
 /**
  *  Required. Name of the debug mask. Use the following structure in your
@@ -4417,8 +4222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetDeployedConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetDeployedConfigWithname:]
 
 /**
  *  Required. Name of the environment deployed configuration resource. Use the
@@ -4455,8 +4258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetIamPolicy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -4503,8 +4304,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsGetTraceConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsGetTraceConfigWithname:]
 
 /**
  *  Required. Name of the trace configuration. Use the following structure in
@@ -4546,8 +4345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCreateWithObject:parent:]
 
 /**
  *  DEPRECATED: For improved security, specify the password in the request body
@@ -4627,8 +4424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesCsr : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesCsrWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4661,8 +4456,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesDeleteWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4694,8 +4487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4727,8 +4518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesGetCertificate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesGetCertificateWithname:]
 
 /**
  *  Required. Name of the alias. Use the following format in your request:
@@ -4760,8 +4549,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresAliasesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresAliasesUpdateWithObject:name:]
 
 /**
  *  Required. Flag that specifies whether to ignore expiry validation. If set to
@@ -4812,8 +4599,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresCreateWithObject:parent:]
 
 /** Optional. Name of the keystore. Overrides the value in Keystore. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4855,8 +4640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresDeleteWithname:]
 
 /**
  *  Required. Name of the keystore. Use the following format in your request:
@@ -4887,8 +4670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeystoresGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeystoresGetWithname:]
 
 /**
  *  Required. Name of the keystore. Use the following format in your request:
@@ -4919,8 +4700,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the environment in which to create the key value map.
@@ -4956,8 +4735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -4992,8 +4769,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsOptimizedStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsOptimizedStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -5117,8 +4892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name. Must be of the form
@@ -5157,8 +4930,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetWithname:]
 
 /**
  *  Required. Name of the asynchronous query to get. Must be of the form
@@ -5195,8 +4966,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesGetResult : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesGetResultWithname:]
 
 /**
  *  Required. Name of the asynchronous query result to get. Must be of the form
@@ -5232,8 +5001,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsQueriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsQueriesListWithparent:]
 
 /** Filter response list by dataset. Example: `api`, `mint` */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -5292,8 +5059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesCreateWithObject:parent:]
 
 /**
  *  Required. The parent environment name under which the Reference will be
@@ -5329,8 +5094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesDeleteWithname:]
 
 /**
  *  Required. The name of the Reference to delete. Must be of the form
@@ -5362,8 +5125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesGetWithname:]
 
 /**
  *  Required. The name of the Reference to get. Must be of the form
@@ -5396,8 +5157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsReferencesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsReferencesUpdateWithObject:name:]
 
 /**
  *  Required. The name of the Reference to update. Must be of the form
@@ -5436,8 +5195,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the resource file. Must match the regular expression:
@@ -5485,8 +5242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesDeleteWithparent:type:name:]
 
 /**
  *  Required. ID of the resource file to delete. Must match the regular
@@ -5535,8 +5290,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesGetWithparent:type:name:]
 
 /**
  *  Required. ID of the resource file. Must match the regular expression:
@@ -5585,8 +5338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesListWithparent:]
 
 /**
  *  Required. Name of the environment in which to list resource files in the
@@ -5624,8 +5375,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesListEnvironmentResources : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesListEnvironmentResourcesWithparent:type:]
 
 /**
  *  Required. Name of the environment in which to list resource files in the
@@ -5667,8 +5416,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsResourcefilesUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsResourcefilesUpdateWithObject:parent:type:name:]
 
 /**
  *  Required. ID of the resource file to update. Must match the regular
@@ -5723,8 +5470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSetIamPolicy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -5764,8 +5509,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsDeploymentsListWithparent:]
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
@@ -5805,8 +5548,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsDeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsDeployWithname:]
 
 /**
  *  Required. Name of the shared flow revision to deploy in the following
@@ -5857,8 +5598,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsGetDeployments : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsGetDeploymentsWithname:]
 
 /**
  *  Required. Name representing a shared flow in an environment in the following
@@ -5897,8 +5636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSharedflowsRevisionsUndeploy : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSharedflowsRevisionsUndeployWithname:]
 
 /**
  *  Required. Name of the shared flow revision to undeploy in the following
@@ -5941,8 +5678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsStatsGetWithname:]
 
 /**
  *  Legacy field: not used anymore. This field is present to support UI calls
@@ -6068,8 +5803,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSubscribe : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsSubscribeWithparent:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6102,8 +5835,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversCreateWithObject:parent:]
 
 /**
  *  Optional. The ID to give the TargetServer. This will overwrite the value in
@@ -6145,8 +5876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversDeleteWithname:]
 
 /**
  *  Required. The name of the TargetServer to delete. Must be of the form
@@ -6179,8 +5908,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversGetWithname:]
 
 /**
  *  Required. The name of the TargetServer to get. Must be of the form
@@ -6214,8 +5941,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTargetserversUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTargetserversUpdateWithObject:name:]
 
 /**
  *  Required. The name of the TargetServer to replace. Must be of the form
@@ -6255,8 +5980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTestIamPermissions : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -6297,8 +6020,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesCreateWithObject:parent:]
 
 /**
  *  Required. Parent resource of the trace configuration override. Use the
@@ -6337,8 +6058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesDeleteWithname:]
 
 /**
  *  Required. Name of the trace configuration override. Use the following
@@ -6371,8 +6090,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesGetWithname:]
 
 /**
  *  Required. Name of the trace configuration override. Use the following
@@ -6406,8 +6123,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesListWithparent:]
 
 /**
  *  Maximum number of trace configuration overrides to return. If not specified,
@@ -6461,8 +6176,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsTraceConfigOverridesPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsTraceConfigOverridesPatchWithObject:name:]
 
 /**
  *  Required. Name of the trace configuration override. Use the following
@@ -6507,8 +6220,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUnsubscribe : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUnsubscribeWithObject:parent:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6546,8 +6257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateWithObject:name:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6585,8 +6294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateDebugmask : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateDebugmaskWithObject:name:]
 
 /** Name of the debug mask. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6634,8 +6341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateEnvironment : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateEnvironmentWithObject:name:]
 
 /**
  *  Required. Name of the environment. Use the following structure in your
@@ -6675,8 +6380,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsUpdateTraceConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsEnvironmentsUpdateTraceConfigWithObject:name:]
 
 /**
  *  Required. Name of the trace configuration. Use the following structure in
@@ -6721,8 +6424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetWithname:]
 
 /**
  *  Required. Apigee organization name in the following format:
@@ -6754,8 +6455,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGetDeployedIngressConfig : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetDeployedIngressConfigWithname:]
 
 /**
  *  Required. Name of the deployed configuration for the organization in the
@@ -6815,8 +6514,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsGetSyncAuthorization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsGetSyncAuthorizationWithObject:name:]
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
@@ -6862,8 +6559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name. Must be of the form
@@ -6902,8 +6597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetWithname:]
 
 /**
  *  Required. Name of the asynchronous query to get. Must be of the form
@@ -6940,8 +6633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGetResult : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetResultWithname:]
 
 /**
  *  Required. Name of the asynchronous query result to get. Must be of the form
@@ -6976,8 +6667,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesGetResultView : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesGetResultViewWithname:]
 
 /**
  *  Required. Name of the asynchronous query result view to get. Must be of the
@@ -7006,8 +6695,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostQueriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostQueriesListWithparent:]
 
 /** Filter response list by dataset. Example: `api`, `mint` */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -7074,8 +6761,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsHostStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsHostStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -7188,8 +6873,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7224,8 +6907,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsDeleteWithname:]
 
 /**
  *  Required. Name of the attachment. Use the following structure in your
@@ -7258,8 +6939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsGetWithname:]
 
 /**
  *  Required. Name of the attachment. Use the following structure in your
@@ -7292,8 +6971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesAttachmentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesAttachmentsListWithparent:]
 
 /** Maximum number of instance attachments to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7338,8 +7015,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCanaryevaluationsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCanaryevaluationsCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -7373,8 +7048,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCanaryevaluationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCanaryevaluationsGetWithname:]
 
 /**
  *  Required. Name of the CanaryEvaluation. Use the following structure in your
@@ -7408,8 +7081,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the organization. Use the following structure in your
@@ -7446,8 +7117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesDeleteWithname:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7480,8 +7149,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesGetWithname:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7514,8 +7181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesListWithparent:]
 
 /** Maximum number of instances to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7561,8 +7226,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesActivate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesActivateWithObject:name:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7603,8 +7266,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the instance. Use the following structure in your request:
@@ -7643,8 +7304,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesDeleteWithname:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7679,8 +7338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesGetWithname:]
 
 /**
  *  Required. Name of the nat address. Use the following structure in your
@@ -7715,8 +7372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesNatAddressesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesNatAddressesListWithparent:]
 
 /** Maximum number of natAddresses to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -7761,8 +7416,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsInstancesReportStatus : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsInstancesReportStatusWithObject:instance:]
 
 /**
  *  The name of the instance reporting this status. For SaaS the request will be
@@ -7799,8 +7452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsKeyvaluemapsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the organization in which to create the key value map
@@ -7834,8 +7485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsKeyvaluemapsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsKeyvaluemapsDeleteWithname:]
 
 /**
  *  Required. The name of the key value map. Must be of the form
@@ -7868,8 +7517,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsListWithparent:]
 
 /** Required. Use the following structure in your request: `organizations` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -7901,8 +7548,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOperationsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -7939,8 +7584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOperationsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -7989,8 +7632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsOptimizedHostStatsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsOptimizedHostStatsGetWithname:]
 
 /** Legacy field: not used anymore. */
 @property(nonatomic, copy, nullable) NSString *accuracy;
@@ -8104,8 +7745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsCreateWithObject:parent:]
 
 /**
  *  Required. The parent organization name under which the Custom Report will be
@@ -8146,8 +7785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsDeleteWithname:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -8178,8 +7815,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsGetWithname:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -8210,8 +7845,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsListWithparent:]
 
 /** Set to 'true' to get expanded details about each custom report. */
 @property(nonatomic, assign) BOOL expand;
@@ -8245,8 +7878,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsReportsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsReportsUpdateWithObject:name:]
 
 /**
  *  Required. Custom Report name of the form:
@@ -8289,8 +7920,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSetSyncAuthorization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSetSyncAuthorizationWithObject:name:]
 
 /**
  *  Required. Name of the Apigee organization. Use the following structure in
@@ -8337,8 +7966,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsCreateWithObject:parent:]
 
 /** Required. Must be set to either `import` or `validate`. */
 @property(nonatomic, copy, nullable) NSString *action;
@@ -8383,8 +8010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsDeleteWithname:]
 
 /**
  *  Required. shared flow name of the form:
@@ -8416,8 +8041,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the shared flow for which to return deployment information
@@ -8449,8 +8072,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsGetWithname:]
 
 /**
  *  Required. The name of the shared flow to get. Must be of the form:
@@ -8481,8 +8102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsListWithparent:]
 
 /** Indicates whether to include shared flow metadata in the response. */
 @property(nonatomic, assign) BOOL includeMetaData;
@@ -8520,8 +8139,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsDeleteWithname:]
 
 /**
  *  Required. The name of the shared flow revision to delete. Must be of the
@@ -8555,8 +8172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsDeploymentsList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsDeploymentsListWithparent:]
 
 /**
  *  Required. Name of the API proxy revision for which to return deployment
@@ -8595,8 +8210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsGetWithname:]
 
 /**
  *  Specify `bundle` to export the contents of the shared flow bundle.
@@ -8644,8 +8257,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSharedflowsRevisionsUpdateSharedFlowRevision : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSharedflowsRevisionsUpdateSharedFlowRevisionWithObject:name:]
 
 /**
  *  Required. The name of the shared flow revision to update. Must be of the
@@ -8691,8 +8302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesCreate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesCreateWithObject:parent:]
 
 /**
  *  Required. Name of the portal. Use the following structure in your request:
@@ -8726,8 +8335,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesDelete : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesDeleteWithname:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8759,8 +8366,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesGet : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesGetWithname:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8792,8 +8397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesList : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesListWithparent:]
 
 /**
  *  Required. Name of the portal. Use the following structure in your request:
@@ -8824,8 +8427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsSitesApicategoriesPatch : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsSitesApicategoriesPatchWithObject:name:]
 
 /**
  *  Required. Name of the category. Use the following structure in your request:
@@ -8861,8 +8462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_OrganizationsUpdate : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForOrganizationsUpdateWithObject:name:]
 
 /**
  *  Required. Apigee organization name in the following format:
@@ -8898,8 +8497,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *    @c kGTLRAuthScopeApigeeCloudPlatform
  */
 @interface GTLRApigeeQuery_ProjectsProvisionOrganization : GTLRApigeeQuery
-// Previous library name was
-//   +[GTLQueryApigee queryForProjectsProvisionOrganizationWithObject:project:]
 
 /**
  *  Required. Name of the GCP project with which to associate the Apigee

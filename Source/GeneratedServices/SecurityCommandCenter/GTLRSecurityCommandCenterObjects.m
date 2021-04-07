@@ -91,7 +91,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Asset
-@dynamic createTime, iamPolicy, name, resourceProperties,
+@dynamic canonicalName, createTime, iamPolicy, name, resourceProperties,
          securityCenterProperties, securityMarks, updateTime;
 @end
 
@@ -213,8 +213,8 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic category, createTime, eventTime, externalUri, name, parent,
-         resourceName, securityMarks, severity, sourceProperties, state;
+@dynamic canonicalName, category, createTime, eventTime, externalUri, name,
+         parent, resourceName, securityMarks, severity, sourceProperties, state;
 @end
 
 
@@ -288,8 +288,8 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1Finding
-@dynamic category, createTime, eventTime, externalUri, name, parent,
-         resourceName, securityMarks, severity, sourceProperties, state;
+@dynamic canonicalName, category, createTime, eventTime, externalUri, name,
+         parent, resourceName, securityMarks, severity, sourceProperties, state;
 @end
 
 
@@ -361,7 +361,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks
-@dynamic marks, name;
+@dynamic canonicalName, marks, name;
 @end
 
 
@@ -777,7 +777,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_SecurityMarks
-@dynamic marks, name;
+@dynamic canonicalName, marks, name;
 @end
 
 
@@ -821,7 +821,7 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Source
-@dynamic descriptionProperty, displayName, name;
+@dynamic canonicalName, descriptionProperty, displayName, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

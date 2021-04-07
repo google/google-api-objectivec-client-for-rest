@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsGet : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -87,8 +85,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The logical name of the Redis instance in the customer project
@@ -140,8 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesDelete : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesDeleteWithname:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -178,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesExport : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesExportWithObject:name:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -219,8 +211,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesFailover : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesFailoverWithObject:name:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -257,8 +247,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesGet : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesGetWithname:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -293,8 +281,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesGetAuthStringWithname:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -333,8 +319,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesImport : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesImportWithObject:name:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -378,8 +362,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesList : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesListWithparent:]
 
 /**
  *  The maximum number of items to return. If not specified, a default value of
@@ -438,8 +420,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesPatchWithObject:name:]
 
 /**
  *  Required. Unique name of the resource in this scope including project and
@@ -497,8 +477,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsInstancesUpgradeWithObject:name:]
 
 /**
  *  Required. Redis instance resource name using the form:
@@ -534,19 +512,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsList : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -583,8 +569,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsCancel : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -622,8 +606,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsDelete : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -655,8 +637,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsGet : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -693,8 +673,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsList : GTLRCloudRedisQuery
-// Previous library name was
-//   +[GTLQueryCloudRedis queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

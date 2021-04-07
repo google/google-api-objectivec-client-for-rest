@@ -555,9 +555,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRServiceControl_CheckResponse_Headers *headers;
 
 /**
- *  An 'OK' status allows the operation. Any other status indicates a denial;
- *  [google.rpc.Status.details]() would contain additional details about the
- *  denial.
+ *  Operation is allowed when this field is not set. Any non-'OK' status
+ *  indicates a denial; [google.rpc.Status.details]() would contain additional
+ *  details about the denial.
  */
 @property(nonatomic, strong, nullable) GTLRServiceControl_Status *status;
 

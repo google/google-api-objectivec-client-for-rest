@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   On-Demand Scanning API (ondemandscanning/v1beta1)
+//   On-Demand Scanning API (ondemandscanning/v1)
 // Description:
 //   A service to scan container images for vulnerabilities.
 // Documentation:
@@ -24,7 +24,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:cancel";
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
   GTLROnDemandScanningQuery_ProjectsLocationsOperationsCancel *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -43,7 +43,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLROnDemandScanningQuery_ProjectsLocationsOperationsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -62,7 +62,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLROnDemandScanningQuery_ProjectsLocationsOperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -81,7 +81,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}/operations";
+  NSString *pathURITemplate = @"v1/{+name}/operations";
   GTLROnDemandScanningQuery_ProjectsLocationsOperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -100,7 +100,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:wait";
+  NSString *pathURITemplate = @"v1/{+name}:wait";
   GTLROnDemandScanningQuery_ProjectsLocationsOperationsWait *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -117,7 +117,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLROnDemandScanning_AnalyzePackagesRequest *)object
++ (instancetype)queryWithObject:(GTLROnDemandScanning_AnalyzePackagesRequestV1 *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -126,7 +126,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/scans:analyzePackages";
+  NSString *pathURITemplate = @"v1/{+parent}/scans:analyzePackages";
   GTLROnDemandScanningQuery_ProjectsLocationsScansAnalyzePackages *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -146,13 +146,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/vulnerabilities";
+  NSString *pathURITemplate = @"v1/{+parent}/vulnerabilities";
   GTLROnDemandScanningQuery_ProjectsLocationsScansVulnerabilitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLROnDemandScanning_ListVulnerabilitiesResponse class];
+  query.expectedObjectClass = [GTLROnDemandScanning_ListVulnerabilitiesResponseV1 class];
   query.loggingName = @"ondemandscanning.projects.locations.scans.vulnerabilities.list";
   return query;
 }

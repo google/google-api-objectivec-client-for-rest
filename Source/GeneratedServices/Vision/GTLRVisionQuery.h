@@ -66,8 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_FilesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForFilesAnnotateWithObject:]
 
 /**
  *  Fetches a @c GTLRVision_BatchAnnotateFilesResponse.
@@ -102,8 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_FilesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForFilesAsyncBatchAnnotateWithObject:]
 
 /**
  *  Fetches a @c GTLRVision_Operation.
@@ -134,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ImagesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForImagesAnnotateWithObject:]
 
 /**
  *  Fetches a @c GTLRVision_BatchAnnotateImagesResponse.
@@ -167,8 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ImagesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForImagesAsyncBatchAnnotateWithObject:]
 
 /**
  *  Fetches a @c GTLRVision_Operation.
@@ -202,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_LocationsOperationsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -241,8 +231,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_OperationsCancel : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -284,8 +272,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_OperationsDelete : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -318,8 +304,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_OperationsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -357,8 +341,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_OperationsList : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -411,8 +393,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsFilesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsFilesAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -462,8 +442,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsFilesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsFilesAsyncBatchAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -509,8 +487,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsImagesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsImagesAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -557,8 +533,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsImagesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsImagesAsyncBatchAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -609,8 +583,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsFilesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsFilesAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -660,8 +632,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsFilesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsFilesAsyncBatchAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -707,8 +677,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsImagesAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsImagesAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -755,8 +723,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsImagesAsyncBatchAnnotate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsImagesAsyncBatchAnnotateWithObject:parent:]
 
 /**
  *  Optional. Target project and location to make a call. Format:
@@ -805,8 +771,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsOperationsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -839,8 +803,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsCreate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsCreateWithObject:parent:]
 
 /**
  *  Required. The project in which the Product should be created. Format is
@@ -888,8 +850,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsDelete : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsDeleteWithname:]
 
 /**
  *  Required. Resource name of product to delete. Format is:
@@ -927,8 +887,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsAddProduct : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsAddProductWithObject:name:]
 
 /**
  *  Required. The resource name for the ProductSet to modify. Format is:
@@ -968,8 +926,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsCreate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsCreateWithObject:parent:]
 
 /**
  *  Required. The project in which the ProductSet should be created. Format is
@@ -1015,8 +971,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsDelete : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsDeleteWithname:]
 
 /**
  *  Required. Resource name of the ProductSet to delete. Format is:
@@ -1051,8 +1005,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsGetWithname:]
 
 /**
  *  Required. Resource name of the ProductSet to get. Format is:
@@ -1092,8 +1044,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsImport : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsImportWithObject:parent:]
 
 /**
  *  Required. The project in which the ProductSets should be imported. Format is
@@ -1136,8 +1086,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsList : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsListWithparent:]
 
 /** The maximum number of items to return. Default 10, maximum 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1183,8 +1131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsPatch : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsPatchWithObject:name:]
 
 /**
  *  The resource name of the ProductSet. Format is:
@@ -1235,8 +1181,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsProductsList : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsProductsListWithname:]
 
 /**
  *  Required. The ProductSet resource for which to retrieve Products. Format is:
@@ -1282,8 +1226,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductSetsRemoveProduct : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductSetsRemoveProductWithObject:name:]
 
 /**
  *  Required. The resource name for the ProductSet to modify. Format is:
@@ -1319,8 +1261,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsGetWithname:]
 
 /**
  *  Required. Resource name of the Product to get. Format is:
@@ -1354,8 +1294,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsList : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsListWithparent:]
 
 /** The maximum number of items to return. Default 10, maximum 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1405,8 +1343,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsPatch : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsPatchWithObject:name:]
 
 /**
  *  The resource name of the product. Format is:
@@ -1474,8 +1410,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsPurge : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsPurgeWithObject:parent:]
 
 /**
  *  Required. The project and location in which the Products should be deleted.
@@ -1537,8 +1471,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsReferenceImagesCreate : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsReferenceImagesCreateWithObject:parent:]
 
 /**
  *  Required. Resource name of the product in which to create the reference
@@ -1595,8 +1527,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsReferenceImagesDelete : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsReferenceImagesDeleteWithname:]
 
 /**
  *  Required. The resource name of the reference image to delete. Format is:
@@ -1633,8 +1563,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsReferenceImagesGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsReferenceImagesGetWithname:]
 
 /**
  *  Required. The resource name of the ReferenceImage to get. Format is:
@@ -1670,8 +1598,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsLocationsProductsReferenceImagesList : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsLocationsProductsReferenceImagesListWithparent:]
 
 /** The maximum number of items to return. Default 10, maximum 100. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1722,8 +1648,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVisionCloudVision
  */
 @interface GTLRVisionQuery_ProjectsOperationsGet : GTLRVisionQuery
-// Previous library name was
-//   +[GTLQueryVision queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;

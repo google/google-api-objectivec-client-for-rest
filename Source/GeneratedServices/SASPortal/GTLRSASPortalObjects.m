@@ -91,6 +91,16 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSASPortal_ChannelWithScore
+//
+
+@implementation GTLRSASPortal_ChannelWithScore
+@dynamic frequencyRange, score;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSASPortal_CreateSignedDeviceRequest
 //
 
@@ -142,11 +152,13 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Device
-@dynamic activeConfig, deviceMetadata, displayName, fccId, grantRangeAllowlists,
-         grants, name, preloadedConfig, serialNumber, state;
+@dynamic activeConfig, currentChannels, deviceMetadata, displayName, fccId,
+         grantRangeAllowlists, grants, name, preloadedConfig, serialNumber,
+         state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"currentChannels" : [GTLRSASPortal_ChannelWithScore class],
     @"grantRangeAllowlists" : [GTLRSASPortal_FrequencyRange class],
     @"grants" : [GTLRSASPortal_DeviceGrant class]
   };

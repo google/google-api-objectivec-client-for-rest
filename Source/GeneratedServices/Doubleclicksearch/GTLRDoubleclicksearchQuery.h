@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ConversionGet : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForConversionGetWithagencyId:advertiserId:engineAccountId:endDate:rowCount:startDate:startRow:]
 
 /** Numeric ID of the ad group. */
 @property(nonatomic, assign) long long adGroupId;
@@ -137,8 +135,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ConversionInsert : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForConversionInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleclicksearch_ConversionList.
@@ -163,8 +159,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ConversionUpdate : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForConversionUpdateWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleclicksearch_ConversionList.
@@ -190,8 +184,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ConversionUpdateAvailability : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForConversionUpdateAvailabilityWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleclicksearch_UpdateAvailabilityResponse.
@@ -217,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ReportsGenerate : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForReportsGenerateWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleclicksearch_Report.
@@ -243,8 +233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ReportsGet : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForReportsGetWithreportId:]
 
 /** ID of the report request being polled. */
 @property(nonatomic, copy, nullable) NSString *reportId;
@@ -271,8 +259,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ReportsGetFile : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForReportsGetFileWithreportId:reportFragment:]
 
 /** The index of the report fragment to download. */
 @property(nonatomic, assign) NSInteger reportFragment;
@@ -304,8 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_ReportsRequest : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForReportsRequestWithObject:]
 
 /**
  *  Fetches a @c GTLRDoubleclicksearch_Report.
@@ -330,8 +314,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDoubleclicksearch
  */
 @interface GTLRDoubleclicksearchQuery_SavedColumnsList : GTLRDoubleclicksearchQuery
-// Previous library name was
-//   +[GTLQueryDoubleclicksearch queryForSavedColumnsListWithagencyId:advertiserId:]
 
 /** DS ID of the advertiser. */
 @property(nonatomic, assign) long long advertiserId;

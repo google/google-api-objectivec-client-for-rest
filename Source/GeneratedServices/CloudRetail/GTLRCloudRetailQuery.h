@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesOperationsGet : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -89,8 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsCreate : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesProductsCreateWithObject:parent:]
 
 /**
  *  Required. The parent catalog resource name, such as `projects/ *
@@ -135,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsDelete : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesProductsDeleteWithname:]
 
 /**
  *  Required. Full resource name of Product, such as `projects/ *
@@ -181,8 +175,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsGet : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesProductsGetWithname:]
 
 /**
  *  Required. Full resource name of Product, such as `projects/ *
@@ -221,8 +213,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsImport : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesProductsImportWithObject:parent:]
 
 /**
  *  Required.
@@ -263,8 +253,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsBranchesProductsPatch : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsBranchesProductsPatchWithObject:name:]
 
 /**
  *  If set to true, and the Product is not found, a new Product will be created.
@@ -318,8 +306,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsList : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsListWithparent:]
 
 /**
  *  Maximum number of Catalogs to return. If unspecified, defaults to 50. The
@@ -376,8 +362,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsOperationsGet : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -414,8 +398,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsOperationsList : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -463,17 +445,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPatch : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsPatchWithObject:name:]
 
 /** Required. Immutable. The fully qualified resource name of the catalog. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Indicates which fields in the provided Catalog to update. If not set, will
- *  only update the Catalog.product_level_config field, which is also the only
- *  currently supported field to update. If an unsupported or unknown field is
- *  provided, an INVALID_ARGUMENT error is returned.
+ *  Indicates which fields in the provided Catalog to update. If an unsupported
+ *  or unknown field is provided, an INVALID_ARGUMENT error is returned.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -505,8 +483,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsPlacementsPredictWithObject:placement:]
 
 /**
  *  Required. Full resource name of the format: {name=projects/ *
@@ -555,8 +531,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsCollect : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsUserEventsCollectWithparent:]
 
 /**
  *  The event timestamp in milliseconds. This prevents browser caching of
@@ -614,8 +588,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsImport : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsUserEventsImportWithObject:parent:]
 
 /** Required. `projects/1234/locations/global/catalogs/default_catalog` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -654,8 +626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsPurge : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsUserEventsPurgeWithObject:parent:]
 
 /**
  *  Required. The resource name of the catalog under which the events are
@@ -701,8 +671,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsRejoin : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsUserEventsRejoinWithObject:parent:]
 
 /**
  *  Required. The parent catalog resource name, such as
@@ -743,8 +711,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsUserEventsWrite : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsCatalogsUserEventsWriteWithObject:parent:]
 
 /**
  *  Required. The parent catalog resource name, such as
@@ -780,8 +746,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsOperationsGet : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -818,8 +782,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudRetailCloudPlatform
  */
 @interface GTLRCloudRetailQuery_ProjectsLocationsOperationsList : GTLRCloudRetailQuery
-// Previous library name was
-//   +[GTLQueryCloudRetail queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

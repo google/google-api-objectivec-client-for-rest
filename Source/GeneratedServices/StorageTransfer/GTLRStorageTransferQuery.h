@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_GoogleServiceAccountsGet : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForGoogleServiceAccountsGetWithprojectId:]
 
 /**
  *  Required. The ID of the Google Cloud Platform Console project that the
@@ -98,8 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferJobsCreate : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferJobsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRStorageTransfer_TransferJob.
@@ -124,8 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferJobsGet : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferJobsGetWithjobName:projectId:]
 
 /** Required. " The job to get. */
 @property(nonatomic, copy, nullable) NSString *jobName;
@@ -161,8 +155,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferJobsList : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferJobsListWithfilter:]
 
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
@@ -217,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferJobsPatch : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferJobsPatchWithObject:jobName:]
 
 /** Required. The name of job to update. */
 @property(nonatomic, copy, nullable) NSString *jobName;
@@ -253,8 +243,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferJobsRun : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferJobsRunWithObject:jobName:]
 
 /** Required. The name of the transfer job. */
 @property(nonatomic, copy, nullable) NSString *jobName;
@@ -302,8 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferOperationsCancel : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -351,8 +337,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferOperationsGet : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -382,8 +366,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferOperationsList : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsListWithname:filter:]
 
 /**
  *  Required. A list of query parameters specified as JSON text in the form of:
@@ -445,8 +427,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferOperationsPause : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsPauseWithObject:name:]
 
 /** Required. The name of the transfer operation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -476,8 +456,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageTransferCloudPlatform
  */
 @interface GTLRStorageTransferQuery_TransferOperationsResume : GTLRStorageTransferQuery
-// Previous library name was
-//   +[GTLQueryStorageTransfer queryForTransferOperationsResumeWithObject:name:]
 
 /** Required. The name of the transfer operation. */
 @property(nonatomic, copy, nullable) NSString *name;

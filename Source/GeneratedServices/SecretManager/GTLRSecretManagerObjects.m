@@ -360,11 +360,22 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecretManager_Rotation
+//
+
+@implementation GTLRSecretManager_Rotation
+@dynamic nextRotationTime, rotationPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecretManager_Secret
 //
 
 @implementation GTLRSecretManager_Secret
-@dynamic createTime, expireTime, labels, name, replication, topics, ttl;
+@dynamic createTime, expireTime, labels, name, replication, rotation, topics,
+         ttl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

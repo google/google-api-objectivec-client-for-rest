@@ -33,6 +33,8 @@
 @class GTLRBigtableAdmin_CreateClusterRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest;
 @class GTLRBigtableAdmin_CreateInstanceRequest_Clusters;
+@class GTLRBigtableAdmin_EncryptionConfig;
+@class GTLRBigtableAdmin_EncryptionInfo;
 @class GTLRBigtableAdmin_Expr;
 @class GTLRBigtableAdmin_Frame;
 @class GTLRBigtableAdmin_GcRule;
@@ -232,6 +234,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationSt
  *  Value: "UNPLANNED_MAINTENANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_EncryptionInfo.encryptionType
+
+/**
+ *  The data backing this resource is encrypted at rest with a key that is
+ *  managed by the customer. The in-use version of the key and its status are
+ *  populated for CMEK-protected tables. CMEK-protected backups are pinned to
+ *  the key version that was in use at the time the backup was taken. This key
+ *  version is populated but its status is not tracked and is reported as
+ *  `UNKNOWN`.
+ *
+ *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_CustomerManagedEncryption;
+/**
+ *  Encryption type was not specified, though data at rest remains encrypted.
+ *
+ *  Value: "ENCRYPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_EncryptionTypeUnspecified;
+/**
+ *  The data backing this resource is encrypted at rest with a key that is fully
+ *  managed by Google. No key version or status will be populated. This is the
+ *  default state.
+ *
+ *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Instance.state
@@ -473,6 +504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @interface GTLRBigtableAdmin_Backup : GTLRObject
 
+/** Output only. The encryption information for the backup. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_EncryptionInfo *encryptionInfo;
+
 /**
  *  Output only. `end_time` is the time that the backup was finished. The row
  *  data in the backup will be no newer than this timestamp.
@@ -670,6 +704,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *defaultStorageType;
 
+/** Immutable. The encryption configuration for CMEK-protected clusters. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_EncryptionConfig *encryptionConfig;
+
 /**
  *  Immutable. The location where this cluster's nodes and storage reside. For
  *  best performance, clients should be located as close as possible to this
@@ -723,6 +760,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  The state of a table's data in a particular cluster.
  */
 @interface GTLRBigtableAdmin_ClusterState : GTLRObject
+
+/**
+ *  Output only. The encryption information for the table in this cluster. If
+ *  the encryption key protecting this resource is customer managed, then its
+ *  version can be rotated in Cloud Key Management Service (Cloud KMS). The
+ *  primary version of the key and its status will be reflected here when
+ *  changes propagate from Cloud KMS.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_EncryptionInfo *> *encryptionInfo;
 
 /**
  *  Output only. The state of replication for the table in this cluster.
@@ -1000,6 +1046,71 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRBigtableAdmin_Empty : GTLRObject
+@end
+
+
+/**
+ *  Cloud Key Management Service (Cloud KMS) settings for a CMEK-protected
+ *  cluster.
+ */
+@interface GTLRBigtableAdmin_EncryptionConfig : GTLRObject
+
+/**
+ *  Describes the Cloud KMS encryption key that will be used to protect the
+ *  destination Bigtable cluster. The requirements for this key are: 1) The
+ *  Cloud Bigtable service account associated with the project that contains
+ *  this cluster must be granted the `cloudkms.cryptoKeyEncrypterDecrypter` role
+ *  on the CMEK key. 2) Only regional keys can be used and the region of the
+ *  CMEK key must match the region of the cluster. 3) All clusters within an
+ *  instance must use the same CMEK key. Values are of the form
+ *  `projects/{project}/locations/{location}/keyRings/{keyring}/cryptoKeys/{key}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Encryption information for a given resource. If this resource is protected
+ *  with customer managed encryption, the in-use Cloud Key Management Service
+ *  (Cloud KMS) key version is specified along with its status.
+ */
+@interface GTLRBigtableAdmin_EncryptionInfo : GTLRObject
+
+/**
+ *  Output only. The status of encrypt/decrypt calls on underlying data for this
+ *  resource. Regardless of status, the existing data is always encrypted at
+ *  rest.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_Status *encryptionStatus;
+
+/**
+ *  Output only. The type of encryption used to protect this resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_CustomerManagedEncryption
+ *        The data backing this resource is encrypted at rest with a key that is
+ *        managed by the customer. The in-use version of the key and its status
+ *        are populated for CMEK-protected tables. CMEK-protected backups are
+ *        pinned to the key version that was in use at the time the backup was
+ *        taken. This key version is populated but its status is not tracked and
+ *        is reported as `UNKNOWN`. (Value: "CUSTOMER_MANAGED_ENCRYPTION")
+ *    @arg @c kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_EncryptionTypeUnspecified
+ *        Encryption type was not specified, though data at rest remains
+ *        encrypted. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption
+ *        The data backing this resource is encrypted at rest with a key that is
+ *        fully managed by Google. No key version or status will be populated.
+ *        This is the default state. (Value: "GOOGLE_DEFAULT_ENCRYPTION")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionType;
+
+/**
+ *  Output only. The version of the Cloud KMS key specified in the parent
+ *  cluster that is in use for the data underlying this table.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyVersion;
+
 @end
 
 
@@ -2015,7 +2126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Output only. Map from cluster ID to per-cluster table state. If it could not
  *  be determined whether or not the table has data in a particular cluster (for
  *  example, if its zone is unavailable), then there will be an entry for the
- *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`, `FULL`
+ *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`,
+ *  `ENCRYPTION_VIEW`, `FULL`
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Table_ClusterStates *clusterStates;
 
@@ -2061,7 +2173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  Output only. Map from cluster ID to per-cluster table state. If it could not
  *  be determined whether or not the table has data in a particular cluster (for
  *  example, if its zone is unavailable), then there will be an entry for the
- *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`, `FULL`
+ *  cluster with UNKNOWN `replication_status`. Views: `REPLICATION_VIEW`,
+ *  `ENCRYPTION_VIEW`, `FULL`
  *
  *  @note This class is documented as having more properties of
  *        GTLRBigtableAdmin_ClusterState. Use @c -additionalJSONKeys and @c

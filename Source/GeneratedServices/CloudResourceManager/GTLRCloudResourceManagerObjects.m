@@ -138,6 +138,15 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudResourceManager_CreateTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_CreateTagBindingMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudResourceManager_CreateTagKeyMetadata
 //
 
@@ -178,6 +187,15 @@ NSString * const kGTLRCloudResourceManager_Project_State_StateUnspecified = @"ST
 //
 
 @implementation GTLRCloudResourceManager_DeleteProjectMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudResourceManager_DeleteTagBindingMetadata
+//
+
+@implementation GTLRCloudResourceManager_DeleteTagBindingMetadata
 @end
 
 

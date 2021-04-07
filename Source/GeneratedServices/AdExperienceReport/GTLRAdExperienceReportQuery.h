@@ -44,8 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: adexperiencereport.sites.get
  */
 @interface GTLRAdExperienceReportQuery_SitesGet : GTLRAdExperienceReportQuery
-// Previous library name was
-//   +[GTLQueryAdExperienceReport queryForSitesGetWithname:]
 
 /**
  *  Required. The name of the site whose summary to get, e.g.
@@ -74,8 +72,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: adexperiencereport.violatingSites.list
  */
 @interface GTLRAdExperienceReportQuery_ViolatingSitesList : GTLRAdExperienceReportQuery
-// Previous library name was
-//   +[GTLQueryAdExperienceReport queryForViolatingSitesList]
 
 /**
  *  Fetches a @c GTLRAdExperienceReport_ViolatingSitesResponse.

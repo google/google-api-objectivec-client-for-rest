@@ -78,8 +78,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsCancelPreview : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsCancelPreviewWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -115,8 +113,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsDelete : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsDeleteWithproject:deployment:]
 
 /**
  *  Sets the policy to use for deleting resources.
@@ -163,8 +159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsGetWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -198,8 +192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsGetIamPolicy : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsGetIamPolicyWithproject:resource:]
 
 /** Requested IAM Policy version. */
 @property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
@@ -237,8 +229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsInsert : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsInsertWithObject:project:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -296,8 +286,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -379,8 +367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsPatch : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsPatchWithObject:project:deployment:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -459,8 +445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsSetIamPolicy : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsSetIamPolicyWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -498,8 +482,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsStop : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsStopWithObject:project:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -536,8 +518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsTestIamPermissions : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsTestIamPermissionsWithObject:project:resource:]
 
 /** Project ID for this request. */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -574,8 +554,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudman
  */
 @interface GTLRDeploymentManagerQuery_DeploymentsUpdate : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForDeploymentsUpdateWithObject:project:deployment:]
 
 /**
  *  Sets the policy to use for creating new resources.
@@ -655,8 +633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ManifestsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForManifestsGetWithproject:deployment:manifest:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -696,8 +672,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ManifestsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForManifestsListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -785,8 +759,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_OperationsGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForOperationsGetWithproject:operation:]
 
 /** The name of the operation for this request. */
 @property(nonatomic, copy, nullable) NSString *operation;
@@ -821,8 +793,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_OperationsList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForOperationsListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The
@@ -905,8 +875,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ResourcesGet : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForResourcesGetWithproject:deployment:resource:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -946,8 +914,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_ResourcesList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForResourcesListWithproject:deployment:]
 
 /** The name of the deployment for this request. */
 @property(nonatomic, copy, nullable) NSString *deployment;
@@ -1035,8 +1001,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManagerDeletePolicyDelete;
  *    @c kGTLRAuthScopeDeploymentManagerNdevCloudmanReadonly
  */
 @interface GTLRDeploymentManagerQuery_TypesList : GTLRDeploymentManagerQuery
-// Previous library name was
-//   +[GTLQueryDeploymentManager queryForTypesListWithproject:]
 
 /**
  *  A filter expression that filters resources listed in the response. The

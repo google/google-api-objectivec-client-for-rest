@@ -23,6 +23,10 @@ NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapab
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Unknown = @"UNKNOWN";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_DigestFunction_Vso = @"VSO";
 
+// GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.supportedCompressor
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SupportedCompressor_Identity = @"IDENTITY";
+NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SupportedCompressor_Zstd = @"ZSTD";
+
 // GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities.symlinkAbsolutePathStrategy
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Allowed = @"ALLOWED";
 NSString * const kGTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities_SymlinkAbsolutePathStrategy_Disallowed = @"DISALLOWED";
@@ -285,11 +289,13 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2CacheCapabilities
 @dynamic actionCacheUpdateCapabilities, cachePriorityCapabilities,
-         digestFunction, maxBatchTotalSizeBytes, symlinkAbsolutePathStrategy;
+         digestFunction, maxBatchTotalSizeBytes, supportedCompressor,
+         symlinkAbsolutePathStrategy;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"digestFunction" : [NSString class]
+    @"digestFunction" : [NSString class],
+    @"supportedCompressor" : [NSString class]
   };
   return map;
 }
@@ -683,7 +689,8 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2RequestMetadata
-@dynamic actionId, correlatedInvocationsId, toolDetails, toolInvocationId;
+@dynamic actionId, actionMnemonic, configurationId, correlatedInvocationsId,
+         targetId, toolDetails, toolInvocationId;
 @end
 
 

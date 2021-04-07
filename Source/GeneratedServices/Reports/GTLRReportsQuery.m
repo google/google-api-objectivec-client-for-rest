@@ -20,8 +20,6 @@
 // applicationName
 NSString * const kGTLRReportsApplicationNameAccessTransparency = @"access_transparency";
 NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
-NSString * const kGTLRReportsApplicationNameApplicationNameUndefined = @"application_name_undefined";
-NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified = @"application_name_unspecified";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
@@ -42,13 +40,11 @@ NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 
 // entityKey
-NSString * const kGTLRReportsEntityKeyAll                = @"all";
-NSString * const kGTLRReportsEntityKeyEntityKey          = @"entityKey";
-NSString * const kGTLRReportsEntityKeyEntityKeyUndefined = @"entityKeyUndefined";
+NSString * const kGTLRReportsEntityKeyAll       = @"all";
+NSString * const kGTLRReportsEntityKeyEntityKey = @"entityKey";
 
 // entityType
-NSString * const kGTLRReportsEntityTypeEntityTypeUndefined = @"entity_type_undefined";
-NSString * const kGTLRReportsEntityTypeGplusCommunities    = @"gplus_communities";
+NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 // ----------------------------------------------------------------------------
 // Query Classes

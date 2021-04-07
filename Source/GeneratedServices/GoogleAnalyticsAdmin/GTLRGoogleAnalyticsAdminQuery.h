@@ -66,8 +66,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsDeleteWithname:]
 
 /**
  *  Required. The name of the Account to soft-delete. Format: accounts/{account}
@@ -105,8 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsGetWithname:]
 
 /**
  *  Required. The name of the account to lookup. Format: accounts/{account}
@@ -139,8 +135,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsGetDataSharingSettings : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsGetDataSharingSettingsWithname:]
 
 /**
  *  Required. The name of the settings to lookup. Format:
@@ -178,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsList]
 
 /**
  *  The maximum number of resources to return. The service may return fewer than
@@ -229,8 +221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this account. Format: accounts/{account}
@@ -274,8 +264,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsProvisionAccountTicket : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsProvisionAccountTicketWithObject:]
 
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketResponse.
@@ -302,8 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsSearchChangeHistoryEvents : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsSearchChangeHistoryEventsWithObject:account:]
 
 /**
  *  Required. The account resource for which to return change history resources.
@@ -340,8 +326,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountSummariesList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountSummariesList]
 
 /**
  *  The maximum number of AccountSummary resources to return. The service may
@@ -390,8 +374,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksAuditWithObject:parent:]
 
 /** Required. Example format: accounts/1234 */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -429,8 +411,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksBatchCreateWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -471,8 +451,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -510,8 +488,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksBatchGetWithparent:]
 
 /**
  *  Required. The names of the user links to retrieve. A maximum of 1000 user
@@ -551,8 +527,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksBatchUpdate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksBatchUpdateWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -592,8 +566,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksCreateWithObject:parent:]
 
 /**
  *  Optional. If set, then email the new user notifying them that they've been
@@ -632,8 +604,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksDeleteWithname:]
 
 /** Required. Example format: accounts/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -661,8 +631,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksGetWithname:]
 
 /** Required. Example format: accounts/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -690,8 +658,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksListWithparent:]
 
 /**
  *  The maximum number of user links to return. The service may return fewer
@@ -736,8 +702,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForAccountsUserLinksPatchWithObject:name:]
 
 /** Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -772,8 +736,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesAndroidAppDataStreamsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource where this android app data stream will be
@@ -812,8 +774,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesAndroidAppDataStreamsDeleteWithname:]
 
 /**
  *  Required. The name of the android app data stream to delete. Format:
@@ -847,8 +807,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesAndroidAppDataStreamsGetWithname:]
 
 /**
  *  Required. The name of the android app data stream to lookup. Format:
@@ -884,8 +842,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesAndroidAppDataStreamsListWithparent:]
 
 /**
  *  The maximum number of resources to return. If unspecified, at most 50
@@ -939,8 +895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesAndroidAppDataStreamsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this Data Stream. Format:
@@ -986,8 +940,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
@@ -1018,8 +970,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesDeleteWithname:]
 
 /**
  *  Required. The name of the Property to soft-delete. Format:
@@ -1028,7 +978,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaProperty.
  *
  *  Marks target Property as soft-deleted (ie: "trashed") and returns it. This
  *  API does not have a method to restore soft-deleted properties. However, they
@@ -1056,8 +1006,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesFirebaseLinksCreateWithObject:parent:]
 
 /** Required. Format: properties/{property_id} Example: properties/1234 */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1088,8 +1036,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesFirebaseLinksDeleteWithname:]
 
 /**
  *  Required. Format: properties/{property_id}/firebaseLinks/{firebase_link_id}
@@ -1123,8 +1069,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesFirebaseLinksListWithparent:]
 
 /**
  *  The maximum number of resources to return. The service may return fewer than
@@ -1173,8 +1117,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesFirebaseLinksPatchWithObject:name:]
 
 /** Output only. Example format: properties/1234/firebaseLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1215,8 +1157,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesGetWithname:]
 
 /**
  *  Required. The name of the property to lookup. Format:
@@ -1247,8 +1187,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesGoogleAdsLinksCreateWithObject:parent:]
 
 /** Required. Example format: properties/1234 */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1278,8 +1216,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesGoogleAdsLinksDeleteWithname:]
 
 /** Required. Example format: properties/1234/googleAdsLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1307,8 +1243,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesGoogleAdsLinksListWithparent:]
 
 /**
  *  The maximum number of resources to return. If unspecified, at most 50
@@ -1354,8 +1288,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesGoogleAdsLinksPatchWithObject:name:]
 
 /**
  *  Output only. Format:
@@ -1406,8 +1338,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesIosAppDataStreamsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource where this ios app data stream will be
@@ -1446,8 +1376,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesIosAppDataStreamsDeleteWithname:]
 
 /**
  *  Required. The name of the iOS app data stream to delete. Format:
@@ -1481,8 +1409,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesIosAppDataStreamsGetWithname:]
 
 /**
  *  Required. The name of the iOS app data stream to lookup. Format:
@@ -1518,8 +1444,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesIosAppDataStreamsListWithparent:]
 
 /**
  *  The maximum number of resources to return. If unspecified, at most 50
@@ -1572,8 +1496,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesIosAppDataStreamsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this Data Stream. Format:
@@ -1623,8 +1545,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesList]
 
 /**
  *  Required. An expression for filtering the results of the request. Fields
@@ -1687,8 +1607,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this property. Format:
@@ -1739,8 +1657,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksAudit : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksAuditWithObject:parent:]
 
 /** Required. Example format: accounts/1234 */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1778,8 +1694,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksBatchCreateWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -1820,8 +1734,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -1859,8 +1771,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksBatchGetWithparent:]
 
 /**
  *  Required. The names of the user links to retrieve. A maximum of 1000 user
@@ -1900,8 +1810,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksBatchUpdate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksBatchUpdateWithObject:parent:]
 
 /**
  *  Required. The account or property that all user links in the request are
@@ -1941,8 +1849,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksCreateWithObject:parent:]
 
 /**
  *  Optional. If set, then email the new user notifying them that they've been
@@ -1981,8 +1887,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksDeleteWithname:]
 
 /** Required. Example format: accounts/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2010,8 +1914,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksGetWithname:]
 
 /** Required. Example format: accounts/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2039,8 +1941,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsersReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksListWithparent:]
 
 /**
  *  The maximum number of user links to return. The service may return fewer
@@ -2085,8 +1985,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsManageUsers
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesUserLinksPatchWithObject:name:]
 
 /** Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2116,8 +2014,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource where this web data stream will be created.
@@ -2151,8 +2047,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsDelete : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsDeleteWithname:]
 
 /**
  *  Required. The name of the web data stream to delete. Format:
@@ -2186,8 +2080,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGet : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsGetWithname:]
 
 /**
  *  Required. The name of the web data stream to lookup. Format:
@@ -2223,8 +2115,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetEnhancedMeasurementSettings : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsGetEnhancedMeasurementSettingsWithname:]
 
 /**
  *  Required. The name of the settings to lookup. Format:
@@ -2261,8 +2151,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsGetGlobalSiteTag : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsGetGlobalSiteTagWithname:]
 
 /**
  *  Required. The name of the site tag to lookup. Note that site tags are
@@ -2301,8 +2189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsList : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsListWithparent:]
 
 /**
  *  The maximum number of resources to return. If unspecified, at most 50
@@ -2355,8 +2241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsPatch : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of this Data Stream. Format:
@@ -2404,8 +2288,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsUpdateEnhancedMeasurementSettings : GTLRGoogleAnalyticsAdminQuery
-// Previous library name was
-//   +[GTLQueryGoogleAnalyticsAdmin queryForPropertiesWebDataStreamsUpdateEnhancedMeasurementSettingsWithObject:name:]
 
 /**
  *  Output only. Resource name of this Data Stream. Format:

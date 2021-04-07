@@ -792,7 +792,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_Source
-@dynamic repoSource, storageSource;
+@dynamic repoSource, storageSource, storageSourceManifest;
 @end
 
 
@@ -802,7 +802,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_SourceProvenance
-@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource;
+@dynamic fileHashes, resolvedRepoSource, resolvedStorageSource,
+         resolvedStorageSourceManifest;
 @end
 
 
@@ -858,6 +859,16 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_StorageSource
+@dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_StorageSourceManifest
+//
+
+@implementation GTLRCloudBuild_StorageSourceManifest
 @dynamic bucket, generation, object;
 @end
 

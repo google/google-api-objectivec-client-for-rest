@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Database Migration API (datamigration/v1beta1)
+//   Database Migration API (datamigration/v1)
 // Description:
 //   Manage Cloud Database Migration Service resources on Google Cloud Platform.
 // Documentation:
@@ -31,8 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

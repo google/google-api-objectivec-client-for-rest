@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseMLCloudPlatform
  */
 @interface GTLRFirebaseMLQuery_OperationsCancel : GTLRFirebaseMLQuery
-// Previous library name was
-//   +[GTLQueryFirebaseML queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -98,8 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseMLCloudPlatform
  */
 @interface GTLRFirebaseMLQuery_OperationsDelete : GTLRFirebaseMLQuery
-// Previous library name was
-//   +[GTLQueryFirebaseML queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -137,8 +133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseMLCloudPlatform
  */
 @interface GTLRFirebaseMLQuery_OperationsList : GTLRFirebaseMLQuery
-// Previous library name was
-//   +[GTLQueryFirebaseML queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

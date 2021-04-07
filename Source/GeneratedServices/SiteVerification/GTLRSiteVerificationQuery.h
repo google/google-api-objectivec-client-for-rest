@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerification
  */
 @interface GTLRSiteVerificationQuery_WebResourceDelete : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceDeleteWithidentifier:]
 
 /**
  *  The id of a verified site or domain.
@@ -82,8 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerification
  */
 @interface GTLRSiteVerificationQuery_WebResourceGet : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceGetWithidentifier:]
 
 /**
  *  The id of a verified site or domain.
@@ -115,8 +111,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerificationVerifyOnly
  */
 @interface GTLRSiteVerificationQuery_WebResourceGetToken : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceGetTokenWithObject:]
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceGettokenResponse.
@@ -142,8 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerificationVerifyOnly
  */
 @interface GTLRSiteVerificationQuery_WebResourceInsert : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceInsertWithObject:verificationMethod:]
 
 /** The method to use for verifying a site or domain. */
 @property(nonatomic, copy, nullable) NSString *verificationMethod;
@@ -173,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerification
  */
 @interface GTLRSiteVerificationQuery_WebResourceList : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceList]
 
 /**
  *  Fetches a @c GTLRSiteVerification_WebResourceListResponse.
@@ -197,8 +187,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerification
  */
 @interface GTLRSiteVerificationQuery_WebResourcePatch : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourcePatchWithObject:identifier:]
 
 /**
  *  The id of a verified site or domain.
@@ -233,8 +221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSiteVerification
  */
 @interface GTLRSiteVerificationQuery_WebResourceUpdate : GTLRSiteVerificationQuery
-// Previous library name was
-//   +[GTLQuerySiteVerification queryForWebResourceUpdateWithObject:identifier:]
 
 /**
  *  The id of a verified site or domain.

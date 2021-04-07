@@ -114,6 +114,90 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate
+
+@dynamic backupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Backup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/backups";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.backups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.backups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Backup class];
+  query.loggingName = @"metastore.projects.locations.services.backups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/backups";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataprocMetastore_ListBackupsResponse class];
+  query.loggingName = @"metastore.projects.locations.services.backups.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCreate
 
 @dynamic parent, requestId, serviceId;
@@ -362,6 +446,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
   query.loggingName = @"metastore.projects.locations.services.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRestore
+
+@dynamic service;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_RestoreServiceRequest *)object
+                        service:(NSString *)service {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"service" ];
+  NSString *pathURITemplate = @"v1beta/{+service}:restore";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRestore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.service = service;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Operation class];
+  query.loggingName = @"metastore.projects.locations.services.restore";
   return query;
 }
 
