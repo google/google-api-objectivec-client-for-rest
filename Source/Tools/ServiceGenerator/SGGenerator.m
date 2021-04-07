@@ -1795,40 +1795,8 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
         }
       }
 
-      NSMutableString *builder = [NSMutableString string];
-      [builder appendString:classHDoc.string];
-      [builder appendFormat:@"@interface %@ : %@\n", queryClassName, self.objcQueryBaseClassName];
-
-      // Stick a comment in the header to reference the old name to make it a
-      // little easer to find/match up when updating to use the new library.
-      NSArray *segments = [method.identifier componentsSeparatedByString:@"."];
-      if (segments.count >= 2) {
-        segments = [segments subarrayWithRange:NSMakeRange(1, segments.count - 1)];
-        NSMutableString *oldName = [NSMutableString stringWithString:@"queryFor"];
-        for (NSString *part in segments) {
-          NSString *capPart = [SGUtils objcName:part shouldCapitalize:YES];
-          [oldName appendString:capPart];
-        }
-        BOOL needsWith = YES;
-        if (method.request) {
-          [oldName appendString:@"WithObject:"];
-          needsWith = NO;
-        }
-        for (GTLRDiscovery_JsonSchema *param in method.sg_sortedParameters) {
-          if (param.required.boolValue) {
-            if (needsWith) {
-              [oldName appendFormat:@"With%@:", param.sg_objcName];
-              needsWith = NO;
-            } else {
-              [oldName appendFormat:@"%@:", param.sg_objcName];
-            }
-          }
-        }
-        [builder appendString:@"// Previous library name was\n"];
-        [builder appendFormat:@"//   +[GTLQuery%@ %@]\n", self.formattedAPIName, oldName];
-      }
-
-      atBlock = builder;
+      atBlock = [NSString stringWithFormat:@"%@@interface %@ : %@\n",
+                 classHDoc.string, queryClassName, self.objcQueryBaseClassName];
     } else {
       atBlock = [NSString stringWithFormat:@"@implementation %@\n", queryClassName];
     }
