@@ -51,6 +51,12 @@ NSString * const kGTLRSpanner_ReplicaInfo_Type_ReadWrite       = @"READ_WRITE";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness         = @"WITNESS";
 
+// GTLRSpanner_RequestOptions.priority
+NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityHigh = @"PRIORITY_HIGH";
+NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityLow = @"PRIORITY_LOW";
+NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityMedium = @"PRIORITY_MEDIUM";
+NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+
 // GTLRSpanner_RestoreDatabaseEncryptionConfig.encryptionType
 NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
 NSString * const kGTLRSpanner_RestoreDatabaseEncryptionConfig_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
@@ -141,7 +147,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_BeginTransactionRequest
-@dynamic options;
+@dynamic options, requestOptions;
 @end
 
 
@@ -179,7 +185,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_CommitRequest
-@dynamic mutations, returnCommitStats, singleUseTransaction, transactionId;
+@dynamic mutations, requestOptions, returnCommitStats, singleUseTransaction,
+         transactionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -343,7 +350,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ExecuteBatchDmlRequest
-@dynamic seqno, statements, transaction;
+@dynamic requestOptions, seqno, statements, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -380,7 +387,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_ExecuteSqlRequest
 @dynamic params, paramTypes, partitionToken, queryMode, queryOptions,
-         resumeToken, seqno, sql, transaction;
+         requestOptions, resumeToken, seqno, sql, transaction;
 @end
 
 
@@ -1017,7 +1024,7 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_QueryOptions
-@dynamic optimizerVersion;
+@dynamic optimizerStatisticsPackage, optimizerVersion;
 @end
 
 
@@ -1056,8 +1063,8 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_ReadRequest
-@dynamic columns, index, keySet, limit, partitionToken, resumeToken, table,
-         transaction;
+@dynamic columns, index, keySet, limit, partitionToken, requestOptions,
+         resumeToken, table, transaction;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1085,6 +1092,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_ReplicaInfo
 @dynamic defaultLeaderLocation, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_RequestOptions
+//
+
+@implementation GTLRSpanner_RequestOptions
+@dynamic priority, requestTag, transactionTag;
 @end
 
 
@@ -1434,11 +1451,12 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 //
 
 @implementation GTLRSpanner_UpdateDatabaseDdlMetadata
-@dynamic commitTimestamps, database, statements, throttled;
+@dynamic commitTimestamps, database, progress, statements, throttled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"commitTimestamps" : [GTLRDateTime class],
+    @"progress" : [GTLRSpanner_OperationProgress class],
     @"statements" : [NSString class]
   };
   return map;

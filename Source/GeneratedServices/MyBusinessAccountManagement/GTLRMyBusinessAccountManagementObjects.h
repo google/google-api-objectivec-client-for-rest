@@ -769,6 +769,25 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessAccountManagement_Invitation_T
 
 @end
 
+
+/**
+ *  Request message for AccessControl.TransferLocation.
+ */
+@interface GTLRMyBusinessAccountManagement_TransferLocationRequest : GTLRObject
+
+/**
+ *  Required. Name of the account resource to transfer the location to (for
+ *  example, "accounts/{account}").
+ */
+@property(nonatomic, copy, nullable) NSString *destinationAccount;
+
+/**
+ *  Required. The name of the location to transfer. `locations/{location_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

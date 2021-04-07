@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsGet : GTLRAdMobQuery
-// Previous library name was
-//   +[GTLQueryAdMob queryForAccountsGetWithname:]
 
 /**
  *  Resource name of the publisher account to retrieve. Example:
@@ -86,8 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsList : GTLRAdMobQuery
-// Previous library name was
-//   +[GTLQueryAdMob queryForAccountsList]
 
 /** Maximum number of accounts to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -128,8 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsMediationReportGenerate : GTLRAdMobQuery
-// Previous library name was
-//   +[GTLQueryAdMob queryForAccountsMediationReportGenerateWithObject:parent:]
 
 /**
  *  Resource name of the account to generate the report for. Example:
@@ -168,8 +162,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAdMobReport
  */
 @interface GTLRAdMobQuery_AccountsNetworkReportGenerate : GTLRAdMobQuery
-// Previous library name was
-//   +[GTLQueryAdMob queryForAccountsNetworkReportGenerateWithObject:parent:]
 
 /**
  *  Resource name of the account to generate the report for. Example:

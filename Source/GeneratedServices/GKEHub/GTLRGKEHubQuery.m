@@ -56,7 +56,7 @@
 
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsCreate
 
-@dynamic membershipId, parent;
+@dynamic membershipId, parent, requestId;
 
 + (instancetype)queryWithObject:(GTLRGKEHub_Membership *)object
                          parent:(NSString *)parent {
@@ -83,7 +83,7 @@
 
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsDelete
 
-@dynamic name;
+@dynamic name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -187,7 +187,7 @@
 
 @implementation GTLRGKEHubQuery_ProjectsLocationsMembershipsPatch
 
-@dynamic name, updateMask;
+@dynamic name, requestId, updateMask;
 
 + (instancetype)queryWithObject:(GTLRGKEHub_Membership *)object
                            name:(NSString *)name {

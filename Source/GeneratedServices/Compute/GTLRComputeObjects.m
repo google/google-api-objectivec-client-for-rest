@@ -359,6 +359,10 @@ NSString * const kGTLRCompute_AutoscalingPolicy_Mode_On        = @"ON";
 NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyScaleOut = @"ONLY_SCALE_OUT";
 NSString * const kGTLRCompute_AutoscalingPolicy_Mode_OnlyUp    = @"ONLY_UP";
 
+// GTLRCompute_AutoscalingPolicyCpuUtilization.predictiveMethod
+NSString * const kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_None = @"NONE";
+NSString * const kGTLRCompute_AutoscalingPolicyCpuUtilization_PredictiveMethod_OptimizeAvailability = @"OPTIMIZE_AVAILABILITY";
+
 // GTLRCompute_AutoscalingPolicyCustomMetricUtilization.utilizationTargetType
 NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerMinute = @"DELTA_PER_MINUTE";
 NSString * const kGTLRCompute_AutoscalingPolicyCustomMetricUtilization_UtilizationTargetType_DeltaPerSecond = @"DELTA_PER_SECOND";
@@ -429,6 +433,7 @@ NSString * const kGTLRCompute_BackendService_Protocol_Udp   = @"UDP";
 
 // GTLRCompute_BackendService.sessionAffinity
 NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIp = @"CLIENT_IP";
+NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpNoDestination = @"CLIENT_IP_NO_DESTINATION";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpPortProto = @"CLIENT_IP_PORT_PROTO";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_ClientIpProto = @"CLIENT_IP_PROTO";
 NSString * const kGTLRCompute_BackendService_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
@@ -828,6 +833,11 @@ NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SchemaValidationI
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_SingleInstancePropertyTemplate = @"SINGLE_INSTANCE_PROPERTY_TEMPLATE";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_DiskTypesScopedList_Warning_Code_Unreachable = @"UNREACHABLE";
+
+// GTLRCompute_DistributionPolicy.targetShape
+NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Any = @"ANY";
+NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Balanced = @"BALANCED";
+NSString * const kGTLRCompute_DistributionPolicy_TargetShape_Even = @"EVEN";
 
 // GTLRCompute_ExchangedPeeringRoute.type
 NSString * const kGTLRCompute_ExchangedPeeringRoute_Type_DynamicPeeringRoute = @"DYNAMIC_PEERING_ROUTE";
@@ -4419,6 +4429,7 @@ NSString * const kGTLRCompute_TargetInstancesScopedList_Warning_Code_Unreachable
 
 // GTLRCompute_TargetPool.sessionAffinity
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIp = @"CLIENT_IP";
+NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpNoDestination = @"CLIENT_IP_NO_DESTINATION";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpPortProto = @"CLIENT_IP_PORT_PROTO";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_ClientIpProto = @"CLIENT_IP_PROTO";
 NSString * const kGTLRCompute_TargetPool_SessionAffinity_GeneratedCookie = @"GENERATED_COOKIE";
@@ -5866,7 +5877,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AutoscalingPolicyCpuUtilization
-@dynamic utilizationTarget;
+@dynamic predictiveMethod, utilizationTarget;
 @end
 
 
@@ -5968,8 +5979,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_BackendBucketCdnPolicy
 @dynamic bypassCacheOnRequestHeaders, cacheMode, clientTtl, defaultTtl, maxTtl,
-         negativeCaching, negativeCachingPolicy, serveWhileStale,
-         signedUrlCacheMaxAgeSec, signedUrlKeyNames;
+         negativeCaching, negativeCachingPolicy, requestCoalescing,
+         serveWhileStale, signedUrlCacheMaxAgeSec, signedUrlKeyNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6162,7 +6173,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_BackendServiceCdnPolicy
 @dynamic bypassCacheOnRequestHeaders, cacheKeyPolicy, cacheMode, clientTtl,
          defaultTtl, maxTtl, negativeCaching, negativeCachingPolicy,
-         serveWhileStale, signedUrlCacheMaxAgeSec, signedUrlKeyNames;
+         requestCoalescing, serveWhileStale, signedUrlCacheMaxAgeSec,
+         signedUrlKeyNames;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -7239,7 +7251,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_DistributionPolicy
-@dynamic zones;
+@dynamic targetShape, zones;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8485,8 +8497,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_HealthStatus
-@dynamic annotations, healthState, instance, ipAddress, port, weight,
-         weightError;
+@dynamic annotations, forwardingRule, forwardingRuleIp, healthState, instance,
+         ipAddress, port, weight, weightError;
 @end
 
 

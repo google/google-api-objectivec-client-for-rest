@@ -43,8 +43,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: oauth2.tokeninfo
  */
 @interface GTLROauth2Query_Tokeninfo : GTLROauth2Query
-// Previous library name was
-//   +[GTLQueryOauth2 queryForTokeninfo]
 
 @property(nonatomic, copy, nullable) NSString *accessToken;
 
@@ -70,8 +68,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOauth2UserinfoProfile
  */
 @interface GTLROauth2Query_UserinfoGet : GTLROauth2Query
-// Previous library name was
-//   +[GTLQueryOauth2 queryForUserinfoGet]
 
 /**
  *  Fetches a @c GTLROauth2_Userinfo.
@@ -93,8 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOauth2UserinfoProfile
  */
 @interface GTLROauth2Query_UserinfoV2MeGet : GTLROauth2Query
-// Previous library name was
-//   +[GTLQueryOauth2 queryForUserinfoV2MeGet]
 
 /**
  *  Fetches a @c GTLROauth2_Userinfo.

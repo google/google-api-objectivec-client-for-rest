@@ -58,8 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsCreate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsCreateWithObject:parent:]
 
 /** Required. The ID of the game server config resource to be created. */
 @property(nonatomic, copy, nullable) NSString *configId;
@@ -99,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsDeleteWithname:]
 
 /**
  *  Required. The name of the game server config to delete, in the following
@@ -134,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsGetWithname:]
 
 /**
  *  Required. The name of the game server config to retrieve, in the following
@@ -169,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsConfigsList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsConfigsListWithparent:]
 
 /** Optional. The filter to apply to list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -231,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsCreate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsCreateWithObject:parent:]
 
 /** Required. The ID of the game server delpoyment resource to be created. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
@@ -269,8 +259,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsDeleteWithname:]
 
 /**
  *  Required. The name of the game server delpoyment to delete, in the following
@@ -305,8 +293,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsFetchDeploymentState : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsFetchDeploymentStateWithObject:name:]
 
 /**
  *  Required. The name of the game server delpoyment, in the following form:
@@ -343,8 +329,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetWithname:]
 
 /**
  *  Required. The name of the game server delpoyment to retrieve, in the
@@ -378,8 +362,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetIamPolicy : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -423,8 +405,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsGetRollout : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsGetRolloutWithname:]
 
 /**
  *  Required. The name of the game server delpoyment to retrieve, in the
@@ -457,8 +437,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsListWithparent:]
 
 /** Optional. The filter to apply to list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -516,8 +494,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsPatch : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsPatchWithObject:name:]
 
 /**
  *  The resource name of the game server deployment, in the following form:
@@ -566,8 +542,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsPreviewRollout : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsPreviewRolloutWithObject:name:]
 
 /**
  *  The resource name of the game server deployment rollout, in the following
@@ -625,8 +599,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsSetIamPolicy : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -667,8 +639,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsTestIamPermissions : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -712,8 +682,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGameServerDeploymentsUpdateRollout : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGameServerDeploymentsUpdateRolloutWithObject:name:]
 
 /**
  *  The resource name of the game server deployment rollout, in the following
@@ -767,8 +735,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -795,10 +761,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -810,10 +778,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -850,8 +824,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsOperationsCancel : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -892,8 +864,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsOperationsDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -925,8 +895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsOperationsGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -963,8 +931,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsOperationsList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1012,8 +978,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsCreate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name, in the following form:
@@ -1049,8 +1013,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsDeleteWithname:]
 
 /**
  *  Required. The name of the realm to delete, in the following form:
@@ -1081,8 +1043,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersCreate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersCreateWithObject:parent:]
 
 /** Required. The ID of the game server cluster resource to be created. */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
@@ -1119,8 +1079,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersDeleteWithname:]
 
 /**
  *  Required. The name of the game server cluster to delete, in the following
@@ -1153,8 +1111,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersGetWithname:]
 
 /**
  *  Required. The name of the game server cluster to retrieve, in the following
@@ -1187,8 +1143,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersListWithparent:]
 
 /** Optional. The filter to apply to list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1246,8 +1200,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPatch : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the game server cluster, in the following
@@ -1297,8 +1249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewCreate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPreviewCreateWithObject:parent:]
 
 /** Required. The ID of the game server cluster resource to be created. */
 @property(nonatomic, copy, nullable) NSString *gameServerClusterId;
@@ -1339,8 +1289,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewDelete : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPreviewDeleteWithname:]
 
 /**
  *  Required. The name of the game server cluster to delete, in the following
@@ -1376,8 +1324,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewUpdate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGameServerClustersPreviewUpdateWithObject:name:]
 
 /**
  *  Required. The resource name of the game server cluster, in the following
@@ -1429,8 +1375,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsGet : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsGetWithname:]
 
 /**
  *  Required. The name of the realm to retrieve, in the following form:
@@ -1461,8 +1405,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsList : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsListWithparent:]
 
 /** Optional. The filter to apply to list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1520,8 +1462,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsPatch : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsPatchWithObject:name:]
 
 /**
  *  The resource name of the realm, in the following form:
@@ -1565,8 +1505,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeGameServicesCloudPlatform
  */
 @interface GTLRGameServicesQuery_ProjectsLocationsRealmsPreviewUpdate : GTLRGameServicesQuery
-// Previous library name was
-//   +[GTLQueryGameServices queryForProjectsLocationsRealmsPreviewUpdateWithObject:name:]
 
 /**
  *  The resource name of the realm, in the following form:

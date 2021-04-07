@@ -15,6 +15,8 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeDirectoryChromePrinters         = @"https://www.googleapis.com/auth/admin.chrome.printers";
+NSString * const kGTLRAuthScopeDirectoryChromePrintersReadonly = @"https://www.googleapis.com/auth/admin.chrome.printers.readonly";
 NSString * const kGTLRAuthScopeDirectoryCloudPlatform          = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeDirectoryDirectoryCustomer      = @"https://www.googleapis.com/auth/admin.directory.customer";
 NSString * const kGTLRAuthScopeDirectoryDirectoryCustomerReadonly = @"https://www.googleapis.com/auth/admin.directory.customer.readonly";

@@ -97,8 +97,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @c kGTLRAuthScopeTestingCloudPlatform
  */
 @interface GTLRTestingQuery_ApplicationDetailServiceGetApkDetails : GTLRTestingQuery
-// Previous library name was
-//   +[GTLQueryTesting queryForApplicationDetailServiceGetApkDetailsWithObject:]
 
 /**
  *  Fetches a @c GTLRTesting_GetApkDetailsResponse.
@@ -127,8 +125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @c kGTLRAuthScopeTestingCloudPlatform
  */
 @interface GTLRTestingQuery_ProjectsTestMatricesCancel : GTLRTestingQuery
-// Previous library name was
-//   +[GTLQueryTesting queryForProjectsTestMatricesCancelWithprojectId:testMatrixId:]
 
 /** Cloud project that owns the test. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -170,8 +166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @c kGTLRAuthScopeTestingCloudPlatform
  */
 @interface GTLRTestingQuery_ProjectsTestMatricesCreate : GTLRTestingQuery
-// Previous library name was
-//   +[GTLQueryTesting queryForProjectsTestMatricesCreateWithObject:projectId:]
 
 /** The GCE project under which this job will run. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -216,8 +210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @c kGTLRAuthScopeTestingCloudPlatformReadOnly
  */
 @interface GTLRTestingQuery_ProjectsTestMatricesGet : GTLRTestingQuery
-// Previous library name was
-//   +[GTLQueryTesting queryForProjectsTestMatricesGetWithprojectId:testMatrixId:]
 
 /** Cloud project that owns the test matrix. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -256,8 +248,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTestingEnvironmentTypeProvidedSoftware;
  *    @c kGTLRAuthScopeTestingCloudPlatformReadOnly
  */
 @interface GTLRTestingQuery_TestEnvironmentCatalogGet : GTLRTestingQuery
-// Previous library name was
-//   +[GTLQueryTesting queryForTestEnvironmentCatalogGetWithenvironmentType:]
 
 /**
  *  Required. The type of environment that should be listed.

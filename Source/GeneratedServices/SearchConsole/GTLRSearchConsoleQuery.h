@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
  */
 @interface GTLRSearchConsoleQuery_SearchanalyticsQuery : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSearchanalyticsQueryWithObject:siteUrl:]
 
 /**
  *  The site's URL, including protocol. For example: `http://www.example.com/`.
@@ -95,8 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmasters
  */
 @interface GTLRSearchConsoleQuery_SitemapsDelete : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitemapsDeleteWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the actual sitemap. For example:
@@ -137,8 +133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
  */
 @interface GTLRSearchConsoleQuery_SitemapsGet : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitemapsGetWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the actual sitemap. For example:
@@ -180,8 +174,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
  */
 @interface GTLRSearchConsoleQuery_SitemapsList : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitemapsListWithsiteUrl:]
 
 /**
  *  A URL of a site's sitemap index. For example:
@@ -219,8 +211,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmasters
  */
 @interface GTLRSearchConsoleQuery_SitemapsSubmit : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitemapsSubmitWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the actual sitemap. For example:
@@ -260,8 +250,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmasters
  */
 @interface GTLRSearchConsoleQuery_SitesAdd : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitesAddWithsiteUrl:]
 
 /** The URL of the site to add. */
 @property(nonatomic, copy, nullable) NSString *siteUrl;
@@ -289,8 +277,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmasters
  */
 @interface GTLRSearchConsoleQuery_SitesDelete : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitesDeleteWithsiteUrl:]
 
 /**
  *  The URI of the property as defined in Search Console. **Examples:**
@@ -323,8 +309,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
  */
 @interface GTLRSearchConsoleQuery_SitesGet : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitesGetWithsiteUrl:]
 
 /**
  *  The URI of the property as defined in Search Console. **Examples:**
@@ -356,8 +340,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSearchConsoleWebmastersReadonly
  */
 @interface GTLRSearchConsoleQuery_SitesList : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForSitesList]
 
 /**
  *  Fetches a @c GTLRSearchConsole_SitesListResponse.
@@ -376,8 +358,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: searchconsole.urlTestingTools.mobileFriendlyTest.run
  */
 @interface GTLRSearchConsoleQuery_UrlTestingToolsMobileFriendlyTestRun : GTLRSearchConsoleQuery
-// Previous library name was
-//   +[GTLQuerySearchConsole queryForUrlTestingToolsMobileFriendlyTestRunWithObject:]
 
 /**
  *  Fetches a @c GTLRSearchConsole_RunMobileFriendlyTestResponse.

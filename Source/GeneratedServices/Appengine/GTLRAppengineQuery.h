@@ -122,8 +122,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesCreate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedCertificatesCreateWithObject:appsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -157,8 +155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedCertificatesDeleteWithappsId:authorizedCertificatesId:]
 
 /**
  *  Part of `name`. Name of the resource to delete. Example:
@@ -197,8 +193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedCertificatesGetWithappsId:authorizedCertificatesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -250,8 +244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedCertificatesListWithappsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -308,8 +300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsAuthorizedCertificatesPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedCertificatesPatchWithObject:appsId:authorizedCertificatesId:]
 
 /**
  *  Part of `name`. Name of the resource to update. Example:
@@ -362,8 +352,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsAuthorizedDomainsList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsAuthorizedDomainsListWithappsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -409,8 +397,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsCreate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRAppengine_Operation.
@@ -441,8 +427,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsDomainMappingsCreate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsDomainMappingsCreateWithObject:appsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -499,8 +483,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsDomainMappingsDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsDomainMappingsDeleteWithappsId:domainMappingsId:]
 
 /**
  *  Part of `name`. Name of the resource to delete. Example:
@@ -540,8 +522,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsDomainMappingsGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsDomainMappingsGetWithappsId:domainMappingsId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -579,8 +559,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsDomainMappingsList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsDomainMappingsListWithappsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -624,8 +602,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsDomainMappingsPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsDomainMappingsPatchWithObject:appsId:domainMappingsId:]
 
 /**
  *  Part of `name`. Name of the resource to update. Example:
@@ -676,8 +652,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesBatchUpdate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesBatchUpdateWithObject:appsId:]
 
 /**
  *  Part of `name`. Name of the Firewall collection to set. Example:
@@ -714,8 +688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesCreate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesCreateWithObject:appsId:]
 
 /**
  *  Part of `parent`. Name of the parent Firewall collection in which to create
@@ -748,8 +720,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesDeleteWithappsId:ingressRulesId:]
 
 /**
  *  Part of `name`. Name of the Firewall resource to delete. Example:
@@ -787,8 +757,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesGetWithappsId:ingressRulesId:]
 
 /**
  *  Part of `name`. Name of the Firewall resource to retrieve. Example:
@@ -826,8 +794,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesListWithappsId:]
 
 /**
  *  Part of `parent`. Name of the Firewall collection to retrieve. Example:
@@ -875,8 +841,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsFirewallIngressRulesPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsFirewallIngressRulesPatchWithObject:appsId:ingressRulesId:]
 
 /**
  *  Part of `name`. Name of the Firewall resource to update. Example:
@@ -923,8 +887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsGetWithappsId:]
 
 /**
  *  Part of `name`. Name of the Application resource to get. Example:
@@ -957,8 +919,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsLocationsGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsLocationsGetWithappsId:locationsId:]
 
 /** Part of `name`. Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -992,8 +952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsLocationsList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsLocationsListWithappsId:]
 
 /**
  *  Part of `name`. The resource that owns the locations collection, if
@@ -1051,8 +1009,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsOperationsGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsOperationsGetWithappsId:operationsId:]
 
 /** Part of `name`. The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1096,8 +1052,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsOperationsList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsOperationsListWithappsId:]
 
 /** Part of `name`. The name of the operation's parent resource. */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1148,8 +1102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsPatchWithObject:appsId:]
 
 /**
  *  Part of `name`. Name of the Application resource to update. Example:
@@ -1201,8 +1153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsRepair : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsRepairWithObject:appsId:]
 
 /** Part of `name`. Name of the application to repair. Example: apps/myapp */
 @property(nonatomic, copy, nullable) NSString *appsId;
@@ -1242,8 +1192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesDeleteWithappsId:servicesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1281,8 +1229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesGetWithappsId:servicesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1320,8 +1266,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesListWithappsId:]
 
 /**
  *  Part of `parent`. Name of the parent Application resource. Example:
@@ -1362,8 +1306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesPatchWithObject:appsId:servicesId:]
 
 /**
  *  Part of `name`. Name of the resource to update. Example:
@@ -1425,8 +1367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsCreate : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsCreateWithObject:appsId:servicesId:]
 
 /**
  *  Part of `parent`. Name of the parent resource to create this version under.
@@ -1464,8 +1404,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsDeleteWithappsId:servicesId:versionsId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1509,8 +1447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsGetWithappsId:servicesId:versionsId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1571,8 +1507,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesDebug : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsInstancesDebugWithObject:appsId:servicesId:versionsId:instancesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1636,8 +1570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesDelete : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsInstancesDeleteWithappsId:servicesId:versionsId:instancesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1695,8 +1627,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesGet : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsInstancesGetWithappsId:servicesId:versionsId:instancesId:]
 
 /**
  *  Part of `name`. Name of the resource requested. Example:
@@ -1746,8 +1676,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsInstancesList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsInstancesListWithappsId:servicesId:versionsId:]
 
 /**
  *  Part of `parent`. Name of the parent Version resource. Example:
@@ -1802,8 +1730,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatformReadOnly
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsList : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsListWithappsId:servicesId:]
 
 /**
  *  Part of `parent`. Name of the parent Service resource. Example:
@@ -1894,8 +1820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
 @interface GTLRAppengineQuery_AppsServicesVersionsPatch : GTLRAppengineQuery
-// Previous library name was
-//   +[GTLQueryAppengine queryForAppsServicesVersionsPatchWithObject:appsId:servicesId:versionsId:]
 
 /**
  *  Part of `name`. Name of the resource to update. Example:

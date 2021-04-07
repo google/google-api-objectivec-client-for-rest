@@ -124,8 +124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPagespeedInsightsStrategyStrategyUnspeci
  *    @c kGTLRAuthScopePagespeedInsightsOpenid
  */
 @interface GTLRPagespeedInsightsQuery_PagespeedapiRunpagespeed : GTLRPagespeedInsightsQuery
-// Previous library name was
-//   +[GTLQueryPagespeedInsights queryForPagespeedapiRunpagespeedWithurl:]
 
 /** The captcha token passed when filling out a captcha. */
 @property(nonatomic, copy, nullable) NSString *captchaToken;

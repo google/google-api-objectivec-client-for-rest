@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chromeuxreport.records.queryRecord
  */
 @interface GTLRChromeUXReportQuery_RecordsQueryRecord : GTLRChromeUXReportQuery
-// Previous library name was
-//   +[GTLQueryChromeUXReport queryForRecordsQueryRecordWithObject:]
 
 /**
  *  Fetches a @c GTLRChromeUXReport_QueryResponse.

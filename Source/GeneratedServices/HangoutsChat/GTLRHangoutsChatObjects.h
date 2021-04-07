@@ -1303,7 +1303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
- *  A user in Hangouts Chat.
+ *  A user in Google Chat.
  */
 @interface GTLRHangoutsChat_User : GTLRObject
 
@@ -1314,7 +1314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 @property(nonatomic, copy, nullable) NSString *domainId;
 
 /**
- *  True when the user is deleted or the user's proifle is not visible.
+ *  True when the user is deleted or the user's profile is not visible.
  *
  *  Uses NSNumber of boolValue.
  */

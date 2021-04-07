@@ -128,8 +128,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclDelete : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclDeleteWithcalendarId:ruleId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -169,8 +167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_AclGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclGetWithcalendarId:ruleId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -208,8 +204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclInsert : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclInsertWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -250,8 +244,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclList : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclListWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -319,8 +311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclPatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclPatchWithObject:calendarId:ruleId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -366,8 +356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclUpdate : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclUpdateWithObject:calendarId:ruleId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -413,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_AclWatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForAclWatchWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -480,8 +466,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarListDelete : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListDeleteWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -516,8 +500,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_CalendarListGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListGetWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -550,8 +532,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarListInsert : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListInsertWithObject:]
 
 /**
  *  Whether to use the foregroundColor and backgroundColor fields to write the
@@ -584,8 +564,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_CalendarListList : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListList]
 
 /**
  *  Maximum number of entries returned on one result page. By default the value
@@ -665,8 +643,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarListPatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListPatchWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -710,8 +686,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarListUpdate : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListUpdateWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -755,8 +729,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_CalendarListWatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarListWatchWithObject:]
 
 /**
  *  Maximum number of entries returned on one result page. By default the value
@@ -834,8 +806,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarsClear : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsClearWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -871,8 +841,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarsDelete : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsDeleteWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -908,8 +876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_CalendarsGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsGetWithcalendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -942,8 +908,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarsInsert : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRCalendar_Calendar.
@@ -967,8 +931,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarsPatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsPatchWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1003,8 +965,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendar
  */
 @interface GTLRCalendarQuery_CalendarsUpdate : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForCalendarsUpdateWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1043,8 +1003,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_ChannelsStop : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -1070,8 +1028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_ColorsGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForColorsGet]
 
 /**
  *  Fetches a @c GTLRCalendar_Colors.
@@ -1094,8 +1050,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsDelete : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsDeleteWithcalendarId:eventId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1159,8 +1113,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsGetWithcalendarId:eventId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -1220,8 +1172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsImport : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsImportWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1275,8 +1225,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsInsert : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsInsertWithObject:calendarId:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1361,8 +1309,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsInstances : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsInstancesWithcalendarId:eventId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -1460,8 +1406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsList : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsListWithcalendarId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -1645,8 +1589,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsMove : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsMoveWithcalendarId:eventId:destination:]
 
 /**
  *  Calendar identifier of the source calendar where the event currently is on.
@@ -1714,8 +1656,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsPatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsPatchWithObject:calendarId:eventId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -1810,8 +1750,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsQuickAdd : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsQuickAddWithcalendarId:text:]
 
 /**
  *  Calendar identifier. To retrieve calendar IDs call the calendarList.list
@@ -1872,8 +1810,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarEvents
  */
 @interface GTLRCalendarQuery_EventsUpdate : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsUpdateWithObject:calendarId:eventId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -1970,8 +1906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_EventsWatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForEventsWatchWithObject:calendarId:]
 
 /**
  *  Deprecated and ignored. A value will always be returned in the email field
@@ -2153,8 +2087,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarReadonly
  */
 @interface GTLRCalendarQuery_FreebusyQuery : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForFreebusyQueryWithObject:]
 
 /**
  *  Fetches a @c GTLRCalendar_FreeBusyResponse.
@@ -2180,8 +2112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsGet : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForSettingsGetWithsetting:]
 
 /** The id of the user setting. */
 @property(nonatomic, copy, nullable) NSString *setting;
@@ -2210,8 +2140,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsList : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForSettingsList]
 
 /**
  *  Maximum number of entries returned on one result page. By default the value
@@ -2261,8 +2189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *    @c kGTLRAuthScopeCalendarSettingsReadonly
  */
 @interface GTLRCalendarQuery_SettingsWatch : GTLRCalendarQuery
-// Previous library name was
-//   +[GTLQueryCalendar queryForSettingsWatchWithObject:]
 
 /**
  *  Maximum number of entries returned on one result page. By default the value

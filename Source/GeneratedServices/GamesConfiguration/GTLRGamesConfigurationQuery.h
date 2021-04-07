@@ -79,8 +79,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_AchievementConfigurationsDelete : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsDeleteWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -108,8 +106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_AchievementConfigurationsGet : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsGetWithachievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -136,8 +132,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_AchievementConfigurationsInsert : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsInsertWithObject:applicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -168,8 +162,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_AchievementConfigurationsList : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsListWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -211,8 +203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_AchievementConfigurationsUpdate : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForAchievementConfigurationsUpdateWithObject:achievementId:]
 
 /** The ID of the achievement used by this method. */
 @property(nonatomic, copy, nullable) NSString *achievementId;
@@ -242,8 +232,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_ImageConfigurationsUpload : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForImageConfigurationsUploadWithresourceId:imageType:]
 
 /**
  *  Selects which image in a resource for this method.
@@ -296,8 +284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsDelete : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsDeleteWithleaderboardId:]
 
 /** The ID of the leaderboard. */
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
@@ -325,8 +311,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsGet : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsGetWithleaderboardId:]
 
 /** The ID of the leaderboard. */
 @property(nonatomic, copy, nullable) NSString *leaderboardId;
@@ -353,8 +337,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsInsert : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsInsertWithObject:applicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -385,8 +367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsList : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsListWithapplicationId:]
 
 /** The application ID from the Google Play developer console. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
@@ -428,8 +408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGamesConfigurationImageTypeLeaderboardIc
  *    @c kGTLRAuthScopeGamesConfigurationAndroidpublisher
  */
 @interface GTLRGamesConfigurationQuery_LeaderboardConfigurationsUpdate : GTLRGamesConfigurationQuery
-// Previous library name was
-//   +[GTLQueryGamesConfiguration queryForLeaderboardConfigurationsUpdateWithObject:leaderboardId:]
 
 /** The ID of the leaderboard. */
 @property(nonatomic, copy, nullable) NSString *leaderboardId;

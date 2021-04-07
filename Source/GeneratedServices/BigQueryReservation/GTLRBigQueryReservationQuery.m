@@ -18,44 +18,6 @@
 
 @end
 
-@implementation GTLRBigQueryReservationQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBigQueryReservationQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryReservation_Empty class];
-  query.loggingName = @"bigqueryreservation.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRBigQueryReservationQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRBigQueryReservationQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRBigQueryReservation_ListOperationsResponse class];
-  query.loggingName = @"bigqueryreservation.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsCreate
 
 @dynamic enforceSingleAdminProjectPerOrg, parent;

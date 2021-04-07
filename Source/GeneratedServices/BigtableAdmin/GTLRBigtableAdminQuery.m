@@ -16,6 +16,7 @@
 // Constants
 
 // view
+NSString * const kGTLRBigtableAdminViewEncryptionView  = @"ENCRYPTION_VIEW";
 NSString * const kGTLRBigtableAdminViewFull            = @"FULL";
 NSString * const kGTLRBigtableAdminViewNameOnly        = @"NAME_ONLY";
 NSString * const kGTLRBigtableAdminViewReplicationView = @"REPLICATION_VIEW";

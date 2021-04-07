@@ -1481,7 +1481,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest
 @dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, messages,
-         pageInfo, payload, sentimentAnalysisResult, sessionInfo;
+         pageInfo, payload, sentimentAnalysisResult, sessionInfo, text,
+         transcript, triggerEvent, triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2008,7 +2009,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Flow
 @dynamic descriptionProperty, displayName, eventHandlers, name, nluSettings,
-         transitionRoutes;
+         transitionRouteGroups, transitionRoutes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2017,6 +2018,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"eventHandlers" : [GTLRDialogflow_GoogleCloudDialogflowCxV3EventHandler class],
+    @"transitionRouteGroups" : [NSString class],
     @"transitionRoutes" : [GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRoute class]
   };
   return map;
@@ -2899,8 +2901,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
-@dynamic analyzeQueryTextSentiment, disableWebhook, geoLocation, parameters,
-         payload, sessionEntityTypes, timeZone, webhookHeaders;
+@dynamic analyzeQueryTextSentiment, currentPage, disableWebhook, geoLocation,
+         parameters, payload, sessionEntityTypes, timeZone, webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3718,7 +3720,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest
 @dynamic detectIntentResponseId, fulfillmentInfo, intentInfo, messages,
-         pageInfo, payload, sentimentAnalysisResult, sessionInfo;
+         pageInfo, payload, sentimentAnalysisResult, sessionInfo, text,
+         transcript, triggerEvent, triggerIntent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

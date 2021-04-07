@@ -4433,7 +4433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  The request message for a webhook call.
+ *  The request message for a webhook call. The request is sent as a JSON object
+ *  and the field names will be presented in camel cases.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest : GTLRObject
 
@@ -4473,6 +4474,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Information about session status. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1SessionInfo *sessionInfo;
+
+/**
+ *  If natural language text was provided as input, this field will contain a
+ *  copy of the text.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  If natural language speech audio was provided as input, this field will
+ *  contain the transcript for the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/**
+ *  If an event was provided as input, this field will contain the name of the
+ *  event.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerEvent;
+
+/**
+ *  If an intent was provided as input, this field will contain a copy of the
+ *  intent identifier. Format: `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerIntent;
 
 @end
 
@@ -5551,6 +5576,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** NLU related settings of the flow. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3NluSettings *nluSettings;
+
+/**
+ *  A flow's transition route group serve two purposes: * They are responsible
+ *  for matching the user's first utterances in the flow. * They are inherited
+ *  by every page's transition route groups. Transition route groups defined in
+ *  the page have higher priority than those defined in the flow.
+ *  Format:`projects//locations//agents//flows//transitionRouteGroups/`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *transitionRouteGroups;
 
 /**
  *  A flow's transition routes serve two purposes: * They are responsible for
@@ -6896,7 +6930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  If natural language speech audio was provided as input, this field will
- *  contain the trascript for the audio.
+ *  contain the transcript for the audio.
  */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
@@ -6908,7 +6942,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  If an intent was provided as input, this field will contain a copy of the
- *  intent identifier.
+ *  intent identifier. Format: `projects//locations//agents//intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *triggerIntent;
 
@@ -7231,6 +7265,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *analyzeQueryTextSentiment;
 
 /**
+ *  The unique identifier of the page to override the current page in the
+ *  session. Format: `projects//locations//agents//pages/`. If `current_page` is
+ *  specified, the previous state of the session will be ignored by Dialogflow,
+ *  including the previous page and the previous session parameters. In most
+ *  cases, current_page and parameters should be configured together to direct a
+ *  session to a specific state.
+ */
+@property(nonatomic, copy, nullable) NSString *currentPage;
+
+/**
  *  Whether to disable webhook calls for this request.
  *
  *  Uses NSNumber of boolValue.
@@ -7425,7 +7469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  If natural language speech audio was provided as input, this field will
- *  contain the trascript for the audio.
+ *  contain the transcript for the audio.
  */
 @property(nonatomic, copy, nullable) NSString *transcript;
 
@@ -7437,7 +7481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  If an intent was provided as input, this field will contain a copy of the
- *  intent identifier.
+ *  intent identifier. Format: `projects//locations//agents//intents/`.
  */
 @property(nonatomic, copy, nullable) NSString *triggerIntent;
 
@@ -8858,7 +8902,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  The request message for a webhook call.
+ *  The request message for a webhook call. The request is sent as a JSON object
+ *  and the field names will be presented in camel cases.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest : GTLRObject
 
@@ -8898,6 +8943,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Information about session status. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo *sessionInfo;
+
+/**
+ *  If natural language text was provided as input, this field will contain a
+ *  copy of the text.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  If natural language speech audio was provided as input, this field will
+ *  contain the transcript for the audio.
+ */
+@property(nonatomic, copy, nullable) NSString *transcript;
+
+/**
+ *  If an event was provided as input, this field will contain the name of the
+ *  event.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerEvent;
+
+/**
+ *  If an intent was provided as input, this field will contain a copy of the
+ *  intent identifier. Format: `projects//locations//agents//intents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *triggerIntent;
 
 @end
 

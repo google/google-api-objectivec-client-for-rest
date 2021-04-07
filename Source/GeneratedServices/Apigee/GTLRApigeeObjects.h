@@ -70,6 +70,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Export;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHookConfig;
+@class GTLRApigee_GoogleCloudApigeeV1GraphQLOperation;
+@class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig;
+@class GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup;
 @class GTLRApigee_GoogleCloudApigeeV1Instance;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceAttachment;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatus;
@@ -1228,6 +1231,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  `prod` from being accessed by API proxies deployed in `test`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
+/**
+ *  Configuration used to group Apigee proxies or remote services with graphQL
+ *  operation name, graphQL operation type and quotas. This grouping allows us
+ *  to precisely set quota for a particular combination of graphQL name and
+ *  operation type for a particular proxy request. If graphQL name is not set,
+ *  this would imply quota will be applied on all graphQL requests matching the
+ *  operation type.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup *graphqlOperationGroup;
 
 /**
  *  Response only. Modified time of this environment as milliseconds since
@@ -3263,6 +3276,87 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  GraphQLOperation represents the pairing of graphQL operation types and the
+ *  graphQL operation name.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GraphQLOperation : GTLRObject
+
+/**
+ *  GraphQL operation name, along with operation type which will be used to
+ *  associate quotas with. If no name is specified, the quota will be applied to
+ *  all graphQL operations irrespective of their operation names in the payload.
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  Required. `query`, `mutation` and `subscription` are the three operation
+ *  types offered by graphQL. Currently we support only `query` and `mutation`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *operationTypes;
+
+@end
+
+
+/**
+ *  GraphQLOperationConfig binds the resources in a proxy or remote service with
+ *  the graphQL operation and its associated quota enforcement.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig : GTLRObject
+
+/**
+ *  Required. API proxy endpoint or remote service name with which the graphQL
+ *  operation, and quota are associated.
+ */
+@property(nonatomic, copy, nullable) NSString *apiSource;
+
+/** Custom attributes associated with the operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/**
+ *  Required. List of graphQL name/Operation type pairs for the proxy/remote
+ *  service, upon which quota will applied. If GraphQLOperation operation has
+ *  only the operation type(s), that would imply that quota will be applied on
+ *  all graphQL requests irrespective of the graphQL name. **Note**: Currently,
+ *  we can specify only a single GraphQLOperation. Specifying more than one will
+ *  result in failure of the operation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1GraphQLOperation *> *operations;
+
+/**
+ *  Quota parameters to be enforced for the resources, methods, api_source
+ *  combination. If none are specified, quota enforcement will not be done.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
+
+@end
+
+
+/**
+ *  List of graphQL operation configuration details associated with Apigee API
+ *  proxies or remote services. Remote services are non-Apigee proxies, such as
+ *  Istio-Envoy.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup : GTLRObject
+
+/**
+ *  Required. List of operation configurations for either Apigee API proxies or
+ *  other remote services that are associated with this API product.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig *> *operationConfigs;
+
+/**
+ *  Flag that specifes whether the configuration is for Apigee API proxy or a
+ *  remote service. Valid values are `proxy` or `remoteservice`. Defaults to
+ *  `proxy`. Set to `proxy` when Apigee API proxies are associated with the API
+ *  product. Set to `remoteservice` when non-Apigee proxies like Istio-Envoy are
+ *  associated with the API product.
+ */
+@property(nonatomic, copy, nullable) NSString *operationConfigType;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1IngressConfig
  */
 @interface GTLRApigee_GoogleCloudApigeeV1IngressConfig : GTLRObject
@@ -4232,7 +4326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Output only. Billing type of the Apigee organization. See [Apigee
+ *  Billing type of the Apigee organization. See [Apigee
  *  pricing](https://cloud.google.com/apigee/pricing).
  *
  *  Likely values:
@@ -5149,7 +5243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Schema : GTLRObject
 
-/** List of schema fiels grouped as dimensions. */
+/** List of schema fields grouped as dimensions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement *> *dimensions;
 
 /**
@@ -5159,8 +5253,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meta;
 
 /**
- *  List of schema fields grouped as dimensions. These are fields that can be
- *  used with an aggregate function such as sum, avg, min, max.
+ *  List of schema fields grouped as dimensions that can be used with an
+ *  aggregate function such as `sum`, `avg`, `min`, and `max`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement *> *metrics;
 
@@ -5172,11 +5266,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement : GTLRObject
 
-/** Name of the field */
+/** Name of the field. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Property of the schema field E.g. { "createTime":
+ *  Properties for the schema field. For example: { "createTime":
  *  "2016-02-26T10:23:09.592Z", "custom": "false", "type": "string" }
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty *properties;
@@ -5185,16 +5279,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Message type for schema property
+ *  Properties for the schema field.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty : GTLRObject
 
-/** Creation time of the field */
+/**
+ *  Time the field was created in RFC3339 string form. For example:
+ *  `2016-02-26T10:23:09.592Z`.
+ */
 @property(nonatomic, copy, nullable) NSString *createTime;
 
 /**
- *  Custom is a flag signifying if the field was provided as part of the
- *  standard dataset or a custom field created by the customer
+ *  Flag that specifies whether the field is standard in the dataset or a custom
+ *  field created by the customer. `true` indicates that it is a custom field.
  */
 @property(nonatomic, copy, nullable) NSString *custom;
 

@@ -136,8 +136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
 @interface GTLRWebRiskQuery_HashesSearch : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForHashesSearch]
 
 /**
  *  A hash prefix, consisting of the most significant 4-32 bytes of a SHA256
@@ -192,11 +190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
  *
- *  Method: webrisk.operations.cancel
+ *  Method: webrisk.projects.operations.cancel
  */
-@interface GTLRWebRiskQuery_OperationsCancel : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForOperationsCancelWithObject:name:]
+@interface GTLRWebRiskQuery_ProjectsOperationsCancel : GTLRWebRiskQuery
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -218,7 +214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    include in the query.
  *  @param name The name of the operation resource to be cancelled.
  *
- *  @return GTLRWebRiskQuery_OperationsCancel
+ *  @return GTLRWebRiskQuery_ProjectsOperationsCancel
  */
 + (instancetype)queryWithObject:(GTLRWebRisk_GoogleLongrunningCancelOperationRequest *)object
                            name:(NSString *)name;
@@ -231,11 +227,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  operation. If the server doesn't support this method, it returns
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
- *  Method: webrisk.operations.delete
+ *  Method: webrisk.projects.operations.delete
  */
-@interface GTLRWebRiskQuery_OperationsDelete : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForOperationsDeleteWithname:]
+@interface GTLRWebRiskQuery_ProjectsOperationsDelete : GTLRWebRiskQuery
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -250,7 +244,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *
  *  @param name The name of the operation resource to be deleted.
  *
- *  @return GTLRWebRiskQuery_OperationsDelete
+ *  @return GTLRWebRiskQuery_ProjectsOperationsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -261,14 +255,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
  *
- *  Method: webrisk.operations.get
+ *  Method: webrisk.projects.operations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
-@interface GTLRWebRiskQuery_OperationsGet : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForOperationsGetWithname:]
+@interface GTLRWebRiskQuery_ProjectsOperationsGet : GTLRWebRiskQuery
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -282,7 +274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *
  *  @param name The name of the operation resource.
  *
- *  @return GTLRWebRiskQuery_OperationsGet
+ *  @return GTLRWebRiskQuery_ProjectsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -299,11 +291,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *  users must ensure the name binding is the parent resource, without the
  *  operations collection id.
  *
- *  Method: webrisk.operations.list
+ *  Method: webrisk.projects.operations.list
  */
-@interface GTLRWebRiskQuery_OperationsList : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForOperationsListWithname:]
+@interface GTLRWebRiskQuery_ProjectsOperationsList : GTLRWebRiskQuery
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -332,7 +322,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *
  *  @param name The name of the operation's parent resource.
  *
- *  @return GTLRWebRiskQuery_OperationsList
+ *  @return GTLRWebRiskQuery_ProjectsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -357,8 +347,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
 @interface GTLRWebRiskQuery_ProjectsSubmissionsCreate : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForProjectsSubmissionsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project that is making the submission. This string
@@ -407,8 +395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
 @interface GTLRWebRiskQuery_ProjectsUrisSubmit : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForProjectsUrisSubmitWithObject:parent:]
 
 /**
  *  Required. The name of the project that is making the submission. This string
@@ -456,8 +442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
 @interface GTLRWebRiskQuery_ThreatListsComputeDiff : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForThreatListsComputeDiff]
 
 /**
  *  Sets the maximum number of entries that the client is willing to have in the
@@ -544,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRiskThreatTypesUnwantedSoftware;
  *    @c kGTLRAuthScopeWebRiskCloudPlatform
  */
 @interface GTLRWebRiskQuery_UrisSearch : GTLRWebRiskQuery
-// Previous library name was
-//   +[GTLQueryWebRisk queryForUrisSearch]
 
 /**
  *  Required. The ThreatLists to search in. Multiple ThreatLists may be

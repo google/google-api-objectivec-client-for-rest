@@ -44,6 +44,11 @@ NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_ReadyOptimizin
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_StateNotKnown = @"STATE_NOT_KNOWN";
 NSString * const kGTLRBigtableAdmin_ClusterState_ReplicationState_UnplannedMaintenance = @"UNPLANNED_MAINTENANCE";
 
+// GTLRBigtableAdmin_EncryptionInfo.encryptionType
+NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
+NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
+
 // GTLRBigtableAdmin_Instance.state
 NSString * const kGTLRBigtableAdmin_Instance_State_Creating    = @"CREATING";
 NSString * const kGTLRBigtableAdmin_Instance_State_Ready       = @"READY";
@@ -135,7 +140,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Backup
-@dynamic endTime, expireTime, name, sizeBytes, sourceTable, startTime, state;
+@dynamic encryptionInfo, endTime, expireTime, name, sizeBytes, sourceTable,
+         startTime, state;
 @end
 
 
@@ -193,7 +199,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Cluster
-@dynamic defaultStorageType, location, name, serveNodes, state;
+@dynamic defaultStorageType, encryptionConfig, location, name, serveNodes,
+         state;
 @end
 
 
@@ -203,7 +210,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ClusterState
-@dynamic replicationState;
+@dynamic encryptionInfo, replicationState;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"encryptionInfo" : [GTLRBigtableAdmin_EncryptionInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -329,6 +344,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_EncryptionConfig
+//
+
+@implementation GTLRBigtableAdmin_EncryptionConfig
+@dynamic kmsKeyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_EncryptionInfo
+//
+
+@implementation GTLRBigtableAdmin_EncryptionInfo
+@dynamic encryptionStatus, encryptionType, kmsKeyVersion;
 @end
 
 

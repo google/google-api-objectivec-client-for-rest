@@ -5311,7 +5311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  The associated monitored resource. Custom metrics can use only certain
- *  monitored resource types in their time series data.
+ *  monitored resource types in their time series data. For more information,
+ *  see Monitored resources for custom metrics
+ *  (https://cloud.google.com/monitoring/custom-metrics/creating-metrics#custom-metric-resources).
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
 
@@ -5565,7 +5567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /**
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
- *  are supported for Uptime checks: uptime_url, gce_instance, gae_app,
+ *  are valid for this field: uptime_url, gce_instance, gae_app,
  *  aws_ec2_instance, aws_elb_load_balancer
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;

@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsAllocateIds : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsAllocateIdsWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -94,8 +92,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsBeginTransaction : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsBeginTransactionWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -128,8 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsCommit : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsCommitWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -167,8 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsExport : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsExportWithObject:projectId:]
 
 /** Required. Project ID against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -210,8 +202,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsImport : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsImportWithObject:projectId:]
 
 /** Required. Project ID against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -254,8 +244,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsIndexesCreate : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsIndexesCreateWithObject:projectId:]
 
 /** Project ID against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -299,8 +287,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsIndexesDelete : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsIndexesDeleteWithprojectId:indexId:]
 
 /** The resource ID of the index to delete. */
 @property(nonatomic, copy, nullable) NSString *indexId;
@@ -339,8 +325,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsIndexesGet : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsIndexesGetWithprojectId:indexId:]
 
 /** The resource ID of the index to get. */
 @property(nonatomic, copy, nullable) NSString *indexId;
@@ -375,8 +359,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsIndexesList : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsIndexesListWithprojectId:]
 
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -423,8 +405,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsLookup : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsLookupWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -463,8 +443,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsOperationsCancel : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -503,8 +481,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsOperationsDelete : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -537,8 +513,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsOperationsGet : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -576,8 +550,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsOperationsList : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -627,8 +599,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsReserveIds : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsReserveIdsWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -661,8 +631,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsRollback : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsRollbackWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -693,8 +661,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDatastoreCloudPlatform
  */
 @interface GTLRDatastoreQuery_ProjectsRunQuery : GTLRDatastoreQuery
-// Previous library name was
-//   +[GTLQueryDatastore queryForProjectsRunQueryWithObject:projectId:]
 
 /** Required. The ID of the project against which to make the request. */
 @property(nonatomic, copy, nullable) NSString *projectId;

@@ -771,7 +771,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 //
 
 @implementation GTLRDirectory_FailureInfo
-@dynamic errorCode, errorMessage, printer, printerIds;
+@dynamic errorCode, errorMessage, printer, printerId;
 @end
 
 

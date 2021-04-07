@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIndexing
  */
 @interface GTLRIndexingQuery_UrlNotificationsGetMetadata : GTLRIndexingQuery
-// Previous library name was
-//   +[GTLQueryIndexing queryForUrlNotificationsGetMetadata]
 
 /** URL that is being queried. */
 @property(nonatomic, copy, nullable) NSString *url;
@@ -78,8 +76,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIndexing
  */
 @interface GTLRIndexingQuery_UrlNotificationsPublish : GTLRIndexingQuery
-// Previous library name was
-//   +[GTLQueryIndexing queryForUrlNotificationsPublishWithObject:]
 
 /**
  *  Fetches a @c GTLRIndexing_PublishUrlNotificationResponse.

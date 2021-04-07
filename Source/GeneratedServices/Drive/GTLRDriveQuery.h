@@ -87,8 +87,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_AboutGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForAboutGet]
 
 /**
  *  Fetches a @c GTLRDrive_About.
@@ -116,8 +114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_ChangesGetStartPageToken : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForChangesGetStartPageToken]
 
 /**
  *  The ID of the shared drive for which the starting pageToken for listing
@@ -169,8 +165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_ChangesList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForChangesListWithpageToken:]
 
 /**
  *  The shared drive from which changes are returned. If specified the change
@@ -301,8 +295,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_ChangesWatch : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForChangesWatchWithObject:pageToken:]
 
 /**
  *  The shared drive from which changes are returned. If specified the change
@@ -431,8 +423,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_ChannelsStop : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -458,8 +448,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_CommentsCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForCommentsCreateWithObject:fileId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -489,8 +477,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_CommentsDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForCommentsDeleteWithfileId:commentId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -525,8 +511,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_CommentsGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForCommentsGetWithfileId:commentId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -568,8 +552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_CommentsList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForCommentsListWithfileId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -629,8 +611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_CommentsUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForCommentsUpdateWithObject:fileId:commentId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -664,8 +644,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_DrivesCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesCreateWithObject:requestId:]
 
 /**
  *  An ID, such as a random UUID, which uniquely identifies this user's request
@@ -705,8 +683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_DrivesDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesDeleteWithdriveId:]
 
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -736,8 +712,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_DrivesGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesGetWithdriveId:]
 
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -773,8 +747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_DrivesHide : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesHideWithdriveId:]
 
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -802,8 +774,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_DrivesList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesList]
 
 /**
  *  Maximum number of shared drives to return.
@@ -852,8 +822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_DrivesUnhide : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesUnhideWithdriveId:]
 
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -880,8 +848,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_DrivesUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForDrivesUpdateWithObject:driveId:]
 
 /** The ID of the shared drive. */
 @property(nonatomic, copy, nullable) NSString *driveId;
@@ -923,8 +889,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrivePhotosReadonly
  */
 @interface GTLRDriveQuery_FilesCopy : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesCopyWithObject:fileId:]
 
 /**
  *  Deprecated. Copying files into multiple folders is no longer supported. Use
@@ -1010,8 +974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_FilesCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesCreateWithObject:]
 
 /**
  *  Deprecated. Creating files in multiple folders is no longer supported.
@@ -1103,8 +1065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_FilesDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesDeleteWithfileId:]
 
 /**
  *  Deprecated. If an item is not in a shared drive and its last parent is
@@ -1159,8 +1119,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_FilesEmptyTrash : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesEmptyTrash]
 
 /**
  *  Deprecated. If an item is not in a shared drive and its last parent is
@@ -1195,8 +1153,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_FilesExport : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesExportWithfileId:mimeType:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1232,8 +1188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_FilesGenerateIds : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesGenerateIds]
 
 /**
  *  The number of IDs to return.
@@ -1278,8 +1232,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_FilesGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesGetWithfileId:]
 
 /**
  *  Whether the user is acknowledging the risk of downloading known malware or
@@ -1352,8 +1304,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_FilesList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesList]
 
 /**
  *  Groupings of files to which the query applies. Supported groupings are:
@@ -1489,8 +1439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveScripts
  */
 @interface GTLRDriveQuery_FilesUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesUpdateWithObject:fileId:]
 
 /** A comma-separated list of parent IDs to add. */
 @property(nonatomic, copy, nullable) NSString *addParents;
@@ -1586,8 +1534,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_FilesWatch : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForFilesWatchWithObject:fileId:]
 
 /**
  *  Whether the user is acknowledging the risk of downloading known malware or
@@ -1659,8 +1605,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_PermissionsCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForPermissionsCreateWithObject:fileId:]
 
 /** A plain text custom message to include in the notification email. */
 @property(nonatomic, copy, nullable) NSString *emailMessage;
@@ -1751,8 +1695,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_PermissionsDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForPermissionsDeleteWithfileId:permissionId:]
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1815,8 +1757,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_PermissionsGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForPermissionsGetWithfileId:permissionId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1878,8 +1818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_PermissionsList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForPermissionsListWithfileId:]
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -1957,8 +1895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_PermissionsUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForPermissionsUpdateWithObject:fileId:permissionId:]
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2034,8 +1970,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_RepliesCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRepliesCreateWithObject:fileId:commentId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -2070,8 +2004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_RepliesDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRepliesDeleteWithfileId:commentId:replyId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -2111,8 +2043,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RepliesGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRepliesGetWithfileId:commentId:replyId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -2159,8 +2089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RepliesList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRepliesListWithfileId:commentId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -2219,8 +2147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_RepliesUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRepliesUpdateWithObject:fileId:commentId:replyId:]
 
 /** The ID of the comment. */
 @property(nonatomic, copy, nullable) NSString *commentId;
@@ -2264,8 +2190,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_RevisionsDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRevisionsDeleteWithfileId:revisionId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2307,8 +2231,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RevisionsGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRevisionsGetWithfileId:revisionId:]
 
 /**
  *  Whether the user is acknowledging the risk of downloading known malware or
@@ -2367,8 +2289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_RevisionsList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRevisionsListWithfileId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2415,8 +2335,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveFile
  */
 @interface GTLRDriveQuery_RevisionsUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForRevisionsUpdateWithObject:fileId:revisionId:]
 
 /** The ID of the file. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2450,8 +2368,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_TeamdrivesCreate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForTeamdrivesCreateWithObject:requestId:]
 
 /**
  *  An ID, such as a random UUID, which uniquely identifies this user's request
@@ -2490,8 +2406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_TeamdrivesDelete : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForTeamdrivesDeleteWithteamDriveId:]
 
 /** The ID of the Team Drive */
 @property(nonatomic, copy, nullable) NSString *teamDriveId;
@@ -2520,8 +2434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_TeamdrivesGet : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForTeamdrivesGetWithteamDriveId:]
 
 /** The ID of the Team Drive */
 @property(nonatomic, copy, nullable) NSString *teamDriveId;
@@ -2558,8 +2470,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDriveReadonly
  */
 @interface GTLRDriveQuery_TeamdrivesList : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForTeamdrivesList]
 
 /**
  *  Maximum number of Team Drives to return.
@@ -2608,8 +2518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *    @c kGTLRAuthScopeDrive
  */
 @interface GTLRDriveQuery_TeamdrivesUpdate : GTLRDriveQuery
-// Previous library name was
-//   +[GTLQueryDrive queryForTeamdrivesUpdateWithObject:teamDriveId:]
 
 /** The ID of the Team Drive */
 @property(nonatomic, copy, nullable) NSString *teamDriveId;

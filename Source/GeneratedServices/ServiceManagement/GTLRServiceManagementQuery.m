@@ -285,33 +285,6 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 
 @end
 
-@implementation GTLRServiceManagementQuery_ServicesEnable
-
-@dynamic serviceName;
-
-+ (instancetype)queryWithObject:(GTLRServiceManagement_EnableServiceRequest *)object
-                    serviceName:(NSString *)serviceName {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"serviceName" ];
-  NSString *pathURITemplate = @"v1/services/{serviceName}:enable";
-  GTLRServiceManagementQuery_ServicesEnable *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.serviceName = serviceName;
-  query.expectedObjectClass = [GTLRServiceManagement_Operation class];
-  query.loggingName = @"servicemanagement.services.enable";
-  return query;
-}
-
-@end
-
 @implementation GTLRServiceManagementQuery_ServicesGenerateConfigReport
 
 + (instancetype)queryWithObject:(GTLRServiceManagement_GenerateConfigReportRequest *)object {

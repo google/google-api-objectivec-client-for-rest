@@ -581,6 +581,16 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceNetworking_DeleteConnectionRequest
+//
+
+@implementation GTLRServiceNetworking_DeleteConnectionRequest
+@dynamic consumerNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceNetworking_DeletePeeredDnsDomainMetadata
 //
 

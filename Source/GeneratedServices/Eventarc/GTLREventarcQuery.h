@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -77,19 +75,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -126,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsCancel : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -168,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsDelete : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -201,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -239,8 +239,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsOperationsList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -288,8 +286,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersCreate : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersCreateWithObject:parent:]
 
 /** Required. The parent collection in which to add this trigger. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -327,8 +323,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersDelete : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersDeleteWithname:]
 
 /**
  *  If set to true, and the trigger is not found, the request will succeed but
@@ -373,8 +367,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersGet : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersGetWithname:]
 
 /** Required. The name of the trigger to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -402,8 +394,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersGetIamPolicy : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -447,8 +437,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersList : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersListWithparent:]
 
 /**
  *  The sorting order of the resources returned. Value should be a comma
@@ -501,8 +489,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersPatch : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersPatchWithObject:name:]
 
 /**
  *  If set to true, and the trigger is not found, a new trigger will be created.
@@ -560,8 +546,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersSetIamPolicy : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -602,8 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeEventarcCloudPlatform
  */
 @interface GTLREventarcQuery_ProjectsLocationsTriggersTestIamPermissions : GTLREventarcQuery
-// Previous library name was
-//   +[GTLQueryEventarc queryForProjectsLocationsTriggersTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

@@ -307,8 +307,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProduct
 @dynamic apiResources, approvalType, attributes, createdAt, descriptionProperty,
-         displayName, environments, lastModifiedAt, name, operationGroup,
-         proxies, quota, quotaInterval, quotaTimeUnit, scopes;
+         displayName, environments, graphqlOperationGroup, lastModifiedAt, name,
+         operationGroup, proxies, quota, quotaInterval, quotaTimeUnit, scopes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1164,6 +1164,61 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1GraphQLOperation
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GraphQLOperation
+@dynamic operation, operationTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig
+@dynamic apiSource, attributes, operations, quota;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRApigee_GoogleCloudApigeeV1Attribute class],
+    @"operations" : [GTLRApigee_GoogleCloudApigeeV1GraphQLOperation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1GraphQLOperationGroup
+@dynamic operationConfigs, operationConfigType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operationConfigs" : [GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig class]
+  };
+  return map;
+}
+
 @end
 
 

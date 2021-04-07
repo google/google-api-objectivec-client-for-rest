@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsAcceleratorTypesGet : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsAcceleratorTypesGetWithname:]
 
 /** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -79,8 +77,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsAcceleratorTypesList : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsAcceleratorTypesListWithparent:]
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -125,8 +121,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsGet : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -153,19 +147,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsList : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -194,8 +196,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesCreate : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesCreateWithObject:parent:]
 
 /** The unqualified resource name. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
@@ -227,8 +227,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesDelete : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesDeleteWithname:]
 
 /** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -255,8 +253,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesGet : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesGetWithname:]
 
 /** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -283,8 +279,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesList : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesListWithparent:]
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -323,8 +317,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesReimage : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesReimageWithObject:name:]
 
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -353,8 +345,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesStart : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesStartWithObject:name:]
 
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -383,8 +373,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsNodesStop : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsNodesStopWithObject:name:]
 
 /** The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -421,8 +409,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsOperationsCancel : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -460,8 +446,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsOperationsDelete : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -493,8 +477,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsOperationsGet : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -531,8 +513,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsOperationsList : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -580,8 +560,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsGet : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsTensorflowVersionsGetWithname:]
 
 /** Required. The resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -608,8 +586,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTPUCloudPlatform
  */
 @interface GTLRTPUQuery_ProjectsLocationsTensorflowVersionsList : GTLRTPUQuery
-// Previous library name was
-//   +[GTLQueryTPU queryForProjectsLocationsTensorflowVersionsListWithparent:]
 
 /** List filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

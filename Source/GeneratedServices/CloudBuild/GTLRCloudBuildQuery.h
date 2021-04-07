@@ -62,8 +62,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_OperationsCancel : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -103,8 +101,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_OperationsGet : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -133,8 +129,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsBuildsCancel : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsBuildsCancelWithObject:projectId:identifier:]
 
 /**
  *  Required. ID of the build.
@@ -175,8 +169,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsBuildsCreate : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsBuildsCreateWithObject:projectId:]
 
 /**
  *  The parent resource where this build will be created. Format:
@@ -215,8 +207,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsBuildsGet : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsBuildsGetWithprojectId:identifier:]
 
 /**
  *  Required. ID of the build.
@@ -261,8 +251,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsBuildsList : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsBuildsListWithprojectId:]
 
 /** The raw filter text to constrain the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -330,8 +318,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsBuildsRetry : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsBuildsRetryWithObject:projectId:identifier:]
 
 /**
  *  Required. Build ID of the original build.
@@ -385,8 +371,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCancel : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsCancelWithObject:name:]
 
 /**
  *  The name of the `Build` to cancel. Format:
@@ -422,8 +406,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsBuildsCreate : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsCreateWithObject:parent:]
 
 /**
  *  The parent resource where this build will be created. Format:
@@ -463,8 +445,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsBuildsGet : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsGetWithname:]
 
 /**
  *  Required. ID of the build.
@@ -508,8 +488,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsBuildsList : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsListWithparent:]
 
 /** The raw filter text to constrain the results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -578,8 +556,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsBuildsRetry : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsBuildsRetryWithObject:name:]
 
 /**
  *  The name of the `Build` to retry. Format:
@@ -636,8 +612,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsOperationsCancel : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -677,8 +651,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsLocationsOperationsGet : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -707,8 +679,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersCreate : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersCreateWithObject:projectId:]
 
 /** Required. ID of the project for which to configure automatic builds. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -739,8 +709,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersDelete : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersDeleteWithprojectId:triggerId:]
 
 /** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -773,8 +741,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersGet : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersGetWithprojectId:triggerId:]
 
 /** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -807,8 +773,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersList : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersListWithprojectId:]
 
 /** Number of results to return in the list. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -847,8 +811,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersPatch : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersPatchWithObject:projectId:triggerId:]
 
 /** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -883,8 +845,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersRun : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersRunWithObject:projectId:triggerId:]
 
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -916,8 +876,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbuild.projects.triggers.webhook
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersWebhook : GTLRCloudBuildQuery
-// Previous library name was
-//   +[GTLQueryCloudBuild queryForProjectsTriggersWebhookWithObject:projectId:trigger:]
 
 /** Project in which the specified trigger lives */
 @property(nonatomic, copy, nullable) NSString *projectId;

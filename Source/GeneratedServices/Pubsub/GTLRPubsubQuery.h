@@ -95,8 +95,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in which to create the schema. Format is
@@ -138,8 +136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasDeleteWithname:]
 
 /**
  *  Required. Name of the schema to delete. Format is
@@ -171,8 +167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasGetWithname:]
 
 /**
  *  Required. The name of the schema to get. Format is
@@ -221,8 +215,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -267,8 +259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasListWithparent:]
 
 /** Maximum number of schemas to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -332,8 +322,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -374,8 +362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -415,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasValidate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasValidateWithObject:parent:]
 
 /**
  *  Required. The name of the project in which to validate schemas. Format is
@@ -451,8 +435,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSchemasValidateMessage : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSchemasValidateMessageWithObject:parent:]
 
 /**
  *  Required. The name of the project in which to validate schemas. Format is
@@ -501,8 +483,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsCreateWithObject:name:]
 
 /**
  *  Required. User-provided name for this snapshot. If the name is not provided
@@ -565,8 +545,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsDeleteWithsnapshot:]
 
 /**
  *  Required. The name of the snapshot to delete. Format is
@@ -609,8 +587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsGetWithsnapshot:]
 
 /**
  *  Required. The name of the snapshot to get. Format is
@@ -646,8 +622,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -696,8 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsListWithproject:]
 
 /** Maximum number of snapshots to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -750,8 +722,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsPatchWithObject:name:]
 
 /** The name of the snapshot. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -787,8 +757,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -829,8 +797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSnapshotsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSnapshotsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -874,8 +840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsAcknowledge : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsAcknowledgeWithObject:subscription:]
 
 /**
  *  Required. The subscription whose message is being acknowledged. Format is
@@ -921,8 +885,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsCreateWithObject:name:]
 
 /**
  *  Required. The name of the subscription. It must have the format
@@ -976,8 +938,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsDeleteWithsubscription:]
 
 /**
  *  Required. The subscription to delete. Format is
@@ -1016,8 +976,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDetach : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsDetachWithsubscription:]
 
 /**
  *  Required. The subscription to detach. Format is
@@ -1052,8 +1010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsGetWithsubscription:]
 
 /**
  *  Required. The name of the subscription to get. Format is
@@ -1086,8 +1042,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1132,8 +1086,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsListWithproject:]
 
 /** Maximum number of subscriptions to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1183,8 +1135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsModifyAckDeadline : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyAckDeadlineWithObject:subscription:]
 
 /**
  *  Required. The name of the subscription. Format is
@@ -1227,8 +1177,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsModifyPushConfig : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsModifyPushConfigWithObject:subscription:]
 
 /**
  *  Required. The name of the subscription. Format is
@@ -1268,8 +1216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsPatchWithObject:name:]
 
 /**
  *  Required. The name of the subscription. It must have the format
@@ -1314,8 +1260,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsPull : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsPullWithObject:subscription:]
 
 /**
  *  Required. The subscription from which messages should be pulled. Format is
@@ -1356,8 +1300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsSeek : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsSeekWithObject:subscription:]
 
 /** Required. The subscription to affect. */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -1395,8 +1337,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1437,8 +1377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsSubscriptionsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsSubscriptionsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1479,8 +1417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsCreate : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsCreateWithObject:name:]
 
 /**
  *  Required. The name of the topic. It must have the format
@@ -1527,8 +1463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsDelete : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsDeleteWithtopic:]
 
 /**
  *  Required. Name of the topic to delete. Format is
@@ -1564,8 +1498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsGet : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsGetWithtopic:]
 
 /**
  *  Required. The name of the topic to get. Format is
@@ -1598,8 +1530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsGetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1644,8 +1574,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsListWithproject:]
 
 /** Maximum number of topics to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1692,8 +1620,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsPatch : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsPatchWithObject:name:]
 
 /**
  *  Required. The name of the topic. It must have the format
@@ -1737,8 +1663,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsPublish : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsPublishWithObject:topic:]
 
 /**
  *  Required. The messages in the request will be published on this topic.
@@ -1775,8 +1699,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSetIamPolicy : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1817,8 +1739,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSnapshotsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSnapshotsListWithtopic:]
 
 /** Maximum number of snapshot names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1864,8 +1784,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsSubscriptionsList : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsSubscriptionsListWithtopic:]
 
 /** Maximum number of subscription names to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1911,8 +1829,6 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *    @c kGTLRAuthScopePubsubCloudPlatform
  */
 @interface GTLRPubsubQuery_ProjectsTopicsTestIamPermissions : GTLRPubsubQuery
-// Previous library name was
-//   +[GTLQueryPubsub queryForProjectsTopicsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

@@ -69,8 +69,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsAggregatedUsableSubnetworksList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsAggregatedUsableSubnetworksListWithparent:]
 
 /**
  *  Filtering currently only supports equality on the networkProjectId and must
@@ -127,8 +125,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersCompleteIpRotation : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersCompleteIpRotationWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to complete IP
@@ -171,8 +167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersCreate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersCreateWithObject:parent:]
 
 /**
  *  The parent (project and location) where the cluster will be created.
@@ -218,8 +212,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersDelete : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersDeleteWithname:]
 
 /**
  *  Deprecated. The name of the cluster to delete. This field has been
@@ -277,8 +269,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersGetWithname:]
 
 /**
  *  Deprecated. The name of the cluster to retrieve. This field has been
@@ -332,8 +322,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.getJwks
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersGetJwks : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersGetJwksWithparent:]
 
 /**
  *  The cluster (project, location, cluster id) to get keys for. Specified in
@@ -367,8 +355,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersListWithparent:]
 
 /**
  *  The parent (project and location) where the clusters will be listed.
@@ -419,8 +405,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsCreate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsCreateWithObject:parent:]
 
 /**
  *  The parent (project, location, cluster id) where the node pool will be
@@ -455,8 +439,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsDelete : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsDeleteWithname:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -518,8 +500,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsGetWithname:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -581,8 +561,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsListWithparent:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -638,8 +616,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsRollback : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsRollbackWithObject:name:]
 
 /**
  *  The name (project, location, cluster, node pool id) of the node poll to
@@ -676,8 +652,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetAutoscaling : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsSetAutoscalingWithObject:name:]
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to set
@@ -713,8 +687,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetManagement : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsSetManagementWithObject:name:]
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
@@ -751,8 +723,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsSetSize : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsSetSizeWithObject:name:]
 
 /**
  *  The name (project, location, cluster, node pool id) of the node pool to set
@@ -789,8 +759,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersNodePoolsUpdate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersNodePoolsUpdateWithObject:name:]
 
 /**
  *  The name (project, location, cluster, node pool) of the node pool to update.
@@ -826,8 +794,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetAddons : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetAddonsWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to set addons.
@@ -861,8 +827,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLegacyAbac : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetLegacyAbacWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to set legacy abac.
@@ -899,8 +863,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLocations : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetLocationsWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to set locations.
@@ -937,8 +899,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetLogging : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetLoggingWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to set logging.
@@ -972,8 +932,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMaintenancePolicy : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetMaintenancePolicyWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to set maintenance
@@ -1010,8 +968,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMasterAuth : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetMasterAuthWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to set auth. Specified
@@ -1047,8 +1003,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetMonitoring : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetMonitoringWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to set monitoring.
@@ -1083,8 +1037,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetNetworkPolicy : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetNetworkPolicyWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to set networking
@@ -1119,8 +1071,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersSetResourceLabels : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersSetResourceLabelsWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to set labels.
@@ -1153,8 +1103,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersStartIpRotation : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersStartIpRotationWithObject:name:]
 
 /**
  *  The name (project, location, cluster id) of the cluster to start IP
@@ -1189,8 +1137,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersUpdate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersUpdateWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to update. Specified in
@@ -1224,8 +1170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersUpdateMaster : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersUpdateMasterWithObject:name:]
 
 /**
  *  The name (project, location, cluster) of the cluster to update. Specified in
@@ -1260,8 +1204,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: container.projects.locations.clusters.well-known.getOpenid-configuration
  */
 @interface GTLRContainerQuery_ProjectsLocationsClustersWellKnownGetOpenidConfiguration : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsClustersWellKnownGetOpenidConfigurationWithparent:]
 
 /**
  *  The cluster (project, location, cluster id) to get the discovery document
@@ -1297,8 +1239,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsGetServerConfig : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsGetServerConfigWithname:]
 
 /**
  *  The name (project and location) of the server config to get, specified in
@@ -1346,8 +1286,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsCancel : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /**
  *  The name (project, location, operation id) of the operation to cancel.
@@ -1382,8 +1320,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsOperationsGetWithname:]
 
 /**
  *  The name (project, location, operation id) of the operation to get.
@@ -1437,8 +1373,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsLocationsOperationsList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsLocationsOperationsListWithparent:]
 
 /**
  *  The parent (project and location) where the operations will be listed.
@@ -1488,8 +1422,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersAddons : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersAddonsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -1549,8 +1481,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersCompleteIpRotation : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersCompleteIpRotationWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -1619,8 +1549,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersCreate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersCreateWithObject:projectId:zoneProperty:]
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
@@ -1683,8 +1611,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersDelete : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersDeleteWithprojectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to delete. This field has been
@@ -1751,8 +1677,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersGetWithprojectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to retrieve. This field has been
@@ -1815,8 +1739,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersLegacyAbac : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersLegacyAbacWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to update. This field has been
@@ -1877,8 +1799,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersListWithprojectId:zoneProperty:]
 
 /**
  *  The parent (project and location) where the clusters will be listed.
@@ -1936,8 +1856,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersLocations : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersLocationsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -1999,8 +1917,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersLogging : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersLoggingWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2060,8 +1976,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersMaster : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersMasterWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2121,8 +2035,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersMonitoring : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersMonitoringWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2182,8 +2094,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsAutoscaling : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsAutoscalingWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2252,8 +2162,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsCreate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsCreateWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -2314,8 +2222,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsDelete : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsDeleteWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -2389,8 +2295,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsGetWithprojectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -2464,8 +2368,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsListWithprojectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -2530,8 +2432,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsRollback : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsRollbackWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster to rollback. This field has been
@@ -2601,8 +2501,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetManagement : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsSetManagementWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster to update. This field has been
@@ -2672,8 +2570,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsSetSize : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsSetSizeWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster to update. This field has been
@@ -2743,8 +2639,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersNodePoolsUpdate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersNodePoolsUpdateWithObject:projectId:zoneProperty:clusterId:nodePoolId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2813,8 +2707,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersResourceLabels : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersResourceLabelsWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -2874,8 +2766,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetMaintenancePolicy : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersSetMaintenancePolicyWithObject:projectId:zoneProperty:clusterId:]
 
 /** Required. The name of the cluster to update. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
@@ -2929,8 +2819,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetMasterAuth : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersSetMasterAuthWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -2992,8 +2880,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersSetNetworkPolicy : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersSetNetworkPolicyWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -3054,8 +2940,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersStartIpRotation : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersStartIpRotationWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster. This field has been deprecated and
@@ -3116,8 +3000,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesClustersUpdate : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesClustersUpdateWithObject:projectId:zoneProperty:clusterId:]
 
 /**
  *  Deprecated. The name of the cluster to upgrade. This field has been
@@ -3177,8 +3059,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesGetServerconfig : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesGetServerconfigWithprojectId:zoneProperty:]
 
 /**
  *  The name (project and location) of the server config to get, specified in
@@ -3232,8 +3112,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsCancel : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesOperationsCancelWithObject:projectId:zoneProperty:operationId:]
 
 /**
  *  Deprecated. The server-assigned `name` of the operation. This field has been
@@ -3293,8 +3171,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsGet : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesOperationsGetWithprojectId:zoneProperty:operationId:]
 
 /**
  *  The name (project, location, operation id) of the operation to get.
@@ -3357,8 +3233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeContainerCloudPlatform
  */
 @interface GTLRContainerQuery_ProjectsZonesOperationsList : GTLRContainerQuery
-// Previous library name was
-//   +[GTLQueryContainer queryForProjectsZonesOperationsListWithprojectId:zoneProperty:]
 
 /**
  *  The parent (project and location) where the operations will be listed.

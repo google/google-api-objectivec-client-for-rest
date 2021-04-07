@@ -56,12 +56,7 @@
 @class GTLRGames_ProfileSettings;
 @class GTLRGames_ScoreSubmission;
 @class GTLRGames_Snapshot;
-@class GTLRGames_SnapshotCoverImageResource;
-@class GTLRGames_SnapshotDataResource;
-@class GTLRGames_SnapshotExtended;
 @class GTLRGames_SnapshotImage;
-@class GTLRGames_SnapshotMetadata;
-@class GTLRGames_SnapshotRevision;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -560,48 +555,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibil
  *  Value: "VISIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGames_ProfileSettings_FriendsListVisibility_Visible;
-
-// ----------------------------------------------------------------------------
-// GTLRGames_ResolveSnapshotHeadRequest.resolutionPolicy
-
-/**
- *  Use the snapshot with the highest progress value.
- *
- *  Value: "HIGHEST_PROGRESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_HighestProgress;
-/**
- *  Use the snapshot with the longest played time.
- *
- *  Value: "LONGEST_PLAYTIME"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_LongestPlaytime;
-/**
- *  Use the snapshot that was most recently modified.
- *
- *  Value: "MOST_RECENTLY_MODIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_MostRecentlyModified;
-/**
- *  Don't resolve conflicts at all. Effectively only returns the current head
- *  revision of the snapshot. Corresponds to a game opening the snapshot with
- *  manual resolution policy.
- *
- *  Value: "NO_AUTOMATIC_RESOLUTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_NoAutomaticResolution;
-/**
- *  Safe default, don't use explicitly.
- *
- *  Value: "RESOLUTION_POLICY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_ResolutionPolicyUnspecified;
-/**
- *  Drops all conflicts and keeps the current head only.
- *
- *  Value: "USE_HEAD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_UseHead;
 
 // ----------------------------------------------------------------------------
 // GTLRGames_RevisionCheckResponse.revisionStatus
@@ -2627,65 +2580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
- *  Request for ResolveSnapshotHead RPC.
- */
-@interface GTLRGames_ResolveSnapshotHeadRequest : GTLRObject
-
-/**
- *  The maximum number of SnapshotRevision resources for `conflictingRevisions`
- *  to return per SnapshotExtended resource in the response. For any response,
- *  the actual number of resources returned may be less than specified by
- *  `maxConflictsPerSnapshot`. The value provided should be greater or equal to
- *  0. If no value is provided, the server will use a sensible default.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxConflictsPerSnapshot;
-
-/**
- *  Required. The automatic resolution policy. All conflicts are resolved in
- *  chronological order, starting from the/ least recent. If the comparison
- *  metric is equal for the tentative head and the conflict, the head wins.
- *
- *  Likely values:
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_HighestProgress
- *        Use the snapshot with the highest progress value. (Value:
- *        "HIGHEST_PROGRESS")
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_LongestPlaytime
- *        Use the snapshot with the longest played time. (Value:
- *        "LONGEST_PLAYTIME")
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_MostRecentlyModified
- *        Use the snapshot that was most recently modified. (Value:
- *        "MOST_RECENTLY_MODIFIED")
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_NoAutomaticResolution
- *        Don't resolve conflicts at all. Effectively only returns the current
- *        head revision of the snapshot. Corresponds to a game opening the
- *        snapshot with manual resolution policy. (Value:
- *        "NO_AUTOMATIC_RESOLUTION")
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_ResolutionPolicyUnspecified
- *        Safe default, don't use explicitly. (Value:
- *        "RESOLUTION_POLICY_UNSPECIFIED")
- *    @arg @c kGTLRGames_ResolveSnapshotHeadRequest_ResolutionPolicy_UseHead
- *        Drops all conflicts and keeps the current head only. (Value:
- *        "USE_HEAD")
- */
-@property(nonatomic, copy, nullable) NSString *resolutionPolicy;
-
-@end
-
-
-/**
- *  Response for ResolveSnapshotHead RPC.
- */
-@interface GTLRGames_ResolveSnapshotHeadResponse : GTLRObject
-
-/** The state of the snapshot. */
-@property(nonatomic, strong, nullable) GTLRGames_SnapshotExtended *snapshot;
-
-@end
-
-
-/**
  *  A third party checking a revision response.
  */
 @interface GTLRGames_RevisionCheckResponse : GTLRObject
@@ -2838,147 +2732,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
 
 
 /**
- *  Identifies a snapshot cover image resource. The image is provided by the
- *  game.
- */
-@interface GTLRGames_SnapshotCoverImageResource : GTLRObject
-
-/**
- *  Output only. Hash-like weak identifier of the uploaded image bytes,
- *  consistent per player per application. The content hash for a given resource
- *  will not change if the binary data hasn't changed. Except in very rare
- *  circumstances, the content_hash for matching binary data will be the same
- *  within a given player and application.
- */
-@property(nonatomic, copy, nullable) NSString *contentHash;
-
-/**
- *  Output only. A URL the client can use to download the image. May vary across
- *  requests, and only guaranteed to be valid for a short time after it is
- *  returned.
- */
-@property(nonatomic, copy, nullable) NSString *downloadUrl;
-
-/**
- *  The height of the image in pixels.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *height;
-
-/** Output only. The MIME type of the image. */
-@property(nonatomic, copy, nullable) NSString *mimeType;
-
-/**
- *  The ID of the image resource. It's guaranteed that if two IDs are equal then
- *  the contents are equal as well. It's not guaranteed that two identical blobs
- *  coming from separate uploads have the same ID. The resource ID can only be
- *  used within the application, user and resource type it was originally
- *  returned for. For example, it's not possible to use SnapshotDataResource's
- *  resource ID as the resource_id of a SnapshotCoverImageResource, even if the
- *  blob is a valid image file.
- */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/**
- *  The width of the image in pixels.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *width;
-
-@end
-
-
-/**
- *  Identifies a snapshot data resource. The data is provided by the game.
- */
-@interface GTLRGames_SnapshotDataResource : GTLRObject
-
-/**
- *  Output only. Hash-like weak identifier of the uploaded blob bytes,
- *  consistent per player per application. The content hash for a given resource
- *  will not change if the binary data hasn't changed. Except in very rare
- *  circumstances, the content_hash for matching binary data will be the same
- *  within a given player and application.
- */
-@property(nonatomic, copy, nullable) NSString *contentHash;
-
-/**
- *  Output only. A URL that the client can use to download the blob. May vary
- *  across requests, and only guaranteed to be valid for a short time after it
- *  is returned.
- */
-@property(nonatomic, copy, nullable) NSString *downloadUrl;
-
-/**
- *  The ID of the blob resource. It's guaranteed that if two IDs are equal then
- *  the contents are equal as well. It's not guaranteed that two identical blobs
- *  coming from separate uploads have the same resource ID. The resource ID can
- *  only be used within the application, user and resource type it was
- *  originally returned for. For example, it's not possible to use
- *  SnapshotDataResource's resource ID as the resource_id of a
- *  SnapshotCoverImageResource, even if the blob is a valid image file.
- */
-@property(nonatomic, copy, nullable) NSString *resourceId;
-
-/**
- *  Output only. Size of the saved game blob in bytes.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *size;
-
-@end
-
-
-/**
- *  A snapshot represents a saved game state referred to using the
- *  developer-provided snapshot_name. The set of attributes and binary data for
- *  a specific state is called a revision. Each revision is itself immutable,
- *  and referred to by a snapshot revision id. At any time, a snapshot has a
- *  "head" revision, and updates are made against that revision. If a snapshot
- *  update is received that isn't against the current head revision, then
- *  instead of changing the head revision it will result in a conflicting
- *  revision that must be specifically resolved.
- */
-@interface GTLRGames_SnapshotExtended : GTLRObject
-
-/**
- *  A list of conflicting revisions. Only set if explicitly requested (e.g.
- *  using a field mask or a request flag), or if the RPC guarantees that this
- *  field is set. The conflicting revisions are sorted chronologically by their
- *  server creation time (oldest first). If there are too many conflicting
- *  revisions to return all of them in a single request this will only contain
- *  the first batch. In such case, the presented conflicting revisions must be
- *  resolved first in order to fetch the next batch.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRGames_SnapshotRevision *> *conflictingRevisions;
-
-/**
- *  An indicator whether the snapshot has any conflicting revisions or not.
- *  Always set.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *hasConflictingRevisions;
-
-/**
- *  The current head revision (the canonical revision as understood by the
- *  server).
- */
-@property(nonatomic, strong, nullable) GTLRGames_SnapshotRevision *headRevision;
-
-/**
- *  An identifier of the snapshot, developer-specified. It must match the
- *  pattern [0-9a-zA-Z-._~]{1,100}.
- */
-@property(nonatomic, copy, nullable) NSString *snapshotName;
-
-@end
-
-
-/**
  *  An image of a snapshot.
  */
 @interface GTLRGames_SnapshotImage : GTLRObject
@@ -3044,70 +2797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SnapshotTypeUnspecif
  *  results, the token is omitted.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Metadata about a snapshot revision. Snapshot metadata is immutable - a
- *  metadata change corresponds to a new snapshot revision.
- */
-@interface GTLRGames_SnapshotMetadata : GTLRObject
-
-/**
- *  The description of this snapshot.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** The device that created the current revision. */
-@property(nonatomic, copy, nullable) NSString *deviceName;
-
-/**
- *  The duration associated with this snapshot. Values with sub-millisecond
- *  precision can be rounded or trimmed to the closest millisecond.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *gameplayDuration;
-
-/**
- *  The timestamp of the last modification to this snapshot as provided by the
- *  client. Values with sub-millisecond precision can be rounded or trimmed to
- *  the closest millisecond.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *lastModifyTime;
-
-/**
- *  The progress value (64-bit integer set by developer) associated with this
- *  snapshot.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *progressValue;
-
-@end
-
-
-/**
- *  A Snapshot revision resource. Snapshot revisions are immutable.
- */
-@interface GTLRGames_SnapshotRevision : GTLRObject
-
-/** Reference to the game provided blob for this revision. */
-@property(nonatomic, strong, nullable) GTLRGames_SnapshotDataResource *blob;
-
-/** Reference to the cover image for this revision. */
-@property(nonatomic, strong, nullable) GTLRGames_SnapshotCoverImageResource *coverImage;
-
-/**
- *  Output only. A server generated identifier of the snapshot revision.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/** Metadata for this snapshot revision. */
-@property(nonatomic, strong, nullable) GTLRGames_SnapshotMetadata *metadata;
 
 @end
 

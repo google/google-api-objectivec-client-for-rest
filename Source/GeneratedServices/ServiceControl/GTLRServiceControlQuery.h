@@ -65,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceControlCloudPlatform
  */
 @interface GTLRServiceControlQuery_ServicesCheck : GTLRServiceControlQuery
-// Previous library name was
-//   +[GTLQueryServiceControl queryForServicesCheckWithObject:serviceName:]
 
 /**
  *  The service name as specified in its service configuration. For example,
@@ -129,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceControlCloudPlatform
  */
 @interface GTLRServiceControlQuery_ServicesReport : GTLRServiceControlQuery
-// Previous library name was
-//   +[GTLQueryServiceControl queryForServicesReportWithObject:serviceName:]
 
 /**
  *  The service name as specified in its service configuration. For example,

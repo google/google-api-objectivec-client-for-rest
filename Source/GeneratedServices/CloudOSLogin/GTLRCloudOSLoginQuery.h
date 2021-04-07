@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersGetLoginProfile : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersGetLoginProfileWithname:]
 
 /** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -88,8 +86,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersImportSshPublicKey : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersImportSshPublicKeyWithObject:parent:]
 
 /** Required. The unique ID for the user in format `users/{user}`. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -124,8 +120,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersProjectsDelete : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersProjectsDeleteWithname:]
 
 /**
  *  Required. A reference to the POSIX account to update. POSIX accounts are
@@ -160,8 +154,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysDelete : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysDeleteWithname:]
 
 /**
  *  Required. The fingerprint of the public key to update. Public keys are
@@ -195,8 +187,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysGet : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysGetWithname:]
 
 /**
  *  Required. The fingerprint of the public key to retrieve. Public keys are
@@ -231,8 +221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudOSLoginCompute
  */
 @interface GTLRCloudOSLoginQuery_UsersSshPublicKeysPatch : GTLRCloudOSLoginQuery
-// Previous library name was
-//   +[GTLQueryCloudOSLogin queryForUsersSshPublicKeysPatchWithObject:name:]
 
 /**
  *  Required. The fingerprint of the public key to update. Public keys are

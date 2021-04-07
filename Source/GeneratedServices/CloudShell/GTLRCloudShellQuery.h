@@ -61,8 +61,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_OperationsCancel : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -103,8 +101,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_OperationsDelete : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -136,8 +132,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_OperationsGet : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -174,8 +168,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_OperationsList : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -225,8 +217,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_UsersEnvironmentsAddPublicKey : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForUsersEnvironmentsAddPublicKeyWithObject:environment:]
 
 /**
  *  Environment this key should be added to, e.g.
@@ -265,8 +255,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_UsersEnvironmentsAuthorize : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForUsersEnvironmentsAuthorizeWithObject:name:]
 
 /**
  *  Name of the resource that should receive the credentials, for example
@@ -305,8 +293,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_UsersEnvironmentsGet : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForUsersEnvironmentsGetWithname:]
 
 /**
  *  Required. Name of the requested resource, for example
@@ -341,8 +327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_UsersEnvironmentsRemovePublicKey : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForUsersEnvironmentsRemovePublicKeyWithObject:environment:]
 
 /**
  *  Environment this key should be removed from, e.g.
@@ -383,8 +367,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudShellCloudPlatform
  */
 @interface GTLRCloudShellQuery_UsersEnvironmentsStart : GTLRCloudShellQuery
-// Previous library name was
-//   +[GTLQueryCloudShell queryForUsersEnvironmentsStartWithObject:name:]
 
 /**
  *  Name of the resource that should be started, for example

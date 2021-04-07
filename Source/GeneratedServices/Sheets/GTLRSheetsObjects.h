@@ -160,6 +160,7 @@
 @class GTLRSheets_IterativeCalculationSettings;
 @class GTLRSheets_KeyValueFormat;
 @class GTLRSheets_LineStyle;
+@class GTLRSheets_Link;
 @class GTLRSheets_ManualRule;
 @class GTLRSheets_ManualRuleGroup;
 @class GTLRSheets_MatchedDeveloperMetadata;
@@ -4407,7 +4408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @interface GTLRSheets_BatchClearValuesRequest : GTLRObject
 
-/** The ranges to clear, in A1 notation. */
+/** The ranges to clear, in A1 or R1C1 notation. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ranges;
 
 @end
@@ -5213,7 +5214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) NSNumber *bubbleOpacity;
 
 /**
- *  The data contianing the bubble sizes. Bubble sizes are used to draw the
+ *  The data containing the bubble sizes. Bubble sizes are used to draw the
  *  bubbles at different sizes relative to each other. If specified, group_ids
  *  must also be specified. This field is optional.
  */
@@ -5261,7 +5262,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *legendPosition;
 
 /**
- *  The data contianing the bubble y-values. These values locate the bubbles in
+ *  The data containing the bubble y-values. These values locate the bubbles in
  *  the chart vertically.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *series;
@@ -5975,65 +5976,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Represents a color in the RGBA color space. This representation is designed
  *  for simplicity of conversion to/from color representations in various
- *  languages over compactness; for example, the fields of this representation
- *  can be trivially provided to the constructor of "java.awt.Color" in Java; it
- *  can also be trivially provided to UIColor's "+colorWithRed:green:blue:alpha"
+ *  languages over compactness. For example, the fields of this representation
+ *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
+ *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
  *  method in iOS; and, with just a little work, it can be easily formatted into
- *  a CSS "rgba()" string in JavaScript, as well. Note: this proto does not
- *  carry information about the absolute color space that should be used to
- *  interpret the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By
- *  default, applications SHOULD assume the sRGB color space. Note: when color
- *  equality needs to be decided, implementations, unless documented otherwise,
- *  will treat two colors to be equal if all their red, green, blue and alpha
- *  values each differ by at most 1e-5. Example (Java): import
- *  com.google.type.Color; // ... public static java.awt.Color fromProto(Color
- *  protocolor) { float alpha = protocolor.hasAlpha() ?
- *  protocolor.getAlpha().getValue() : 1.0; return new java.awt.Color(
- *  protocolor.getRed(), protocolor.getGreen(), protocolor.getBlue(), alpha); }
- *  public static Color toProto(java.awt.Color color) { float red = (float)
- *  color.getRed(); float green = (float) color.getGreen(); float blue = (float)
- *  color.getBlue(); float denominator = 255.0; Color.Builder resultBuilder =
- *  Color .newBuilder() .setRed(red / denominator) .setGreen(green /
- *  denominator) .setBlue(blue / denominator); int alpha = color.getAlpha(); if
- *  (alpha != 255) { result.setAlpha( FloatValue .newBuilder()
- *  .setValue(((float) alpha) / denominator) .build()); } return
- *  resultBuilder.build(); } // ... Example (iOS / Obj-C): // ... static
- *  UIColor* fromProto(Color* protocolor) { float red = [protocolor red]; float
- *  green = [protocolor green]; float blue = [protocolor blue]; FloatValue*
- *  alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if (alpha_wrapper !=
- *  nil) { alpha = [alpha_wrapper value]; } return [UIColor colorWithRed:red
- *  green:green blue:blue alpha:alpha]; } static Color* toProto(UIColor* color)
- *  { CGFloat red, green, blue, alpha; if (![color getRed:&red green:&green
- *  blue:&blue alpha:&alpha]) { return nil; } Color* result = [[Color alloc]
- *  init]; [result setRed:red]; [result setGreen:green]; [result setBlue:blue];
- *  if (alpha <= 0.9999) { [result setAlpha:floatWrapperWithValue(alpha)]; }
- *  [result autorelease]; return result; } // ... Example (JavaScript): // ...
- *  var protoToCssColor = function(rgb_color) { var redFrac = rgb_color.red ||
- *  0.0; var greenFrac = rgb_color.green || 0.0; var blueFrac = rgb_color.blue
- *  || 0.0; var red = Math.floor(redFrac * 255); var green =
- *  Math.floor(greenFrac * 255); var blue = Math.floor(blueFrac * 255); if
- *  (!('alpha' in rgb_color)) { return rgbToCssColor_(red, green, blue); } var
- *  alphaFrac = rgb_color.alpha.value || 0.0; var rgbParams = [red, green,
- *  blue].join(','); return ['rgba(', rgbParams, ',', alphaFrac, ')'].join('');
- *  }; var rgbToCssColor_ = function(red, green, blue) { var rgbNumber = new
- *  Number((red << 16) | (green << 8) | blue); var hexString =
- *  rgbNumber.toString(16); var missingZeros = 6 - hexString.length; var
- *  resultBuilder = ['#']; for (var i = 0; i < missingZeros; i++) {
- *  resultBuilder.push('0'); } resultBuilder.push(hexString); return
- *  resultBuilder.join(''); }; // ...
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  information about the absolute color space that should be used to interpret
+ *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  applications should assume the sRGB color space. When color equality needs
+ *  to be decided, implementations, unless documented otherwise, treat two
+ *  colors as equal if all their red, green, blue, and alpha values each differ
+ *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
+ *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
+ *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
+ *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
+ *  color) { float red = (float) color.getRed(); float green = (float)
+ *  color.getGreen(); float blue = (float) color.getBlue(); float denominator =
+ *  255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red /
+ *  denominator) .setGreen(green / denominator) .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha(
+ *  FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build());
+ *  } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ...
+ *  static UIColor* fromProto(Color* protocolor) { float red = [protocolor red];
+ *  float green = [protocolor green]; float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if
+ *  (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor
+ *  colorWithRed:red green:green blue:blue alpha:alpha]; } static Color*
+ *  toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color
+ *  getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color*
+ *  result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green];
+ *  [result setBlue:blue]; if (alpha <= 0.9999) { [result
+ *  setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return
+ *  result; } // ... Example (JavaScript): // ... var protoToCssColor =
+ *  function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac =
+ *  rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red =
+ *  Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue
+ *  = Math.floor(blueFrac * 255); if (!('alpha' in rgb_color)) { return
+ *  rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value ||
+ *  0.0; var rgbParams = [red, green, blue].join(','); return ['rgba(',
+ *  rgbParams, ',', alphaFrac, ')'].join(''); }; var rgbToCssColor =
+ *  function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green
+ *  << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6
+ *  - hexString.length; var resultBuilder = ['#']; for (var i = 0; i <
+ *  missingZeros; i++) { resultBuilder.push('0'); }
+ *  resultBuilder.push(hexString); return resultBuilder.join(''); }; // ...
  */
 @interface GTLRSheets_Color : GTLRObject
 
 /**
  *  The fraction of this color that should be applied to the pixel. That is, the
- *  final pixel color is defined by the equation: pixel color = alpha * (this
- *  color) + (1.0 - alpha) * (background color) This means that a value of 1.0
+ *  final pixel color is defined by the equation: `pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color)` This means that a value of 1.0
  *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
  *  completely transparent color. This uses a wrapper message rather than a
  *  simple float scalar so that it is possible to distinguish between a default
- *  value and the value being unset. If omitted, this color object is to be
- *  rendered as a solid color (as if the alpha value had been explicitly given
- *  with a value of 1.0).
+ *  value and the value being unset. If omitted, this color object is rendered
+ *  as a solid color (as if the alpha value had been explicitly given a value of
+ *  1.0).
  *
  *  Uses NSNumber of floatValue.
  */
@@ -8602,6 +8602,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
+ *  An external or local reference.
+ */
+@interface GTLRSheets_Link : GTLRObject
+
+/** The link identifier. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Allows you to manually organize the values in a source data column into
  *  buckets with names of your choosing. For example, a pivot table that
  *  aggregates population by state: +-------+-------------------+ | State | SUM
@@ -9124,7 +9135,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  True if the headings in this pivot group should be repeated. This is only
  *  valid for row groupings and is ignored by columns. By default, we minimize
- *  repitition of headings by not showing higher level headings where they are
+ *  repetition of headings by not showing higher level headings where they are
  *  the same. For example, even though the third row below corresponds to "Q1
  *  Mar", "Q1" is not shown because it is redundant with previous rows. Setting
  *  repeat_headings to true would cause "Q1" to be repeated for "Feb" and "Mar".
@@ -10586,6 +10597,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *italic;
+
+/**
+ *  The link destination of the text, if any. Setting a link in a format run
+ *  will clear an existing cell-level link. When a link is set, the text
+ *  foreground color will be set to the default link color and the text will be
+ *  underlined. If these fields are modified in the same request, those values
+ *  will be used instead of the link defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRSheets_Link *link;
 
 /**
  *  True if the text has a strikethrough.

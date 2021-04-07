@@ -62,8 +62,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsCreate : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsCreateWithObject:parent:]
 
 /**
  *  Required. The parent catalog resource name, such as "projects/ *
@@ -99,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsDelete : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsDeleteWithname:]
 
 /**
  *  Required. Full resource name of catalog item, such as "projects/ *
@@ -132,8 +128,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGet : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsGetWithname:]
 
 /**
  *  Required. Full resource name of catalog item, such as "projects/ *
@@ -169,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsImport : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsImportWithObject:parent:]
 
 /**
  *  Required. "projects/1234/locations/global/catalogs/default_catalog" If no
@@ -211,8 +203,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsListWithparent:]
 
 /** Optional. A filter to apply on the list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -261,8 +251,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsPatch : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsCatalogItemsPatchWithObject:name:]
 
 /**
  *  Required. Full resource name of catalog item, such as "projects/ *
@@ -310,8 +298,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresOperationsGet : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -348,8 +334,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresOperationsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -400,8 +384,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPlacementsPredict : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPlacementsPredictWithObject:name:]
 
 /**
  *  Required. Full resource name of the format: {name=projects/ *
@@ -478,8 +460,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreate : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource path. "projects/ *
@@ -515,8 +495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDelete : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDeleteWithname:]
 
 /**
  *  Required. The API key to unregister including full resource path. "projects/
@@ -549,8 +527,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsListWithparent:]
 
 /**
  *  Optional. Maximum number of results to return per page. If unset, the
@@ -600,8 +576,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsCollect : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsCollectWithparent:]
 
 /**
  *  Optional. The event timestamp in milliseconds. This prevents browser caching
@@ -657,8 +631,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsImport : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsImportWithObject:parent:]
 
 /**
  *  Required.
@@ -703,8 +675,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsListWithparent:]
 
 /**
  *  Optional. Filtering expression to specify restrictions over returned events.
@@ -783,8 +753,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsPurge : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsPurgeWithObject:parent:]
 
 /**
  *  Required. The resource name of the event_store under which the events are
@@ -830,8 +798,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsRejoin : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsRejoinWithObject:parent:]
 
 /**
  *  Required. Full resource name of user event, such as "projects/ * /locations/
@@ -873,8 +839,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsWrite : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsEventStoresUserEventsWriteWithObject:parent:]
 
 /**
  *  Required. The parent eventStore resource name, such as
@@ -910,8 +874,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsListWithparent:]
 
 /**
  *  Optional. Maximum number of results to return. If unspecified, defaults to
@@ -958,8 +920,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsOperationsGet : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -996,8 +956,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsOperationsList : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1045,8 +1003,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommendationsAICloudPlatform
  */
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsPatch : GTLRRecommendationsAIQuery
-// Previous library name was
-//   +[GTLQueryRecommendationsAI queryForProjectsLocationsCatalogsPatchWithObject:name:]
 
 /** The fully qualified resource name of the catalog. */
 @property(nonatomic, copy, nullable) NSString *name;

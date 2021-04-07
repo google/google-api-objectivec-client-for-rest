@@ -44,8 +44,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigquery;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly;
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

@@ -76,8 +76,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsCreate : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsCreateWithObject:parent:]
 
 /**
  *  Required. Identifier to assign to the API Config. Must be unique within
@@ -116,8 +114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsDelete : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsDeleteWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/global/apis/ *
@@ -148,8 +144,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsGet : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsGetWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/global/apis/ *
@@ -195,8 +189,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsGetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -240,8 +232,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsList : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsListWithparent:]
 
 /** Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -288,8 +278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsPatch : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the API Config. Format:
@@ -335,8 +323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsSetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -377,8 +363,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisConfigsTestIamPermissions : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisConfigsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -417,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisCreate : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisCreateWithObject:parent:]
 
 /**
  *  Required. Identifier to assign to the API. Must be unique within scope of
@@ -457,8 +439,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisDelete : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisDeleteWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/global/apis/ *`
@@ -488,8 +468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisGet : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisGetWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/global/apis/ *`
@@ -520,8 +498,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisGetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -565,8 +541,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisList : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisListWithparent:]
 
 /** Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -613,8 +587,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisPatch : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the API. Format:
@@ -660,8 +632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisSetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -702,8 +672,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsApisTestIamPermissions : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsApisTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -742,8 +710,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysCreate : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysCreateWithObject:parent:]
 
 /**
  *  Required. Identifier to assign to the Gateway. Must be unique within scope
@@ -782,8 +748,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysDelete : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysDeleteWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/ * /gateways/
@@ -814,8 +778,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysGet : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysGetWithname:]
 
 /**
  *  Required. Resource name of the form: `projects/ * /locations/ * /gateways/
@@ -847,8 +809,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysGetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -892,8 +852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysList : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysListWithparent:]
 
 /** Filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -940,8 +898,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysPatch : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the Gateway. Format:
@@ -987,8 +943,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysSetIamPolicy : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1029,8 +983,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGatewaysTestIamPermissions : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGatewaysTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1069,8 +1021,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsGet : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1097,8 +1047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsList : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsListWithname:]
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -1156,8 +1104,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsOperationsCancel : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1198,8 +1144,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsOperationsDelete : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1231,8 +1175,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsOperationsGet : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1269,8 +1211,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIGatewayViewFull;
  *    @c kGTLRAuthScopeAPIGatewayCloudPlatform
  */
 @interface GTLRAPIGatewayQuery_ProjectsLocationsOperationsList : GTLRAPIGatewayQuery
-// Previous library name was
-//   +[GTLQueryAPIGateway queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

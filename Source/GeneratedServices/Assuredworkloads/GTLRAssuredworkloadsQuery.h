@@ -48,8 +48,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsOperationsGet : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -86,8 +84,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsOperationsList : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -135,8 +131,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsCreate : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsWorkloadsCreateWithObject:parent:]
 
 /**
  *  Optional. A identifier associated with the workload and underlying projects
@@ -181,8 +175,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsDelete : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsWorkloadsDeleteWithname:]
 
 /**
  *  Optional. The etag of the workload. If this is provided, it must match the
@@ -222,8 +214,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsGet : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsWorkloadsGetWithname:]
 
 /**
  *  Required. The resource name of the Workload to fetch. This is the
@@ -260,8 +250,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsList : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsWorkloadsListWithparent:]
 
 /**
  *  A custom filter for filtering by properties of a workload. At this time,
@@ -315,8 +303,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
  */
 @interface GTLRAssuredworkloadsQuery_OrganizationsLocationsWorkloadsPatch : GTLRAssuredworkloadsQuery
-// Previous library name was
-//   +[GTLQueryAssuredworkloads queryForOrganizationsLocationsWorkloadsPatchWithObject:name:]
 
 /**
  *  Optional. The resource name of the workload. Format:

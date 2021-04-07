@@ -65,8 +65,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsGetWithname:]
 
 /**
  *  Required. A name of the form
@@ -101,8 +99,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsList : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsListWithparent:]
 
 /**
  *  The filter to apply to list results. Currently, FirestoreAdmin.ListFields
@@ -167,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsFieldsPatch : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsFieldsPatchWithObject:name:]
 
 /**
  *  Required. A field name of the form
@@ -255,8 +249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesCreate : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesCreateWithObject:parent:]
 
 /**
  *  Required. A parent name of the form
@@ -293,8 +285,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesDelete : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesDeleteWithname:]
 
 /**
  *  Required. A name of the form
@@ -326,8 +316,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesGetWithname:]
 
 /**
  *  Required. A name of the form
@@ -359,8 +347,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesCollectionGroupsIndexesList : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesCollectionGroupsIndexesListWithparent:]
 
 /** The filter to apply to list results. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -409,8 +395,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBatchGetWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -451,8 +435,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsBatchWrite : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBatchWriteWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -492,8 +474,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsBeginTransaction : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsBeginTransactionWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -528,8 +508,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsCommit : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsCommitWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -563,8 +541,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsCreateDocument : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsCreateDocumentWithObject:parent:collectionId:]
 
 /**
  *  Required. The collection ID, relative to `parent`, to list. For example:
@@ -621,8 +597,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsDelete : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsDeleteWithname:]
 
 /**
  *  When set to `true`, the target document must exist. When set to `false`, the
@@ -667,8 +641,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsGetWithname:]
 
 /**
  *  The list of field paths in the mask. See Document.fields for a field path
@@ -721,8 +693,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsList : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListWithparent:collectionId:]
 
 /**
  *  Required. The collection ID, relative to `parent`, to list. For example:
@@ -813,8 +783,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsListCollectionIds : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListCollectionIdsWithObject:parent:]
 
 /**
  *  Required. The parent document. In the format:
@@ -853,8 +821,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsListen : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsListenWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -890,8 +856,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsPartitionQuery : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsPartitionQueryWithObject:parent:]
 
 /**
  *  Required. The parent resource name. In the format:
@@ -931,8 +895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsPatch : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsPatchWithObject:name:]
 
 /**
  *  When set to `true`, the target document must exist. When set to `false`, the
@@ -990,8 +952,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsRollback : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsRollbackWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -1025,8 +985,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsRunQuery : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsRunQueryWithObject:parent:]
 
 /**
  *  Required. The parent resource name. In the format:
@@ -1066,8 +1024,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsWrite : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesDocumentsWriteWithObject:database:]
 
 /**
  *  Required. The database name. In the format:
@@ -1100,7 +1056,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  background and its progress can be monitored and managed via the Operation
  *  resource that is created. The output of an export may only be used once the
  *  associated operation is done. If an export operation is cancelled before
- *  completion it may leave partial data behind in Google Cloud Storage.
+ *  completion it may leave partial data behind in Google Cloud Storage. For
+ *  more details on export behavior and output format, refer to:
+ *  https://cloud.google.com/firestore/docs/manage-data/export-import
  *
  *  Method: firestore.projects.databases.exportDocuments
  *
@@ -1109,8 +1067,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesExportDocuments : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesExportDocumentsWithObject:name:]
 
 /**
  *  Required. Database to export. Should be of the form:
@@ -1127,7 +1083,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  background and its progress can be monitored and managed via the Operation
  *  resource that is created. The output of an export may only be used once the
  *  associated operation is done. If an export operation is cancelled before
- *  completion it may leave partial data behind in Google Cloud Storage.
+ *  completion it may leave partial data behind in Google Cloud Storage. For
+ *  more details on export behavior and output format, refer to:
+ *  https://cloud.google.com/firestore/docs/manage-data/export-import
  *
  *  @param object The @c
  *    GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest to include in
@@ -1156,8 +1114,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesImportDocuments : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesImportDocumentsWithObject:name:]
 
 /**
  *  Required. Database to import into. Should be of the form:
@@ -1205,8 +1161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesOperationsCancel : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1248,8 +1202,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesOperationsDelete : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1282,8 +1234,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesOperationsGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1321,8 +1271,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsDatabasesOperationsList : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsDatabasesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1371,8 +1319,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsLocationsGet : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1400,19 +1346,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirestoreDatastore
  */
 @interface GTLRFirestoreQuery_ProjectsLocationsList : GTLRFirestoreQuery
-// Previous library name was
-//   +[GTLQueryFirestore queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasklistsDelete : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsDeleteWithtasklist:]
 
 /** Task list identifier. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
@@ -77,8 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasksReadonly
  */
 @interface GTLRTasksQuery_TasklistsGet : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsGetWithtasklist:]
 
 /** Task list identifier. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
@@ -105,8 +101,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasklistsInsert : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRTasks_TaskList.
@@ -131,8 +125,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasksReadonly
  */
 @interface GTLRTasksQuery_TasklistsList : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsList]
 
 /**
  *  Maximum number of task lists returned on one page. Optional. The default is
@@ -168,8 +160,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasklistsPatch : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsPatchWithObject:tasklist:]
 
 /** Task list identifier. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
@@ -199,8 +189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasklistsUpdate : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasklistsUpdateWithObject:tasklist:]
 
 /** Task list identifier. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
@@ -231,8 +219,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksClear : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksClearWithtasklist:]
 
 /** Task list identifier. */
 @property(nonatomic, copy, nullable) NSString *tasklist;
@@ -262,8 +248,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksDelete : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksDeleteWithtasklist:task:]
 
 /** Task identifier. */
 @property(nonatomic, copy, nullable) NSString *task;
@@ -297,8 +281,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasksReadonly
  */
 @interface GTLRTasksQuery_TasksGet : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksGetWithtasklist:task:]
 
 /** Task identifier. */
 @property(nonatomic, copy, nullable) NSString *task;
@@ -330,8 +312,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksInsert : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksInsertWithObject:tasklist:]
 
 /**
  *  Parent task identifier. If the task is created at the top level, this
@@ -373,8 +353,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasksReadonly
  */
 @interface GTLRTasksQuery_TasksList : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksListWithtasklist:]
 
 /**
  *  Upper bound for a task's completion date (as a RFC 3339 timestamp) to filter
@@ -466,8 +444,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksMove : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksMoveWithtasklist:task:]
 
 /**
  *  New parent task identifier. If the task is moved to the top level, this
@@ -513,8 +489,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksPatch : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksPatchWithObject:tasklist:task:]
 
 /** Task identifier. */
 @property(nonatomic, copy, nullable) NSString *task;
@@ -548,8 +522,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTasks
  */
 @interface GTLRTasksQuery_TasksUpdate : GTLRTasksQuery
-// Previous library name was
-//   +[GTLQueryTasks queryForTasksUpdateWithObject:tasklist:task:]
 
 /** Task identifier. */
 @property(nonatomic, copy, nullable) NSString *task;

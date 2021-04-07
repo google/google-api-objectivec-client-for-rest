@@ -87,8 +87,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesBindDeviceToGateway : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesBindDeviceToGatewayWithObject:parent:]
 
 /**
  *  Required. The name of the registry. For example,
@@ -123,8 +121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesCreate : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesCreateWithObject:parent:]
 
 /**
  *  Required. The project and cloud region where this device registry must be
@@ -159,8 +155,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDelete : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDeleteWithname:]
 
 /**
  *  Required. The name of the device registry. For example,
@@ -193,8 +187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesConfigVersionsList : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesConfigVersionsListWithname:]
 
 /**
  *  Required. The name of the device. For example,
@@ -237,8 +229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesCreate : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the device registry where this device should be
@@ -274,8 +264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesDelete : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesDeleteWithname:]
 
 /**
  *  Required. The name of the device. For example,
@@ -310,8 +298,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesGet : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesGetWithname:]
 
 /**
  *  The fields of the `Device` resource to be returned in the response. If the
@@ -355,8 +341,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesList : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesListWithparent:]
 
 /**
  *  A list of device string IDs. For example, `['device0', 'device12']`. If
@@ -464,8 +448,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesModifyCloudToDeviceConfig : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesModifyCloudToDeviceConfigWithObject:name:]
 
 /**
  *  Required. The name of the device. For example,
@@ -505,8 +487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesPatch : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesPatchWithObject:name:]
 
 /**
  *  The resource path name. For example,
@@ -567,8 +547,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesSendCommandToDevice : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesSendCommandToDeviceWithObject:name:]
 
 /**
  *  Required. The name of the device. For example,
@@ -618,8 +596,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesDevicesStatesList : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesDevicesStatesListWithname:]
 
 /**
  *  Required. The name of the device. For example,
@@ -662,8 +638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGet : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGetWithname:]
 
 /**
  *  Required. The name of the device registry. For example,
@@ -696,8 +670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGetIamPolicy : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -734,8 +706,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsDevicesList : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsDevicesListWithparent:]
 
 /**
  *  A list of device string IDs. For example, `['device0', 'device12']`. If
@@ -842,8 +812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsGetIamPolicy : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -881,8 +849,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsSetIamPolicy : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -921,8 +887,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesGroupsTestIamPermissions : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesGroupsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -960,8 +924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesList : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesListWithparent:]
 
 /**
  *  The maximum number of registries to return in the response. If this value is
@@ -1012,8 +974,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesPatch : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesPatchWithObject:name:]
 
 /**
  *  The resource path name. For example,
@@ -1059,8 +1019,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesSetIamPolicy : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -1099,8 +1057,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesTestIamPermissions : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -1138,8 +1094,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIotGatewayListOptionsGatewayTypeNon
  *    @c kGTLRAuthScopeCloudIotCloudPlatform
  */
 @interface GTLRCloudIotQuery_ProjectsLocationsRegistriesUnbindDeviceFromGateway : GTLRCloudIotQuery
-// Previous library name was
-//   +[GTLQueryCloudIot queryForProjectsLocationsRegistriesUnbindDeviceFromGatewayWithObject:parent:]
 
 /**
  *  Required. The name of the registry. For example,

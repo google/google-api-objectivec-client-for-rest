@@ -158,8 +158,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsCreateWithObject:parent:]
 
 /**
  *  Required. The location to create a agent for. Format:
@@ -194,8 +192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsDeleteWithname:]
 
 /**
  *  Required. The name of the agent to delete. Format:
@@ -227,8 +223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `entity_type`: *
@@ -274,8 +268,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesDeleteWithname:]
 
 /**
  *  This field has no effect for entity type not being used. For entity types
@@ -318,8 +310,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesGetWithname:]
 
 /**
  *  The language to retrieve the entity type for. The following fields are
@@ -362,8 +352,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesListWithparent:]
 
 /**
  *  The language to list entity types for. The following fields are language
@@ -420,8 +408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEntityTypesPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `entity_type`: *
@@ -476,8 +462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsCreateWithObject:parent:]
 
 /**
  *  Required. The Agent to create an Environment for. Format:
@@ -512,8 +496,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsDeleteWithname:]
 
 /**
  *  Required. The name of the Environment to delete. Format:
@@ -545,8 +527,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsCreateWithObject:parent:]
 
 /**
  *  Required. The Agent to create an Environment for. Format:
@@ -581,8 +561,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsDeleteWithname:]
 
 /**
  *  Required. The name of the Environment to delete. Format:
@@ -614,8 +592,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsGetWithname:]
 
 /**
  *  Required. The name of the Environment. Format:
@@ -647,8 +623,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -694,8 +668,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsPatchWithObject:name:]
 
 /**
  *  The name of the experiment. Format:
@@ -738,8 +710,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStart : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsStartWithObject:name:]
 
 /**
  *  Required. Resource name of the experiment to start. Format:
@@ -777,8 +747,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsExperimentsStop : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsExperimentsStopWithObject:name:]
 
 /**
  *  Required. Resource name of the experiment to stop. Format:
@@ -815,8 +783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsGetWithname:]
 
 /**
  *  Required. The name of the Environment. Format:
@@ -848,8 +814,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -895,8 +859,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsLookupEnvironmentHistory : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsLookupEnvironmentHistoryWithname:]
 
 /**
  *  Required. Resource name of the environment to look up the history for.
@@ -942,8 +904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsPatchWithObject:name:]
 
 /**
  *  The name of the environment. Format:
@@ -990,8 +950,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsDetectIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsDetectIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -1041,8 +999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  Method: dialogflow.projects.locations.agents.environments.sessions.entityTypes.create
  *
@@ -1051,8 +1008,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesCreateWithObject:parent:]
 
 /**
  *  Required. The session to create a session entity type for. Format:
@@ -1065,8 +1020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.
  *
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType to include in
@@ -1093,8 +1047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesDeleteWithname:]
 
 /**
  *  Required. The name of the session entity type to delete. Format:
@@ -1130,8 +1082,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesGetWithname:]
 
 /**
  *  Required. The name of the session entity type. Format:
@@ -1167,8 +1117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -1218,8 +1166,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsEntityTypesPatchWithObject:name:]
 
 /**
  *  Required. The unique identifier of the session entity type. Format:
@@ -1268,8 +1214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsFulfillIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsFulfillIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -1321,8 +1265,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsSessionsMatchIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsEnvironmentsSessionsMatchIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -1372,8 +1314,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsExport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsExportWithObject:name:]
 
 /**
  *  Required. The name of the agent to export. Format:
@@ -1409,8 +1349,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `flow`: *
@@ -1456,8 +1394,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsDeleteWithname:]
 
 /**
  *  This field has no effect for flows with no incoming transitions. For flows
@@ -1499,8 +1435,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsGetWithname:]
 
 /**
  *  The language to retrieve the flow for. The following fields are language
@@ -1544,8 +1478,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsGetValidationResult : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsGetValidationResultWithname:]
 
 /** If not specified, the agent's default language is used. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -1581,8 +1513,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsListWithparent:]
 
 /**
  *  The language to list flows for. The following fields are language dependent:
@@ -1638,8 +1568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `page`: *
@@ -1688,8 +1616,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesDeleteWithname:]
 
 /**
  *  This field has no effect for pages with no incoming transitions. For pages
@@ -1731,8 +1657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesGetWithname:]
 
 /**
  *  The language to retrieve the page for. The following fields are language
@@ -1778,8 +1702,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesListWithparent:]
 
 /**
  *  The language to list pages for. The following fields are language dependent:
@@ -1838,8 +1760,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPagesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPagesPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `page`: *
@@ -1898,8 +1818,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `flow`: *
@@ -1954,8 +1872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTrain : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTrainWithObject:name:]
 
 /**
  *  Required. The flow to train. Format: `projects//locations//agents//flows/`.
@@ -1991,8 +1907,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsCreateWithObject:parent:]
 
 /**
  *  The language to list transition route groups for. The field `messages` in
@@ -2038,8 +1952,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsDeleteWithname:]
 
 /**
  *  This field has no effect for transition route group that no page is using.
@@ -2081,8 +1993,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsGetWithname:]
 
 /**
  *  The language to list transition route groups for. The field `messages` in
@@ -2124,8 +2034,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsListWithparent:]
 
 /**
  *  The language to list transition route groups for. The field `messages` in
@@ -2181,8 +2089,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsTransitionRouteGroupsPatchWithObject:name:]
 
 /**
  *  The language to list transition route groups for. The field `messages` in
@@ -2241,8 +2147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsValidate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsValidateWithObject:name:]
 
 /**
  *  Required. The flow to validate. Format:
@@ -2280,8 +2184,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsCreateWithObject:parent:]
 
 /**
  *  Required. The Flow to create an Version for. Format:
@@ -2316,8 +2218,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsDeleteWithname:]
 
 /**
  *  Required. The name of the Version to delete. Format:
@@ -2349,8 +2249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsGetWithname:]
 
 /**
  *  Required. The name of the Version. Format:
@@ -2382,8 +2280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -2428,8 +2324,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsLoad : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsLoadWithObject:name:]
 
 /**
  *  Required. The Version to be loaded to draft version. Format:
@@ -2465,8 +2359,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsFlowsVersionsPatchWithObject:name:]
 
 /**
  *  Format: projects//locations//agents//flows//versions/. Version ID is a
@@ -2510,8 +2402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsGetWithname:]
 
 /**
  *  Required. The name of the agent. Format: `projects//locations//agents/`.
@@ -2543,8 +2433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsGetValidationResult : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsGetValidationResultWithname:]
 
 /** If not specified, the agent's default language is used. */
 @property(nonatomic, copy, nullable) NSString *languageCode;
@@ -2580,8 +2468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsCreateWithObject:parent:]
 
 /**
  *  The language of the following fields in `intent`: *
@@ -2626,8 +2512,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsDeleteWithname:]
 
 /**
  *  Required. The name of the intent to delete. Format:
@@ -2659,8 +2543,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsGetWithname:]
 
 /**
  *  The language to retrieve the intent for. The following fields are language
@@ -2702,8 +2584,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsListWithparent:]
 
 /**
  *  The resource view to apply to the returned intent.
@@ -2771,8 +2651,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsIntentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsIntentsPatchWithObject:name:]
 
 /**
  *  The language of the following fields in `intent`: *
@@ -2827,8 +2705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -2873,8 +2749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsPatchWithObject:name:]
 
 /**
  *  The unique identifier of the agent. Required for the Agents.UpdateAgent
@@ -2921,8 +2795,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsRestore : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsRestoreWithObject:name:]
 
 /**
  *  Required. The name of the agent to restore into. Format:
@@ -2965,8 +2837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsDetectIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsDetectIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -3016,8 +2886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  Method: dialogflow.projects.locations.agents.sessions.entityTypes.create
  *
@@ -3026,8 +2895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesCreateWithObject:parent:]
 
 /**
  *  Required. The session to create a session entity type for. Format:
@@ -3040,8 +2907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType.
  *
- *  Creates a session entity type. If the specified session entity type already
- *  exists, overrides the session entity type.
+ *  Creates a session entity type.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType to include in
@@ -3068,8 +2934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesDeleteWithname:]
 
 /**
  *  Required. The name of the session entity type to delete. Format:
@@ -3105,8 +2969,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesGetWithname:]
 
 /**
  *  Required. The name of the session entity type. Format:
@@ -3142,8 +3004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -3193,8 +3053,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsEntityTypesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsEntityTypesPatchWithObject:name:]
 
 /**
  *  Required. The unique identifier of the session entity type. Format:
@@ -3243,8 +3101,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsFulfillIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsFulfillIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -3296,8 +3152,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsSessionsMatchIntent : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsSessionsMatchIntentWithObject:session:]
 
 /**
  *  Required. The name of the session this query is sent to. Format:
@@ -3347,8 +3201,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The agent to delete test cases from. Format:
@@ -3384,8 +3236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesBatchRun : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesBatchRunWithObject:parent:]
 
 /** Required. Agent name. Format: `projects//locations//agents/ `. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -3417,8 +3267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesCalculateCoverage : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesCalculateCoverageWithagent:]
 
 /**
  *  Required. The agent to calculate coverage for. Format:
@@ -3465,8 +3313,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesCreateWithObject:parent:]
 
 /**
  *  Required. The agent to create the test case for. Format:
@@ -3502,8 +3348,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesExport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesExportWithObject:parent:]
 
 /**
  *  Required. The agent where to export test cases from. Format:
@@ -3540,8 +3384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesGetWithname:]
 
 /**
  *  Required. The name of the testcase. Format:
@@ -3575,8 +3417,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesImport : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesImportWithObject:parent:]
 
 /**
  *  Required. The agent to import test cases to. Format:
@@ -3614,8 +3454,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20. Note
@@ -3675,8 +3513,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesPatchWithObject:name:]
 
 /**
  *  The unique identifier of the test case. TestCases.CreateTestCase will
@@ -3712,6 +3548,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Gets a test case result.
+ *
+ *  Method: dialogflow.projects.locations.agents.testCases.results.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the testcase. Format:
+ *  `projects//locations//agents//testCases//results/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TestCaseResult.
+ *
+ *  Gets a test case result.
+ *
+ *  @param name Required. The name of the testcase. Format:
+ *    `projects//locations//agents//testCases//results/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Fetches a list of results for a given test case.
  *
  *  Method: dialogflow.projects.locations.agents.testCases.results.list
@@ -3721,8 +3588,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesResultsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesResultsListWithparent:]
 
 /**
  *  The filter expression used to filter test case results. See [API
@@ -3786,8 +3651,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsTestCasesRun : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsTestCasesRunWithObject:name:]
 
 /**
  *  Required. Format of test case name to run: `projects//locations/
@@ -3825,8 +3688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsValidate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsValidateWithObject:name:]
 
 /**
  *  Required. The agent to validate. Format: `projects//locations//agents/`.
@@ -3863,8 +3724,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksCreateWithObject:parent:]
 
 /**
  *  Required. The agent to create a webhook for. Format:
@@ -3899,8 +3758,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksDeleteWithname:]
 
 /**
  *  This field has no effect for webhook not being used. For webhooks that are
@@ -3942,8 +3799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksGetWithname:]
 
 /**
  *  Required. The name of the webhook. Format:
@@ -3975,8 +3830,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 100 and
@@ -4021,8 +3874,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsWebhooksPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsAgentsWebhooksPatchWithObject:name:]
 
 /**
  *  The unique identifier of the webhook. Required for the
@@ -4075,8 +3926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsCancel : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4114,8 +3963,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4153,8 +4000,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsOperationsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -4203,8 +4048,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsCreate : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsCreateWithObject:parent:]
 
 /**
  *  Required. The location to create an SecuritySettings for. Format:
@@ -4240,8 +4083,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsDelete : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsDeleteWithname:]
 
 /**
  *  Required. The name of the SecuritySettings to delete. Format:
@@ -4274,8 +4115,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsGetWithname:]
 
 /**
  *  Required. Resource name of the settings. Format:
@@ -4308,8 +4147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsListWithparent:]
 
 /**
  *  The maximum number of items to return in a single page. By default 20 and at
@@ -4355,8 +4192,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsLocationsSecuritySettingsPatch : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsLocationsSecuritySettingsPatchWithObject:name:]
 
 /**
  *  Required. Resource name of the settings. Format:
@@ -4408,8 +4243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsCancel : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4447,8 +4280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsGet : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4486,8 +4317,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *    @c kGTLRAuthScopeDialogflowCloudPlatform
  */
 @interface GTLRDialogflowQuery_ProjectsOperationsList : GTLRDialogflowQuery
-// Previous library name was
-//   +[GTLQueryDialogflow queryForProjectsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

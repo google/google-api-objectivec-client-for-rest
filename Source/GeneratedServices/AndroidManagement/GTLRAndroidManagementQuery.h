@@ -102,8 +102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesApplicationsGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesApplicationsGetWithname:]
 
 /**
  *  The preferred language for localized application info, as a BCP47 tag (e.g.
@@ -141,8 +139,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesCreate : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesCreateWithObject:]
 
 /**
  *  This feature is not generally available yet. Whether the managed Google Play
@@ -184,8 +180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDeleteWithname:]
 
 /**
  *  This feature is not generally available yet. The name of the enterprise in
@@ -216,8 +210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesDeleteWithname:]
 
 /**
  *  The name of the device in the form
@@ -270,8 +262,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesGetWithname:]
 
 /**
  *  The name of the device in the form
@@ -304,8 +294,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesIssueCommand : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesIssueCommandWithObject:name:]
 
 /**
  *  The name of the device in the form
@@ -340,8 +328,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesList : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesListWithparent:]
 
 /**
  *  The requested page size. The actual page size may be fixed to a min or max
@@ -390,8 +376,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsCancel : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -429,8 +413,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -462,8 +444,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -500,8 +480,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesOperationsList : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -549,8 +527,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDevicesPatch : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesDevicesPatchWithObject:name:]
 
 /**
  *  The name of the device in the form
@@ -591,8 +567,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensCreate : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesEnrollmentTokensCreateWithObject:parent:]
 
 /** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -624,8 +598,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesEnrollmentTokensDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesEnrollmentTokensDeleteWithname:]
 
 /**
  *  The name of the enrollment token in the form
@@ -657,8 +629,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesGetWithname:]
 
 /** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -687,8 +657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesList : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesList]
 
 /**
  *  This feature is not generally available yet. The requested page size. The
@@ -747,8 +715,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPatch : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesPatchWithObject:name:]
 
 /** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -788,8 +754,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesPoliciesDeleteWithname:]
 
 /**
  *  The name of the policy in the form
@@ -821,8 +785,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesPoliciesGetWithname:]
 
 /**
  *  The name of the policy in the form
@@ -853,8 +815,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesList : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesPoliciesListWithparent:]
 
 /**
  *  The requested page size. The actual page size may be fixed to a min or max
@@ -895,8 +855,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesPoliciesPatch : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesPoliciesPatchWithObject:name:]
 
 /**
  *  The name of the policy in the form
@@ -937,8 +895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsCreate : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsCreateWithObject:parent:]
 
 /** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -968,8 +924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsDelete : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsDeleteWithname:]
 
 /**
  *  The name of the web app in the form
@@ -1000,8 +954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsGet : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsGetWithname:]
 
 /**
  *  The name of the web app in the form
@@ -1032,8 +984,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsList : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsListWithparent:]
 
 /**
  *  The requested page size. The actual page size may be fixed to a min or max
@@ -1074,8 +1024,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebAppsPatch : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebAppsPatchWithObject:name:]
 
 /**
  *  The name of the web app in the form
@@ -1117,8 +1065,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_EnterprisesWebTokensCreate : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForEnterprisesWebTokensCreateWithObject:parent:]
 
 /** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1149,8 +1095,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *    @c kGTLRAuthScopeAndroidManagement
  */
 @interface GTLRAndroidManagementQuery_SignupUrlsCreate : GTLRAndroidManagementQuery
-// Previous library name was
-//   +[GTLQueryAndroidManagement queryForSignupUrlsCreate]
 
 /**
  *  The callback URL that the admin will be redirected to after successfully

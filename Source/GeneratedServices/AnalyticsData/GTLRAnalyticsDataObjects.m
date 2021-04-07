@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
@@ -99,7 +99,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunPivotReportsRequest
-@dynamic entity, requests;
+@dynamic requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -141,7 +141,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 //
 
 @implementation GTLRAnalyticsData_BatchRunReportsRequest
-@dynamic entity, requests;
+@dynamic requests;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -343,16 +343,6 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_DimensionValue
 @dynamic value;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAnalyticsData_Entity
-//
-
-@implementation GTLRAnalyticsData_Entity
-@dynamic propertyId;
 @end
 
 
@@ -665,7 +655,7 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunPivotReportRequest
 @dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         entity, keepEmptyRows, metricFilter, metrics, pivots,
+         keepEmptyRows, metricFilter, metrics, pivots, property,
          returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -769,8 +759,8 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunReportRequest
 @dynamic cohortSpec, currencyCode, dateRanges, dimensionFilter, dimensions,
-         entity, keepEmptyRows, limit, metricAggregations, metricFilter,
-         metrics, offset, orderBys, returnPropertyQuota;
+         keepEmptyRows, limit, metricAggregations, metricFilter, metrics,
+         offset, orderBys, property, returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

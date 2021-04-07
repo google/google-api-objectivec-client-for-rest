@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmastersReadonly
  */
 @interface GTLRWebmastersQuery_SearchanalyticsQuery : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSearchanalyticsQueryWithObject:siteUrl:]
 
 /**
  *  The site's URL, including protocol. For example: http://www.example.com/
@@ -95,8 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmasters
  */
 @interface GTLRWebmastersQuery_SitemapsDelete : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitemapsDeleteWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the actual sitemap. For example:
@@ -137,8 +133,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmastersReadonly
  */
 @interface GTLRWebmastersQuery_SitemapsGet : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitemapsGetWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the actual sitemap. For example:
@@ -179,8 +173,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmastersReadonly
  */
 @interface GTLRWebmastersQuery_SitemapsList : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitemapsListWithsiteUrl:]
 
 /**
  *  A URL of a site's sitemap index. For example:
@@ -217,8 +209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmasters
  */
 @interface GTLRWebmastersQuery_SitemapsSubmit : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitemapsSubmitWithsiteUrl:feedpath:]
 
 /**
  *  The URL of the sitemap to add. For example:
@@ -258,8 +248,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmasters
  */
 @interface GTLRWebmastersQuery_SitesAdd : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitesAddWithsiteUrl:]
 
 /** The URL of the site to add. */
 @property(nonatomic, copy, nullable) NSString *siteUrl;
@@ -287,8 +275,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmasters
  */
 @interface GTLRWebmastersQuery_SitesDelete : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitesDeleteWithsiteUrl:]
 
 /**
  *  The URI of the property as defined in Search Console. Examples:
@@ -325,8 +311,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmastersReadonly
  */
 @interface GTLRWebmastersQuery_SitesGet : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitesGetWithsiteUrl:]
 
 /**
  *  The URI of the property as defined in Search Console. Examples:
@@ -362,8 +346,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWebmastersReadonly
  */
 @interface GTLRWebmastersQuery_SitesList : GTLRWebmastersQuery
-// Previous library name was
-//   +[GTLQueryWebmasters queryForSitesList]
 
 /**
  *  Fetches a @c GTLRWebmasters_SitesListResponse.

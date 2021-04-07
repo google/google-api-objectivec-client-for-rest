@@ -53,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupItemsDelete : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupItemsDelete]
 
 /**
  *  The `id` parameter specifies the YouTube group item ID of the group item
@@ -102,8 +100,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupItemsInsert : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupItemsInsertWithObject:]
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
@@ -145,8 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupItemsList : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupItemsList]
 
 /**
  *  The `groupId` parameter specifies the unique ID of the group for which you
@@ -192,8 +186,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupsDelete : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupsDelete]
 
 /**
  *  The `id` parameter specifies the YouTube group ID of the group that is being
@@ -241,8 +233,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupsInsert : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupsInsertWithObject:]
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
@@ -286,8 +276,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupsList : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupsList]
 
 /**
  *  The `id` parameter specifies a comma-separated list of the YouTube group
@@ -359,8 +347,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_GroupsUpdate : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForGroupsUpdateWithObject:]
 
 /**
  *  This parameter can only be used in a properly authorized request. **Note:**
@@ -402,8 +388,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeAnalyticsYtAnalyticsReadonly
  */
 @interface GTLRYouTubeAnalyticsQuery_ReportsQuery : GTLRYouTubeAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryYouTubeAnalytics queryForReportsQuery]
 
 /**
  *  The currency to which financial metrics should be converted. The default is

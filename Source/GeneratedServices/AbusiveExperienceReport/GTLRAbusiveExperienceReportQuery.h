@@ -44,8 +44,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: abusiveexperiencereport.sites.get
  */
 @interface GTLRAbusiveExperienceReportQuery_SitesGet : GTLRAbusiveExperienceReportQuery
-// Previous library name was
-//   +[GTLQueryAbusiveExperienceReport queryForSitesGetWithname:]
 
 /**
  *  Required. The name of the site whose summary to get, e.g.
@@ -73,8 +71,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: abusiveexperiencereport.violatingSites.list
  */
 @interface GTLRAbusiveExperienceReportQuery_ViolatingSitesList : GTLRAbusiveExperienceReportQuery
-// Previous library name was
-//   +[GTLQueryAbusiveExperienceReport queryForViolatingSitesList]
 
 /**
  *  Fetches a @c GTLRAbusiveExperienceReport_ViolatingSitesResponse.

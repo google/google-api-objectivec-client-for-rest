@@ -46,99 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: bigqueryreservation.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryReservationBigquery
- *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
- */
-@interface GTLRBigQueryReservationQuery_OperationsDelete : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForOperationsDeleteWithname:]
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRBigQueryReservation_Empty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRBigQueryReservationQuery_OperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  Method: bigqueryreservation.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeBigQueryReservationBigquery
- *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
- */
-@interface GTLRBigQueryReservationQuery_OperationsList : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForOperationsListWithname:]
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  Fetches a @c GTLRBigQueryReservation_ListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`. NOTE: the
- *  `name` binding allows API services to override the binding to use different
- *  resource name schemes, such as `users/ * /operations`. To override the
- *  binding, API services can add a binding such as `"/v1/{name=users/
- *  *}/operations"` to their service configuration. For backwards compatibility,
- *  the default name includes the operations collection id, however overriding
- *  users must ensure the name binding is the parent resource, without the
- *  operations collection id.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRBigQueryReservationQuery_OperationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
  *  Creates a new capacity commitment resource.
  *
  *  Method: bigqueryreservation.projects.locations.capacityCommitments.create
@@ -148,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsCreate : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsCreateWithObject:parent:]
 
 /**
  *  If true, fail the request if another project in the organization has a
@@ -192,8 +97,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsDelete : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsDeleteWithname:]
 
 /**
  *  Required. Resource name of the capacity commitment to delete. E.g.,
@@ -227,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsGet : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsGetWithname:]
 
 /**
  *  Required. Resource name of the capacity commitment to retrieve. E.g.,
@@ -260,8 +161,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsList : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsListWithparent:]
 
 /** The maximum number of items to return. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -309,8 +208,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsMerge : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsMergeWithObject:parent:]
 
 /**
  *  Parent resource that identifies admin project and location e.g.,
@@ -352,8 +249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsPatch : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsPatchWithObject:name:]
 
 /**
  *  Output only. The resource name of the capacity commitment, e.g.,
@@ -403,8 +298,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsSplit : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsCapacityCommitmentsSplitWithObject:name:]
 
 /**
  *  Required. The resource name e.g.,:
@@ -444,8 +337,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsGetBiReservation : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsGetBiReservationWithname:]
 
 /**
  *  Required. Name of the requested reservation, for example:
@@ -497,8 +388,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsCreate : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name of the assignment E.g.
@@ -560,8 +449,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsDelete : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsDeleteWithname:]
 
 /**
  *  Required. Name of the resource, e.g.
@@ -609,8 +496,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsList : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsListWithparent:]
 
 /** The maximum number of items to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -667,8 +552,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsMove : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsAssignmentsMoveWithObject:name:]
 
 /**
  *  Required. The resource name of the assignment, e.g.
@@ -705,8 +588,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsCreate : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsCreateWithObject:parent:]
 
 /** Required. Project, location. E.g., `projects/myproject/locations/US` */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -745,8 +626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsDelete : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsDeleteWithname:]
 
 /**
  *  Required. Resource name of the reservation to retrieve. E.g.,
@@ -779,8 +658,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsGet : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsGetWithname:]
 
 /**
  *  Required. Resource name of the reservation to retrieve. E.g.,
@@ -812,8 +689,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsList : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsListWithparent:]
 
 /** The maximum number of items to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -857,8 +732,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsPatch : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsReservationsPatchWithObject:name:]
 
 /**
  *  The resource name of the reservation, e.g., `projects/ * /locations/ *
@@ -911,8 +784,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsSearchAllAssignments : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsSearchAllAssignmentsWithparent:]
 
 /** The maximum number of items to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -985,8 +856,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsSearchAssignments : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsSearchAssignmentsWithparent:]
 
 /** The maximum number of items to return per page. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1051,8 +920,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsUpdateBiReservation : GTLRBigQueryReservationQuery
-// Previous library name was
-//   +[GTLQueryBigQueryReservation queryForProjectsLocationsUpdateBiReservationWithObject:name:]
 
 /**
  *  The resource name of the singleton BI reservation. Reservation names have

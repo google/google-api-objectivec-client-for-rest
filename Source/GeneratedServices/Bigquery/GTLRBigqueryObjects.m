@@ -107,6 +107,7 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Datetime = @"DATETIM
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Float64 = @"FLOAT64";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Geography = @"GEOGRAPHY";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64 = @"INT64";
+NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Interval = @"INTERVAL";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric = @"NUMERIC";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_String = @"STRING";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct = @"STRUCT";
@@ -1376,8 +1377,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
          parentJobId, query, quotaDeferments, reservationId, reservationUsage,
-         rowLevelSecurityStatistics, scriptStatistics, startTime,
-         totalBytesProcessed, totalSlotMs, transactionInfoTemplate;
+         rowLevelSecurityStatistics, scriptStatistics, sessionInfoTemplate,
+         startTime, totalBytesProcessed, totalSlotMs, transactionInfoTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"reservationId" : @"reservation_id" };
@@ -1923,7 +1924,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_QueryResponse
 @dynamic cacheHit, errors, jobComplete, jobReference, kind, numDmlAffectedRows,
-         pageToken, rows, schema, totalBytesProcessed, totalRows;
+         pageToken, rows, schema, sessionInfoTemplate, totalBytesProcessed,
+         totalRows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2106,6 +2108,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_SessionInfo
+//
+
+@implementation GTLRBigquery_SessionInfo
+@dynamic sessionId;
 @end
 
 
@@ -2337,7 +2349,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic categories, descriptionProperty, fields, mode, name, policyTags, type;
+@dynamic categories, descriptionProperty, fields, maxLength, mode, name,
+         policyTags, precision, scale, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

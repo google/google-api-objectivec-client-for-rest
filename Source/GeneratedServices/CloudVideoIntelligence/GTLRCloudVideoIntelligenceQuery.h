@@ -59,8 +59,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsCancel : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -98,8 +96,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsDelete : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -131,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_OperationsProjectsLocationsOperationsGet : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForOperationsProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -169,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsCancel : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -212,8 +204,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsDelete : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -245,8 +235,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsGet : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -283,8 +271,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_ProjectsLocationsOperationsList : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -336,8 +322,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudVideoIntelligenceCloudPlatform
  */
 @interface GTLRCloudVideoIntelligenceQuery_VideosAnnotate : GTLRCloudVideoIntelligenceQuery
-// Previous library name was
-//   +[GTLQueryCloudVideoIntelligence queryForVideosAnnotateWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudVideoIntelligence_GoogleLongrunningOperation.

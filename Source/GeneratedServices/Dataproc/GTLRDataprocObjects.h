@@ -46,11 +46,14 @@
 @class GTLRDataproc_GceClusterConfig;
 @class GTLRDataproc_GceClusterConfig_Metadata;
 @class GTLRDataproc_GetPolicyOptions;
+@class GTLRDataproc_GkeClusterConfig;
 @class GTLRDataproc_HadoopJob;
 @class GTLRDataproc_HadoopJob_Properties;
 @class GTLRDataproc_HiveJob;
 @class GTLRDataproc_HiveJob_Properties;
 @class GTLRDataproc_HiveJob_ScriptVariables;
+@class GTLRDataproc_IdentityConfig;
+@class GTLRDataproc_IdentityConfig_UserServiceAccountMapping;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
@@ -70,6 +73,7 @@
 @class GTLRDataproc_ManagedCluster_Labels;
 @class GTLRDataproc_ManagedGroupConfig;
 @class GTLRDataproc_MetastoreConfig;
+@class GTLRDataproc_NamespacedGkeDeploymentTarget;
 @class GTLRDataproc_NodeGroupAffinity;
 @class GTLRDataproc_NodeInitializationAction;
 @class GTLRDataproc_Operation;
@@ -495,11 +499,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker;
 /**
+ *  The Druid query engine. (beta)
+ *
+ *  Value: "DRUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Druid;
+/**
  *  Flink
  *
  *  Value: "FLINK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Flink;
+/**
+ *  HBase. (beta)
+ *
+ *  Value: "HBASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Hbase;
 /**
  *  The Hive Web HCatalog (the REST service for accessing HCatalog).
  *
@@ -1013,6 +1029,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  cluster.
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig *gceClusterConfig;
+
+/**
+ *  Optional. BETA. The Kubernetes Engine config for Dataproc clusters deployed
+ *  to Kubernetes. Setting this is considered mutually exclusive with Compute
+ *  Engine-based options such as gce_cluster_config, master_config,
+ *  worker_config, secondary_worker_config, and autoscaling_config.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_GkeClusterConfig *gkeClusterConfig;
 
 /**
  *  Optional. Commands to execute on each node after config is completed. By
@@ -1644,6 +1668,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  The GKE config for this cluster.
+ */
+@interface GTLRDataproc_GkeClusterConfig : GTLRObject
+
+/** Optional. A target for the deployment. */
+@property(nonatomic, strong, nullable) GTLRDataproc_NamespacedGkeDeploymentTarget *namespacedGkeDeploymentTarget;
+
+@end
+
+
+/**
  *  A Dataproc job for running Apache Hadoop MapReduce
  *  (https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html)
  *  jobs on Apache Hadoop YARN
@@ -1790,6 +1825,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        fetch them all at once.
  */
 @interface GTLRDataproc_HiveJob_ScriptVariables : GTLRObject
+@end
+
+
+/**
+ *  Identity related configuration, including service account based secure
+ *  multi-tenancy user mappings.
+ */
+@interface GTLRDataproc_IdentityConfig : GTLRObject
+
+/** Required. Map of user to service account. */
+@property(nonatomic, strong, nullable) GTLRDataproc_IdentityConfig_UserServiceAccountMapping *userServiceAccountMapping;
+
+@end
+
+
+/**
+ *  Required. Map of user to service account.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_IdentityConfig_UserServiceAccountMapping : GTLRObject
 @end
 
 
@@ -2707,6 +2766,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A full, namespace-isolated deployment target for an existing GKE cluster.
+ */
+@interface GTLRDataproc_NamespacedGkeDeploymentTarget : GTLRObject
+
+/** Optional. A namespace within the GKE cluster to deploy into. */
+@property(nonatomic, copy, nullable) NSString *clusterNamespace;
+
+/**
+ *  Optional. The target GKE cluster to deploy to. Format:
+ *  'projects/{project}/locations/{location}/clusters/{cluster_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *targetGkeCluster;
+
+@end
+
+
+/**
  *  Node Group Affinity for clusters using sole-tenant node groups.
  */
 @interface GTLRDataproc_NodeGroupAffinity : GTLRObject
@@ -3274,6 +3350,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Security related configuration, including encryption, Kerberos, etc.
  */
 @interface GTLRDataproc_SecurityConfig : GTLRObject
+
+/**
+ *  Optional. Identity related configuration, including service account based
+ *  secure multi-tenancy user mappings.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_IdentityConfig *identityConfig;
 
 /** Optional. Kerberos related configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_KerberosConfig *kerberosConfig;

@@ -77,8 +77,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesGet : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesGetWithname:]
 
 /** Required. The name of the table to retrieve. Format: tables/{table} */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -111,8 +109,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesList : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesList]
 
 /**
  *  The maximum number of tables to return. The service may return fewer than
@@ -155,8 +151,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsBatchCreate : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsBatchCreateWithObject:parent:]
 
 /**
  *  Required. The parent table where the rows will be created. Format:
@@ -193,8 +187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsBatchDelete : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsBatchDeleteWithObject:parent:]
 
 /**
  *  Required. The parent table shared by all rows being deleted. Format:
@@ -231,8 +223,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsBatchUpdate : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsBatchUpdateWithObject:parent:]
 
 /**
  *  Required. The parent table shared by all rows being updated. Format:
@@ -269,8 +259,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsCreate : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsCreateWithObject:parent:]
 
 /**
  *  Required. The parent table where this row will be created. Format:
@@ -318,8 +306,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsDelete : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsDeleteWithname:]
 
 /**
  *  Required. The name of the row to delete. Format: tables/{table}/rows/{row}
@@ -354,8 +340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsGet : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsGetWithname:]
 
 /**
  *  Required. The name of the row to retrieve. Format: tables/{table}/rows/{row}
@@ -402,8 +386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsList : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsListWithparent:]
 
 /**
  *  Optional. Filter to only include resources matching the requirements. For
@@ -470,8 +452,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_TablesRowsPatch : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForTablesRowsPatchWithObject:name:]
 
 /**
  *  The resource name of the row. Row names have the form
@@ -528,8 +508,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_WorkspacesGet : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForWorkspacesGetWithname:]
 
 /**
  *  Required. The name of the workspace to retrieve. Format:
@@ -565,8 +543,6 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *    @c kGTLRAuthScopeArea120TablesTables
  */
 @interface GTLRArea120TablesQuery_WorkspacesList : GTLRArea120TablesQuery
-// Previous library name was
-//   +[GTLQueryArea120Tables queryForWorkspacesList]
 
 /**
  *  The maximum number of workspaces to return. The service may return fewer

@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.cancel
  */
 @interface GTLRFirebaseHostingQuery_OperationsCancel : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -95,8 +93,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.delete
  */
 @interface GTLRFirebaseHostingQuery_OperationsDelete : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -131,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: firebasehosting.operations.list
  */
 @interface GTLRFirebaseHostingQuery_OperationsList : GTLRFirebaseHostingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseHosting queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

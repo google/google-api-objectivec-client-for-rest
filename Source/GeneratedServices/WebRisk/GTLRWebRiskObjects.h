@@ -151,6 +151,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_T
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_ThreatTypes_UnwantedSoftware;
 
+// ----------------------------------------------------------------------------
+// GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata.state
+
+/**
+ *  The operation was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled;
+/**
+ *  The operation finished with a failure status.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed;
+/**
+ *  The operation is currently running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running;
+/**
+ *  Default unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified;
+/**
+ *  The operation finished with a success status.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded;
+
 /**
  *  GTLRWebRisk_GoogleCloudWebriskV1ComputeThreatListDiffResponse
  */
@@ -411,6 +445,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWebRisk_GoogleCloudWebriskV1Submission_T
  *  analyzed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Metadata for the Submit URI long-running operation.
+ */
+@interface GTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata : GTLRObject
+
+/** Creation time of the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The state of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Cancelled
+ *        The operation was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Failed
+ *        The operation finished with a failure status. (Value: "FAILED")
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Running
+ *        The operation is currently running. (Value: "RUNNING")
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_StateUnspecified
+ *        Default unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWebRisk_GoogleCloudWebriskV1SubmitUriMetadata_State_Succeeded
+ *        The operation finished with a success status. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Latest update time of the operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

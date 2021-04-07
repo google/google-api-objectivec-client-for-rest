@@ -55,8 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsGet : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -83,19 +81,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsList : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -124,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesCreate : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesCreateWithObject:parent:]
 
 /**
  *  Required. The Resource ID must be 1-63 characters long, and comply with
@@ -169,8 +173,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesDelete : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesDeleteWithname:]
 
 /** Required. The name of the namespace to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -198,8 +200,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesGet : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesGetWithname:]
 
 /** Required. The name of the namespace to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -226,8 +226,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesGetIamPolicy : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -262,8 +260,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesList : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesListWithparent:]
 
 /**
  *  Optional. The filter to list results by. General `filter` string syntax: `
@@ -334,8 +330,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesPatch : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name for the namespace in the format `projects/ *
@@ -375,8 +369,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesCreate : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the namespace this service will belong to.
@@ -419,8 +411,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesDelete : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesDeleteWithname:]
 
 /** Required. The name of the service to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -448,8 +438,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsCreate : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsCreateWithObject:parent:]
 
 /**
  *  Required. The Resource ID must be 1-63 characters long, and comply with
@@ -489,8 +477,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsDelete : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsDeleteWithname:]
 
 /** Required. The name of the endpoint to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -517,8 +503,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsGet : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsGetWithname:]
 
 /** Required. The name of the endpoint to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -545,8 +529,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsList : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsListWithparent:]
 
 /**
  *  Optional. The filter to list results by. General `filter` string syntax: `
@@ -622,8 +604,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesEndpointsPatch : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesEndpointsPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name for the endpoint in the format `projects/ *
@@ -663,8 +643,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesGet : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesGetWithname:]
 
 /** Required. The name of the service to get. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -691,8 +669,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesGetIamPolicy : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being requested. See the
@@ -727,8 +703,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesList : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesListWithparent:]
 
 /**
  *  Optional. The filter to list results by. General `filter` string syntax: `
@@ -801,8 +775,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesPatch : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesPatchWithObject:name:]
 
 /**
  *  Immutable. The resource name for the service in the format `projects/ *
@@ -843,8 +815,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesResolve : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesResolveWithObject:name:]
 
 /** Required. The name of the service to resolve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -875,8 +845,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesSetIamPolicy : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -911,8 +879,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesServicesTestIamPermissions : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesServicesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -947,8 +913,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesSetIamPolicy : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -983,8 +947,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeServiceDirectoryCloudPlatform
  */
 @interface GTLRServiceDirectoryQuery_ProjectsLocationsNamespacesTestIamPermissions : GTLRServiceDirectoryQuery
-// Previous library name was
-//   +[GTLQueryServiceDirectory queryForProjectsLocationsNamespacesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

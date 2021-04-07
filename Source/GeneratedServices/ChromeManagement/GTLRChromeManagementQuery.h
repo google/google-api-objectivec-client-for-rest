@@ -95,8 +95,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsCountChromeVersions : GTLRChromeManagementQuery
-// Previous library name was
-//   +[GTLQueryChromeManagement queryForCustomersReportsCountChromeVersionsWithcustomer:]
 
 /**
  *  Required. Customer id or "my_customer" to use the customer associated to the
@@ -148,8 +146,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsCountInstalledApps : GTLRChromeManagementQuery
-// Previous library name was
-//   +[GTLQueryChromeManagement queryForCustomersReportsCountInstalledAppsWithcustomer:]
 
 /**
  *  Required. Customer id or "my_customer" to use the customer associated to the
@@ -208,8 +204,6 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
  */
 @interface GTLRChromeManagementQuery_CustomersReportsFindInstalledAppDevices : GTLRChromeManagementQuery
-// Previous library name was
-//   +[GTLQueryChromeManagement queryForCustomersReportsFindInstalledAppDevicesWithcustomer:]
 
 /**
  *  Unique identifier of the app. For Chrome apps and extensions, the
@@ -249,7 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Field used to order results. Supported order by fields: * machine_name *
+ *  Field used to order results. Supported order by fields: * machine *
  *  device_id
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;

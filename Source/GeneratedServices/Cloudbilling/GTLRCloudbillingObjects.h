@@ -249,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudbilling_GeoTaxonomy_Type_TypeUnspec
 /**
  *  If this account is a
  *  [subaccount](https://cloud.google.com/billing/docs/concepts), then this will
- *  be the resource name of the master billing account that it is being resold
+ *  be the resource name of the parent billing account that it is being resold
  *  through. Otherwise this will be empty.
  */
 @property(nonatomic, copy, nullable) NSString *masterBillingAccount;

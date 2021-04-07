@@ -395,8 +395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProcesses
  */
 @interface GTLRScriptQuery_ProcessesList : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProcessesList]
 
 /**
  *  The maximum number of returned processes per page of results. Defaults to
@@ -544,8 +542,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProcesses
  */
 @interface GTLRScriptQuery_ProcessesListScriptProcesses : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProcessesListScriptProcesses]
 
 /**
  *  The maximum number of returned processes per page of results. Defaults to
@@ -684,8 +680,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsCreate : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRScript_Project.
@@ -711,8 +705,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsCreate : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsDeploymentsCreateWithObject:scriptId:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -741,8 +733,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsDelete : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsDeploymentsDeleteWithscriptId:deploymentId:]
 
 /** The deployment ID to be undeployed. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
@@ -775,8 +765,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptDeploymentsReadonly
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsGet : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsDeploymentsGetWithscriptId:deploymentId:]
 
 /** The deployment ID. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
@@ -809,8 +797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptDeploymentsReadonly
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsList : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsDeploymentsListWithscriptId:]
 
 /**
  *  The maximum number of deployments on each returned page. Defaults to 50.
@@ -852,8 +838,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptDeployments
  */
 @interface GTLRScriptQuery_ProjectsDeploymentsUpdate : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsDeploymentsUpdateWithObject:scriptId:deploymentId:]
 
 /** The deployment ID for this deployment. */
 @property(nonatomic, copy, nullable) NSString *deploymentId;
@@ -889,8 +873,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsGet : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsGetWithscriptId:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -919,8 +901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsGetContent : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsGetContentWithscriptId:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -954,8 +934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptMetrics
  */
 @interface GTLRScriptQuery_ProjectsGetMetrics : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsGetMetricsWithscriptId:]
 
 /**
  *  Optional field indicating a specific deployment to retrieve metrics from.
@@ -1004,8 +982,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsUpdateContent : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsUpdateContentWithObject:scriptId:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -1038,8 +1014,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjects
  */
 @interface GTLRScriptQuery_ProjectsVersionsCreate : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsVersionsCreateWithObject:scriptId:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -1070,8 +1044,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsVersionsGet : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsVersionsGetWithscriptId:versionNumber:]
 
 /** The script project's Drive ID. */
 @property(nonatomic, copy, nullable) NSString *scriptId;
@@ -1104,8 +1076,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptProjectsReadonly
  */
 @interface GTLRScriptQuery_ProjectsVersionsList : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForProjectsVersionsListWithscriptId:]
 
 /** The maximum number of versions on each returned page. Defaults to 50. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1166,8 +1136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRScriptUserProcessFilterUserAccessLevelsW
  *    @c kGTLRAuthScopeScriptUserinfoEmail
  */
 @interface GTLRScriptQuery_ScriptsRun : GTLRScriptQuery
-// Previous library name was
-//   +[GTLQueryScript queryForScriptsRunWithObject:scriptId:]
 
 /**
  *  The script ID of the script to be executed. Find the script ID on the

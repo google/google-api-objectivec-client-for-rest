@@ -1852,22 +1852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Request message for EnableService method.
- */
-@interface GTLRServiceManagement_EnableServiceRequest : GTLRObject
-
-/**
- *  Required. The identity of consumer resource which service enablement will be
- *  applied to. The Google Service Management implementation accepts the
- *  following forms: - "project:" Note: this is made compatible with
- *  google.api.servicecontrol.v1.Operation.consumer_id.
- */
-@property(nonatomic, copy, nullable) NSString *consumerId;
-
-@end
-
-
-/**
  *  Operation payload for EnableService method.
  */
 @interface GTLRServiceManagement_EnableServiceResponse : GTLRObject
@@ -3905,7 +3889,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_Billing *billing;
 
 /**
- *  Deprecated. The service config compiler always sets this field to `3`.
+ *  Obsolete. Do not use. This field has no semantic meaning. The service config
+ *  compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

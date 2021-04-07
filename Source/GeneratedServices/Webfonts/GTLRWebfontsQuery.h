@@ -92,8 +92,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *  Method: webfonts.webfonts.list
  */
 @interface GTLRWebfontsQuery_WebfontsList : GTLRWebfontsQuery
-// Previous library name was
-//   +[GTLQueryWebfonts queryForWebfontsList]
 
 /**
  *  Enables sorting of the list.

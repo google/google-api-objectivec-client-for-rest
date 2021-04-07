@@ -25,7 +25,6 @@
 @class GTLRHomeGraphService_Device_CustomData;
 @class GTLRHomeGraphService_DeviceInfo;
 @class GTLRHomeGraphService_DeviceNames;
-@class GTLRHomeGraphService_NonLocalTrait;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
 @class GTLRHomeGraphService_QueryResponsePayload;
@@ -34,7 +33,6 @@
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_Notifications;
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_States;
-@class GTLRHomeGraphService_RequestLinkRequestPayload;
 @class GTLRHomeGraphService_StateAndNotificationPayload;
 @class GTLRHomeGraphService_SyncResponsePayload;
 
@@ -105,14 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Names given to this device by your smart home Action. */
 @property(nonatomic, strong, nullable) GTLRHomeGraphService_DeviceNames *name;
-
-/**
- *  See description for "traits". For Smart Home Entertainment Devices (SHED)
- *  devices, some traits can only be executed on 3P cloud, e.g.
- *  "non_local_traits": [ { "trait": "action.devices.traits.MediaInitiation" },
- *  { "trait": "action.devices.traits.Channel" } ] go/shed-per-trait-routing.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_NonLocalTrait *> *nonLocalTraits;
 
 /**
  *  Indicates whether your smart home Action will report notifications to Google
@@ -244,21 +234,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRHomeGraphService_Empty : GTLRObject
-@end
-
-
-/**
- *  LINT.IfChange go/shed-per-trait-routing. Making it object to allow for
- *  extendible design, where we can add attributes in future.
- */
-@interface GTLRHomeGraphService_NonLocalTrait : GTLRObject
-
-/**
- *  Trait name, e.g., "action.devices.traits.MediaInitiation". See [device
- *  traits](https://developers.google.com/assistant/smarthome/traits).
- */
-@property(nonatomic, copy, nullable) NSString *trait;
-
 @end
 
 
@@ -434,12 +409,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Unique identifier per event (for example, a doorbell press). */
 @property(nonatomic, copy, nullable) NSString *eventId;
 
-/**
- *  Token to maintain state in the follow up notification response. Deprecated.
- *  See the [notifications
- *  guide](https://developers.google.com/assistant/smarthome/develop/notifications)
- *  for details on implementing follow up notifications.
- */
+/** Deprecated. */
 @property(nonatomic, copy, nullable) NSString *followUpToken;
 
 /**
@@ -462,41 +432,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Request ID copied from ReportStateAndNotificationRequest. */
 @property(nonatomic, copy, nullable) NSString *requestId;
-
-@end
-
-
-/**
- *  Request type for the
- *  [`RequestLink`](#google.home.graph.v1.HomeGraphApiService.RequestLink) call.
- */
-@interface GTLRHomeGraphService_RequestLinkRequest : GTLRObject
-
-/** Required. ID(s) and detection time of potential Cast devices. */
-@property(nonatomic, strong, nullable) GTLRHomeGraphService_RequestLinkRequestPayload *payload;
-
-/** Required. Request ID used for debugging. */
-@property(nonatomic, copy, nullable) NSString *requestId;
-
-@end
-
-
-/**
- *  Payload containing potential devices detected and when they were detected.
- */
-@interface GTLRHomeGraphService_RequestLinkRequestPayload : GTLRObject
-
-/**
- *  Required. Time at which devices represented in `potential_cast_device_ids`
- *  were detected.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *detectionTime;
-
-/**
- *  Required. List of device IDs detected that may potentially be for Cast
- *  devices.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *potentialCastDeviceIds;
 
 @end
 

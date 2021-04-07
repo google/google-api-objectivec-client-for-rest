@@ -359,6 +359,28 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_ListOperationsResponse
+//
+
+@implementation GTLROSConfig_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLROSConfig_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_ListPatchDeploymentsResponse
 //
 
@@ -440,6 +462,44 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 @implementation GTLROSConfig_OneTimeSchedule
 @dynamic executeTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_Operation
+//
+
+@implementation GTLROSConfig_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_Operation_Metadata
+//
+
+@implementation GTLROSConfig_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_Operation_Response
+//
+
+@implementation GTLROSConfig_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -577,6 +637,38 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 @implementation GTLROSConfig_RecurringSchedule
 @dynamic endTime, frequency, lastExecuteTime, monthly, nextExecuteTime,
          startTime, timeOfDay, timeZone, weekly;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_Status
+//
+
+@implementation GTLROSConfig_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLROSConfig_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_Status_Details_Item
+//
+
+@implementation GTLROSConfig_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

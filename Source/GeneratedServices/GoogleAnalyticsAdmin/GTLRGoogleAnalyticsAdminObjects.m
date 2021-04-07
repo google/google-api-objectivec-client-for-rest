@@ -616,8 +616,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaProperty
-@dynamic createTime, currencyCode, deleted, displayName, industryCategory, name,
-         parent, timeZone, updateTime;
+@dynamic createTime, currencyCode, deleteTime, displayName, expireTime,
+         industryCategory, name, parent, timeZone, updateTime;
 @end
 
 

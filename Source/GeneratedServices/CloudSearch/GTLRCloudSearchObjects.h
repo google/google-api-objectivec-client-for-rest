@@ -141,6 +141,7 @@
 @class GTLRCloudSearch_UploadItemRef;
 @class GTLRCloudSearch_Value;
 @class GTLRCloudSearch_ValueFilter;
+@class GTLRCloudSearch_VPCSettings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1011,6 +1012,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *searchSessionsCount;
+
+@end
+
+
+/**
+ *  Represents settings at a customer level.
+ */
+@interface GTLRCloudSearch_CustomerSettings : GTLRObject
+
+/**
+ *  VPC SC settings for the customer. If update_mask is empty then this field
+ *  will be updated based on UpdateCustomerSettings request.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_VPCSettings *vpcSettings;
 
 @end
 
@@ -4851,6 +4866,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /** The value to be compared with. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_Value *value;
+
+@end
+
+
+/**
+ *  GTLRCloudSearch_VPCSettings
+ */
+@interface GTLRCloudSearch_VPCSettings : GTLRObject
+
+/**
+ *  The resource name of the GCP Project to be used for VPC SC policy check. VPC
+ *  security settings on this project will be honored for Cloud Search APIs
+ *  after project_name has been updated through CustomerService. Format:
+ *  projects/{project_id}
+ */
+@property(nonatomic, copy, nullable) NSString *project;
 
 @end
 

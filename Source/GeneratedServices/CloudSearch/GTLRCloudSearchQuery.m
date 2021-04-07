@@ -729,6 +729,21 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @end
 
+@implementation GTLRCloudSearchQuery_SettingsGetCustomer
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/settings/customer";
+  GTLRCloudSearchQuery_SettingsGetCustomer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRCloudSearch_CustomerSettings class];
+  query.loggingName = @"cloudsearch.settings.getCustomer";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSearchQuery_SettingsSearchapplicationsCreate
 
 + (instancetype)queryWithObject:(GTLRCloudSearch_SearchApplication *)object {
@@ -867,6 +882,30 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
   query.name = name;
   query.expectedObjectClass = [GTLRCloudSearch_Operation class];
   query.loggingName = @"cloudsearch.settings.searchapplications.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSearchQuery_SettingsUpdateCustomer
+
+@dynamic updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudSearch_CustomerSettings *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/settings/customer";
+  GTLRCloudSearchQuery_SettingsUpdateCustomer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRCloudSearch_Operation class];
+  query.loggingName = @"cloudsearch.settings.updateCustomer";
   return query;
 }
 

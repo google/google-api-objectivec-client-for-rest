@@ -892,9 +892,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled? By default, it's true and API
- *  needs to do explicitly check whether it's set, if it's set as false
- *  explicitly, it's false
+ *  This field is deprecated, and will be always set to true since reschedule
+ *  can happen multiple times now. This field should not be removed until all
+ *  service producers remove this for their customers.
  *
  *  Uses NSNumber of boolValue.
  */

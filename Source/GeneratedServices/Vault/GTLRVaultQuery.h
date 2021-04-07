@@ -139,8 +139,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersAddPermissions : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersAddPermissionsWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -170,8 +168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersClose : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersCloseWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -201,8 +197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersCount : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersCountWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -235,8 +229,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersCreate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRVault_Matter.
@@ -262,8 +254,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersDeleteWithmatterId:]
 
 /** The matter ID */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -290,8 +280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersExportsCreate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersExportsCreateWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -320,8 +308,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersExportsDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersExportsDeleteWithmatterId:exportId:]
 
 /** The export ID. */
 @property(nonatomic, copy, nullable) NSString *exportId;
@@ -354,8 +340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersExportsGet : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersExportsGetWithmatterId:exportId:]
 
 /** The export ID. */
 @property(nonatomic, copy, nullable) NSString *exportId;
@@ -388,8 +372,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersExportsList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersExportsListWithmatterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -427,8 +409,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersGet : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersGetWithmatterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -470,8 +450,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsCreate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsAccountsCreateWithObject:matterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -508,8 +486,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsAccountsDeleteWithmatterId:holdId:accountId:]
 
 /** The ID of the account to remove from the hold. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -550,8 +526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsAccountsList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsAccountsListWithmatterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -587,8 +561,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsAddHeldAccounts : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsAddHeldAccountsWithObject:matterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -625,8 +597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsCreate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsCreateWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -655,8 +625,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsDeleteWithmatterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -689,8 +657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsGet : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsGetWithmatterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -738,8 +704,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersHoldsList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsListWithmatterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -799,8 +763,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsRemoveHeldAccounts : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsRemoveHeldAccountsWithObject:matterId:holdId:]
 
 /** The hold ID. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -839,8 +801,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersHoldsUpdate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersHoldsUpdateWithObject:matterId:holdId:]
 
 /** The ID of the hold. */
 @property(nonatomic, copy, nullable) NSString *holdId;
@@ -877,8 +837,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersList]
 
 /**
  *  The number of matters to return in the response. Default and maximum are
@@ -939,8 +897,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersRemovePermissions : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersRemovePermissionsWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -970,8 +926,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersReopen : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersReopenWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -1000,8 +954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersSavedQueriesCreate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersSavedQueriesCreateWithObject:matterId:]
 
 /**
  *  The matter ID of the parent matter for which the saved query is to be
@@ -1034,8 +986,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersSavedQueriesDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersSavedQueriesDeleteWithmatterId:savedQueryId:]
 
 /**
  *  The matter ID of the parent matter for which the saved query is to be
@@ -1072,8 +1022,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersSavedQueriesGet : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersSavedQueriesGetWithmatterId:savedQueryId:]
 
 /**
  *  The matter ID of the parent matter for which the saved query is to be
@@ -1111,8 +1059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_MattersSavedQueriesList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersSavedQueriesListWithmatterId:]
 
 /**
  *  The matter ID of the parent matter for which the saved queries are to be
@@ -1157,8 +1103,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersUndelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersUndeleteWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -1190,8 +1134,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscovery
  */
 @interface GTLRVaultQuery_MattersUpdate : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForMattersUpdateWithObject:matterId:]
 
 /** The matter ID. */
 @property(nonatomic, copy, nullable) NSString *matterId;
@@ -1227,8 +1169,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Method: vault.operations.cancel
  */
 @interface GTLRVaultQuery_OperationsCancel : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1266,8 +1206,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Method: vault.operations.delete
  */
 @interface GTLRVaultQuery_OperationsDelete : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1300,8 +1238,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *    @c kGTLRAuthScopeVaultEdiscoveryReadonly
  */
 @interface GTLRVaultQuery_OperationsGet : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1335,8 +1271,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Method: vault.operations.list
  */
 @interface GTLRVaultQuery_OperationsList : GTLRVaultQuery
-// Previous library name was
-//   +[GTLQueryVault queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;

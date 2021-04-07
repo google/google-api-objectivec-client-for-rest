@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:

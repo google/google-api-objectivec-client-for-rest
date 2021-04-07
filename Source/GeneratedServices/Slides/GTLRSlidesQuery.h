@@ -114,8 +114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *    @c kGTLRAuthScopeSlidesSpreadsheetsReadonly
  */
 @interface GTLRSlidesQuery_PresentationsBatchUpdate : GTLRSlidesQuery
-// Previous library name was
-//   +[GTLQuerySlides queryForPresentationsBatchUpdateWithObject:presentationId:]
 
 /** The presentation to apply the updates to. */
 @property(nonatomic, copy, nullable) NSString *presentationId;
@@ -163,8 +161,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *    @c kGTLRAuthScopeSlidesPresentations
  */
 @interface GTLRSlidesQuery_PresentationsCreate : GTLRSlidesQuery
-// Previous library name was
-//   +[GTLQuerySlides queryForPresentationsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRSlides_Presentation.
@@ -195,8 +191,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
  */
 @interface GTLRSlidesQuery_PresentationsGet : GTLRSlidesQuery
-// Previous library name was
-//   +[GTLQuerySlides queryForPresentationsGetWithpresentationId:]
 
 /** The ID of the presentation to retrieve. */
 @property(nonatomic, copy, nullable) NSString *presentationId;
@@ -227,8 +221,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
  */
 @interface GTLRSlidesQuery_PresentationsPagesGet : GTLRSlidesQuery
-// Previous library name was
-//   +[GTLQuerySlides queryForPresentationsPagesGetWithpresentationId:pageObjectId:]
 
 /** The object ID of the page to retrieve. */
 @property(nonatomic, copy, nullable) NSString *pageObjectId;
@@ -266,8 +258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *    @c kGTLRAuthScopeSlidesPresentationsReadonly
  */
 @interface GTLRSlidesQuery_PresentationsPagesGetThumbnail : GTLRSlidesQuery
-// Previous library name was
-//   +[GTLQuerySlides queryForPresentationsPagesGetThumbnailWithpresentationId:pageObjectId:]
 
 /** The object ID of the page whose thumbnail to retrieve. */
 @property(nonatomic, copy, nullable) NSString *pageObjectId;

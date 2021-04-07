@@ -109,21 +109,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Initiates a channel partner link between a distributor and a reseller or
- *  between resellers in an n-tier reseller channel. To accept the invite, the
- *  invited partner should follow the invite_link_uri provided in the response.
- *  If the link creation is accepted, a valid link is set up between the two
- *  involved parties. To call this method, you must be a distributor. Possible
- *  Error Codes: * PERMISSION_DENIED: If the reseller account making the request
- *  and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  ALREADY_EXISTS: If the ChannelPartnerLink sent in the request already
- *  exists. * NOT_FOUND: If no Cloud Identity customer exists for domain
- *  provided. * INTERNAL: Any non-user error related to a technical issue in the
- *  backend. In this case, contact Cloud Channel support. * UNKNOWN: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. Return Value: Newly created
- *  ChannelPartnerLink resource if successful, otherwise error is returned.
+ *  Initiates a channel partner link between a distributor and a reseller, or
+ *  between resellers in an n-tier reseller channel. Invited partners need to
+ *  follow the invite_link_uri provided in the response to accept. After
+ *  accepting the invitation, a link is set up between the two parties. You must
+ *  be a distributor to call this method. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * ALREADY_EXISTS: The
+ *  ChannelPartnerLink sent in the request already exists. * NOT_FOUND: No Cloud
+ *  Identity customer exists for provided domain. * INTERNAL: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. Return value: The new ChannelPartnerLink
+ *  resource.
  *
  *  Method: cloudchannel.accounts.channelPartnerLinks.create
  *
@@ -131,38 +130,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCreate : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsChannelPartnerLinksCreateWithObject:parent:]
 
 /**
- *  Required. The resource name of reseller's account for which to create a
- *  channel partner link. The parent takes the format: accounts/{account_id}
+ *  Required. Create a channel partner link for the provided reseller account's
+ *  resource name. Parent uses the format: accounts/{account_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.
  *
- *  Initiates a channel partner link between a distributor and a reseller or
- *  between resellers in an n-tier reseller channel. To accept the invite, the
- *  invited partner should follow the invite_link_uri provided in the response.
- *  If the link creation is accepted, a valid link is set up between the two
- *  involved parties. To call this method, you must be a distributor. Possible
- *  Error Codes: * PERMISSION_DENIED: If the reseller account making the request
- *  and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  ALREADY_EXISTS: If the ChannelPartnerLink sent in the request already
- *  exists. * NOT_FOUND: If no Cloud Identity customer exists for domain
- *  provided. * INTERNAL: Any non-user error related to a technical issue in the
- *  backend. In this case, contact Cloud Channel support. * UNKNOWN: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. Return Value: Newly created
- *  ChannelPartnerLink resource if successful, otherwise error is returned.
+ *  Initiates a channel partner link between a distributor and a reseller, or
+ *  between resellers in an n-tier reseller channel. Invited partners need to
+ *  follow the invite_link_uri provided in the response to accept. After
+ *  accepting the invitation, a link is set up between the two parties. You must
+ *  be a distributor to call this method. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * ALREADY_EXISTS: The
+ *  ChannelPartnerLink sent in the request already exists. * NOT_FOUND: No Cloud
+ *  Identity customer exists for provided domain. * INTERNAL: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. Return value: The new ChannelPartnerLink
+ *  resource.
  *
  *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink
  *    to include in the query.
- *  @param parent Required. The resource name of reseller's account for which to
- *    create a channel partner link. The parent takes the format:
+ *  @param parent Required. Create a channel partner link for the provided
+ *    reseller account's resource name. Parent uses the format:
  *    accounts/{account_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCreate
@@ -173,13 +169,236 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested ChannelPartnerLink resource. To call this method, you
- *  must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * NOT_FOUND: ChannelPartnerLink resource not
- *  found. Results due invalid channel partner link name. Return Value:
- *  ChannelPartnerLink resource if found, otherwise returns an error.
+ *  Creates a new Customer resource under the reseller or distributor account.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  Domain field value doesn't match the primary email domain. Return value: The
+ *  newly created Customer resource.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersCreate : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of reseller account in which to create the
+ *  customer. Parent uses the format: accounts/{account_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
+ *
+ *  Creates a new Customer resource under the reseller or distributor account.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  Domain field value doesn't match the primary email domain. Return value: The
+ *  newly created Customer resource.
+ *
+ *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1Customer to
+ *    include in the query.
+ *  @param parent Required. The resource name of reseller account in which to
+ *    create the customer. Parent uses the format: accounts/{account_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1Customer *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the given Customer permanently and irreversibly. Possible error
+ *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
+ *  NOT_FOUND: No Customer resource found for the name in the request.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersDelete : GTLRCloudchannelQuery
+
+/** Required. The resource name of the customer to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
+ *
+ *  Deletes the given Customer permanently and irreversibly. Possible error
+ *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
+ *  NOT_FOUND: No Customer resource found for the name in the request.
+ *
+ *  @param name Required. The resource name of the customer to delete.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a requested Customer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: The customer
+ *  resource doesn't exist. Usually the result of an invalid name parameter.
+ *  Return value: The Customer resource.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersGet : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the customer to retrieve. Name uses the
+ *  format: accounts/{account_id}/customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
+ *
+ *  Returns a requested Customer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: The customer
+ *  resource doesn't exist. Usually the result of an invalid name parameter.
+ *  Return value: The Customer resource.
+ *
+ *  @param name Required. The resource name of the customer to retrieve. Name
+ *    uses the format: accounts/{account_id}/customers/{customer_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List Customers. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. Return value: List of Customers, or an empty list if there are no
+ *  customers.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList : GTLRCloudchannelQuery
+
+/**
+ *  Optional. The maximum number of customers to return. The service may return
+ *  fewer than this value. If unspecified, returns at most 10 customers. The
+ *  maximum value is 50.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results other than the first page.
+ *  Obtained through ListCustomersResponse.next_page_token of the previous
+ *  CloudChannelService.ListCustomers call.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the reseller account to list customers from.
+ *  Parent uses the format: accounts/{account_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListCustomersResponse.
+ *
+ *  List Customers. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. Return value: List of Customers, or an empty list if there are no
+ *  customers.
+ *
+ *  @param parent Required. The resource name of the reseller account to list
+ *    customers from. Parent uses the format: accounts/{account_id}.
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing Customer resource for the reseller or distributor.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: No Customer resource found for the name in the request. Return
+ *  value: The updated Customer resource.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersPatch : GTLRCloudchannelQuery
+
+/**
+ *  Output only. Resource name of the customer. Format:
+ *  accounts/{account_id}/customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The update mask that applies to the resource. Optional.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
+ *
+ *  Updates an existing Customer resource for the reseller or distributor.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: No Customer resource found for the name in the request. Return
+ *  value: The updated Customer resource.
+ *
+ *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1Customer to
+ *    include in the query.
+ *  @param name Output only. Resource name of the customer. Format:
+ *    accounts/{account_id}/customers/{customer_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1Customer *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a requested ChannelPartnerLink resource. You must be a distributor
+ *  to call this method. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: ChannelPartnerLink resource not found because of an
+ *  invalid channel partner link name. Return value: The ChannelPartnerLink
+ *  resource.
  *
  *  Method: cloudchannel.accounts.channelPartnerLinks.get
  *
@@ -187,13 +406,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksGet : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsChannelPartnerLinksGetWithname:]
 
 /**
- *  Required. The resource name of the channel partner link to retrieve. The
- *  name takes the format: accounts/{account_id}/channelPartnerLinks/{id} where
- *  {id} is the Cloud Identity ID of the partner.
+ *  Required. The resource name of the channel partner link to retrieve. Name
+ *  uses the format: accounts/{account_id}/channelPartnerLinks/{id} where {id}
+ *  is the Cloud Identity ID of the partner.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -213,16 +430,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.
  *
- *  Returns a requested ChannelPartnerLink resource. To call this method, you
- *  must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * NOT_FOUND: ChannelPartnerLink resource not
- *  found. Results due invalid channel partner link name. Return Value:
- *  ChannelPartnerLink resource if found, otherwise returns an error.
+ *  Returns a requested ChannelPartnerLink resource. You must be a distributor
+ *  to call this method. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: ChannelPartnerLink resource not found because of an
+ *  invalid channel partner link name. Return value: The ChannelPartnerLink
+ *  resource.
  *
  *  @param name Required. The resource name of the channel partner link to
- *    retrieve. The name takes the format:
+ *    retrieve. Name uses the format:
  *    accounts/{account_id}/channelPartnerLinks/{id} where {id} is the Cloud
  *    Identity ID of the partner.
  *
@@ -233,13 +450,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  List ChannelPartnerLinks belonging to a distributor. To call this method,
- *  you must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. Return Value: If successful, returns the list of
- *  ChannelPartnerLink resources for the distributor account, otherwise returns
- *  an error.
+ *  List ChannelPartnerLinks belonging to a distributor. You must be a
+ *  distributor to call this method. Possible error codes: * PERMISSION_DENIED:
+ *  The reseller account making the request is different from the reseller
+ *  account in the API request. * INVALID_ARGUMENT: Required request parameters
+ *  are missing or invalid. Return value: The list of the distributor account's
+ *  ChannelPartnerLink resources.
  *
  *  Method: cloudchannel.accounts.channelPartnerLinks.list
  *
@@ -247,26 +463,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsChannelPartnerLinksListWithparent:]
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
  *  requested. If unspecified, server will pick a default size (25). The maximum
- *  value is 200, values above 200 will be coerced to 200.
+ *  value is 200; the server will coerce values above 200.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results, if other than the first
- *  one. Typically obtained via ListChannelPartnerLinksResponse.next_page_token
- *  of the previous CloudChannelService.ListChannelPartnerLinks call.
+ *  Optional. A token for a page of results other than the first page. Obtained
+ *  using ListChannelPartnerLinksResponse.next_page_token of the previous
+ *  CloudChannelService.ListChannelPartnerLinks call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the reseller account for listing channel
- *  partner links. The parent takes the format: accounts/{account_id}
+ *  partner links. Parent uses the format: accounts/{account_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -287,16 +501,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c
  *  GTLRCloudchannel_GoogleCloudChannelV1ListChannelPartnerLinksResponse.
  *
- *  List ChannelPartnerLinks belonging to a distributor. To call this method,
- *  you must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. Return Value: If successful, returns the list of
- *  ChannelPartnerLink resources for the distributor account, otherwise returns
- *  an error.
+ *  List ChannelPartnerLinks belonging to a distributor. You must be a
+ *  distributor to call this method. Possible error codes: * PERMISSION_DENIED:
+ *  The reseller account making the request is different from the reseller
+ *  account in the API request. * INVALID_ARGUMENT: Required request parameters
+ *  are missing or invalid. Return value: The list of the distributor account's
+ *  ChannelPartnerLink resources.
  *
  *  @param parent Required. The resource name of the reseller account for
- *    listing channel partner links. The parent takes the format:
+ *    listing channel partner links. Parent uses the format:
  *    accounts/{account_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksList
@@ -310,20 +523,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Updates a channel partner link. A distributor calls this method to change a
- *  link's status. For example, suspend a partner link. To call this method, you
- *  must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: It can happen in following scenarios
- *  - * Missing or invalid required parameters in the request. * Updating link
- *  state from invited to active or suspended. * Sending
- *  reseller_cloud_identity_id, invite_url or name in update mask. * NOT_FOUND:
- *  ChannelPartnerLink resource not found. * INTERNAL: Any non-user error
- *  related to a technical issue in the backend. In this case, contact Cloud
- *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
- *  in the backend. In this case, contact Cloud Channel support. Return Value:
- *  If successful, the updated ChannelPartnerLink resource, otherwise returns an
- *  error.
+ *  Updates a channel partner link. Distributors call this method to change a
+ *  link's status. For example, to suspend a partner link. You must be a
+ *  distributor to call this method. Possible error codes: * PERMISSION_DENIED:
+ *  The reseller account making the request is different from the reseller
+ *  account in the API request. * INVALID_ARGUMENT: * Required request
+ *  parameters are missing or invalid. * Link state cannot change from invited
+ *  to active or suspended. * Cannot send reseller_cloud_identity_id,
+ *  invite_url, or name in update mask. * NOT_FOUND: ChannelPartnerLink resource
+ *  not found. * INTERNAL: Any non-user error related to a technical issue in
+ *  the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The updated ChannelPartnerLink resource.
  *
  *  Method: cloudchannel.accounts.channelPartnerLinks.patch
  *
@@ -331,39 +542,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksPatch : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsChannelPartnerLinksPatchWithObject:name:]
 
 /**
- *  Required. The resource name of the channel partner link to cancel. The name
- *  takes the format: accounts/{account_id}/channelPartnerLinks/{id} where {id}
- *  is the Cloud Identity ID of the partner.
+ *  Required. The resource name of the channel partner link to cancel. Name uses
+ *  the format: accounts/{account_id}/channelPartnerLinks/{id} where {id} is the
+ *  Cloud Identity ID of the partner.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.
  *
- *  Updates a channel partner link. A distributor calls this method to change a
- *  link's status. For example, suspend a partner link. To call this method, you
- *  must be a distributor. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: It can happen in following scenarios
- *  - * Missing or invalid required parameters in the request. * Updating link
- *  state from invited to active or suspended. * Sending
- *  reseller_cloud_identity_id, invite_url or name in update mask. * NOT_FOUND:
- *  ChannelPartnerLink resource not found. * INTERNAL: Any non-user error
- *  related to a technical issue in the backend. In this case, contact Cloud
- *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
- *  in the backend. In this case, contact Cloud Channel support. Return Value:
- *  If successful, the updated ChannelPartnerLink resource, otherwise returns an
- *  error.
+ *  Updates a channel partner link. Distributors call this method to change a
+ *  link's status. For example, to suspend a partner link. You must be a
+ *  distributor to call this method. Possible error codes: * PERMISSION_DENIED:
+ *  The reseller account making the request is different from the reseller
+ *  account in the API request. * INVALID_ARGUMENT: * Required request
+ *  parameters are missing or invalid. * Link state cannot change from invited
+ *  to active or suspended. * Cannot send reseller_cloud_identity_id,
+ *  invite_url, or name in update mask. * NOT_FOUND: ChannelPartnerLink resource
+ *  not found. * INTERNAL: Any non-user error related to a technical issue in
+ *  the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The updated ChannelPartnerLink resource.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1UpdateChannelPartnerLinkRequest to
  *    include in the query.
  *  @param name Required. The resource name of the channel partner link to
- *    cancel. The name takes the format:
+ *    cancel. Name uses the format:
  *    accounts/{account_id}/channelPartnerLinks/{id} where {id} is the Cloud
  *    Identity ID of the partner.
  *
@@ -375,15 +582,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Confirms the existence of Cloud Identity accounts, based on the domain and
- *  whether the Cloud Identity accounts are owned by the reseller. Possible
- *  Error Codes: * PERMISSION_DENIED: If the reseller account making the request
- *  and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  INVALID_VALUE: Invalid domain value in the request. Return Value: List of
- *  CloudIdentityCustomerAccount resources for the domain. List may be empty.
- *  Note: in the v1alpha1 version of the API, a NOT_FOUND error is returned if
- *  no CloudIdentityCustomerAccount resources match the domain.
+ *  Confirms the existence of Cloud Identity accounts based on the domain and if
+ *  the Cloud Identity accounts are owned by the reseller. Possible error codes:
+ *  * PERMISSION_DENIED: The reseller account making the request is different
+ *  from the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * INVALID_VALUE: Invalid domain
+ *  value in the request. Return value: A list of CloudIdentityCustomerAccount
+ *  resources for the domain (may be empty) Note: in the v1alpha1 version of the
+ *  API, a NOT_FOUND error returns if no CloudIdentityCustomerAccount resources
+ *  match the domain.
  *
  *  Method: cloudchannel.accounts.checkCloudIdentityAccountsExist
  *
@@ -391,12 +598,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCheckCloudIdentityAccountsExist : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCheckCloudIdentityAccountsExistWithObject:parent:]
 
 /**
- *  Required. The resource name of the reseller account. The parent takes the
- *  format: accounts/{account_id}
+ *  Required. The reseller account's resource name. Parent uses the format:
+ *  accounts/{account_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -404,21 +609,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c
  *  GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistResponse.
  *
- *  Confirms the existence of Cloud Identity accounts, based on the domain and
- *  whether the Cloud Identity accounts are owned by the reseller. Possible
- *  Error Codes: * PERMISSION_DENIED: If the reseller account making the request
- *  and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  INVALID_VALUE: Invalid domain value in the request. Return Value: List of
- *  CloudIdentityCustomerAccount resources for the domain. List may be empty.
- *  Note: in the v1alpha1 version of the API, a NOT_FOUND error is returned if
- *  no CloudIdentityCustomerAccount resources match the domain.
+ *  Confirms the existence of Cloud Identity accounts based on the domain and if
+ *  the Cloud Identity accounts are owned by the reseller. Possible error codes:
+ *  * PERMISSION_DENIED: The reseller account making the request is different
+ *  from the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * INVALID_VALUE: Invalid domain
+ *  value in the request. Return value: A list of CloudIdentityCustomerAccount
+ *  resources for the domain (may be empty) Note: in the v1alpha1 version of the
+ *  API, a NOT_FOUND error returns if no CloudIdentityCustomerAccount resources
+ *  match the domain.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest
  *    to include in the query.
- *  @param parent Required. The resource name of the reseller account. The
- *    parent takes the format: accounts/{account_id}
+ *  @param parent Required. The reseller account's resource name. Parent uses
+ *    the format: accounts/{account_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCheckCloudIdentityAccountsExist
  */
@@ -429,12 +634,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible Error Codes: * PERMISSION_DENIED: If the reseller account making
- *  the request and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: It can happen in following scenarios - * Missing or
- *  invalid required parameters in the request. * Domain field value doesn't
- *  match the domain specified in primary email. Return Value: If successful,
- *  the newly created Customer resource, otherwise returns an error.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  Domain field value doesn't match the primary email domain. Return value: The
+ *  newly created Customer resource.
  *
  *  Method: cloudchannel.accounts.customers.create
  *
@@ -442,12 +646,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersCreate : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of reseller account in which to create the
- *  customer. The parent takes the format: accounts/{account_id}
+ *  customer. Parent uses the format: accounts/{account_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -455,17 +657,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
  *  Creates a new Customer resource under the reseller or distributor account.
- *  Possible Error Codes: * PERMISSION_DENIED: If the reseller account making
- *  the request and the reseller account being queried for are different. *
- *  INVALID_ARGUMENT: It can happen in following scenarios - * Missing or
- *  invalid required parameters in the request. * Domain field value doesn't
- *  match the domain specified in primary email. Return Value: If successful,
- *  the newly created Customer resource, otherwise returns an error.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  Domain field value doesn't match the primary email domain. Return value: The
+ *  newly created Customer resource.
  *
  *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1Customer to
  *    include in the query.
  *  @param parent Required. The resource name of reseller account in which to
- *    create the customer. The parent takes the format: accounts/{account_id}
+ *    create the customer. Parent uses the format: accounts/{account_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersCreate
  */
@@ -475,12 +676,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Deletes the given Customer permanently and irreversibly. Possible Error
- *  Codes: * PERMISSION_DENIED: If the account making the request does not own
- *  this customer. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * FAILED_PRECONDITION: If the customer has existing
- *  entitlements. * NOT_FOUND: No Customer resource found for the name specified
- *  in the request.
+ *  Deletes the given Customer permanently and irreversibly. Possible error
+ *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
+ *  NOT_FOUND: No Customer resource found for the name in the request.
  *
  *  Method: cloudchannel.accounts.customers.delete
  *
@@ -488,8 +688,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersDelete : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersDeleteWithname:]
 
 /** Required. The resource name of the customer to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -497,12 +695,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
  *
- *  Deletes the given Customer permanently and irreversibly. Possible Error
- *  Codes: * PERMISSION_DENIED: If the account making the request does not own
- *  this customer. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * FAILED_PRECONDITION: If the customer has existing
- *  entitlements. * NOT_FOUND: No Customer resource found for the name specified
- *  in the request.
+ *  Deletes the given Customer permanently and irreversibly. Possible error
+ *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
+ *  NOT_FOUND: No Customer resource found for the name in the request.
  *
  *  @param name Required. The resource name of the customer to delete.
  *
@@ -513,25 +710,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Activates a previously suspended entitlement. The entitlement must be in a
- *  suspended state for it to be activated. Entitlements suspended for pending
- *  ToS acceptance can't be activated using this method. An entitlement
- *  activation is a long-running operation and can result in updates to the
- *  state of the customer entitlement. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller or if the
- *  reseller account making the request and reseller account being queried for
- *  are different. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * NOT_FOUND: Entitlement resource not found. *
- *  SUSPENSION_NOT_RESELLER_INITIATED: Can't activate an entitlement that is
- *  pending TOS acceptance. Only reseller initiated suspensions can be
- *  activated. * NOT_SUSPENDED: Can't activate entitlements that are already in
- *  ACTIVE state. Can only activate suspended entitlements. * INTERNAL: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  Activates a previously suspended entitlement. Entitlements suspended for
+ *  pending ToS acceptance can't be activated using this method. An entitlement
+ *  activation is a long-running operation and it updates the state of the
+ *  customer entitlement. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request is different from the reseller account
+ *  in the API request. * INVALID_ARGUMENT: Required request parameters are
+ *  missing or invalid. * NOT_FOUND: Entitlement resource not found. *
+ *  SUSPENSION_NOT_RESELLER_INITIATED: Can only activate reseller-initiated
+ *  suspensions and entitlements that have accepted the TOS. * NOT_SUSPENDED:
+ *  Can only activate suspended entitlements not in an ACTIVE state. * INTERNAL:
+ *  Any non-user error related to a technical issue in the backend. Contact
+ *  Cloud Channel support. * UNKNOWN: Any non-user error related to a technical
+ *  issue in the backend. Contact Cloud Channel support. Return value: The ID of
+ *  a long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The Operation metadata
+ *  will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.activate
  *
@@ -539,12 +733,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsActivate : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsActivateWithObject:name:]
 
 /**
- *  Required. The resource name of the entitlement to activate. The name takes
- *  the format:
+ *  Required. The resource name of the entitlement to activate. Name uses the
+ *  format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -552,31 +744,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
- *  Activates a previously suspended entitlement. The entitlement must be in a
- *  suspended state for it to be activated. Entitlements suspended for pending
- *  ToS acceptance can't be activated using this method. An entitlement
- *  activation is a long-running operation and can result in updates to the
- *  state of the customer entitlement. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller or if the
- *  reseller account making the request and reseller account being queried for
- *  are different. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * NOT_FOUND: Entitlement resource not found. *
- *  SUSPENSION_NOT_RESELLER_INITIATED: Can't activate an entitlement that is
- *  pending TOS acceptance. Only reseller initiated suspensions can be
- *  activated. * NOT_SUSPENDED: Can't activate entitlements that are already in
- *  ACTIVE state. Can only activate suspended entitlements. * INTERNAL: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  Activates a previously suspended entitlement. Entitlements suspended for
+ *  pending ToS acceptance can't be activated using this method. An entitlement
+ *  activation is a long-running operation and it updates the state of the
+ *  customer entitlement. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request is different from the reseller account
+ *  in the API request. * INVALID_ARGUMENT: Required request parameters are
+ *  missing or invalid. * NOT_FOUND: Entitlement resource not found. *
+ *  SUSPENSION_NOT_RESELLER_INITIATED: Can only activate reseller-initiated
+ *  suspensions and entitlements that have accepted the TOS. * NOT_SUSPENDED:
+ *  Can only activate suspended entitlements not in an ACTIVE state. * INTERNAL:
+ *  Any non-user error related to a technical issue in the backend. Contact
+ *  Cloud Channel support. * UNKNOWN: Any non-user error related to a technical
+ *  issue in the backend. Contact Cloud Channel support. Return value: The ID of
+ *  a long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The Operation metadata
+ *  will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ActivateEntitlementRequest to include
  *    in the query.
- *  @param name Required. The resource name of the entitlement to activate. The
- *    name takes the format:
+ *  @param name Required. The resource name of the entitlement to activate. Name
+ *    uses the format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsActivate
@@ -588,20 +777,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Cancels a previously fulfilled entitlement. An entitlement cancellation is a
- *  long-running operation. Possible Error Codes: * PERMISSION_DENIED: If the
- *  customer doesn't belong to the reseller or if the reseller account making
- *  the request and reseller account being queried for are different. *
- *  FAILED_PRECONDITION: If there are any Google Cloud projects linked to the
- *  Google Cloud entitlement's Cloud Billing subaccount. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. * NOT_FOUND:
- *  Entitlement resource not found. * DELETION_TYPE_NOT_ALLOWED: Cancel is only
- *  allowed for Google Workspace add-ons or entitlements for Google Cloud's
- *  development platform. * INTERNAL: Any non-user error related to a technical
- *  issue in the backend. In this case, contact Cloud Channel support. *
- *  UNKNOWN: Any non-user error related to a technical issue in the backend. In
- *  this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The response will contain
+ *  long-running operation. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request is different from the reseller account
+ *  in the API request. * FAILED_PRECONDITION: There are Google Cloud projects
+ *  linked to the Google Cloud entitlement's Cloud Billing subaccount. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement resource not found. * DELETION_TYPE_NOT_ALLOWED:
+ *  Cancel is only allowed for Google Workspace add-ons, or entitlements for
+ *  Google Cloud's development platform. * INTERNAL: Any non-user error related
+ *  to a technical issue in the backend. Contact Cloud Channel support. *
+ *  UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. Return value: The ID of a long-running
+ *  operation. To get the results of the operation, call the GetOperation method
+ *  of CloudChannelOperationsService. The response will contain
  *  google.protobuf.Empty on success. The Operation metadata will contain an
  *  instance of OperationMetadata.
  *
@@ -611,11 +799,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsCancel : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsCancelWithObject:name:]
 
 /**
- *  Required. The resource name of the entitlement to cancel. The name takes the
+ *  Required. The resource name of the entitlement to cancel. Name uses the
  *  format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
@@ -625,28 +811,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Cancels a previously fulfilled entitlement. An entitlement cancellation is a
- *  long-running operation. Possible Error Codes: * PERMISSION_DENIED: If the
- *  customer doesn't belong to the reseller or if the reseller account making
- *  the request and reseller account being queried for are different. *
- *  FAILED_PRECONDITION: If there are any Google Cloud projects linked to the
- *  Google Cloud entitlement's Cloud Billing subaccount. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. * NOT_FOUND:
- *  Entitlement resource not found. * DELETION_TYPE_NOT_ALLOWED: Cancel is only
- *  allowed for Google Workspace add-ons or entitlements for Google Cloud's
- *  development platform. * INTERNAL: Any non-user error related to a technical
- *  issue in the backend. In this case, contact Cloud Channel support. *
- *  UNKNOWN: Any non-user error related to a technical issue in the backend. In
- *  this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The response will contain
+ *  long-running operation. Possible error codes: * PERMISSION_DENIED: The
+ *  reseller account making the request is different from the reseller account
+ *  in the API request. * FAILED_PRECONDITION: There are Google Cloud projects
+ *  linked to the Google Cloud entitlement's Cloud Billing subaccount. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement resource not found. * DELETION_TYPE_NOT_ALLOWED:
+ *  Cancel is only allowed for Google Workspace add-ons, or entitlements for
+ *  Google Cloud's development platform. * INTERNAL: Any non-user error related
+ *  to a technical issue in the backend. Contact Cloud Channel support. *
+ *  UNKNOWN: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. Return value: The ID of a long-running
+ *  operation. To get the results of the operation, call the GetOperation method
+ *  of CloudChannelOperationsService. The response will contain
  *  google.protobuf.Empty on success. The Operation metadata will contain an
  *  instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1CancelEntitlementRequest to include
  *    in the query.
- *  @param name Required. The resource name of the entitlement to cancel. The
- *    name takes the format:
+ *  @param name Required. The resource name of the entitlement to cancel. Name
+ *    uses the format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsCancel
@@ -658,17 +843,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Updates the Offer for an existing customer entitlement. An entitlement
- *  update is a long-running operation and results in updates to the entitlement
- *  as a result of fulfillment. Possible Error Codes: * PERMISSION_DENIED: If
- *  the customer doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. * NOT_FOUND: Offer or
- *  Entitlement resource not found. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  update is a long-running operation and it updates the entitlement as a
+ *  result of fulfillment. Possible error codes: * PERMISSION_DENIED: The
+ *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: Offer or Entitlement
+ *  resource not found. * INTERNAL: Any non-user error related to a technical
+ *  issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. Return value: The ID of a long-running operation. To get the
+ *  results of the operation, call the GetOperation method of
+ *  CloudChannelOperationsService. The Operation metadata will contain an
+ *  instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.changeOffer
  *
@@ -676,11 +861,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeOffer : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsChangeOfferWithObject:name:]
 
 /**
- *  Required. The name of the entitlement to update. Format:
+ *  Required. The resource name of the entitlement to update. Name uses the
+ *  format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -689,21 +873,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Updates the Offer for an existing customer entitlement. An entitlement
- *  update is a long-running operation and results in updates to the entitlement
- *  as a result of fulfillment. Possible Error Codes: * PERMISSION_DENIED: If
- *  the customer doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. * NOT_FOUND: Offer or
- *  Entitlement resource not found. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  update is a long-running operation and it updates the entitlement as a
+ *  result of fulfillment. Possible error codes: * PERMISSION_DENIED: The
+ *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: Offer or Entitlement
+ *  resource not found. * INTERNAL: Any non-user error related to a technical
+ *  issue in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. Return value: The ID of a long-running operation. To get the
+ *  results of the operation, call the GetOperation method of
+ *  CloudChannelOperationsService. The Operation metadata will contain an
+ *  instance of OperationMetadata.
  *
  *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1ChangeOfferRequest
  *    to include in the query.
- *  @param name Required. The name of the entitlement to update. Format:
+ *  @param name Required. The resource name of the entitlement to update. Name
+ *    uses the format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeOffer
@@ -714,20 +899,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Change parameters of the entitlement An entitlement parameters update is a
- *  long-running operation and results in updates to the entitlement as a result
- *  of fulfillment. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request. For example, if the number of seats
- *  being changed to is greater than the allowed number of max seats for the
- *  resource. Or decreasing seats for a commitment based plan. * NOT_FOUND:
- *  Entitlement resource not found. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  Change parameters of the entitlement. An entitlement update is a
+ *  long-running operation and it updates the entitlement as a result of
+ *  fulfillment. Possible error codes: * PERMISSION_DENIED: The customer doesn't
+ *  belong to the reseller. * INVALID_ARGUMENT: Required request parameters are
+ *  missing or invalid. For example, the number of seats being changed is
+ *  greater than the allowed number of max seats, or decreasing seats for a
+ *  commitment based plan. * NOT_FOUND: Entitlement resource not found. *
+ *  INTERNAL: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
+ *  technical issue in the backend. Contact Cloud Channel support. Return value:
+ *  The ID of a long-running operation. To get the results of the operation,
+ *  call the GetOperation method of CloudChannelOperationsService. The Operation
+ *  metadata will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.changeParameters
  *
@@ -735,11 +919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeParameters : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsChangeParametersWithObject:name:]
 
 /**
- *  Required. The name of the entitlement to update. The name takes the format:
+ *  Required. The name of the entitlement to update. Name uses the format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -747,26 +929,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
- *  Change parameters of the entitlement An entitlement parameters update is a
- *  long-running operation and results in updates to the entitlement as a result
- *  of fulfillment. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request. For example, if the number of seats
- *  being changed to is greater than the allowed number of max seats for the
- *  resource. Or decreasing seats for a commitment based plan. * NOT_FOUND:
- *  Entitlement resource not found. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  Change parameters of the entitlement. An entitlement update is a
+ *  long-running operation and it updates the entitlement as a result of
+ *  fulfillment. Possible error codes: * PERMISSION_DENIED: The customer doesn't
+ *  belong to the reseller. * INVALID_ARGUMENT: Required request parameters are
+ *  missing or invalid. For example, the number of seats being changed is
+ *  greater than the allowed number of max seats, or decreasing seats for a
+ *  commitment based plan. * NOT_FOUND: Entitlement resource not found. *
+ *  INTERNAL: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
+ *  technical issue in the backend. Contact Cloud Channel support. Return value:
+ *  The ID of a long-running operation. To get the results of the operation,
+ *  call the GetOperation method of CloudChannelOperationsService. The Operation
+ *  metadata will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ChangeParametersRequest to include in
  *    the query.
- *  @param name Required. The name of the entitlement to update. The name takes
- *    the format:
+ *  @param name Required. The name of the entitlement to update. Name uses the
+ *    format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeParameters
@@ -778,19 +959,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Updates the renewal settings for an existing customer entitlement. An
- *  entitlement update is a long-running operation and results in updates to the
- *  entitlement as a result of fulfillment. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
+ *  entitlement update is a long-running operation and it updates the
+ *  entitlement as a result of fulfillment. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: Entitlement resource not found. * NOT_COMMITMENT_PLAN: Renewal
  *  Settings are only applicable for a commitment plan. Can't enable or disable
- *  renewal for non-commitment plans. * INTERNAL: Any non user error related to
- *  a technical issue in the backend. In this case, contact Cloud Channel
- *  support. * UNKNOWN: Any non user error related to a technical issue in the
- *  backend. In this case, contact Cloud Channel support. Return Value: Long
- *  Running Operation ID. To get the results of the operation, call the
- *  GetOperation method of CloudChannelOperationsService. The Operation metadata
- *  will contain an instance of OperationMetadata.
+ *  renewals for non-commitment plans. * INTERNAL: Any non-user error related to
+ *  a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN:
+ *  Any non-user error related to a technical issue in the backend. Contact
+ *  Cloud Channel support. Return value: The ID of a long-running operation. To
+ *  get the results of the operation, call the GetOperation method of
+ *  CloudChannelOperationsService. The Operation metadata will contain an
+ *  instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.changeRenewalSettings
  *
@@ -798,11 +979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeRenewalSettings : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsChangeRenewalSettingsWithObject:name:]
 
 /**
- *  Required. The name of the entitlement to update. The name takes the format:
+ *  Required. The name of the entitlement to update. Name uses the format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -811,25 +990,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Updates the renewal settings for an existing customer entitlement. An
- *  entitlement update is a long-running operation and results in updates to the
- *  entitlement as a result of fulfillment. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
+ *  entitlement update is a long-running operation and it updates the
+ *  entitlement as a result of fulfillment. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: Entitlement resource not found. * NOT_COMMITMENT_PLAN: Renewal
  *  Settings are only applicable for a commitment plan. Can't enable or disable
- *  renewal for non-commitment plans. * INTERNAL: Any non user error related to
- *  a technical issue in the backend. In this case, contact Cloud Channel
- *  support. * UNKNOWN: Any non user error related to a technical issue in the
- *  backend. In this case, contact Cloud Channel support. Return Value: Long
- *  Running Operation ID. To get the results of the operation, call the
- *  GetOperation method of CloudChannelOperationsService. The Operation metadata
- *  will contain an instance of OperationMetadata.
+ *  renewals for non-commitment plans. * INTERNAL: Any non-user error related to
+ *  a technical issue in the backend. Contact Cloud Channel support. * UNKNOWN:
+ *  Any non-user error related to a technical issue in the backend. Contact
+ *  Cloud Channel support. Return value: The ID of a long-running operation. To
+ *  get the results of the operation, call the GetOperation method of
+ *  CloudChannelOperationsService. The Operation metadata will contain an
+ *  instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ChangeRenewalSettingsRequest to
  *    include in the query.
- *  @param name Required. The name of the entitlement to update. The name takes
- *    the format:
+ *  @param name Required. The name of the entitlement to update. Name uses the
+ *    format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsChangeRenewalSettings
@@ -840,32 +1019,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Creates an entitlement for a customer. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: It can happen in below scenarios - * Missing or invalid
- *  required parameters in the request. * Cannot purchase an entitlement if
- *  there is already an entitlement for customer, for a SKU from the same
- *  product family. * INVALID_VALUE: Offer passed in isn't valid. Make sure
- *  OfferId is valid. If it is valid, then contact Google Channel support for
- *  further troubleshooting. * NOT_FOUND: If the customer or offer resource is
- *  not found for the reseller. * ALREADY_EXISTS: This failure can happen in the
- *  following cases: * If the SKU has been already purchased for the customer. *
- *  If the customer's primary email already exists. In this case retry after
- *  changing the customer's primary contact email. * CONDITION_NOT_MET or
- *  FAILED_PRECONDITION: This failure can happen in the following cases: *
- *  Purchasing a SKU that requires domain verification and the domain has not
- *  been verified. * Purchasing an Add-On SKU like Vault or Drive without
- *  purchasing the pre-requisite SKU, such as Google Workspace Business Starter.
- *  * Applicable only for developer accounts: reseller and resold domain. Must
- *  meet the following domain naming requirements: * Domain names must start
- *  with goog-test. * Resold domain names must include the reseller domain. *
- *  INTERNAL: Any non-user error related to a technical issue in the backend.
- *  Contact Cloud Channel Support in this case. * UNKNOWN: Any non-user error
- *  related to a technical issue in the backend. Contact Cloud Channel Support
- *  in this case. Return Value: Long Running Operation ID. To get the results of
- *  the operation, call the GetOperation method of
- *  CloudChannelOperationsService. The Operation metadata will contain an
- *  instance of OperationMetadata.
+ *  Creates an entitlement for a customer. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  There is already a customer entitlement for a SKU from the same product
+ *  family. * INVALID_VALUE: Make sure the OfferId is valid. If it is, contact
+ *  Google Channel support for further troubleshooting. * NOT_FOUND: The
+ *  customer or offer resource was not found. * ALREADY_EXISTS: * The SKU was
+ *  already purchased for the customer. * The customer's primary email already
+ *  exists. Retry after changing the customer's primary contact email. *
+ *  CONDITION_NOT_MET or FAILED_PRECONDITION: * The domain required for
+ *  purchasing a SKU has not been verified. * A pre-requisite SKU required to
+ *  purchase an Add-On SKU is missing. For example, Google Workspace Business
+ *  Starter is required to purchase Vault or Drive. * (Developer accounts only)
+ *  Reseller and resold domain must meet the following naming requirements: *
+ *  Domain names must start with goog-test. * Domain names must include the
+ *  reseller domain. * INTERNAL: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.create
  *
@@ -873,12 +1047,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsCreate : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsCreateWithObject:parent:]
 
 /**
- *  Required. The resource name of reseller's customer account in which to
- *  create the entitlement. The parent takes the format:
+ *  Required. The resource name of the reseller's customer account in which to
+ *  create the entitlement. Parent uses the format:
  *  accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -886,38 +1058,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
- *  Creates an entitlement for a customer. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: It can happen in below scenarios - * Missing or invalid
- *  required parameters in the request. * Cannot purchase an entitlement if
- *  there is already an entitlement for customer, for a SKU from the same
- *  product family. * INVALID_VALUE: Offer passed in isn't valid. Make sure
- *  OfferId is valid. If it is valid, then contact Google Channel support for
- *  further troubleshooting. * NOT_FOUND: If the customer or offer resource is
- *  not found for the reseller. * ALREADY_EXISTS: This failure can happen in the
- *  following cases: * If the SKU has been already purchased for the customer. *
- *  If the customer's primary email already exists. In this case retry after
- *  changing the customer's primary contact email. * CONDITION_NOT_MET or
- *  FAILED_PRECONDITION: This failure can happen in the following cases: *
- *  Purchasing a SKU that requires domain verification and the domain has not
- *  been verified. * Purchasing an Add-On SKU like Vault or Drive without
- *  purchasing the pre-requisite SKU, such as Google Workspace Business Starter.
- *  * Applicable only for developer accounts: reseller and resold domain. Must
- *  meet the following domain naming requirements: * Domain names must start
- *  with goog-test. * Resold domain names must include the reseller domain. *
- *  INTERNAL: Any non-user error related to a technical issue in the backend.
- *  Contact Cloud Channel Support in this case. * UNKNOWN: Any non-user error
- *  related to a technical issue in the backend. Contact Cloud Channel Support
- *  in this case. Return Value: Long Running Operation ID. To get the results of
- *  the operation, call the GetOperation method of
- *  CloudChannelOperationsService. The Operation metadata will contain an
- *  instance of OperationMetadata.
+ *  Creates an entitlement for a customer. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: * Required request parameters are missing or invalid. *
+ *  There is already a customer entitlement for a SKU from the same product
+ *  family. * INVALID_VALUE: Make sure the OfferId is valid. If it is, contact
+ *  Google Channel support for further troubleshooting. * NOT_FOUND: The
+ *  customer or offer resource was not found. * ALREADY_EXISTS: * The SKU was
+ *  already purchased for the customer. * The customer's primary email already
+ *  exists. Retry after changing the customer's primary contact email. *
+ *  CONDITION_NOT_MET or FAILED_PRECONDITION: * The domain required for
+ *  purchasing a SKU has not been verified. * A pre-requisite SKU required to
+ *  purchase an Add-On SKU is missing. For example, Google Workspace Business
+ *  Starter is required to purchase Vault or Drive. * (Developer accounts only)
+ *  Reseller and resold domain must meet the following naming requirements: *
+ *  Domain names must start with goog-test. * Domain names must include the
+ *  reseller domain. * INTERNAL: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1CreateEntitlementRequest to include
  *    in the query.
- *  @param parent Required. The resource name of reseller's customer account in
- *    which to create the entitlement. The parent takes the format:
+ *  @param parent Required. The resource name of the reseller's customer account
+ *    in which to create the entitlement. Parent uses the format:
  *    accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsCreate
@@ -928,11 +1095,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested Entitlement resource. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the entitlement is not found for the customer. Return Value:
- *  If found, the requested Entitlement resource, otherwise returns an error.
+ *  Returns a requested Entitlement resource. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer entitlement was not found. Return value: The
+ *  requested Entitlement resource.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.get
  *
@@ -940,27 +1107,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsGet : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsGetWithname:]
 
 /**
- *  Required. The resource name of the entitlement to retrieve. The name takes
- *  the format: accounts/{account_id}/customers/{customer_id}/entitlements/{id}
+ *  Required. The resource name of the entitlement to retrieve. Name uses the
+ *  format:
+ *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Entitlement.
  *
- *  Returns a requested Entitlement resource. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the entitlement is not found for the customer. Return Value:
- *  If found, the requested Entitlement resource, otherwise returns an error.
+ *  Returns a requested Entitlement resource. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer entitlement was not found. Return value: The
+ *  requested Entitlement resource.
  *
- *  @param name Required. The resource name of the entitlement to retrieve. The
- *    name takes the format:
- *    accounts/{account_id}/customers/{customer_id}/entitlements/{id}
+ *  @param name Required. The resource name of the entitlement to retrieve. Name
+ *    uses the format:
+ *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsGet
  */
@@ -969,11 +1135,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  List Entitlements belonging to a customer. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request.
- *  Return Value: List of Entitlements belonging to the customer, or empty list
- *  if there are none.
+ *  Lists Entitlements belonging to a customer. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: A list of the customer's Entitlements.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.list
  *
@@ -981,26 +1146,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsListWithparent:]
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 50 entitlements will be returned. The
- *  maximum value is 100; values above 100 will be coerced to 100.
+ *  requested. If unspecified, return at most 50 entitlements. The maximum value
+ *  is 100; the server will coerce values above 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results, if other than the first
- *  one. Typically obtained via ListEntitlementsResponse.next_page_token of the
- *  previous CloudChannelService.ListEntitlements call.
+ *  Optional. A token for a page of results other than the first page. Obtained
+ *  using ListEntitlementsResponse.next_page_token of the previous
+ *  CloudChannelService.ListEntitlements call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the reseller's customer account for which to
- *  list entitlements. The parent takes the format:
+ *  Required. The resource name of the reseller's customer account to list
+ *  entitlements for. Parent uses the format:
  *  accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1008,14 +1171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListEntitlementsResponse.
  *
- *  List Entitlements belonging to a customer. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request.
- *  Return Value: List of Entitlements belonging to the customer, or empty list
- *  if there are none.
+ *  Lists Entitlements belonging to a customer. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: A list of the customer's Entitlements.
  *
  *  @param parent Required. The resource name of the reseller's customer account
- *    for which to list entitlements. The parent takes the format:
+ *    to list entitlements for. Parent uses the format:
  *    accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsList
@@ -1030,19 +1192,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Starts paid service for a trial entitlement. Starts paid service for a trial
- *  entitlement immediately. This method is only applicable if a plan has
- *  already been set up for a trial entitlement but has some trial days
- *  remaining. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request. * NOT_FOUND: Entitlement resource not
- *  found. * FAILED_PRECONDITION/NOT_IN_TRIAL: This method only works for
- *  entitlement on trial plans. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  entitlement immediately. This method is only applicable if a plan is set up
+ *  for a trial entitlement but has some trial days remaining. Possible error
+ *  codes: * PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement resource not found. *
+ *  FAILED_PRECONDITION/NOT_IN_TRIAL: This method only works for entitlement on
+ *  trial plans. * INTERNAL: Any non-user error related to a technical issue in
+ *  the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.startPaidService
  *
@@ -1050,12 +1211,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsStartPaidService : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsStartPaidServiceWithObject:name:]
 
 /**
- *  Required. The name of the entitlement for which paid service is being
- *  started. The name takes the format:
+ *  Required. The name of the entitlement to start a paid service for. Name uses
+ *  the format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1064,25 +1223,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Starts paid service for a trial entitlement. Starts paid service for a trial
- *  entitlement immediately. This method is only applicable if a plan has
- *  already been set up for a trial entitlement but has some trial days
- *  remaining. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request. * NOT_FOUND: Entitlement resource not
- *  found. * FAILED_PRECONDITION/NOT_IN_TRIAL: This method only works for
- *  entitlement on trial plans. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Long Running
- *  Operation ID. To get the results of the operation, call the GetOperation
- *  method of CloudChannelOperationsService. The Operation metadata will contain
- *  an instance of OperationMetadata.
+ *  entitlement immediately. This method is only applicable if a plan is set up
+ *  for a trial entitlement but has some trial days remaining. Possible error
+ *  codes: * PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement resource not found. *
+ *  FAILED_PRECONDITION/NOT_IN_TRIAL: This method only works for entitlement on
+ *  trial plans. * INTERNAL: Any non-user error related to a technical issue in
+ *  the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1StartPaidServiceRequest to include in
  *    the query.
- *  @param name Required. The name of the entitlement for which paid service is
- *    being started. The name takes the format:
+ *  @param name Required. The name of the entitlement to start a paid service
+ *    for. Name uses the format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsStartPaidService
@@ -1094,16 +1252,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Suspends a previously fulfilled entitlement. An entitlement suspension is a
- *  long-running operation. Possible Error Codes: * PERMISSION_DENIED: If the
- *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. * NOT_FOUND: Entitlement
- *  resource not found. * NOT_ACTIVE: Entitlement is not active. * INTERNAL: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  long-running operation. Possible error codes: * PERMISSION_DENIED: The
+ *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: Entitlement resource
+ *  not found. * NOT_ACTIVE: Entitlement is not active. * INTERNAL: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. * UNKNOWN: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. Return value: The ID of a
+ *  long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The Operation metadata
+ *  will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.entitlements.suspend
  *
@@ -1111,12 +1269,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsSuspend : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersEntitlementsSuspendWithObject:name:]
 
 /**
- *  Required. The resource name of the entitlement to suspend. The name takes
- *  the format:
+ *  Required. The resource name of the entitlement to suspend. Name uses the
+ *  format:
  *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1125,22 +1281,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Suspends a previously fulfilled entitlement. An entitlement suspension is a
- *  long-running operation. Possible Error Codes: * PERMISSION_DENIED: If the
- *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Missing or
- *  invalid required parameters in the request. * NOT_FOUND: Entitlement
- *  resource not found. * NOT_ACTIVE: Entitlement is not active. * INTERNAL: Any
- *  non-user error related to a technical issue in the backend. In this case,
- *  contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  long-running operation. Possible error codes: * PERMISSION_DENIED: The
+ *  customer doesn't belong to the reseller. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: Entitlement resource
+ *  not found. * NOT_ACTIVE: Entitlement is not active. * INTERNAL: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. * UNKNOWN: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. Return value: The ID of a
+ *  long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The Operation metadata
+ *  will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1SuspendEntitlementRequest to include
  *    in the query.
- *  @param name Required. The resource name of the entitlement to suspend. The
- *    name takes the format:
+ *  @param name Required. The resource name of the entitlement to suspend. Name
+ *    uses the format:
  *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsSuspend
@@ -1151,12 +1307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested Customer resource. Possible Error Codes: *
- *  PERMISSION_DENIED: If the reseller account making the request and the
- *  reseller account being queried for are different. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. * NOT_FOUND: If the
- *  customer resource doesn't exist. Usually the result of an invalid name
- *  parameter. Return Value: Customer resource if found, error otherwise.
+ *  Returns a requested Customer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: The customer
+ *  resource doesn't exist. Usually the result of an invalid name parameter.
+ *  Return value: The Customer resource.
  *
  *  Method: cloudchannel.accounts.customers.get
  *
@@ -1164,11 +1320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersGet : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersGetWithname:]
 
 /**
- *  Required. The resource name of the customer to retrieve. The name takes the
+ *  Required. The resource name of the customer to retrieve. Name uses the
  *  format: accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1176,15 +1330,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
- *  Returns a requested Customer resource. Possible Error Codes: *
- *  PERMISSION_DENIED: If the reseller account making the request and the
- *  reseller account being queried for are different. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. * NOT_FOUND: If the
- *  customer resource doesn't exist. Usually the result of an invalid name
- *  parameter. Return Value: Customer resource if found, error otherwise.
+ *  Returns a requested Customer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request is different from
+ *  the reseller account in the API request. * INVALID_ARGUMENT: Required
+ *  request parameters are missing or invalid. * NOT_FOUND: The customer
+ *  resource doesn't exist. Usually the result of an invalid name parameter.
+ *  Return value: The Customer resource.
  *
- *  @param name Required. The resource name of the customer to retrieve. The
- *    name takes the format: accounts/{account_id}/customers/{customer_id}
+ *  @param name Required. The resource name of the customer to retrieve. Name
+ *    uses the format: accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersGet
  */
@@ -1193,11 +1347,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  List downstream Customers. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. Return Value: List of Customers pertaining to the
- *  reseller or empty list if there are none.
+ *  List Customers. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. Return value: List of Customers, or an empty list if there are no
+ *  customers.
  *
  *  Method: cloudchannel.accounts.customers.list
  *
@@ -1205,40 +1359,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersListWithparent:]
 
 /**
  *  Optional. The maximum number of customers to return. The service may return
- *  fewer than this value. If unspecified, at most 10 customers will be
- *  returned. The maximum value is 50; values about 50 will be coerced to 50.
+ *  fewer than this value. If unspecified, returns at most 10 customers. The
+ *  maximum value is 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results, if other than the first
- *  one. Typically obtained via ListCustomersResponse.next_page_token of the
- *  previous CloudChannelService.ListCustomers call.
+ *  Optional. A token identifying a page of results other than the first page.
+ *  Obtained through ListCustomersResponse.next_page_token of the previous
+ *  CloudChannelService.ListCustomers call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the reseller account from which to list
- *  customers. The parent takes the format: accounts/{account_id}.
+ *  Required. The resource name of the reseller account to list customers from.
+ *  Parent uses the format: accounts/{account_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListCustomersResponse.
  *
- *  List downstream Customers. Possible Error Codes: * PERMISSION_DENIED: If the
- *  reseller account making the request and the reseller account being queried
- *  for are different. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. Return Value: List of Customers pertaining to the
- *  reseller or empty list if there are none.
+ *  List Customers. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. Return value: List of Customers, or an empty list if there are no
+ *  customers.
  *
- *  @param parent Required. The resource name of the reseller account from which
- *    to list customers. The parent takes the format: accounts/{account_id}.
+ *  @param parent Required. The resource name of the reseller account to list
+ *    customers from. Parent uses the format: accounts/{account_id}.
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersList
  *
@@ -1251,11 +1403,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Lists the Purchasable Offers for the following cases: * Offers that can be
- *  newly purchased for a customer * Offers that can be changed to, for an
- *  entitlement. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request.
+ *  Lists the following: * Offers that you can purchase for a customer. * Offers
+ *  that you can change for an entitlement. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  Method: cloudchannel.accounts.customers.listPurchasableOffers
  *
@@ -1263,8 +1414,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersListPurchasableOffers : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersListPurchasableOffersWithcustomer:]
 
 /**
  *  Required. Resource name of the entitlement. Format:
@@ -1273,8 +1422,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *changeOfferPurchaseEntitlement;
 
 /**
- *  Optional. Resource name of the SKU that is being changed to. Should be
- *  provided if upgrading or downgrading an entitlement. Format:
+ *  Optional. Resource name of the new target SKU. Provide this SKU when
+ *  upgrading or downgrading an entitlement. Format:
  *  products/{product_id}/skus/{sku_id}
  */
 @property(nonatomic, copy, nullable) NSString *changeOfferPurchaseNewSku;
@@ -1286,43 +1435,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *createEntitlementPurchaseSku;
 
 /**
- *  Required. The resource name of the customer for which to list Offers.
- *  Format: accounts/{account_id}/customers/{customer_id}.
+ *  Required. The resource name of the customer to list Offers for. Format:
+ *  accounts/{account_id}/customers/{customer_id}.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Optional. The BCP-47 language code, such as "en-US". If specified, the
- *  response will be localized to the corresponding language code. Default is
- *  "en-US".
+ *  Optional. The BCP-47 language code. For example, "en-US". The response will
+ *  localize in the corresponding language code, if specified. The default value
+ *  is "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 100 Offers will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  requested. If unspecified, returns at most 100 Offers. The maximum value is
+ *  1000; the server will coerce values above 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional. A token identifying a page of results, if other than the first
- *  one.
- */
+/** Optional. A token for a page of results other than the first page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c
  *  GTLRCloudchannel_GoogleCloudChannelV1ListPurchasableOffersResponse.
  *
- *  Lists the Purchasable Offers for the following cases: * Offers that can be
- *  newly purchased for a customer * Offers that can be changed to, for an
- *  entitlement. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request.
+ *  Lists the following: * Offers that you can purchase for a customer. * Offers
+ *  that you can change for an entitlement. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
- *  @param customer Required. The resource name of the customer for which to
- *    list Offers. Format: accounts/{account_id}/customers/{customer_id}.
+ *  @param customer Required. The resource name of the customer to list Offers
+ *    for. Format: accounts/{account_id}/customers/{customer_id}.
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersListPurchasableOffers
  *
@@ -1335,11 +1480,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Lists the Purchasable SKUs for following cases: * SKUs that can be newly
- *  purchased for a customer * SKUs that can be upgraded/downgraded to, for an
- *  entitlement. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request.
+ *  Lists the following: * SKUs that you can purchase for a customer * SKUs that
+ *  you can upgrade or downgrade for an entitlement. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  Method: cloudchannel.accounts.customers.listPurchasableSkus
  *
@@ -1347,8 +1491,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersListPurchasableSkus : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersListPurchasableSkusWithcustomer:]
 
 /**
  *  Required. Change Type for the entitlement.
@@ -1377,43 +1519,39 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *createEntitlementPurchaseProduct;
 
 /**
- *  Required. The resource name of the customer for which to list SKUs. Format:
+ *  Required. The resource name of the customer to list SKUs for. Format:
  *  accounts/{account_id}/customers/{customer_id}.
  */
 @property(nonatomic, copy, nullable) NSString *customer;
 
 /**
- *  Optional. The BCP-47 language code, such as "en-US". If specified, the
- *  response will be localized to the corresponding language code. Default is
- *  "en-US".
+ *  Optional. The BCP-47 language code. For example, "en-US". The response will
+ *  localize in the corresponding language code, if specified. The default value
+ *  is "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 100 SKUs will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  requested. If unspecified, returns at most 100 SKUs. The maximum value is
+ *  1000; the server will coerce values above 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional. A token identifying a page of results, if other than the first
- *  one.
- */
+/** Optional. A token for a page of results other than the first page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c
  *  GTLRCloudchannel_GoogleCloudChannelV1ListPurchasableSkusResponse.
  *
- *  Lists the Purchasable SKUs for following cases: * SKUs that can be newly
- *  purchased for a customer * SKUs that can be upgraded/downgraded to, for an
- *  entitlement. Possible Error Codes: * PERMISSION_DENIED: If the customer
- *  doesn't belong to the reseller * INVALID_ARGUMENT: Missing or invalid
- *  required parameters in the request.
+ *  Lists the following: * SKUs that you can purchase for a customer * SKUs that
+ *  you can upgrade or downgrade for an entitlement. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
- *  @param customer Required. The resource name of the customer for which to
- *    list SKUs. Format: accounts/{account_id}/customers/{customer_id}.
+ *  @param customer Required. The resource name of the customer to list SKUs
+ *    for. Format: accounts/{account_id}/customers/{customer_id}.
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersListPurchasableSkus
  *
@@ -1426,13 +1564,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Updates an existing Customer resource belonging to the reseller or
- *  distributor. Possible Error Codes: * PERMISSION_DENIED: If the reseller
- *  account making the request and the reseller account being queried for are
- *  different. * INVALID_ARGUMENT: Missing or invalid required parameters in the
- *  request. * NOT_FOUND: No Customer resource found for the name specified in
- *  the request. Return Value: If successful, the updated Customer resource,
- *  otherwise returns an error.
+ *  Updates an existing Customer resource for the reseller or distributor.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: No Customer resource found for the name in the request. Return
+ *  value: The updated Customer resource.
  *
  *  Method: cloudchannel.accounts.customers.patch
  *
@@ -1440,8 +1577,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersPatch : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the customer. Format:
@@ -1459,13 +1594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
- *  Updates an existing Customer resource belonging to the reseller or
- *  distributor. Possible Error Codes: * PERMISSION_DENIED: If the reseller
- *  account making the request and the reseller account being queried for are
- *  different. * INVALID_ARGUMENT: Missing or invalid required parameters in the
- *  request. * NOT_FOUND: No Customer resource found for the name specified in
- *  the request. Return Value: If successful, the updated Customer resource,
- *  otherwise returns an error.
+ *  Updates an existing Customer resource for the reseller or distributor.
+ *  Possible error codes: * PERMISSION_DENIED: The reseller account making the
+ *  request is different from the reseller account in the API request. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: No Customer resource found for the name in the request. Return
+ *  value: The updated Customer resource.
  *
  *  @param object The @c GTLRCloudchannel_GoogleCloudChannelV1Customer to
  *    include in the query.
@@ -1481,18 +1615,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Creates a Cloud Identity for the given customer using the customer's
- *  information or the information provided here, if present. Possible Error
- *  Codes: * PERMISSION_DENIED: If the customer doesn't belong to the reseller.
- *  * INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the customer is not found for the reseller. * ALREADY_EXISTS:
- *  If the customer's primary email already exists. In this case, retry after
- *  changing the customer's primary contact email. * INTERNAL: Any non-user
- *  error related to a technical issue in the backend. Contact Cloud Channel
- *  support in this case. * UNKNOWN: Any non-user error related to a technical
- *  issue in the backend. Contact Cloud Channel support in this case. Return
- *  Value: Long Running Operation ID. To get the results of the operation, call
- *  the GetOperation method of CloudChannelOperationsService. The Operation
- *  metadata will contain an instance of OperationMetadata.
+ *  information, or the information provided here. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer was not found. * ALREADY_EXISTS: The customer's
+ *  primary email already exists. Retry after changing the customer's primary
+ *  contact email. * INTERNAL: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata contains an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.provisionCloudIdentity
  *
@@ -1500,8 +1633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersProvisionCloudIdentity : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersProvisionCloudIdentityWithObject:customer:]
 
 /**
  *  Required. Resource name of the customer. Format:
@@ -1513,18 +1644,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
  *  Creates a Cloud Identity for the given customer using the customer's
- *  information or the information provided here, if present. Possible Error
- *  Codes: * PERMISSION_DENIED: If the customer doesn't belong to the reseller.
- *  * INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the customer is not found for the reseller. * ALREADY_EXISTS:
- *  If the customer's primary email already exists. In this case, retry after
- *  changing the customer's primary contact email. * INTERNAL: Any non-user
- *  error related to a technical issue in the backend. Contact Cloud Channel
- *  support in this case. * UNKNOWN: Any non-user error related to a technical
- *  issue in the backend. Contact Cloud Channel support in this case. Return
- *  Value: Long Running Operation ID. To get the results of the operation, call
- *  the GetOperation method of CloudChannelOperationsService. The Operation
- *  metadata will contain an instance of OperationMetadata.
+ *  information, or the information provided here. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer was not found. * ALREADY_EXISTS: The customer's
+ *  primary email already exists. Retry after changing the customer's primary
+ *  contact email. * INTERNAL: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The ID of a long-running operation. To get the results of the
+ *  operation, call the GetOperation method of CloudChannelOperationsService.
+ *  The Operation metadata contains an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ProvisionCloudIdentityRequest to
@@ -1540,25 +1670,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Transfers customer entitlements to new reseller. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the customer or offer resource is not found for the reseller.
- *  * ALREADY_EXISTS: If the SKU has been already transferred for the customer.
- *  * CONDITION_NOT_MET or FAILED_PRECONDITION: This failure can happen in the
- *  following cases: * Transferring a SKU that requires domain verification and
- *  the domain has not been verified. * Transferring an Add-On SKU like Vault or
- *  Drive without transferring the pre-requisite SKU, such as G Suite Basic. *
- *  Applicable only for developer accounts: reseller and resold domain must
- *  follow the domain naming convention as follows: * Domain names must start
- *  with goog-test. * Resold domain names must include the reseller domain. *
- *  All transferring entitlements must be specified. * INTERNAL: Any non-user
- *  error related to a technical issue in the backend. Please contact Cloud
- *  Channel Support in this case. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. Please contact Cloud Channel Support in this
- *  case. Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  Transfers customer entitlements to new reseller. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer or offer resource was not found. * ALREADY_EXISTS:
+ *  The SKU was already transferred for the customer. * CONDITION_NOT_MET or
+ *  FAILED_PRECONDITION: * The SKU requires domain verification to transfer, but
+ *  the domain is not verified. * An Add-On SKU (example, Vault or Drive) is
+ *  missing the pre-requisite SKU (example, G Suite Basic). * (Developer
+ *  accounts only) Reseller and resold domain must meet the following naming
+ *  requirements: * Domain names must start with goog-test. * Domain names must
+ *  include the reseller domain. * Specify all transferring entitlements. *
+ *  INTERNAL: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
+ *  technical issue in the backend. Contact Cloud Channel support. Return value:
+ *  The ID of a long-running operation. To get the results of the operation,
+ *  call the GetOperation method of CloudChannelOperationsService. The Operation
+ *  metadata will contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.transferEntitlements
  *
@@ -1566,12 +1694,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersTransferEntitlements : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersTransferEntitlementsWithObject:parent:]
 
 /**
- *  Required. The resource name of reseller's customer account where the
- *  entitlements transfer to. The parent takes the format:
+ *  Required. The resource name of the reseller's customer account that will
+ *  receive transferred entitlements. Parent uses the format:
  *  accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1579,31 +1705,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
- *  Transfers customer entitlements to new reseller. Possible Error Codes: *
- *  PERMISSION_DENIED: If the customer doesn't belong to the reseller. *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request. *
- *  NOT_FOUND: If the customer or offer resource is not found for the reseller.
- *  * ALREADY_EXISTS: If the SKU has been already transferred for the customer.
- *  * CONDITION_NOT_MET or FAILED_PRECONDITION: This failure can happen in the
- *  following cases: * Transferring a SKU that requires domain verification and
- *  the domain has not been verified. * Transferring an Add-On SKU like Vault or
- *  Drive without transferring the pre-requisite SKU, such as G Suite Basic. *
- *  Applicable only for developer accounts: reseller and resold domain must
- *  follow the domain naming convention as follows: * Domain names must start
- *  with goog-test. * Resold domain names must include the reseller domain. *
- *  All transferring entitlements must be specified. * INTERNAL: Any non-user
- *  error related to a technical issue in the backend. Please contact Cloud
- *  Channel Support in this case. * UNKNOWN: Any non-user error related to a
- *  technical issue in the backend. Please contact Cloud Channel Support in this
- *  case. Return Value: Long Running Operation ID. To get the results of the
- *  operation, call the GetOperation method of CloudChannelOperationsService.
- *  The Operation metadata will contain an instance of OperationMetadata.
+ *  Transfers customer entitlements to new reseller. Possible error codes: *
+ *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: The customer or offer resource was not found. * ALREADY_EXISTS:
+ *  The SKU was already transferred for the customer. * CONDITION_NOT_MET or
+ *  FAILED_PRECONDITION: * The SKU requires domain verification to transfer, but
+ *  the domain is not verified. * An Add-On SKU (example, Vault or Drive) is
+ *  missing the pre-requisite SKU (example, G Suite Basic). * (Developer
+ *  accounts only) Reseller and resold domain must meet the following naming
+ *  requirements: * Domain names must start with goog-test. * Domain names must
+ *  include the reseller domain. * Specify all transferring entitlements. *
+ *  INTERNAL: Any non-user error related to a technical issue in the backend.
+ *  Contact Cloud Channel support. * UNKNOWN: Any non-user error related to a
+ *  technical issue in the backend. Contact Cloud Channel support. Return value:
+ *  The ID of a long-running operation. To get the results of the operation,
+ *  call the GetOperation method of CloudChannelOperationsService. The Operation
+ *  metadata will contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1TransferEntitlementsRequest to
  *    include in the query.
- *  @param parent Required. The resource name of reseller's customer account
- *    where the entitlements transfer to. The parent takes the format:
+ *  @param parent Required. The resource name of the reseller's customer account
+ *    that will receive transferred entitlements. Parent uses the format:
  *    accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersTransferEntitlements
@@ -1614,26 +1738,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Transfers customer entitlements from current reseller to Google. Possible
- *  Error Codes: * PERMISSION_DENIED: If the customer doesn't belong to the
- *  reseller. * INVALID_ARGUMENT: Missing or invalid required parameters in the
- *  request. * NOT_FOUND: If the customer or offer resource is not found for the
- *  reseller. * ALREADY_EXISTS: If the SKU has been already transferred for the
- *  customer. * CONDITION_NOT_MET or FAILED_PRECONDITION: This failure can
- *  happen in the following cases: * Transferring a SKU that requires domain
- *  verification and the domain has not been verified. * Transferring an Add-On
- *  SKU like Vault or Drive without purchasing the pre-requisite SKU, such as G
- *  Suite Basic. * Applicable only for developer accounts: reseller and resold
- *  domain must follow the domain naming convention as follows: * Domain names
- *  must start with goog-test. * Resold domain names must include the reseller
- *  domain. * INTERNAL: Any non-user error related to a technical issue in the
- *  backend. Please contact Cloud Channel Support in this case. * UNKNOWN: Any
- *  non-user error related to a technical issue in the backend. Please contact
- *  Cloud Channel Support in this case. Return Value: Long Running Operation ID.
- *  To get the results of the operation, call the GetOperation method of
- *  CloudChannelOperationsService. The response will contain
- *  google.protobuf.Empty on success. The Operation metadata will contain an
- *  instance of OperationMetadata.
+ *  Transfers customer entitlements from their current reseller to Google.
+ *  Possible error codes: * PERMISSION_DENIED: The customer doesn't belong to
+ *  the reseller. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The customer or offer resource was not found. *
+ *  ALREADY_EXISTS: The SKU was already transferred for the customer. *
+ *  CONDITION_NOT_MET or FAILED_PRECONDITION: * The SKU requires domain
+ *  verification to transfer, but the domain is not verified. * An Add-On SKU
+ *  (example, Vault or Drive) is missing the pre-requisite SKU (example, G Suite
+ *  Basic). * (Developer accounts only) Reseller and resold domain must meet the
+ *  following naming requirements: * Domain names must start with goog-test. *
+ *  Domain names must include the reseller domain. * INTERNAL: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. * UNKNOWN: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. Return value: The ID of a
+ *  long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The response will
+ *  contain google.protobuf.Empty on success. The Operation metadata will
+ *  contain an instance of OperationMetadata.
  *
  *  Method: cloudchannel.accounts.customers.transferEntitlementsToGoogle
  *
@@ -1641,12 +1763,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsCustomersTransferEntitlementsToGoogle : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsCustomersTransferEntitlementsToGoogleWithObject:parent:]
 
 /**
- *  Required. The resource name of reseller's customer account where the
- *  entitlements transfer from. The parent takes the format:
+ *  Required. The resource name of the reseller's customer account where the
+ *  entitlements transfer from. Parent uses the format:
  *  accounts/{account_id}/customers/{customer_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1654,32 +1774,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleLongrunningOperation.
  *
- *  Transfers customer entitlements from current reseller to Google. Possible
- *  Error Codes: * PERMISSION_DENIED: If the customer doesn't belong to the
- *  reseller. * INVALID_ARGUMENT: Missing or invalid required parameters in the
- *  request. * NOT_FOUND: If the customer or offer resource is not found for the
- *  reseller. * ALREADY_EXISTS: If the SKU has been already transferred for the
- *  customer. * CONDITION_NOT_MET or FAILED_PRECONDITION: This failure can
- *  happen in the following cases: * Transferring a SKU that requires domain
- *  verification and the domain has not been verified. * Transferring an Add-On
- *  SKU like Vault or Drive without purchasing the pre-requisite SKU, such as G
- *  Suite Basic. * Applicable only for developer accounts: reseller and resold
- *  domain must follow the domain naming convention as follows: * Domain names
- *  must start with goog-test. * Resold domain names must include the reseller
- *  domain. * INTERNAL: Any non-user error related to a technical issue in the
- *  backend. Please contact Cloud Channel Support in this case. * UNKNOWN: Any
- *  non-user error related to a technical issue in the backend. Please contact
- *  Cloud Channel Support in this case. Return Value: Long Running Operation ID.
- *  To get the results of the operation, call the GetOperation method of
- *  CloudChannelOperationsService. The response will contain
- *  google.protobuf.Empty on success. The Operation metadata will contain an
- *  instance of OperationMetadata.
+ *  Transfers customer entitlements from their current reseller to Google.
+ *  Possible error codes: * PERMISSION_DENIED: The customer doesn't belong to
+ *  the reseller. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The customer or offer resource was not found. *
+ *  ALREADY_EXISTS: The SKU was already transferred for the customer. *
+ *  CONDITION_NOT_MET or FAILED_PRECONDITION: * The SKU requires domain
+ *  verification to transfer, but the domain is not verified. * An Add-On SKU
+ *  (example, Vault or Drive) is missing the pre-requisite SKU (example, G Suite
+ *  Basic). * (Developer accounts only) Reseller and resold domain must meet the
+ *  following naming requirements: * Domain names must start with goog-test. *
+ *  Domain names must include the reseller domain. * INTERNAL: Any non-user
+ *  error related to a technical issue in the backend. Contact Cloud Channel
+ *  support. * UNKNOWN: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. Return value: The ID of a
+ *  long-running operation. To get the results of the operation, call the
+ *  GetOperation method of CloudChannelOperationsService. The response will
+ *  contain google.protobuf.Empty on success. The Operation metadata will
+ *  contain an instance of OperationMetadata.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1TransferEntitlementsToGoogleRequest
  *    to include in the query.
- *  @param parent Required. The resource name of reseller's customer account
- *    where the entitlements transfer from. The parent takes the format:
+ *  @param parent Required. The resource name of the reseller's customer account
+ *    where the entitlements transfer from. Parent uses the format:
  *    accounts/{account_id}/customers/{customer_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsCustomersTransferEntitlementsToGoogle
@@ -1691,16 +1809,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Lists service accounts with subscriber privileges on the Cloud Pub/Sub topic
- *  created for this Channel Services account. Possible Error Codes: *
- *  PERMISSION_DENIED: If the reseller account making the request and the
- *  reseller account being provided are different, or if the account is not a
- *  super admin. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * NOT_FOUND: If the topic resource doesn't exist. * INTERNAL:
- *  Any non-user error related to a technical issue in the backend. In this
- *  case, contact Cloud Channel support. * UNKNOWN: Any non-user error related
- *  to a technical issue in the backend. In this case, contact Cloud Channel
- *  support. Return Value: List of service email addresses if successful,
- *  otherwise error is returned.
+ *  created for this Channel Services account. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: A list of
+ *  service email addresses.
  *
  *  Method: cloudchannel.accounts.listSubscribers
  *
@@ -1708,17 +1825,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsListSubscribers : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsListSubscribersWithaccount:]
 
 /** Required. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
 
 /**
  *  Optional. The maximum number of service accounts to return. The service may
- *  return fewer than this value. If unspecified, at most 100 service accounts
- *  will be returned. The maximum value is 1000; values above 1000 will be
- *  coerced to 1000.
+ *  return fewer than this value. If unspecified, returns at most 100 service
+ *  accounts. The maximum value is 1000; the server will coerce values above
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1734,16 +1849,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListSubscribersResponse.
  *
  *  Lists service accounts with subscriber privileges on the Cloud Pub/Sub topic
- *  created for this Channel Services account. Possible Error Codes: *
- *  PERMISSION_DENIED: If the reseller account making the request and the
- *  reseller account being provided are different, or if the account is not a
- *  super admin. * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request. * NOT_FOUND: If the topic resource doesn't exist. * INTERNAL:
- *  Any non-user error related to a technical issue in the backend. In this
- *  case, contact Cloud Channel support. * UNKNOWN: Any non-user error related
- *  to a technical issue in the backend. In this case, contact Cloud Channel
- *  support. Return Value: List of service email addresses if successful,
- *  otherwise error is returned.
+ *  created for this Channel Services account. Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: A list of
+ *  service email addresses.
  *
  *  @param account Required. Resource name of the account.
  *
@@ -1755,15 +1869,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  List TransferableOffers of a customer based on Cloud Identity ID or Customer
- *  Name in the request. This method is used when a reseller gets the
- *  entitlement information of a customer that is not owned. The reseller should
- *  provide the customer's Cloud Identity ID or Customer Name. Possible Error
- *  Codes: * PERMISSION_DENIED: Appears because of one of the following: * If
- *  the customer doesn't belong to the reseller and no auth token or invalid
- *  auth token is supplied. * If the reseller account making the request and the
- *  reseller account being queried for are different. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. Return Value: List of
- *  TransferableOffer for the given customer and SKU.
+ *  Name in the request. Use this method when a reseller gets the entitlement
+ *  information of an unowned customer. The reseller should provide the
+ *  customer's Cloud Identity ID or Customer Name. Possible error codes: *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller and has no
+ *  auth token. * The supplied auth token is invalid. * The reseller account
+ *  making the request is different from the reseller account in the query. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: List of TransferableOffer for the given customer and SKU.
  *
  *  Method: cloudchannel.accounts.listTransferableOffers
  *
@@ -1771,8 +1884,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsListTransferableOffers : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsListTransferableOffersWithObject:parent:]
 
 /** Required. The resource name of the reseller's account. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1782,15 +1893,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersResponse.
  *
  *  List TransferableOffers of a customer based on Cloud Identity ID or Customer
- *  Name in the request. This method is used when a reseller gets the
- *  entitlement information of a customer that is not owned. The reseller should
- *  provide the customer's Cloud Identity ID or Customer Name. Possible Error
- *  Codes: * PERMISSION_DENIED: Appears because of one of the following: * If
- *  the customer doesn't belong to the reseller and no auth token or invalid
- *  auth token is supplied. * If the reseller account making the request and the
- *  reseller account being queried for are different. * INVALID_ARGUMENT:
- *  Missing or invalid required parameters in the request. Return Value: List of
- *  TransferableOffer for the given customer and SKU.
+ *  Name in the request. Use this method when a reseller gets the entitlement
+ *  information of an unowned customer. The reseller should provide the
+ *  customer's Cloud Identity ID or Customer Name. Possible error codes: *
+ *  PERMISSION_DENIED: * The customer doesn't belong to the reseller and has no
+ *  auth token. * The supplied auth token is invalid. * The reseller account
+ *  making the request is different from the reseller account in the query. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. Return
+ *  value: List of TransferableOffer for the given customer and SKU.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest to
@@ -1805,16 +1915,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  List TransferableSkus of a customer based on Cloud Identity ID or Customer
- *  Name in the request. This method is used when a reseller lists the
- *  entitlements information of a customer that is not owned. The reseller
- *  should provide the customer's Cloud Identity ID or Customer Name. Possible
- *  Error Codes: * PERMISSION_DENIED: Appears because of one of the following -
- *  * The customer doesn't belong to the reseller and no auth token. * The
- *  supplied auth token is invalid. * The reseller account making the request
- *  and the queries reseller account are different. * INVALID_ARGUMENT: Missing
- *  or invalid required parameters in the request. Return Value: List of
- *  TransferableSku for the given customer.
+ *  List TransferableSkus of a customer based on the Cloud Identity ID or
+ *  Customer Name in the request. Use this method to list the entitlements
+ *  information of an unowned customer. You should provide the customer's Cloud
+ *  Identity ID or Customer Name. Possible error codes: * PERMISSION_DENIED: *
+ *  The customer doesn't belong to the reseller and has no auth token. * The
+ *  supplied auth token is invalid. * The reseller account making the request is
+ *  different from the reseller account in the query. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. Return value: A list of
+ *  the customer's TransferableSku.
  *
  *  Method: cloudchannel.accounts.listTransferableSkus
  *
@@ -1822,12 +1931,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsListTransferableSkus : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsListTransferableSkusWithObject:parent:]
 
 /**
- *  Required. The resource name of the reseller's account. The parent takes the
- *  format: accounts/{account_id}
+ *  Required. The reseller account's resource name. Parent uses the format:
+ *  accounts/{account_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1835,22 +1942,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c
  *  GTLRCloudchannel_GoogleCloudChannelV1ListTransferableSkusResponse.
  *
- *  List TransferableSkus of a customer based on Cloud Identity ID or Customer
- *  Name in the request. This method is used when a reseller lists the
- *  entitlements information of a customer that is not owned. The reseller
- *  should provide the customer's Cloud Identity ID or Customer Name. Possible
- *  Error Codes: * PERMISSION_DENIED: Appears because of one of the following -
- *  * The customer doesn't belong to the reseller and no auth token. * The
- *  supplied auth token is invalid. * The reseller account making the request
- *  and the queries reseller account are different. * INVALID_ARGUMENT: Missing
- *  or invalid required parameters in the request. Return Value: List of
- *  TransferableSku for the given customer.
+ *  List TransferableSkus of a customer based on the Cloud Identity ID or
+ *  Customer Name in the request. Use this method to list the entitlements
+ *  information of an unowned customer. You should provide the customer's Cloud
+ *  Identity ID or Customer Name. Possible error codes: * PERMISSION_DENIED: *
+ *  The customer doesn't belong to the reseller and has no auth token. * The
+ *  supplied auth token is invalid. * The reseller account making the request is
+ *  different from the reseller account in the query. * INVALID_ARGUMENT:
+ *  Required request parameters are missing or invalid. Return value: A list of
+ *  the customer's TransferableSku.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1ListTransferableSkusRequest to
  *    include in the query.
- *  @param parent Required. The resource name of the reseller's account. The
- *    parent takes the format: accounts/{account_id}
+ *  @param parent Required. The reseller account's resource name. Parent uses
+ *    the format: accounts/{account_id}
  *
  *  @return GTLRCloudchannelQuery_AccountsListTransferableSkus
  */
@@ -1860,8 +1966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Lists the Offers the reseller can sell. Possible Error Codes: *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request.
+ *  Lists the Offers the reseller can sell. Possible error codes: *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  Method: cloudchannel.accounts.offers.list
  *
@@ -1869,51 +1975,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsOffersList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsOffersListWithparent:]
 
 /**
  *  Optional. The expression to filter results by name (name of the Offer),
- *  sku.name (name of the SKU) or sku.product.name (name of the Product).
+ *  sku.name (name of the SKU), or sku.product.name (name of the Product).
  *  Example 1: sku.product.name=products/p1 AND sku.name!=products/p1/skus/s1
  *  Example 2: name=accounts/a1/offers/o1
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. The BCP-47 language code, such as "en-US". If specified, the
- *  response will be localized to the corresponding language code. Default is
- *  "en-US".
+ *  Optional. The BCP-47 language code. For example, "en-US". The response will
+ *  localize in the corresponding language code, if specified. The default value
+ *  is "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 500 Offers will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  requested. If unspecified, returns at most 500 Offers. The maximum value is
+ *  1000; the server will coerce values above 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional. A token identifying a page of results, if other than the first
- *  one.
- */
+/** Optional. A token for a page of results other than the first page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Required. The resource name of the reseller account from which to list
- *  Offers. The parent takes the format: accounts/{account_id}.
+ *  Offers. Parent uses the format: accounts/{account_id}.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListOffersResponse.
  *
- *  Lists the Offers the reseller can sell. Possible Error Codes: *
- *  INVALID_ARGUMENT: Missing or invalid required parameters in the request.
+ *  Lists the Offers the reseller can sell. Possible error codes: *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  @param parent Required. The resource name of the reseller account from which
- *    to list Offers. The parent takes the format: accounts/{account_id}.
+ *    to list Offers. Parent uses the format: accounts/{account_id}.
  *
  *  @return GTLRCloudchannelQuery_AccountsOffersList
  *
@@ -1927,16 +2028,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Registers a service account with subscriber privileges on the Cloud Pub/Sub
- *  topic created for this Channel Services account. Once you create a
- *  subscriber, you will get the events as per SubscriberEvent Possible Error
- *  Codes: * PERMISSION_DENIED: If the reseller account making the request and
- *  the reseller account being provided are different, or if the impersonated
- *  user is not a super admin. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Topic name with
- *  service email address registered if successful, otherwise error is returned.
+ *  topic for this Channel Services account. After you create a subscriber, you
+ *  get the events through SubscriberEvent Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * INTERNAL: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The topic name with the registered service email address.
  *
  *  Method: cloudchannel.accounts.register
  *
@@ -1944,8 +2044,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsRegister : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsRegisterWithObject:account:]
 
 /** Required. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
@@ -1955,16 +2053,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberResponse.
  *
  *  Registers a service account with subscriber privileges on the Cloud Pub/Sub
- *  topic created for this Channel Services account. Once you create a
- *  subscriber, you will get the events as per SubscriberEvent Possible Error
- *  Codes: * PERMISSION_DENIED: If the reseller account making the request and
- *  the reseller account being provided are different, or if the impersonated
- *  user is not a super admin. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * INTERNAL: Any non-user error related to a
- *  technical issue in the backend. In this case, contact Cloud Channel support.
- *  * UNKNOWN: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. Return Value: Topic name with
- *  service email address registered if successful, otherwise error is returned.
+ *  topic for this Channel Services account. After you create a subscriber, you
+ *  get the events through SubscriberEvent Possible error codes: *
+ *  PERMISSION_DENIED: The reseller account making the request and the provided
+ *  reseller account are different, or the impersonated user is not a super
+ *  admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * INTERNAL: Any non-user error related to a technical issue in the
+ *  backend. Contact Cloud Channel support. * UNKNOWN: Any non-user error
+ *  related to a technical issue in the backend. Contact Cloud Channel support.
+ *  Return value: The topic name with the registered service email address.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1RegisterSubscriberRequest to include
@@ -1981,19 +2078,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Unregisters a service account with subscriber privileges on the Cloud
  *  Pub/Sub topic created for this Channel Services account. If there are no
- *  more service account left with sunbscriber privileges, the topic will be
- *  deleted. You can check this by calling ListSubscribers api. Possible Error
- *  Codes: * PERMISSION_DENIED: If the reseller account making the request and
- *  the reseller account being provided are different, or if the impersonated
- *  user is not a super admin. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * NOT_FOUND: If the topic resource doesn't exist.
- *  * INTERNAL: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. * UNKNOWN: Any non-user error
- *  related to a technical issue in the backend. In this case, contact Cloud
- *  Channel support. Return Value: Topic name from which service email address
- *  has been unregistered if successful, otherwise error is returned. If the
- *  service email was already not associated with the topic, the success
- *  response will be returned.
+ *  service accounts left with subscriber privileges, this deletes the topic.
+ *  You can call ListSubscribers to check for these accounts. Possible error
+ *  codes: * PERMISSION_DENIED: The reseller account making the request and the
+ *  provided reseller account are different, or the impersonated user is not a
+ *  super admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: The topic name
+ *  that unregistered the service email address. Returns a success response if
+ *  the service email address wasn't registered with the topic.
  *
  *  Method: cloudchannel.accounts.unregister
  *
@@ -2001,8 +2096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_AccountsUnregister : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForAccountsUnregisterWithObject:account:]
 
 /** Required. Resource name of the account. */
 @property(nonatomic, copy, nullable) NSString *account;
@@ -2013,19 +2106,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *
  *  Unregisters a service account with subscriber privileges on the Cloud
  *  Pub/Sub topic created for this Channel Services account. If there are no
- *  more service account left with sunbscriber privileges, the topic will be
- *  deleted. You can check this by calling ListSubscribers api. Possible Error
- *  Codes: * PERMISSION_DENIED: If the reseller account making the request and
- *  the reseller account being provided are different, or if the impersonated
- *  user is not a super admin. * INVALID_ARGUMENT: Missing or invalid required
- *  parameters in the request. * NOT_FOUND: If the topic resource doesn't exist.
- *  * INTERNAL: Any non-user error related to a technical issue in the backend.
- *  In this case, contact Cloud Channel support. * UNKNOWN: Any non-user error
- *  related to a technical issue in the backend. In this case, contact Cloud
- *  Channel support. Return Value: Topic name from which service email address
- *  has been unregistered if successful, otherwise error is returned. If the
- *  service email was already not associated with the topic, the success
- *  response will be returned.
+ *  service accounts left with subscriber privileges, this deletes the topic.
+ *  You can call ListSubscribers to check for these accounts. Possible error
+ *  codes: * PERMISSION_DENIED: The reseller account making the request and the
+ *  provided reseller account are different, or the impersonated user is not a
+ *  super admin. * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid. * NOT_FOUND: The topic resource doesn't exist. * INTERNAL: Any
+ *  non-user error related to a technical issue in the backend. Contact Cloud
+ *  Channel support. * UNKNOWN: Any non-user error related to a technical issue
+ *  in the backend. Contact Cloud Channel support. Return value: The topic name
+ *  that unregistered the service email address. Returns a success response if
+ *  the service email address wasn't registered with the topic.
  *
  *  @param object The @c
  *    GTLRCloudchannel_GoogleCloudChannelV1UnregisterSubscriberRequest to
@@ -2056,8 +2147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_OperationsCancel : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2099,8 +2188,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_OperationsDelete : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2132,8 +2219,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_OperationsGet : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2170,8 +2255,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_OperationsList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2211,8 +2294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Lists the Products the reseller is authorized to sell. Possible Error Codes:
- *  * INVALID_ARGUMENT: Missing or invalid required parameters in the request.
+ *  Lists the Products the reseller is authorized to sell. Possible error codes:
+ *  * INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  Method: cloudchannel.products.list
  *
@@ -2220,8 +2303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_ProductsList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForProductsList]
 
 /**
  *  Required. The resource name of the reseller account. Format:
@@ -2230,30 +2311,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *account;
 
 /**
- *  Optional. The BCP-47 language code, such as "en-US". If specified, the
- *  response will be localized to the corresponding language code. Default is
- *  "en-US".
+ *  Optional. The BCP-47 language code. For example, "en-US". The response will
+ *  localize in the corresponding language code, if specified. The default value
+ *  is "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 100 Products will be returned. The
- *  maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  requested. If unspecified, returns at most 100 Products. The maximum value
+ *  is 1000; the server will coerce values above 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  Optional. A token identifying a page of results, if other than the first
- *  one.
- */
+/** Optional. A token for a page of results other than the first page. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListProductsResponse.
  *
- *  Lists the Products the reseller is authorized to sell. Possible Error Codes:
- *  * INVALID_ARGUMENT: Missing or invalid required parameters in the request.
+ *  Lists the Products the reseller is authorized to sell. Possible error codes:
+ *  * INVALID_ARGUMENT: Required request parameters are missing or invalid.
  *
  *  @return GTLRCloudchannelQuery_ProductsList
  *
@@ -2267,8 +2345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 
 /**
  *  Lists the SKUs for a product the reseller is authorized to sell. Possible
- *  Error Codes: * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request.
+ *  error codes: * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid.
  *
  *  Method: cloudchannel.products.skus.list
  *
@@ -2276,36 +2354,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *    @c kGTLRAuthScopeCloudchannelAppsOrder
  */
 @interface GTLRCloudchannelQuery_ProductsSkusList : GTLRCloudchannelQuery
-// Previous library name was
-//   +[GTLQueryCloudchannel queryForProductsSkusListWithparent:]
 
 /** Required. Resource name of the reseller. Format: accounts/{account_id}. */
 @property(nonatomic, copy, nullable) NSString *account;
 
 /**
- *  Optional. The BCP-47 language code, such as "en-US". If specified, the
- *  response will be localized to the corresponding language code. Default is
- *  "en-US".
+ *  Optional. The BCP-47 language code. For example, "en-US". The response will
+ *  localize in the corresponding language code, if specified. The default value
+ *  is "en-US".
  */
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  Optional. Requested page size. Server might return fewer results than
- *  requested. If unspecified, at most 100 SKUs will be returned. The maximum
- *  value is 1000; values above 1000 will be coerced to 1000.
+ *  requested. If unspecified, returns at most 100 SKUs. The maximum value is
+ *  1000; the server will coerce values above 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results, if other than the first
- *  one. Optional.
+ *  Optional. A token for a page of results other than the first page. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Product for which to list SKUs. The
- *  parent takes the format: products/{product_id}. Supports products/- to
- *  retrieve SKUs for all products.
+ *  Required. The resource name of the Product to list SKUs for. Parent uses the
+ *  format: products/{product_id}. Supports products/- to retrieve SKUs for all
+ *  products.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2313,12 +2388,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ListSkusResponse.
  *
  *  Lists the SKUs for a product the reseller is authorized to sell. Possible
- *  Error Codes: * INVALID_ARGUMENT: Missing or invalid required parameters in
- *  the request.
+ *  error codes: * INVALID_ARGUMENT: Required request parameters are missing or
+ *  invalid.
  *
- *  @param parent Required. The resource name of the Product for which to list
- *    SKUs. The parent takes the format: products/{product_id}. Supports
- *    products/- to retrieve SKUs for all products.
+ *  @param parent Required. The resource name of the Product to list SKUs for.
+ *    Parent uses the format: products/{product_id}. Supports products/- to
+ *    retrieve SKUs for all products.
  *
  *  @return GTLRCloudchannelQuery_ProductsSkusList
  *

@@ -206,7 +206,7 @@ NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeUnspecified = @"REC
 
 @implementation GTLRCloudRun_Container
 @dynamic args, command, env, envFrom, image, imagePullPolicy, livenessProbe,
-         name, ports, readinessProbe, resources, securityContext,
+         name, ports, readinessProbe, resources, securityContext, startupProbe,
          terminationMessagePath, terminationMessagePolicy, volumeMounts,
          workingDir;
 

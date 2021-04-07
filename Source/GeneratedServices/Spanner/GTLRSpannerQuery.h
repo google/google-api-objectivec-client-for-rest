@@ -107,8 +107,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstanceConfigsGetWithname:]
 
 /**
  *  Required. The name of the requested instance configuration. Values are of
@@ -140,8 +138,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstanceConfigsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstanceConfigsListWithparent:]
 
 /**
  *  Number of instance configurations to be returned in the response. If 0 or
@@ -197,8 +193,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupOperationsListWithparent:]
 
 /**
  *  An expression that filters the list of returned backup operations. A filter
@@ -289,8 +283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsCreateWithObject:parent:]
 
 /**
  *  Required. The id of the backup to be created. The `backup_id` appended to
@@ -372,8 +364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsDeleteWithname:]
 
 /**
  *  Required. Name of the backup to delete. Values are of the form
@@ -405,8 +395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsGetWithname:]
 
 /**
  *  Required. Name of the backup. Values are of the form
@@ -442,8 +430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -486,8 +472,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsListWithparent:]
 
 /**
  *  An expression that filters the list of returned backups. A filter expression
@@ -570,8 +554,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -610,8 +592,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -644,8 +624,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -683,8 +661,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -733,8 +709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsPatch : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsPatchWithObject:name:]
 
 /**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
@@ -793,8 +767,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -840,8 +812,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesBackupsTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesBackupsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
@@ -900,8 +870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project in which to create the instance. Values
@@ -956,8 +924,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabaseOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabaseOperationsListWithparent:]
 
 /**
  *  An expression that filters the list of returned operations. A filter
@@ -1044,8 +1010,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesCreateWithObject:parent:]
 
 /**
  *  Required. The name of the instance that will serve the new database. Values
@@ -1085,8 +1049,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesDropDatabase : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesDropDatabaseWithdatabase:]
 
 /** Required. The database to be dropped. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1115,8 +1077,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetWithname:]
 
 /**
  *  Required. The name of the requested database. Values are of the form
@@ -1150,8 +1110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetDdl : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetDdlWithdatabase:]
 
 /**
  *  Required. The database whose schema we wish to get. Values are of the form
@@ -1189,8 +1147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -1231,8 +1187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesListWithparent:]
 
 /**
  *  Number of databases to be returned in the response. If 0 or less, defaults
@@ -1288,8 +1242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1328,8 +1280,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1362,8 +1312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1401,8 +1349,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -1462,8 +1408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesRestore : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesRestoreWithObject:parent:]
 
 /**
  *  Required. The name of the instance in which to create the restored database.
@@ -1515,8 +1459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBatchCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsBatchCreateWithObject:database:]
 
 /** Required. The database in which the new sessions are created. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1551,8 +1493,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsBeginTransaction : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsBeginTransactionWithObject:session:]
 
 /** Required. The session in which the transaction runs. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1593,8 +1533,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCommit : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsCommitWithObject:session:]
 
 /**
  *  Required. The session in which the transaction to be committed is running.
@@ -1647,8 +1585,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsCreate : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsCreateWithObject:database:]
 
 /** Required. The database in which the new session is created. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1692,8 +1628,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsDeleteWithname:]
 
 /** Required. The name of the session to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1730,8 +1664,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteBatchDml : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteBatchDmlWithObject:session:]
 
 /** Required. The session in which the DML statements should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1777,8 +1709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteSql : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteSqlWithObject:session:]
 
 /** Required. The session in which the SQL query should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1819,8 +1749,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsExecuteStreamingSql : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsExecuteStreamingSqlWithObject:session:]
 
 /** Required. The session in which the SQL query should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -1855,8 +1783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsGetWithname:]
 
 /** Required. The name of the session to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1885,8 +1811,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsListWithdatabase:]
 
 /** Required. The database in which to list sessions. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -1949,8 +1873,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionQuery : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionQueryWithObject:session:]
 
 /** Required. The session used to create the partitions. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2001,8 +1923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsPartitionRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsPartitionReadWithObject:session:]
 
 /** Required. The session used to create the partitions. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2051,8 +1971,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsReadWithObject:session:]
 
 /** Required. The session in which the read should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2093,8 +2011,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsRollback : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsRollbackWithObject:session:]
 
 /** Required. The session in which the transaction to roll back is running. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2131,8 +2047,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerData
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSessionsStreamingRead : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSessionsStreamingReadWithObject:session:]
 
 /** Required. The session in which the read should be performed. */
 @property(nonatomic, copy, nullable) NSString *session;
@@ -2167,8 +2081,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -2214,8 +2126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.
@@ -2262,8 +2172,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDatabasesUpdateDdl : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDatabasesUpdateDdlWithObject:database:]
 
 /** Required. The database to update. */
 @property(nonatomic, copy, nullable) NSString *database;
@@ -2301,8 +2209,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesDeleteWithname:]
 
 /**
  *  Required. The name of the instance to be deleted. Values are of the form
@@ -2337,8 +2243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesGetWithname:]
 
 /**
  *  If field_mask is present, specifies the subset of Instance fields that
@@ -2380,8 +2284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesGetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesGetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being
@@ -2420,8 +2322,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesListWithparent:]
 
 /**
  *  An expression for filtering the results of the request. Filter rules are
@@ -2498,8 +2398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsCancel : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsCancelWithname:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2538,8 +2436,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsDelete : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2572,8 +2468,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsGet : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2611,8 +2505,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesOperationsList : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -2681,8 +2573,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesPatch : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesPatchWithObject:name:]
 
 /**
  *  Required. A unique identifier for the instance, which cannot be changed
@@ -2743,8 +2633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesSetIamPolicy : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which the policy is being set. The
@@ -2787,8 +2675,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  *    @c kGTLRAuthScopeSpannerCloudPlatform
  */
 @interface GTLRSpannerQuery_ProjectsInstancesTestIamPermissions : GTLRSpannerQuery
-// Previous library name was
-//   +[GTLQuerySpanner queryForProjectsInstancesTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The Cloud Spanner resource for which permissions are being tested.

@@ -128,7 +128,8 @@
 //
 
 @implementation GTLRReseller_Subscription_TransferInfo
-@dynamic minimumTransferableSeats, transferabilityExpirationTime;
+@dynamic currentLegacySkuId, minimumTransferableSeats,
+         transferabilityExpirationTime;
 @end
 
 

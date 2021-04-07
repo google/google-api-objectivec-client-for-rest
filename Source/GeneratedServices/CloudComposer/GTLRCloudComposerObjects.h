@@ -99,6 +99,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating
 // GTLRCloudComposer_OperationMetadata.operationType
 
 /**
+ *  A resource check operation.
+ *
+ *  Value: "CHECK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check;
+/**
  *  A resource creation operation.
  *
  *  Value: "CREATE"
@@ -785,6 +791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  Output only. The type of operation being performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Check A
+ *        resource check operation. (Value: "CHECK")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Create A
  *        resource creation operation. (Value: "CREATE")
  *    @arg @c kGTLRCloudComposer_OperationMetadata_OperationType_Delete A

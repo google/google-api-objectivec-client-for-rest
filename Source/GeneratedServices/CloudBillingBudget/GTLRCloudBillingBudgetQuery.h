@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsCreate : GTLRCloudBillingBudgetQuery
-// Previous library name was
-//   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the billing account to create the budget in. Values
@@ -91,8 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsDelete : GTLRCloudBillingBudgetQuery
-// Previous library name was
-//   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsDeleteWithname:]
 
 /**
  *  Required. Name of the budget to delete. Values are of the form
@@ -127,8 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsGet : GTLRCloudBillingBudgetQuery
-// Previous library name was
-//   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsGetWithname:]
 
 /**
  *  Required. Name of budget to get. Values are of the form
@@ -166,8 +160,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsList : GTLRCloudBillingBudgetQuery
-// Previous library name was
-//   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsListWithparent:]
 
 /**
  *  Optional. The maximum number of budgets to return per page. The default and
@@ -223,8 +215,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBillingBudgetCloudPlatform
  */
 @interface GTLRCloudBillingBudgetQuery_BillingAccountsBudgetsPatch : GTLRCloudBillingBudgetQuery
-// Previous library name was
-//   +[GTLQueryCloudBillingBudget queryForBillingAccountsBudgetsPatchWithObject:name:]
 
 /**
  *  Output only. Resource name of the budget. The resource name implies the

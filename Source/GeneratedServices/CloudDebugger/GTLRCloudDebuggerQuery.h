@@ -110,8 +110,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsList : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsListWithdebuggeeId:]
 
 /**
  *  Identifies the agent. This is the ID returned in the RegisterDebuggee
@@ -177,8 +175,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesBreakpointsUpdate : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForControllerDebuggeesBreakpointsUpdateWithObject:debuggeeId:identifier:]
 
 /** Required. Identifies the debuggee being debugged. */
 @property(nonatomic, copy, nullable) NSString *debuggeeId;
@@ -231,8 +227,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_ControllerDebuggeesRegister : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForControllerDebuggeesRegisterWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudDebugger_RegisterDebuggeeResponse.
@@ -264,8 +258,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsDelete : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsDeleteWithdebuggeeId:breakpointId:]
 
 /** Required. ID of the breakpoint to delete. */
 @property(nonatomic, copy, nullable) NSString *breakpointId;
@@ -304,8 +296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsGet : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsGetWithdebuggeeId:breakpointId:]
 
 /** Required. ID of the breakpoint to get. */
 @property(nonatomic, copy, nullable) NSString *breakpointId;
@@ -344,8 +334,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsList : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsListWithdebuggeeId:]
 
 /**
  *  Only breakpoints with the specified action will pass the filter.
@@ -418,8 +406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesBreakpointsSet : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesBreakpointsSetWithObject:debuggeeId:]
 
 /**
  *  The canary option set by the user upon setting breakpoint.
@@ -473,8 +459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDebuggerCanaryOptionCanaryOptionUns
  *    @c kGTLRAuthScopeCloudDebuggerCloudPlatform
  */
 @interface GTLRCloudDebuggerQuery_DebuggerDebuggeesList : GTLRCloudDebuggerQuery
-// Previous library name was
-//   +[GTLQueryCloudDebugger queryForDebuggerDebuggeesList]
 
 /**
  *  Required. The client version making the call. Schema: `domain/type/version`

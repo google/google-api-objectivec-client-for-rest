@@ -3138,7 +3138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_Billing *billing;
 
 /**
- *  Deprecated. The service config compiler always sets this field to `3`.
+ *  Obsolete. Do not use. This field has no semantic meaning. The service config
+ *  compiler always sets this field to `3`.
  *
  *  Uses NSNumber of unsignedIntValue.
  */

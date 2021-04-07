@@ -51,10 +51,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency
  *  Value: "admin"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
-/** Value: "application_name_undefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUndefined;
-/** Value: "application_name_unspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameApplicationNameUnspecified;
 /**
  *  The Google Calendar application's activity reports return information about
  *  various Calendar activity events.
@@ -194,14 +190,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyAll;
  *  Value: "entityKey"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKey;
-/** Value: "entityKeyUndefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityKeyEntityKeyUndefined;
 
 // ----------------------------------------------------------------------------
 // entityType
 
-/** Value: "entity_type_undefined" */
-FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeEntityTypeUndefined;
 /**
  *  Returns a report on Google+ communities.
  *
@@ -236,8 +228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ActivitiesList : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForActivitiesListWithuserKey:applicationName:]
 
 /**
  *  The Internet Protocol (IP) Address of host where the event was performed.
@@ -253,8 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
- *        "application_name_undefined"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
  *        Access Transparency activity reports return information about
  *        different types of Access Transparency activity events. (Value:
@@ -457,8 +445,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    retrieved.
  *
  *  Likely values for @c applicationName:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUndefined Value
- *        "application_name_undefined"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
  *        Access Transparency activity reports return information about
  *        different types of Access Transparency activity events. (Value:
@@ -544,8 +530,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ActivitiesWatch : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForActivitiesWatchWithObject:userKey:applicationName:]
 
 /**
  *  The Internet Protocol (IP) Address of host where the event was performed.
@@ -561,8 +545,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
- *        "application_name_unspecified"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
  *        Access Transparency activity reports return information about
  *        different types of Access Transparency activity events. (Value:
@@ -764,8 +746,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    retrieved.
  *
  *  Likely values for @c applicationName:
- *    @arg @c kGTLRReportsApplicationNameApplicationNameUnspecified Value
- *        "application_name_unspecified"
  *    @arg @c kGTLRReportsApplicationNameAccessTransparency The Google Workspace
  *        Access Transparency activity reports return information about
  *        different types of Access Transparency activity events. (Value:
@@ -848,8 +828,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsAuditReadonly
  */
 @interface GTLRReportsQuery_ChannelsStop : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForChannelsStopWithObject:]
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
@@ -877,8 +855,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_CustomerUsageReportsGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForCustomerUsageReportsGetWithdate:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -945,8 +921,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_EntityUsageReportsGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForEntityUsageReportsGetWithentityType:entityKey:date:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -961,7 +935,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the key of the object to filter the data with.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -975,8 +948,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Represents the type of entity for the report.
  *
  *  Likely values:
- *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
- *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  */
@@ -1053,13 +1024,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    for this.
  *
  *  Likely values for @c entityType:
- *    @arg @c kGTLRReportsEntityTypeEntityTypeUndefined Value
- *        "entity_type_undefined"
  *    @arg @c kGTLRReportsEntityTypeGplusCommunities Returns a report on Google+
  *        communities. (Value: "gplus_communities")
  *
  *  Likely values for @c entityKey:
- *    @arg @c kGTLRReportsEntityKeyEntityKeyUndefined Value "entityKeyUndefined"
  *    @arg @c kGTLRReportsEntityKeyAll Returns activity events for all users.
  *        (Value: "all")
  *    @arg @c kGTLRReportsEntityKeyEntityKey Represents an app-specific
@@ -1087,8 +1055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @c kGTLRAuthScopeReportsReportsUsageReadonly
  */
 @interface GTLRReportsQuery_UserUsageReportGet : GTLRReportsQuery
-// Previous library name was
-//   +[GTLQueryReports queryForUserUsageReportGetWithuserKey:date:]
 
 /** The unique ID of the customer to retrieve data for. */
 @property(nonatomic, copy, nullable) NSString *customerId;

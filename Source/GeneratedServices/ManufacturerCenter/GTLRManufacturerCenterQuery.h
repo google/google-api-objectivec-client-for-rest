@@ -83,8 +83,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
  */
 @interface GTLRManufacturerCenterQuery_AccountsProductsDelete : GTLRManufacturerCenterQuery
-// Previous library name was
-//   +[GTLQueryManufacturerCenter queryForAccountsProductsDeleteWithparent:name:]
 
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.
@@ -137,8 +135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
  */
 @interface GTLRManufacturerCenterQuery_AccountsProductsGet : GTLRManufacturerCenterQuery
-// Previous library name was
-//   +[GTLQueryManufacturerCenter queryForAccountsProductsGetWithparent:name:]
 
 /**
  *  The information to be included in the response. Only sections listed here
@@ -207,8 +203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
  */
 @interface GTLRManufacturerCenterQuery_AccountsProductsList : GTLRManufacturerCenterQuery
-// Previous library name was
-//   +[GTLQueryManufacturerCenter queryForAccountsProductsListWithparent:]
 
 /**
  *  The information to be included in the response. Only sections listed here
@@ -278,8 +272,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManufacturerCenterIncludeUnknown;
  *    @c kGTLRAuthScopeManufacturerCenterManufacturercenter
  */
 @interface GTLRManufacturerCenterQuery_AccountsProductsUpdate : GTLRManufacturerCenterQuery
-// Previous library name was
-//   +[GTLQueryManufacturerCenter queryForAccountsProductsUpdateWithObject:parent:name:]
 
 /**
  *  Name in the format `{target_country}:{content_language}:{product_id}`.

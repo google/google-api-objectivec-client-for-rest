@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVerifiedaccess
  */
 @interface GTLRVerifiedaccessQuery_ChallengeCreate : GTLRVerifiedaccessQuery
-// Previous library name was
-//   +[GTLQueryVerifiedaccess queryForChallengeCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRVerifiedaccess_Challenge.
@@ -75,8 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeVerifiedaccess
  */
 @interface GTLRVerifiedaccessQuery_ChallengeVerify : GTLRVerifiedaccessQuery
-// Previous library name was
-//   +[GTLQueryVerifiedaccess queryForChallengeVerifyWithObject:]
 
 /**
  *  Fetches a @c GTLRVerifiedaccess_VerifyChallengeResponseResult.

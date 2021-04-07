@@ -696,7 +696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
 /**
  *  Array of SpeechContext. A means to provide context to assist the speech
  *  recognition. For more information, see [speech
- *  adaptation](https://cloud.google.com/speech-to-text/docs/context-strength).
+ *  adaptation](https://cloud.google.com/speech-to-text/docs/adaptation).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_Context *> *speechContexts;
 

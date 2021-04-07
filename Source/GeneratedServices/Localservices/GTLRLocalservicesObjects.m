@@ -30,9 +30,10 @@ NSString * const kGTLRLocalservices_GoogleAdsHomeservicesLocalservicesV1Detailed
 @dynamic accountId, aggregatorInfo, averageFiveStarRating, averageWeeklyBudget,
          businessName, currencyCode, currentPeriodChargedLeads,
          currentPeriodConnectedPhoneCalls, currentPeriodPhoneCalls,
-         currentPeriodTotalCost, phoneLeadResponsiveness,
-         previousPeriodChargedLeads, previousPeriodConnectedPhoneCalls,
-         previousPeriodPhoneCalls, previousPeriodTotalCost, totalReview;
+         currentPeriodTotalCost, impressionsLastTwoDays,
+         phoneLeadResponsiveness, previousPeriodChargedLeads,
+         previousPeriodConnectedPhoneCalls, previousPeriodPhoneCalls,
+         previousPeriodTotalCost, totalReview;
 @end
 
 

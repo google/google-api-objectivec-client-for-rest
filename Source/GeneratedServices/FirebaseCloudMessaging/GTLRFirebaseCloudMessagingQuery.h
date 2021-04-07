@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
  */
 @interface GTLRFirebaseCloudMessagingQuery_ProjectsMessagesSend : GTLRFirebaseCloudMessagingQuery
-// Previous library name was
-//   +[GTLQueryFirebaseCloudMessaging queryForProjectsMessagesSendWithObject:parent:]
 
 /**
  *  Required. It contains the Firebase project id (i.e. the unique identifier

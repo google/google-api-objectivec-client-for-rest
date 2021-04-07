@@ -124,8 +124,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Method: vectortile.featuretiles.get
  */
 @interface GTLRSemanticTileQuery_FeaturetilesGet : GTLRSemanticTileQuery
-// Previous library name was
-//   +[GTLQuerySemanticTile queryForFeaturetilesGetWithname:]
 
 /**
  *  Flag indicating whether the returned tile will always contain 2.5D
@@ -286,8 +284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSemanticTileTerrainFormatsTerrainFormatU
  *  Method: vectortile.terraintiles.get
  */
 @interface GTLRSemanticTileQuery_TerraintilesGet : GTLRSemanticTileQuery
-// Previous library name was
-//   +[GTLQuerySemanticTile queryForTerraintilesGetWithname:]
 
 /**
  *  The precision of terrain altitudes in centimeters. Possible values: between

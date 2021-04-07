@@ -53,8 +53,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGet : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -89,8 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsCreate : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource of the Connectivity Test to create:
@@ -141,8 +137,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsDelete : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsDeleteWithname:]
 
 /**
  *  Required. Connectivity Test resource name using the form:
@@ -173,8 +167,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsGet : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsGetWithname:]
 
 /**
  *  Required. `ConnectivityTest` resource name using the form:
@@ -206,8 +198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsGetIamPolicy : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -251,8 +241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsList : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsListWithparent:]
 
 /**
  *  Lists the `ConnectivityTests` that match the filter expression. A filter
@@ -319,8 +307,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsPatch : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsPatchWithObject:name:]
 
 /**
  *  Required. Unique name of the resource using the form:
@@ -380,8 +366,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsRerun : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsRerunWithObject:name:]
 
 /**
  *  Required. Connectivity Test resource name using the form:
@@ -425,8 +409,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsSetIamPolicy : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -467,8 +449,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalConnectivityTestsTestIamPermissions : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalConnectivityTestsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -515,8 +495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsCancel : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalOperationsCancelWithObject:name:]
 
 /** The name of the operation resource to be cancelled. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -557,8 +535,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsDelete : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -590,8 +566,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsGet : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -628,8 +602,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsGlobalOperationsList : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsGlobalOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -677,19 +649,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
  */
 @interface GTLRNetworkManagementQuery_ProjectsLocationsList : GTLRNetworkManagementQuery
-// Previous library name was
-//   +[GTLQueryNetworkManagement queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in [AIP-160](https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

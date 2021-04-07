@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataTransferDatatransferReadonly
  */
 @interface GTLRDataTransferQuery_ApplicationsGet : GTLRDataTransferQuery
-// Previous library name was
-//   +[GTLQueryDataTransfer queryForApplicationsGetWithapplicationId:]
 
 /** ID of the application resource to be retrieved. */
 @property(nonatomic, assign) long long applicationId;
@@ -80,8 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataTransferDatatransferReadonly
  */
 @interface GTLRDataTransferQuery_ApplicationsList : GTLRDataTransferQuery
-// Previous library name was
-//   +[GTLQueryDataTransfer queryForApplicationsList]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;
@@ -121,8 +117,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataTransferDatatransferReadonly
  */
 @interface GTLRDataTransferQuery_TransfersGet : GTLRDataTransferQuery
-// Previous library name was
-//   +[GTLQueryDataTransfer queryForTransfersGetWithdataTransferId:]
 
 /**
  *  ID of the resource to be retrieved. This is returned in the response from
@@ -153,8 +147,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataTransferDatatransfer
  */
 @interface GTLRDataTransferQuery_TransfersInsert : GTLRDataTransferQuery
-// Previous library name was
-//   +[GTLQueryDataTransfer queryForTransfersInsertWithObject:]
 
 /**
  *  Fetches a @c GTLRDataTransfer_DataTransfer.
@@ -180,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataTransferDatatransferReadonly
  */
 @interface GTLRDataTransferQuery_TransfersList : GTLRDataTransferQuery
-// Previous library name was
-//   +[GTLQueryDataTransfer queryForTransfersList]
 
 /** Immutable ID of the Google Workspace account. */
 @property(nonatomic, copy, nullable) NSString *customerId;

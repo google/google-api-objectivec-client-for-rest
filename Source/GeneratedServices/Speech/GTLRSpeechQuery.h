@@ -51,8 +51,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_OperationsGet : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -89,8 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_OperationsList : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForOperationsList]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -140,8 +136,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_SpeechLongrunningrecognize : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForSpeechLongrunningrecognizeWithObject:]
 
 /**
  *  Fetches a @c GTLRSpeech_Operation.
@@ -171,8 +165,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSpeechCloudPlatform
  */
 @interface GTLRSpeechQuery_SpeechRecognize : GTLRSpeechQuery
-// Previous library name was
-//   +[GTLQuerySpeech queryForSpeechRecognizeWithObject:]
 
 /**
  *  Fetches a @c GTLRSpeech_RecognizeResponse.

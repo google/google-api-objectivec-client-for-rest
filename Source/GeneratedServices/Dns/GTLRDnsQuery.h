@@ -67,8 +67,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ChangesCreate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForChangesCreateWithObject:project:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -116,8 +114,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ChangesGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForChangesGetWithproject:managedZone:changeId:]
 
 /**
  *  The identifier of the requested change, from a previous
@@ -172,8 +168,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ChangesList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForChangesListWithproject:managedZone:]
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed
@@ -242,8 +236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_DnsKeysGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForDnsKeysGetWithproject:managedZone:dnsKeyId:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -301,8 +293,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_DnsKeysList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForDnsKeysListWithproject:managedZone:]
 
 /**
  *  An optional comma-separated list of digest types to compute and display for
@@ -364,8 +354,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZoneOperationsGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZoneOperationsGetWithproject:managedZone:operation:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -415,8 +403,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZoneOperationsList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZoneOperationsListWithproject:managedZone:]
 
 /** Identifies the managed zone addressed by this request. */
 @property(nonatomic, copy, nullable) NSString *managedZone;
@@ -477,8 +463,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesCreate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesCreateWithObject:project:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -515,8 +499,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesDelete : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesDeleteWithproject:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -563,8 +545,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesGetWithproject:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -610,8 +590,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesListWithproject:]
 
 /** Restricts the list to return only zones with this domain name. */
 @property(nonatomic, copy, nullable) NSString *dnsName;
@@ -658,8 +636,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesPatch : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesPatchWithObject:project:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -705,8 +681,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ManagedZonesUpdate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForManagedZonesUpdateWithObject:project:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -752,8 +726,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesCreate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesCreateWithObject:project:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -791,8 +763,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesDelete : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesDeleteWithproject:policy:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -837,8 +807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesGetWithproject:policy:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -881,8 +849,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesListWithproject:]
 
 /**
  *  Optional. Maximum number of results to be returned. If unspecified, the
@@ -926,8 +892,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesPatch : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesPatchWithObject:project:policy:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -970,8 +934,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_PoliciesUpdate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForPoliciesUpdateWithObject:project:policy:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1005,7 +967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @end
 
 /**
- *  Fetch the representation of an existing Project.
+ *  Fetches the representation of an existing Project.
  *
  *  Method: dns.projects.get
  *
@@ -1016,8 +978,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForProjectsGetWithproject:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1032,7 +992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches a @c GTLRDns_Project.
  *
- *  Fetch the representation of an existing Project.
+ *  Fetches the representation of an existing Project.
  *
  *  @param project Identifies the project addressed by this request.
  *
@@ -1052,8 +1012,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsManagedZonesRrsetsCreate : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForProjectsManagedZonesRrsetsCreateWithObject:project:managedZone:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1099,8 +1057,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsManagedZonesRrsetsDelete : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForProjectsManagedZonesRrsetsDeleteWithproject:managedZone:name:type:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1156,8 +1112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsManagedZonesRrsetsGet : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForProjectsManagedZonesRrsetsGetWithproject:managedZone:name:type:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1211,8 +1165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ProjectsManagedZonesRrsetsPatch : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForProjectsManagedZonesRrsetsPatchWithObject:project:managedZone:name:type:]
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1270,8 +1222,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
 @interface GTLRDnsQuery_ResourceRecordSetsList : GTLRDnsQuery
-// Previous library name was
-//   +[GTLQueryDns queryForResourceRecordSetsListWithproject:managedZone:]
 
 /**
  *  Identifies the managed zone addressed by this request. Can be the managed

@@ -167,8 +167,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsDeleteEvents : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsDeleteEventsWithprojectName:]
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written as
@@ -204,8 +202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsEventsList : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsEventsListWithprojectName:]
 
 /** Required. The group for which events shall be returned. */
 @property(nonatomic, copy, nullable) NSString *groupId;
@@ -306,8 +302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsEventsReport : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsEventsReportWithObject:projectName:]
 
 /**
  *  Required. The resource name of the Google Cloud Platform project. Written as
@@ -356,8 +350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupsGet : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupsGetWithgroupName:]
 
 /**
  *  Required. The group resource name. Written as
@@ -394,8 +386,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupStatsList : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupStatsListWithprojectName:]
 
 /**
  *  Optional. The alignment of the timed counts to be returned. Default is
@@ -549,8 +539,6 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *    @c kGTLRAuthScopeClouderrorreportingCloudPlatform
  */
 @interface GTLRClouderrorreportingQuery_ProjectsGroupsUpdate : GTLRClouderrorreportingQuery
-// Previous library name was
-//   +[GTLQueryClouderrorreporting queryForProjectsGroupsUpdateWithObject:name:]
 
 /**
  *  The group resource name. Example:

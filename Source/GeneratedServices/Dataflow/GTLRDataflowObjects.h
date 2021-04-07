@@ -23,7 +23,6 @@
 @class GTLRDataflow_ApproximateProgress;
 @class GTLRDataflow_ApproximateReportedProgress;
 @class GTLRDataflow_ApproximateSplitRequest;
-@class GTLRDataflow_Artifact;
 @class GTLRDataflow_AutoscalingEvent;
 @class GTLRDataflow_AutoscalingSettings;
 @class GTLRDataflow_BigQueryIODetails;
@@ -94,7 +93,6 @@
 @class GTLRDataflow_MetricStructuredName;
 @class GTLRDataflow_MetricStructuredName_Context;
 @class GTLRDataflow_MetricUpdate;
-@class GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels;
 @class GTLRDataflow_MountedDataDisk;
 @class GTLRDataflow_MultiOutputInfo;
 @class GTLRDataflow_NameAndKind;
@@ -176,8 +174,6 @@
 @class GTLRDataflow_StructuredMessage;
 @class GTLRDataflow_TaskRunnerSettings;
 @class GTLRDataflow_TemplateMetadata;
-@class GTLRDataflow_TemplateVersion;
-@class GTLRDataflow_TemplateVersion_Labels;
 @class GTLRDataflow_TopologyConfig;
 @class GTLRDataflow_TopologyConfig_UserStageToComputationNameMap;
 @class GTLRDataflow_TransformSummary;
@@ -583,7 +579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_ExecutionStageState_ExecutionSt
  *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
  *  resources are currently being cleaned up after a successful run. Currently,
  *  this is an opt-in feature, please reach out to Cloud support team if you are
- *  intersted.
+ *  interested.
  *
  *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
  */
@@ -818,7 +814,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_CurrentState_JobStateQueued
  *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
  *  resources are currently being cleaned up after a successful run. Currently,
  *  this is an opt-in feature, please reach out to Cloud support team if you are
- *  intersted.
+ *  interested.
  *
  *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
  */
@@ -929,7 +925,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_Job_RequestedState_JobStateQueu
  *  `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's associated
  *  resources are currently being cleaned up after a successful run. Currently,
  *  this is an opt-in feature, please reach out to Cloud support team if you are
- *  intersted.
+ *  interested.
  *
  *  Value: "JOB_STATE_RESOURCE_CLEANING_UP"
  */
@@ -1041,28 +1037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_Jo
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_JobMessage_MessageImportance_JobMessageWarning;
 
 // ----------------------------------------------------------------------------
-// GTLRDataflow_ModifyTemplateVersionLabelRequest.op
-
-/**
- *  Add the label to the TemplateVersion object.
- *
- *  Value: "ADD"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add;
-/**
- *  Default value.
- *
- *  Value: "OPERATION_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified;
-/**
- *  Remove the label from the TemplateVersion object.
- *
- *  Value: "REMOVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove;
-
-// ----------------------------------------------------------------------------
 // GTLRDataflow_NameAndKind.kind
 
 /**
@@ -1136,37 +1110,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_NameAndKind_Kind_Sum;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_Default;
 /**
- *  The parameter specifies a GCS Bucket to read from.
+ *  The parameter specifies a Cloud Storage Bucket to read from.
  *
  *  Value: "GCS_READ_BUCKET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket;
 /**
- *  The parameter specifies a GCS file path to read from.
+ *  The parameter specifies a Cloud Storage file path to read from.
  *
  *  Value: "GCS_READ_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile;
 /**
- *  The parameter specifies a GCS folder path to read from.
+ *  The parameter specifies a Cloud Storage folder path to read from.
  *
  *  Value: "GCS_READ_FOLDER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder;
 /**
- *  The parameter specifies a GCS Bucket to write to.
+ *  The parameter specifies a Cloud Storage Bucket to write to.
  *
  *  Value: "GCS_WRITE_BUCKET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket;
 /**
- *  The parameter specifies a GCS file path to write to.
+ *  The parameter specifies a Cloud Storage file path to write to.
  *
  *  Value: "GCS_WRITE_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile;
 /**
- *  The parameter specifies a GCS folder to write to.
+ *  The parameter specifies a Cloud Storage folder to write to.
  *
  *  Value: "GCS_WRITE_FOLDER"
  */
@@ -1437,28 +1411,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskTy
  *  Value: "STREAMING_COMPUTATION_TASK_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_StreamingComputationTask_TaskType_StreamingComputationTaskUnknown;
-
-// ----------------------------------------------------------------------------
-// GTLRDataflow_TemplateVersion.type
-
-/**
- *  Flex Template.
- *
- *  Value: "FLEX"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_Flex;
-/**
- *  Legacy Template.
- *
- *  Value: "LEGACY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_Legacy;
-/**
- *  Default value. Not a useful zero case.
- *
- *  Value: "TEMPLATE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataflow_TransformSummary.kind
@@ -1790,23 +1742,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Job information for templates.
- */
-@interface GTLRDataflow_Artifact : GTLRObject
-
-/** Container image path set for flex Template. */
-@property(nonatomic, strong, nullable) GTLRDataflow_ContainerSpec *containerSpec;
-
-/** job_graph_gcs_path set for legacy Template. */
-@property(nonatomic, copy, nullable) NSString *jobGraphGcsPath;
-
-/** Metadata set for legacy Template. */
-@property(nonatomic, strong, nullable) GTLRDataflow_TemplateMetadata *metadata;
-
-@end
-
-
-/**
  *  A structured message reporting an autoscaling decision made by the Dataflow
  *  service.
  */
@@ -1929,7 +1864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Metadata for a BigTable connector used by the job.
+ *  Metadata for a Cloud BigTable connector used by the job.
  */
 @interface GTLRDataflow_BigTableIODetails : GTLRObject
 
@@ -1941,17 +1876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** TableId accessed in the connection. */
 @property(nonatomic, copy, nullable) NSString *tableId;
-
-@end
-
-
-/**
- *  Commit will add a new TemplateVersion to an existing template.
- */
-@interface GTLRDataflow_CommitTemplateVersionRequest : GTLRObject
-
-/** TemplateVersion obejct to create. */
-@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion *templateVersion;
 
 @end
 
@@ -2372,17 +2296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Creates a new Template with TemplateVersions.
- */
-@interface GTLRDataflow_CreateTemplateVersionRequest : GTLRObject
-
-/** The TemplateVersion object to create. */
-@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion *templateVersion;
-
-@end
-
-
-/**
  *  Identifies the location of a custom souce.
  */
 @interface GTLRDataflow_CustomSourceLocation : GTLRObject
@@ -2657,17 +2570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  A generic empty message that you can re-use to avoid defining duplicated
- *  empty messages in your APIs. A typical example is to use it as the request
- *  or the response type of an API method. For instance: service Foo { rpc
- *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
- *  representation for `Empty` is empty JSON object `{}`.
- */
-@interface GTLRDataflow_Empty : GTLRObject
-@end
-
-
-/**
  *  Describes the environment in which a Dataflow Job runs.
  */
 @interface GTLRDataflow_Environment : GTLRObject
@@ -2916,7 +2818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
  *        associated resources are currently being cleaned up after a successful
  *        run. Currently, this is an opt-in feature, please reach out to Cloud
- *        support team if you are intersted. (Value:
+ *        support team if you are interested. (Value:
  *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_ExecutionStageState_ExecutionStageState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
@@ -2964,7 +2866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StageSource *> *inputSource;
 
 /**
- *  Type of tranform this stage is executing.
+ *  Type of transform this stage is executing.
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_ExecutionStageSummary_Kind_ConstantKind Constructs
@@ -3546,7 +3448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
  *        associated resources are currently being cleaned up after a successful
  *        run. Currently, this is an opt-in feature, please reach out to Cloud
- *        support team if you are intersted. (Value:
+ *        support team if you are interested. (Value:
  *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_Job_CurrentState_JobStateRunning `JOB_STATE_RUNNING`
  *        indicates that the job is currently running. (Value:
@@ -3696,7 +3598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        `JOB_STATE_RESOURCE_CLEANING_UP` indicates that the batch job's
  *        associated resources are currently being cleaned up after a successful
  *        run. Currently, this is an opt-in feature, please reach out to Cloud
- *        support team if you are intersted. (Value:
+ *        support team if you are interested. (Value:
  *        "JOB_STATE_RESOURCE_CLEANING_UP")
  *    @arg @c kGTLRDataflow_Job_RequestedState_JobStateRunning
  *        `JOB_STATE_RUNNING` indicates that the job is currently running.
@@ -3745,7 +3647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_Step *> *steps;
 
-/** The GCS location where the steps are stored. */
+/** The Cloud Storage location where the steps are stored. */
 @property(nonatomic, copy, nullable) NSString *stepsLocation;
 
 /**
@@ -3944,7 +3846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Identification of a BigQuery source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigQueryIODetails *> *bigqueryDetails;
 
-/** Identification of a BigTable source used in the Dataflow job. */
+/** Identification of a Cloud BigTable source used in the Dataflow job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_BigTableIODetails *> *bigTableDetails;
 
 /** Identification of a Datastore source used in the Dataflow job. */
@@ -4051,7 +3953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Spec about the container image to launch. */
 @property(nonatomic, strong, nullable) GTLRDataflow_ContainerSpec *containerSpec;
 
-/** Gcs path to a file with json serialized ContainerSpec as content. */
+/**
+ *  Cloud Storage path to a file with json serialized ContainerSpec as content.
+ */
 @property(nonatomic, copy, nullable) NSString *containerSpecGcsPath;
 
 /** The runtime environment for the FlexTemplate job */
@@ -4363,33 +4267,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Respond a list of TemplateVersions.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "templateVersions" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRDataflow_ListTemplateVersionsResponse : GTLRCollectionObject
-
-/**
- *  A token that can be sent as `page_token` to retrieve the next page. If this
- *  field is omitted, there are no subsequent pages.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of TemplateVersions.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataflow_TemplateVersion *> *templateVersions;
-
-@end
-
-
-/**
  *  MapTask consists of an ordered set of instructions, each of which describes
  *  one particular low-level operation for the worker to perform in order to
  *  accomplish the MapTask's WorkItem. Each instruction must appear in the list
@@ -4615,91 +4492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Either add the label to TemplateVersion or remove it from the
- *  TemplateVersion.
- */
-@interface GTLRDataflow_ModifyTemplateVersionLabelRequest : GTLRObject
-
-/** The label key for update. */
-@property(nonatomic, copy, nullable) NSString *key;
-
-/**
- *  Requests for add label to TemplateVersion or remove label from
- *  TemplateVersion.
- *
- *  Likely values:
- *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Add Add the
- *        label to the TemplateVersion object. (Value: "ADD")
- *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_OperationUnspecified
- *        Default value. (Value: "OPERATION_UNSPECIFIED")
- *    @arg @c kGTLRDataflow_ModifyTemplateVersionLabelRequest_Op_Remove Remove
- *        the label from the TemplateVersion object. (Value: "REMOVE")
- */
-@property(nonatomic, copy, nullable) NSString *op;
-
-/** The label value for update. */
-@property(nonatomic, copy, nullable) NSString *value;
-
-@end
-
-
-/**
- *  Respond the labels in the TemplateVersion.
- */
-@interface GTLRDataflow_ModifyTemplateVersionLabelResponse : GTLRObject
-
-/** All the label in the TemplateVersion. */
-@property(nonatomic, strong, nullable) GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels *labels;
-
-@end
-
-
-/**
- *  All the label in the TemplateVersion.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataflow_ModifyTemplateVersionLabelResponse_Labels : GTLRObject
-@end
-
-
-/**
- *  Add a tag to the current TemplateVersion. If tag exist in another
- *  TemplateVersion in the Template, remove the tag before add it to the current
- *  TemplateVersion. If remove_only set, remove the tag from the current
- *  TemplateVersion.
- */
-@interface GTLRDataflow_ModifyTemplateVersionTagRequest : GTLRObject
-
-/**
- *  The flag that indicates if the request is only for remove tag from
- *  TemplateVersion.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *removeOnly;
-
-/** The tag for update. */
-@property(nonatomic, copy, nullable) NSString *tag;
-
-@end
-
-
-/**
- *  Respond the current tags in the TemplateVersion.
- */
-@interface GTLRDataflow_ModifyTemplateVersionTagResponse : GTLRObject
-
-/** All the tags in the TemplateVersion. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
-
-@end
-
-
-/**
  *  Describes mounted data disk.
  */
 @interface GTLRDataflow_MountedDataDisk : GTLRObject
@@ -4870,22 +4662,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_Default Default input
  *        type. (Value: "DEFAULT")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadBucket The
- *        parameter specifies a GCS Bucket to read from. (Value:
+ *        parameter specifies a Cloud Storage Bucket to read from. (Value:
  *        "GCS_READ_BUCKET")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFile The
- *        parameter specifies a GCS file path to read from. (Value:
+ *        parameter specifies a Cloud Storage file path to read from. (Value:
  *        "GCS_READ_FILE")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsReadFolder The
- *        parameter specifies a GCS folder path to read from. (Value:
+ *        parameter specifies a Cloud Storage folder path to read from. (Value:
  *        "GCS_READ_FOLDER")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteBucket The
- *        parameter specifies a GCS Bucket to write to. (Value:
+ *        parameter specifies a Cloud Storage Bucket to write to. (Value:
  *        "GCS_WRITE_BUCKET")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFile The
- *        parameter specifies a GCS file path to write to. (Value:
+ *        parameter specifies a Cloud Storage file path to write to. (Value:
  *        "GCS_WRITE_FILE")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_GcsWriteFolder The
- *        parameter specifies a GCS folder to write to. (Value:
+ *        parameter specifies a Cloud Storage folder to write to. (Value:
  *        "GCS_WRITE_FOLDER")
  *    @arg @c kGTLRDataflow_ParameterMetadata_ParamType_PubsubSubscription The
  *        parameter specifies a Pub/Sub Subscription. (Value:
@@ -5101,7 +4893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  Metadata for a PubSub connector used by the job.
+ *  Metadata for a Pub/Sub connector used by the job.
  */
 @interface GTLRDataflow_PubSubIODetails : GTLRObject
 
@@ -6878,79 +6670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  /////////////////////////////////////////////////////////////////////////////
- *  //// Template Catalog is used to organize user TemplateVersions. ////
- *  TemplateVersions that have the same project_id and display_name are ////
- *  belong to the same Template. //// Templates with the same project_id belong
- *  to the same Project. //// TemplateVersion may have labels and multiple
- *  labels are allowed. //// Duplicated labels in the same `TemplateVersion` are
- *  not allowed. //// TemplateVersion may have tags and multiple tags are
- *  allowed. Duplicated //// tags in the same `Template` are not allowed!
- */
-@interface GTLRDataflow_TemplateVersion : GTLRObject
-
-/**
- *  Job graph and metadata if it is a legacy Template. Container image path and
- *  metadata if it is flex Template.
- */
-@property(nonatomic, strong, nullable) GTLRDataflow_Artifact *artifact;
-
-/** Creation time of this TemplateVersion. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Template description from the user.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** A customized name for Template. Multiple TemplateVersions per Template. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Labels for the Template Version. Labels can be duplicate within Template.
- */
-@property(nonatomic, strong, nullable) GTLRDataflow_TemplateVersion_Labels *labels;
-
-/** A unique project_id. Multiple Templates per Project. */
-@property(nonatomic, copy, nullable) NSString *projectId;
-
-/** Alias for version_id, helps locate a TemplateVersion. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
-
-/**
- *  Either LEGACY or FLEX. This should match with the type of artifact.
- *
- *  Likely values:
- *    @arg @c kGTLRDataflow_TemplateVersion_Type_Flex Flex Template. (Value:
- *        "FLEX")
- *    @arg @c kGTLRDataflow_TemplateVersion_Type_Legacy Legacy Template. (Value:
- *        "LEGACY")
- *    @arg @c kGTLRDataflow_TemplateVersion_Type_TemplateTypeUnspecified Default
- *        value. Not a useful zero case. (Value: "TEMPLATE_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/** An auto generated version_id for TemplateVersion. */
-@property(nonatomic, copy, nullable) NSString *versionId;
-
-@end
-
-
-/**
- *  Labels for the Template Version. Labels can be duplicate within Template.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRDataflow_TemplateVersion_Labels : GTLRObject
-@end
-
-
-/**
  *  Global topology of the streaming Dataflow job, including all computations
  *  and their sharded locations.
  */
@@ -7082,7 +6801,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @interface GTLRDataflow_WorkerHealthReport : GTLRObject
 
-/** A message describing any unusual health reports. */
+/** Message describing any unusual health reports. */
 @property(nonatomic, copy, nullable) NSString *msg;
 
 /**
@@ -7099,6 +6818,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  the worker.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *reportInterval;
+
+/**
+ *  Code to describe a specific reason, if known, that a VM has reported broken
+ *  state.
+ */
+@property(nonatomic, copy, nullable) NSString *vmBrokenCode;
 
 /**
  *  Whether the VM is in a permanently broken state. Broken VMs should be
@@ -7280,9 +7005,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  The code is a string intended for consumption by a machine that identifies
  *  the type of message being sent. Examples: 1. "HARNESS_STARTED" might be used
  *  to indicate the worker harness has started. 2. "GCS_DOWNLOAD_ERROR" might be
- *  used to indicate an error downloading a GCS file as part of the boot process
- *  of one of the worker containers. This is a string and not an enum to make it
- *  easy to add new codes without waiting for an API change.
+ *  used to indicate an error downloading a Cloud Storage file as part of the
+ *  boot process of one of the worker containers. This is a string and not an
+ *  enum to make it easy to add new codes without waiting for an API change.
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -7291,7 +7016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  allow parameters of different types. Examples: 1. For a "HARNESS_STARTED"
  *  message parameters might provide the name of the worker and additional data
  *  like timing information. 2. For a "GCS_DOWNLOAD_ERROR" parameters might
- *  contain fields listing the GCS objects being downloaded and fields
+ *  contain fields listing the Cloud Storage objects being downloaded and fields
  *  containing errors. In general complex data structures should be avoided. If
  *  a worker needs to send a specific and complicated data structure then please
  *  consider defining a new proto and adding it to the data oneof in
@@ -7310,7 +7035,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  allow parameters of different types. Examples: 1. For a "HARNESS_STARTED"
  *  message parameters might provide the name of the worker and additional data
  *  like timing information. 2. For a "GCS_DOWNLOAD_ERROR" parameters might
- *  contain fields listing the GCS objects being downloaded and fields
+ *  contain fields listing the Cloud Storage objects being downloaded and fields
  *  containing errors. In general complex data structures should be avoided. If
  *  a worker needs to send a specific and complicated data structure then please
  *  consider defining a new proto and adding it to the data oneof in

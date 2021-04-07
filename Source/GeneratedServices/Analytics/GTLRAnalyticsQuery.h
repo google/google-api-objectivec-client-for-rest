@@ -112,8 +112,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_DataGaGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForDataGaGetWithids:startDate:endDate:metrics:]
 
 /**
  *  A comma-separated list of Analytics dimensions. E.g., 'ga:browser,ga:city'.
@@ -237,8 +235,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_DataMcfGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForDataMcfGetWithids:startDate:endDate:metrics:]
 
 /**
  *  A comma-separated list of Multi-Channel Funnels dimensions. E.g.,
@@ -344,8 +340,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_DataRealtimeGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForDataRealtimeGetWithids:metrics:]
 
 /**
  *  A comma-separated list of real time dimensions. E.g., 'rt:medium,rt:city'.
@@ -407,8 +401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementAccountsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountsList]
 
 /** The maximum number of accounts to include in this response. */
 @property(nonatomic, assign) NSInteger maxResults;
@@ -441,8 +433,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementAccountSummariesList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountSummariesList]
 
 /**
  *  The maximum number of account summaries to include in this response, where
@@ -477,8 +467,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementAccountUserLinksDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountUserLinksDeleteWithaccountId:linkId:]
 
 /** Account ID to delete the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -511,8 +499,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementAccountUserLinksInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountUserLinksInsertWithObject:accountId:]
 
 /** Account ID to create the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -542,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsersReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementAccountUserLinksList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountUserLinksListWithaccountId:]
 
 /** Account ID to retrieve the user links for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -579,8 +563,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementAccountUserLinksUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementAccountUserLinksUpdateWithObject:accountId:linkId:]
 
 /** Account ID to update the account-user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -615,8 +597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementClientIdHashClientId : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementClientIdHashClientIdWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalytics_HashClientIdResponse.
@@ -643,8 +623,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDataSourcesList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDataSourcesListWithaccountId:webPropertyId:]
 
 /** Account Id for the custom data sources to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -687,8 +665,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDimensionsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDimensionsGetWithaccountId:webPropertyId:customDimensionId:]
 
 /** Account ID for the custom dimension to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -725,8 +701,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDimensionsInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDimensionsInsertWithObject:accountId:webPropertyId:]
 
 /** Account ID for the custom dimension to create. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -761,8 +735,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDimensionsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDimensionsListWithaccountId:webPropertyId:]
 
 /** Account ID for the custom dimensions to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -803,8 +775,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDimensionsPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDimensionsPatchWithObject:accountId:webPropertyId:customDimensionId:]
 
 /** Account ID for the custom dimension to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -852,8 +822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomDimensionsUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomDimensionsUpdateWithObject:accountId:webPropertyId:customDimensionId:]
 
 /** Account ID for the custom dimension to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -902,8 +870,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementCustomMetricsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomMetricsGetWithaccountId:webPropertyId:customMetricId:]
 
 /** Account ID for the custom metric to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -940,8 +906,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomMetricsInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomMetricsInsertWithObject:accountId:webPropertyId:]
 
 /** Account ID for the custom metric to create. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -976,8 +940,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementCustomMetricsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomMetricsListWithaccountId:webPropertyId:]
 
 /** Account ID for the custom metrics to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1018,8 +980,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomMetricsPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomMetricsPatchWithObject:accountId:webPropertyId:customMetricId:]
 
 /** Account ID for the custom metric to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1066,8 +1026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementCustomMetricsUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementCustomMetricsUpdateWithObject:accountId:webPropertyId:customMetricId:]
 
 /** Account ID for the custom metric to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1115,8 +1073,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsDeleteWithaccountId:webPropertyId:profileId:experimentId:]
 
 /** Account ID to which the experiment belongs */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1161,8 +1117,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsGetWithaccountId:webPropertyId:profileId:experimentId:]
 
 /** Account ID to retrieve the experiment for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1205,8 +1159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsInsertWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to create the experiment for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1247,8 +1199,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsListWithaccountId:webPropertyId:profileId:]
 
 /** Account ID to retrieve experiments for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1295,8 +1245,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsPatchWithObject:accountId:webPropertyId:profileId:experimentId:]
 
 /** Account ID of the experiment to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1341,8 +1289,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementExperimentsUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementExperimentsUpdateWithObject:accountId:webPropertyId:profileId:experimentId:]
 
 /** Account ID of the experiment to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1386,8 +1332,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersDeleteWithaccountId:filterId:]
 
 /** Account ID to delete the filter for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1420,8 +1364,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersGetWithaccountId:filterId:]
 
 /** Account ID to retrieve filters for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1453,8 +1395,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersInsertWithObject:accountId:]
 
 /** Account ID to create filter for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1484,8 +1424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersListWithaccountId:]
 
 /** Account ID to retrieve filters for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1521,8 +1459,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersPatchWithObject:accountId:filterId:]
 
 /** Account ID to which the filter belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1556,8 +1492,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementFiltersUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementFiltersUpdateWithObject:accountId:filterId:]
 
 /** Account ID to which the filter belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1592,8 +1526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementGoalsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementGoalsGetWithaccountId:webPropertyId:profileId:goalId:]
 
 /** Account ID to retrieve the goal for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1635,8 +1567,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementGoalsInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementGoalsInsertWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to create the goal for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1677,8 +1607,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementGoalsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementGoalsListWithaccountId:webPropertyId:profileId:]
 
 /**
  *  Account ID to retrieve goals for. Can either be a specific account ID or
@@ -1741,8 +1669,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementGoalsPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementGoalsPatchWithObject:accountId:webPropertyId:profileId:goalId:]
 
 /** Account ID to update the goal. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1786,8 +1712,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementGoalsUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementGoalsUpdateWithObject:accountId:webPropertyId:profileId:goalId:]
 
 /** Account ID to update the goal. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1831,8 +1755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksDeleteWithaccountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to which the profile filter link belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1877,8 +1799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksGetWithaccountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to retrieve profile filter link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1920,8 +1840,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksInsertWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to create profile filter link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -1962,8 +1880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksListWithaccountId:webPropertyId:profileId:]
 
 /** Account ID to retrieve profile filter links for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2021,8 +1937,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksPatchWithObject:accountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to which profile filter link belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2068,8 +1982,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfileFilterLinksUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileFilterLinksUpdateWithObject:accountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to which profile filter link belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2114,8 +2026,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesDeleteWithaccountId:webPropertyId:profileId:]
 
 /** Account ID to delete the view (profile) for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2154,8 +2064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesGetWithaccountId:webPropertyId:profileId:]
 
 /** Account ID to retrieve the view (profile) for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2192,8 +2100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesInsertWithObject:accountId:webPropertyId:]
 
 /** Account ID to create the view (profile) for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2229,8 +2135,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesListWithaccountId:webPropertyId:]
 
 /**
  *  Account ID for the view (profiles) to retrieve. Can either be a specific
@@ -2283,8 +2187,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesPatchWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to which the view (profile) belongs */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2323,8 +2225,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementProfilesUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfilesUpdateWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to which the view (profile) belongs */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2363,8 +2263,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementProfileUserLinksDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileUserLinksDeleteWithaccountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to delete the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2407,8 +2305,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementProfileUserLinksInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileUserLinksInsertWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to create the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2448,8 +2344,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsersReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementProfileUserLinksList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileUserLinksListWithaccountId:webPropertyId:profileId:]
 
 /** Account ID which the given view (profile) belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2507,8 +2401,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementProfileUserLinksUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementProfileUserLinksUpdateWithObject:accountId:webPropertyId:profileId:linkId:]
 
 /** Account ID to update the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2552,8 +2444,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudienceDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceDeleteWithaccountId:webPropertyId:remarketingAudienceId:]
 
 /** Account ID to which the remarketing audience belongs. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2593,8 +2483,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudienceGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceGetWithaccountId:webPropertyId:remarketingAudienceId:]
 
 /** The account ID of the remarketing audience to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2632,8 +2520,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudienceInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceInsertWithObject:accountId:webPropertyId:]
 
 /** The account ID for which to create the remarketing audience. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2671,8 +2557,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudienceList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceListWithaccountId:webPropertyId:]
 
 /** The account ID of the remarketing audiences to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2724,8 +2608,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudiencePatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudiencePatchWithObject:accountId:webPropertyId:remarketingAudienceId:]
 
 /** The account ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2767,8 +2649,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementRemarketingAudienceUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementRemarketingAudienceUpdateWithObject:accountId:webPropertyId:remarketingAudienceId:]
 
 /** The account ID of the remarketing audience to update. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2811,8 +2691,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementSegmentsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementSegmentsList]
 
 /** The maximum number of segments to include in this response. */
 @property(nonatomic, assign) NSInteger maxResults;
@@ -2843,8 +2721,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementUnsampledReportsDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUnsampledReportsDeleteWithaccountId:webPropertyId:profileId:unsampledReportId:]
 
 /** Account ID to delete the unsampled report for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2889,8 +2765,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementUnsampledReportsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUnsampledReportsGetWithaccountId:webPropertyId:profileId:unsampledReportId:]
 
 /** Account ID to retrieve unsampled report for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2933,8 +2807,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementUnsampledReportsInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUnsampledReportsInsertWithObject:accountId:webPropertyId:profileId:]
 
 /** Account ID to create the unsampled report for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -2975,8 +2847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementUnsampledReportsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUnsampledReportsListWithaccountId:webPropertyId:profileId:]
 
 /**
  *  Account ID to retrieve unsampled reports for. Must be a specific account ID,
@@ -3035,8 +2905,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementUploadsDeleteUploadData : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUploadsDeleteUploadDataWithObject:accountId:webPropertyId:customDataSourceId:]
 
 /** Account Id for the uploads to be deleted. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3080,8 +2948,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementUploadsGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUploadsGetWithaccountId:webPropertyId:customDataSourceId:uploadId:]
 
 /** Account Id for the upload to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3125,8 +2991,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementUploadsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUploadsListWithaccountId:webPropertyId:customDataSourceId:]
 
 /** Account Id for the uploads to retrieve. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3173,8 +3037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementUploadsUploadData : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementUploadsUploadDataWithaccountId:webPropertyId:customDataSourceId:]
 
 /** Account Id associated with the upload. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3216,8 +3078,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertiesGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertiesGetWithaccountId:webPropertyId:]
 
 /** Account ID to retrieve the web property for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3251,8 +3111,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertiesInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertiesInsertWithObject:accountId:]
 
 /** Account ID to create the web property for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3285,8 +3143,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertiesList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertiesListWithaccountId:]
 
 /**
  *  Account ID to retrieve web properties for. Can either be a specific account
@@ -3327,8 +3183,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertiesPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertiesPatchWithObject:accountId:webPropertyId:]
 
 /** Account ID to which the web property belongs */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3362,8 +3216,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertiesUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertiesUpdateWithObject:accountId:webPropertyId:]
 
 /** Account ID to which the web property belongs */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3397,8 +3249,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksDeleteWithaccountId:webPropertyId:webPropertyAdWordsLinkId:]
 
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3437,8 +3287,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksGet : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksGetWithaccountId:webPropertyId:webPropertyAdWordsLinkId:]
 
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3475,8 +3323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksInsertWithObject:accountId:webPropertyId:]
 
 /** ID of the Google Analytics account to create the link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3512,8 +3358,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksListWithaccountId:webPropertyId:]
 
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3558,8 +3402,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksPatch : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksPatchWithObject:accountId:webPropertyId:webPropertyAdWordsLinkId:]
 
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3600,8 +3442,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsEdit
  */
 @interface GTLRAnalyticsQuery_ManagementWebPropertyAdWordsLinksUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebPropertyAdWordsLinksUpdateWithObject:accountId:webPropertyId:webPropertyAdWordsLinkId:]
 
 /** ID of the account which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3641,8 +3481,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertyUserLinksDelete : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertyUserLinksDeleteWithaccountId:webPropertyId:linkId:]
 
 /** Account ID to delete the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3680,8 +3518,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertyUserLinksInsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertyUserLinksInsertWithObject:accountId:webPropertyId:]
 
 /** Account ID to create the user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3716,8 +3552,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsersReadonly
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertyUserLinksList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertyUserLinksListWithaccountId:webPropertyId:]
 
 /** Account ID which the given web property belongs to. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3766,8 +3600,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsManageUsers
  */
 @interface GTLRAnalyticsQuery_ManagementWebpropertyUserLinksUpdate : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForManagementWebpropertyUserLinksUpdateWithObject:accountId:webPropertyId:linkId:]
 
 /** Account ID to update the account-user link for. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -3808,8 +3640,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsReadonly
  */
 @interface GTLRAnalyticsQuery_MetadataColumnsList : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForMetadataColumnsListWithreportType:]
 
 /**
  *  Report type. Allowed Values: 'ga'. Where 'ga' corresponds to the Core
@@ -3840,8 +3670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsProvision
  */
 @interface GTLRAnalyticsQuery_ProvisioningCreateAccountTicket : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForProvisioningCreateAccountTicketWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalytics_AccountTicket.
@@ -3865,8 +3693,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsProvision
  */
 @interface GTLRAnalyticsQuery_ProvisioningCreateAccountTree : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForProvisioningCreateAccountTreeWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalytics_AccountTreeResponse.
@@ -3891,8 +3717,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsSamplingLevelHigherPrecision;
  *    @c kGTLRAuthScopeAnalyticsUserDeletion
  */
 @interface GTLRAnalyticsQuery_UserDeletionUserDeletionRequestUpsert : GTLRAnalyticsQuery
-// Previous library name was
-//   +[GTLQueryAnalytics queryForUserDeletionUserDeletionRequestUpsertWithObject:]
 
 /**
  *  Fetches a @c GTLRAnalytics_UserDeletionRequest.

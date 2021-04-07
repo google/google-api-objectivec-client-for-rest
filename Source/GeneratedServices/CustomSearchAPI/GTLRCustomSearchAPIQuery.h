@@ -337,8 +337,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Method: search.cse.list
  */
 @interface GTLRCustomSearchAPIQuery_CseList : GTLRCustomSearchAPIQuery
-// Previous library name was
-//   +[GTLQueryCustomSearchAPI queryForCseList]
 
 /**
  *  Enables or disables [Simplified and Traditional Chinese
@@ -693,8 +691,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomSearchAPISiteSearchFilterSiteSearc
  *  Method: search.cse.siterestrict.list
  */
 @interface GTLRCustomSearchAPIQuery_CseSiterestrictList : GTLRCustomSearchAPIQuery
-// Previous library name was
-//   +[GTLQueryCustomSearchAPI queryForCseSiterestrictList]
 
 /**
  *  Enables or disables [Simplified and Traditional Chinese

@@ -143,8 +143,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_IamPoliciesLintPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForIamPoliciesLintPolicyWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_LintPolicyResponse.
@@ -173,8 +171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_IamPoliciesQueryAuditableServices : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForIamPoliciesQueryAuditableServicesWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryAuditableServicesResponse.
@@ -201,8 +197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesCreateWithObject:parent:]
 
 /**
  *  The `parent` parameter's value depends on the target resource for the
@@ -267,8 +261,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesDeleteWithname:]
 
 /**
  *  Used to perform a consistent read-modify-write.
@@ -344,8 +336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -417,8 +407,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesListWithparent:]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -514,8 +502,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesPatchWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -585,8 +571,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_OrganizationsRolesUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForOrganizationsRolesUndeleteWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -651,8 +635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_PermissionsQueryTestablePermissions : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForPermissionsQueryTestablePermissionsWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryTestablePermissionsResponse.
@@ -680,8 +662,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource to create the pool in. The only supported
@@ -729,8 +709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsDeleteWithname:]
 
 /** Required. The name of the pool to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -763,8 +741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsGetWithname:]
 
 /** Required. The name of the pool to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -792,8 +768,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsListWithparent:]
 
 /**
  *  The maximum number of pools to return. If unspecified, at most 50 pools are
@@ -843,8 +817,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsOperationsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -873,8 +845,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsPatchWithObject:name:]
 
 /** Output only. The resource name of the pool. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -911,8 +881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersCreateWithObject:parent:]
 
 /** Required. The pool to create this provider in. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -955,8 +923,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersDeleteWithname:]
 
 /** Required. The name of the provider to delete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -987,8 +953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersGetWithname:]
 
 /** Required. The name of the provider to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1017,8 +981,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersListWithparent:]
 
 /**
  *  The maximum number of providers to return. If unspecified, at most 50
@@ -1069,8 +1031,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1099,8 +1059,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersPatchWithObject:name:]
 
 /** Output only. The resource name of the provider. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1138,8 +1096,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsProvidersUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsProvidersUndeleteWithObject:name:]
 
 /** Required. The name of the provider to undelete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1171,8 +1127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsLocationsWorkloadIdentityPoolsUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsLocationsWorkloadIdentityPoolsUndeleteWithObject:name:]
 
 /** Required. The name of the pool to undelete. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1203,8 +1157,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesCreateWithObject:parent:]
 
 /**
  *  The `parent` parameter's value depends on the target resource for the
@@ -1269,8 +1221,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesDeleteWithname:]
 
 /**
  *  Used to perform a consistent read-modify-write.
@@ -1346,8 +1296,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -1419,8 +1367,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesListWithparent:]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -1516,8 +1462,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesPatchWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -1587,8 +1531,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsRolesUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsRolesUndeleteWithObject:name:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -1651,8 +1593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsCreateWithObject:name:]
 
 /**
  *  Required. The resource name of the project associated with the service
@@ -1695,8 +1635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsDeleteWithname:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1751,8 +1689,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsDisable : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsDisableWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -1805,8 +1741,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsEnable : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsEnableWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -1849,8 +1783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsGetWithname:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1893,8 +1825,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsGetIamPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -1944,8 +1874,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysCreate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysCreateWithObject:name:]
 
 /**
  *  Required. The resource name of the service account in the following format:
@@ -1986,8 +1914,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysDelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysDeleteWithname:]
 
 /**
  *  Required. The resource name of the service account key in the following
@@ -2027,8 +1953,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysGetWithname:]
 
 /**
  *  Required. The resource name of the service account key in the following
@@ -2080,8 +2004,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysListWithname:]
 
 /**
  *  Filters the types of keys the user wants to include in the list response.
@@ -2133,8 +2055,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsKeysUpload : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsKeysUploadWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -2173,8 +2093,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsListWithname:]
 
 /**
  *  Required. The resource name of the project associated with the service
@@ -2223,8 +2141,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsPatch : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsPatchWithObject:name:]
 
 /**
  *  The resource name of the service account. Use one of the following formats:
@@ -2286,8 +2202,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSetIamPolicy : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -2336,8 +2250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSignBlob : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSignBlobWithObject:name:]
 
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
@@ -2391,8 +2303,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsSignJwt : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsSignJwtWithObject:name:]
 
 /**
  *  Required. Deprecated. [Migrate to Service Account Credentials
@@ -2440,8 +2350,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsTestIamPermissions : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -2480,8 +2388,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsUndelete : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsUndeleteWithObject:name:]
 
 /**
  *  The resource name of the service account in the following format:
@@ -2524,8 +2430,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_ProjectsServiceAccountsUpdate : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForProjectsServiceAccountsUpdateWithObject:name:]
 
 /**
  *  The resource name of the service account. Use one of the following formats:
@@ -2579,8 +2483,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesGet : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesGetWithname:]
 
 /**
  *  The `name` parameter's value depends on the target resource for the request,
@@ -2652,8 +2554,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesList : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesList]
 
 /**
  *  Optional limit on the number of roles to include in the response. The
@@ -2730,8 +2630,6 @@ FOUNDATION_EXTERN NSString * const kGTLRIamViewFull;
  *    @c kGTLRAuthScopeIamCloudPlatform
  */
 @interface GTLRIamQuery_RolesQueryGrantableRoles : GTLRIamQuery
-// Previous library name was
-//   +[GTLQueryIam queryForRolesQueryGrantableRolesWithObject:]
 
 /**
  *  Fetches a @c GTLRIam_QueryGrantableRolesResponse.

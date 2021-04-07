@@ -99,8 +99,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_FeedsCreate : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFeedsCreateWithObject:parent:]
 
 /**
  *  Required. The name of the project/folder/organization where this feed should
@@ -141,8 +139,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_FeedsDelete : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFeedsDeleteWithname:]
 
 /**
  *  Required. The name of the feed and it must be in the format of:
@@ -175,8 +171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_FeedsGet : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFeedsGetWithname:]
 
 /**
  *  Required. The name of the Feed and it must be in the format of:
@@ -209,8 +203,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_FeedsList : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFeedsListWithparent:]
 
 /**
  *  Required. The parent project/folder/organization whose feeds are to be
@@ -244,8 +236,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_FeedsPatch : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForFeedsPatchWithObject:name:]
 
 /**
  *  Required. The format will be
@@ -289,8 +279,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_OperationsGet : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -320,8 +308,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1AnalyzeIamPolicy : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForAnalyzeIamPolicyWithscope:]
 
 /** Optional. The permissions to appear in result. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *analysisQueryAccessSelectorPermissions;
@@ -483,8 +469,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1AnalyzeIamPolicyLongrunning : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForAnalyzeIamPolicyLongrunningWithObject:scope:]
 
 /**
  *  Required. The relative name of the root asset. Only resources and IAM
@@ -544,8 +528,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1BatchGetAssetsHistory : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForBatchGetAssetsHistoryWithparent:]
 
 /**
  *  A list of the full names of the assets. See:
@@ -629,8 +611,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1ExportAssets : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForExportAssetsWithObject:parent:]
 
 /**
  *  Required. The relative name of the root asset. This can only be an
@@ -679,8 +659,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1SearchAllIamPolicies : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForSearchAllIamPoliciesWithscope:]
 
 /**
  *  Optional. The page size for search result pagination. Page size is capped at
@@ -786,8 +764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *    @c kGTLRAuthScopeCloudAssetCloudPlatform
  */
 @interface GTLRCloudAssetQuery_V1SearchAllResources : GTLRCloudAssetQuery
-// Previous library name was
-//   +[GTLQueryCloudAsset queryForSearchAllResourcesWithscope:]
 
 /**
  *  Optional. A list of asset types that this request searches for. If empty, it

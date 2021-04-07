@@ -49,8 +49,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsGet : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -77,8 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsList : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsListWithname:]
 
 /**
  *  A filter to narrow down results to a preferred subset. The filtering
@@ -131,8 +127,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsOperationsDelete : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsOperationsDeleteWithname:]
 
 /** The name of the operation resource to be deleted. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -164,8 +158,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsOperationsGet : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -202,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsOperationsList : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -253,8 +243,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsCreate : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsWorkflowsCreateWithObject:parent:]
 
 /**
  *  Required. Project and location in which the workflow should be created.
@@ -299,8 +287,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsDelete : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsWorkflowsDeleteWithname:]
 
 /**
  *  Required. Name of the workflow to be deleted. Format:
@@ -332,8 +318,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsGet : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsWorkflowsGetWithname:]
 
 /**
  *  Required. Name of the workflow which information should be retrieved.
@@ -366,8 +350,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsList : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsWorkflowsListWithparent:]
 
 /** Filter to restrict results to specific workflows. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -432,8 +414,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkflowsCloudPlatform
  */
 @interface GTLRWorkflowsQuery_ProjectsLocationsWorkflowsPatch : GTLRWorkflowsQuery
-// Previous library name was
-//   +[GTLQueryWorkflows queryForProjectsLocationsWorkflowsPatchWithObject:name:]
 
 /**
  *  The resource name of the workflow. Format:

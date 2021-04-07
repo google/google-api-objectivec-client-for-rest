@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   On-Demand Scanning API (ondemandscanning/v1beta1)
+//   On-Demand Scanning API (ondemandscanning/v1)
 // Description:
 //   A service to scan container images for vulnerabilities.
 // Documentation:
@@ -402,10 +402,25 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  AnalyzePackagesMetadata contains metadata for an active scan of a container
+ *  image.
+ */
+@interface GTLROnDemandScanning_AnalyzePackagesMetadataV1 : GTLRObject
+
+/** When the scan was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The resource URI of the container image being scanned. */
+@property(nonatomic, copy, nullable) NSString *resourceUri;
+
+@end
+
+
+/**
  *  AnalyzePackagesRequest is the request to analyze a list of packages and
  *  create Vulnerability Occurrences for it.
  */
-@interface GTLROnDemandScanning_AnalyzePackagesRequest : GTLRObject
+@interface GTLROnDemandScanning_AnalyzePackagesRequestV1 : GTLRObject
 
 /** The packages to analyze. */
 @property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_PackageData *> *packages;
@@ -421,6 +436,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  for the given scan.
  */
 @interface GTLROnDemandScanning_AnalyzePackagesResponse : GTLRObject
+
+/** The name of the scan resource created by this successful scan. */
+@property(nonatomic, copy, nullable) NSString *scan;
+
+@end
+
+
+/**
+ *  AnalyzePackagesResponse contains the information necessary to find results
+ *  for the given scan.
+ */
+@interface GTLROnDemandScanning_AnalyzePackagesResponseV1 : GTLRObject
 
 /** The name of the scan resource created by this successful scan. */
 @property(nonatomic, copy, nullable) NSString *scan;
@@ -990,7 +1017,7 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLROnDemandScanning_ListVulnerabilitiesResponse : GTLRCollectionObject
+@interface GTLROnDemandScanning_ListVulnerabilitiesResponseV1 : GTLRCollectionObject
 
 /**
  *  A page token that can be used in a subsequent call to ListVulnerabilities to

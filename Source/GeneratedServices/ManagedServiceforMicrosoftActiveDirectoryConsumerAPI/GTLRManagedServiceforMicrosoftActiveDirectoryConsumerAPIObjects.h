@@ -995,8 +995,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  This field will be deprecated, and will be always set to true since
- *  reschedule can happen multiple times now.
+ *  This field is deprecated, and will be always set to true since reschedule
+ *  can happen multiple times now. This field should not be removed until all
+ *  service producers remove this for their customers.
  *
  *  Uses NSNumber of boolValue.
  */

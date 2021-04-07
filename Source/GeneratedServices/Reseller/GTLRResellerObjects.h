@@ -481,6 +481,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRReseller_Subscription_TransferInfo : GTLRObject
 
 /**
+ *  Sku id of the current resold subscription. This is populated only when
+ *  customer has subscription with legacy sku and the subscription resource is
+ *  populated with recommeded sku for transfer in.
+ */
+@property(nonatomic, copy, nullable) NSString *currentLegacySkuId;
+
+/**
  *  When inserting a subscription, this is the minimum number of seats listed in
  *  the transfer order for this product. For example, if the customer has 20
  *  users, the reseller cannot place a transfer order of 15 seats. The minimum

@@ -1392,18 +1392,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
 /**
- *  Output only. Indicates whether this Property is soft-deleted or not. Deleted
- *  properties are excluded from List results unless specifically requested.
- *
- *  Uses NSNumber of boolValue.
+ *  Output only. If set, the time at which this property was trashed. If not
+ *  set, then this property is not currently in the trash can.
  */
-@property(nonatomic, strong, nullable) NSNumber *deleted;
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 /**
  *  Required. Human-readable display name for this property. The max allowed
  *  display name length is 100 UTF-16 code units.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. If set, the time at which this trashed property will be
+ *  permanently deleted. If not set, then this property is not currently in the
+ *  trash can and is not slated to be deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /**
  *  Industry associated with this property Example: AUTOMOTIVE, FOOD_AND_DRINK
@@ -1481,11 +1486,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Reporting Time Zone, used as the day boundary for reports, regardless of
- *  where the data originates. If the time zone honors DST, Analytics will
- *  automatically adjust for the changes. NOTE: Changing the time zone only
- *  affects data going forward, and is not applied retroactively. Format:
- *  https://www.iana.org/time-zones Example: "America/Los_Angeles"
+ *  Required. Reporting Time Zone, used as the day boundary for reports,
+ *  regardless of where the data originates. If the time zone honors DST,
+ *  Analytics will automatically adjust for the changes. NOTE: Changing the time
+ *  zone only affects data going forward, and is not applied retroactively.
+ *  Format: https://www.iana.org/time-zones Example: "America/Los_Angeles"
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 

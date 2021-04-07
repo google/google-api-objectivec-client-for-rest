@@ -58,8 +58,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_ActionResultsGet : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForActionResultsGetWithinstanceName:hashProperty:sizeBytes:]
 
 /**
  *  The hash. In the case of SHA-256, it will always be a lowercase hex string
@@ -144,8 +142,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_ActionResultsUpdate : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForActionResultsUpdateWithObject:instanceName:hashProperty:sizeBytes:]
 
 /**
  *  The hash. In the case of SHA-256, it will always be a lowercase hex string
@@ -265,8 +261,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_ActionsExecute : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForActionsExecuteWithObject:instanceName:]
 
 /**
  *  The instance of the execution system to operate against. A server may
@@ -357,8 +351,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_BlobsBatchRead : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForBlobsBatchReadWithObject:instanceName:]
 
 /**
  *  The instance of the execution system to operate against. A server may
@@ -418,8 +410,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_BlobsBatchUpdate : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForBlobsBatchUpdateWithObject:instanceName:]
 
 /**
  *  The instance of the execution system to operate against. A server may
@@ -475,8 +465,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_BlobsFindMissing : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForBlobsFindMissingWithObject:instanceName:]
 
 /**
  *  The instance of the execution system to operate against. A server may
@@ -534,8 +522,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_BlobsGetTree : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForBlobsGetTreeWithinstanceName:hashProperty:sizeBytes:]
 
 /**
  *  The hash. In the case of SHA-256, it will always be a lowercase hex string
@@ -625,8 +611,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_OperationsWaitExecution : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForOperationsWaitExecutionWithObject:name:]
 
 /** The name of the Operation returned by Execute. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -667,8 +651,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRemoteBuildExecutionCloudPlatform
  */
 @interface GTLRRemoteBuildExecutionQuery_V2GetCapabilities : GTLRRemoteBuildExecutionQuery
-// Previous library name was
-//   +[GTLQueryRemoteBuildExecution queryForGetCapabilitiesWithinstanceName:]
 
 /**
  *  The instance of the execution system to operate against. A server may

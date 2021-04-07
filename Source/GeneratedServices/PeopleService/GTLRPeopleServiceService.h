@@ -82,7 +82,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserEmailsRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceUserGenderRead;
 /**
- *  Authorization scope: View your email address
+ *  Authorization scope: See your primary Google Account email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */

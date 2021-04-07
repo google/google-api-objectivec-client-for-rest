@@ -93,8 +93,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdclientsGet : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdclientsGetWithaccountId:adClientId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -127,8 +125,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdclientsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdclientsListWithaccountId:]
 
 /** Account for which to list ad clients. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -174,8 +170,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsDelete : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsDeleteWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad unit. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -212,8 +206,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsGet : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsGetWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad unit. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -251,8 +243,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsGetAdCode : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsGetAdCodeWithaccountId:adClientId:adUnitId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -293,8 +283,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsInsert : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsInsertWithObject:accountId:adClientId:]
 
 /** Account which will contain the ad unit. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -328,8 +316,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsListWithaccountId:adClientId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -383,8 +369,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsPatch : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsPatchWithObject:accountId:adClientId:adUnitId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -424,8 +408,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsAdunitsUpdate : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsAdunitsUpdateWithObject:accountId:adClientId:]
 
 /** Account which contains the ad client. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -459,8 +441,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsGet : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsGetWithaccountId:]
 
 /** Account to get information about. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -487,8 +467,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsListWithfilterAdClientId:]
 
 /** Ad clients to list accounts for. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filterAdClientId;
@@ -517,8 +495,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AccountsReportsGenerate : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAccountsReportsGenerateWithaccountId:startDate:endDate:]
 
 /** Hosted account upon which to report. */
 @property(nonatomic, copy, nullable) NSString *accountId;
@@ -595,8 +571,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AdclientsGet : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAdclientsGetWithadClientId:]
 
 /** Ad client to get. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -623,8 +597,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AdclientsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAdclientsList]
 
 /**
  *  The maximum number of ad clients to include in the response, used for
@@ -666,8 +638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AssociationsessionsStart : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAssociationsessionsStartWithproductCode:websiteUrl:]
 
 /**
  *  The URL to redirect the user to once association is completed. It receives a
@@ -733,8 +703,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_AssociationsessionsVerify : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForAssociationsessionsVerifyWithtoken:]
 
 /** The token returned to the association callback URL. */
 @property(nonatomic, copy, nullable) NSString *token;
@@ -762,8 +730,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsDelete : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsDeleteWithadClientId:customChannelId:]
 
 /** Ad client from which to delete the custom channel. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -795,8 +761,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsGet : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsGetWithadClientId:customChannelId:]
 
 /** Ad client from which to get the custom channel. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -828,8 +792,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsInsert : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsInsertWithObject:adClientId:]
 
 /** Ad client to which the new custom channel will be added. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -858,8 +820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsListWithadClientId:]
 
 /** Ad client for which to list custom channels. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -906,8 +866,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsPatch : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsPatchWithObject:adClientId:customChannelId:]
 
 /** Ad client in which the custom channel will be updated. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -942,8 +900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_CustomchannelsUpdate : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForCustomchannelsUpdateWithObject:adClientId:]
 
 /** Ad client in which the custom channel will be updated. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -974,8 +930,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_ReportsGenerate : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForReportsGenerateWithstartDate:endDate:]
 
 /** Dimensions to base the report on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimension;
@@ -1047,8 +1001,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_UrlchannelsDelete : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForUrlchannelsDeleteWithadClientId:urlChannelId:]
 
 /** Ad client from which to delete the URL channel. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1080,8 +1032,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_UrlchannelsInsert : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForUrlchannelsInsertWithObject:adClientId:]
 
 /** Ad client to which the new URL channel will be added. */
 @property(nonatomic, copy, nullable) NSString *adClientId;
@@ -1110,8 +1060,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAdSenseHostProductCodeAfv;
  *    @c kGTLRAuthScopeAdSenseHost
  */
 @interface GTLRAdSenseHostQuery_UrlchannelsList : GTLRAdSenseHostQuery
-// Previous library name was
-//   +[GTLQueryAdSenseHost queryForUrlchannelsListWithadClientId:]
 
 /** Ad client for which to list URL channels. */
 @property(nonatomic, copy, nullable) NSString *adClientId;

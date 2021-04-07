@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Analytics Data API (analyticsdata/v1alpha)
+//   Google Analytics Data API (analyticsdata/v1beta)
 // Description:
 //   Accesses report data in Google Analytics.
 // Documentation:
@@ -34,7 +34,6 @@
 @class GTLRAnalyticsData_DimensionMetadata;
 @class GTLRAnalyticsData_DimensionOrderBy;
 @class GTLRAnalyticsData_DimensionValue;
-@class GTLRAnalyticsData_Entity;
 @class GTLRAnalyticsData_Filter;
 @class GTLRAnalyticsData_FilterExpression;
 @class GTLRAnalyticsData_FilterExpressionList;
@@ -495,13 +494,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @interface GTLRAnalyticsData_BatchRunPivotReportsRequest : GTLRObject
 
 /**
- *  A property whose events are tracked. This entity must be specified for the
- *  batch. The entity within RunPivotReportRequest may either be unspecified or
- *  consistent with this entity.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsData_Entity *entity;
-
-/**
  *  Individual requests. Each request has a separate pivot report response. Each
  *  batch request is allowed up to 5 requests.
  */
@@ -534,13 +526,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The batch request containing multiple report requests.
  */
 @interface GTLRAnalyticsData_BatchRunReportsRequest : GTLRObject
-
-/**
- *  A property whose events are tracked. This entity must be specified for the
- *  batch. The entity within RunReportRequest may either be unspecified or
- *  consistent with this entity.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsData_Entity *entity;
 
 /**
  *  Individual requests. Each request has a separate report response. Each batch
@@ -809,7 +794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  Dimensions are attributes of your data. For example, the dimension city
  *  indicates the city from which an event originates. Dimension values in
  *  report responses are strings; for example, city could be "Paris" or "New
- *  York". Requests are allowed up to 8 dimensions.
+ *  York". Requests are allowed up to 9 dimensions.
  */
 @interface GTLRAnalyticsData_Dimension : GTLRObject
 
@@ -823,10 +808,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The name of the dimension. See the [API
  *  Dimensions](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#dimensions)
  *  for the list of dimension names. If `dimensionExpression` is specified,
- *  `name` can be any string that you would like. For example if a
- *  `dimensionExpression` concatenates `country` and `city`, you could call that
- *  dimension `countryAndCity`. Dimensions are referenced by `name` in
- *  `dimensionFilter`, `orderBys`, `dimensionExpression`, and `pivots`.
+ *  `name` can be any string that you would like within the allowed character
+ *  set. For example if a `dimensionExpression` concatenates `country` and
+ *  `city`, you could call that dimension `countryAndCity`. Dimension names that
+ *  you choose must match the regular expression "^[a-zA-Z0-9_]$". Dimensions
+ *  are referenced by `name` in `dimensionFilter`, `orderBys`,
+ *  `dimensionExpression`, and `pivots`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -955,21 +942,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 
 /**
- *  The unique identifier of the property whose events are tracked.
- */
-@interface GTLRAnalyticsData_Entity : GTLRObject
-
-/**
- *  A Google Analytics GA4 property id. To learn more, see [where to find your
- *  Property
- *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
- */
-@property(nonatomic, copy, nullable) NSString *propertyId;
-
-@end
-
-
-/**
  *  An expression to filter dimension or metric values.
  */
 @interface GTLRAnalyticsData_Filter : GTLRObject
@@ -1091,10 +1063,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  The name of the metric. See the [API
  *  Metrics](https://developers.google.com/analytics/devguides/reporting/data/v1/api-schema#metrics)
  *  for the list of metric names. If `expression` is specified, `name` can be
- *  any string that you would like. For example if `expression` is
- *  `screenPageViews/sessions`, you could call that metric's name =
- *  `viewsPerSession`. Metrics are referenced by `name` in `metricFilter`,
- *  `orderBys`, and metric `expression`.
+ *  any string that you would like within the allowed character set. For example
+ *  if `expression` is `screenPageViews/sessions`, you could call that metric's
+ *  name = `viewsPerSession`. Metric names that you choose must match the
+ *  regular expression "^[a-zA-Z0-9_]$". Metrics are referenced by `name` in
+ *  `metricFilter`, `orderBys`, and metric `expression`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1346,11 +1319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldNames;
 
 /**
- *  The number of rows to return in this pivot. The `limit` parameter is
- *  required. A `limit` of 10,000 is common for single pivot requests. The
- *  product of the `limit` for each `pivot` in a `RunPivotReportRequest` must
- *  not exceed 100,000. For example, a two pivot request with `limit: 1000` in
- *  each pivot will fail because the product is `1,000,000`.
+ *  The number of unique combinations of dimension values to return in this
+ *  pivot. The `limit` parameter is required. A `limit` of 10,000 is common for
+ *  single pivot requests. The product of the `limit` for each `pivot` in a
+ *  `RunPivotReportRequest` must not exceed 100,000. For example, a two pivot
+ *  request with `limit: 1000` in each pivot will fail because the product is
+ *  `1,000,000`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1582,7 +1556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  A currency code in ISO4217 format, such as "AED", "USD", "JPY". If the field
- *  is empty, the report uses the entity's default currency.
+ *  is empty, the report uses the property's default currency.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
@@ -1606,12 +1580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  following: dimension_expression, dimension_filter, pivots, order_bys.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
-
-/**
- *  A property whose events are tracked. Within a batch request, this entity
- *  should either be unspecified or consistent with the batch-level entity.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsData_Entity *entity;
 
 /**
  *  If false or unspecified, each row with all metrics equal to 0 will not be
@@ -1643,6 +1611,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
  *  dimension. A dimension is only visible if it appears in a pivot.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Pivot *> *pivots;
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  Within a batch request, this property should either be unspecified or
+ *  consistent with the batch-level property. Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
 
 /**
  *  Toggles whether to return the current state of this Analytics Property's
@@ -1727,9 +1705,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
 
 /**
- *  The number of rows to return. If the `limit` parameter is unspecified,
- *  10,000 rows are returned. The API returns a maximum of 100,000 rows per
- *  request, no matter how many you ask for.
+ *  The number of rows to return. If unspecified, 10,000 rows are returned. The
+ *  API returns a maximum of 100,000 rows per request, no matter how many you
+ *  ask for. `limit` must be positive. The API can also return fewer rows than
+ *  the requested `limit`, if there aren't as many dimension values as the
+ *  `limit`. For instance, there are fewer than 300 possible values for the
+ *  dimension `country`, so when reporting on only `country`, you can't get more
+ *  than 300 rows, even if you set `limit` to a higher value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1799,10 +1781,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
 
 /**
- *  The total number of rows in the query result, regardless of the number of
- *  rows returned in the response. For example if a query returns 175 rows and
- *  includes limit = 50 in the API request, the response will contain row_count
- *  = 175 but only 50 rows.
+ *  The total number of rows in the query result. `rowCount` is independent of
+ *  the number of rows returned in the response and the `limit` request
+ *  parameter. For example if a query returns 175 rows and includes `limit` of
+ *  50 in the API request, the response will contain `rowCount` of 175 but only
+ *  50 rows.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1830,7 +1813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /**
  *  A currency code in ISO4217 format, such as "AED", "USD", "JPY". If the field
- *  is empty, the report uses the entity's default currency.
+ *  is empty, the report uses the property's default currency.
  */
 @property(nonatomic, copy, nullable) NSString *currencyCode;
 
@@ -1853,12 +1836,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Dimension *> *dimensions;
 
 /**
- *  A property whose events are tracked. Within a batch request, this entity
- *  should either be unspecified or consistent with the batch-level entity.
- */
-@property(nonatomic, strong, nullable) GTLRAnalyticsData_Entity *entity;
-
-/**
  *  If false or unspecified, each row with all metrics equal to 0 will not be
  *  returned. If true, these rows will be returned if they are not separately
  *  removed by a filter.
@@ -1868,10 +1845,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSNumber *keepEmptyRows;
 
 /**
- *  The number of rows to return. If the `limit` parameter is unspecified,
- *  10,000 rows are returned. The API returns a maximum of 100,000 rows per
- *  request, no matter how many you ask for. To learn more about this pagination
- *  parameter, see
+ *  The number of rows to return. If unspecified, 10,000 rows are returned. The
+ *  API returns a maximum of 100,000 rows per request, no matter how many you
+ *  ask for. `limit` must be positive. The API can also return fewer rows than
+ *  the requested `limit`, if there aren't as many dimension values as the
+ *  `limit`. For instance, there are fewer than 300 possible values for the
+ *  dimension `country`, so when reporting on only `country`, you can't get more
+ *  than 300 rows, even if you set `limit` to a higher value. To learn more
+ *  about this pagination parameter, see
  *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
@@ -1895,8 +1876,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_Metric *> *metrics;
 
 /**
- *  The row count of the start row. The first row is counted as row 0. To learn
- *  more about this pagination parameter, see
+ *  The row count of the start row. The first row is counted as row 0. When
+ *  paging, the first request does not specify offset; or equivalently, sets
+ *  offset to 0; the first request returns the first `limit` of rows. The second
+ *  request sets offset to the `limit` of the first request; the second request
+ *  returns the second `limit` of rows. To learn more about this pagination
+ *  parameter, see
  *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of longLongValue.
@@ -1905,6 +1890,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 
 /** Specifies how rows are ordered in the response. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsData_OrderBy *> *orderBys;
+
+/**
+ *  A Google Analytics GA4 property identifier whose events are tracked.
+ *  Specified in the URL path and not the body. To learn more, see [where to
+ *  find your Property
+ *  ID](https://developers.google.com/analytics/devguides/reporting/data/v1/property-id).
+ *  Within a batch request, this property should either be unspecified or
+ *  consistent with the batch-level property. Example: properties/1234
+ */
+@property(nonatomic, copy, nullable) NSString *property;
 
 /**
  *  Toggles whether to return the current state of this Analytics Property's
@@ -1954,10 +1949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsData_StringFilter_MatchType_Par
 @property(nonatomic, strong, nullable) GTLRAnalyticsData_PropertyQuota *propertyQuota;
 
 /**
- *  The total number of rows in the query result, regardless of the number of
- *  rows returned in the response. For example if a query returns 175 rows and
- *  includes limit = 50 in the API request, the response will contain row_count
- *  = 175 but only 50 rows. To learn more about this pagination parameter, see
+ *  The total number of rows in the query result. `rowCount` is independent of
+ *  the number of rows returned in the response, the `limit` request parameter,
+ *  and the `offset` request parameter. For example if a query returns 175 rows
+ *  and includes `limit` of 50 in the API request, the response will contain
+ *  `rowCount` of 175 but only 50 rows. To learn more about this pagination
+ *  parameter, see
  *  [Pagination](https://developers.google.com/analytics/devguides/reporting/data/v1/basics#pagination).
  *
  *  Uses NSNumber of intValue.

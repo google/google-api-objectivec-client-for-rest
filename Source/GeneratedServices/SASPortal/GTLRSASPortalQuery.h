@@ -60,8 +60,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name where the deployment is to be created.
@@ -93,8 +91,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsDeleteWithname:]
 
 /** Required. The name of the deployment. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -121,8 +117,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -151,8 +145,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -182,8 +174,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -233,8 +223,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsGetWithname:]
 
 /** Required. The name of the deployment. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -261,8 +249,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -313,8 +299,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsMoveWithObject:name:]
 
 /** Required. The name of the deployment to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -344,8 +328,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDeploymentsPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDeploymentsPatchWithObject:name:]
 
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -381,8 +363,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -411,8 +391,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -442,8 +420,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesDeleteWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -470,8 +446,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesGetWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -498,8 +472,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -549,8 +521,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesMoveWithObject:name:]
 
 /** Required. The name of the device to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -580,8 +550,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesPatchWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -617,8 +585,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesSignDevice : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesSignDeviceWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -648,8 +614,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersDevicesUpdateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersDevicesUpdateSignedWithObject:name:]
 
 /** Required. The name of the device to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -679,8 +643,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersGetWithname:]
 
 /** Required. The name of the customer. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -707,8 +669,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersList]
 
 /** The maximum number of customers to return in the response. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -743,8 +703,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesCreateWithObject:parent:]
 
 /** Required. The parent resource name where the node is to be created. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -774,8 +732,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDeleteWithname:]
 
 /** Required. The name of the node. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -802,8 +758,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDeploymentsCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDeploymentsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name where the deployment is to be created.
@@ -835,8 +789,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDeploymentsList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDeploymentsListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -887,8 +839,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -917,8 +867,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -948,8 +896,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -999,8 +945,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesGetWithname:]
 
 /** Required. The name of the node. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1027,8 +971,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -1075,8 +1017,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesMoveWithObject:name:]
 
 /** Required. The name of the node to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1105,8 +1045,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesNodesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesNodesCreateWithObject:parent:]
 
 /** Required. The parent resource name where the node is to be created. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1136,8 +1074,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesNodesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesNodesListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -1184,8 +1120,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersNodesPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersNodesPatchWithObject:name:]
 
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1221,8 +1155,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_CustomersPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForCustomersPatchWithObject:name:]
 
 /** Output only. Resource name of the customer. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1258,8 +1190,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesDeleteWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1286,8 +1216,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesGetWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1314,8 +1242,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesMoveWithObject:name:]
 
 /** Required. The name of the device to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1345,8 +1271,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesPatchWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1382,8 +1306,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesSignDevice : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesSignDeviceWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1413,8 +1335,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsDevicesUpdateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsDevicesUpdateSignedWithObject:name:]
 
 /** Required. The name of the device to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1444,8 +1364,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_DeploymentsGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForDeploymentsGetWithname:]
 
 /** Required. The name of the deployment. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1472,8 +1390,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_InstallerGenerateSecret : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForInstallerGenerateSecretWithObject:]
 
 /**
  *  Fetches a @c GTLRSASPortal_GenerateSecretResponse.
@@ -1498,8 +1414,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_InstallerValidate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForInstallerValidateWithObject:]
 
 /**
  *  Fetches a @c GTLRSASPortal_ValidateInstallerResponse.
@@ -1524,8 +1438,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsDeleteWithname:]
 
 /** Required. The name of the deployment. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1552,8 +1464,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1582,8 +1492,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1613,8 +1521,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -1664,8 +1570,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsGetWithname:]
 
 /** Required. The name of the deployment. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1692,8 +1596,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -1744,8 +1646,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsMoveWithObject:name:]
 
 /** Required. The name of the deployment to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1775,8 +1675,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDeploymentsPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDeploymentsPatchWithObject:name:]
 
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1812,8 +1710,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1842,8 +1738,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1873,8 +1767,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesDeleteWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1901,8 +1793,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesGetWithname:]
 
 /** Required. The name of the device. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1929,8 +1819,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -1980,8 +1868,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesMoveWithObject:name:]
 
 /** Required. The name of the device to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2011,8 +1897,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesPatchWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2048,8 +1932,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesSignDevice : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesSignDeviceWithObject:name:]
 
 /** Output only. The resource path name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2079,8 +1961,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesDevicesUpdateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesDevicesUpdateSignedWithObject:name:]
 
 /** Required. The name of the device to update. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2110,8 +1990,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesGetWithname:]
 
 /** Required. The name of the node. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2138,8 +2016,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesCreateWithObject:parent:]
 
 /** Required. The parent resource name where the node is to be created. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2169,8 +2045,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDelete : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDeleteWithname:]
 
 /** Required. The name of the node. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2197,8 +2071,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDeploymentsCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDeploymentsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource name where the deployment is to be created.
@@ -2230,8 +2102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDeploymentsList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDeploymentsListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -2282,8 +2152,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDevicesCreateWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2312,8 +2180,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesCreateSigned : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDevicesCreateSignedWithObject:parent:]
 
 /** Required. The name of the parent resource. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2343,8 +2209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesDevicesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesDevicesListWithparent:]
 
 /**
  *  The filter expression. The filter should have one of the following formats:
@@ -2394,8 +2258,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesGetWithname:]
 
 /** Required. The name of the node. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2422,8 +2284,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -2470,8 +2330,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesMove : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesMoveWithObject:name:]
 
 /** Required. The name of the node to move. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2500,8 +2358,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesNodesCreate : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesNodesCreateWithObject:parent:]
 
 /** Required. The parent resource name where the node is to be created. */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2531,8 +2387,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesNodesList : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesNodesListWithparent:]
 
 /**
  *  The filter expression. The filter should have the following format:
@@ -2579,8 +2433,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_NodesNodesPatch : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForNodesNodesPatchWithObject:name:]
 
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2617,8 +2469,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_PoliciesGet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForPoliciesGetWithObject:]
 
 /**
  *  Fetches a @c GTLRSASPortal_Policy.
@@ -2644,8 +2494,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_PoliciesSet : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForPoliciesSetWithObject:]
 
 /**
  *  Fetches a @c GTLRSASPortal_Policy.
@@ -2670,8 +2518,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSASPortalUserinfoEmail
  */
 @interface GTLRSASPortalQuery_PoliciesTest : GTLRSASPortalQuery
-// Previous library name was
-//   +[GTLQuerySASPortal queryForPoliciesTestWithObject:]
 
 /**
  *  Fetches a @c GTLRSASPortal_TestPermissionsResponse.

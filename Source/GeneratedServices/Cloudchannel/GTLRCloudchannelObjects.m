@@ -12,6 +12,8 @@
 // Constants
 
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent.eventType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainChanged = @"PRIMARY_DOMAIN_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1CustomerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudchannel_GoogleCloudChannelV1alpha1Entitlement.provisioningState
@@ -104,6 +106,8 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_Promo
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerConstraints_PromotionalOrderTypes_Transfer = @"TRANSFER";
 
 // GTLRCloudchannel_GoogleCloudChannelV1CustomerEvent.eventType
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainChanged = @"PRIMARY_DOMAIN_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_PrimaryDomainVerified = @"PRIMARY_DOMAIN_VERIFIED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1CustomerEvent_EventType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudchannel_GoogleCloudChannelV1EduData.instituteSize
@@ -398,7 +402,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1alpha1Value
-@dynamic doubleValue, int64Value, protoValue, stringValue;
+@dynamic boolValue, doubleValue, int64Value, protoValue, stringValue;
 @end
 
 
@@ -1219,7 +1223,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1TransferableSku
-@dynamic sku, transferEligibility;
+@dynamic legacySku, sku, transferEligibility;
 @end
 
 
@@ -1338,7 +1342,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleCloudChannelV1Value
-@dynamic doubleValue, int64Value, protoValue, stringValue;
+@dynamic boolValue, doubleValue, int64Value, protoValue, stringValue;
 @end
 
 

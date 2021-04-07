@@ -24,6 +24,8 @@
 @class GTLRCloudMemorystoreforMemcached_DailyCycle;
 @class GTLRCloudMemorystoreforMemcached_Date;
 @class GTLRCloudMemorystoreforMemcached_DenyMaintenancePeriod;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenancePolicyNames;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1Instance_MaintenanceSchedules;
@@ -33,6 +35,8 @@
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings_MaintenancePolicies;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility;
+@class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility;
 @class GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloExclusion;
@@ -317,14 +321,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /**
  *  Whether to apply instance-level parameter group to all nodes. If set to
- *  true, will explicitly restrict users from specifying any nodes, and apply
- *  parameter group updates to all nodes within the instance.
+ *  true, users are restricted from specifying individual nodes, and
+ *  `ApplyParameters` updates all nodes within the instance.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *applyAll;
 
-/** Nodes to which we should apply the instance-level parameter group. */
+/** Nodes to which the instance-level parameter group is applied. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *nodeIds;
 
 @end
@@ -434,6 +438,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
+ *  Metadata for the given google.cloud.location.Location.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata : GTLRObject
+
+/**
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in the `zones` field when creating a Memcached instance.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones *availableZones;
+
+@end
+
+
+/**
+ *  Output only. The set of available zones in the location. The map is keyed by
+ *  the lowercase ID of each zone, as defined by GCE. These keys can be
+ *  specified in the `zones` field when creating a Memcached instance.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1LocationMetadata_AvailableZones : GTLRObject
+@end
+
+
+/**
  *  Represents the metadata of a long-running operation.
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1OperationMetadata : GTLRObject
@@ -468,6 +502,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudMemcacheV1ZoneMetadata : GTLRObject
 @end
 
 
@@ -665,9 +706,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  Can this scheduled update be rescheduled? By default, it's true and API
- *  needs to do explicitly check whether it's set, if it's set as false
- *  explicitly, it's false
+ *  This field will be deprecated, and will be always set to true since
+ *  reschedule can happen multiple times now.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -686,9 +726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /**
  *  schedule_deadline_time is the time deadline any schedule start time cannot
  *  go beyond, including reschedule. It's normally the initial schedule start
- *  time plus a week. If the reschedule type is next window, simply take this
- *  value as start time. If reschedule type is IMMEDIATELY or BY_TIME, current
- *  or selected time cannot go beyond this deadline.
+ *  time plus maintenance window length (1 day or 1 week). Maintenance cannot be
+ *  scheduled to start beyond this deadline.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
 
@@ -781,6 +820,54 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
+ *  PerSliSloEligibility is a mapping from an SLI name to eligibility.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility : GTLRObject
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities *eligibilities;
+
+@end
+
+
+/**
+ *  An entry in the eligibilities map specifies an eligibility for a particular
+ *  SLI for the given instance. The SLI key in the name must be a valid SLI name
+ *  specified in the Eligibility Exporter binary flags otherwise an error will
+ *  be emitted by Eligibility Exporter and the oncaller will be alerted. If an
+ *  SLI has been defined in the binary flags but the eligibilities map does not
+ *  contain it, the corresponding SLI time series will not be emitted by the
+ *  Eligibility Exporter. This ensures a smooth rollout and compatibility
+ *  between the data produced by different versions of the Eligibility
+ *  Exporters. If eligibilities map contains a key for an SLI which has not been
+ *  declared in the binary flags, there will be an error message emitted in the
+ *  Eligibility Exporter log and the metric for the SLI in question will not be
+ *  emitted.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility_Eligibilities : GTLRObject
+@end
+
+
+/**
  *  Describes provisioned dataplane resources.
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource : GTLRObject
@@ -853,8 +940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /**
  *  Name of an SLI that this exclusion applies to. Can be left empty, signaling
- *  that the instance should be excluded from all SLIs defined in the service
- *  SLO configuration.
+ *  that the instance should be excluded from all SLIs.
  */
 @property(nonatomic, copy, nullable) NSString *sliName;
 
@@ -872,7 +958,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  */
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
-/** Optional. User-defined instance eligibility. */
+/**
+ *  Optional. Global per-instance SLI eligibility which applies to all defined
+ *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
+ *  used.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
 
 /**
@@ -898,6 +988,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata *> *nodes;
 
 /**
+ *  Optional. Multiple per-instance SLI eligibilities which apply for individual
+ *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
+ *  used.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
+/**
  *  Name of the SLO tier the Instance belongs to. This name will be expected to
  *  match the tiers specified in the service SLO configuration. Field is
  *  mandatory and must not be empty.
@@ -908,7 +1005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
- *  GTLRCloudMemorystoreforMemcached_Instance
+ *  A Memorystore for Memcached instance
  */
 @interface GTLRCloudMemorystoreforMemcached_Instance : GTLRObject
 
@@ -923,16 +1020,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /** Output only. The time the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. Endpoint for Discovery API */
+/** Output only. Endpoint for the Discovery API. */
 @property(nonatomic, copy, nullable) NSString *discoveryEndpoint;
 
 /**
- *  User provided name for the instance only used for display purposes. Cannot
- *  be more than 80 characters.
+ *  User provided name for the instance, which is only used for display
+ *  purposes. Cannot be more than 80 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** List of messages that describe current statuses of memcached instance. */
+/**
+ *  List of messages that describe the current state of the Memcached instance.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_InstanceMessage *> *instanceMessages;
 
 /**
@@ -951,7 +1050,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @property(nonatomic, copy, nullable) NSString *memcacheFullVersion;
 
 /**
- *  Output only. List of Memcached nodes. Refer to [Node] message for more
+ *  Output only. List of Memcached nodes. Refer to Node message for more
  *  details.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMemorystoreforMemcached_Node *> *memcacheNodes;
@@ -959,7 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /**
  *  The major version of Memcached software. If not provided, latest supported
  *  version will be used. Currently the latest supported major version is
- *  MEMCACHE_1_5. The minor version will be automatically determined by our
+ *  `MEMCACHE_1_5`. The minor version will be automatically determined by our
  *  system based on the latest supported minor version.
  *
  *  Likely values:
@@ -974,10 +1073,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *  Required. Unique name of the resource in this scope including project and
  *  location using the form:
  *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
- *  Note: Memcached instances are managed and addressed at regional level so
- *  location_id here refers to a GCP region; however, users may choose which
- *  zones Memcached nodes within an instances should be provisioned in. Refer to
- *  [zones] field for more details.
+ *  Note: Memcached instances are managed and addressed at the regional level so
+ *  `location_id` here refers to a Google Cloud region; however, users may
+ *  choose which zones Memcached nodes should be provisioned in within an
+ *  instance. Refer to zones field for more details.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1019,7 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Zones where Memcached nodes should be provisioned in. Memcached nodes will
+ *  Zones in which Memcached nodes should be provisioned. Memcached nodes will
  *  be equally distributed across these zones. If not provided, the service will
  *  by default create nodes in all zones in the region for the instance.
  */
@@ -1321,15 +1420,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 
 /**
- *  GTLRCloudMemorystoreforMemcached_MemcacheParameters
+ *  The unique ID associated with this set of parameters. Users can use this id
+ *  to determine if the parameters associated with the instance differ from the
+ *  parameters associated with the nodes. A discrepancy between parameter ids
+ *  can inform users that they may need to take action to apply parameters on
+ *  nodes.
  */
 @interface GTLRCloudMemorystoreforMemcached_MemcacheParameters : GTLRObject
 
 /**
- *  Output only. The unique ID associated with this set of parameters. Users can
- *  use this id to determine if the parameters associated with the instance
- *  differ from the parameters associated with the nodes and any action needs to
- *  be taken to apply parameters on nodes.
+ *  Output only.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */

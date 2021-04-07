@@ -647,6 +647,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDeta
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AgeRangeTargetingOptionDetails_AgeRange_AgeRangeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AppAssignedTargetingOptionDetails.appPlatform
+
+/**
+ *  The app platform is Amazon FireTV.
+ *
+ *  Value: "APP_PLATFORM_AMAZON_FIRETV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAmazonFiretv;
+/**
+ *  The app platform is Android.
+ *
+ *  Value: "APP_PLATFORM_ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroid;
+/**
+ *  The app platform is Android TV.
+ *
+ *  Value: "APP_PLATFORM_ANDROID_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroidTv;
+/**
+ *  The app platform is Apple TV.
+ *
+ *  Value: "APP_PLATFORM_APPLE_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAppleTv;
+/**
+ *  The app platform is a CTV platform that is not explicitly listed elsewhere.
+ *
+ *  Value: "APP_PLATFORM_GENERIC_CTV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformGenericCtv;
+/**
+ *  The app platform is iOS.
+ *
+ *  Value: "APP_PLATFORM_IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos;
+/**
+ *  The app platform is Playstation.
+ *
+ *  Value: "APP_PLATFORM_PLAYSTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformPlaystation;
+/**
+ *  The app platform is Roku.
+ *
+ *  Value: "APP_PLATFORM_ROKU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku;
+/**
+ *  The app platform is Samsung TV.
+ *
+ *  Value: "APP_PLATFORM_SAMSUNG_TV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformSamsungTv;
+/**
+ *  Default value when app platform is not specified in this version. This enum
+ *  is a placeholder for default value and does not represent a real platform
+ *  option.
+ *
+ *  Value: "APP_PLATFORM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified;
+/**
+ *  The app platform is Xbox.
+ *
+ *  Value: "APP_PLATFORM_XBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AssetAssociation.role
 
 /**
@@ -5088,6 +5160,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetail
  *  Value: "GENDER_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenderTargetingOptionDetails_Gender_GenderUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_GenerateDefaultLineItemRequest.lineItemType
+
+/**
+ *  RTB Audio ads sold for a variety of environments.
+ *
+ *  Value: "LINE_ITEM_TYPE_AUDIO_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeAudioDefault;
+/**
+ *  Image, HTML5, native, or rich media ads.
+ *
+ *  Value: "LINE_ITEM_TYPE_DISPLAY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayDefault;
+/**
+ *  Display ads that drive installs of an app.
+ *
+ *  Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInstall;
+/**
+ *  Display ads served on mobile app inventory.
+ *
+ *  Value: "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInventory;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "LINE_ITEM_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeUnspecified;
+/**
+ *  Video ads sold on a CPM basis for a variety of environments.
+ *
+ *  Value: "LINE_ITEM_TYPE_VIDEO_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoDefault;
+/**
+ *  Video ads that drive installs of an app.
+ *
+ *  Value: "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInstall;
+/**
+ *  Video ads served on mobile app inventory.
+ *
+ *  Value: "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInventory;
+/**
+ *  Over-the-top ads present in OTT insertion orders. This type is only
+ *  applicable to line items with an insertion order of insertion_order_type
+ *  `OVER_THE_TOP`.
+ *
+ *  Value: "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoOverTheTop;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails.geoRegionType
@@ -9553,6 +9685,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, copy, nullable) NSString *appId;
 
+/**
+ *  Indicates the platform of the targeted app. If this field is not specified,
+ *  the app platform will be assumed to be mobile (i.e., Android or iOS), and we
+ *  will derive the appropriate mobile platform from the app ID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAmazonFiretv
+ *        The app platform is Amazon FireTV. (Value:
+ *        "APP_PLATFORM_AMAZON_FIRETV")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroid
+ *        The app platform is Android. (Value: "APP_PLATFORM_ANDROID")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAndroidTv
+ *        The app platform is Android TV. (Value: "APP_PLATFORM_ANDROID_TV")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformAppleTv
+ *        The app platform is Apple TV. (Value: "APP_PLATFORM_APPLE_TV")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformGenericCtv
+ *        The app platform is a CTV platform that is not explicitly listed
+ *        elsewhere. (Value: "APP_PLATFORM_GENERIC_CTV")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformIos
+ *        The app platform is iOS. (Value: "APP_PLATFORM_IOS")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformPlaystation
+ *        The app platform is Playstation. (Value: "APP_PLATFORM_PLAYSTATION")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformRoku
+ *        The app platform is Roku. (Value: "APP_PLATFORM_ROKU")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformSamsungTv
+ *        The app platform is Samsung TV. (Value: "APP_PLATFORM_SAMSUNG_TV")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformUnspecified
+ *        Default value when app platform is not specified in this version. This
+ *        enum is a placeholder for default value and does not represent a real
+ *        platform option. (Value: "APP_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AppAssignedTargetingOptionDetails_AppPlatform_AppPlatformXbox
+ *        The app platform is Xbox. (Value: "APP_PLATFORM_XBOX")
+ */
+@property(nonatomic, copy, nullable) NSString *appPlatform;
+
 /** Output only. The display name of the app. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -10941,6 +11108,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  A token identifying the next page of results. This value should be specified
  *  as the pageToken in a subsequent
  *  BulkListAdvertiserAssignedTargetingOptionsRequest to fetch the next page of
+ *  results. This token will be absent if there are no more
+ *  assigned_targeting_options to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for BulkListCampaignAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_BulkListCampaignAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent
+ *  BulkListCampaignAssignedTargetingOptionsRequest to fetch the next page of
  *  results. This token will be absent if there are no more
  *  assigned_targeting_options to return.
  */
@@ -14624,6 +14821,71 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Request message for LineItemService.GenerateDefaultLineItem.
+ */
+@interface GTLRDisplayVideo_GenerateDefaultLineItemRequest : GTLRObject
+
+/**
+ *  Required. The display name of the line item. Must be UTF-8 encoded with a
+ *  maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. The unique ID of the insertion order that the line item belongs
+ *  to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insertionOrderId;
+
+/**
+ *  Required. The type of the line item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeAudioDefault
+ *        RTB Audio ads sold for a variety of environments. (Value:
+ *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayDefault
+ *        Image, HTML5, native, or rich media ads. (Value:
+ *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInstall
+ *        Display ads that drive installs of an app. (Value:
+ *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeDisplayMobileAppInventory
+ *        Display ads served on mobile app inventory. (Value:
+ *        "LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INVENTORY")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "LINE_ITEM_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoDefault
+ *        Video ads sold on a CPM basis for a variety of environments. (Value:
+ *        "LINE_ITEM_TYPE_VIDEO_DEFAULT")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInstall
+ *        Video ads that drive installs of an app. (Value:
+ *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoMobileAppInventory
+ *        Video ads served on mobile app inventory. (Value:
+ *        "LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INVENTORY")
+ *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_LineItemType_LineItemTypeVideoOverTheTop
+ *        Over-the-top ads present in OTT insertion orders. This type is only
+ *        applicable to line items with an insertion order of
+ *        insertion_order_type `OVER_THE_TOP`. (Value:
+ *        "LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP")
+ */
+@property(nonatomic, copy, nullable) NSString *lineItemType;
+
+/**
+ *  The mobile app promoted by the line item. This is applicable only when
+ *  line_item_type is either `LINE_ITEM_TYPE_DISPLAY_MOBILE_APP_INSTALL` or
+ *  `LINE_ITEM_TYPE_VIDEO_MOBILE_APP_INSTALL`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_MobileApp *mobileApp;
+
+@end
+
+
+/**
  *  Details for assigned geographic region targeting option. This will be
  *  populated in the details field of an AssignedTargetingOption when
  *  targeting_type is `TARGETING_TYPE_GEO_REGION`.
@@ -16467,6 +16729,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  A token to retrieve the next page of results. Pass this value in the
  *  page_token field in the subsequent call to `ListAssignedLocations` method to
  *  retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListCampaignAssignedTargetingOptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assignedTargetingOptions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListCampaignAssignedTargetingOptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of assigned targeting options. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AssignedTargetingOption *> *assignedTargetingOptions;
+
+/**
+ *  A token identifying the next page of results. This value should be specified
+ *  as the pageToken in a subsequent ListCampaignAssignedTargetingOptionsRequest
+ *  to fetch the next page of results. This token will be absent if there are no
+ *  more assigned_targeting_options to return.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -18583,6 +18874,72 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *regionalLocationListId;
+
+@end
+
+
+/**
+ *  Request message for NegativeKeywordService.ReplaceNegativeKeywords.
+ */
+@interface GTLRDisplayVideo_ReplaceNegativeKeywordsRequest : GTLRObject
+
+/**
+ *  The negative keywords that will replace the existing keywords in the
+ *  negative keyword list, specified as a list of NegativeKeywords.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_NegativeKeyword *> *newNegativeKeywords NS_RETURNS_NOT_RETAINED;
+
+@end
+
+
+/**
+ *  Response message for NegativeKeywordService.ReplaceNegativeKeywords.
+ */
+@interface GTLRDisplayVideo_ReplaceNegativeKeywordsResponse : GTLRObject
+
+/**
+ *  The full list of negative keywords now present in the negative keyword list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_NegativeKeyword *> *negativeKeywords;
+
+@end
+
+
+/**
+ *  Request message for SiteService.ReplaceSites.
+ */
+@interface GTLRDisplayVideo_ReplaceSitesRequest : GTLRObject
+
+/**
+ *  The ID of the advertiser that owns the parent channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advertiserId;
+
+/**
+ *  The sites that will replace the existing sites assigned to the channel,
+ *  specified as a list of Sites.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *newSites NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  The ID of the partner that owns the parent channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+@end
+
+
+/**
+ *  Response message for SiteService.ReplaceSites.
+ */
+@interface GTLRDisplayVideo_ReplaceSitesResponse : GTLRObject
+
+/** The list of sites in the channel after replacing. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Site *> *sites;
 
 @end
 

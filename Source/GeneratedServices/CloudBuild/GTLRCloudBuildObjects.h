@@ -62,6 +62,7 @@
 @class GTLRCloudBuild_Status;
 @class GTLRCloudBuild_Status_Details_Item;
 @class GTLRCloudBuild_StorageSource;
+@class GTLRCloudBuild_StorageSourceManifest;
 @class GTLRCloudBuild_TimeSpan;
 @class GTLRCloudBuild_Volume;
 
@@ -1926,6 +1927,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /** If provided, get the source from this location in Google Cloud Storage. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *storageSource;
 
+/**
+ *  If provided, get the source from this manifest in Google Cloud Storage. This
+ *  feature is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSourceManifest *storageSourceManifest;
+
 @end
 
 
@@ -1957,6 +1964,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  generations resolved.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSource *resolvedStorageSource;
+
+/**
+ *  A copy of the build's `source.storage_source_manifest`, if exists, with any
+ *  revisions resolved. This feature is in Preview.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSourceManifest *resolvedStorageSourceManifest;
 
 @end
 
@@ -2046,6 +2059,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  Google Cloud Storage object containing the source. This object must be a
  *  gzipped archive file (`.tar.gz`) containing source to build.
+ */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
+ *  Location of the source manifest in Google Cloud Storage. This feature is in
+ *  Preview.
+ */
+@interface GTLRCloudBuild_StorageSourceManifest : GTLRObject
+
+/**
+ *  Google Cloud Storage bucket containing the source manifest (see [Bucket Name
+ *  Requirements](https://cloud.google.com/storage/docs/bucket-naming#requirements)).
+ */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Google Cloud Storage generation for the object. If the generation is
+ *  omitted, the latest generation will be used.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/**
+ *  Google Cloud Storage object containing the source manifest. This object must
+ *  be a JSON file.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 

@@ -47,8 +47,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePolicyTroubleshooterCloudPlatform
  */
 @interface GTLRPolicyTroubleshooterQuery_IamTroubleshoot : GTLRPolicyTroubleshooterQuery
-// Previous library name was
-//   +[GTLQueryPolicyTroubleshooter queryForIamTroubleshootWithObject:]
 
 /**
  *  Fetches a @c

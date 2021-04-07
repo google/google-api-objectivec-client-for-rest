@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsGetWithname:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -80,8 +78,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsListWithparent:]
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
@@ -163,8 +159,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -200,8 +194,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsGetWithname:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -230,8 +222,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsListWithparent:]
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
@@ -316,8 +306,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -360,8 +348,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -404,8 +390,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_BillingAccountsLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForBillingAccountsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -443,8 +427,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsGetWithname:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -473,8 +455,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsListWithparent:]
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
@@ -556,8 +536,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -593,8 +571,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsGetWithname:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -623,8 +599,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsListWithparent:]
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
@@ -709,8 +683,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -753,8 +725,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -797,8 +767,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_FoldersLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForFoldersLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -836,8 +804,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsGetWithname:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -866,8 +832,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsListWithparent:]
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
@@ -949,8 +913,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -986,8 +948,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsGetWithname:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1016,8 +976,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsListWithparent:]
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
@@ -1102,8 +1060,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1146,8 +1102,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1190,8 +1144,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_OrganizationsLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForOrganizationsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1229,8 +1181,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsInsightTypesInsightsGetWithname:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1259,8 +1209,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsInsightTypesInsightsListWithparent:]
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
@@ -1342,8 +1290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsMarkAccepted : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsInsightTypesInsightsMarkAcceptedWithObject:name:]
 
 /** Required. Name of the insight. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1379,8 +1325,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsGet : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsGetWithname:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1409,8 +1353,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsList : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsListWithparent:]
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
@@ -1495,8 +1437,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkClaimed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkClaimedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1539,8 +1479,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkFailed : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkFailedWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1583,8 +1521,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeRecommenderCloudPlatform
  */
 @interface GTLRRecommenderQuery_ProjectsLocationsRecommendersRecommendationsMarkSucceeded : GTLRRecommenderQuery
-// Previous library name was
-//   +[GTLQueryRecommender queryForProjectsLocationsRecommendersRecommendationsMarkSucceededWithObject:name:]
 
 /** Required. Name of the recommendation. */
 @property(nonatomic, copy, nullable) NSString *name;

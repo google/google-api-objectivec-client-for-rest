@@ -495,6 +495,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -1027,6 +1029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -2591,6 +2595,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCategory;
 /** Value: "FILTER_TRUEVIEW_CITY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCity;
+/** Value: "FILTER_TRUEVIEW_CLICK_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewClickTypeName;
 /** Value: "FILTER_TRUEVIEW_CONVERSION_TYPE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewConversionType;
 /** Value: "FILTER_TRUEVIEW_COUNTRY" */
@@ -2817,6 +2823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Freq
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_SemiMonthly;
 /** Value: "WEEKLY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly;
+/** Value: "YEARLY" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly;
 
 // ----------------------------------------------------------------------------
 // GTLRDoubleClickBidManager_ReportFailure.errorCode
@@ -3509,6 +3517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_CATEGORY"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity
  *        Value "FILTER_TRUEVIEW_CITY"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewClickTypeName
+ *        Value "FILTER_TRUEVIEW_CLICK_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewConversionType
  *        Value "FILTER_TRUEVIEW_CONVERSION_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCountry
@@ -4282,6 +4292,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_CATEGORY"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCity
  *        Value "FILTER_TRUEVIEW_CITY"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewClickTypeName
+ *        Value "FILTER_TRUEVIEW_CLICK_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewConversionType
  *        Value "FILTER_TRUEVIEW_CONVERSION_TYPE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCountry
@@ -4653,6 +4665,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "SEMI_MONTHLY"
  *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Weekly Value
  *        "WEEKLY"
+ *    @arg @c kGTLRDoubleClickBidManager_QuerySchedule_Frequency_Yearly Value
+ *        "YEARLY"
  */
 @property(nonatomic, copy, nullable) NSString *frequency;
 

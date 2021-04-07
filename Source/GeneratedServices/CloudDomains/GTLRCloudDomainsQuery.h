@@ -56,8 +56,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsGet : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -84,8 +82,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsList : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -127,8 +123,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsOperationsGet : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsOperationsGetWithname:]
 
 /** The name of the operation resource. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -165,8 +159,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsOperationsList : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsOperationsListWithname:]
 
 /** The standard list filter. */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -215,8 +207,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureContactSettings : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsConfigureContactSettingsWithObject:registration:]
 
 /**
  *  Required. The name of the `Registration` whose contact settings are being
@@ -252,8 +242,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureDnsSettings : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsConfigureDnsSettingsWithObject:registration:]
 
 /**
  *  Required. The name of the `Registration` whose DNS settings are being
@@ -288,8 +276,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsConfigureManagementSettings : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsConfigureManagementSettingsWithObject:registration:]
 
 /**
  *  Required. The name of the `Registration` whose management settings are being
@@ -326,8 +312,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsDelete : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsDeleteWithname:]
 
 /**
  *  Required. The name of the `Registration` to delete, in the format `projects/
@@ -368,8 +352,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsExport : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsExportWithObject:name:]
 
 /**
  *  Required. The name of the `Registration` to export, in the format `projects/
@@ -411,8 +393,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGet : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsGetWithname:]
 
 /**
  *  Required. The name of the `Registration` to get, in the format `projects/ *
@@ -444,8 +424,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsGetIamPolicy : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -489,8 +467,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsList : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsListWithparent:]
 
 /**
  *  Filter expression to restrict the `Registration`s returned. The expression
@@ -554,8 +530,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsPatch : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsPatchWithObject:name:]
 
 /**
  *  Output only. Name of the `Registration` resource, in the format `projects/ *
@@ -609,8 +583,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRegister : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsRegisterWithObject:parent:]
 
 /**
  *  Required. The parent resource of the `Registration`. Must be in the format
@@ -654,8 +626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsResetAuthorizationCode : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsResetAuthorizationCodeWithObject:registration:]
 
 /**
  *  Required. The name of the `Registration` whose authorization code is being
@@ -694,8 +664,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveAuthorizationCode : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsRetrieveAuthorizationCodeWithregistration:]
 
 /**
  *  Required. The name of the `Registration` whose authorization code is being
@@ -730,8 +698,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsRetrieveRegisterParameters : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsRetrieveRegisterParametersWithlocation:]
 
 /**
  *  Required. The domain name. Unicode domain names must be expressed in
@@ -771,8 +737,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSearchDomains : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsSearchDomainsWithlocation:]
 
 /**
  *  Required. The location. Must be in the format `projects/ * /locations/ *`.
@@ -810,8 +774,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsSetIamPolicy : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -852,8 +814,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudDomainsCloudPlatform
  */
 @interface GTLRCloudDomainsQuery_ProjectsLocationsRegistrationsTestIamPermissions : GTLRCloudDomainsQuery
-// Previous library name was
-//   +[GTLQueryCloudDomains queryForProjectsLocationsRegistrationsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See

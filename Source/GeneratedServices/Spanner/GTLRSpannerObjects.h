@@ -59,6 +59,7 @@
 @class GTLRSpanner_ReadOnly;
 @class GTLRSpanner_ReadWrite;
 @class GTLRSpanner_ReplicaInfo;
+@class GTLRSpanner_RequestOptions;
 @class GTLRSpanner_RestoreDatabaseEncryptionConfig;
 @class GTLRSpanner_RestoreInfo;
 @class GTLRSpanner_ResultSet;
@@ -283,6 +284,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_TypeUnspecified
  *  Value: "WITNESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReplicaInfo_Type_Witness;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_RequestOptions.priority
+
+/**
+ *  This specifies that the request is high priority.
+ *
+ *  Value: "PRIORITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityHigh;
+/**
+ *  This specifies that the request is low priority.
+ *
+ *  Value: "PRIORITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityLow;
+/**
+ *  This specifies that the request is medium priority.
+ *
+ *  Value: "PRIORITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityMedium;
+/**
+ *  `PRIORITY_UNSPECIFIED` is equivalent to `PRIORITY_HIGH`.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_RequestOptions_Priority_PriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_RestoreDatabaseEncryptionConfig.encryptionType
@@ -573,6 +602,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 /** Required. Options for the new transaction. */
 @property(nonatomic, strong, nullable) GTLRSpanner_TransactionOptions *options;
 
+/**
+ *  Common options for this request. Priority is ignored for this request.
+ *  Setting the priority in this request_options struct will not do anything. To
+ *  set the priority for a transaction, set it on the reads and writes that are
+ *  part of this transaction instead.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
 @end
 
 
@@ -678,6 +715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  are applied atomically, in the order they appear in this list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Mutation *> *mutations;
+
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 /**
  *  If `true`, then statistics related to the transaction will be included in
@@ -1047,6 +1087,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @interface GTLRSpanner_ExecuteBatchDmlRequest : GTLRObject
 
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
 /**
  *  Required. A per-transaction sequence number used to identify this request.
  *  This field makes each request idempotent such that if the request is
@@ -1175,6 +1218,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** Query optimizer configuration to use for the given query. */
 @property(nonatomic, strong, nullable) GTLRSpanner_QueryOptions *queryOptions;
+
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
 
 /**
  *  If this request is resuming a previously interrupted SQL statement
@@ -2466,17 +2512,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 @interface GTLRSpanner_QueryOptions : GTLRObject
 
 /**
+ *  An option to control the selection of optimizer statistics package. This
+ *  parameter allows individual queries to use a different query optimizer
+ *  statistics package. Specifying `latest` as a value instructs Cloud Spanner
+ *  to use the latest generated statistics package. If not specified, Cloud
+ *  Spanner uses the statistics package set at the database level options, or
+ *  the latest package if the database option is not set. The statistics package
+ *  requested by the query has to be exempt from garbage collection. This can be
+ *  achieved with the following DDL statement: ``` ALTER STATISTICS SET OPTIONS
+ *  (allow_gc=false) ``` The list of available statistics packages can be
+ *  queried from `INFORMATION_SCHEMA.SPANNER_STATISTICS`. Executing a SQL
+ *  statement with an invalid optimizer statistics package or with a statistics
+ *  package that allows garbage collection fails with an `INVALID_ARGUMENT`
+ *  error.
+ */
+@property(nonatomic, copy, nullable) NSString *optimizerStatisticsPackage;
+
+/**
  *  An option to control the selection of optimizer version. This parameter
  *  allows individual queries to pick different query optimizer versions.
- *  Specifying "latest" as a value instructs Cloud Spanner to use the latest
- *  supported query optimizer version. If not specified, Cloud Spanner uses
+ *  Specifying `latest` as a value instructs Cloud Spanner to use the latest
+ *  supported query optimizer version. If not specified, Cloud Spanner uses the
  *  optimizer version set at the database level options. Any other positive
  *  integer (from the list of supported optimizer versions) overrides the
  *  default optimizer version for query execution. The list of supported
  *  optimizer versions can be queried from
  *  SPANNER_SYS.SUPPORTED_OPTIMIZER_VERSIONS. Executing a SQL statement with an
- *  invalid optimizer version will fail with a syntax error (`INVALID_ARGUMENT`)
- *  status. See
+ *  invalid optimizer version fails with an `INVALID_ARGUMENT` error. See
  *  https://cloud.google.com/spanner/docs/query-optimizer/manage-query-optimizer
  *  for more information on managing the query optimizer. The
  *  `optimizer_version` statement hint has precedence over this setting.
@@ -2619,6 +2681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *partitionToken;
 
+/** Common options for this request. */
+@property(nonatomic, strong, nullable) GTLRSpanner_RequestOptions *requestOptions;
+
 /**
  *  If this request is resuming a previously interrupted read, `resume_token`
  *  should be copied from the last PartialResultSet yielded before the
@@ -2691,6 +2756,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        are not eligible to become leader. (Value: "WITNESS")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Common request options for various APIs.
+ */
+@interface GTLRSpanner_RequestOptions : GTLRObject
+
+/**
+ *  Priority for the request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityHigh This specifies
+ *        that the request is high priority. (Value: "PRIORITY_HIGH")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityLow This specifies
+ *        that the request is low priority. (Value: "PRIORITY_LOW")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityMedium This specifies
+ *        that the request is medium priority. (Value: "PRIORITY_MEDIUM")
+ *    @arg @c kGTLRSpanner_RequestOptions_Priority_PriorityUnspecified
+ *        `PRIORITY_UNSPECIFIED` is equivalent to `PRIORITY_HIGH`. (Value:
+ *        "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
+
+/**
+ *  A per-request tag which can be applied to queries or reads, used for
+ *  statistics collection. Both request_tag and transaction_tag can be specified
+ *  for a read or query that belongs to a transaction. This field is ignored for
+ *  requests where it's not applicable (e.g. CommitRequest). `request_tag` must
+ *  be a valid identifier of the form: `a-zA-Z` between 2 and 64 characters in
+ *  length
+ */
+@property(nonatomic, copy, nullable) NSString *requestTag;
+
+/**
+ *  A tag used for statistics collection about this transaction. Both
+ *  request_tag and transaction_tag can be specified for a read or query that
+ *  belongs to a transaction. The value of transaction_tag should be the same
+ *  for all requests belonging to the same transaction. If this request doesn’t
+ *  belong to any transaction, transaction_tag will be ignored.
+ *  `transaction_tag` must be a valid identifier of the format: `a-zA-Z{0,49}`
+ */
+@property(nonatomic, copy, nullable) NSString *transactionTag;
 
 @end
 
@@ -2806,7 +2915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  resources in Cloud KMS used to encrypt/decrypt the database to restore to.
  *  If this field is not specified, the restored database will use the same
  *  encryption configuration as the backup by default, namely encryption_type =
- *  `USE_CONFIG_DEFAULT_OR_DATABASE_ENCRYPTION`.
+ *  `USE_CONFIG_DEFAULT_OR_BACKUP_ENCRYPTION`.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_RestoreDatabaseEncryptionConfig *encryptionConfig;
 
@@ -3543,6 +3652,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** The database being modified. */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  The progress of the UpdateDatabaseDdl operations. Currently, only index
+ *  creation statements will have a continuously updating progress. For
+ *  non-index creation statements, `progress[i]` will have start time and end
+ *  time populated with commit timestamp of operation, as well as a progress of
+ *  100% once the operation has completed. `progress[i]` is the operation
+ *  progress for `statements[i]`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_OperationProgress *> *progress;
 
 /**
  *  For an update this list contains all the statements. For an individual

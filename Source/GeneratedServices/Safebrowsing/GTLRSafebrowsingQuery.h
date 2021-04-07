@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.encodedFullHashes.get
  */
 @interface GTLRSafebrowsingQuery_EncodedFullHashesGet : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForEncodedFullHashesGetWithencodedRequest:]
 
 /**
  *  A client ID that (hopefully) uniquely identifies the client implementation
@@ -90,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.encodedUpdates.get
  */
 @interface GTLRSafebrowsingQuery_EncodedUpdatesGet : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForEncodedUpdatesGetWithencodedRequest:]
 
 /**
  *  A client ID that uniquely identifies the client implementation of the Safe
@@ -128,8 +124,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.fullHashes.find
  */
 @interface GTLRSafebrowsingQuery_FullHashesFind : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForFullHashesFindWithObject:]
 
 /**
  *  Fetches a @c
@@ -154,8 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.threatHits.create
  */
 @interface GTLRSafebrowsingQuery_ThreatHitsCreate : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForThreatHitsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRSafebrowsing_GoogleProtobufEmpty.
@@ -178,8 +170,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.threatLists.list
  */
 @interface GTLRSafebrowsingQuery_ThreatListsList : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForThreatListsList]
 
 /**
  *  Fetches a @c
@@ -200,8 +190,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.threatListUpdates.fetch
  */
 @interface GTLRSafebrowsingQuery_ThreatListUpdatesFetch : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForThreatListUpdatesFetchWithObject:]
 
 /**
  *  Fetches a @c
@@ -226,8 +214,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: safebrowsing.threatMatches.find
  */
 @interface GTLRSafebrowsingQuery_ThreatMatchesFind : GTLRSafebrowsingQuery
-// Previous library name was
-//   +[GTLQuerySafebrowsing queryForThreatMatchesFindWithObject:]
 
 /**
  *  Fetches a @c

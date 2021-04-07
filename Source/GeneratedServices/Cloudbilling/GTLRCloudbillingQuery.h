@@ -44,13 +44,17 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a billing account. This method can only be used to create [billing
- *  subaccounts](https://cloud.google.com/billing/docs/concepts) by Google Cloud
- *  resellers. When creating a subaccount, the current authenticated user must
- *  have the `billing.accounts.update` IAM permission on the master account,
- *  which is typically given to billing account
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  This method will return an error if the master account has not been
+ *  This method will return an error if the parent account has not been
  *  provisioned as a reseller account.
  *
  *  Method: cloudbilling.billingAccounts.create
@@ -60,19 +64,21 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsCreate : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsCreateWithObject:]
 
 /**
  *  Fetches a @c GTLRCloudbilling_BillingAccount.
  *
- *  Creates a billing account. This method can only be used to create [billing
- *  subaccounts](https://cloud.google.com/billing/docs/concepts) by Google Cloud
- *  resellers. When creating a subaccount, the current authenticated user must
- *  have the `billing.accounts.update` IAM permission on the master account,
- *  which is typically given to billing account
+ *  This method creates [billing
+ *  subaccounts](https://cloud.google.com/billing/docs/concepts#subaccounts).
+ *  Google Cloud resellers should use the Channel Services APIs,
+ *  [accounts.customers.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers/create)
+ *  and
+ *  [accounts.customers.entitlements.create](https://cloud.google.com/channel/docs/reference/rest/v1/accounts.customers.entitlements/create).
+ *  When creating a subaccount, the current authenticated user must have the
+ *  `billing.accounts.update` IAM permission on the parent account, which is
+ *  typically given to billing account
  *  [administrators](https://cloud.google.com/billing/docs/how-to/billing-access).
- *  This method will return an error if the master account has not been
+ *  This method will return an error if the parent account has not been
  *  provisioned as a reseller account.
  *
  *  @param object The @c GTLRCloudbilling_BillingAccount to include in the
@@ -97,8 +103,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsGet : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsGetWithname:]
 
 /**
  *  Required. The resource name of the billing account to retrieve. For example,
@@ -136,8 +140,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsGetIamPolicy : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsGetIamPolicyWithresource:]
 
 /**
  *  Optional. The policy format version to be returned. Valid values are 0, 1,
@@ -187,8 +189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsList : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsList]
 
 /**
  *  Options for how to filter the returned billing accounts. Currently this only
@@ -243,8 +243,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsPatch : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsPatchWithObject:name:]
 
 /** Required. The name of the billing account resource to be updated. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -292,8 +290,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsProjectsList : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsProjectsListWithname:]
 
 /**
  *  Required. The resource name of the billing account associated with the
@@ -349,8 +345,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsSetIamPolicy : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsSetIamPolicyWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy is being specified. See the
@@ -392,8 +386,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_BillingAccountsTestIamPermissions : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForBillingAccountsTestIamPermissionsWithObject:resource:]
 
 /**
  *  REQUIRED: The resource for which the policy detail is being requested. See
@@ -435,8 +427,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ProjectsGetBillingInfo : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForProjectsGetBillingInfoWithname:]
 
 /**
  *  Required. The resource name of the project for which billing information is
@@ -495,8 +485,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ProjectsUpdateBillingInfo : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForProjectsUpdateBillingInfoWithObject:name:]
 
 /**
  *  Required. The resource name of the project associated with the billing
@@ -557,8 +545,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesList : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForServicesList]
 
 /** Requested page size. Defaults to 5000. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -596,8 +582,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudbillingCloudPlatform
  */
 @interface GTLRCloudbillingQuery_ServicesSkusList : GTLRCloudbillingQuery
-// Previous library name was
-//   +[GTLQueryCloudbilling queryForServicesSkusListWithparent:]
 
 /**
  *  The ISO 4217 currency code for the pricing info in the response proto. Will

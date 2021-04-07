@@ -25,6 +25,7 @@
 @class GTLRAIPlatformNotebooks_Binding;
 @class GTLRAIPlatformNotebooks_ContainerImage;
 @class GTLRAIPlatformNotebooks_Disk;
+@class GTLRAIPlatformNotebooks_EncryptionConfig;
 @class GTLRAIPlatformNotebooks_Environment;
 @class GTLRAIPlatformNotebooks_Execution;
 @class GTLRAIPlatformNotebooks_ExecutionTemplate;
@@ -35,6 +36,9 @@
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_Instance_Labels;
 @class GTLRAIPlatformNotebooks_Instance_Metadata;
+@class GTLRAIPlatformNotebooks_LocalDisk;
+@class GTLRAIPlatformNotebooks_LocalDiskInitializeParams;
+@class GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels;
 @class GTLRAIPlatformNotebooks_Location;
 @class GTLRAIPlatformNotebooks_Location_Labels;
 @class GTLRAIPlatformNotebooks_Location_Metadata;
@@ -43,6 +47,14 @@
 @class GTLRAIPlatformNotebooks_Operation_Response;
 @class GTLRAIPlatformNotebooks_Policy;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest_Metadata;
+@class GTLRAIPlatformNotebooks_Runtime;
+@class GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig;
+@class GTLRAIPlatformNotebooks_RuntimeAccessConfig;
+@class GTLRAIPlatformNotebooks_RuntimeGuestOsFeature;
+@class GTLRAIPlatformNotebooks_RuntimeMetrics;
+@class GTLRAIPlatformNotebooks_RuntimeMetrics_SystemMetrics;
+@class GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig;
+@class GTLRAIPlatformNotebooks_RuntimeSoftwareConfig;
 @class GTLRAIPlatformNotebooks_Schedule;
 @class GTLRAIPlatformNotebooks_SchedulerAcceleratorConfig;
 @class GTLRAIPlatformNotebooks_SetInstanceLabelsRequest_Labels;
@@ -50,6 +62,11 @@
 @class GTLRAIPlatformNotebooks_Status;
 @class GTLRAIPlatformNotebooks_Status_Details_Item;
 @class GTLRAIPlatformNotebooks_UpgradeHistoryEntry;
+@class GTLRAIPlatformNotebooks_VirtualMachine;
+@class GTLRAIPlatformNotebooks_VirtualMachineConfig;
+@class GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes;
+@class GTLRAIPlatformNotebooks_VirtualMachineConfig_Labels;
+@class GTLRAIPlatformNotebooks_VirtualMachineConfig_Metadata;
 @class GTLRAIPlatformNotebooks_VmImage;
 
 // Generated comments include content from the discovery document; avoid them
@@ -433,6 +450,209 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Stopp
  *  Value: "UPGRADING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_LocalDiskInitializeParams.diskType
+
+/**
+ *  Disk type not set.
+ *
+ *  Value: "DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_DiskTypeUnspecified;
+/**
+ *  Balanced persistent disk type.
+ *
+ *  Value: "PD_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdBalanced;
+/**
+ *  SSD persistent disk type.
+ *
+ *  Value: "PD_SSD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdSsd;
+/**
+ *  Standard persistent disk type.
+ *
+ *  Value: "PD_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Runtime.healthState
+
+/**
+ *  The runtime substate is unknown.
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified;
+/**
+ *  The runtime is known to be in an healthy state (for example, critical
+ *  daemons are running) Applies to ACTIVE state.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy;
+/**
+ *  The runtime is known to be in an unhealthy state (for example, critical
+ *  daemons are not running) Applies to ACTIVE state.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Unhealthy;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Runtime.state
+
+/**
+ *  The runtime is currently running. It is ready for use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Active;
+/**
+ *  The runtime is being deleted. It cannot be used.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Deleting;
+/**
+ *  The runtime is being created and set up. It is not ready for use.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Initializing;
+/**
+ *  The compute layer is installing required frameworks and registering the
+ *  runtime with notebook proxy. It cannot be used.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Provisioning;
+/**
+ *  The compute layer is starting the runtime. It is not ready for use.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Starting;
+/**
+ *  State is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_StateUnspecified;
+/**
+ *  The runtime is stopped. It cannot be used.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Stopped;
+/**
+ *  The control logic is stopping the runtime. It cannot be used.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Stopping;
+/**
+ *  The runtime is upgrading. It cannot be used.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Runtime_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig.type
+
+/**
+ *  Accelerator type is not specified.
+ *
+ *  Value: "ACCELERATOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_AcceleratorTypeUnspecified;
+/**
+ *  Accelerator type is Nvidia Tesla A100.
+ *
+ *  Value: "NVIDIA_TESLA_A100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100;
+/**
+ *  Accelerator type is Nvidia Tesla K80.
+ *
+ *  Value: "NVIDIA_TESLA_K80"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaK80;
+/**
+ *  Accelerator type is Nvidia Tesla P100.
+ *
+ *  Value: "NVIDIA_TESLA_P100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100;
+/**
+ *  Accelerator type is NVIDIA Tesla P100 Virtual Workstations.
+ *
+ *  Value: "NVIDIA_TESLA_P100_VWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100Vws;
+/**
+ *  Accelerator type is Nvidia Tesla P4.
+ *
+ *  Value: "NVIDIA_TESLA_P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4;
+/**
+ *  Accelerator type is NVIDIA Tesla P4 Virtual Workstations.
+ *
+ *  Value: "NVIDIA_TESLA_P4_VWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4Vws;
+/**
+ *  Accelerator type is Nvidia Tesla T4.
+ *
+ *  Value: "NVIDIA_TESLA_T4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4;
+/**
+ *  Accelerator type is NVIDIA Tesla T4 Virtual Workstations.
+ *
+ *  Value: "NVIDIA_TESLA_T4_VWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4Vws;
+/**
+ *  Accelerator type is Nvidia Tesla V100.
+ *
+ *  Value: "NVIDIA_TESLA_V100"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaV100;
+/**
+ *  (Coming soon) Accelerator type is TPU V2.
+ *
+ *  Value: "TPU_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV2;
+/**
+ *  (Coming soon) Accelerator type is TPU V3.
+ *
+ *  Value: "TPU_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV3;
+
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_RuntimeAccessConfig.accessType
+
+/**
+ *  Unspecified access.
+ *
+ *  Value: "RUNTIME_ACCESS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified;
+/**
+ *  Single user login.
+ *
+ *  Value: "SINGLE_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser;
 
 // ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Schedule.state
@@ -893,6 +1113,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRAIPlatformNotebooks_Empty : GTLRObject
+@end
+
+
+/**
+ *  Represents a custom encryption key configuration that can be applied to a
+ *  resource. This will encrypt all disks in Virtual Machine.
+ */
+@interface GTLRAIPlatformNotebooks_EncryptionConfig : GTLRObject
+
+/**
+ *  The Cloud KMS resource identifier of the customer-managed encryption key
+ *  used to protect a resource, such as a disks. It has the following format:
+ *  `projects/{PROJECT_ID}/locations/{REGION}/keyRings/{KEY_RING_NAME}/cryptoKeys/{KEY_NAME}`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
 @end
 
 
@@ -1710,6 +1946,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Response for listing Managed Notebook Runtimes.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "runtimes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAIPlatformNotebooks_ListRuntimesResponse : GTLRCollectionObject
+
+/**
+ *  Page token that can be used to continue listing from the last result in the
+ *  next list call.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of returned Runtimes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Runtime *> *runtimes;
+
+/**
+ *  Locations that could not be reached. For example, ['us-west1',
+ *  'us-central1']. A ListRuntimesResponse will only contain either runtimes or
+ *  unreachables,
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for listing scheduled notebook job.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1740,6 +2010,174 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
+@end
+
+
+/**
+ *  An Local attached disk resource.
+ */
+@interface GTLRAIPlatformNotebooks_LocalDisk : GTLRObject
+
+/**
+ *  Output only. Specifies whether the disk will be auto-deleted when the
+ *  instance is deleted (but not when the disk is detached from the instance).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoDelete;
+
+/**
+ *  Output only. Indicates that this is a boot disk. The virtual machine will
+ *  use the first partition of the disk for its root filesystem.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boot;
+
+/**
+ *  Output only. Specifies a unique device name of your choice that is reflected
+ *  into the /dev/disk/by-id/google-* tree of a Linux operating system running
+ *  within the instance. This name can be used to reference the device for
+ *  mounting, resizing, and so on, from within the instance. If not specified,
+ *  the server chooses a default device name to apply to this disk, in the form
+ *  persistent-disk-x, where x is a number assigned by Google Compute Engine.
+ *  This field is only applicable for persistent disks.
+ */
+@property(nonatomic, copy, nullable) NSString *deviceName;
+
+/**
+ *  Output only. Indicates a list of features to enable on the guest operating
+ *  system. Applicable only for bootable images. Read Enabling guest operating
+ *  system features to see a list of available options.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_RuntimeGuestOsFeature *> *guestOsFeatures;
+
+/**
+ *  Output only. [Output Only] A zero-based index to this disk, where 0 is
+ *  reserved for the boot disk. If you have many disks attached to an instance,
+ *  each disk would have a unique index number.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
+
+/**
+ *  Input only. [Input Only] Specifies the parameters for a new disk that will
+ *  be created alongside the new instance. Use initialization parameters to
+ *  create boot disks or local SSDs attached to the new instance. This property
+ *  is mutually exclusive with the source property; you can only define one or
+ *  the other, but not both.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_LocalDiskInitializeParams *initializeParams;
+
+/**
+ *  Specifies the disk interface to use for attaching this disk, which is either
+ *  SCSI or NVME. The default is SCSI. Persistent disks must always use SCSI and
+ *  the request will fail if you attempt to attach a persistent disk in any
+ *  other format than SCSI. Local SSDs can use either NVME or SCSI. For
+ *  performance characteristics of SCSI over NVMe, see Local SSD performance.
+ *  Valid values: NVME SCSI
+ */
+@property(nonatomic, copy, nullable) NSString *interface;
+
+/**
+ *  Output only. Type of the resource. Always compute#attachedDisk for attached
+ *  disks.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Output only. [Output Only] Any valid publicly visible licenses. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
+
+/**
+ *  The mode in which to attach this disk, either READ_WRITE or READ_ONLY. If
+ *  not specified, the default is to attach the disk in READ_WRITE mode. Valid
+ *  values: READ_ONLY READ_WRITE
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Specifies a valid partial or full URL to an existing Persistent Disk
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Specifies the type of the disk, either SCRATCH or PERSISTENT. If not
+ *  specified, the default is PERSISTENT. Valid values: PERSISTENT SCRATCH
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  [Input Only] Specifies the parameters for a new disk that will be created
+ *  alongside the new instance. Use initialization parameters to create boot
+ *  disks or local SSDs attached to the new runtime. This property is mutually
+ *  exclusive with the source property; you can only define one or the other,
+ *  but not both.
+ */
+@interface GTLRAIPlatformNotebooks_LocalDiskInitializeParams : GTLRObject
+
+/**
+ *  Optional. Provide this property when creating the disk.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Specifies the disk name. If not specified, the default is to use
+ *  the name of the instance. If the disk with the instance name exists already
+ *  in the given zone/region, a new name will be automatically generated.
+ */
+@property(nonatomic, copy, nullable) NSString *diskName;
+
+/**
+ *  Optional. Specifies the size of the disk in base-2 GB. If not specified, the
+ *  disk will be the same size as the image (usually 10GB). If specified, the
+ *  size must be equal to or larger than 10GB. Default 100 GB.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Input only. The type of the boot disk attached to this instance, defaults to
+ *  standard persistent disk (`PD_STANDARD`).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_DiskTypeUnspecified
+ *        Disk type not set. (Value: "DISK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdBalanced
+ *        Balanced persistent disk type. (Value: "PD_BALANCED")
+ *    @arg @c kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdSsd
+ *        SSD persistent disk type. (Value: "PD_SSD")
+ *    @arg @c kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard
+ *        Standard persistent disk type. (Value: "PD_STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Optional. Labels to apply to this disk. These can be later modified by the
+ *  disks.setLabels method. This field is only applicable for persistent disks.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels *labels;
+
+@end
+
+
+/**
+ *  Optional. Labels to apply to this disk. These can be later modified by the
+ *  disks.setLabels method. This field is only applicable for persistent disks.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels : GTLRObject
 @end
 
 
@@ -2061,6 +2499,309 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request for reseting a Managed Notebook Runtime.
+ */
+@interface GTLRAIPlatformNotebooks_ResetRuntimeRequest : GTLRObject
+@end
+
+
+/**
+ *  The definition of a Runtime for a managed notebook instance.
+ */
+@interface GTLRAIPlatformNotebooks_Runtime : GTLRObject
+
+/** The config settings for accessing runtime. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeAccessConfig *accessConfig;
+
+/** Output only. Runtime creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Runtime health_state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified
+ *        The runtime substate is unknown. (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy The runtime
+ *        is known to be in an healthy state (for example, critical daemons are
+ *        running) Applies to ACTIVE state. (Value: "HEALTHY")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_HealthState_Unhealthy The runtime
+ *        is known to be in an unhealthy state (for example, critical daemons
+ *        are not running) Applies to ACTIVE state. (Value: "UNHEALTHY")
+ */
+@property(nonatomic, copy, nullable) NSString *healthState;
+
+/**
+ *  Output only. Contains Runtime daemon metrics such as Service status and
+ *  JupyterLab stats.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeMetrics *metrics;
+
+/**
+ *  Output only. The resource name of the runtime. Format:
+ *  `projects/{project}/locations/{location}/runtimes/{runtime}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The config settings for software inside the runtime. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeSoftwareConfig *softwareConfig;
+
+/**
+ *  Output only. Runtime state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Active The runtime is
+ *        currently running. It is ready for use. (Value: "ACTIVE")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Deleting The runtime is
+ *        being deleted. It cannot be used. (Value: "DELETING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Initializing The runtime is
+ *        being created and set up. It is not ready for use. (Value:
+ *        "INITIALIZING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Provisioning The compute
+ *        layer is installing required frameworks and registering the runtime
+ *        with notebook proxy. It cannot be used. (Value: "PROVISIONING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Starting The compute layer
+ *        is starting the runtime. It is not ready for use. (Value: "STARTING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_StateUnspecified State is
+ *        not specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Stopped The runtime is
+ *        stopped. It cannot be used. (Value: "STOPPED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Stopping The control logic
+ *        is stopping the runtime. It cannot be used. (Value: "STOPPING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Runtime_State_Upgrading The runtime is
+ *        upgrading. It cannot be used. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Runtime update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Use a Compute Engine VM image to start the managed notebook instance. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachine *virtualMachine;
+
+@end
+
+
+/**
+ *  Definition of the types of hardware accelerators that can be used.
+ *  Definition of the types of hardware accelerators that can be used. See
+ *  [Compute Engine
+ *  AcceleratorTypes](https://cloud.google.com/compute/docs/reference/beta/acceleratorTypes).
+ *  Examples: * `nvidia-tesla-k80` * `nvidia-tesla-p100` * `nvidia-tesla-v100` *
+ *  `nvidia-tesla-p4` * `nvidia-tesla-t4` * `nvidia-tesla-a100`
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig : GTLRObject
+
+/**
+ *  Count of cores of this accelerator.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coreCount;
+
+/**
+ *  Accelerator model.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_AcceleratorTypeUnspecified
+ *        Accelerator type is not specified. (Value:
+ *        "ACCELERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaA100
+ *        Accelerator type is Nvidia Tesla A100. (Value: "NVIDIA_TESLA_A100")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaK80
+ *        Accelerator type is Nvidia Tesla K80. (Value: "NVIDIA_TESLA_K80")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100
+ *        Accelerator type is Nvidia Tesla P100. (Value: "NVIDIA_TESLA_P100")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP100Vws
+ *        Accelerator type is NVIDIA Tesla P100 Virtual Workstations. (Value:
+ *        "NVIDIA_TESLA_P100_VWS")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4
+ *        Accelerator type is Nvidia Tesla P4. (Value: "NVIDIA_TESLA_P4")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaP4Vws
+ *        Accelerator type is NVIDIA Tesla P4 Virtual Workstations. (Value:
+ *        "NVIDIA_TESLA_P4_VWS")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4
+ *        Accelerator type is Nvidia Tesla T4. (Value: "NVIDIA_TESLA_T4")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaT4Vws
+ *        Accelerator type is NVIDIA Tesla T4 Virtual Workstations. (Value:
+ *        "NVIDIA_TESLA_T4_VWS")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_NvidiaTeslaV100
+ *        Accelerator type is Nvidia Tesla V100. (Value: "NVIDIA_TESLA_V100")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV2
+ *        (Coming soon) Accelerator type is TPU V2. (Value: "TPU_V2")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAcceleratorConfig_Type_TpuV3
+ *        (Coming soon) Accelerator type is TPU V3. (Value: "TPU_V3")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Specifies the login configuration for Runtime
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeAccessConfig : GTLRObject
+
+/**
+ *  The type of access mode this instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_RuntimeAccessTypeUnspecified
+ *        Unspecified access. (Value: "RUNTIME_ACCESS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser
+ *        Single user login. (Value: "SINGLE_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *accessType;
+
+/** Output only. The proxy endpoint that is used to access the runtime. */
+@property(nonatomic, copy, nullable) NSString *proxyUri;
+
+/**
+ *  The owner of this runtime after creation. Format: `alias\@example.com`
+ *  Currently supports one owner only.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeOwner;
+
+@end
+
+
+/**
+ *  A list of features to enable on the guest operating system. Applicable only
+ *  for bootable images. Read Enabling guest operating system features to see a
+ *  list of available options. Guest OS features for boot disk.
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeGuestOsFeature : GTLRObject
+
+/**
+ *  The ID of a supported feature. Read Enabling guest operating system features
+ *  to see a list of available options. Valid values: FEATURE_TYPE_UNSPECIFIED
+ *  MULTI_IP_SUBNET SECURE_BOOT UEFI_COMPATIBLE VIRTIO_SCSI_MULTIQUEUE WINDOWS
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Contains runtime daemon metrics, such as OS and kernels and sessions stats.
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeMetrics : GTLRObject
+
+/** Output only. The system metrics. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeMetrics_SystemMetrics *systemMetrics;
+
+@end
+
+
+/**
+ *  Output only. The system metrics.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeMetrics_SystemMetrics : GTLRObject
+@end
+
+
+/**
+ *  A set of Shielded Instance options. Check [Images using supported Shielded
+ *  VM features] Not all combinations are valid.
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig : GTLRObject
+
+/**
+ *  Defines whether the instance has integrity monitoring enabled. Enables
+ *  monitoring and attestation of the boot integrity of the instance. The
+ *  attestation is performed against the integrity policy baseline. This
+ *  baseline is initially derived from the implicitly trusted boot image when
+ *  the instance is created. Enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIntegrityMonitoring;
+
+/**
+ *  Defines whether the instance has Secure Boot enabled. Secure Boot helps
+ *  ensure that the system only runs authentic software by verifying the digital
+ *  signature of all boot components, and halting the boot process if signature
+ *  verification fails. Disabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSecureBoot;
+
+/**
+ *  Defines whether the instance has the vTPM enabled. Enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableVtpm;
+
+@end
+
+
+/**
+ *  Specifies the selection and config of software inside the runtime. / The
+ *  properties to set on runtime. Properties keys are specified in `key:value`
+ *  format, for example: * idle_shutdown: idle_shutdown=true *
+ *  idle_shutdown_timeout: idle_shutdown_timeout=180 * report-system-health:
+ *  report-system-health=true
+ */
+@interface GTLRAIPlatformNotebooks_RuntimeSoftwareConfig : GTLRObject
+
+/**
+ *  Specify a custom Cloud Storage path where the GPU driver is stored. If not
+ *  specified, we'll automatically choose from official GPU drivers.
+ */
+@property(nonatomic, copy, nullable) NSString *customGpuDriverPath;
+
+/**
+ *  Verifies core internal services are running. Default: True
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHealthMonitoring;
+
+/**
+ *  Runtime will automatically shutdown after idle_shutdown_time. Default: False
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *idleShutdown;
+
+/**
+ *  Time in minutes to wait before shuting down runtime. Default: 90 minutes
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *idleShutdownTimeout;
+
+/**
+ *  Install Nvidia Driver automatically.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *installGpuDriver;
+
+/**
+ *  Cron expression in UTC timezone, used to schedule instance auto upgrade.
+ *  Please follow the [cron format](https://en.wikipedia.org/wiki/Cron).
+ */
+@property(nonatomic, copy, nullable) NSString *notebookUpgradeSchedule;
+
+/**
+ *  Path to a Bash script that automatically runs after a notebook instance
+ *  fully boots up. The path must be a URL or Cloud Storage path
+ *  (gs://path-to-file/file-name).
+ */
+@property(nonatomic, copy, nullable) NSString *postStartupScript;
+
+@end
+
+
+/**
  *  The definition of a schedule.
  */
 @interface GTLRAIPlatformNotebooks_Schedule : GTLRObject
@@ -2336,6 +3077,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request for starting a Managed Notebook Runtime.
+ */
+@interface GTLRAIPlatformNotebooks_StartRuntimeRequest : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -2388,6 +3136,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 
 /**
+ *  Request for stopping a Managed Notebook Runtime.
+ */
+@interface GTLRAIPlatformNotebooks_StopRuntimeRequest : GTLRObject
+@end
+
+
+/**
+ *  Request for switching a Managed Notebook Runtime.
+ */
+@interface GTLRAIPlatformNotebooks_SwitchRuntimeRequest : GTLRObject
+
+/** accelerator config. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig *acceleratorConfig;
+
+/** machine type. */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+@end
+
+
+/**
  *  Request message for `TestIamPermissions` method.
  */
 @interface GTLRAIPlatformNotebooks_TestIamPermissionsRequest : GTLRObject
@@ -2419,6 +3188,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Request for created scheduled notebooks
  */
 @interface GTLRAIPlatformNotebooks_TriggerScheduleRequest : GTLRObject
+@end
+
+
+/**
+ *  Request for updating the Shielded Instance config for a notebook instance.
+ *  You can only use this method on a stopped instance
+ */
+@interface GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest : GTLRObject
+
+/** ShieldedInstance configuration to be updated. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ShieldedInstanceConfig *shieldedInstanceConfig;
+
 @end
 
 
@@ -2500,6 +3281,181 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Request for upgrading a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_UpgradeInstanceRequest : GTLRObject
+@end
+
+
+/**
+ *  Runtime using Virtual Machine for computing.
+ */
+@interface GTLRAIPlatformNotebooks_VirtualMachine : GTLRObject
+
+/**
+ *  Output only. The unique identifier of the Managed Compute Engine instance.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/**
+ *  Output only. The user-friendly name of the Managed Compute Engine instance.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceName;
+
+/** Virtual Machine configuration settings. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachineConfig *virtualMachineConfig;
+
+@end
+
+
+/**
+ *  The config settings for virtual machine.
+ */
+@interface GTLRAIPlatformNotebooks_VirtualMachineConfig : GTLRObject
+
+/**
+ *  Optional. The Compute Engine accelerator configuration for this runtime.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig *acceleratorConfig;
+
+/**
+ *  Optional. Use a list of container images to start the notebook instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_ContainerImage *> *containerImages;
+
+/** Required. Data disk option configuration settings. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_LocalDisk *dataDisk;
+
+/** Optional. Encryption settings for virtual machine data disk. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_EncryptionConfig *encryptionConfig;
+
+/**
+ *  Output only. The Compute Engine guest attributes. (see [Project and instance
+ *  guest
+ *  attributes](https://cloud.google.com/compute/docs/storing-retrieving-metadata#guest_attributes)).
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes *guestAttributes;
+
+/**
+ *  Optional. If true, runtime will only have internal IP addresses. By default,
+ *  runtimes are not restricted to internal IP addresses, and will have
+ *  ephemeral external IP addresses assigned to each vm. This `internal_ip_only`
+ *  restriction can only be enabled for subnetwork enabled networks, and all
+ *  dependencies must be configured to be accessible without external IP
+ *  addresses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *internalIpOnly;
+
+/**
+ *  Optional. The labels to associate with this runtime. Label **keys** must
+ *  contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). Label **values** may be empty,
+ *  but, if present, must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachineConfig_Labels *labels;
+
+/**
+ *  Required. The Compute Engine machine type used for runtimes. Short name is
+ *  valid. Examples: * `n1-standard-2` * `e2-standard-8`
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  Optional. The Compute Engine metadata entries to add to virtual machine.
+ *  (see [Project and instance
+ *  metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_VirtualMachineConfig_Metadata *metadata;
+
+/**
+ *  Optional. The Compute Engine network to be used for machine communications.
+ *  Cannot be specified with subnetwork. If neither `network` nor `subnet` is
+ *  specified, the "default" network of the project is used, if it exists. A
+ *  full URL or partial URI. Examples: *
+ *  `https://www.googleapis.com/compute/v1/projects/[project_id]/regions/global/default`
+ *  * `projects/[project_id]/regions/global/default` Runtimes are managed
+ *  resources inside Google Infrastructure. Runtimes support the following
+ *  network configurations: * Google Managed Network (Network & subnet are
+ *  empty) * Consumer Project VPC (network & subnet are required). Requires
+ *  configuring Private Service Access. * Shared VPC (network & subnet are
+ *  required). Requires configuring Private Service Access.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/** Optional. Shielded VM Instance configuration settings. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig *shieldedInstanceConfig;
+
+/**
+ *  Optional. The Compute Engine subnetwork to be used for machine
+ *  communications. Cannot be specified with network. A full URL or partial URI
+ *  are valid. Examples: *
+ *  `https://www.googleapis.com/compute/v1/projects/[project_id]/regions/us-east1/subnetworks/sub0`
+ *  * `projects/[project_id]/regions/us-east1/subnetworks/sub0`
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
+
+/**
+ *  Optional. The Compute Engine tags to add to runtime (see [Tagging
+ *  instances](https://cloud.google.com/compute/docs/label-or-tag-resources#tags)).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+/**
+ *  Output only. The zone where the virtual machine is located. If using
+ *  regional request, the notebooks service will pick a location in the
+ *  corresponding runtime region. On a get request, zone will always be present.
+ *  Example: * `us-central1-b`
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  Output only. The Compute Engine guest attributes. (see [Project and instance
+ *  guest
+ *  attributes](https://cloud.google.com/compute/docs/storing-retrieving-metadata#guest_attributes)).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_VirtualMachineConfig_GuestAttributes : GTLRObject
+@end
+
+
+/**
+ *  Optional. The labels to associate with this runtime. Label **keys** must
+ *  contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). Label **values** may be empty,
+ *  but, if present, must contain 1 to 63 characters, and must conform to [RFC
+ *  1035](https://www.ietf.org/rfc/rfc1035.txt). No more than 32 labels can be
+ *  associated with a cluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_VirtualMachineConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The Compute Engine metadata entries to add to virtual machine.
+ *  (see [Project and instance
+ *  metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata#project_and_instance_metadata)).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAIPlatformNotebooks_VirtualMachineConfig_Metadata : GTLRObject
 @end
 
 

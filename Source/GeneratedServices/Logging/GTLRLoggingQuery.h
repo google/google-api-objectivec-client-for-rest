@@ -63,8 +63,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsBucketsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsBucketsGetWithname:]
 
 /**
  *  Required. The resource name of the bucket:
@@ -106,8 +104,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsBucketsViewsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsBucketsViewsGetWithname:]
 
 /**
  *  Required. The resource name of the policy:
@@ -145,8 +141,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsExclusionsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsExclusionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource in which to create the exclusion:
@@ -186,8 +180,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsExclusionsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsExclusionsDeleteWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion to delete:
@@ -229,8 +221,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsExclusionsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsExclusionsGetWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion:
@@ -272,8 +262,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsExclusionsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsExclusionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -326,8 +314,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsExclusionsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsExclusionsPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the exclusion to update:
@@ -382,8 +368,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsCreateWithObject:parent:]
 
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
@@ -429,8 +413,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the bucket to delete.
@@ -474,8 +456,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -541,8 +521,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to update.
@@ -606,8 +584,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsUndelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsUndeleteWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to undelete.
@@ -652,8 +628,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsCreateWithObject:parent:]
 
 /**
  *  Required. The bucket in which to create the view
@@ -694,8 +668,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the view to delete:
@@ -733,8 +705,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -786,8 +756,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsBucketsViewsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsBucketsViewsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the view to update
@@ -840,8 +808,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -871,19 +837,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLocationsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -916,8 +890,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsLogsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLogsDeleteWithlogName:]
 
 /**
  *  Required. The resource name of the log to delete:
@@ -967,8 +939,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsLogsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsLogsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -1033,8 +1003,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksCreateWithObject:parent:]
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -1089,8 +1057,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksDeleteWithsinkName:]
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
@@ -1134,8 +1100,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksGetWithsinkName:]
 
 /**
  *  Required. The resource name of the sink:
@@ -1177,8 +1141,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -1233,8 +1195,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksPatchWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -1308,8 +1268,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_BillingAccountsSinksUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForBillingAccountsSinksUpdateWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -1385,8 +1343,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_EntriesList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForEntriesListWithObject:]
 
 /**
  *  Fetches a @c GTLRLogging_ListLogEntriesResponse.
@@ -1417,8 +1373,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_EntriesTail : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForEntriesTailWithObject:]
 
 /**
  *  Fetches a @c GTLRLogging_TailLogEntriesResponse.
@@ -1450,8 +1404,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingWrite
  */
 @interface GTLRLoggingQuery_EntriesWrite : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForEntriesWriteWithObject:]
 
 /**
  *  Fetches a @c GTLRLogging_WriteLogEntriesResponse.
@@ -1483,8 +1435,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ExclusionsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForExclusionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource in which to create the exclusion:
@@ -1524,8 +1474,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ExclusionsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForExclusionsDeleteWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion to delete:
@@ -1567,8 +1515,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ExclusionsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForExclusionsGetWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion:
@@ -1610,8 +1556,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ExclusionsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForExclusionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -1664,8 +1608,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ExclusionsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForExclusionsPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the exclusion to update:
@@ -1721,8 +1663,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersExclusionsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersExclusionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource in which to create the exclusion:
@@ -1762,8 +1702,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersExclusionsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersExclusionsDeleteWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion to delete:
@@ -1805,8 +1743,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersExclusionsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersExclusionsGetWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion:
@@ -1848,8 +1784,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersExclusionsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersExclusionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -1902,8 +1836,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersExclusionsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersExclusionsPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the exclusion to update:
@@ -1958,8 +1890,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsCreateWithObject:parent:]
 
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
@@ -2005,8 +1935,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the bucket to delete.
@@ -2050,8 +1978,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsGetWithname:]
 
 /**
  *  Required. The resource name of the bucket:
@@ -2093,8 +2019,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -2160,8 +2084,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to update.
@@ -2225,8 +2147,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsUndelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsUndeleteWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to undelete.
@@ -2271,8 +2191,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsViewsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsCreateWithObject:parent:]
 
 /**
  *  Required. The bucket in which to create the view
@@ -2313,8 +2231,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsViewsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the view to delete:
@@ -2352,8 +2268,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsViewsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsGetWithname:]
 
 /**
  *  Required. The resource name of the policy:
@@ -2391,8 +2305,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsViewsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -2444,8 +2356,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLocationsBucketsViewsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsBucketsViewsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the view to update
@@ -2498,8 +2408,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2529,19 +2437,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLocationsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -2574,8 +2490,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersLogsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLogsDeleteWithlogName:]
 
 /**
  *  Required. The resource name of the log to delete:
@@ -2625,8 +2539,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersLogsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersLogsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -2691,8 +2603,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersSinksCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksCreateWithObject:parent:]
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -2747,8 +2657,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersSinksDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksDeleteWithsinkName:]
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
@@ -2792,8 +2700,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersSinksGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksGetWithsinkName:]
 
 /**
  *  Required. The resource name of the sink:
@@ -2835,8 +2741,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_FoldersSinksList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -2891,8 +2795,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersSinksPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksPatchWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -2966,8 +2868,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_FoldersSinksUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForFoldersSinksUpdateWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -3040,8 +2940,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsCreateWithObject:parent:]
 
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
@@ -3087,8 +2985,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the bucket to delete.
@@ -3132,8 +3028,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsBucketsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsGetWithname:]
 
 /**
  *  Required. The resource name of the bucket:
@@ -3175,8 +3069,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsBucketsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -3242,8 +3134,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to update.
@@ -3307,8 +3197,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsUndelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsUndeleteWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to undelete.
@@ -3353,8 +3241,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsViewsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsViewsCreateWithObject:parent:]
 
 /**
  *  Required. The bucket in which to create the view
@@ -3395,8 +3281,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsViewsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsViewsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the view to delete:
@@ -3434,8 +3318,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsBucketsViewsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsViewsGetWithname:]
 
 /**
  *  Required. The resource name of the policy:
@@ -3473,8 +3355,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsBucketsViewsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsViewsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -3526,8 +3406,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LocationsBucketsViewsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsBucketsViewsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the view to update
@@ -3580,8 +3458,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3611,19 +3487,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LocationsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -3656,8 +3540,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_LogsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLogsDeleteWithlogName:]
 
 /**
  *  Required. The resource name of the log to delete:
@@ -3707,8 +3589,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_LogsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForLogsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -3772,8 +3652,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_MonitoredResourceDescriptorsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForMonitoredResourceDescriptorsList]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -3817,8 +3695,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsExclusionsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsExclusionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource in which to create the exclusion:
@@ -3858,8 +3734,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsExclusionsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsExclusionsDeleteWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion to delete:
@@ -3901,8 +3775,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsExclusionsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsExclusionsGetWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion:
@@ -3944,8 +3816,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsExclusionsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsExclusionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -3998,8 +3868,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsExclusionsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsExclusionsPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the exclusion to update:
@@ -4060,8 +3928,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsGetCmekSettings : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsGetCmekSettingsWithname:]
 
 /**
  *  Required. The resource for which to retrieve CMEK settings.
@@ -4111,8 +3977,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsCreateWithObject:parent:]
 
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
@@ -4158,8 +4022,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the bucket to delete.
@@ -4203,8 +4065,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsGetWithname:]
 
 /**
  *  Required. The resource name of the bucket:
@@ -4246,8 +4106,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -4313,8 +4171,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to update.
@@ -4378,8 +4234,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsUndelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsUndeleteWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to undelete.
@@ -4424,8 +4278,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsCreateWithObject:parent:]
 
 /**
  *  Required. The bucket in which to create the view
@@ -4466,8 +4318,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the view to delete:
@@ -4505,8 +4355,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsGetWithname:]
 
 /**
  *  Required. The resource name of the policy:
@@ -4544,8 +4392,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -4597,8 +4443,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsBucketsViewsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsBucketsViewsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the view to update
@@ -4651,8 +4495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4682,19 +4524,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLocationsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -4727,8 +4577,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsLogsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLogsDeleteWithlogName:]
 
 /**
  *  Required. The resource name of the log to delete:
@@ -4778,8 +4626,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsLogsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsLogsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -4844,8 +4690,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsSinksCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksCreateWithObject:parent:]
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -4900,8 +4744,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsSinksDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksDeleteWithsinkName:]
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
@@ -4945,8 +4787,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsSinksGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksGetWithsinkName:]
 
 /**
  *  Required. The resource name of the sink:
@@ -4988,8 +4828,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_OrganizationsSinksList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -5044,8 +4882,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsSinksPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksPatchWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -5119,8 +4955,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsSinksUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsSinksUpdateWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -5200,8 +5034,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_OrganizationsUpdateCmekSettings : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForOrganizationsUpdateCmekSettingsWithObject:name:]
 
 /**
  *  Required. The resource name for the CMEK settings to update.
@@ -5267,8 +5099,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsExclusionsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsExclusionsCreateWithObject:parent:]
 
 /**
  *  Required. The parent resource in which to create the exclusion:
@@ -5308,8 +5138,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsExclusionsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsExclusionsDeleteWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion to delete:
@@ -5351,8 +5179,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsExclusionsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsExclusionsGetWithname:]
 
 /**
  *  Required. The resource name of an existing exclusion:
@@ -5394,8 +5220,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsExclusionsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsExclusionsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -5448,8 +5272,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsExclusionsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsExclusionsPatchWithObject:name:]
 
 /**
  *  Required. The resource name of the exclusion to update:
@@ -5504,8 +5326,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsCreateWithObject:parent:]
 
 /**
  *  Required. A client-assigned identifier such as "my-bucket". Identifiers are
@@ -5551,8 +5371,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the bucket to delete.
@@ -5596,8 +5414,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsGetWithname:]
 
 /**
  *  Required. The resource name of the bucket:
@@ -5639,8 +5455,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -5706,8 +5520,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to update.
@@ -5771,8 +5583,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsUndelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsUndeleteWithObject:name:]
 
 /**
  *  Required. The full resource name of the bucket to undelete.
@@ -5817,8 +5627,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsCreateWithObject:parent:]
 
 /**
  *  Required. The bucket in which to create the view
@@ -5859,8 +5667,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsDeleteWithname:]
 
 /**
  *  Required. The full resource name of the view to delete:
@@ -5898,8 +5704,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsGetWithname:]
 
 /**
  *  Required. The resource name of the policy:
@@ -5937,8 +5741,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -5990,8 +5792,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLocationsBucketsViewsPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsBucketsViewsPatchWithObject:name:]
 
 /**
  *  Required. The full resource name of the view to update
@@ -6044,8 +5844,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsGetWithname:]
 
 /** Resource name for the location. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6075,19 +5873,27 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLocationsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLocationsListWithname:]
 
-/** The standard list filter. */
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** The resource that owns the locations collection, if applicable. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The standard list page size. */
+/**
+ *  The maximum number of results to return. If not set, the service will select
+ *  a default.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** The standard list page token. */
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -6120,8 +5926,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsLogsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLogsDeleteWithlogName:]
 
 /**
  *  Required. The resource name of the log to delete:
@@ -6171,8 +5975,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsLogsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsLogsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -6235,8 +6037,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingWrite
  */
 @interface GTLRLoggingQuery_ProjectsMetricsCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsCreateWithObject:parent:]
 
 /**
  *  Required. The resource name of the project in which to create the metric:
@@ -6272,8 +6072,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingWrite
  */
 @interface GTLRLoggingQuery_ProjectsMetricsDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsDeleteWithmetricName:]
 
 /**
  *  Required. The resource name of the metric to delete:
@@ -6307,8 +6105,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsMetricsGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsGetWithmetricName:]
 
 /**
  *  Required. The resource name of the desired metric:
@@ -6342,8 +6138,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsMetricsList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -6395,8 +6189,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingWrite
  */
 @interface GTLRLoggingQuery_ProjectsMetricsUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsMetricsUpdateWithObject:metricName:]
 
 /**
  *  Required. The resource name of the metric to update:
@@ -6438,8 +6230,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsSinksCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksCreateWithObject:parent:]
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -6494,8 +6284,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsSinksDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksDeleteWithsinkName:]
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
@@ -6539,8 +6327,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsSinksGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksGetWithsinkName:]
 
 /**
  *  Required. The resource name of the sink:
@@ -6582,8 +6368,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_ProjectsSinksList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -6638,8 +6422,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsSinksPatch : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksPatchWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -6713,8 +6495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_ProjectsSinksUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForProjectsSinksUpdateWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -6789,8 +6569,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_SinksCreate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForSinksCreateWithObject:parent:]
 
 /**
  *  Required. The resource in which to create the sink: "projects/[PROJECT_ID]"
@@ -6845,8 +6623,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_SinksDelete : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForSinksDeleteWithsinkName:]
 
 /**
  *  Required. The full resource name of the sink to delete, including the parent
@@ -6890,8 +6666,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_SinksGet : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForSinksGetWithsinkName:]
 
 /**
  *  Required. The resource name of the sink:
@@ -6933,8 +6707,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_SinksList : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForSinksListWithparent:]
 
 /**
  *  Optional. The maximum number of results to return from this request.
@@ -6989,8 +6761,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_SinksUpdate : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForSinksUpdateWithObject:sinkName:]
 
 /**
  *  Required. The full resource name of the sink to update, including the parent
@@ -7069,8 +6839,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingRead
  */
 @interface GTLRLoggingQuery_V2GetCmekSettings : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForGetCmekSettingsWithname:]
 
 /**
  *  Required. The resource for which to retrieve CMEK settings.
@@ -7127,8 +6895,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeLoggingCloudPlatform
  */
 @interface GTLRLoggingQuery_V2UpdateCmekSettings : GTLRLoggingQuery
-// Previous library name was
-//   +[GTLQueryLogging queryForUpdateCmekSettingsWithObject:name:]
 
 /**
  *  Required. The resource name for the CMEK settings to update.

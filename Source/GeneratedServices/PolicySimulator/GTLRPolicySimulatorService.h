@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Simulator API (policysimulator/v1beta1)
+//   Policy Simulator API (policysimulator/v1)
 // Description:
 //   Policy Simulator is a collection of endpoints for creating, running, and
 //   viewing a Replay. A `Replay` is a type of simulation that lets you see how
@@ -37,8 +37,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

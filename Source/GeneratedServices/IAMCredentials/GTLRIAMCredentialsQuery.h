@@ -52,8 +52,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIAMCredentialsCloudPlatform
  */
 @interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateAccessToken : GTLRIAMCredentialsQuery
-// Previous library name was
-//   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsGenerateAccessTokenWithObject:name:]
 
 /**
  *  Required. The resource name of the service account for which the credentials
@@ -91,8 +89,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIAMCredentialsCloudPlatform
  */
 @interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsGenerateIdToken : GTLRIAMCredentialsQuery
-// Previous library name was
-//   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsGenerateIdTokenWithObject:name:]
 
 /**
  *  Required. The resource name of the service account for which the credentials
@@ -130,8 +126,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIAMCredentialsCloudPlatform
  */
 @interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignBlob : GTLRIAMCredentialsQuery
-// Previous library name was
-//   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsSignBlobWithObject:name:]
 
 /**
  *  Required. The resource name of the service account for which the credentials
@@ -169,8 +163,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeIAMCredentialsCloudPlatform
  */
 @interface GTLRIAMCredentialsQuery_ProjectsServiceAccountsSignJwt : GTLRIAMCredentialsQuery
-// Previous library name was
-//   +[GTLQueryIAMCredentials queryForProjectsServiceAccountsSignJwtWithObject:name:]
 
 /**
  *  Required. The resource name of the service account for which the credentials

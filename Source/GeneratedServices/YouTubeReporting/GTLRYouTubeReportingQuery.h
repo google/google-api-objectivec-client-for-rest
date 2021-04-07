@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsCreate : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsCreateWithObject:]
 
 /**
  *  The content owner's external ID on which behalf the user is acting on. If
@@ -82,8 +80,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsDelete : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsDeleteWithjobId:]
 
 /** The ID of the job to delete. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -117,8 +113,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsGet : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsGetWithjobId:]
 
 /** The ID of the job to retrieve. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -152,8 +146,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsList : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsList]
 
 /**
  *  If set to true, also system-managed jobs will be returned; otherwise only
@@ -206,8 +198,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsReportsGet : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsReportsGetWithjobId:reportId:]
 
 /** The ID of the job. */
 @property(nonatomic, copy, nullable) NSString *jobId;
@@ -247,8 +237,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_JobsReportsList : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForJobsReportsListWithjobId:]
 
 /**
  *  If set, only reports created after the specified date/time are returned.
@@ -318,8 +306,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_MediaDownload : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForMediaDownloadWithresourceName:]
 
 /** Name of the media that is being downloaded. */
 @property(nonatomic, copy, nullable) NSString *resourceName;
@@ -360,8 +346,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeYouTubeReportingYtAnalyticsReadonly
  */
 @interface GTLRYouTubeReportingQuery_ReportTypesList : GTLRYouTubeReportingQuery
-// Previous library name was
-//   +[GTLQueryYouTubeReporting queryForReportTypesList]
 
 /**
  *  If set to true, also system-managed report types will be returned; otherwise

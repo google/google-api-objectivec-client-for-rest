@@ -50,8 +50,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTexttospeechCloudPlatform
  */
 @interface GTLRTexttospeechQuery_TextSynthesize : GTLRTexttospeechQuery
-// Previous library name was
-//   +[GTLQueryTexttospeech queryForTextSynthesizeWithObject:]
 
 /**
  *  Fetches a @c GTLRTexttospeech_SynthesizeSpeechResponse.
@@ -77,8 +75,6 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeTexttospeechCloudPlatform
  */
 @interface GTLRTexttospeechQuery_VoicesList : GTLRTexttospeechQuery
-// Previous library name was
-//   +[GTLQueryTexttospeech queryForVoicesList]
 
 /**
  *  Optional. Recommended.

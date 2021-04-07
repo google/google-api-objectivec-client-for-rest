@@ -127,8 +127,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.cancelWipe
  */
 @interface GTLRCloudIdentityQuery_DevicesCancelWipe : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesCancelWipeWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -173,8 +171,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.create
  */
 @interface GTLRCloudIdentityQuery_DevicesCreate : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesCreateWithObject:]
 
 /**
  *  Optional. [Resource
@@ -210,8 +206,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.delete
  */
 @interface GTLRCloudIdentityQuery_DevicesDelete : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeleteWithname:]
 
 /**
  *  Optional. [Resource
@@ -253,8 +247,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.approve
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersApprove : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersApproveWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -292,8 +284,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.block
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersBlock : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersBlockWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -333,8 +323,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.cancelWipe
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersCancelWipe : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersCancelWipeWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -374,8 +362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.get
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesGet : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesGetWithname:]
 
 /**
  *  Optional. [Resource
@@ -439,8 +425,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.list
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesList : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesListWithparent:]
 
 /**
  *  Optional. [Resource
@@ -503,8 +487,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.clientStates.patch
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersClientStatesPatch : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersClientStatesPatchWithObject:name:]
 
 /**
  *  Optional. [Resource
@@ -586,8 +568,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.delete
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersDelete : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersDeleteWithname:]
 
 /**
  *  Optional. [Resource
@@ -632,8 +612,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.get
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersGet : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersGetWithname:]
 
 /**
  *  Optional. [Resource
@@ -677,8 +655,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.list
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersList : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersListWithparent:]
 
 /**
  *  Optional. [Resource
@@ -762,8 +738,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudIdentityDevicesLookup
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersLookup : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersLookupWithparent:]
 
 /**
  *  Android Id returned by
@@ -845,8 +819,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.deviceUsers.wipe
  */
 @interface GTLRCloudIdentityQuery_DevicesDeviceUsersWipe : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesDeviceUsersWipeWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -890,8 +862,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.get
  */
 @interface GTLRCloudIdentityQuery_DevicesGet : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesGetWithname:]
 
 /**
  *  Optional. [Resource
@@ -934,8 +904,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.list
  */
 @interface GTLRCloudIdentityQuery_DevicesList : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesList]
 
 /**
  *  Optional. [Resource
@@ -1019,8 +987,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Method: cloudidentity.devices.wipe
  */
 @interface GTLRCloudIdentityQuery_DevicesWipe : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForDevicesWipeWithObject:name:]
 
 /**
  *  Required. [Resource
@@ -1062,8 +1028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsCreate : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsCreateWithObject:]
 
 /**
  *  Optional. The initial configuration option for the `Group`.
@@ -1104,8 +1068,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsDelete : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsDeleteWithname:]
 
 /**
  *  Required. The [resource
@@ -1140,8 +1102,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsGet : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsGetWithname:]
 
 /**
  *  Required. The [resource
@@ -1176,8 +1136,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsList : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsList]
 
 /**
  *  The maximum number of results to return. Note that the number of results
@@ -1243,8 +1201,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsLookup : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsLookup]
 
 /**
  *  The ID of the entity. For Google-managed entities, the `id` should be the
@@ -1294,8 +1250,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsCheckTransitiveMembership : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsCheckTransitiveMembershipWithparent:]
 
 /**
  *  [Resource name](https://cloud.google.com/apis/design/resource_names) of the
@@ -1348,8 +1302,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsCreate : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsCreateWithObject:parent:]
 
 /**
  *  Required. The parent `Group` resource under which to create the
@@ -1383,8 +1335,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsDelete : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsDeleteWithname:]
 
 /**
  *  Required. The [resource
@@ -1421,8 +1371,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsGet : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsGetWithname:]
 
 /**
  *  Required. The [resource
@@ -1466,8 +1414,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsGetMembershipGraph : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsGetMembershipGraphWithparent:]
 
 /**
  *  Required. [Resource
@@ -1529,8 +1475,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsList : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsListWithparent:]
 
 /**
  *  The maximum number of results to return. Note that the number of results
@@ -1599,8 +1543,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsLookup : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsLookupWithparent:]
 
 /**
  *  The ID of the entity. For Google-managed entities, the `id` should be the
@@ -1651,8 +1593,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsModifyMembershipRoles : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsModifyMembershipRolesWithObject:name:]
 
 /**
  *  Required. The [resource
@@ -1698,8 +1638,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveGroups : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsSearchTransitiveGroupsWithparent:]
 
 /** The default page size is 200 (max 1000). */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1771,8 +1709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsMembershipsSearchTransitiveMemberships : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsMembershipsSearchTransitiveMembershipsWithparent:]
 
 /** The default page size is 200 (max 1000). */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -1825,8 +1761,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsPatch : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsPatchWithObject:name:]
 
 /**
  *  Output only. The [resource
@@ -1871,8 +1805,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *    @c kGTLRAuthScopeCloudIdentityCloudPlatform
  */
 @interface GTLRCloudIdentityQuery_GroupsSearch : GTLRCloudIdentityQuery
-// Previous library name was
-//   +[GTLQueryCloudIdentity queryForGroupsSearch]
 
 /**
  *  The maximum number of results to return. Note that the number of results

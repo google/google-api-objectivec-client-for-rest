@@ -4039,24 +4039,24 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_Product
-@dynamic additionalImageLinks, adsGrouping, adsLabels, adsRedirect, adult,
-         ageGroup, availability, availabilityDate, brand, canonicalLink,
-         channel, color, condition, contentLanguage, costOfGoodsSold,
-         customAttributes, customLabel0, customLabel1, customLabel2,
-         customLabel3, customLabel4, descriptionProperty, displayAdsId,
-         displayAdsLink, displayAdsSimilarIds, displayAdsTitle, displayAdsValue,
-         energyEfficiencyClass, excludedDestinations, expirationDate, gender,
-         googleProductCategory, gtin, identifier, identifierExists, imageLink,
-         includedDestinations, installment, isBundle, itemGroupId, kind, link,
-         loyaltyPoints, material, maxEnergyEfficiencyClass, maxHandlingTime,
-         minEnergyEfficiencyClass, minHandlingTime, mobileLink, mpn, multipack,
-         offerId, pattern, price, productDetails, productHighlights,
-         productTypes, promotionIds, salePrice, salePriceEffectiveDate,
-         sellOnGoogleQuantity, shipping, shippingHeight, shippingLabel,
-         shippingLength, shippingWeight, shippingWidth,
-         shoppingAdsExcludedCountries, sizes, sizeSystem, sizeType, source,
-         subscriptionCost, targetCountry, taxCategory, taxes, title,
-         transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+@dynamic additionalImageLinks, additionalSizeType, adsGrouping, adsLabels,
+         adsRedirect, adult, ageGroup, availability, availabilityDate, brand,
+         canonicalLink, channel, color, condition, contentLanguage,
+         costOfGoodsSold, customAttributes, customLabel0, customLabel1,
+         customLabel2, customLabel3, customLabel4, descriptionProperty,
+         displayAdsId, displayAdsLink, displayAdsSimilarIds, displayAdsTitle,
+         displayAdsValue, energyEfficiencyClass, excludedDestinations,
+         expirationDate, gender, googleProductCategory, gtin, identifier,
+         identifierExists, imageLink, includedDestinations, installment,
+         isBundle, itemGroupId, kind, link, loyaltyPoints, material,
+         maxEnergyEfficiencyClass, maxHandlingTime, minEnergyEfficiencyClass,
+         minHandlingTime, mobileLink, mpn, multipack, offerId, pattern, price,
+         productDetails, productHighlights, productTypes, promotionIds,
+         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity, shipping,
+         shippingHeight, shippingLabel, shippingLength, shippingWeight,
+         shippingWidth, shoppingAdsExcludedCountries, sizes, sizeSystem,
+         sizeType, source, subscriptionCost, targetCountry, taxCategory, taxes,
+         title, transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

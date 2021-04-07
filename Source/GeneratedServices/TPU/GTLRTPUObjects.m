@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRTPU_Node.apiVersion
+NSString * const kGTLRTPU_Node_ApiVersion_ApiVersionUnspecified = @"API_VERSION_UNSPECIFIED";
+NSString * const kGTLRTPU_Node_ApiVersion_V1                   = @"V1";
+NSString * const kGTLRTPU_Node_ApiVersion_V1Alpha1             = @"V1_ALPHA1";
+NSString * const kGTLRTPU_Node_ApiVersion_V2Alpha1             = @"V2_ALPHA1";
+
 // GTLRTPU_Node.health
 NSString * const kGTLRTPU_Node_Health_DeprecatedUnhealthy  = @"DEPRECATED_UNHEALTHY";
 NSString * const kGTLRTPU_Node_Health_HealthUnspecified    = @"HEALTH_UNSPECIFIED";
@@ -44,6 +50,7 @@ NSString * const kGTLRTPU_Symptom_SymptomType_HbmOutOfMemory   = @"HBM_OUT_OF_ME
 NSString * const kGTLRTPU_Symptom_SymptomType_LowMemory        = @"LOW_MEMORY";
 NSString * const kGTLRTPU_Symptom_SymptomType_MeshBuildFail    = @"MESH_BUILD_FAIL";
 NSString * const kGTLRTPU_Symptom_SymptomType_OutOfMemory      = @"OUT_OF_MEMORY";
+NSString * const kGTLRTPU_Symptom_SymptomType_ProjectAbuse     = @"PROJECT_ABUSE";
 NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
@@ -232,10 +239,11 @@ NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspecified = @"SYMPTOM
 //
 
 @implementation GTLRTPU_Node
-@dynamic acceleratorType, cidrBlock, createTime, descriptionProperty, health,
-         healthDescription, ipAddress, labels, name, network, networkEndpoints,
-         port, schedulingConfig, serviceAccount, state, symptoms,
-         tensorflowVersion, useServiceNetworking;
+@dynamic acceleratorType, apiVersion, cidrBlock, createTime,
+         descriptionProperty, health, healthDescription, ipAddress, labels,
+         name, network, networkEndpoints, port, schedulingConfig,
+         serviceAccount, state, symptoms, tensorflowVersion,
+         useServiceNetworking;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

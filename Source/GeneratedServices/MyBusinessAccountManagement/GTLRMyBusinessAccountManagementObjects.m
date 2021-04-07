@@ -236,3 +236,13 @@ NSString * const kGTLRMyBusinessAccountManagement_Invitation_TargetType_TargetTy
 @implementation GTLRMyBusinessAccountManagement_TargetLocation
 @dynamic address, locationName;
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMyBusinessAccountManagement_TransferLocationRequest
+//
+
+@implementation GTLRMyBusinessAccountManagement_TransferLocationRequest
+@dynamic destinationAccount, name;
+@end

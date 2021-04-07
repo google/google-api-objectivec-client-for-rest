@@ -22,6 +22,7 @@ NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified = @"STATE
 NSString * const kGTLRCloudComposer_Environment_State_Updating = @"UPDATING";
 
 // GTLRCloudComposer_OperationMetadata.operationType
+NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Check = @"CHECK";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Create = @"CREATE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_Delete = @"DELETE";
 NSString * const kGTLRCloudComposer_OperationMetadata_OperationType_TypeUnspecified = @"TYPE_UNSPECIFIED";

@@ -46,8 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.conversations.messages
  */
 @interface GTLRHangoutsChatQuery_DmsConversationsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsConversationsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -90,8 +88,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.messages
  */
 @interface GTLRHangoutsChatQuery_DmsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -134,8 +130,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.dms.webhooks
  */
 @interface GTLRHangoutsChatQuery_DmsWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForDmsWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -178,8 +172,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.media.download
  */
 @interface GTLRHangoutsChatQuery_MediaDownload : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForMediaDownloadWithresourceName:]
 
 /**
  *  Name of the media that is being downloaded. See ReadRequest.resource_name.
@@ -221,8 +213,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.conversations.messages
  */
 @interface GTLRHangoutsChatQuery_RoomsConversationsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsConversationsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -265,8 +255,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.messages
  */
 @interface GTLRHangoutsChatQuery_RoomsMessages : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsMessagesWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -309,8 +297,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.rooms.webhooks
  */
 @interface GTLRHangoutsChatQuery_RoomsWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForRoomsWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -352,8 +338,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.get
  */
 @interface GTLRHangoutsChatQuery_SpacesGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesGetWithname:]
 
 /**
  *  Required. Resource name of the space, in the form "spaces/ *". Example:
@@ -381,8 +365,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.list
  */
 @interface GTLRHangoutsChatQuery_SpacesList : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesList]
 
 /**
  *  Requested page size. The value is capped at 1000. Server may return fewer
@@ -414,8 +396,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.members.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMembersGetWithname:]
 
 /**
  *  Required. Resource name of the membership to be retrieved, in the form
@@ -445,8 +425,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.members.list
  */
 @interface GTLRHangoutsChatQuery_SpacesMembersList : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMembersListWithparent:]
 
 /**
  *  Requested page size. The value is capped at 1000. Server may return fewer
@@ -489,8 +467,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.attachments.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesAttachmentsGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesAttachmentsGetWithname:]
 
 /**
  *  Resource name of the attachment, in the form "spaces/ * /messages/ *
@@ -519,8 +495,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.create
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesCreateWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:
@@ -561,8 +535,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.delete
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesDelete : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesDeleteWithname:]
 
 /**
  *  Required. Resource name of the message to be deleted, in the form "spaces/ *
@@ -591,8 +563,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.get
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesGet : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesGetWithname:]
 
 /**
  *  Required. Resource name of the message to be retrieved, in the form "spaces/
@@ -622,8 +592,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.messages.update
  */
 @interface GTLRHangoutsChatQuery_SpacesMessagesUpdate : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesMessagesUpdateWithObject:name:]
 
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -657,8 +625,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: chat.spaces.webhooks
  */
 @interface GTLRHangoutsChatQuery_SpacesWebhooks : GTLRHangoutsChatQuery
-// Previous library name was
-//   +[GTLQueryHangoutsChat queryForSpacesWebhooksWithObject:parent:]
 
 /**
  *  Required. Space resource name, in the form "spaces/ *". Example:

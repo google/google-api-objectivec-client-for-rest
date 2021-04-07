@@ -1823,9 +1823,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  through the Create operation and attempts to update a non-existent resource
  *  return errors. It is strongly advised not to include or encode any sensitive
  *  data such as patient identifiers in client-specified resource IDs. Those IDs
- *  are part of the FHIR resource path recorded in Cloud audit logs and Cloud
- *  Pub/Sub notifications. Those IDs can also be contained in reference fields
- *  within other resources.
+ *  are part of the FHIR resource path recorded in Cloud audit logs and Pub/Sub
+ *  notifications. Those IDs can also be contained in reference fields within
+ *  other resources.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1851,9 +1851,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  If non-empty, publish all resource modifications of this FHIR store to this
- *  destination. The Cloud Pub/Sub message attributes contain a map with a
- *  string describing the action that has triggered the notification. For
- *  example, "action":"CreateResource".
+ *  destination. The Pub/Sub message attributes contain a map with a string
+ *  describing the action that has triggered the notification. For example,
+ *  "action":"CreateResource".
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_NotificationConfig *notificationConfig;
 
@@ -2121,13 +2121,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Points to a Cloud Storage URI containing file(s) with content only. The URI
  *  must be in the following format: `gs://{bucket_id}/{object_id}`. The URI can
  *  include wildcards in `object_id` and thus identify multiple files. Supported
- *  wildcards: '*' to match 0 or more non-separator characters '**' to match 0
- *  or more characters (including separators). Must be used at the end of a path
- *  and with no other wildcards in the path. Can also be used with a file
+ *  wildcards: * '*' to match 0 or more non-separator characters * '**' to match
+ *  0 or more characters (including separators). Must be used at the end of a
+ *  path and with no other wildcards in the path. Can also be used with a file
  *  extension (such as .dcm), which imports all files with the extension in the
  *  specified directory and its sub-directories. For example,
  *  `gs://my-bucket/my-directory/ **.dcm` imports all files with .dcm extensions
- *  in `my-directory/` and its sub-directories. '?' to match 1 character All
+ *  in `my-directory/` and its sub-directories. * '?' to match 1 character. All
  *  other URI formats are invalid. Files matching the wildcard are expected to
  *  contain content only, no metadata.
  */
@@ -2340,7 +2340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
+ *  The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
  *  notifications of changes are published on. Supplied by the client. The
  *  notification is a `PubsubMessage` with the following fields: *
  *  `PubsubMessage.Data` contains the resource name. * `PubsubMessage.MessageId`
@@ -2352,9 +2352,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  service-PROJECT_NUMBER\@gcp-sa-healthcare.iam.gserviceaccount.com, must have
  *  publisher permissions on the given Pub/Sub topic. Not having adequate
  *  permissions causes the calls that send notifications to fail. If a
- *  notification cannot be published to Cloud Pub/Sub, errors are logged to
- *  Cloud Logging. For more information, see [Viewing error logs in Cloud
- *  Logging](/healthcare/docs/how-tos/logging)).
+ *  notification cannot be published to Pub/Sub, errors are logged to Cloud
+ *  Logging. For more information, see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -3186,7 +3186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_NotificationConfig : GTLRObject
 
 /**
- *  The [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
+ *  The [Pub/Sub](https://cloud.google.com/pubsub/docs/) topic that
  *  notifications of changes are published on. Supplied by the client.
  *  PubsubMessage.Data contains the resource name. PubsubMessage.MessageId is
  *  the ID of this message. It is guaranteed to be unique within the topic.
@@ -3194,10 +3194,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Notifications are only sent if the topic is non-empty. [Topic
  *  names](https://cloud.google.com/pubsub/docs/overview#names) must be scoped
  *  to a project. Cloud Healthcare API service account must have publisher
- *  permissions on the given Cloud Pub/Sub topic. Not having adequate
- *  permissions causes the calls that send notifications to fail. If a
- *  notification can't be published to Cloud Pub/Sub, errors are logged to Cloud
- *  Logging (see [Viewing logs](/healthcare/docs/how-tos/logging)). If the
+ *  permissions on the given Pub/Sub topic. Not having adequate permissions
+ *  causes the calls that send notifications to fail. If a notification can't be
+ *  published to Pub/Sub, errors are logged to Cloud Logging (see [Viewing error
+ *  logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). If the
  *  number of errors exceeds a certain rate, some aren't submitted. Note that
  *  not all operations trigger notifications, see [Configuring Pub/Sub
  *  notifications](https://cloud.google.com/healthcare/docs/how-tos/pubsub) for
@@ -3314,8 +3315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  A link to audit and error logs in the log viewer. Error logs are generated
- *  only by some operations, listed at [Viewing
- *  logs](/healthcare/docs/how-tos/logging).
+ *  only by some operations, listed at [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging).
  */
 @property(nonatomic, copy, nullable) NSString *logsUrl;
 
@@ -3495,9 +3496,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Queries all data_ids that are consented for a given use in the given consent
  *  store and writes them to a specified destination. The returned Operation
  *  includes a progress counter for the number of User data mappings processed.
- *  Errors are logged to Cloud Logging (see [Viewing logs]
- *  (/healthcare/docs/how-tos/logging) and [QueryAccessibleData] for a sample
- *  log entry).
+ *  Errors are logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging] (https://cloud.google.com/healthcare/docs/how-tos/logging) and
+ *  [QueryAccessibleData] for a sample log entry).
  */
 @interface GTLRCloudHealthcare_QueryAccessibleDataRequest : GTLRObject
 
@@ -4019,7 +4020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  Alternatively, the server created view mentioned above also filters out
  *  duplicates. If a resource mutation cannot be streamed to BigQuery, errors
  *  are logged to Cloud Logging. For more information, see [Viewing error logs
- *  in Cloud Logging](/healthcare/docs/how-tos/logging)).
+ *  in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 

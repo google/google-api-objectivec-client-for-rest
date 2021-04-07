@@ -1987,11 +1987,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 /** Failure reason message. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
-/** Failed printers. */
+/** Failed printer. */
 @property(nonatomic, strong, nullable) GTLRDirectory_Printer *printer;
 
-/** Ids of failed printers. */
-@property(nonatomic, copy, nullable) NSString *printerIds;
+/** Id of a failed printer. */
+@property(nonatomic, copy, nullable) NSString *printerId;
 
 @end
 
