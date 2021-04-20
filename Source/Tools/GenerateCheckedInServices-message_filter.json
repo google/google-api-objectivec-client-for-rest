@@ -8,6 +8,8 @@
     "Guessed formatted name 'StorageTransfer' from API title 'Storage Transfer API'",
     "Unexpected JSON key under resources.accounts.methods.get: streamingType",
     "Unexpected JSON key under resources.accounts.methods.list: streamingType",
+    "Unexpected JSON key under resources.accounts.resources.adUnits.methods.list: streamingType",
+    "Unexpected JSON key under resources.accounts.resources.apps.methods.list: streamingType",
     "Unexpected JSON key under resources.accounts.resources.mediationReport.methods.generate: streamingType",
     "Unexpected JSON key under resources.accounts.resources.networkReport.methods.generate: streamingType",
   ],
