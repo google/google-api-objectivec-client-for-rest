@@ -45,7 +45,7 @@ class SwiftPMUpdater(object):
 
   def UpdatedContent(self, services):
     """Generates the updated content."""
-    sorted_services = sorted(services)
+    sorted_services = sorted(services, key=lambda s: s.lower())
 
     def UpdateSection(content_str, section_start, section_end, new_section_content):
       """Helper to update a section."""
