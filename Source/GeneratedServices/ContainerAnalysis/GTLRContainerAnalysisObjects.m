@@ -583,7 +583,7 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 @implementation GTLRContainerAnalysis_Detail
 @dynamic cpeUri, descriptionProperty, fixedLocation, isObsolete,
          maxAffectedVersion, minAffectedVersion, package, packageType,
-         severityName, source, sourceUpdateTime;
+         severityName, source, sourceUpdateTime, vendor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

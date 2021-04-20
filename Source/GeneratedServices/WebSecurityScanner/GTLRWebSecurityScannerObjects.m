@@ -383,8 +383,9 @@ NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_WindowName = @"WINDOW_
 
 @implementation GTLRWebSecurityScanner_ScanConfig
 @dynamic authentication, blacklistPatterns, displayName,
-         exportToSecurityCommandCenter, managedScan, maxQps, name, riskLevel,
-         schedule, startingUrls, staticIpScan, userAgent;
+         exportToSecurityCommandCenter, ignoreHttpStatusErrors, managedScan,
+         maxQps, name, riskLevel, schedule, startingUrls, staticIpScan,
+         userAgent;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

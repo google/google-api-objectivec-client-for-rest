@@ -4270,6 +4270,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @interface GTLRDirectoryQuery_UsersAliasesList : GTLRDirectoryQuery
 
 /**
+ *  Events to watch for.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDirectoryEventAdd Alias Created Event (Value: "add")
+ *    @arg @c kGTLRDirectoryEventDelete Alias Deleted Event (Value: "delete")
+ */
+@property(nonatomic, copy, nullable) NSString *event;
+
+/**
  *  Identifies the user in the API request. The value can be the user's primary
  *  email address, alias email address, or unique user ID.
  */

@@ -695,15 +695,7 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Endpoint
-@dynamic aliases, allowCors, name, target;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"aliases" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic allowCors, name, target;
 @end
 
 

@@ -2477,7 +2477,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_UsersAliasesList
 
-@dynamic userKey;
+@dynamic event, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey {
   NSArray *pathParams = @[ @"userKey" ];

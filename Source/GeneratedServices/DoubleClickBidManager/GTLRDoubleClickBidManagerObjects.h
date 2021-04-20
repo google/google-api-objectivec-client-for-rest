@@ -489,6 +489,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_Fi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
@@ -1023,6 +1025,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBy
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
@@ -2589,6 +2593,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFi
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupAdId;
 /** Value: "FILTER_TRUEVIEW_AD_GROUP_ID" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupId;
+/** Value: "FILTER_TRUEVIEW_AD_TYPE_NAME" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdTypeName;
 /** Value: "FILTER_TRUEVIEW_AGE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAge;
 /** Value: "FILTER_TRUEVIEW_CATEGORY" */
@@ -3511,6 +3517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_AD_GROUP_AD_ID"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupId
  *        Value "FILTER_TRUEVIEW_AD_GROUP_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdTypeName
+ *        Value "FILTER_TRUEVIEW_AD_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge Value
  *        "FILTER_TRUEVIEW_AGE"
  *    @arg @c kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory
@@ -4286,6 +4294,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_UploadLineItemsReq
  *        Value "FILTER_TRUEVIEW_AD_GROUP_AD_ID"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupId
  *        Value "FILTER_TRUEVIEW_AD_GROUP_ID"
+ *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdTypeName
+ *        Value "FILTER_TRUEVIEW_AD_TYPE_NAME"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAge
  *        Value "FILTER_TRUEVIEW_AGE"
  *    @arg @c kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCategory

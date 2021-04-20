@@ -3451,8 +3451,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Intent : GTLRObject
 
 /**
- *  Optional. Human readable description for better understanding an intent like
- *  its scope, content, result etc. Maximum character limit: 140 characters.
+ *  Human readable description for better understanding an intent like its
+ *  scope, content, result etc. Maximum character limit: 140 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3475,12 +3475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
 
 /**
- *  Optional. The key/value metadata to label an intent. Labels can contain
- *  lowercase letters, digits and the symbols '-' and '_'. International
- *  characters are allowed, including letters from unicase alphabets. Keys must
- *  start with a letter. Keys and values can be no longer than 63 characters and
- *  no more than 128 bytes. Prefix "sys-" is reserved for Dialogflow defined
- *  labels. Currently allowed Dialogflow defined labels include: * sys-head *
+ *  The key/value metadata to label an intent. Labels can contain lowercase
+ *  letters, digits and the symbols '-' and '_'. International characters are
+ *  allowed, including letters from unicase alphabets. Keys must start with a
+ *  letter. Keys and values can be no longer than 63 characters and no more than
+ *  128 bytes. Prefix "sys-" is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys-head *
  *  sys-contextual The above labels do not require value. "sys-head" means the
  *  intent is a head intent. "sys-contextual" means the intent is a contextual
  *  intent.
@@ -3518,12 +3518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Optional. The key/value metadata to label an intent. Labels can contain
- *  lowercase letters, digits and the symbols '-' and '_'. International
- *  characters are allowed, including letters from unicase alphabets. Keys must
- *  start with a letter. Keys and values can be no longer than 63 characters and
- *  no more than 128 bytes. Prefix "sys-" is reserved for Dialogflow defined
- *  labels. Currently allowed Dialogflow defined labels include: * sys-head *
+ *  The key/value metadata to label an intent. Labels can contain lowercase
+ *  letters, digits and the symbols '-' and '_'. International characters are
+ *  allowed, including letters from unicase alphabets. Keys must start with a
+ *  letter. Keys and values can be no longer than 63 characters and no more than
+ *  128 bytes. Prefix "sys-" is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys-head *
  *  sys-contextual The above labels do not require value. "sys-head" means the
  *  intent is a head intent. "sys-contextual" means the intent is a contextual
  *  intent.
@@ -4452,6 +4452,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Information about the last matched intent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo *intentInfo;
+
+/** The language code specified in the original request. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The list of rich message responses to present to the user. Webhook can
@@ -6124,8 +6127,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Intent : GTLRObject
 
 /**
- *  Optional. Human readable description for better understanding an intent like
- *  its scope, content, result etc. Maximum character limit: 140 characters.
+ *  Human readable description for better understanding an intent like its
+ *  scope, content, result etc. Maximum character limit: 140 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -6148,12 +6151,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *isFallback;
 
 /**
- *  Optional. The key/value metadata to label an intent. Labels can contain
- *  lowercase letters, digits and the symbols '-' and '_'. International
- *  characters are allowed, including letters from unicase alphabets. Keys must
- *  start with a letter. Keys and values can be no longer than 63 characters and
- *  no more than 128 bytes. Prefix "sys." is reserved for Dialogflow defined
- *  labels. Currently allowed Dialogflow defined labels include: * sys.head *
+ *  The key/value metadata to label an intent. Labels can contain lowercase
+ *  letters, digits and the symbols '-' and '_'. International characters are
+ *  allowed, including letters from unicase alphabets. Keys must start with a
+ *  letter. Keys and values can be no longer than 63 characters and no more than
+ *  128 bytes. Prefix "sys." is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys.head *
  *  sys.contextual The above labels do not require value. "sys.head" means the
  *  intent is a head intent. "sys.contextual" means the intent is a contextual
  *  intent.
@@ -6191,12 +6194,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
- *  Optional. The key/value metadata to label an intent. Labels can contain
- *  lowercase letters, digits and the symbols '-' and '_'. International
- *  characters are allowed, including letters from unicase alphabets. Keys must
- *  start with a letter. Keys and values can be no longer than 63 characters and
- *  no more than 128 bytes. Prefix "sys." is reserved for Dialogflow defined
- *  labels. Currently allowed Dialogflow defined labels include: * sys.head *
+ *  The key/value metadata to label an intent. Labels can contain lowercase
+ *  letters, digits and the symbols '-' and '_'. International characters are
+ *  allowed, including letters from unicase alphabets. Keys must start with a
+ *  letter. Keys and values can be no longer than 63 characters and no more than
+ *  128 bytes. Prefix "sys." is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys.head *
  *  sys.contextual The above labels do not require value. "sys.head" means the
  *  intent is a head intent. "sys.contextual" means the intent is a contextual
  *  intent.
@@ -6761,8 +6764,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest : GTLRObject
 
 /**
- *  This field is used to prevent accidental overwrite of other agent resources
- *  in the draft version, which can potentially impact other flow's behavior. If
+ *  This field is used to prevent accidental overwrite of other agent resources,
+ *  which can potentially impact other flow's behavior. If
  *  `allow_override_agent_resources` is false, conflicted agent-level resources
  *  will not be overridden (i.e. intents, entities, webhooks).
  *
@@ -8921,6 +8924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Information about the last matched intent. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo *intentInfo;
+
+/** The language code specified in the original request. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
  *  The list of rich message responses to present to the user. Webhook can

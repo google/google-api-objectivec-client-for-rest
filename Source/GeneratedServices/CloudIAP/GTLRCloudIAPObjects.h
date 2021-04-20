@@ -544,12 +544,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
- *  GTLRCloudIAP_PolicyName
+ *  An internal name for an IAM policy, based on the resource to which the
+ *  policy applies. Not to be confused with a resource's external full resource
+ *  name. For more information on this distinction, see
+ *  go/iam-full-resource-names.
  */
 @interface GTLRCloudIAP_PolicyName : GTLRObject
 
 /**
- *  identifier
+ *  Identifies an instance of the type. ID format varies by type. The ID format
+ *  is defined in the IAM .service file that defines the type, either in
+ *  path_mapping or in a comment.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -564,7 +569,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
-/** Valid values for type might be 'gce', 'gcs', 'project', 'account' etc. */
+/**
+ *  Resource type. Types are defined in IAM's .service files. Valid values for
+ *  type might be 'gce', 'gcs', 'project', 'account' etc.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end

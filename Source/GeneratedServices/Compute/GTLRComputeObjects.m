@@ -5463,7 +5463,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_AdvancedMachineFeatures
-@dynamic enableNestedVirtualization;
+@dynamic enableNestedVirtualization, threadsPerCore;
 @end
 
 

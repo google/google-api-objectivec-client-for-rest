@@ -59,7 +59,6 @@
 @class GTLRBigquery_DataSplitResult;
 @class GTLRBigquery_DestinationTableProperties;
 @class GTLRBigquery_DestinationTableProperties_Labels;
-@class GTLRBigquery_DimensionalityReductionMetrics;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_Entry;
 @class GTLRBigquery_ErrorProto;
@@ -103,7 +102,6 @@
 @class GTLRBigquery_MultiClassClassificationMetrics;
 @class GTLRBigquery_ParquetOptions;
 @class GTLRBigquery_Policy;
-@class GTLRBigquery_PrincipalComponentInfo;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
 @class GTLRBigquery_QueryParameter;
@@ -413,6 +411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeU
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_Arima;
 /**
+ *  New name for the ARIMA model.
+ *
+ *  Value: "ARIMA_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus;
+/**
  *  [Beta] AutoML Tables classification model.
  *
  *  Value: "AUTOML_CLASSIFIER"
@@ -609,6 +613,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_In
  *  Value: "INTERVAL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Interval;
+/**
+ *  Encoded as a string.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Json;
 /**
  *  Encoded as a decimal string.
  *
@@ -1508,6 +1518,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *hasDrift;
 
+/**
+ *  If true, holiday_effect is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasHolidayEffect;
+
+/**
+ *  If true, spikes_and_dips is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasSpikesAndDips;
+
+/**
+ *  If true, step_changes is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasStepChanges;
+
 /** Non-seasonal order. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
 
@@ -1523,6 +1554,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Only present when time_series_id_column training option was used.
  */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
+
+/**
+ *  The tuple of time_series_ids identifying this time series. It will be one of
+ *  the unique tuples of values present in the time_series_id_columns specified
+ *  during ARIMA model training. Only present when time_series_id_columns
+ *  training option was used and the order of values here are same as the order
+ *  of time_series_id_columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIds;
 
 @end
 
@@ -1592,6 +1632,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @property(nonatomic, strong, nullable) NSNumber *hasDrift;
 
+/**
+ *  If true, holiday_effect is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasHolidayEffect;
+
+/**
+ *  If true, spikes_and_dips is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasSpikesAndDips;
+
+/**
+ *  If true, step_changes is a part of time series decomposition result.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasStepChanges;
+
 /** Non-seasonal order. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ArimaOrder *nonSeasonalOrder;
 
@@ -1607,6 +1668,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Only present when time_series_id_column training option was used.
  */
 @property(nonatomic, copy, nullable) NSString *timeSeriesId;
+
+/**
+ *  The tuple of time_series_ids identifying this time series. It will be one of
+ *  the unique tuples of values present in the time_series_id_columns specified
+ *  during ARIMA model training. Only present when time_series_id_columns
+ *  training option was used and the order of values here are same as the order
+ *  of time_series_id_columns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIds;
 
 @end
 
@@ -2790,21 +2860,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
- *  Model evaluation metrics for dimensionality reduction models.
- */
-@interface GTLRBigquery_DimensionalityReductionMetrics : GTLRObject
-
-/**
- *  Total percentage of variance explained by the selected principal components.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *totalExplainedVarianceRatio;
-
-@end
-
-
-/**
  *  GTLRBigquery_EncryptionConfiguration
  */
 @interface GTLRBigquery_EncryptionConfiguration : GTLRObject
@@ -2878,12 +2933,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Populated for clustering models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_ClusteringMetrics *clusteringMetrics;
-
-/**
- *  Evaluation metrics when the model is a dimensionality reduction model, which
- *  currently includes PCA.
- */
-@property(nonatomic, strong, nullable) GTLRBigquery_DimensionalityReductionMetrics *dimensionalityReductionMetrics;
 
 /** Populated for multi-class classification/classifier models. */
 @property(nonatomic, strong, nullable) GTLRBigquery_MultiClassClassificationMetrics *multiClassClassificationMetrics;
@@ -3584,9 +3633,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *learnRate;
-
-/** The information of the principal components. */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_PrincipalComponentInfo *> *principalComponentInfos;
 
 /**
  *  Loss computed on the training data at the end of iteration.
@@ -5096,6 +5142,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_Model_ModelType_Arima ARIMA model. (Value: "ARIMA")
+ *    @arg @c kGTLRBigquery_Model_ModelType_ArimaPlus New name for the ARIMA
+ *        model. (Value: "ARIMA_PLUS")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlClassifier [Beta] AutoML
  *        Tables classification model. (Value: "AUTOML_CLASSIFIER")
  *    @arg @c kGTLRBigquery_Model_ModelType_AutomlRegressor [Beta] AutoML Tables
@@ -5350,45 +5398,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
-
-@end
-
-
-/**
- *  Principal component infos, used only for eigen decomposition based models,
- *  e.g., PCA. Ordered by explained_variance in the descending order.
- */
-@interface GTLRBigquery_PrincipalComponentInfo : GTLRObject
-
-/**
- *  The explained_variance is pre-ordered in the descending order to compute the
- *  cumulative explained variance ratio.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cumulativeExplainedVarianceRatio;
-
-/**
- *  Explained variance by this principal component, which is simply the
- *  eigenvalue.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *explainedVariance;
-
-/**
- *  Explained_variance over the total explained variance.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *explainedVarianceRatio;
-
-/**
- *  Id of the principal component.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *principalComponentId;
 
 @end
 
@@ -6402,6 +6411,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        string in decimal format. (Value: "INT64")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Interval Encoded as
  *        fully qualified 3 part: 0-5 15 2:30:45.6 (Value: "INTERVAL")
+ *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Json Encoded as a
+ *        string. (Value: "JSON")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric Encoded as a
  *        decimal string. (Value: "NUMERIC")
  *    @arg @c kGTLRBigquery_StandardSqlDataType_TypeKind_String Encoded as a
@@ -6887,7 +6898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Required] The field name. The name must contain only letters (a-z, A-Z),
  *  numbers (0-9), or underscores (_), and must start with a letter or
- *  underscore. The maximum length is 128 characters.
+ *  underscore. The maximum length is 300 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7210,6 +7221,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @interface GTLRBigquery_TrainingOptions : GTLRObject
 
 /**
+ *  If true, detect step changes and make data adjustment in the input time
+ *  series.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adjustStepChanges;
+
+/**
  *  Whether to enable auto ARIMA or not.
  *
  *  Uses NSNumber of boolValue.
@@ -7229,6 +7248,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/**
+ *  If true, clean spikes and dips in the input time series.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cleanSpikesAndDips;
 
 /**
  *  The data frequency of a time series.
@@ -7295,6 +7321,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *        data sequentially. (Value: "SEQUENTIAL")
  */
 @property(nonatomic, copy, nullable) NSString *dataSplitMethod;
+
+/**
+ *  If true, perform decompose time series and save the results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *decomposeTimeSeries;
 
 /**
  *  Distance type for clustering models.
@@ -7682,6 +7715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** The time series id column that was used during ARIMA model training. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesIdColumn;
+
+/** The time series id columns that were used during ARIMA model training. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *timeSeriesIdColumns;
 
 /** Column to be designated as time series timestamp for ARIMA model. */
 @property(nonatomic, copy, nullable) NSString *timeSeriesTimestampColumn;

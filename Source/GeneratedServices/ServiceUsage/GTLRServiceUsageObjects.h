@@ -1370,6 +1370,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by CreateAdminQuotaPolicy.
+ */
+@interface GTLRServiceUsage_CreateAdminQuotaPolicyMetadata : GTLRObject
+@end
+
+
+/**
  *  Customize service error responses. For example, list any service specific
  *  protobuf types that can appear in error detail lists of error responses.
  *  Example: custom_error: types: - google.foo.v1.CustomError -
@@ -1424,6 +1433,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** The path matched by this custom verb. */
 @property(nonatomic, copy, nullable) NSString *path;
 
+@end
+
+
+/**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by DeleteAdminQuotaPolicy.
+ */
+@interface GTLRServiceUsage_DeleteAdminQuotaPolicyMetadata : GTLRObject
 @end
 
 
@@ -1636,13 +1654,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_Endpoint : GTLRObject
 
 /**
- *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intended
- *  aliases. Additional names that this endpoint will be hosted on.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
-
-/**
  *  Allowing
  *  [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), aka
  *  cross-domain traffic, would allow the backends served from this endpoint to
@@ -1828,6 +1839,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *typeUrl;
 
+@end
+
+
+/**
+ *  Metadata for the `GetServiceIdentity` method.
+ */
+@interface GTLRServiceUsage_GetServiceIdentityMetadata : GTLRObject
 @end
 
 
@@ -2397,6 +2415,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by ImportAdminOverrides.
+ */
+@interface GTLRServiceUsage_ImportAdminOverridesMetadata : GTLRObject
+@end
+
+
+/**
  *  Response message for ImportAdminOverrides
  */
 @interface GTLRServiceUsage_ImportAdminOverridesResponse : GTLRObject
@@ -2408,6 +2435,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by ImportAdminQuotaPolicies.
+ */
+@interface GTLRServiceUsage_ImportAdminQuotaPoliciesMetadata : GTLRObject
+@end
+
+
+/**
  *  Response message for ImportAdminQuotaPolicies
  */
 @interface GTLRServiceUsage_ImportAdminQuotaPoliciesResponse : GTLRObject
@@ -2415,6 +2451,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** The policies that were created from the imported data. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_AdminQuotaPolicy *> *policies;
 
+@end
+
+
+/**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by ImportConsumerOverrides.
+ */
+@interface GTLRServiceUsage_ImportConsumerOverridesMetadata : GTLRObject
 @end
 
 
@@ -3844,6 +3889,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *syntax;
 
+@end
+
+
+/**
+ *  Metadata message that provides information such as progress, partial
+ *  failures, and similar information on each GetOperation call of LRO returned
+ *  by UpdateAdminQuotaPolicy.
+ */
+@interface GTLRServiceUsage_UpdateAdminQuotaPolicyMetadata : GTLRObject
 @end
 
 

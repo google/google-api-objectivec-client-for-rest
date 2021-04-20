@@ -948,7 +948,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  An export
+ *  An export To work with Vault resources, the account must have the [required
+ *  Vault privileges] (https://support.google.com/vault/answer/2799699) and
+ *  access to the matter. To access a matter, the account must have created the
+ *  matter, have the matter shared with them, or have the **View All Matters**
+ *  privilege.
  */
 @interface GTLRVault_Export : GTLRObject
 
@@ -1174,6 +1178,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 /**
  *  An account being held in a particular hold. This structure is immutable.
  *  This can be either a single user or a google group, depending on the corpus.
+ *  To work with Vault resources, the account must have the [required Vault
+ *  privileges] (https://support.google.com/vault/answer/2799699) and access to
+ *  the matter. To access a matter, the account must have created the matter,
+ *  have the matter shared with them, or have the **View All Matters**
+ *  privilege.
  */
 @interface GTLRVault_HeldAccount : GTLRObject
 
@@ -1314,7 +1323,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
  *  Represents a hold within Vault. A hold restricts purging of artifacts based
  *  on the combination of the query and accounts restrictions. A hold can be
  *  configured to either apply to an explicitly configured set of accounts, or
- *  can be applied to all members of an organizational unit.
+ *  can be applied to all members of an organizational unit. To work with Vault
+ *  resources, the account must have the [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_Hold : GTLRObject
 
@@ -1580,7 +1593,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Represents a matter.
+ *  Represents a matter. To work with Vault resources, the account must have the
+ *  [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_Matter : GTLRObject
 
@@ -1952,7 +1969,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVault_VoiceOptions_CoveredData_Voicemail
 
 
 /**
- *  Definition of the saved query.
+ *  Definition of the saved query. To work with Vault resources, the account
+ *  must have the [required Vault privileges]
+ *  (https://support.google.com/vault/answer/2799699) and access to the matter.
+ *  To access a matter, the account must have created the matter, have the
+ *  matter shared with them, or have the **View All Matters** privilege.
  */
 @interface GTLRVault_SavedQuery : GTLRObject
 

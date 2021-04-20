@@ -48,7 +48,7 @@ NSString * const kGTLRArea120TablesViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRArea120TablesQuery_TablesList
 
-@dynamic pageSize, pageToken;
+@dynamic orderBy, pageSize, pageToken;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1alpha1/tables";
@@ -211,7 +211,7 @@ NSString * const kGTLRArea120TablesViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRArea120TablesQuery_TablesRowsList
 
-@dynamic filter, pageSize, pageToken, parent, view;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

@@ -338,6 +338,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible;
 /**
+ *  Merchant fulfilled all the requirements and is ready to request review in a
+ *  specific region code.
+ *
+ *  Value: "ELIGIBLE_FOR_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview;
+/**
  *  Merchant is not eligible for onboarding to a given program in a specific
  *  region code.
  *
@@ -357,11 +364,24 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused;
 /**
+ *  Merchant is waiting for the review to be completed in a specific region
+ *  code.
+ *
+ *  Value: "PENDING_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview;
+/**
  *  Default value when participation stage is not set.
  *
  *  Value: "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified;
+/**
+ *  The review for a merchant has been rejected in a specific region code.
+ *
+ *  Value: "REVIEW_DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved;
 
 // ----------------------------------------------------------------------------
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
@@ -384,6 +404,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_I
  *  Value: "INAPPLICABLE_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified;
+/**
+ *  The auto_pricing_min_price is invalid. For example, it is missing or < 0.
+ *
+ *  Value: "INVALID_AUTO_PRICE_MIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidAutoPriceMin;
+/**
+ *  The floor defined in the rule is invalid. For example, it has the wrong sign
+ *  which results in a floor < 0.
+ *
+ *  Value: "INVALID_FLOOR_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidFloorConfig;
 /**
  *  The rule restrictions are not met. For example, this may be the case if the
  *  calculated rule price is lower than floor price in the restriction.
@@ -1957,6 +1990,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 
 /**
+ *  Request message for the ActivateProgram method.
+ */
+@interface GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
  *  GTLRShoppingContent_Amount
  */
 @interface GTLRShoppingContent_Amount : GTLRObject
@@ -2005,6 +2045,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible
  *        Merchant is eligible for onboarding to a given program in a specific
  *        region code. (Value: "ELIGIBLE")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview
+ *        Merchant fulfilled all the requirements and is ready to request review
+ *        in a specific region code. (Value: "ELIGIBLE_FOR_REVIEW")
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible
  *        Merchant is not eligible for onboarding to a given program in a
  *        specific region code. (Value: "NOT_ELIGIBLE")
@@ -2013,9 +2056,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *        (Value: "ONBOARDING")
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused
  *        Participation has been paused. (Value: "PAUSED")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview
+ *        Merchant is waiting for the review to be completed in a specific
+ *        region code. (Value: "PENDING_REVIEW")
  *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified
  *        Default value when participation stage is not set. (Value:
  *        "PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved
+ *        The review for a merchant has been rejected in a specific region code.
+ *        (Value: "REVIEW_DISAPPROVED")
  */
 @property(nonatomic, copy, nullable) NSString *participationStage;
 
@@ -3412,6 +3461,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified
  *        Default value. Should not be used. (Value:
  *        "INAPPLICABLE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidAutoPriceMin
+ *        The auto_pricing_min_price is invalid. For example, it is missing or <
+ *        0. (Value: "INVALID_AUTO_PRICE_MIN")
+ *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidFloorConfig
+ *        The floor defined in the rule is invalid. For example, it has the
+ *        wrong sign which results in a floor < 0. (Value:
+ *        "INVALID_FLOOR_CONFIG")
  *    @arg @c kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet
  *        The rule restrictions are not met. For example, this may be the case
  *        if the calculated rule price is lower than floor price in the
@@ -7384,6 +7440,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 
 /**
+ *  Request message for the PauseProgram method.
+ */
+@interface GTLRShoppingContent_PauseBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
  *  GTLRShoppingContent_PickupCarrierService
  */
 @interface GTLRShoppingContent_PickupCarrierService : GTLRObject
@@ -8487,6 +8550,48 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locationId;
+
+/**
+ *  Maximum handling time (inclusive) between when the order is received and
+ *  shipped in business days. 0 means that the order is shipped on the same day
+ *  as it is received if it happens before the cut-off time. Both
+ *  maxHandlingTime and maxTransitTime are required if providing shipping
+ *  speeds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxHandlingTime;
+
+/**
+ *  Maximum transit time (inclusive) between when the order has shipped and when
+ *  it is delivered in business days. 0 means that the order is delivered on the
+ *  same day as it ships. Both maxHandlingTime and maxTransitTime are required
+ *  if providing shipping speeds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxTransitTime;
+
+/**
+ *  Minimum handling time (inclusive) between when the order is received and
+ *  shipped in business days. 0 means that the order is shipped on the same day
+ *  as it is received if it happens before the cut-off time. minHandlingTime can
+ *  only be present together with maxHandlingTime; but it is not required if
+ *  maxHandlingTime is present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minHandlingTime;
+
+/**
+ *  Minimum transit time (inclusive) between when the order has shipped and when
+ *  it is delivered in business days. 0 means that the order is delivered on the
+ *  same day as it ships. minTransitTime can only be present together with
+ *  maxTransitTime; but it is not required if maxTransitTime is present.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minTransitTime;
 
 /**
  *  The postal code range that the shipping rate applies to, represented by a
@@ -9751,6 +9856,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 
 /**
+ *  Request message for the RequestReviewProgram method.
+ */
+@interface GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest : GTLRObject
+@end
+
+
+/**
  *  Return address resource.
  */
 @interface GTLRShoppingContent_ReturnAddress : GTLRObject
@@ -10500,7 +10612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  time of the corresponding event, e.g., impression or order. Segment fields
  *  cannot be selected in queries without also selecting at least one metric
  *  field. Values are only set for dimensions requested explicitly in the
- *  request's search query. Next id: 22
+ *  request's search query.
  */
 @interface GTLRShoppingContent_Segments : GTLRObject
 

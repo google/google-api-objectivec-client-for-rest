@@ -387,6 +387,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_DiskEncrypt
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_DiskEncryption_Gmek;
 
 // ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Instance.nicType
+
+/**
+ *  GVNIC
+ *
+ *  Value: "GVNIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_Gvnic;
+/**
+ *  No type specified.
+ *
+ *  Value: "UNSPECIFIED_NIC_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_UnspecifiedNicType;
+/**
+ *  VIRTIO
+ *
+ *  Value: "VIRTIO_NET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_VirtioNet;
+
+// ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Instance.state
 
 /**
@@ -870,6 +892,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded;
 
+// ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_VirtualMachineConfig.nicType
+
+/**
+ *  GVNIC
+ *
+ *  Value: "GVNIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_Gvnic;
+/**
+ *  No type specified.
+ *
+ *  Value: "UNSPECIFIED_NIC_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_UnspecifiedNicType;
+/**
+ *  VIRTIO
+ *
+ *  Value: "VIRTIO_NET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet;
+
 /**
  *  Definition of a hardware accelerator. Note that not all combinations of
  *  `type` and `core_count` are valid. Check [GPUs on Compute
@@ -1350,6 +1394,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, copy, nullable) NSString *scaleTier;
 
+/**
+ *  The email address of a service account to use when running the execution.
+ *  You must have the `iam.serviceAccounts.actAs` permission for the specified
+ *  service account.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
 @end
 
 
@@ -1629,6 +1680,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  `projects/{project_id}/global/networks/{network_id}`
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The type of vNIC to be used on this interface. This may be gVNIC
+ *  or VirtioNet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_NicType_Gvnic GVNIC (Value:
+ *        "GVNIC")
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_NicType_UnspecifiedNicType No
+ *        type specified. (Value: "UNSPECIFIED_NIC_TYPE")
+ *    @arg @c kGTLRAIPlatformNotebooks_Instance_NicType_VirtioNet VIRTIO (Value:
+ *        "VIRTIO_NET")
+ */
+@property(nonatomic, copy, nullable) NSString *nicType;
 
 /**
  *  If true, the notebook instance will not register with the proxy.
@@ -2502,6 +2567,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Request for reseting a Managed Notebook Runtime.
  */
 @interface GTLRAIPlatformNotebooks_ResetRuntimeRequest : GTLRObject
+@end
+
+
+/**
+ *  Request for rollbacking a notebook instance
+ */
+@interface GTLRAIPlatformNotebooks_RollbackInstanceRequest : GTLRObject
+
+/**
+ *  Required. The snapshot for rollback. Example:
+ *  "projects/test-project/global/snapshots/krwlzipynril".
+ */
+@property(nonatomic, copy, nullable) NSString *targetSnapshot;
+
 @end
 
 
@@ -3382,6 +3461,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  required). Requires configuring Private Service Access.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The type of vNIC to be used on this interface. This may be gVNIC
+ *  or VirtioNet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_Gvnic GVNIC
+ *        (Value: "GVNIC")
+ *    @arg @c kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_UnspecifiedNicType
+ *        No type specified. (Value: "UNSPECIFIED_NIC_TYPE")
+ *    @arg @c kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
+ *        VIRTIO (Value: "VIRTIO_NET")
+ */
+@property(nonatomic, copy, nullable) NSString *nicType;
 
 /** Optional. Shielded VM Instance configuration settings. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig *shieldedInstanceConfig;

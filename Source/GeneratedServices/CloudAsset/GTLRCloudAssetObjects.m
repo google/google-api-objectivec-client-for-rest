@@ -19,6 +19,12 @@ NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudAsset_ConditionEvaluation.evaluationValue
+NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_Conditional = @"CONDITIONAL";
+NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_EvaluationValueUnspecified = @"EVALUATION_VALUE_UNSPECIFIED";
+NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_False = @"FALSE";
+NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_True = @"TRUE";
+
 // GTLRCloudAsset_ExportAssetsRequest.contentType
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_AccessPolicy = @"ACCESS_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
@@ -285,6 +291,26 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ConditionContext
+//
+
+@implementation GTLRCloudAsset_ConditionContext
+@dynamic accessTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_ConditionEvaluation
+//
+
+@implementation GTLRCloudAsset_ConditionEvaluation
+@dynamic evaluationValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_CreateFeedRequest
 //
 
@@ -414,7 +440,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_GoogleCloudAssetV1AccessControlList
-@dynamic accesses, resourceEdges, resources;
+@dynamic accesses, conditionEvaluation, resourceEdges, resources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -980,7 +1006,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_IamPolicyAnalysisQuery
-@dynamic accessSelector, identitySelector, options, resourceSelector, scope;
+@dynamic accessSelector, conditionContext, identitySelector, options,
+         resourceSelector, scope;
 @end
 
 

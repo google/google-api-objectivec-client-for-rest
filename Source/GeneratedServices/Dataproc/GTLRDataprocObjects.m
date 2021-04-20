@@ -395,6 +395,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_ConfidentialInstanceConfig
+//
+
+@implementation GTLRDataproc_ConfidentialInstanceConfig
+@dynamic enableConfidentialCompute;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_DiagnoseClusterRequest
 //
 
@@ -486,10 +496,10 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig
-@dynamic internalIpOnly, metadata, networkUri, nodeGroupAffinity,
-         privateIpv6GoogleAccess, reservationAffinity, serviceAccount,
-         serviceAccountScopes, shieldedInstanceConfig, subnetworkUri, tags,
-         zoneUri;
+@dynamic confidentialInstanceConfig, internalIpOnly, metadata, networkUri,
+         nodeGroupAffinity, privateIpv6GoogleAccess, reservationAffinity,
+         serviceAccount, serviceAccountScopes, shieldedInstanceConfig,
+         subnetworkUri, tags, zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

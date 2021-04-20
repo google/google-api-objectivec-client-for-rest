@@ -72,13 +72,13 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdMob/*.{h,m}'
   end
-  s.subspec 'AdSense' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Source/GeneratedServices/AdSense/*.{h,m}'
-  end
   s.subspec 'AdSenseHost' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/AdSenseHost/*.{h,m}'
+  end
+  s.subspec 'Adsense' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Adsense/*.{h,m}'
   end
   s.subspec 'AlertCenter' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -599,6 +599,10 @@ Pod::Spec.new do |s|
   s.subspec 'MyBusinessAccountManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessAccountManagement/*.{h,m}'
+  end
+  s.subspec 'MyBusinessLodging' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessLodging/*.{h,m}'
   end
   s.subspec 'NetworkManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

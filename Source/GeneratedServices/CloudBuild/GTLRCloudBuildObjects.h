@@ -570,7 +570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
 /**
  *  IAM service account whose credentials will be used at build runtime. Must be
  *  of the format `projects/{PROJECT_ID}/serviceAccounts/{ACCOUNT}`. ACCOUNT can
- *  be email address or uniqueId of the service account. This field is in beta.
+ *  be email address or uniqueId of the service account.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 

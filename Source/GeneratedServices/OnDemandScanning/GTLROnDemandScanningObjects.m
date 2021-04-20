@@ -550,7 +550,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, os, osVersion, package, version;
+@dynamic cpeUri, os, osVersion, package, unused, version;
 @end
 
 

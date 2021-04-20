@@ -317,10 +317,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_Cluster
 @dynamic addonsConfig, authenticatorGroupsConfig, autopilot, autoscaling,
-         binaryAuthorization, clusterIpv4Cidr, conditions, createTime,
-         currentMasterVersion, currentNodeCount, currentNodeVersion,
+         binaryAuthorization, clusterIpv4Cidr, conditions, confidentialNodes,
+         createTime, currentMasterVersion, currentNodeCount, currentNodeVersion,
          databaseEncryption, defaultMaxPodsConstraint, descriptionProperty,
-         enableKubernetesAlpha, enableTpu, endpoint, expireTime,
+         enableKubernetesAlpha, enableTpu, endpoint, expireTime, identifier,
          initialClusterVersion, initialNodeCount, instanceGroupUrls,
          ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
          loggingService, maintenancePolicy, masterAuth,
@@ -334,6 +334,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
     @"descriptionProperty" : @"description",
+    @"identifier" : @"id",
     @"zoneProperty" : @"zone"
   };
   return map;
@@ -426,6 +427,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return @{ @"zoneProperty" : @"zone" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ConfidentialNodes
+//
+
+@implementation GTLRContainer_ConfidentialNodes
+@dynamic enabled;
 @end
 
 

@@ -434,7 +434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDefinitionStandard;
 // ----------------------------------------------------------------------------
 // videoDimension
 
-/** Value: "any" */
+/**
+ *  Include both 3D and non-3D videos in returned results. This is the default
+ *  value.
+ *
+ *  Value: "any"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoDimensionAny;
 /**
  *  Restrict search results to exclude 3D videos.
@@ -4100,7 +4105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Filter on 3d videos.
  *
  *  Likely values:
- *    @arg @c kGTLRYouTubeVideoDimensionAny Value "any"
+ *    @arg @c kGTLRYouTubeVideoDimensionAny Include both 3D and non-3D videos in
+ *        returned results. This is the default value. (Value: "any")
  *    @arg @c kGTLRYouTubeVideoDimensionX2d Restrict search results to exclude
  *        3D videos. (Value: "2d")
  *    @arg @c kGTLRYouTubeVideoDimensionX3d Restrict search results to only
@@ -4863,7 +4869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
 
 /**
- *  Fetches a @c GTLRYouTube_VideoRatingListResponse.
+ *  Fetches a @c GTLRYouTube_VideoGetRatingResponse.
  *
  *  Retrieves the ratings that the authorized user gave to a list of specified
  *  videos.

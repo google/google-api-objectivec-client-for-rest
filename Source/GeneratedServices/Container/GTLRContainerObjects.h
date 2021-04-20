@@ -36,6 +36,7 @@
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterUpdate;
+@class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
@@ -1318,6 +1319,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
 
+/** Configuration of Confidential Nodes */
+@property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
 /**
  *  [Output only] The time the cluster was created, in
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -1392,6 +1396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
  */
 @property(nonatomic, copy, nullable) NSString *expireTime;
+
+/**
+ *  Output only. Unique id for the cluster.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
  *  The initial Kubernetes version for this cluster. Valid versions are those
@@ -1874,6 +1885,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  ConfidentialNodes is configuration for the confidential nodes feature, which
+ *  makes nodes run on confidential VMs.
+ */
+@interface GTLRContainer_ConfidentialNodes : GTLRObject
+
+/**
+ *  Whether Confidential Nodes feature is enabled for all nodes in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

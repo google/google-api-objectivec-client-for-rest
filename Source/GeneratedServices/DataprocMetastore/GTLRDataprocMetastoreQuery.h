@@ -93,8 +93,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of results to return. If not set, the service will select
- *  a default.
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -239,7 +239,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new Backup in a given project and location.
+ *  Creates a new backup in a given project and location.
  *
  *  Method: metastore.projects.locations.services.backups.create
  *
@@ -279,7 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
- *  Creates a new Backup in a given project and location.
+ *  Creates a new backup in a given project and location.
  *
  *  @param object The @c GTLRDataprocMetastore_Backup to include in the query.
  *  @param parent Required. The relative resource name of the service in which

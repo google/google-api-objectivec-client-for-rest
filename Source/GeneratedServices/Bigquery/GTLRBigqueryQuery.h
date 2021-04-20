@@ -147,7 +147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_DatasetsGet : GTLRBigqueryQuery
 
@@ -211,7 +210,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_DatasetsList : GTLRBigqueryQuery
 
@@ -434,7 +432,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsGet : GTLRBigqueryQuery
 
@@ -477,7 +474,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsGetQueryResults : GTLRBigqueryQuery
 
@@ -574,7 +570,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsList : GTLRBigqueryQuery
 
@@ -662,7 +657,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_JobsQuery : GTLRBigqueryQuery
 
@@ -732,7 +726,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ModelsGet : GTLRBigqueryQuery
 
@@ -771,7 +764,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ModelsList : GTLRBigqueryQuery
 
@@ -860,7 +852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ProjectsGetServiceAccount : GTLRBigqueryQuery
 
@@ -890,7 +881,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_ProjectsList : GTLRBigqueryQuery
 
@@ -964,7 +954,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RoutinesGet : GTLRBigqueryQuery
 
@@ -1046,7 +1035,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RoutinesList : GTLRBigqueryQuery
 
@@ -1156,7 +1144,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesGetIamPolicy : GTLRBigqueryQuery
 
@@ -1194,7 +1181,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesList : GTLRBigqueryQuery
 
@@ -1292,7 +1278,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_RowAccessPoliciesTestIamPermissions : GTLRBigqueryQuery
 
@@ -1377,7 +1362,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TabledataList : GTLRBigqueryQuery
 
@@ -1474,7 +1458,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesGet : GTLRBigqueryQuery
 
@@ -1522,7 +1505,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesGetIamPolicy : GTLRBigqueryQuery
 
@@ -1594,7 +1576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesList : GTLRBigqueryQuery
 
@@ -1728,7 +1709,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *    @c kGTLRAuthScopeBigquery
  *    @c kGTLRAuthScopeBigqueryCloudPlatform
  *    @c kGTLRAuthScopeBigqueryCloudPlatformReadOnly
- *    @c kGTLRAuthScopeBigqueryReadonly
  */
 @interface GTLRBigqueryQuery_TablesTestIamPermissions : GTLRBigqueryQuery
 

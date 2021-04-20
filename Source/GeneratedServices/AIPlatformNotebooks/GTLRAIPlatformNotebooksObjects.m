@@ -71,6 +71,11 @@ NSString * const kGTLRAIPlatformNotebooks_Instance_DiskEncryption_Cmek = @"CMEK"
 NSString * const kGTLRAIPlatformNotebooks_Instance_DiskEncryption_DiskEncryptionUnspecified = @"DISK_ENCRYPTION_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Instance_DiskEncryption_Gmek = @"GMEK";
 
+// GTLRAIPlatformNotebooks_Instance.nicType
+NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_Gvnic = @"GVNIC";
+NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_UnspecifiedNicType = @"UNSPECIFIED_NIC_TYPE";
+NSString * const kGTLRAIPlatformNotebooks_Instance_NicType_VirtioNet = @"VIRTIO_NET";
+
 // GTLRAIPlatformNotebooks_Instance.state
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Active = @"ACTIVE";
 NSString * const kGTLRAIPlatformNotebooks_Instance_State_Deleted = @"DELETED";
@@ -164,6 +169,11 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Failed = @"F
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Started = @"STARTED";
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = @"SUCCEEDED";
+
+// GTLRAIPlatformNotebooks_VirtualMachineConfig.nicType
+NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_Gvnic = @"GVNIC";
+NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_UnspecifiedNicType = @"UNSPECIFIED_NIC_TYPE";
+NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet = @"VIRTIO_NET";
 
 // ----------------------------------------------------------------------------
 //
@@ -297,7 +307,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @implementation GTLRAIPlatformNotebooks_ExecutionTemplate
 @dynamic acceleratorConfig, containerImageUri, inputNotebookFile, labels,
          masterType, outputNotebookFolder, parameters, paramsYamlFile,
-         scaleTier;
+         scaleTier, serviceAccount;
 @end
 
 
@@ -373,7 +383,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @dynamic acceleratorConfig, bootDiskSizeGb, bootDiskType, containerImage,
          createTime, customGpuDriverPath, dataDiskSizeGb, dataDiskType,
          diskEncryption, disks, installGpuDriver, instanceOwners, kmsKey,
-         labels, machineType, metadata, name, network, noProxyAccess,
+         labels, machineType, metadata, name, network, nicType, noProxyAccess,
          noPublicIp, noRemoveDataDisk, postStartupScript, proxyUri,
          serviceAccount, serviceAccountScopes, shieldedInstanceConfig, state,
          subnet, tags, updateTime, upgradeHistory, vmImage;
@@ -807,6 +817,16 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_RollbackInstanceRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_RollbackInstanceRequest
+@dynamic targetSnapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Runtime
 //
 
@@ -1170,7 +1190,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @implementation GTLRAIPlatformNotebooks_VirtualMachineConfig
 @dynamic acceleratorConfig, containerImages, dataDisk, encryptionConfig,
          guestAttributes, internalIpOnly, labels, machineType, metadata,
-         network, shieldedInstanceConfig, subnet, tags, zoneProperty;
+         network, nicType, shieldedInstanceConfig, subnet, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

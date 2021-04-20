@@ -74,12 +74,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryDevstorageReadWrite;
  *  Value "https://www.googleapis.com/auth/bigquery.insertdata"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryInsertdata;
-/**
- *  Authorization scope: View your data in Google BigQuery
- *
- *  Value "https://www.googleapis.com/auth/bigquery.readonly"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBigqueryReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRBigqueryService

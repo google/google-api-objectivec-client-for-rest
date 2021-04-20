@@ -29,6 +29,7 @@
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest;
 @class GTLRAIPlatformNotebooks_ResetInstanceRequest;
 @class GTLRAIPlatformNotebooks_ResetRuntimeRequest;
+@class GTLRAIPlatformNotebooks_RollbackInstanceRequest;
 @class GTLRAIPlatformNotebooks_Runtime;
 @class GTLRAIPlatformNotebooks_Schedule;
 @class GTLRAIPlatformNotebooks_SetIamPolicyRequest;
@@ -703,6 +704,39 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesReset
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ResetInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Rollbacks a notebook instance to the previous version.
+ *
+ *  Method: notebooks.projects.locations.instances.rollback
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Rollbacks a notebook instance to the previous version.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_RollbackInstanceRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesRollback
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_RollbackInstanceRequest *)object
                            name:(NSString *)name;
 
 @end

@@ -142,7 +142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjectsReadonly;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptSpreadsheets;
 /**
- *  Authorization scope: View your email address
+ *  Authorization scope: See your primary Google Account email address
  *
  *  Value "https://www.googleapis.com/auth/userinfo.email"
  */

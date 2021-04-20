@@ -30,6 +30,7 @@
 @class GTLRShoppingContent_AccountsUpdateLabelsRequest;
 @class GTLRShoppingContent_AccountTax;
 @class GTLRShoppingContent_AccounttaxCustomBatchRequest;
+@class GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest;
 @class GTLRShoppingContent_Collection;
 @class GTLRShoppingContent_Datafeed;
 @class GTLRShoppingContent_DatafeedsCustomBatchRequest;
@@ -62,6 +63,7 @@
 @class GTLRShoppingContent_OrdersUpdateMerchantOrderIdRequest;
 @class GTLRShoppingContent_OrdersUpdateShipmentRequest;
 @class GTLRShoppingContent_OrderTrackingSignal;
+@class GTLRShoppingContent_PauseBuyOnGoogleProgramRequest;
 @class GTLRShoppingContent_PosCustomBatchRequest;
 @class GTLRShoppingContent_PosInventoryRequest;
 @class GTLRShoppingContent_PosSaleRequest;
@@ -74,6 +76,7 @@
 @class GTLRShoppingContent_RegionalInventory;
 @class GTLRShoppingContent_RegionalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_RepricingRule;
+@class GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest;
 @class GTLRShoppingContent_ReturnAddress;
 @class GTLRShoppingContent_ReturnaddressCustomBatchRequest;
 @class GTLRShoppingContent_ReturnPolicy;
@@ -1210,7 +1213,52 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Retrieves a status of BoG program for your Merchant Center account.
+ *  Reactivates the BoG program in your Merchant Center account. Moves the
+ *  program to the active state when allowed, e.g. when paused. Important: This
+ *  method is only whitelisted for selected merchants.
+ *
+ *  Method: content.buyongoogleprograms.activate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsActivate : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Reactivates the BoG program in your Merchant Center account. Moves the
+ *  program to the active state when allowed, e.g. when paused. Important: This
+ *  method is only whitelisted for selected merchants.
+ *
+ *  @param object The @c GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
+ *    to include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode The program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsActivate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode;
+
+@end
+
+/**
+ *  Retrieves a status of the BoG program for your Merchant Center account.
  *
  *  Method: content.buyongoogleprograms.get
  *
@@ -1232,7 +1280,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /**
  *  Fetches a @c GTLRShoppingContent_BuyOnGoogleProgramStatus.
  *
- *  Retrieves a status of BoG program for your Merchant Center account.
+ *  Retrieves a status of the BoG program for your Merchant Center account.
  *
  *  @param merchantId Required. The ID of the account.
  *  @param regionCode The Program region code [ISO 3166-1
@@ -1247,8 +1295,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
- *  Onboards BoG in your Merchant Center account. By using this method, you
- *  agree to the [Terms of
+ *  Onboards the BoG program in your Merchant Center account. By using this
+ *  method, you agree to the [Terms of
  *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
  *  Calling this method is only possible if the authenticated account is the
  *  same as the merchant id in the request. Calling this method multiple times
@@ -1276,8 +1324,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Onboards BoG in your Merchant Center account. By using this method, you
- *  agree to the [Terms of
+ *  Onboards the BoG program in your Merchant Center account. By using this
+ *  method, you agree to the [Terms of
  *  Service](https://merchants.google.com/mc/termsofservice/transactions/US/latest).
  *  Calling this method is only possible if the authenticated account is the
  *  same as the merchant id in the request. Calling this method multiple times
@@ -1294,6 +1342,95 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @return GTLRShoppingContentQuery_BuyongoogleprogramsOnboard
  */
 + (instancetype)queryWithObject:(GTLRShoppingContent_OnboardBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode;
+
+@end
+
+/**
+ *  Pauses the BoG program in your Merchant Center account. Important: This
+ *  method is only whitelisted for selected merchants.
+ *
+ *  Method: content.buyongoogleprograms.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsPause : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Pauses the BoG program in your Merchant Center account. Important: This
+ *  method is only whitelisted for selected merchants.
+ *
+ *  @param object The @c GTLRShoppingContent_PauseBuyOnGoogleProgramRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode The program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsPause
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_PauseBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode;
+
+@end
+
+/**
+ *  Requests review and then activates the BoG program in your Merchant Center
+ *  account for the first time. Moves the program to the REVIEW_PENDING state.
+ *  Important: This method is only whitelisted for selected merchants.
+ *
+ *  Method: content.buyongoogleprograms.requestreview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_BuyongoogleprogramsRequestreview : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  The program region code [ISO 3166-1
+ *  alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *  US is available.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Requests review and then activates the BoG program in your Merchant Center
+ *  account for the first time. Moves the program to the REVIEW_PENDING state.
+ *  Important: This method is only whitelisted for selected merchants.
+ *
+ *  @param object The @c
+ *    GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest to include in
+ *    the query.
+ *  @param merchantId Required. The ID of the account.
+ *  @param regionCode The program region code [ISO 3166-1
+ *    alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2). Currently only
+ *    US is available.
+ *
+ *  @return GTLRShoppingContentQuery_BuyongoogleprogramsRequestreview
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest *)object
                      merchantId:(long long)merchantId
                      regionCode:(NSString *)regionCode;
 

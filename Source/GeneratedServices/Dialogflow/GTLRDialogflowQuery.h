@@ -2315,7 +2315,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Loads a specified version to draft version.
+ *  Loads resources in the specified version to the draft flow.
  *
  *  Method: dialogflow.projects.locations.agents.flows.versions.load
  *
@@ -2326,7 +2326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsLoad : GTLRDialogflowQuery
 
 /**
- *  Required. The Version to be loaded to draft version. Format:
+ *  Required. The Version to be loaded to draft flow. Format:
  *  `projects//locations//agents//flows//versions/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2334,12 +2334,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Loads a specified version to draft version.
+ *  Loads resources in the specified version to the draft flow.
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest to include in
  *    the query.
- *  @param name Required. The Version to be loaded to draft version. Format:
+ *  @param name Required. The Version to be loaded to draft flow. Format:
  *    `projects//locations//agents//flows//versions/`.
  *
  *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsVersionsLoad

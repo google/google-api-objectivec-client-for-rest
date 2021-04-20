@@ -88,8 +88,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeAllCredits;
 /**
- *  Credit types specified in the credit_types field are subtracted from the
- *  gross cost to determine the spend for threshold calculations.
+ *  [Credit
+ *  types](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type)
+ *  specified in the credit_types field are subtracted from the gross cost to
+ *  determine the spend for threshold calculations.
  *
  *  Value: "INCLUDE_SPECIFIED_CREDITS"
  */
@@ -112,7 +114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_CurrentSpend;
 /**
  *  Use forecasted spend for the period as the basis for comparison against the
- *  threshold. Cannot be set in combination with Filter.custom_period.
+ *  threshold. FORECASTED_SPEND can only be set when the budget's time period is
+ *  a Filter.calendar_period. It cannot be set in combination with
+ *  Filter.custom_period.
  *
  *  Value: "FORECASTED_SPEND"
  */
@@ -132,7 +136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Optional. Filters that define which resources are used to compute the actual
- *  spend against the budget.
+ *  spend against the budget amount, such as projects, services, and the
+ *  budget's time period, as well as other filters.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter *budgetFilter;
 
@@ -178,7 +183,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 /**
  *  Use the last period's actual spend as the budget for the present period.
- *  Cannot be set in combination with Filter.custom_period.
+ *  LastPeriodAmount can only be set when the budget's time period is a
+ *  Filter.calendar_period. It cannot be set in combination with
+ *  Filter.custom_period.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount *lastPeriodAmount;
 
@@ -218,11 +225,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter : GTLRObject
 
 /**
- *  Optional. Specifies to track usage for recurring calendar period. E.g.
- *  Assume that CalendarPeriod.QUARTER is set. The budget will track usage from
- *  April 1 to June 30, when current calendar month is April, May, June. After
- *  that, it will track usage from July 1 to September 30 when current calendar
- *  month is July, August, September, and so on.
+ *  Optional. Specifies to track usage for recurring calendar period. For
+ *  example, assume that CalendarPeriod.QUARTER is set. The budget will track
+ *  usage from April 1 to June 30, when the current calendar month is April,
+ *  May, June. After that, it will track usage from July 1 to September 30 when
+ *  the current calendar month is July, August, September, so on.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CalendarPeriod_CalendarPeriodUnspecified
@@ -241,10 +248,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 /**
  *  Optional. If Filter.credit_types_treatment is INCLUDE_SPECIFIED_CREDITS,
  *  this is a list of credit types to be subtracted from gross cost to determine
- *  the spend for threshold calculations. If Filter.credit_types_treatment is
- *  **not** INCLUDE_SPECIFIED_CREDITS, this field must be empty. See [a list of
- *  acceptable credit type
+ *  the spend for threshold calculations. See [a list of acceptable credit type
  *  values](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type).
+ *  If Filter.credit_types_treatment is **not** INCLUDE_SPECIFIED_CREDITS, this
+ *  field must be empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *creditTypes;
 
@@ -261,15 +268,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        All types of credit are subtracted from the gross cost to determine
  *        the spend for threshold calculations. (Value: "INCLUDE_ALL_CREDITS")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1Filter_CreditTypesTreatment_IncludeSpecifiedCredits
- *        Credit types specified in the credit_types field are subtracted from
- *        the gross cost to determine the spend for threshold calculations.
- *        (Value: "INCLUDE_SPECIFIED_CREDITS")
+ *        [Credit
+ *        types](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-tables#credits-type)
+ *        specified in the credit_types field are subtracted from the gross cost
+ *        to determine the spend for threshold calculations. (Value:
+ *        "INCLUDE_SPECIFIED_CREDITS")
  */
 @property(nonatomic, copy, nullable) NSString *creditTypesTreatment;
 
 /**
  *  Optional. Specifies to track usage from any start date (required) to any end
- *  date (optional).
+ *  date (optional). This time period is static, it does not recur.
  */
 @property(nonatomic, strong, nullable) GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1CustomPeriod *customPeriod;
 
@@ -328,10 +337,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
 
 
 /**
- *  Describes a budget amount targeted to last period's spend. At this time, the
- *  amount is automatically 100% of last period's spend; that is, there are no
- *  other options yet. Future configuration will be described here (for example,
- *  configuring a percentage of last period's spend).
+ *  Describes a budget amount targeted to the last Filter.calendar_period spend.
+ *  At this time, the amount is automatically 100% of the last calendar period's
+ *  spend; that is, there are no other options yet. Future configuration options
+ *  will be described here (for example, configuring a percentage of last
+ *  period's spend). LastPeriodAmount cannot be set for a budget configured with
+ *  a Filter.custom_period.
  */
 @interface GTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1LastPeriodAmount : GTLRObject
 @end
@@ -439,8 +450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBillingBudget_GoogleCloudBillingBud
  *        (Value: "CURRENT_SPEND")
  *    @arg @c kGTLRCloudBillingBudget_GoogleCloudBillingBudgetsV1ThresholdRule_SpendBasis_ForecastedSpend
  *        Use forecasted spend for the period as the basis for comparison
- *        against the threshold. Cannot be set in combination with
- *        Filter.custom_period. (Value: "FORECASTED_SPEND")
+ *        against the threshold. FORECASTED_SPEND can only be set when the
+ *        budget's time period is a Filter.calendar_period. It cannot be set in
+ *        combination with Filter.custom_period. (Value: "FORECASTED_SPEND")
  */
 @property(nonatomic, copy, nullable) NSString *spendBasis;
 

@@ -223,6 +223,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust;
+/**
  *  Information protection as per DoD IL4 requirements.
  *
  *  Value: "IL4"
@@ -262,6 +274,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
+/**
+ *  Health Insurance Portability and Accountability Act controls
+ *
+ *  Value: "HIPAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa;
+/**
+ *  Health Information Trust Alliance controls
+ *
+ *  Value: "HITRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust;
 /**
  *  Information protection as per DoD IL4 requirements.
  *
@@ -653,6 +677,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
@@ -727,6 +756,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
  *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
+ *        Health Insurance Portability and Accountability Act controls (Value:
+ *        "HIPAA")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust
+ *        Health Information Trust Alliance controls (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
  *        Information protection as per DoD IL4 requirements. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess

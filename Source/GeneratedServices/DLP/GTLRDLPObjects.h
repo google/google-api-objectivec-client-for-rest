@@ -5623,8 +5623,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Structured content to inspect. Up to 50,000 `Value`s per request allowed.
- *  See https://cloud.google.com/dlp/docs/inspecting-text#inspecting_a_table to
- *  learn more.
+ *  See
+ *  https://cloud.google.com/dlp/docs/inspecting-structured-text#inspecting_a_table
+ *  to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2Table : GTLRObject
 

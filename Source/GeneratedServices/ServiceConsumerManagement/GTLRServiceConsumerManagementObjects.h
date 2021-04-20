@@ -1522,13 +1522,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @interface GTLRServiceConsumerManagement_Endpoint : GTLRObject
 
 /**
- *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intended
- *  aliases. Additional names that this endpoint will be hosted on.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
-
-/**
  *  Allowing
  *  [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing), aka
  *  cross-domain traffic, would allow the backends served from this endpoint to

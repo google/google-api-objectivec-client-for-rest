@@ -309,8 +309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified;
 /**
- *  This version is destroyed, and the key material is no longer stored. A
- *  version may not leave this state once entered.
+ *  This version is destroyed, and the key material is no longer stored.
  *
  *  Value: "DESTROYED"
  */
@@ -1489,8 +1488,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_CryptoKeyVersionStateUnspecified
  *        Not specified. (Value: "CRYPTO_KEY_VERSION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_Destroyed This version is
- *        destroyed, and the key material is no longer stored. A version may not
- *        leave this state once entered. (Value: "DESTROYED")
+ *        destroyed, and the key material is no longer stored. (Value:
+ *        "DESTROYED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_State_DestroyScheduled This version
  *        is scheduled for destruction, and will be destroyed soon. Call
  *        RestoreCryptoKeyVersion to put it back into the DISABLED state.

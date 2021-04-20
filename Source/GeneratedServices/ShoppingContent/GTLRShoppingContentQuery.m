@@ -736,6 +736,36 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsActivate
+
+@dynamic merchantId, regionCode;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/buyongoogleprograms/{regionCode}/activate";
+  GTLRShoppingContentQuery_BuyongoogleprogramsActivate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.loggingName = @"content.buyongoogleprograms.activate";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_BuyongoogleprogramsGet
 
 @dynamic merchantId, regionCode;
@@ -784,6 +814,66 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.merchantId = merchantId;
   query.regionCode = regionCode;
   query.loggingName = @"content.buyongoogleprograms.onboard";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsPause
+
+@dynamic merchantId, regionCode;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_PauseBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/buyongoogleprograms/{regionCode}/pause";
+  GTLRShoppingContentQuery_BuyongoogleprogramsPause *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.loggingName = @"content.buyongoogleprograms.pause";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_BuyongoogleprogramsRequestreview
+
+@dynamic merchantId, regionCode;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest *)object
+                     merchantId:(long long)merchantId
+                     regionCode:(NSString *)regionCode {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"regionCode"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/buyongoogleprograms/{regionCode}/requestreview";
+  GTLRShoppingContentQuery_BuyongoogleprogramsRequestreview *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.regionCode = regionCode;
+  query.loggingName = @"content.buyongoogleprograms.requestreview";
   return query;
 }
 

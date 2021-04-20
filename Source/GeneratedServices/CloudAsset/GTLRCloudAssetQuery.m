@@ -167,6 +167,7 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @dynamic analysisQueryAccessSelectorPermissions,
          analysisQueryAccessSelectorRoles,
+         analysisQueryConditionContextAccessTime,
          analysisQueryIdentitySelectorIdentity,
          analysisQueryOptionsAnalyzeServiceAccountImpersonation,
          analysisQueryOptionsExpandGroups, analysisQueryOptionsExpandResources,
@@ -178,6 +179,7 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
   NSDictionary<NSString *, NSString *> *map = @{
     @"analysisQueryAccessSelectorPermissions" : @"analysisQuery.accessSelector.permissions",
     @"analysisQueryAccessSelectorRoles" : @"analysisQuery.accessSelector.roles",
+    @"analysisQueryConditionContextAccessTime" : @"analysisQuery.conditionContext.accessTime",
     @"analysisQueryIdentitySelectorIdentity" : @"analysisQuery.identitySelector.identity",
     @"analysisQueryOptionsAnalyzeServiceAccountImpersonation" : @"analysisQuery.options.analyzeServiceAccountImpersonation",
     @"analysisQueryOptionsExpandGroups" : @"analysisQuery.options.expandGroups",

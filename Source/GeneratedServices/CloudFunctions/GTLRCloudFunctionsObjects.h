@@ -1070,6 +1070,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  */
 @property(nonatomic, copy, nullable) NSString *buildId;
 
+/**
+ *  The Cloud Build Name of the function deployment. This field is only
+ *  populated for Create and Update operations. projects//locations//builds/.
+ */
+@property(nonatomic, copy, nullable) NSString *buildName;
+
 /** The original request that started the operation. */
 @property(nonatomic, strong, nullable) GTLRCloudFunctions_OperationMetadataV1_Request *request;
 

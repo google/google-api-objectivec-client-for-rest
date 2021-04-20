@@ -111,6 +111,11 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
 @interface GTLRArea120TablesQuery_TablesList : GTLRArea120TablesQuery
 
 /**
+ *  Optional. Sorting order for the list of tables on createTime/updateTime.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  The maximum number of tables to return. The service may return fewer than
  *  this value. If unspecified, at most 20 tables are returned. The maximum
  *  value is 100; values above 100 are coerced to 100.
@@ -393,6 +398,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120TablesViewViewUnspecified;
  *  results](https://support.google.com/area120-tables/answer/10503371).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sorting order for the list of rows on createTime/updateTime. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  The maximum number of rows to return. The service may return fewer than this

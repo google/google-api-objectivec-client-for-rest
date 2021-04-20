@@ -112,7 +112,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *  supported insight types:
- *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -134,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *    supported insight types:
- *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.
  *
  *  @return GTLRRecommenderQuery_BillingAccountsLocationsInsightTypesInsightsList
  *
@@ -489,7 +489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *  supported insight types:
- *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -511,7 +511,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *    supported insight types:
- *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.
  *
  *  @return GTLRRecommenderQuery_FoldersLocationsInsightTypesInsightsList
  *
@@ -866,7 +866,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *  supported insight types:
- *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -888,7 +888,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *    supported insight types:
- *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.
  *
  *  @return GTLRRecommenderQuery_OrganizationsLocationsInsightTypesInsightsList
  *
@@ -1243,7 +1243,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *  supported insight types:
- *  https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *  https://cloud.google.com/recommender/docs/insights/insight-types.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1265,7 +1265,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
  *    supported insight types:
- *    https://cloud.google.com/recommender/docs/insights/insight-types.)
+ *    https://cloud.google.com/recommender/docs/insights/insight-types.
  *
  *  @return GTLRRecommenderQuery_ProjectsLocationsInsightTypesInsightsList
  *

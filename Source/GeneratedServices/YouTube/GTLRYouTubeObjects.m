@@ -28,7 +28,7 @@ NSString * const kGTLRYouTube_ActivityContentDetailsRecommendation_Reason_VideoW
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Facebook = @"facebook";
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus = @"googlePlus";
 NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter = @"twitter";
-NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified = @"typeUnspecified";
+NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified = @"unspecified";
 
 // GTLRYouTube_ActivitySnippet.type
 NSString * const kGTLRYouTube_ActivitySnippet_Type_Bulletin    = @"bulletin";
@@ -98,7 +98,7 @@ NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_VerticalList = @"verti
 
 // GTLRYouTube_ChannelSectionSnippet.type
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists = @"allPlaylists";
-NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified = @"channelsectionTypeUnspecified";
+NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined = @"channelsectionTypeUndefined";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents = @"completedEvents";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists = @"likedPlaylists";
 NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_Likes = @"likes";
@@ -3670,6 +3670,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_VideoGetRatingResponse
+//
+
+@implementation GTLRYouTube_VideoGetRatingResponse
+@dynamic ETag, eventId, items, kind, visitorId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_VideoRating class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_VideoListResponse
 //
 
@@ -3776,28 +3798,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_VideoRating
 @dynamic rating, videoId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_VideoRatingListResponse
-//
-
-@implementation GTLRYouTube_VideoRatingListResponse
-@dynamic ETag, eventId, items, kind, visitorId;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_VideoRating class]
-  };
-  return map;
-}
-
 @end
 
 

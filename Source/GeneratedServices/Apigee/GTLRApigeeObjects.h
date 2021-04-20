@@ -29,6 +29,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1AccessGet;
 @class GTLRApigee_GoogleCloudApigeeV1AccessRemove;
 @class GTLRApigee_GoogleCloudApigeeV1AccessSet;
+@class GTLRApigee_GoogleCloudApigeeV1AddonsConfig;
+@class GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig;
 @class GTLRApigee_GoogleCloudApigeeV1AliasRevisionConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiCategoryData;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
@@ -62,6 +64,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1DeploymentConfig_Attributes;
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1DimensionMetric;
 @class GTLRApigee_GoogleCloudApigeeV1EntityMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentConfig_FeatureFlags;
@@ -78,14 +81,18 @@
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatus;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRevision;
 @class GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute;
+@class GTLRApigee_GoogleCloudApigeeV1IntegrationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1KeyAliasReference;
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
+@class GTLRApigee_GoogleCloudApigeeV1MonetizationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1NatAddress;
 @class GTLRApigee_GoogleCloudApigeeV1Operation;
 @class GTLRApigee_GoogleCloudApigeeV1OperationConfig;
 @class GTLRApigee_GoogleCloudApigeeV1OperationGroup;
+@class GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress;
+@class GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_Details;
 @class GTLRApigee_GoogleCloudApigeeV1OptimizedStatsNode;
 @class GTLRApigee_GoogleCloudApigeeV1OptimizedStatsResponse;
 @class GTLRApigee_GoogleCloudApigeeV1OrganizationProjectMapping;
@@ -96,6 +103,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1QueryMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1QueryMetric;
 @class GTLRApigee_GoogleCloudApigeeV1Quota;
+@class GTLRApigee_GoogleCloudApigeeV1RatePlan;
+@class GTLRApigee_GoogleCloudApigeeV1RateRange;
 @class GTLRApigee_GoogleCloudApigeeV1ReferenceConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ReportProperty;
 @class GTLRApigee_GoogleCloudApigeeV1ResourceConfig;
@@ -103,6 +112,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1ResourceFiles;
 @class GTLRApigee_GoogleCloudApigeeV1ResourceStatus;
 @class GTLRApigee_GoogleCloudApigeeV1Result;
+@class GTLRApigee_GoogleCloudApigeeV1RevenueShareRange;
 @class GTLRApigee_GoogleCloudApigeeV1RevisionStatus;
 @class GTLRApigee_GoogleCloudApigeeV1RoutingRule;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig;
@@ -135,6 +145,7 @@
 @class GTLRApigee_GoogleRpcStatus;
 @class GTLRApigee_GoogleRpcStatus_Details_Item;
 @class GTLRApigee_GoogleTypeExpr;
+@class GTLRApigee_GoogleTypeMoney;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -420,11 +431,35 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_Peeri
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16;
 /**
+ *  `/17` CIDR range.
+ *
+ *  Value: "SLASH_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash17;
+/**
+ *  `/18` CIDR range.
+ *
+ *  Value: "SLASH_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash18;
+/**
+ *  `/19` CIDR range.
+ *
+ *  Value: "SLASH_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash19;
+/**
  *  `/20` CIDR range.
  *
  *  Value: "SLASH_20"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20;
+/**
+ *  `/23` CIDR range. Supported for evaluation only.
+ *
+ *  Value: "SLASH_23"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Instance.state
@@ -511,6 +546,18 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetad
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_NotStarted;
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress.state
+
+/** Value: "FINISHED" */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_Finished;
+/** Value: "IN_PROGRESS" */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_InProgress;
+/** Value: "NOT_STARTED" */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_NotStarted;
+/** Value: "STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.billingType
@@ -636,6 +683,149 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_T
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.billingPeriod
+
+/**
+ *  Billing period not specified.
+ *
+ *  Value: "BILLING_PERIOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_BillingPeriodUnspecified;
+/**
+ *  Monthly billing period.
+ *
+ *  Value: "MONTHLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Monthly;
+/**
+ *  Weekly billing period. **Note**: Not supported by Apigee at this time.
+ *
+ *  Value: "WEEKLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Weekly;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.consumptionPricingType
+
+/**
+ *  Variable rate charged based on the total volume of API calls. Example: *
+ *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
+ *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
+ *  price for 150 calls: 150 x $1.5 = $225 * Total price for 250 calls: 250 x $1
+ *  = $250. **Note**: Not supported by Apigee at this time.
+ *
+ *  Value: "BANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Banded;
+/**
+ *  Pricing model not specified. This is the default.
+ *
+ *  Value: "CONSUMPTION_PRICING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified;
+/**
+ *  Fixed rate charged for each API call.
+ *
+ *  Value: "FIXED_PER_UNIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_FixedPerUnit;
+/**
+ *  Flat rate charged for a bundle of API calls whether or not the entire bundle
+ *  is used. Example: * 1-100 calls cost $75 flat fee * 101-200 calls cost $100
+ *  flat free * 201-300 calls cost $150 flat fee * Total price for 1 call: $75 *
+ *  Total price for 50 calls: $75 * Total price for 150 calls: $100 * Total
+ *  price for 250 calls: $150. **Note**: Not supported by Apigee at this time.
+ *
+ *  Value: "STAIRSTEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Stairstep;
+/**
+ *  Variable rate charged for each API call based on price tiers. Example: *
+ *  1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call * 201-300
+ *  calls cost $1 per call * Total price for 50 calls: 50 x $2 = $100 * Total
+ *  price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total price for 250
+ *  calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**: Not supported by
+ *  Apigee at this time.
+ *
+ *  Value: "TIERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Tiered;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.paymentFundingModel
+
+/**
+ *  Billing account type not specified.
+ *
+ *  Value: "PAYMENT_FUNDING_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_PaymentFundingModelUnspecified;
+/**
+ *  Postpaid billing account type. Developer is billed through an invoice after
+ *  using your API products.
+ *
+ *  Value: "POSTPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Postpaid;
+/**
+ *  Prepaid billing account type. Developer pays in advance for the use of your
+ *  API products. Funds are deducted from their prepaid account balance.
+ *  **Note**: Not supported by Apigee at this time.
+ *
+ *  Value: "PREPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Prepaid;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.revenueShareType
+
+/**
+ *  Fixed percentage of the total revenue will be shared. The percentage to be
+ *  shared can be configured by the API provider.
+ *
+ *  Value: "FIXED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_Fixed;
+/**
+ *  Revenue share type is not specified.
+ *
+ *  Value: "REVENUE_SHARE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_RevenueShareTypeUnspecified;
+/**
+ *  Amount of revenue shared depends on the number of API calls. The API call
+ *  volume ranges and the revenue share percentage for each volume can be
+ *  configured by the API provider. **Note**: Not supported by Apigee at this
+ *  time.
+ *
+ *  Value: "VOLUME_BANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_VolumeBanded;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.state
+
+/**
+ *  Rate plan is in draft mode and only visible to API providers.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Draft;
+/**
+ *  Rate plan is published and will become visible to developers for the
+ *  configured duration (between `startTime` and `endTime`).
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Published;
+/**
+ *  State of the rate plan is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.exporter
@@ -1040,6 +1230,38 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Request for ActivateNatAddressRequest. Activate the nat address request.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest : GTLRObject
+@end
+
+
+/**
+ *  Add-on configurations for the Apigee organization.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AddonsConfig : GTLRObject
+
+/** Configuration for the Advanced API Ops add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig *advancedApiOpsConfig;
+
+/** Configuration for the Integration add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1IntegrationConfig *integrationConfig;
+
+/** Configuration for the Monetization add-on. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1MonetizationConfig *monetizationConfig;
+
+@end
+
+
+/**
+ *  Configuration for the Advanced API Ops add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the Advanced API Ops add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -2805,6 +3027,53 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Structure of a DeveloperSubscription.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription : GTLRObject
+
+/**
+ *  Name of the API product for which the developer is purchasing a
+ *  subscription.
+ */
+@property(nonatomic, copy, nullable) NSString *apiproduct;
+
+/**
+ *  Output only. Time when the API product subscription was created in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Time when the API product subscription ends in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTime;
+
+/**
+ *  Output only. Time when the API product subscription was last modified in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/** Output only. Name of the API product subscription. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Time when the API product subscription starts in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTime;
+
+@end
+
+
+/**
  *  This message type encapsulates a metric grouped by dimension.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DimensionMetric : GTLRObject
@@ -3105,6 +3374,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
+@end
+
+
+/**
+ *  Request for ExpireDeveloperSubscription.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest : GTLRObject
 @end
 
 
@@ -3452,8 +3728,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        Range not specified. (Value: "CIDR_RANGE_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16
  *        `/16` CIDR range. (Value: "SLASH_16")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash17
+ *        `/17` CIDR range. (Value: "SLASH_17")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash18
+ *        `/18` CIDR range. (Value: "SLASH_18")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash19
+ *        `/19` CIDR range. (Value: "SLASH_19")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20
  *        `/20` CIDR range. (Value: "SLASH_20")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23
+ *        `/23` CIDR range. Supported for evaluation only. (Value: "SLASH_23")
  */
 @property(nonatomic, copy, nullable) NSString *peeringCidrRange;
 
@@ -3562,6 +3846,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *percentage;
+
+@end
+
+
+/**
+ *  Configuration for the Integration add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1IntegrationConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the Integration add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -3799,6 +4098,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListDeveloperSubscriptions.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse : GTLRObject
+
+/** List of all subscriptions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription *> *developerSubscriptions;
+
+/**
+ *  Value that can be sent as `startKey` to retrieve the next page of content.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextStartKey;
+
+@end
+
+
+/**
  *  Response for ListEnvironmentGroupAttachments.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3989,6 +4305,23 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for ListRatePlans.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse : GTLRObject
+
+/**
+ *  Value that can be sent as `startKey` to retrieve the next page of content.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextStartKey;
+
+/** List of rate plans in an organization. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RatePlan *> *ratePlans;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse : GTLRObject
@@ -4063,6 +4396,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *values;
+
+@end
+
+
+/**
+ *  Configuration for the Monetization add-on.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MonetizationConfig : GTLRObject
+
+/**
+ *  Flag that specifies whether the Monetization add-on is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -4199,6 +4547,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
+/** Progress of the operation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress *progress;
+
 /**
  *  state
  *
@@ -4217,6 +4568,58 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Name of the resource for which the operation is operating on. */
 @property(nonatomic, copy, nullable) NSString *targetResourceName;
 
+@end
+
+
+/**
+ *  Information about operation progress.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress : GTLRObject
+
+/**
+ *  Description of the operation's progress.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The additional details of the progress. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_Details *details;
+
+/**
+ *  The percentage of the operation progress.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentDone;
+
+/**
+ *  State of the operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_Finished
+ *        Value "FINISHED"
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_InProgress
+ *        Value "IN_PROGRESS"
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_NotStarted
+ *        Value "NOT_STARTED"
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_StateUnspecified
+ *        Value "STATE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The additional details of the progress.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_Details : GTLRObject
 @end
 
 
@@ -4297,6 +4700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  GTLRApigee_GoogleCloudApigeeV1Organization
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Organization : GTLRObject
+
+/** Addon configurations of the Apigee organization. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AddonsConfig *addonsConfig;
 
 /**
  *  Required. Primary GCP region for analytics data storage. For valid values,
@@ -4800,6 +5206,223 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Rate plan details.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RatePlan : GTLRObject
+
+/** Name of the API product that the rate plan is associated with. */
+@property(nonatomic, copy, nullable) NSString *apiproduct;
+
+/**
+ *  Frequency at which the customer will be billed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_BillingPeriodUnspecified
+ *        Billing period not specified. (Value: "BILLING_PERIOD_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Monthly
+ *        Monthly billing period. (Value: "MONTHLY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Weekly
+ *        Weekly billing period. **Note**: Not supported by Apigee at this time.
+ *        (Value: "WEEKLY")
+ */
+@property(nonatomic, copy, nullable) NSString *billingPeriod;
+
+/**
+ *  API call volume ranges and the fees charged when the total number of API
+ *  calls is within a given range. The method used to calculate the final fee
+ *  depends on the selected pricing model. For example, if the pricing model is
+ *  `STAIRSTEP` and the ranges are defined as follows: ``` { "start": 1, "end":
+ *  100, "fee": 75 }, { "start": 101, "end": 200, "fee": 100 }, } ``` Then the
+ *  following fees would be charged based on the total number of API calls
+ *  (assuming the currency selected is `USD`): * 1 call costs $75 * 50 calls
+ *  cost $75 * 150 calls cost $100 The number of API calls cannot exceed 200.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RateRange *> *consumptionPricingRates;
+
+/**
+ *  Pricing model used for consumption-based charges.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Banded
+ *        Variable rate charged based on the total volume of API calls. Example:
+ *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
+ *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
+ *        $100 * Total price for 150 calls: 150 x $1.5 = $225 * Total price for
+ *        250 calls: 250 x $1 = $250. **Note**: Not supported by Apigee at this
+ *        time. (Value: "BANDED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified
+ *        Pricing model not specified. This is the default. (Value:
+ *        "CONSUMPTION_PRICING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_FixedPerUnit
+ *        Fixed rate charged for each API call. (Value: "FIXED_PER_UNIT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Stairstep
+ *        Flat rate charged for a bundle of API calls whether or not the entire
+ *        bundle is used. Example: * 1-100 calls cost $75 flat fee * 101-200
+ *        calls cost $100 flat free * 201-300 calls cost $150 flat fee * Total
+ *        price for 1 call: $75 * Total price for 50 calls: $75 * Total price
+ *        for 150 calls: $100 * Total price for 250 calls: $150. **Note**: Not
+ *        supported by Apigee at this time. (Value: "STAIRSTEP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Tiered
+ *        Variable rate charged for each API call based on price tiers. Example:
+ *        * 1-100 calls cost $2 per call * 101-200 calls cost $1.50 per call *
+ *        201-300 calls cost $1 per call * Total price for 50 calls: 50 x $2 =
+ *        $100 * Total price for 150 calls: 100 x $2 + 50 x $1.5 = $275 * Total
+ *        price for 250 calls: 100 x $2 + 100 x $1.5 + 50 x $1 = $400. **Note**:
+ *        Not supported by Apigee at this time. (Value: "TIERED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumptionPricingType;
+
+/**
+ *  Output only. Time that the rate plan was created in milliseconds since
+ *  epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Currency to be used for billing. Consists of a three-letter code as defined
+ *  by the [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) standard.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Description of the rate plan.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Display name of the rate plan. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Time when the rate plan will expire in milliseconds since epoch. Set to 0 or
+ *  `null` to indicate that the rate plan should never expire.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTime;
+
+/**
+ *  Frequency at which the fixed fee is charged.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fixedFeeFrequency;
+
+/**
+ *  Fixed amount that is charged at a defined interval and billed in advance of
+ *  use of the API product. The fee will be prorated for the first billing
+ *  period.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *fixedRecurringFee;
+
+/**
+ *  Output only. Time the rate plan was last modified in milliseconds since
+ *  epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/** Output only. Name of the rate plan. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Flag that specifies the billing account type, prepaid or postpaid.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_PaymentFundingModelUnspecified
+ *        Billing account type not specified. (Value:
+ *        "PAYMENT_FUNDING_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Postpaid
+ *        Postpaid billing account type. Developer is billed through an invoice
+ *        after using your API products. (Value: "POSTPAID")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Prepaid
+ *        Prepaid billing account type. Developer pays in advance for the use of
+ *        your API products. Funds are deducted from their prepaid account
+ *        balance. **Note**: Not supported by Apigee at this time. (Value:
+ *        "PREPAID")
+ */
+@property(nonatomic, copy, nullable) NSString *paymentFundingModel;
+
+/** Details of the revenue sharing model. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RevenueShareRange *> *revenueShareRates;
+
+/**
+ *  Method used to calculate the revenue that is shared with developers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_Fixed
+ *        Fixed percentage of the total revenue will be shared. The percentage
+ *        to be shared can be configured by the API provider. (Value: "FIXED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_RevenueShareTypeUnspecified
+ *        Revenue share type is not specified. (Value:
+ *        "REVENUE_SHARE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_VolumeBanded
+ *        Amount of revenue shared depends on the number of API calls. The API
+ *        call volume ranges and the revenue share percentage for each volume
+ *        can be configured by the API provider. **Note**: Not supported by
+ *        Apigee at this time. (Value: "VOLUME_BANDED")
+ */
+@property(nonatomic, copy, nullable) NSString *revenueShareType;
+
+/** Initial, one-time fee paid when purchasing the API product. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *setupFee;
+
+/**
+ *  Time when the rate plan becomes active in milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTime;
+
+/**
+ *  Current state of the rate plan (draft or published).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Draft Rate plan is
+ *        in draft mode and only visible to API providers. (Value: "DRAFT")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Published Rate plan
+ *        is published and will become visible to developers for the configured
+ *        duration (between `startTime` and `endTime`). (Value: "PUBLISHED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_StateUnspecified
+ *        State of the rate plan is not specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  API call volume range and the fees charged when the total number of API
+ *  calls is within the range.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RateRange : GTLRObject
+
+/**
+ *  Ending value of the range. Set to 0 or `null` for the last range of values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/** Fee to charge when total number of API calls falls within this range. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *fee;
+
+/**
+ *  Starting value of the range. Set to 0 or `null` for the initial range of
+ *  values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
  *  A Reference configuration. References must refer to a keystore that also
  *  exists in the parent environment.
  */
@@ -5039,6 +5662,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** HTTP method verb */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  API call volume range and the percentage of revenue to share with the
+ *  developer when the total number of API calls is within the range.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RevenueShareRange : GTLRObject
+
+/**
+ *  Ending value of the range. Set to 0 or `null` for the last range of values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  Percentage of the revenue to be shared with the developer. For example, to
+ *  share 21 percent of the total revenue with the developer, set this value to
+ *  21. Specify a decimal number with a maximum of two digits following the
+ *  decimal point.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharePercentage;
+
+/**
+ *  Starting value of the range. Set to 0 or `null` for the initial range of
+ *  values.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
 
 @end
 
@@ -5333,6 +5990,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *timestampMs;
+
+@end
+
+
+/**
+ *  Request for SetAddons.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest : GTLRObject
+
+/** Required. Add-on configurations. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AddonsConfig *addonsConfig;
 
 @end
 
@@ -6528,6 +7196,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRApigee_GoogleTypeMoney : GTLRObject
+
+/** The three-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
 
 @end
 

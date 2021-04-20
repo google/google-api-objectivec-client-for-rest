@@ -355,7 +355,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation
-@dynamic datasetErrors, documentErrors;
+@dynamic datasetErrorCount, datasetErrors, documentErrorCount, documentErrors;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

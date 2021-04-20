@@ -977,7 +977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 /**
  *  Optional. The major version of Python used to run the Apache Airflow
  *  scheduler, worker, and webserver processes. Can be set to '2' or '3'. If not
- *  specified, the default is '2'. Cannot be updated.
+ *  specified, the default is '3'. Cannot be updated.
  */
 @property(nonatomic, copy, nullable) NSString *pythonVersion;
 

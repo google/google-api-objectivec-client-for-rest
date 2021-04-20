@@ -124,6 +124,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGroupsEnterprise;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
 /**
+ *  The Keep application's activity reports return information about various
+ *  Google Keep activity events. The Keep activity report is only available for
+ *  Google Workspace Business and Enterprise customers.
+ *
+ *  Value: "keep"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameKeep;
+/**
  *  The Login application's activity reports return account information about
  *  different types of Login activity events.
  *
@@ -306,6 +314,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -508,6 +520,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *
@@ -609,6 +625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -810,6 +830,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameDataStudio The Data Studio activity
  *        reports return information about various types of Data Studio activity
  *        events. (Value: "data_studio")
+ *    @arg @c kGTLRReportsApplicationNameKeep The Keep application's activity
+ *        reports return information about various Google Keep activity events.
+ *        The Keep activity report is only available for Google Workspace
+ *        Business and Enterprise customers. (Value: "keep")
  *
  *  @return GTLRReportsQuery_ActivitiesWatch
  */

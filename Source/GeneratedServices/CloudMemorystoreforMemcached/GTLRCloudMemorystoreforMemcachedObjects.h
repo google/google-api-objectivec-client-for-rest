@@ -167,6 +167,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_St
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified;
+/**
+ *  Memcached instance is updating configuration such as maintenance policy and
+ *  schedule.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudMemorystoreforMemcached_InstanceMessage.code
@@ -706,8 +713,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule : GTLRObject
 
 /**
- *  This field will be deprecated, and will be always set to true since
- *  reschedule can happen multiple times now.
+ *  This field is deprecated, and will be always set to true since reschedule
+ *  can happen multiple times now. This field should not be removed until all
+ *  service producers remove this for their customers.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1111,6 +1119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
  *        instance has been created and ready to be used. (Value: "READY")
  *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified
  *        State not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudMemorystoreforMemcached_Instance_State_Updating
+ *        Memcached instance is updating configuration such as maintenance
+ *        policy and schedule. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

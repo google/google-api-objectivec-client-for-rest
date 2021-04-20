@@ -31,6 +31,7 @@ NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
 NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
 NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";
 NSString * const kGTLRReportsApplicationNameJamboard           = @"jamboard";
+NSString * const kGTLRReportsApplicationNameKeep               = @"keep";
 NSString * const kGTLRReportsApplicationNameLogin              = @"login";
 NSString * const kGTLRReportsApplicationNameMeet               = @"meet";
 NSString * const kGTLRReportsApplicationNameMobile             = @"mobile";
