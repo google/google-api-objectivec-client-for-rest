@@ -4559,13 +4559,6 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   return result;
 }
 
-+ (NSArray *)sg_acceptedUnknowns {
-  // "flatPath" has never been documented but is on every method of every
-  // OP api. There have been some indications it might get removed since
-  // it never was used.
-  return @[@"flatPath"];
-}
-
 @end
 
 @implementation GTLRDiscovery_RestMethod_Request (SGGeneratorAdditions)
