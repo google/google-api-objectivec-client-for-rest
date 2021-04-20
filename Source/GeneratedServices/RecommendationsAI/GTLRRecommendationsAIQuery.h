@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsCreate : GTLRRecommendationsAIQuery
 
 /**
- *  Required. The parent catalog resource name, such as "projects/ *
- *  /locations/global/catalogs/default_catalog".
+ *  Required. The parent catalog resource name, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -78,8 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem to
  *    include in the query.
- *  @param parent Required. The parent catalog resource name, such as "projects/
- *    * /locations/global/catalogs/default_catalog".
+ *  @param parent Required. The parent catalog resource name, such as `projects/
+ *    * /locations/global/catalogs/default_catalog`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsCreate
  */
@@ -99,8 +99,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsDelete : GTLRRecommendationsAIQuery
 
 /**
- *  Required. Full resource name of catalog item, such as "projects/ *
- *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
+ *  Required. Full resource name of catalog item, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -109,9 +109,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Deletes a catalog item.
  *
- *  @param name Required. Full resource name of catalog item, such as "projects/
+ *  @param name Required. Full resource name of catalog item, such as `projects/
  *    *
- *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
+ *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsDelete
  */
@@ -130,8 +130,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGet : GTLRRecommendationsAIQuery
 
 /**
- *  Required. Full resource name of catalog item, such as "projects/ *
- *  /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id".
+ *  Required. Full resource name of catalog item, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -141,9 +141,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a specific catalog item.
  *
- *  @param name Required. Full resource name of catalog item, such as "projects/
+ *  @param name Required. Full resource name of catalog item, such as `projects/
  *    *
- *    /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id".
+ *    /locations/global/catalogs/default_catalog/catalogitems/some_catalog_item_id`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsGet
  */
@@ -165,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsImport : GTLRRecommendationsAIQuery
 
 /**
- *  Required. "projects/1234/locations/global/catalogs/default_catalog" If no
+ *  Required. `projects/1234/locations/global/catalogs/default_catalog` If no
  *  updateMask is specified, requires catalogItems.create permission. If
  *  updateMask is specified, requires catalogItems.update permission.
  */
@@ -183,7 +183,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ImportCatalogItemsRequest
  *    to include in the query.
  *  @param parent Required.
- *    "projects/1234/locations/global/catalogs/default_catalog" If no updateMask
+ *    `projects/1234/locations/global/catalogs/default_catalog` If no updateMask
  *    is specified, requires catalogItems.create permission. If updateMask is
  *    specified, requires catalogItems.update permission.
  *
@@ -217,8 +217,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent catalog resource name, such as "projects/ *
- *  /locations/global/catalogs/default_catalog".
+ *  Required. The parent catalog resource name, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -228,8 +228,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a list of catalog items.
  *
- *  @param parent Required. The parent catalog resource name, such as "projects/
- *    * /locations/global/catalogs/default_catalog".
+ *  @param parent Required. The parent catalog resource name, such as `projects/
+ *    * /locations/global/catalogs/default_catalog`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsList
  *
@@ -253,8 +253,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsPatch : GTLRRecommendationsAIQuery
 
 /**
- *  Required. Full resource name of catalog item, such as "projects/ *
- *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
+ *  Required. Full resource name of catalog item, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -276,9 +276,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CatalogItem to
  *    include in the query.
- *  @param name Required. Full resource name of catalog item, such as "projects/
+ *  @param name Required. Full resource name of catalog item, such as `projects/
  *    *
- *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id".
+ *    /locations/global/catalogs/default_catalog/catalogItems/some_catalog_item_id`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsCatalogItemsPatch
  */
@@ -386,9 +386,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPlacementsPredict : GTLRRecommendationsAIQuery
 
 /**
- *  Required. Full resource name of the format: {name=projects/ *
+ *  Required. Full resource name of the format: `{name=projects/ *
  *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/
- *  *} The id of the recommendation engine placement. This id is used to
+ *  *}` The id of the recommendation engine placement. This id is used to
  *  identify the set of models that will be used to make the prediction. We
  *  currently support three placements with the following IDs by default: *
  *  `shopping_cart`: Predicts items frequently bought together with one or more
@@ -422,9 +422,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1PredictRequest
  *    to include in the query.
- *  @param name Required. Full resource name of the format: {name=projects/ *
+ *  @param name Required. Full resource name of the format: `{name=projects/ *
  *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/placements/
- *    *} The id of the recommendation engine placement. This id is used to
+ *    *}` The id of the recommendation engine placement. This id is used to
  *    identify the set of models that will be used to make the prediction. We
  *    currently support three placements with the following IDs by default: *
  *    `shopping_cart`: Predicts items frequently bought together with one or
@@ -462,8 +462,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreate : GTLRRecommendationsAIQuery
 
 /**
- *  Required. The parent resource path. "projects/ *
- *  /locations/global/catalogs/default_catalog/eventStores/default_event_store".
+ *  Required. The parent resource path. `projects/ *
+ *  /locations/global/catalogs/default_catalog/eventStores/default_event_store`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -476,8 +476,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1CreatePredictionApiKeyRegistrationRequest
  *    to include in the query.
- *  @param parent Required. The parent resource path. "projects/ *
- *    /locations/global/catalogs/default_catalog/eventStores/default_event_store".
+ *  @param parent Required. The parent resource path. `projects/ *
+ *    /locations/global/catalogs/default_catalog/eventStores/default_event_store`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsCreate
  */
@@ -497,9 +497,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDelete : GTLRRecommendationsAIQuery
 
 /**
- *  Required. The API key to unregister including full resource path. "projects/
+ *  Required. The API key to unregister including full resource path. `projects/
  *  *
- *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/"
+ *  /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -509,8 +509,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Unregister an apiKey from using for predict method.
  *
  *  @param name Required. The API key to unregister including full resource
- *    path. "projects/ *
- *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/"
+ *    path. `projects/ *
+ *    /locations/global/catalogs/default_catalog/eventStores/default_event_store/predictionApiKeyRegistrations/`
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsDelete
  */
@@ -541,7 +541,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent placement resource name such as
- *  "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store"
+ *  `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -552,7 +552,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  List the registered apiKeys for use with predict method.
  *
  *  @param parent Required. The parent placement resource name such as
- *    "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store"
+ *    `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresPredictionApiKeyRegistrationsList
  *
@@ -586,7 +586,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent eventStore name, such as
- *  "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store".
+ *  `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -610,7 +610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  this method directly.
  *
  *  @param parent Required. The parent eventStore name, such as
- *    "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store".
+ *    `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsCollect
  */
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required.
- *  "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store"
+ *  `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -651,7 +651,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1ImportUserEventsRequest
  *    to include in the query.
  *  @param parent Required.
- *    "projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store"
+ *    `projects/1234/locations/global/catalogs/default_catalog/eventStores/default_event_store`
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsImport
  */
@@ -710,8 +710,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent eventStore resource name, such as "projects/ *
- *  /locations/ * /catalogs/default_catalog/eventStores/default_event_store".
+ *  Required. The parent eventStore resource name, such as `projects/ *
+ *  /locations/ * /catalogs/default_catalog/eventStores/default_event_store`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -728,8 +728,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  unjoined event.
  *
  *  @param parent Required. The parent eventStore resource name, such as
- *    "projects/ * /locations/ *
- *    /catalogs/default_catalog/eventStores/default_event_store".
+ *    `projects/ * /locations/ *
+ *    /catalogs/default_catalog/eventStores/default_event_store`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsList
  *
@@ -757,7 +757,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the event_store under which the events are
  *  created. The format is
- *  "projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}"
+ *  `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -774,7 +774,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    to include in the query.
  *  @param parent Required. The resource name of the event_store under which the
  *    events are created. The format is
- *    "projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}"
+ *    `projects/${projectId}/locations/global/catalogs/${catalogId}/eventStores/${eventStoreId}`
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsPurge
  */
@@ -800,8 +800,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsRejoin : GTLRRecommendationsAIQuery
 
 /**
- *  Required. Full resource name of user event, such as "projects/ * /locations/
- *  * /catalogs/default_catalog/eventStores/default_event_store".
+ *  Required. Full resource name of user event, such as `projects/ * /locations/
+ *  * /catalogs/default_catalog/eventStores/default_event_store`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -819,9 +819,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c
  *    GTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1RejoinUserEventsRequest
  *    to include in the query.
- *  @param parent Required. Full resource name of user event, such as "projects/
+ *  @param parent Required. Full resource name of user event, such as `projects/
  *    * /locations/ *
- *    /catalogs/default_catalog/eventStores/default_event_store".
+ *    /catalogs/default_catalog/eventStores/default_event_store`.
  *
  *  @return GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresUserEventsRejoin
  */

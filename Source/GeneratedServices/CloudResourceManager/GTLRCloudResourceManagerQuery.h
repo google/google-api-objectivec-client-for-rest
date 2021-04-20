@@ -1218,7 +1218,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be populated with the moved project. The caller must have
  *  `resourcemanager.projects.update` permission on the project and have
  *  `resourcemanager.projects.move` permission on the project's current and
- *  proposed new parent.
+ *  proposed new parent. If project has no current parent, or it currently does
+ *  not have an associated organization resource, you will also need the
+ *  `resourcemanager.projects.setIamPolicy` permission in the project.
  *
  *  Method: cloudresourcemanager.projects.move
  *
@@ -1239,7 +1241,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be populated with the moved project. The caller must have
  *  `resourcemanager.projects.update` permission on the project and have
  *  `resourcemanager.projects.move` permission on the project's current and
- *  proposed new parent.
+ *  proposed new parent. If project has no current parent, or it currently does
+ *  not have an associated organization resource, you will also need the
+ *  `resourcemanager.projects.setIamPolicy` permission in the project.
  *
  *  @param object The @c GTLRCloudResourceManager_MoveProjectRequest to include
  *    in the query.

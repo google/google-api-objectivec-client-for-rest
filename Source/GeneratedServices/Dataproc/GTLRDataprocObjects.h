@@ -38,6 +38,7 @@
 @class GTLRDataproc_ClusterSelector;
 @class GTLRDataproc_ClusterSelector_ClusterLabels;
 @class GTLRDataproc_ClusterStatus;
+@class GTLRDataproc_ConfidentialInstanceConfig;
 @class GTLRDataproc_DiskConfig;
 @class GTLRDataproc_EncryptionConfig;
 @class GTLRDataproc_EndpointConfig;
@@ -499,7 +500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Docker;
 /**
- *  The Druid query engine. (beta)
+ *  The Druid query engine. (alpha)
  *
  *  Value: "DRUID"
  */
@@ -1330,6 +1331,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Confidential Instance Config for clusters using Confidential VMs
+ *  (https://cloud.google.com/compute/confidential-vm/docs) NEXT ID: 2
+ */
+@interface GTLRDataproc_ConfidentialInstanceConfig : GTLRObject
+
+/**
+ *  Optional. Defines whether the instance should have confidential compute
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+@end
+
+
+/**
  *  A request to collect cluster diagnostic information.
  */
 @interface GTLRDataproc_DiagnoseClusterRequest : GTLRObject
@@ -1499,6 +1517,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  applicable to all instances in the cluster.
  */
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
+
+/**
+ *  Optional. Confidential Instance Config for clusters using Confidential VMs
+ *  (https://cloud.google.com/compute/confidential-vm/docs)
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
 /**
  *  Optional. If true, all instances in the cluster will only have internal IP

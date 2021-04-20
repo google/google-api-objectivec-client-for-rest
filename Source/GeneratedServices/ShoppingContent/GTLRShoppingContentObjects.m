@@ -30,15 +30,20 @@ NSString * const kGTLRShoppingContent_AccountReturnCarrier_CarrierCode_Ups = @"U
 // GTLRShoppingContent_BuyOnGoogleProgramStatus.participationStage
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Active = @"ACTIVE";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Eligible = @"ELIGIBLE";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_EligibleForReview = @"ELIGIBLE_FOR_REVIEW";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_NotEligible = @"NOT_ELIGIBLE";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Onboarding = @"ONBOARDING";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_Paused = @"PAUSED";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_PendingReview = @"PENDING_REVIEW";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified = @"PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved = @"REVIEW_DISAPPROVED";
 
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox = @"ALREADY_WINNING_BUYBOX";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner = @"CANNOT_BEAT_BUYBOX_WINNER";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InapplicableReasonUnspecified = @"INAPPLICABLE_REASON_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidAutoPriceMin = @"INVALID_AUTO_PRICE_MIN";
+NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_InvalidFloorConfig = @"INVALID_FLOOR_CONFIG";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_RestrictionsNotMet = @"RESTRICTIONS_NOT_MET";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverByOtherRuleOnOffer = @"TRIUMPHED_OVER_BY_OTHER_RULE_ON_OFFER";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_TriumphedOverBySameTypeRule = @"TRIUMPHED_OVER_BY_SAME_TYPE_RULE";
@@ -834,6 +839,15 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 @implementation GTLRShoppingContent_AccountYouTubeChannelLink
 @dynamic channelId, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
+//
+
+@implementation GTLRShoppingContent_ActivateBuyOnGoogleProgramRequest
 @end
 
 
@@ -3734,6 +3748,15 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PauseBuyOnGoogleProgramRequest
+//
+
+@implementation GTLRShoppingContent_PauseBuyOnGoogleProgramRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_PickupCarrierService
 //
 
@@ -4190,8 +4213,9 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_ProductShipping
-@dynamic country, locationGroupName, locationId, postalCode, price, region,
-         service;
+@dynamic country, locationGroupName, locationId, maxHandlingTime,
+         maxTransitTime, minHandlingTime, minTransitTime, postalCode, price,
+         region, service;
 @end
 
 
@@ -4848,6 +4872,15 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 @implementation GTLRShoppingContent_RepricingRuleStatsBasedRule
 @dynamic percentageDelta, priceDelta;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
+//
+
+@implementation GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
 @end
 
 

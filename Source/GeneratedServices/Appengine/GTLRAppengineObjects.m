@@ -503,6 +503,17 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_GoogleAppengineV1betaLocationMetadata
+//
+
+@implementation GTLRAppengine_GoogleAppengineV1betaLocationMetadata
+@dynamic flexibleEnvironmentAvailable, searchApiAvailable,
+         standardEnvironmentAvailable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_HealthCheck
 //
 

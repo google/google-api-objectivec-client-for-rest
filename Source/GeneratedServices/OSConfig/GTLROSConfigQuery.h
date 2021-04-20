@@ -49,6 +49,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  `google.rpc.Code.UNIMPLEMENTED`.
  *
  *  Method: osconfig.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_OperationsDelete : GTLROSConfigQuery
 
@@ -83,6 +86,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  operations collection id.
  *
  *  Method: osconfig.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
  */
 @interface GTLROSConfigQuery_OperationsList : GTLROSConfigQuery
 

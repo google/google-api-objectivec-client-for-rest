@@ -1287,10 +1287,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3TrainProcessorVersionMetadataDatasetValidation : GTLRObject
 
 /**
+ *  The total number of dataset errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *datasetErrorCount;
+
+/**
  *  Error information for the dataset as a whole. A maximum of 10 dataset errors
  *  will be returned. A single dataset error is terminal for training.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleRpcStatus *> *datasetErrors;
+
+/**
+ *  The total number of document errors.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *documentErrorCount;
 
 /**
  *  Error information pertaining to specific documents. A maximum of 10 document

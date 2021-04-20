@@ -1254,6 +1254,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The package being analysed for vulnerabilities */
 @property(nonatomic, copy, nullable) NSString *package;
 
+@property(nonatomic, copy, nullable) NSString *unused;
+
 /** The version of the package being analysed */
 @property(nonatomic, copy, nullable) NSString *version;
 

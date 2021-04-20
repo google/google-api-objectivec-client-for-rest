@@ -231,6 +231,7 @@ NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAd = @
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroup = @"FILTER_TRUEVIEW_AD_GROUP";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupAdId = @"FILTER_TRUEVIEW_AD_GROUP_AD_ID";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdGroupId = @"FILTER_TRUEVIEW_AD_GROUP_ID";
+NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAdTypeName = @"FILTER_TRUEVIEW_AD_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewAge = @"FILTER_TRUEVIEW_AGE";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCategory = @"FILTER_TRUEVIEW_CATEGORY";
 NSString * const kGTLRDoubleClickBidManager_FilterPair_Type_FilterTrueviewCity = @"FILTER_TRUEVIEW_CITY";
@@ -497,6 +498,7 @@ NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAd
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroup = @"FILTER_TRUEVIEW_AD_GROUP";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupAdId = @"FILTER_TRUEVIEW_AD_GROUP_AD_ID";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdGroupId = @"FILTER_TRUEVIEW_AD_GROUP_ID";
+NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAdTypeName = @"FILTER_TRUEVIEW_AD_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewAge = @"FILTER_TRUEVIEW_AGE";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCategory = @"FILTER_TRUEVIEW_CATEGORY";
 NSString * const kGTLRDoubleClickBidManager_Parameters_GroupBys_FilterTrueviewCity = @"FILTER_TRUEVIEW_CITY";
@@ -1261,6 +1263,7 @@ NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_Filter
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroup = @"FILTER_TRUEVIEW_AD_GROUP";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupAdId = @"FILTER_TRUEVIEW_AD_GROUP_AD_ID";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdGroupId = @"FILTER_TRUEVIEW_AD_GROUP_ID";
+NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAdTypeName = @"FILTER_TRUEVIEW_AD_TYPE_NAME";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewAge = @"FILTER_TRUEVIEW_AGE";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCategory = @"FILTER_TRUEVIEW_CATEGORY";
 NSString * const kGTLRDoubleClickBidManager_PathQueryOptionsFilter_Filter_FilterTrueviewCity = @"FILTER_TRUEVIEW_CITY";

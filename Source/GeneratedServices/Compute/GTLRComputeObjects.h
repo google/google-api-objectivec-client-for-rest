@@ -11992,6 +11992,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  */
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
+/**
+ *  The number of threads per physical core. To disable simultaneous
+ *  multithreading (SMT) set this to 1. If unset, the maximum number of threads
+ *  supported per core by the underlying processor is assumed.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threadsPerCore;
+
 @end
 
 

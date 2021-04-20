@@ -5247,7 +5247,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  policy, the temporary network will be forgotten and the device will continue
  *  booting. This prevents being unable to connect to a network if there is no
  *  suitable network in the last policy and the device boots into an app in lock
- *  task mode, or the user is otherwise unable to reach device settings.
+ *  task mode, or the user is otherwise unable to reach device settings.Note:
+ *  Setting wifiConfigDisabled to true will override this setting under specific
+ *  circumstances. Please see wifiConfigDisabled for further details.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5516,7 +5518,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *vpnConfigDisabled;
 
 /**
- *  Whether configuring Wi-Fi access points is disabled.
+ *  Whether configuring Wi-Fi access points is disabled.Note: If a network
+ *  connection can't be made at boot time and configuring Wi-Fi is disabled then
+ *  network escape hatch will be shown in order to refresh the device policy
+ *  (see networkEscapeHatchEnabled).
  *
  *  Uses NSNumber of boolValue.
  */

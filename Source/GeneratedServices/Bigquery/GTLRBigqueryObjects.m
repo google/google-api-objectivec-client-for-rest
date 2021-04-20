@@ -68,6 +68,7 @@ NSString * const kGTLRBigquery_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG
 
 // GTLRBigquery_Model.modelType
 NSString * const kGTLRBigquery_Model_ModelType_Arima           = @"ARIMA";
+NSString * const kGTLRBigquery_Model_ModelType_ArimaPlus       = @"ARIMA_PLUS";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlClassifier = @"AUTOML_CLASSIFIER";
 NSString * const kGTLRBigquery_Model_ModelType_AutomlRegressor = @"AUTOML_REGRESSOR";
 NSString * const kGTLRBigquery_Model_ModelType_BoostedTreeClassifier = @"BOOSTED_TREE_CLASSIFIER";
@@ -108,6 +109,7 @@ NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Float64 = @"FLOAT64"
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Geography = @"GEOGRAPHY";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Int64 = @"INT64";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Interval = @"INTERVAL";
+NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Json = @"JSON";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Numeric = @"NUMERIC";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_String = @"STRING";
 NSString * const kGTLRBigquery_StandardSqlDataType_TypeKind_Struct = @"STRUCT";
@@ -316,12 +318,14 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ArimaModelInfo
-@dynamic arimaCoefficients, arimaFittingMetrics, hasDrift, nonSeasonalOrder,
-         seasonalPeriods, timeSeriesId;
+@dynamic arimaCoefficients, arimaFittingMetrics, hasDrift, hasHolidayEffect,
+         hasSpikesAndDips, hasStepChanges, nonSeasonalOrder, seasonalPeriods,
+         timeSeriesId, timeSeriesIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"seasonalPeriods" : [NSString class]
+    @"seasonalPeriods" : [NSString class],
+    @"timeSeriesIds" : [NSString class]
   };
   return map;
 }
@@ -364,12 +368,14 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ArimaSingleModelForecastingMetrics
-@dynamic arimaFittingMetrics, hasDrift, nonSeasonalOrder, seasonalPeriods,
-         timeSeriesId;
+@dynamic arimaFittingMetrics, hasDrift, hasHolidayEffect, hasSpikesAndDips,
+         hasStepChanges, nonSeasonalOrder, seasonalPeriods, timeSeriesId,
+         timeSeriesIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"seasonalPeriods" : [NSString class]
+    @"seasonalPeriods" : [NSString class],
+    @"timeSeriesIds" : [NSString class]
   };
   return map;
 }
@@ -872,16 +878,6 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigquery_DimensionalityReductionMetrics
-//
-
-@implementation GTLRBigquery_DimensionalityReductionMetrics
-@dynamic totalExplainedVarianceRatio;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRBigquery_EncryptionConfiguration
 //
 
@@ -917,8 +913,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_EvaluationMetrics
 @dynamic arimaForecastingMetrics, binaryClassificationMetrics,
-         clusteringMetrics, dimensionalityReductionMetrics,
-         multiClassClassificationMetrics, rankingMetrics, regressionMetrics;
+         clusteringMetrics, multiClassClassificationMetrics, rankingMetrics,
+         regressionMetrics;
 @end
 
 
@@ -1129,12 +1125,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_IterationResult
 @dynamic arimaResult, clusterInfos, durationMs, evalLoss, index, learnRate,
-         principalComponentInfos, trainingLoss;
+         trainingLoss;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"clusterInfos" : [GTLRBigquery_ClusterInfo class],
-    @"principalComponentInfos" : [GTLRBigquery_PrincipalComponentInfo class]
+    @"clusterInfos" : [GTLRBigquery_ClusterInfo class]
   };
   return map;
 }
@@ -1741,17 +1736,6 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_PrincipalComponentInfo
-//
-
-@implementation GTLRBigquery_PrincipalComponentInfo
-@dynamic cumulativeExplainedVarianceRatio, explainedVariance,
-         explainedVarianceRatio, principalComponentId;
 @end
 
 
@@ -2567,22 +2551,25 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TrainingOptions
-@dynamic autoArima, autoArimaMaxOrder, batchSize, dataFrequency,
-         dataSplitColumn, dataSplitEvalFraction, dataSplitMethod, distanceType,
-         dropout, earlyStop, feedbackType, hiddenUnits, holidayRegion, horizon,
-         includeDrift, initialLearnRate, inputLabelColumns, itemColumn,
-         kmeansInitializationColumn, kmeansInitializationMethod,
-         l1Regularization, l2Regularization, labelClassWeights, learnRate,
-         learnRateStrategy, lossType, maxIterations, maxTreeDepth,
-         minRelativeProgress, minSplitLoss, modelUri, nonSeasonalOrder,
-         numClusters, numFactors, optimizationStrategy, preserveInputStructs,
-         subsample, timeSeriesDataColumn, timeSeriesIdColumn,
+@dynamic adjustStepChanges, autoArima, autoArimaMaxOrder, batchSize,
+         cleanSpikesAndDips, dataFrequency, dataSplitColumn,
+         dataSplitEvalFraction, dataSplitMethod, decomposeTimeSeries,
+         distanceType, dropout, earlyStop, feedbackType, hiddenUnits,
+         holidayRegion, horizon, includeDrift, initialLearnRate,
+         inputLabelColumns, itemColumn, kmeansInitializationColumn,
+         kmeansInitializationMethod, l1Regularization, l2Regularization,
+         labelClassWeights, learnRate, learnRateStrategy, lossType,
+         maxIterations, maxTreeDepth, minRelativeProgress, minSplitLoss,
+         modelUri, nonSeasonalOrder, numClusters, numFactors,
+         optimizationStrategy, preserveInputStructs, subsample,
+         timeSeriesDataColumn, timeSeriesIdColumn, timeSeriesIdColumns,
          timeSeriesTimestampColumn, userColumn, walsAlpha, warmStart;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"hiddenUnits" : [NSNumber class],
-    @"inputLabelColumns" : [NSString class]
+    @"inputLabelColumns" : [NSString class],
+    @"timeSeriesIdColumns" : [NSString class]
   };
   return map;
 }

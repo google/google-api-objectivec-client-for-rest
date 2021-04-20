@@ -2163,9 +2163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaConfig *schemaConfig;
 
 /**
- *  Determines whether existing tables in the destination dataset are
- *  overwritten or appended to. If a write_disposition is specified, the `force`
- *  parameter is ignored.
+ *  Determines if existing data in the destination dataset is overwritten,
+ *  appended to, or not written if the tables contain data. If a
+ *  write_disposition is specified, the `force` parameter is ignored.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination_WriteDisposition_WriteAppend

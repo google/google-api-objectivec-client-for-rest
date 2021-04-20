@@ -215,8 +215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Typ
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_GooglePlus;
 /** Value: "twitter" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter;
-/** Value: "typeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified;
+/** Value: "unspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRYouTube_ActivitySnippet.type
@@ -355,8 +355,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Style_Vert
 
 /** Value: "allPlaylists" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists;
-/** Value: "channelsectionTypeUnspecified" */
-FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified;
+/** Value: "channelsectionTypeUndefined" */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined;
 /** Value: "completedEvents" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents;
 /** Value: "likedPlaylists" */
@@ -4857,8 +4857,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *        "googlePlus"
  *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_Twitter Value
  *        "twitter"
- *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_TypeUnspecified
- *        Value "typeUnspecified"
+ *    @arg @c kGTLRYouTube_ActivityContentDetailsSocial_Type_Unspecified Value
+ *        "unspecified"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5788,8 +5788,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *  Likely values:
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_AllPlaylists Value
  *        "allPlaylists"
- *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUnspecified
- *        Value "channelsectionTypeUnspecified"
+ *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_ChannelsectionTypeUndefined
+ *        Value "channelsectionTypeUndefined"
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_CompletedEvents Value
  *        "completedEvents"
  *    @arg @c kGTLRYouTube_ChannelSectionSnippet_Type_LikedPlaylists Value
@@ -8657,10 +8657,10 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *publishedAt;
 
-/** The date and time that the broadcast is scheduled to start. */
+/** The date and time that the broadcast is scheduled to end. */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledEndTime;
 
-/** The date and time that the broadcast is scheduled to end. */
+/** The date and time that the broadcast is scheduled to start. */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduledStartTime;
 
 /**
@@ -11966,6 +11966,40 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 
 /**
+ *  GTLRYouTube_VideoGetRatingResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRYouTube_VideoGetRatingResponse : GTLRCollectionObject
+
+/** Etag of this resource. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Serialized EventId of the request which produced this response. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/**
+ *  A list of ratings that match the request criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
+
+/**
+ *  Identifies what kind of resource this is. Value: the fixed string
+ *  "youtube#videoGetRatingResponse".
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** The visitorId identifies the visitor. */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
  *  GTLRYouTube_VideoListResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -12283,40 +12317,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 
 /** The ID that YouTube uses to uniquely identify the video. */
 @property(nonatomic, copy, nullable) NSString *videoId;
-
-@end
-
-
-/**
- *  GTLRYouTube_VideoRatingListResponse
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRYouTube_VideoRatingListResponse : GTLRCollectionObject
-
-/** Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** Serialized EventId of the request which produced this response. */
-@property(nonatomic, copy, nullable) NSString *eventId;
-
-/**
- *  A list of ratings that match the request criteria.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoRating *> *items;
-
-/**
- *  Identifies what kind of resource this is. Value: the fixed string
- *  "youtube#videoGetRatingResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/** The visitorId identifies the visitor. */
-@property(nonatomic, copy, nullable) NSString *visitorId;
 
 @end
 

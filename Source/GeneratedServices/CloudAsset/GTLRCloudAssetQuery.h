@@ -316,6 +316,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *analysisQueryAccessSelectorRoles;
 
 /**
+ *  The hypothetical access timestamp to evaluate IAM conditions. Note that this
+ *  value must not be earlier than the current time; otherwise, an
+ *  INVALID_ARGUMENT error will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *analysisQueryConditionContextAccessTime;
+
+/**
  *  Required. The identity appear in the form of members in [IAM policy
  *  binding](https://cloud.google.com/iam/reference/rest/v1/Binding). The
  *  examples of supported forms are: "user:mike\@example.com",

@@ -33,6 +33,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Deleting = @"D
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_PerformingMaintenance = @"PERFORMING_MAINTENANCE";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Ready = @"READY";
 NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudMemorystoreforMemcached_Instance_State_Updating = @"UPDATING";
 
 // GTLRCloudMemorystoreforMemcached_InstanceMessage.code
 NSString * const kGTLRCloudMemorystoreforMemcached_InstanceMessage_Code_CodeUnspecified = @"CODE_UNSPECIFIED";

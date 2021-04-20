@@ -1033,12 +1033,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  `Authentication` defines the authentication configuration for an API.
- *  Example for an API targeted for external use: name: calendar.googleapis.com
+ *  `Authentication` defines the authentication configuration for API methods
+ *  provided by an API service. Example: name: calendar.googleapis.com
  *  authentication: providers: - id: google_calendar_auth jwks_uri:
  *  https://www.googleapis.com/oauth2/v1/certs issuer:
  *  https://securetoken.google.com rules: - selector: "*" requirements:
- *  provider_id: google_calendar_auth
+ *  provider_id: google_calendar_auth - selector: google.calendar.Delegate
+ *  oauth: canonical_scopes: https://www.googleapis.com/auth/calendar.read
  */
 @interface GTLRServiceManagement_Authentication : GTLRObject
 
@@ -1871,13 +1872,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  library-example.googleapis.com allow_cors: true
  */
 @interface GTLRServiceManagement_Endpoint : GTLRObject
-
-/**
- *  DEPRECATED: This field is no longer supported. Instead of using aliases,
- *  please specify multiple google.api.Endpoint for each of the intended
- *  aliases. Additional names that this endpoint will be hosted on.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**
  *  Allowing

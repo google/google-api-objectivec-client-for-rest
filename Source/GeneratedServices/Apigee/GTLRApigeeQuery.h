@@ -39,9 +39,11 @@
 @class GTLRApigee_GoogleCloudApigeeV1Developer;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperApp;
 @class GTLRApigee_GoogleCloudApigeeV1DeveloperAppKey;
+@class GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1Environment;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup;
 @class GTLRApigee_GoogleCloudApigeeV1EnvironmentGroupAttachment;
+@class GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest;
 @class GTLRApigee_GoogleCloudApigeeV1ExportRequest;
 @class GTLRApigee_GoogleCloudApigeeV1FlowHook;
 @class GTLRApigee_GoogleCloudApigeeV1GetSyncAuthorizationRequest;
@@ -53,8 +55,10 @@
 @class GTLRApigee_GoogleCloudApigeeV1Organization;
 @class GTLRApigee_GoogleCloudApigeeV1ProvisionOrganizationRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Query;
+@class GTLRApigee_GoogleCloudApigeeV1RatePlan;
 @class GTLRApigee_GoogleCloudApigeeV1Reference;
 @class GTLRApigee_GoogleCloudApigeeV1ReportInstanceStatusRequest;
+@class GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest;
 @class GTLRApigee_GoogleCloudApigeeV1Subscription;
 @class GTLRApigee_GoogleCloudApigeeV1SyncAuthorization;
 @class GTLRApigee_GoogleCloudApigeeV1TargetServer;
@@ -72,6 +76,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// state
+
+/**
+ *  Rate plan is in draft mode and only visible to API providers.
+ *
+ *  Value: "DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStateDraft;
+/**
+ *  Rate plan is published and will become visible to developers for the
+ *  configured duration (between `startTime` and `endTime`).
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStatePublished;
+/**
+ *  State of the rate plan is not specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeStateStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // view
@@ -739,6 +766,230 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsApiproductsList
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Create a rate plan that is associated with an API product in an
+ *  organization. Using rate plans, API product owners can monetize their API
+ *  products by configuring one or more of the following: - Billing frequency -
+ *  Initial setup fees for using an API product - Payment funding model
+ *  (postpaid only) - Fixed recurring or consumption-based charges for using an
+ *  API product - Revenue sharing with developer partners An API product can
+ *  have multiple rate plans associated with it but *only one* rate plan can be
+ *  active at any point of time. **Note: From the developer's perspective, they
+ *  purchase API products not rate plans.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product that is associated with the rate plan. Use
+ *  the following structure in your request:
+ *  `organizations/{org}/apiproducts/{apiproduct}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Create a rate plan that is associated with an API product in an
+ *  organization. Using rate plans, API product owners can monetize their API
+ *  products by configuring one or more of the following: - Billing frequency -
+ *  Initial setup fees for using an API product - Payment funding model
+ *  (postpaid only) - Fixed recurring or consumption-based charges for using an
+ *  API product - Revenue sharing with developer partners An API product can
+ *  have multiple rate plans associated with it but *only one* rate plan can be
+ *  active at any point of time. **Note: From the developer's perspective, they
+ *  purchase API products not rate plans.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1RatePlan to include in
+ *    the query.
+ *  @param parent Required. Name of the API product that is associated with the
+ *    rate plan. Use the following structure in your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete : GTLRApigeeQuery
+
+/**
+ *  Required. ID of the rate plan. Use the following structure in your request:
+ *  `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Deletes a rate plan.
+ *
+ *  @param name Required. ID of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the rate plan. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Gets the details of a rate plan.
+ *
+ *  @param name Required. Name of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the rate plans for an API product.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansList : GTLRApigeeQuery
+
+/**
+ *  Number of rate plans to return in the API call. Use with the `startKey`
+ *  parameter to provide more targeted filtering. The maximum limit is 1000.
+ *  Defaults to 100.
+ */
+@property(nonatomic, assign) NSInteger count;
+
+/**
+ *  Flag that specifies whether to expand the results. Set to `true` to get
+ *  expanded details about each API. Defaults to `false`.
+ */
+@property(nonatomic, assign) BOOL expand;
+
+/**
+ *  Name of the attribute used for sorting. Valid values include: * `name`: Name
+ *  of the rate plan. * `state`: State of the rate plan (`DRAFT`, `PUBLISHED`).
+ *  * `startTime`: Time when the rate plan becomes active. * `endTime`: Time
+ *  when the rate plan expires. **Note**: Not supported by Apigee at this time.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Required. Name of the API product. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}` Use
+ *  `organizations/{org}/apiproducts/-` to return rate plans for all API
+ *  products within the organization.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Name of the rate plan from which to start displaying the list of rate plans.
+ *  If omitted, the list starts from the first item. For example, to view the
+ *  rate plans from 51-150, set the value of `startKey` to the name of the 51st
+ *  rate plan and set the value of `count` to 100.
+ */
+@property(nonatomic, copy, nullable) NSString *startKey;
+
+/**
+ *  State of the rate plans (`DRAFT`, `PUBLISHED`) that you want to display.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeStateStateUnspecified State of the rate plan is not
+ *        specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeStateDraft Rate plan is in draft mode and only visible
+ *        to API providers. (Value: "DRAFT")
+ *    @arg @c kGTLRApigeeStatePublished Rate plan is published and will become
+ *        visible to developers for the configured duration (between `startTime`
+ *        and `endTime`). (Value: "PUBLISHED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse.
+ *
+ *  Lists all the rate plans for an API product.
+ *
+ *  @param parent Required. Name of the API product. Use the following structure
+ *    in your request: `organizations/{org}/apiproducts/{apiproduct}` Use
+ *    `organizations/{org}/apiproducts/-` to return rate plans for all API
+ *    products within the organization.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing rate plan.
+ *
+ *  Method: apigee.organizations.apiproducts.rateplans.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the rate plan. Use the following structure in your
+ *  request: `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1RatePlan.
+ *
+ *  Updates an existing rate plan.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1RatePlan to include in
+ *    the query.
+ *  @param name Required. Name of the rate plan. Use the following structure in
+ *    your request:
+ *    `organizations/{org}/apiproducts/{apiproduct}/rateplans/{rateplan}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApiproductsRateplansUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1RatePlan *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2896,6 +3147,157 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a subscription to an API product.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Email address of the developer that is purchasing a subscription
+ *  to the API product. Use the following structure in your request:
+ *  `organizations/{org}/developers/{developer_email}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Creates a subscription to an API product.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription to
+ *    include in the query.
+ *  @param parent Required. Email address of the developer that is purchasing a
+ *    subscription to the API product. Use the following structure in your
+ *    request: `organizations/{org}/developers/{developer_email}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Expires an API product subscription immediately.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.expire
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product subscription. Use the following structure
+ *  in your request:
+ *  `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Expires an API product subscription immediately.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest to
+ *    include in the query.
+ *  @param name Required. Name of the API product subscription. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsExpire
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details for an API product subscription.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product subscription. Use the following structure
+ *  in your request:
+ *  `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription.
+ *
+ *  Gets details for an API product subscription.
+ *
+ *  @param name Required. Name of the API product subscription. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/developers/{developer_email}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all API product subscriptions for a developer.
+ *
+ *  Method: apigee.organizations.developers.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList : GTLRApigeeQuery
+
+/**
+ *  Number of API product subscriptions to return in the API call. Use with
+ *  `startKey` to provide more targeted filtering. Defaults to 100. The maximum
+ *  limit is 1000.
+ */
+@property(nonatomic, assign) NSInteger count;
+
+/**
+ *  Required. Email address of the developer. Use the following structure in
+ *  your request: `organizations/{org}/developers/{developer_email}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Name of the API product subscription from which to start displaying the list
+ *  of subscriptions. If omitted, the list starts from the first item. For
+ *  example, to view the API product subscriptions from 51-150, set the value of
+ *  `startKey` to the name of the 51st subscription and set the value of `count`
+ *  to 100.
+ */
+@property(nonatomic, copy, nullable) NSString *startKey;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse.
+ *
+ *  Lists all API product subscriptions for a developer.
+ *
+ *  @param parent Required. Email address of the developer. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/developers/{developer_email}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsDevelopersSubscriptionsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -7083,6 +7485,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsInstancesCreate : GTLRApigeeQuery
 
 /**
+ *  Optional. List of environments that will be attached to the instance during
+ *  creation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
+/**
  *  Required. Name of the organization. Use the following structure in your
  *  request: `organizations/{org}`.
  */
@@ -7899,6 +8307,41 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CustomReport *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Configures the add-ons for the Apigee organization. The existing add-on
+ *  configuration will be fully replaced.
+ *
+ *  Method: apigee.organizations.setAddons
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsSetAddons : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the organization. Use the following structure in your
+ *  request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *org;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Configures the add-ons for the Apigee organization. The existing add-on
+ *  configuration will be fully replaced.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest to
+ *    include in the query.
+ *  @param org Required. Name of the organization. Use the following structure
+ *    in your request: `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsSetAddons
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest *)object
+                            org:(NSString *)org;
 
 @end
 

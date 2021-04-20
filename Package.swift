@@ -52,12 +52,12 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AdMob"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_AdSense",
-            targets: ["GoogleAPIClientForREST_AdSense"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_AdSenseHost",
             targets: ["GoogleAPIClientForREST_AdSenseHost"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Adsense",
+            targets: ["GoogleAPIClientForREST_Adsense"]
         ),
         .library(
             name: "GoogleAPIClientForREST_AlertCenter",
@@ -580,6 +580,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessAccountManagement"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessLodging",
+            targets: ["GoogleAPIClientForREST_MyBusinessLodging"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_NetworkManagement",
             targets: ["GoogleAPIClientForREST_NetworkManagement"]
         ),
@@ -954,15 +958,15 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
-            name: "GoogleAPIClientForREST_AdSense",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Source/GeneratedServices/AdSense",
-            publicHeadersPath: "."
-        ),
-        .target(
             name: "GoogleAPIClientForREST_AdSenseHost",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/AdSenseHost",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Adsense",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Adsense",
             publicHeadersPath: "."
         ),
         .target(
@@ -1743,6 +1747,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_MyBusinessAccountManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessAccountManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_MyBusinessLodging",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessLodging",
             publicHeadersPath: "."
         ),
         .target(

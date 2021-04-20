@@ -1661,6 +1661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *sourceUpdateTime;
 
+/** The name of the vendor of the product. */
+@property(nonatomic, copy, nullable) NSString *vendor;
+
 @end
 
 

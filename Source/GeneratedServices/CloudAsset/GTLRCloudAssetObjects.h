@@ -26,6 +26,8 @@
 @class GTLRCloudAsset_AuditLogConfig;
 @class GTLRCloudAsset_BigQueryDestination;
 @class GTLRCloudAsset_Binding;
+@class GTLRCloudAsset_ConditionContext;
+@class GTLRCloudAsset_ConditionEvaluation;
 @class GTLRCloudAsset_Explanation;
 @class GTLRCloudAsset_Explanation_MatchedPermissions;
 @class GTLRCloudAsset_Expr;
@@ -141,6 +143,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_DataWr
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAsset_ConditionEvaluation.evaluationValue
+
+/**
+ *  The evaluation result is `conditional` when the condition expression
+ *  contains variables that are either missing input values or have not been
+ *  supported by Analyzer yet.
+ *
+ *  Value: "CONDITIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_Conditional;
+/**
+ *  Reserved for future use.
+ *
+ *  Value: "EVALUATION_VALUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_EvaluationValueUnspecified;
+/**
+ *  The evaluation result is `false`.
+ *
+ *  Value: "FALSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_False;
+/**
+ *  The evaluation result is `true`.
+ *
+ *  Value: "TRUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_True;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAsset_ExportAssetsRequest.contentType
@@ -1102,6 +1134,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  The IAM conditions context.
+ */
+@interface GTLRCloudAsset_ConditionContext : GTLRObject
+
+/**
+ *  The hypothetical access timestamp to evaluate IAM conditions. Note that this
+ *  value must not be earlier than the current time; otherwise, an
+ *  INVALID_ARGUMENT error will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *accessTime;
+
+@end
+
+
+/**
+ *  The Condition evaluation.
+ */
+@interface GTLRCloudAsset_ConditionEvaluation : GTLRObject
+
+/**
+ *  The evaluation result.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_Conditional
+ *        The evaluation result is `conditional` when the condition expression
+ *        contains variables that are either missing input values or have not
+ *        been supported by Analyzer yet. (Value: "CONDITIONAL")
+ *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_EvaluationValueUnspecified
+ *        Reserved for future use. (Value: "EVALUATION_VALUE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_False The
+ *        evaluation result is `false`. (Value: "FALSE")
+ *    @arg @c kGTLRCloudAsset_ConditionEvaluation_EvaluationValue_True The
+ *        evaluation result is `true`. (Value: "TRUE")
+ */
+@property(nonatomic, copy, nullable) NSString *evaluationValue;
+
+@end
+
+
+/**
  *  Create asset feed request.
  */
 @interface GTLRCloudAsset_CreateFeedRequest : GTLRObject
@@ -1441,6 +1513,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  specifiers reachable from the policy binding's role.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleCloudAssetV1Access *> *accesses;
+
+/**
+ *  Condition evaluation for this AccessControlList, if there is a condition
+ *  defined in the above IAM policy binding.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ConditionEvaluation *conditionEvaluation;
 
 /**
  *  Resource edges of the graph starting from the policy attached resource to
@@ -2846,6 +2924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Optional. Specifies roles or permissions for analysis. This is optional.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_AccessSelector *accessSelector;
+
+/** Optional. The hypothetical context for IAM conditions evaluation. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_ConditionContext *conditionContext;
 
 /** Optional. Specifies an identity for analysis. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_IdentitySelector *identitySelector;

@@ -75,7 +75,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnsp
 // GTLRApigee_GoogleCloudApigeeV1Instance.peeringCidrRange
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified = @"CIDR_RANGE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash16 = @"SLASH_16";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash17 = @"SLASH_17";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash18 = @"SLASH_18";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash19 = @"SLASH_19";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20 = @"SLASH_20";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23 = @"SLASH_23";
 
 // GTLRApigee_GoogleCloudApigeeV1Instance.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Active = @"ACTIVE";
@@ -101,6 +105,12 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_Finished
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_InProgress = @"IN_PROGRESS";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_NotStarted = @"NOT_STARTED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_Finished = @"FINISHED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_NotStarted = @"NOT_STARTED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1Organization.billingType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_BillingType_BillingTypeUnspecified = @"BILLING_TYPE_UNSPECIFIED";
@@ -128,6 +138,33 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeInternal =
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypePaid = @"TYPE_PAID";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeTrial = @"TYPE_TRIAL";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.billingPeriod
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_BillingPeriodUnspecified = @"BILLING_PERIOD_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Monthly = @"MONTHLY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_BillingPeriod_Weekly = @"WEEKLY";
+
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.consumptionPricingType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Banded = @"BANDED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_ConsumptionPricingTypeUnspecified = @"CONSUMPTION_PRICING_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_FixedPerUnit = @"FIXED_PER_UNIT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Stairstep = @"STAIRSTEP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_ConsumptionPricingType_Tiered = @"TIERED";
+
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.paymentFundingModel
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_PaymentFundingModelUnspecified = @"PAYMENT_FUNDING_MODEL_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Postpaid = @"POSTPAID";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_PaymentFundingModel_Prepaid = @"PREPAID";
+
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.revenueShareType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_Fixed = @"FIXED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_RevenueShareTypeUnspecified = @"REVENUE_SHARE_TYPE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_RevenueShareType_VolumeBanded = @"VOLUME_BANDED";
+
+// GTLRApigee_GoogleCloudApigeeV1RatePlan.state
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Draft = @"DRAFT";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_Published = @"PUBLISHED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.exporter
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
@@ -252,6 +289,26 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ActivateNatAddressRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1AddonsConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AddonsConfig
+@dynamic advancedApiOpsConfig, integrationConfig, monetizationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1AdvancedApiOpsConfig
+@dynamic enabled;
 @end
 
 
@@ -968,6 +1025,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription
+@dynamic apiproduct, createdAt, endTime, lastModifiedAt, name, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1DimensionMetric
 //
 
@@ -1094,6 +1161,15 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ExpireDeveloperSubscriptionRequest
 @end
 
 
@@ -1302,6 +1378,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute
 @dynamic basepath, envgroup, environment, percentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
+@dynamic enabled;
 @end
 
 
@@ -1569,6 +1655,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListDeveloperSubscriptionsResponse
+@dynamic developerSubscriptions, nextStartKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"developerSubscriptions" : [GTLRApigee_GoogleCloudApigeeV1DeveloperSubscription class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListEnvironmentGroupAttachmentsResponse
 //
 
@@ -1769,6 +1873,24 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ListRatePlansResponse
+@dynamic nextStartKey, ratePlans;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ratePlans" : [GTLRApigee_GoogleCloudApigeeV1RatePlan class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1ListSharedFlowsResponse
 //
 
@@ -1846,6 +1968,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1MonetizationConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MonetizationConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1NatAddress
 //
 
@@ -1915,7 +2047,36 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1OperationMetadata
-@dynamic operationType, state, targetResourceName;
+@dynamic operationType, progress, state, targetResourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress
+@dynamic descriptionProperty, details, percentDone, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_Details
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1OperationMetadataProgress_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1971,11 +2132,12 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Organization
-@dynamic analyticsRegion, attributes, authorizedNetwork, billingType,
-         caCertificate, createdAt, customerName, descriptionProperty,
-         displayName, environments, expiresAt, lastModifiedAt, name, projectId,
-         properties, runtimeDatabaseEncryptionKeyName, runtimeType, state,
-         subscriptionType, type;
+@dynamic addonsConfig, analyticsRegion, attributes, authorizedNetwork,
+         billingType, caCertificate, createdAt, customerName,
+         descriptionProperty, displayName, environments, expiresAt,
+         lastModifiedAt, name, projectId, properties,
+         runtimeDatabaseEncryptionKeyName, runtimeType, state, subscriptionType,
+         type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2148,6 +2310,43 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1RatePlan
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RatePlan
+@dynamic apiproduct, billingPeriod, consumptionPricingRates,
+         consumptionPricingType, createdAt, currencyCode, descriptionProperty,
+         displayName, endTime, fixedFeeFrequency, fixedRecurringFee,
+         lastModifiedAt, name, paymentFundingModel, revenueShareRates,
+         revenueShareType, setupFee, startTime, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumptionPricingRates" : [GTLRApigee_GoogleCloudApigeeV1RateRange class],
+    @"revenueShareRates" : [GTLRApigee_GoogleCloudApigeeV1RevenueShareRange class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RateRange
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RateRange
+@dynamic end, fee, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1Reference
 //
 
@@ -2294,6 +2493,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1RevenueShareRange
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RevenueShareRange
+@dynamic end, sharePercentage, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1RevisionStatus
 //
 
@@ -2429,6 +2638,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1SetAddonsRequest
+@dynamic addonsConfig;
 @end
 
 
@@ -2974,4 +3193,14 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleTypeMoney
+//
+
+@implementation GTLRApigee_GoogleTypeMoney
+@dynamic currencyCode, nanos, units;
 @end

@@ -418,7 +418,8 @@ NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_UpdateFunction = @
 //
 
 @implementation GTLRCloudFunctions_OperationMetadataV1
-@dynamic buildId, request, sourceToken, target, type, updateTime, versionId;
+@dynamic buildId, buildName, request, sourceToken, target, type, updateTime,
+         versionId;
 @end
 
 

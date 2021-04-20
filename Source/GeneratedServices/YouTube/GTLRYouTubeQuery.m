@@ -2111,7 +2111,7 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                                HTTPMethod:nil
                        pathParameterNames:nil];
   query.identifier = identifier;
-  query.expectedObjectClass = [GTLRYouTube_VideoRatingListResponse class];
+  query.expectedObjectClass = [GTLRYouTube_VideoGetRatingResponse class];
   query.loggingName = @"youtube.videos.getRating";
   return query;
 }

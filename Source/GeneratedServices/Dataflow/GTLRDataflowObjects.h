@@ -3032,6 +3032,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
 
 /**
+ *  The Cloud Storage path for staging local files. Must be a valid Cloud
+ *  Storage URL, beginning with `gs://`.
+ */
+@property(nonatomic, copy, nullable) NSString *stagingLocation;
+
+/**
  *  Subnetwork to which VMs will be assigned, if desired. You can specify a
  *  subnetwork using either a complete URL or an abbreviated path. Expected to
  *  be of the form

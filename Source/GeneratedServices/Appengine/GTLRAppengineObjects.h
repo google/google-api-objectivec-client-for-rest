@@ -1675,6 +1675,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
 
 /**
+ *  Metadata for the given google.cloud.location.Location.
+ */
+@interface GTLRAppengine_GoogleAppengineV1betaLocationMetadata : GTLRObject
+
+/**
+ *  App Engine flexible environment is available in the given
+ *  location.\@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flexibleEnvironmentAvailable;
+
+/**
+ *  Output only. Search API
+ *  (https://cloud.google.com/appengine/docs/standard/python/search) is
+ *  available in the given location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *searchApiAvailable;
+
+/**
+ *  App Engine standard environment is available in the given
+ *  location.\@OutputOnly
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *standardEnvironmentAvailable;
+
+@end
+
+
+/**
  *  Health checking configuration for VM instances. Unhealthy instances are
  *  killed and replaced with new instances. Only applicable for instances in App
  *  Engine flexible environment.

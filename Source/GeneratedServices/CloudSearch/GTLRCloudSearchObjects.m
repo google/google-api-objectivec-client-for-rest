@@ -197,6 +197,16 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_AuditLoggingSettings
+//
+
+@implementation GTLRCloudSearch_AuditLoggingSettings
+@dynamic logAdminReadActions, logDataReadActions, logDataWriteActions, project;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_BooleanOperatorOptions
 //
 
@@ -236,6 +246,24 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"subFilters" : [GTLRCloudSearch_Filter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudSearch_ContextAttribute
+//
+
+@implementation GTLRCloudSearch_ContextAttribute
+@dynamic name, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
   };
   return map;
 }
@@ -295,7 +323,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_CustomerSettings
-@dynamic vpcSettings;
+@dynamic auditLoggingSettings, vpcSettings;
 @end
 
 
@@ -1023,9 +1051,9 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_ItemMetadata
-@dynamic containerName, contentLanguage, createTime, hashProperty, interactions,
-         keywords, mimeType, objectType, searchQualityMetadata,
-         sourceRepositoryUrl, title, updateTime;
+@dynamic containerName, contentLanguage, contextAttributes, createTime,
+         hashProperty, interactions, keywords, mimeType, objectType,
+         searchQualityMetadata, sourceRepositoryUrl, title, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"hashProperty" : @"hash" };
@@ -1033,6 +1061,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contextAttributes" : [GTLRCloudSearch_ContextAttribute class],
     @"interactions" : [GTLRCloudSearch_Interaction class],
     @"keywords" : [NSString class]
   };
@@ -1827,7 +1856,8 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_SearchApplication
 @dynamic dataSourceRestrictions, defaultFacetOptions, defaultSortOptions,
-         displayName, name, operationIds, scoringConfig, sourceConfig;
+         displayName, enableAuditLog, name, operationIds, scoringConfig,
+         sourceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1925,11 +1955,12 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_SearchRequest
-@dynamic dataSourceRestrictions, facetOptions, pageSize, query,
-         queryInterpretationOptions, requestOptions, sortOptions, start;
+@dynamic contextAttributes, dataSourceRestrictions, facetOptions, pageSize,
+         query, queryInterpretationOptions, requestOptions, sortOptions, start;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"contextAttributes" : [GTLRCloudSearch_ContextAttribute class],
     @"dataSourceRestrictions" : [GTLRCloudSearch_DataSourceRestriction class],
     @"facetOptions" : [GTLRCloudSearch_FacetOptions class]
   };

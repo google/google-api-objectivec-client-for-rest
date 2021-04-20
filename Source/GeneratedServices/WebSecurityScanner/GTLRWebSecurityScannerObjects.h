@@ -1145,6 +1145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWebSecurityScanner_Xss_AttackVector_Wind
 @property(nonatomic, copy, nullable) NSString *exportToSecurityCommandCenter;
 
 /**
+ *  Whether to keep scanning even if most requests return HTTP error codes.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreHttpStatusErrors;
+
+/**
  *  Whether the scan config is managed by Web Security Scanner, output only.
  *
  *  Uses NSNumber of boolValue.

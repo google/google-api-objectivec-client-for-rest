@@ -522,7 +522,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_Contai
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_ContentMatcherOptionUnspecified;
 /**
  *  Selects regular-expression matching. The match succeeds of the output
- *  matches the regular expression specified in the content string.
+ *  matches the regular expression specified in the content string. Regex
+ *  matching is only supported for HTTP/HTTPS checks.
  *
  *  Value: "MATCHES_REGEX"
  */
@@ -537,7 +538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ContentMatcher_Matcher_NotCon
 /**
  *  Selects negation of regular-expression matching. The match succeeds if the
  *  output does NOT match the regular expression specified in the content
- *  string.
+ *  string. Regex matching is only supported for HTTP/HTTPS checks.
  *
  *  Value: "NOT_MATCHES_REGEX"
  */
@@ -2349,15 +2350,16 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        CONTAINS_STRING. (Value: "CONTENT_MATCHER_OPTION_UNSPECIFIED")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_MatchesRegex Selects
  *        regular-expression matching. The match succeeds of the output matches
- *        the regular expression specified in the content string. (Value:
- *        "MATCHES_REGEX")
+ *        the regular expression specified in the content string. Regex matching
+ *        is only supported for HTTP/HTTPS checks. (Value: "MATCHES_REGEX")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotContainsString Selects
  *        negation of substring matching. The match succeeds if the output does
  *        NOT contain the content string. (Value: "NOT_CONTAINS_STRING")
  *    @arg @c kGTLRMonitoring_ContentMatcher_Matcher_NotMatchesRegex Selects
  *        negation of regular-expression matching. The match succeeds if the
  *        output does NOT match the regular expression specified in the content
- *        string. (Value: "NOT_MATCHES_REGEX")
+ *        string. Regex matching is only supported for HTTP/HTTPS checks.
+ *        (Value: "NOT_MATCHES_REGEX")
  */
 @property(nonatomic, copy, nullable) NSString *matcher;
 

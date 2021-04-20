@@ -19,6 +19,44 @@
 
 @end
 
+@implementation GTLRAdMobQuery_AccountsAdUnitsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/adUnits";
+  GTLRAdMobQuery_AccountsAdUnitsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdMob_ListAdUnitsResponse class];
+  query.loggingName = @"admob.accounts.adUnits.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAdMobQuery_AccountsAppsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/apps";
+  GTLRAdMobQuery_AccountsAppsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAdMob_ListAppsResponse class];
+  query.loggingName = @"admob.accounts.apps.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAdMobQuery_AccountsGet
 
 @dynamic name;

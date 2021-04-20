@@ -42,6 +42,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List the ad units under the specified AdMob account.
+ *
+ *  Method: admob.accounts.adUnits.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
+ */
+@interface GTLRAdMobQuery_AccountsAdUnitsList : GTLRAdMobQuery
+
+/**
+ *  The maximum number of ad units to return. If unspecified or 0, at most 1000
+ *  ad units will be returned. The maximum value is 10,000; values above 10,000
+ *  will be coerced to 10,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAdUnitsResponse`; indicates that this is
+ *  a continuation of a prior `ListAdUnits` call, and that the system should
+ *  return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the account to list ad units for. Example:
+ *  accounts/pub-9876543210987654
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAdMob_ListAdUnitsResponse.
+ *
+ *  List the ad units under the specified AdMob account.
+ *
+ *  @param parent Required. Resource name of the account to list ad units for.
+ *    Example: accounts/pub-9876543210987654
+ *
+ *  @return GTLRAdMobQuery_AccountsAdUnitsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List the apps under the specified AdMob account.
+ *
+ *  Method: admob.accounts.apps.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdMobReadonly
+ */
+@interface GTLRAdMobQuery_AccountsAppsList : GTLRAdMobQuery
+
+/**
+ *  The maximum number of apps to return. If unspecified or 0, at most 1000 apps
+ *  will be returned. The maximum value is 10,000; values above 10,000 will be
+ *  coerced to 10,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The value returned by the last `ListAppsResponse`; indicates that this is a
+ *  continuation of a prior `ListApps` call, and that the system should return
+ *  the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the account to list apps for. Example:
+ *  accounts/pub-9876543210987654
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAdMob_ListAppsResponse.
+ *
+ *  List the apps under the specified AdMob account.
+ *
+ *  @param parent Required. Resource name of the account to list apps for.
+ *    Example: accounts/pub-9876543210987654
+ *
+ *  @return GTLRAdMobQuery_AccountsAppsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about the specified AdMob publisher account.
  *
  *  Method: admob.accounts.get

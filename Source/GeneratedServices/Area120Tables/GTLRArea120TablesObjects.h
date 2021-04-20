@@ -25,6 +25,7 @@
 @class GTLRArea120Tables_RelationshipDetails;
 @class GTLRArea120Tables_Row;
 @class GTLRArea120Tables_Row_Values;
+@class GTLRArea120Tables_SavedView;
 @class GTLRArea120Tables_Table;
 @class GTLRArea120Tables_UpdateRowRequest;
 @class GTLRArea120Tables_Workspace;
@@ -172,6 +173,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *  relationship column.
  */
 @property(nonatomic, strong, nullable) GTLRArea120Tables_LookupDetails *lookupDetails;
+
+/**
+ *  Optional. Indicates whether or not multiple values are allowed for array
+ *  types where such a restriction is possible.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multipleValuesDisallowed;
 
 /** column name */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -393,7 +402,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
 
 
 /**
- *  A single table.
+ *  A saved view of a table. NextId: 3
+ */
+@interface GTLRArea120Tables_SavedView : GTLRObject
+
+/**
+ *  Internal id associated with the saved view.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Display name of the saved view. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A single table. NextId: 7
  */
 @interface GTLRArea120Tables_Table : GTLRObject
 
@@ -412,6 +439,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArea120Tables_UpdateRowRequest_View_View
  *  The resource name of the table. Table names have the form `tables/{table}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Saved views for this table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArea120Tables_SavedView *> *savedViews;
 
 /**
  *  Time when the table was last updated excluding updates to individual rows

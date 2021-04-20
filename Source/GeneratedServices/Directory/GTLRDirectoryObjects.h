@@ -2955,7 +2955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 
 /**
- *  GTLRDirectory_RoleAssignment
+ *  Defines an assignment of a role.
  */
 @interface GTLRDirectory_RoleAssignment : GTLRObject
 

@@ -157,6 +157,54 @@ NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdMob_AdUnit
+//
+
+@implementation GTLRAdMob_AdUnit
+@dynamic adFormat, adTypes, adUnitId, appId, displayName, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_App
+//
+
+@implementation GTLRAdMob_App
+@dynamic appId, linkedAppInfo, manualAppInfo, name, platform;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_AppLinkedAppInfo
+//
+
+@implementation GTLRAdMob_AppLinkedAppInfo
+@dynamic appStoreId, displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_AppManualAppInfo
+//
+
+@implementation GTLRAdMob_AppManualAppInfo
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdMob_Date
 //
 
@@ -212,6 +260,50 @@ NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified = @"TYPE_UNSPECIF
 
 @implementation GTLRAdMob_GenerateNetworkReportResponse
 @dynamic footer, header, row;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_ListAdUnitsResponse
+//
+
+@implementation GTLRAdMob_ListAdUnitsResponse
+@dynamic adUnits, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adUnits" : [GTLRAdMob_AdUnit class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adUnits";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdMob_ListAppsResponse
+//
+
+@implementation GTLRAdMob_ListAppsResponse
+@dynamic apps, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"apps" : [GTLRAdMob_App class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"apps";
+}
+
 @end
 
 

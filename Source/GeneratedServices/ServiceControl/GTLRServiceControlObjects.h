@@ -717,7 +717,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** The HTTP request method, such as `GET`, `POST`. */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The HTTP URL path. */
+/** The HTTP URL path, excluding the query parameters. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
@@ -1009,7 +1009,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRServiceControl_Response : GTLRObject
 
 /**
- *  The length of time it takes the backend service to fully respond to a
+ *  The amount of time it takes the backend service to fully respond to a
  *  request. Measured from when the destination service starts to send the
  *  request to the backend until when the destination service receives the
  *  complete response from the backend.

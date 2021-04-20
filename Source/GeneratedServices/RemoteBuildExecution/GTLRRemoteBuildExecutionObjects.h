@@ -306,12 +306,32 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelative;
 /**
+ *  Output files or directories were found both relative to the execution root
+ *  directory and relative to the working directory. In addition at least one
+ *  exec-root-relative output file or directory was found outside of the working
+ *  directory such that a working-directory-relative-path would have needed to
+ *  start with a `..`.
+ *
+ *  Value: "LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE_OUTPUT_OUTSIDE_WORKING_DIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelativeOutputOutsideWorkingDir;
+/**
  *  Output files or directories were found relative to the execution root
  *  directory but not relative to the working directory.
  *
  *  Value: "LOCATION_EXEC_ROOT_RELATIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelative;
+/**
+ *  Output files or directories were found relative to the execution root
+ *  directory but not relative to the working directory. In addition at least
+ *  one output file or directory was found outside of the working directory such
+ *  that a working-directory-relative-path would have needed to start with a
+ *  `..`.
+ *
+ *  Value: "LOCATION_EXEC_ROOT_RELATIVE_OUTPUT_OUTSIDE_WORKING_DIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelativeOutputOutsideWorkingDir;
 /**
  *  No output files or directories were found neither relative to the execution
  *  root directory nor relative to the working directory.
@@ -589,6 +609,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "WORKING_DIR_NOT_IN_BASE_DIR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir;
+/**
+ *  Working directory is not relative
+ *
+ *  Value: "WORKING_DIR_NOT_RELATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotRelative;
 
 // ----------------------------------------------------------------------------
 // GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicy.linuxIsolation
@@ -2323,10 +2349,25 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        Output files or directories were found both relative to the execution
  *        root directory and relative to the working directory. (Value:
  *        "LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootAndWorkingDirRelativeOutputOutsideWorkingDir
+ *        Output files or directories were found both relative to the execution
+ *        root directory and relative to the working directory. In addition at
+ *        least one exec-root-relative output file or directory was found
+ *        outside of the working directory such that a
+ *        working-directory-relative-path would have needed to start with a
+ *        `..`. (Value:
+ *        "LOCATION_EXEC_ROOT_AND_WORKING_DIR_RELATIVE_OUTPUT_OUTSIDE_WORKING_DIR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelative
  *        Output files or directories were found relative to the execution root
  *        directory but not relative to the working directory. (Value:
  *        "LOCATION_EXEC_ROOT_RELATIVE")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationExecRootRelativeOutputOutsideWorkingDir
+ *        Output files or directories were found relative to the execution root
+ *        directory but not relative to the working directory. In addition at
+ *        least one output file or directory was found outside of the working
+ *        directory such that a working-directory-relative-path would have
+ *        needed to start with a `..`. (Value:
+ *        "LOCATION_EXEC_ROOT_RELATIVE_OUTPUT_OUTSIDE_WORKING_DIR")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandEvents_OutputLocation_LocationNone
  *        No output files or directories were found neither relative to the
  *        execution root directory nor relative to the working directory.
@@ -2476,6 +2517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotInBaseDir
  *        Working directory is not under the base directory (Value:
  *        "WORKING_DIR_NOT_IN_BASE_DIR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_WorkingDirNotRelative
+ *        Working directory is not relative (Value: "WORKING_DIR_NOT_RELATIVE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
