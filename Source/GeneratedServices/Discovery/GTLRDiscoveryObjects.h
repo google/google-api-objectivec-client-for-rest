@@ -586,6 +586,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSNumber *etagRequired;
 
+/**
+ *  The URI path of this REST method in (RFC 6570) format without level 2
+ *  features ({+var}). Supplementary to the path property.
+ */
+@property(nonatomic, copy, nullable) NSString *flatPath;
+
 /** HTTP method used by this method. */
 @property(nonatomic, copy, nullable) NSString *httpMethod;
 
