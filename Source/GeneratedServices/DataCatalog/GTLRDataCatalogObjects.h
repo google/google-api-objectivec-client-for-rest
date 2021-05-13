@@ -50,6 +50,9 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate_Fields;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ViewSpec;
 @class GTLRDataCatalog_Policy;
 
@@ -611,6 +614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        logical views. (Value: "TABLE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Statistics on the usage level of the resource. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal *usageSignal;
 
 /**
  *  This field indicates the entry's source system that Data Catalog does not
@@ -1605,6 +1611,79 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  update_time are used.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *taxonomyTimestamps;
+
+@end
+
+
+/**
+ *  The set of all usage signals that we store in Data Catalog.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal : GTLRObject
+
+/** The timestamp of the end of the usage statistics duration. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Usage statistics over each of the pre-defined time ranges, supported strings
+ *  for time ranges are {"24H", "7D", "30D"}.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange *usageWithinTimeRange;
+
+@end
+
+
+/**
+ *  Usage statistics over each of the pre-defined time ranges, supported strings
+ *  for time ranges are {"24H", "7D", "30D"}.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange : GTLRObject
+@end
+
+
+/**
+ *  Detailed counts on the entry's usage. Caveats: - Only BigQuery tables have
+ *  usage stats - The usage stats only inlude BigQuery query jobs - The usage
+ *  stats might be underestimated, e.g. wildcard table references are not yet
+ *  counted in usage computation
+ *  https://cloud.google.com/bigquery/docs/querying-wildcard-tables
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats : GTLRObject
+
+/**
+ *  The number of times that the underlying entry was attempted to be used but
+ *  was cancelled by the user.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCancellations;
+
+/**
+ *  The number of times that the underlying entry was successfully used.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCompletions;
+
+/**
+ *  Total time spent (in milliseconds) during uses the resulted in completions.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalExecutionTimeForCompletionsMillis;
+
+/**
+ *  The number of times that the underlying entry was attempted to be used but
+ *  failed.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalFailures;
 
 @end
 

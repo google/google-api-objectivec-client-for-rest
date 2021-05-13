@@ -4630,6 +4630,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *ddlAffectedRowAccessPolicyCount;
 
 /**
+ *  [Output-only] The DDL destination table. Present only for ALTER TABLE RENAME
+ *  TO queries. Note that ddl_target_table is used just for its type
+ *  information.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlDestinationTable;
+
+/**
  *  The DDL operation performed, possibly dependent on the pre-existence of the
  *  DDL target. Possible values (new values might be added in the future):
  *  "CREATE": The query created the DDL target. "SKIP": No-op. Example cases:

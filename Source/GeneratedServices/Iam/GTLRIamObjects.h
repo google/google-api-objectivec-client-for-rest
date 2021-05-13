@@ -231,7 +231,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_LintResult_Severity_Warning;
  */
 FOUNDATION_EXTERN NSString * const kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported;
 /**
- *  Permission is fully supported for custom role use.
+ *  Default state. Permission is fully supported for custom role use.
  *
  *  Value: "SUPPORTED"
  */
@@ -1214,8 +1214,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_NotSupported
  *        Permission is not supported for custom role use. (Value:
  *        "NOT_SUPPORTED")
- *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_Supported Permission
- *        is fully supported for custom role use. (Value: "SUPPORTED")
+ *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_Supported Default
+ *        state. Permission is fully supported for custom role use. (Value:
+ *        "SUPPORTED")
  *    @arg @c kGTLRIam_Permission_CustomRolesSupportLevel_Testing Permission is
  *        being tested to check custom role compatibility. (Value: "TESTING")
  */

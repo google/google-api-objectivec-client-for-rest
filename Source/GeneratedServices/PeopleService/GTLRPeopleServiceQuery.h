@@ -535,7 +535,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The number of results to return. Defaults to 10 if field is not
- *  set, or set to 0.
+ *  set, or set to 0. Values greater than 10 will be capped to 10.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1221,7 +1221,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  */
 @interface GTLRPeopleServiceQuery_PeopleSearchContacts : GTLRPeopleServiceQuery
 
-/** Optional. The number of results to return. */
+/**
+ *  Optional. The number of results to return. Defaults to 10 if field is not
+ *  set, or set to 0. Values greater than 10 will be capped to 10.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**

@@ -239,6 +239,11 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidM
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 
+// GTLRSQLAdmin_SqlOutOfDiskReport.sqlOutOfDiskState
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal = @"NORMAL";
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SoftShutdown = @"SOFT_SHUTDOWN";
+NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SqlOutOfDiskStateUnspecified = @"SQL_OUT_OF_DISK_STATE_UNSPECIFIED";
+
 // GTLRSQLAdmin_User.type
 NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccount = @"CLOUD_IAM_SERVICE_ACCOUNT";
@@ -446,9 +451,9 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          diskEncryptionConfiguration, diskEncryptionStatus, ETag,
          failoverReplica, gceZone, instanceType, ipAddresses, ipv6Address, kind,
          masterInstanceName, maxDiskSize, name, onPremisesConfiguration,
-         project, region, replicaConfiguration, replicaNames, rootPassword,
-         satisfiesPzs, scheduledMaintenance, secondaryGceZone, selfLink,
-         serverCaCert, serviceAccountEmailAddress, settings, state,
+         outOfDiskReport, project, region, replicaConfiguration, replicaNames,
+         rootPassword, satisfiesPzs, scheduledMaintenance, secondaryGceZone,
+         selfLink, serverCaCert, serviceAccountEmailAddress, settings, state,
          suspensionReason;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1289,6 +1294,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlOutOfDiskReport
+//
+
+@implementation GTLRSQLAdmin_SqlOutOfDiskReport
+@dynamic sqlMinRecommendedIncreaseSizeGb, sqlOutOfDiskState;
 @end
 
 

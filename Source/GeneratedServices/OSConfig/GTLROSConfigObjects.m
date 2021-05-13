@@ -7,7 +7,7 @@
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
 // Documentation:
-//   https://cloud.google.com/compute/docs/manage-os
+//   https://cloud.google.com/compute/docs/osconfig/rest
 
 #import "GTLROSConfigObjects.h"
 
@@ -32,6 +32,19 @@ NSString * const kGTLROSConfig_InventoryItem_OriginType_OriginTypeUnspecified = 
 NSString * const kGTLROSConfig_InventoryItem_Type_AvailablePackage = @"AVAILABLE_PACKAGE";
 NSString * const kGTLROSConfig_InventoryItem_Type_InstalledPackage = @"INSTALLED_PACKAGE";
 NSString * const kGTLROSConfig_InventoryItem_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLROSConfig_OSPolicyAssignmentOperationMetadata.apiMethod
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified = @"API_METHOD_UNSPECIFIED";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Create = @"CREATE";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Delete = @"DELETE";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Update = @"UPDATE";
+
+// GTLROSConfig_OSPolicyAssignmentOperationMetadata.rolloutState
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled = @"CANCELLED";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling = @"CANCELLING";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified = @"ROLLOUT_STATE_UNSPECIFIED";
+NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded = @"SUCCEEDED";
 
 // GTLROSConfig_PatchConfig.rebootConfig
 NSString * const kGTLROSConfig_PatchConfig_RebootConfig_Always = @"ALWAYS";
@@ -500,6 +513,17 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_OSPolicyAssignmentOperationMetadata
+//
+
+@implementation GTLROSConfig_OSPolicyAssignmentOperationMetadata
+@dynamic apiMethod, osPolicyAssignment, rolloutStartTime, rolloutState,
+         rolloutUpdateTime;
 @end
 
 

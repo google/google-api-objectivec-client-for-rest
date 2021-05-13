@@ -27,27 +27,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
-/**
- *  Authorization scope: View and manage Genomics data
- *
- *  Value "https://www.googleapis.com/auth/genomics"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomics;
-/**
- *  Authorization scope: See, edit, configure, and delete your Google Cloud
- *  Platform data
- *
- *  Value "https://www.googleapis.com/auth/cloud-platform"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
-
-// ----------------------------------------------------------------------------
-//   GTLRGenomicsService
-//
-
 /**
  *  Service for executing Genomics API queries.
  *

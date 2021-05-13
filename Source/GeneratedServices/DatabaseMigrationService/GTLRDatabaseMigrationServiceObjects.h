@@ -986,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 
 /**
  *  The name of this connection profile resource in the form of
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  projects/{project}/locations/{location}/connectionProfiles/{instance}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2042,7 +2042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_
 /**
  *  The resource link for the VPC network from which the Cloud SQL instance is
  *  accessible for private IP. For example,
- *  `/projects/myProject/global/networks/default`. This setting can be updated,
+ *  `projects/myProject/global/networks/default`. This setting can be updated,
  *  but it cannot be removed after it is set.
  */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;

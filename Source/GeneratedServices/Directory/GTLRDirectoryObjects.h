@@ -37,6 +37,7 @@
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item_VolumeInfo_Item;
 @class GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item;
+@class GTLRDirectory_ChromeOsDevice_RecentUsers_Item;
 @class GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item;
 @class GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item;
 @class GTLRDirectory_ChromeOsDevice_TpmVersionInfo;
@@ -55,7 +56,6 @@
 @class GTLRDirectory_Printer;
 @class GTLRDirectory_PrinterModel;
 @class GTLRDirectory_Privilege;
-@class GTLRDirectory_RecentUsers;
 @class GTLRDirectory_Role;
 @class GTLRDirectory_Role_RolePrivileges_Item;
 @class GTLRDirectory_RoleAssignment;
@@ -329,10 +329,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Deadline
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -1141,7 +1141,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 @property(nonatomic, copy, nullable) NSString *platformVersion;
 
 /** List of recent device users, in descending order, by last login time. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_RecentUsers *> *recentUsers;
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_ChromeOsDevice_RecentUsers_Item *> *recentUsers;
 
 /**
  *  List of screenshot files to download. Type is always "SCREENSHOT_FILE".
@@ -1270,6 +1270,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
 
 /** The WAN IP address. */
 @property(nonatomic, copy, nullable) NSString *wanIpAddress;
+
+@end
+
+
+/**
+ *  List of recent device users, in descending order, by last login time.
+ */
+@interface GTLRDirectory_ChromeOsDevice_RecentUsers_Item : GTLRObject
+
+/**
+ *  The user's email address. This is only present if the user type is
+ *  `USER_TYPE_MANAGED`.
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** The type of the user. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1911,13 +1928,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRDirectory_FailureInfo_ErrorCode_Internal Internal errors.
  *        This means that some invariants expected by the underlying system have
@@ -2871,23 +2888,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  *  The type of the API resource. This is always `admin#directory#privileges`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  List of recent device users, in descending order, by last login time.
- */
-@interface GTLRDirectory_RecentUsers : GTLRObject
-
-/**
- *  The user's email address. This is only present if the user type is
- *  `USER_TYPE_MANAGED`.
- */
-@property(nonatomic, copy, nullable) NSString *email;
-
-/** The type of the user. */
-@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

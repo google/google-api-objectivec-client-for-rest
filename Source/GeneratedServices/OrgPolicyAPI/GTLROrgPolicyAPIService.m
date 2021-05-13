@@ -7,7 +7,7 @@
 //   The Org Policy API allows users to configure governance ruleson their GCP
 //   resources across the Cloud Resource Hierarchy.
 // Documentation:
-//   https://cloud.google.com/resource-manager/docs/organization-policy/understanding-constraints
+//   https://cloud.google.com/orgpolicy/docs/reference/rest/index.html
 
 #import "GTLROrgPolicyAPI.h"
 

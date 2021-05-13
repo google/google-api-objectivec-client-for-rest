@@ -711,6 +711,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDns_PolicyAlternativeNameServerConfigTar
 @interface GTLRDns_ManagedZoneOperationsListResponse : GTLRCollectionObject
 
 @property(nonatomic, strong, nullable) GTLRDns_ResponseHeader *header;
+
+/** Type of resource. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**

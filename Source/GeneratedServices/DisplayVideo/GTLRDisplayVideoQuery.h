@@ -3394,16 +3394,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  THAN (<). * The operator used on `updateTime` must be `GREATER THAN OR EQUAL
  *  TO (>=)` or `LESS THAN OR EQUAL TO (<=)`. * The operator used on
  *  `warningMessages` must be `HAS (:)`. * The operators used on all other
- *  fields must be `EQUALS (=)`. * Supported fields: - `campaignId` -
+ *  fields must be `EQUALS (=)`. * Supported properties: - `campaignId` -
  *  `displayName` - `insertionOrderId` - `entityStatus` - `lineItemId` -
  *  `lineItemType` - `flight.dateRange.endDate` (input formatted as YYYY-MM-DD)
  *  - `warningMessages` - `flight.triggerId` - `updateTime` (input in ISO 8601
- *  format, or YYYY-MM-DDTHH:MM:SSZ) * The operator can be `NO LESS THAN (>=)`
- *  or `NO GREATER THAN (<=)`. - `updateTime` (format of ISO 8601) Examples: *
- *  All line items under an insertion order: `insertionOrderId="1234"` * All
- *  `ENTITY_STATUS_ACTIVE` or `ENTITY_STATUS_PAUSED` and
- *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under an advertiser:
- *  `(entityStatus="ENTITY_STATUS_ACTIVE" OR
+ *  format, or YYYY-MM-DDTHH:MM:SSZ) - `targetedChannelId` -
+ *  `targetedNegativeKeywordListId` Examples: * All line items under an
+ *  insertion order: `insertionOrderId="1234"` * All `ENTITY_STATUS_ACTIVE` or
+ *  `ENTITY_STATUS_PAUSED` and `LINE_ITEM_TYPE_DISPLAY_DEFAULT` line items under
+ *  an advertiser: `(entityStatus="ENTITY_STATUS_ACTIVE" OR
  *  entityStatus="ENTITY_STATUS_PAUSED") AND
  *  lineItemType="LINE_ITEM_TYPE_DISPLAY_DEFAULT"` * All line items whose flight
  *  dates end before March 28, 2019: `flight.dateRange.endDate<"2019-03-28"` *
@@ -3412,8 +3411,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *  less than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
  *  `updateTime<="2020-11-04T18:54:47Z"` * All line items with an update time
  *  greater than or equal to `2020-11-04T18:54:47Z (format of ISO 8601)`:
- *  `updateTime>="2020-11-04T18:54:47Z"` The length of this field should be no
- *  more than 500 characters.
+ *  `updateTime>="2020-11-04T18:54:47Z"` * All line items that are using both
+ *  the specified channel and specified negative keyword list in their
+ *  targeting: `targetedNegativeKeywordListId=789 AND targetedChannelId=12345`
+ *  The length of this field should be no more than 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

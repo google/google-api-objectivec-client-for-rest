@@ -1606,7 +1606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NoB
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant;
 /**
- *  Use of an Open Measurement SDK vendor not on approved whitelist.
+ *  Use of an Open Measurement SDK vendor not on approved vendor list.
  *
  *  Value: "NON_WHITELISTED_OMID_VENDOR"
  */
@@ -2027,6 +2027,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitT
  *  Value: "WEEK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week;
+
+// ----------------------------------------------------------------------------
+// GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms.reservationType
+
+/**
+ *  An unspecified reservation type.
+ *
+ *  Value: "RESERVATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_ReservationTypeUnspecified;
+/**
+ *  Sponsorship deals don't have impression goal (guaranteed_looks) and they are
+ *  served based on the flight dates. For CPM Sponsorship deals, impression_cap
+ *  is the lifetime impression limit.
+ *
+ *  Value: "SPONSORSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Sponsorship;
+/**
+ *  Non-sponsorship deal.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
@@ -4165,7 +4189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NonSslCompliant Non-SSL
  *        compliant. (Value: "NON_SSL_COMPLIANT")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NonWhitelistedOmidVendor
- *        Use of an Open Measurement SDK vendor not on approved whitelist.
+ *        Use of an Open Measurement SDK vendor not on approved vendor list.
  *        (Value: "NON_WHITELISTED_OMID_VENDOR")
  *    @arg @c kGTLRAdExchangeBuyerII_Disapproval_Reason_NotFamilySafe Non-family
  *        safe or adult content. (Value: "NOT_FAMILY_SAFE")
@@ -4563,11 +4587,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 @property(nonatomic, strong, nullable) NSNumber *guaranteedLooks;
 
 /**
+ *  The lifetime impression cap for CPM sponsorship deals. The deal will stop
+ *  serving when the cap is reached.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impressionCap;
+
+/**
  *  Daily minimum looks for CPD deal types.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minimumDailyLooks;
+
+/**
+ *  For sponsorship deals, this is the percentage of the seller's eligible
+ *  impressions that the deal will serve until the cap is reached.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *percentShareOfVoice;
+
+/**
+ *  The reservation type for a Programmatic Guaranteed deal. This indicates
+ *  whether the number of impressions is fixed, or a percent of available
+ *  impressions. If not specified, the default reservation type is STANDARD.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_ReservationTypeUnspecified
+ *        An unspecified reservation type. (Value:
+ *        "RESERVATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Sponsorship
+ *        Sponsorship deals don't have impression goal (guaranteed_looks) and
+ *        they are served based on the flight dates. For CPM Sponsorship deals,
+ *        impression_cap is the lifetime impression limit. (Value:
+ *        "SPONSORSHIP")
+ *    @arg @c kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Standard
+ *        Non-sponsorship deal. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *reservationType;
 
 @end
 
@@ -5499,8 +5558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Terms for Preferred Deals. Note that Preferred Deals cannot be created via
- *  the API at this time, but can be returned in a get or list request.
+ *  Terms for Preferred Deals.
  */
 @interface GTLRAdExchangeBuyerII_NonGuaranteedFixedPriceTerms : GTLRObject
 
@@ -5681,11 +5739,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources. A product is a segment
- *  of inventory that a seller wishes to sell. It is associated with certain
- *  terms and targeting information which helps the buyer know more about the
- *  inventory.
+ *  A product is a segment of inventory that a seller wishes to sell. It is
+ *  associated with certain terms and targeting information which helps the
+ *  buyer know more about the inventory.
  */
 @interface GTLRAdExchangeBuyerII_Product : GTLRObject
 
@@ -5781,12 +5837,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources. Represents a proposal
- *  in the Marketplace. A proposal is the unit of negotiation between a seller
- *  and a buyer and contains deals which are served. Note: you can not update,
- *  create, or otherwise modify Private Auction or Preferred Deals deals through
- *  the API. Fields are updatable unless noted otherwise.
+ *  Represents a proposal in the Marketplace. A proposal is the unit of
+ *  negotiation between a seller and a buyer and contains deals which are
+ *  served. Note: You can't update, create, or otherwise modify Private Auction
+ *  deals through the API. Fields are updatable unless noted otherwise.
  */
 @interface GTLRAdExchangeBuyerII_Proposal : GTLRObject
 
@@ -5930,11 +5984,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
- *  Note: this resource requires whitelisting for access. Please contact your
- *  account manager for access to Marketplace resources. Represents a publisher
- *  profile (https://support.google.com/admanager/answer/6035806) in
- *  Marketplace. All fields are read only. All string fields are free-form text
- *  entered by the publisher unless noted otherwise.
+ *  Represents a publisher profile
+ *  (https://support.google.com/admanager/answer/6035806) in Marketplace. All
+ *  fields are read only. All string fields are free-form text entered by the
+ *  publisher unless noted otherwise.
  */
 @interface GTLRAdExchangeBuyerII_PublisherProfile : GTLRObject
 

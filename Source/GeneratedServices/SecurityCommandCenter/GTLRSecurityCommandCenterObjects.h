@@ -2125,7 +2125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
 
 /**
  *  Information related to the Google Cloud resource that is associated with
- *  this finding. LINT.IfChange
+ *  this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
 

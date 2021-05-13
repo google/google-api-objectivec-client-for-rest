@@ -1358,11 +1358,6 @@ NSString * const kGTLRCompute_ImageList_Warning_Code_SingleInstancePropertyTempl
 NSString * const kGTLRCompute_ImageList_Warning_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable = @"UNREACHABLE";
 
-// GTLRCompute_Instance.postKeyRevocationActionType
-NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_Noop = @"NOOP";
-NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified = @"POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_Shutdown = @"SHUTDOWN";
-
 // GTLRCompute_Instance.privateIpv6GoogleAccess
 NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle = @"ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE";
 NSString * const kGTLRCompute_Instance_PrivateIpv6GoogleAccess_EnableOutboundVmAccessToGoogle = @"ENABLE_OUTBOUND_VM_ACCESS_TO_GOOGLE";
@@ -1721,11 +1716,6 @@ NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Act
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Refreshing = @"REFRESHING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting = @"RESTARTING";
 NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying = @"VERIFYING";
-
-// GTLRCompute_InstanceProperties.postKeyRevocationActionType
-NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Noop = @"NOOP";
-NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified = @"POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Shutdown = @"SHUTDOWN";
 
 // GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
 NSString * const kGTLRCompute_InstanceProperties_PrivateIpv6GoogleAccess_EnableBidirectionalAccessToGoogle = @"ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE";
@@ -3086,6 +3076,7 @@ NSString * const kGTLRCompute_Quota_Metric_CommittedE2Cpus     = @"COMMITTED_E2_
 NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses   = @"COMMITTED_LICENSES";
 NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb = @"COMMITTED_LOCAL_SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus = @"COMMITTED_MEMORY_OPTIMIZED_CPUS";
+NSString * const kGTLRCompute_Quota_Metric_CommittedN2aCpus    = @"COMMITTED_N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus     = @"COMMITTED_N2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedN2dCpus    = @"COMMITTED_N2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_CommittedNvidiaA100Gpus = @"COMMITTED_NVIDIA_A100_GPUS";
@@ -3125,6 +3116,7 @@ NSString * const kGTLRCompute_Quota_Metric_LocalSsdTotalGb     = @"LOCAL_SSD_TOT
 NSString * const kGTLRCompute_Quota_Metric_M1Cpus              = @"M1_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_M2Cpus              = @"M2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_MachineImages       = @"MACHINE_IMAGES";
+NSString * const kGTLRCompute_Quota_Metric_N2aCpus             = @"N2A_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2Cpus              = @"N2_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_N2dCpus             = @"N2D_CPUS";
 NSString * const kGTLRCompute_Quota_Metric_NetworkEndpointGroups = @"NETWORK_ENDPOINT_GROUPS";
@@ -7729,7 +7721,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_FirewallPolicyRule
 @dynamic action, descriptionProperty, direction, disabled, enableLogging, kind,
-         match, priority, ruleTupleCount, targetResources, targetSecureLabels,
+         match, priority, ruleTupleCount, targetResources,
          targetServiceAccounts;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -7739,7 +7731,6 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"targetResources" : [NSString class],
-    @"targetSecureLabels" : [NSString class],
     @"targetServiceAccounts" : [NSString class]
   };
   return map;
@@ -7754,14 +7745,13 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_FirewallPolicyRuleMatcher
-@dynamic destIpRanges, layer4Configs, srcIpRanges, srcSecureLabels;
+@dynamic destIpRanges, layer4Configs, srcIpRanges;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"destIpRanges" : [NSString class],
     @"layer4Configs" : [GTLRCompute_FirewallPolicyRuleMatcherLayer4Config class],
-    @"srcIpRanges" : [NSString class],
-    @"srcSecureLabels" : [NSString class]
+    @"srcIpRanges" : [NSString class]
   };
   return map;
 }
@@ -9042,11 +9032,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          guestAccelerators, hostname, identifier, kind, labelFingerprint,
          labels, lastStartTimestamp, lastStopTimestamp, lastSuspendedTimestamp,
          machineType, metadata, minCpuPlatform, name, networkInterfaces,
-         postKeyRevocationActionType, privateIpv6GoogleAccess,
-         reservationAffinity, resourcePolicies, satisfiesPzs, scheduling,
-         selfLink, serviceAccounts, shieldedInstanceConfig,
-         shieldedInstanceIntegrityPolicy, startRestricted, status,
-         statusMessage, tags, zoneProperty;
+         privateIpv6GoogleAccess, reservationAffinity, resourcePolicies,
+         satisfiesPzs, scheduling, selfLink, serviceAccounts,
+         shieldedInstanceConfig, shieldedInstanceIntegrityPolicy,
+         startRestricted, status, statusMessage, tags, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -10137,8 +10126,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_InstanceProperties
 @dynamic advancedMachineFeatures, canIpForward, confidentialInstanceConfig,
          descriptionProperty, disks, guestAccelerators, labels, machineType,
-         metadata, minCpuPlatform, networkInterfaces,
-         postKeyRevocationActionType, privateIpv6GoogleAccess,
+         metadata, minCpuPlatform, networkInterfaces, privateIpv6GoogleAccess,
          reservationAffinity, resourcePolicies, scheduling, serviceAccounts,
          shieldedInstanceConfig, tags;
 

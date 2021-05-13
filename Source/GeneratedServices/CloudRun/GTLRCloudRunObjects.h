@@ -2068,7 +2068,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  values should be comma separated. *
  *  `run.googleapis.com/vpc-access-connector` sets a Serverless VPC Access
  *  connector. * `run.googleapis.com/vpc-access-egress` sets VPC egress.
- *  Supported values are `all` and `private-ranges-only`.
+ *  Supported values are `all-traffic`, `all` (deprecated), and
+ *  `private-ranges-only`. `all-traffic` and `all` provide the same
+ *  functionality. `all` is deprecated but will continue to be supported. Prefer
+ *  `all-traffic`.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ObjectMeta *metadata;
 

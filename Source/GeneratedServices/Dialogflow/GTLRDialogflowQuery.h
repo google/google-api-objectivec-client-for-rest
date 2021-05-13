@@ -29,9 +29,11 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Environment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ExportTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Flow;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillIntentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ImportTestCasesRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Intent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3LoadVersionRequest;
@@ -1353,8 +1355,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language of the following fields in `flow`: *
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1426,6 +1430,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Exports the specified flow to a binary file. Note that resources (e.g.
+ *  intents, entities, webhooks) that the flow references will also be exported.
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.export
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport : GTLRDialogflowQuery
+
+/**
+ *  Required. The name of the flow to export. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Exports the specified flow to a binary file. Note that resources (e.g.
+ *  intents, entities, webhooks) that the flow references will also be exported.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest to include in
+ *    the query.
+ *  @param name Required. The name of the flow to export. Format:
+ *    `projects//locations//agents//flows/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsExport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the specified flow.
  *
  *  Method: dialogflow.projects.locations.agents.flows.get
@@ -1439,8 +1480,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language to retrieve the flow for. The following fields are language
  *  dependent: * `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1504,6 +1547,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Imports the specified flow to the specified agent from a binary file.
+ *
+ *  Method: dialogflow.projects.locations.agents.flows.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport : GTLRDialogflowQuery
+
+/**
+ *  Required. The agent to import the flow into. Format:
+ *  `projects//locations//agents/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Imports the specified flow to the specified agent from a binary file.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest to include in
+ *    the query.
+ *  @param parent Required. The agent to import the flow into. Format:
+ *    `projects//locations//agents/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsImport
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns the list of all flows in the specified agent.
  *
  *  Method: dialogflow.projects.locations.agents.flows.list
@@ -1517,8 +1595,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language to list flows for. The following fields are language dependent:
  *  * `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1572,11 +1652,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language of the following fields in `page`: *
  *  `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1661,11 +1746,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language to retrieve the page for. The following fields are language
  *  dependent: * `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1706,11 +1796,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language to list pages for. The following fields are language dependent:
  *  * `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1764,11 +1859,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language of the following fields in `page`: *
  *  `Page.entry_fulfillment.messages` *
+ *  `Page.entry_fulfillment.conditional_cases` *
+ *  `Page.event_handlers.trigger_fulfillment.messages` *
+ *  `Page.event_handlers.trigger_fulfillment.conditional_cases` *
  *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.messages` *
- *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
- *  `Page.transition_routes.trigger_fulfillment.messages` *
- *  `Page.transition_route_groups.transition_routes.trigger_fulfillment.messages`
- *  If not specified, the agent's default language is used. [Many
+ *  `Page.form.parameters.fill_behavior.initial_prompt_fulfillment.conditional_cases`
+ *  * `Page.form.parameters.fill_behavior.reprompt_event_handlers.messages` *
+ *  `Page.form.parameters.fill_behavior.reprompt_event_handlers.conditional_cases`
+ *  * `Page.transition_routes.trigger_fulfillment.messages` *
+ *  `Page.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1822,8 +1922,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  The language of the following fields in `flow`: *
  *  `Flow.event_handlers.trigger_fulfillment.messages` *
- *  `Flow.transition_routes.trigger_fulfillment.messages` If not specified, the
- *  agent's default language is used. [Many
+ *  `Flow.event_handlers.trigger_fulfillment.conditional_cases` *
+ *  `Flow.transition_routes.trigger_fulfillment.messages` *
+ *  `Flow.transition_routes.trigger_fulfillment.conditional_cases` If not
+ *  specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1909,9 +2011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsCreate : GTLRDialogflowQuery
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -1995,9 +2098,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsGet : GTLRDialogflowQuery
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
+ *  The language to retrieve the transition route group for. The following
+ *  fields are language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -2036,9 +2141,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsList : GTLRDialogflowQuery
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
+ *  The language to list transition route groups for. The following fields are
+ *  language dependent: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.
@@ -2091,9 +2198,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @interface GTLRDialogflowQuery_ProjectsLocationsAgentsFlowsTransitionRouteGroupsPatch : GTLRDialogflowQuery
 
 /**
- *  The language to list transition route groups for. The field `messages` in
- *  TransitionRoute is language dependent. If not specified, the agent's default
- *  language is used. [Many
+ *  The language of the following fields in `TransitionRouteGroup`: *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.messages` *
+ *  `TransitionRouteGroup.transition_routes.trigger_fulfillment.conditional_cases`
+ *  If not specified, the agent's default language is used. [Many
  *  languages](https://cloud.google.com/dialogflow/cx/docs/reference/language)
  *  are supported. Note: languages must be enabled in the agent before they can
  *  be used.

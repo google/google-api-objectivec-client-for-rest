@@ -7,7 +7,7 @@
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
 // Documentation:
-//   https://cloud.google.com/compute/docs/manage-os
+//   https://cloud.google.com/compute/docs/osconfig/rest
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -157,6 +157,68 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_InstalledPac
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_InventoryItem_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignmentOperationMetadata.apiMethod
+
+/**
+ *  Invalid value
+ *
+ *  Value: "API_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified;
+/**
+ *  Create OS policy assignment API method
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Create;
+/**
+ *  Delete OS policy assignment API method
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Delete;
+/**
+ *  Update OS policy assignment API method
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Update;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_OSPolicyAssignmentOperationMetadata.rolloutState
+
+/**
+ *  The rollout is cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled;
+/**
+ *  The rollout is being cancelled.
+ *
+ *  Value: "CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling;
+/**
+ *  The rollout is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_InProgress;
+/**
+ *  Invalid value
+ *
+ *  Value: "ROLLOUT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified;
+/**
+ *  The rollout has completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLROSConfig_PatchConfig.rebootConfig
@@ -1311,6 +1373,59 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLROSConfig_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  OS policy assignment operation metadata provided by OS policy assignment API
+ *  methods that return long running operations.
+ */
+@interface GTLROSConfig_OSPolicyAssignmentOperationMetadata : GTLRObject
+
+/**
+ *  The OS policy assignment API method.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_ApiMethodUnspecified
+ *        Invalid value (Value: "API_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Create
+ *        Create OS policy assignment API method (Value: "CREATE")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Delete
+ *        Delete OS policy assignment API method (Value: "DELETE")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_ApiMethod_Update
+ *        Update OS policy assignment API method (Value: "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *apiMethod;
+
+/**
+ *  Reference to the `OSPolicyAssignment` API resource. Format:
+ *  `projects/{project_number}/locations/{location}/osPolicyAssignments/{os_policy_assignment_id\@revision_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *osPolicyAssignment;
+
+/** Rollout start time */
+@property(nonatomic, strong, nullable) GTLRDateTime *rolloutStartTime;
+
+/**
+ *  State of the rollout
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelled
+ *        The rollout is cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Cancelling
+ *        The rollout is being cancelled. (Value: "CANCELLING")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_InProgress
+ *        The rollout is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_RolloutStateUnspecified
+ *        Invalid value (Value: "ROLLOUT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROSConfig_OSPolicyAssignmentOperationMetadata_RolloutState_Succeeded
+ *        The rollout has completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *rolloutState;
+
+/** Rollout update time */
+@property(nonatomic, strong, nullable) GTLRDateTime *rolloutUpdateTime;
+
 @end
 
 

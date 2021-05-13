@@ -148,6 +148,7 @@
 @class GTLRShoppingContent_OrderTrackingSignalLineItemDetails;
 @class GTLRShoppingContent_OrderTrackingSignalShipmentLineItemMapping;
 @class GTLRShoppingContent_OrderTrackingSignalShippingInfo;
+@class GTLRShoppingContent_PaymentServiceProviderLinkInfo;
 @class GTLRShoppingContent_PickupCarrierService;
 @class GTLRShoppingContent_PickupServicesPickupService;
 @class GTLRShoppingContent_PosCustomBatchRequestEntry;
@@ -248,6 +249,7 @@
 @class GTLRShoppingContent_UnitInvoiceAdditionalCharge;
 @class GTLRShoppingContent_UnitInvoiceTaxLine;
 @class GTLRShoppingContent_Value;
+@class GTLRShoppingContent_WarehouseBasedDeliveryTime;
 @class GTLRShoppingContent_Weight;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1323,13 +1325,17 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  Type of the link between the two accounts. Acceptable values are: -
- *  "`channelPartner`" - "`eCommercePlatform`"
+ *  "`channelPartner`" - "`eCommercePlatform`" - "`paymentServiceProvider`"
  */
 @property(nonatomic, copy, nullable) NSString *linkType;
 
+/** Additional information required for `paymentServiceProvider` link type. */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_PaymentServiceProviderLinkInfo *paymentServiceProviderLinkInfo;
+
 /**
  *  Acceptable values are: - "`shoppingAdsProductManagement`" -
- *  "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`"
+ *  "`shoppingActionsProductManagement`" - "`shoppingActionsOrderManagement`" -
+ *  "`paymentProcessing`"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -2120,12 +2126,20 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /** The CLDR country code of the carrier (e.g., "US"). Always present. */
 @property(nonatomic, copy, nullable) NSString *country;
 
+/**
+ *  A list of services supported for EDD (Estimated Delivery Date) calculation.
+ *  This is the list of valid values for
+ *  WarehouseBasedDeliveryTime.carrierService.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *eddServices;
+
 /** The name of the carrier (e.g., `"UPS"`). Always present. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  A list of supported services (e.g., `"ground"`) for that carrier. Contains
- *  at least one service.
+ *  at least one service. This is the list of valid values for
+ *  CarrierRate.carrierService.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *services;
 
@@ -3212,6 +3226,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_TransitTable *transitTimeTable;
 
+/**
+ *  Indicates that the delivery time should be calculated per warehouse
+ *  (shipping origin location) based on the settings of the selected carrier.
+ *  When set, no other transit time related field in DeliveryTime should be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRShoppingContent_WarehouseBasedDeliveryTime *> *warehouseBasedDeliveryTimes;
+
 @end
 
 
@@ -3974,7 +3995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /**
  *  Service provided to or by the linked account. Acceptable values are: -
  *  "`shoppingActionsOrderManagement`" - "`shoppingActionsProductManagement`" -
- *  "`shoppingAdsProductManagement`"
+ *  "`shoppingAdsProductManagement`" - "`paymentProcessing`"
  */
 @property(nonatomic, copy, nullable) NSString *service;
 
@@ -7447,6 +7468,25 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 
 /**
+ *  Additional information required for PAYMENT_SERVICE_PROVIDER link type.
+ */
+@interface GTLRShoppingContent_PaymentServiceProviderLinkInfo : GTLRObject
+
+/**
+ *  The business country of the merchant account as identified by the third
+ *  party service provider.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountBusinessCountry;
+
+/**
+ *  The id used by the third party service provider to identify the merchant.
+ */
+@property(nonatomic, copy, nullable) NSString *externalAccountId;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_PickupCarrierService
  */
 @interface GTLRShoppingContent_PickupCarrierService : GTLRObject
@@ -10536,6 +10576,23 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 
 /**
+ *  Return shipping label for a Buy on Google merchant-managed return.
+ */
+@interface GTLRShoppingContent_ReturnShippingLabel : GTLRObject
+
+/** Name of the carrier. */
+@property(nonatomic, copy, nullable) NSString *carrier;
+
+/** The URL for the return shipping label in PDF format */
+@property(nonatomic, copy, nullable) NSString *labelUri;
+
+/** The tracking id of this return label. */
+@property(nonatomic, copy, nullable) NSString *trackingId;
+
+@end
+
+
+/**
  *  GTLRShoppingContent_Row
  */
 @interface GTLRShoppingContent_Row : GTLRObject
@@ -10851,7 +10908,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  "`wrongItem`" - "`returns`" - "`undeliverable`" -
  *  "`issueRelatedRefundAndReplacementAmountDescription`" -
  *  "`refundFromMerchant`" - "`returnLabelShippingFee`" - "`lumpSumCorrection`"
- *  - "`pspFee`"
+ *  - "`pspFee`" - "`principalRefundDoesNotFit`" -
+ *  "`principalRefundOrderedWrongItem`" - "`principalRefundQualityNotExpected`"
+ *  - "`principalRefundBetterPriceFound`" - "`principalRefundNoLongerNeeded`" -
+ *  "`principalRefundChangedMind`" - "`principalRefundReceivedTooLate`" -
+ *  "`principalRefundIncorrectItemReceived`" -
+ *  "`principalRefundDamagedOrDefectiveItem`" -
+ *  "`principalRefundDidNotMatchDescription`" - "`principalRefundExpiredItem`"
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -11714,6 +11777,46 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  values), and only if all other fields are not set.
  */
 @property(nonatomic, copy, nullable) NSString *subtableName;
+
+@end
+
+
+/**
+ *  GTLRShoppingContent_WarehouseBasedDeliveryTime
+ */
+@interface GTLRShoppingContent_WarehouseBasedDeliveryTime : GTLRObject
+
+/**
+ *  Required. Carrier, such as `"UPS"` or `"Fedex"`. The list of supported
+ *  carriers can be retrieved via the `listSupportedCarriers` method.
+ */
+@property(nonatomic, copy, nullable) NSString *carrier;
+
+/**
+ *  Required. Carrier service, such as `"ground"` or `"2 days"`. The list of
+ *  supported services for a carrier can be retrieved via the
+ *  `listSupportedCarriers` method. The name of the service must be in the
+ *  eddSupportedServices list.
+ */
+@property(nonatomic, copy, nullable) NSString *carrierService;
+
+/** Required. Shipping origin's state. */
+@property(nonatomic, copy, nullable) NSString *originAdministrativeArea;
+
+/** Required. Shipping origin's city. */
+@property(nonatomic, copy, nullable) NSString *originCity;
+
+/**
+ *  Required. Shipping origin's country represented as a [CLDR territory
+ *  code](http://www.unicode.org/repos/cldr/tags/latest/common/main/en.xml).
+ */
+@property(nonatomic, copy, nullable) NSString *originCountry;
+
+/** Required. Shipping origin. */
+@property(nonatomic, copy, nullable) NSString *originPostalCode;
+
+/** Shipping origin's street address. */
+@property(nonatomic, copy, nullable) NSString *originStreetAddress;
 
 @end
 

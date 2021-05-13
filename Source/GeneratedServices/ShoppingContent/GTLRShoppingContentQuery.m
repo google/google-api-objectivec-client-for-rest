@@ -1796,6 +1796,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_OrderreturnsLabelsCreate
+
+@dynamic merchantId, returnId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnShippingLabel *)object
+                     merchantId:(long long)merchantId
+                       returnId:(NSString *)returnId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"returnId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/orderreturns/{returnId}/labels";
+  GTLRShoppingContentQuery_OrderreturnsLabelsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.returnId = returnId;
+  query.expectedObjectClass = [GTLRShoppingContent_ReturnShippingLabel class];
+  query.loggingName = @"content.orderreturns.labels.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_OrderreturnsList
 
 @dynamic acknowledged, createdEndDate, createdStartDate, googleOrderIds,

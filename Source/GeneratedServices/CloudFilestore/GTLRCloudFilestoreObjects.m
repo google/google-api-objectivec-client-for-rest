@@ -96,8 +96,8 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 @implementation GTLRCloudFilestore_Backup
 @dynamic capacityGb, createTime, descriptionProperty, downloadBytes, labels,
-         name, sourceFileShare, sourceInstance, sourceInstanceTier, state,
-         storageBytes;
+         name, satisfiesPzs, sourceFileShare, sourceInstance,
+         sourceInstanceTier, state, storageBytes;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -410,7 +410,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_UpdateChannelUnspecifi
 
 @implementation GTLRCloudFilestore_Instance
 @dynamic createTime, descriptionProperty, ETag, fileShares, labels, name,
-         networks, state, statusMessage, tier;
+         networks, satisfiesPzs, state, statusMessage, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

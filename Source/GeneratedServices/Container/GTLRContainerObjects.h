@@ -183,6 +183,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterUpdate.desiredDatapathProvider
+
+/**
+ *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *  Dataplane V2
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  for more.
+ *
+ *  Value: "ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath;
+/**
+ *  Default value.
+ *
+ *  Value: "DATAPATH_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified;
+/**
+ *  Use the IPTables implementation based on kube-proxy.
+ *
+ *  Value: "LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
 
 /**
@@ -232,6 +257,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_NetworkConfig.datapathProvider
+
+/**
+ *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *  Dataplane V2
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  for more.
+ *
+ *  Value: "ADVANCED_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath;
+/**
+ *  Default value.
+ *
+ *  Value: "DATAPATH_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified;
+/**
+ *  Use the IPTables implementation based on kube-proxy.
+ *
+ *  Value: "LEGACY_DATAPATH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
@@ -725,10 +775,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -1712,6 +1762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
+/** The desired Autopilot configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_Autopilot *desiredAutopilot;
+
 /** The desired configuration options for the Binary Authorization feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_BinaryAuthorization *desiredBinaryAuthorization;
 
@@ -1720,6 +1773,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configuration of etcd encryption. */
 @property(nonatomic, strong, nullable) GTLRContainer_DatabaseEncryption *desiredDatabaseEncryption;
+
+/**
+ *  The desired datapath provider for the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath
+ *        Use the eBPF based GKE Dataplane V2 with additional features. See the
+ *        [GKE Dataplane V2
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        for more. (Value: "ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified
+ *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath
+ *        Use the IPTables implementation based on kube-proxy. (Value:
+ *        "LEGACY_DATAPATH")
+ */
+@property(nonatomic, copy, nullable) NSString *desiredDatapathProvider;
 
 /** The desired status of whether to disable default sNAT for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DefaultSnatStatus *desiredDefaultSnatStatus;
@@ -2728,6 +2798,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  NetworkConfig reports the relative names of network & subnetwork.
  */
 @interface GTLRContainer_NetworkConfig : GTLRObject
+
+/**
+ *  The desired datapath provider for this cluster. By default, uses the
+ *  IPTables-based kube-proxy implementation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath Use
+ *        the eBPF based GKE Dataplane V2 with additional features. See the [GKE
+ *        Dataplane V2
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        for more. (Value: "ADVANCED_DATAPATH")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified
+ *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath Use
+ *        the IPTables implementation based on kube-proxy. (Value:
+ *        "LEGACY_DATAPATH")
+ */
+@property(nonatomic, copy, nullable) NSString *datapathProvider;
 
 /**
  *  Whether the cluster disables default in-node sNAT rules. In-node sNAT rules
@@ -4597,13 +4685,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRContainer_StatusCondition_CanonicalCode_Internal Internal
  *        errors. This means that some invariants expected by the underlying

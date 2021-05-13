@@ -1407,9 +1407,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlAffectedRowAccessPolicyCount,
-         ddlOperationPerformed, ddlTargetDataset, ddlTargetRoutine,
-         ddlTargetRowAccessPolicy, ddlTargetTable, estimatedBytesProcessed,
-         modelTraining, modelTrainingCurrentIteration,
+         ddlDestinationTable, ddlOperationPerformed, ddlTargetDataset,
+         ddlTargetRoutine, ddlTargetRowAccessPolicy, ddlTargetTable,
+         estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
          referencedRoutines, referencedTables, reservationUsage, schema,
          statementType, timeline, totalBytesBilled, totalBytesProcessed,

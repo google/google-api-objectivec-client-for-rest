@@ -1818,6 +1818,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1BoundingPoly *boundingPoly;
 
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
+
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
 @property(nonatomic, copy, nullable) NSString *layoutId;
 
@@ -3047,6 +3054,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Optional. Identifies the bounding polygon of a layout element on the page.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2BoundingPoly *boundingPoly;
+
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
 @property(nonatomic, copy, nullable) NSString *layoutId;
@@ -4520,6 +4534,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Optional. Identifies the bounding polygon of a layout element on the page.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1BoundingPoly *boundingPoly;
+
+/**
+ *  Optional. Confidence of detected page element, if applicable. Range [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *confidence;
 
 /** Optional. Deprecated. Use PageRef.bounding_poly instead. */
 @property(nonatomic, copy, nullable) NSString *layoutId;

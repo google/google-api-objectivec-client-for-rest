@@ -578,8 +578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  [DateTimeRenderOption.SERIAL_NUMBER].
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
@@ -601,7 +600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be
@@ -761,7 +760,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
@@ -999,7 +998,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsDateTimeRenderOptionSerialNumber Instructs date, time,
@@ -1043,7 +1042,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  How values should be represented in the output. The default render option is
- *  ValueRenderOption.FORMATTED_VALUE.
+ *  FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsValueRenderOptionFormattedValue Values will be
@@ -1108,8 +1107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseDateTimeRenderOptionSerialNumber Instructs
@@ -1131,7 +1129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheetsValueRenderOptionUnformattedValue;
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheetsResponseValueRenderOptionFormattedValue Values will be

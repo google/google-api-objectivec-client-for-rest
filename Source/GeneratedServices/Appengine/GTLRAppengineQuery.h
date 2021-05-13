@@ -1094,7 +1094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Updates the specified Application resource. You can update the following
  *  fields: auth_domain - Google authentication domain for controlling user
  *  access to the application. default_cookie_expiration - Cookie expiration
- *  policy for the application.
+ *  policy for the application. iap - Identity-Aware Proxy properties for the
+ *  application.
  *
  *  Method: appengine.apps.patch
  *
@@ -1122,7 +1123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  Updates the specified Application resource. You can update the following
  *  fields: auth_domain - Google authentication domain for controlling user
  *  access to the application. default_cookie_expiration - Cookie expiration
- *  policy for the application.
+ *  policy for the application. iap - Identity-Aware Proxy properties for the
+ *  application.
  *
  *  @param object The @c GTLRAppengine_Application to include in the query.
  *  @param appsId Part of `name`. Name of the Application resource to update.

@@ -19,50 +19,6 @@
 
 @end
 
-@implementation GTLRDoubleClickBidManagerQuery_LineitemsDownloadlineitems
-
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadLineItemsRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"lineitems/downloadlineitems";
-  GTLRDoubleClickBidManagerQuery_LineitemsDownloadlineitems *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDoubleClickBidManager_DownloadLineItemsResponse class];
-  query.loggingName = @"doubleclickbidmanager.lineitems.downloadlineitems";
-  return query;
-}
-
-@end
-
-@implementation GTLRDoubleClickBidManagerQuery_LineitemsUploadlineitems
-
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_UploadLineItemsRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"lineitems/uploadlineitems";
-  GTLRDoubleClickBidManagerQuery_LineitemsUploadlineitems *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDoubleClickBidManager_UploadLineItemsResponse class];
-  query.loggingName = @"doubleclickbidmanager.lineitems.uploadlineitems";
-  return query;
-}
-
-@end
-
 @implementation GTLRDoubleClickBidManagerQuery_QueriesCreatequery
 
 @dynamic asynchronous;
@@ -181,28 +137,6 @@
   query.queryId = queryId;
   query.expectedObjectClass = [GTLRDoubleClickBidManager_ListReportsResponse class];
   query.loggingName = @"doubleclickbidmanager.reports.listreports";
-  return query;
-}
-
-@end
-
-@implementation GTLRDoubleClickBidManagerQuery_SdfDownload
-
-+ (instancetype)queryWithObject:(GTLRDoubleClickBidManager_DownloadRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"sdf/download";
-  GTLRDoubleClickBidManagerQuery_SdfDownload *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDoubleClickBidManager_DownloadResponse class];
-  query.loggingName = @"doubleclickbidmanager.sdf.download";
   return query;
 }
 

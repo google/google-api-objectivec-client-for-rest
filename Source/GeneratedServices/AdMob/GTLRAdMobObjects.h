@@ -66,8 +66,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdSource;
 /**
- *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
- *  and "AdMob (default)" as label value).
+ *  The unique ID of the ad source instance (for example,
+ *  "ca-app-pub-1234:asi:5678" and "AdMob (default)" as label value).
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
@@ -225,8 +225,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Metrics_Observ
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSource;
 /**
- *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
- *  and "AdMob (default)" as label value).
+ *  The unique ID of the ad source instance (for example,
+ *  "ca-app-pub-1234:asi:5678" and "AdMob (default)" as label value).
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
@@ -311,8 +311,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSource;
 /**
- *  The unique ID of the ad source instance (for example, "ca-app-pub-1234#5678"
- *  and "AdMob (default)" as label value).
+ *  The unique ID of the ad source instance (for example,
+ *  "ca-app-pub-1234:asi:5678" and "AdMob (default)" as label value).
  *
  *  Value: "AD_SOURCE_INSTANCE"
  */
@@ -1390,8 +1390,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        (Value: "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
- *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
- *        "AD_SOURCE_INSTANCE")
+ *        "ca-app-pub-1234:asi:5678" and "AdMob (default)" as label value).
+ *        (Value: "AD_SOURCE_INSTANCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AdUnit The
  *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
  *        AD_UNIT dimension is specified, then APP is included automatically.
@@ -1453,8 +1453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        "AD_SOURCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdSourceInstance
  *        The unique ID of the ad source instance (for example,
- *        "ca-app-pub-1234#5678" and "AdMob (default)" as label value). (Value:
- *        "AD_SOURCE_INSTANCE")
+ *        "ca-app-pub-1234:asi:5678" and "AdMob (default)" as label value).
+ *        (Value: "AD_SOURCE_INSTANCE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AdUnit The
  *        unique ID of the ad unit (for example, "ca-app-pub-1234/8790"). If
  *        AD_UNIT dimension is specified, then APP is included automatically.

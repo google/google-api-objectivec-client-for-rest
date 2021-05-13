@@ -57,6 +57,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsCreate : GTLRBigQueryReservationQuery
 
 /**
+ *  The optional capacity commitment ID. Capacity commitment name will be
+ *  generated automatically if this field is empty. This field must only contain
+ *  lower case alphanumeric characters or dash. Max length is 64 characters.
+ *  NOTE: this ID won't be kept if the capacity commitment is split or merged.
+ */
+@property(nonatomic, copy, nullable) NSString *capacityCommitmentId;
+
+/**
  *  If true, fail the request if another project in the organization has a
  *  capacity commitment.
  */
@@ -388,6 +396,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeBigQueryReservationCloudPlatform
  */
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsCreate : GTLRBigQueryReservationQuery
+
+/**
+ *  The optional assignment ID. Assignment name will be generated automatically
+ *  if this field is empty. This field must only contain lower case alphanumeric
+ *  characters or dash. Max length is 64 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *assignmentId;
 
 /**
  *  Required. The parent resource name of the assignment E.g.

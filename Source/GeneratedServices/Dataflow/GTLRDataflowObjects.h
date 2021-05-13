@@ -100,6 +100,7 @@
 @class GTLRDataflow_ParallelInstruction;
 @class GTLRDataflow_Parameter;
 @class GTLRDataflow_ParameterMetadata;
+@class GTLRDataflow_ParameterMetadata_CustomMetadata;
 @class GTLRDataflow_ParDoInstruction;
 @class GTLRDataflow_ParDoInstruction_UserFn;
 @class GTLRDataflow_PartialGroupByKeyInstruction;
@@ -4645,6 +4646,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @interface GTLRDataflow_ParameterMetadata : GTLRObject
 
+/** Optional. Additional metadata for describing this parameter. */
+@property(nonatomic, strong, nullable) GTLRDataflow_ParameterMetadata_CustomMetadata *customMetadata;
+
 /** Required. The help text to display for the parameter. */
 @property(nonatomic, copy, nullable) NSString *helpText;
 
@@ -4698,6 +4702,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** Optional. Regexes that the parameter must match. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regexes;
 
+@end
+
+
+/**
+ *  Optional. Additional metadata for describing this parameter.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataflow_ParameterMetadata_CustomMetadata : GTLRObject
 @end
 
 
@@ -5628,6 +5644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** PubSub snapshot metadata. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_PubsubSnapshotMetadata *> *pubsubMetadata;
+
+/** Cloud region where this snapshot lives in, e.g., "us-central1". */
+@property(nonatomic, copy, nullable) NSString *region;
 
 /** The job this snapshot was created from. */
 @property(nonatomic, copy, nullable) NSString *sourceJobId;

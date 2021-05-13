@@ -176,6 +176,16 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampl
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Probability = @"PROBABILITY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified = @"SAMPLER_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc = @"GRPC";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http = @"HTTP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1TargetServerConfig.protocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc = @"GRPC";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http = @"HTTP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified = @"PROTOCOL_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified = @"EXPORTER_UNSPECIFIED";
@@ -2804,7 +2814,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TargetServer
-@dynamic descriptionProperty, host, isEnabled, name, port, sSLInfo;
+@dynamic descriptionProperty, host, isEnabled, name, port, protocol, sSLInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -2819,7 +2829,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1TargetServerConfig
-@dynamic host, name, port, tlsInfo;
+@dynamic host, name, port, protocol, tlsInfo;
 @end
 
 

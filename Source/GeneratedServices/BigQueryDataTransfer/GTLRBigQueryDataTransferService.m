@@ -15,7 +15,6 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeBigQueryDataTransferBigquery    = @"https://www.googleapis.com/auth/bigquery";
-NSString * const kGTLRAuthScopeBigQueryDataTransferBigqueryReadonly = @"https://www.googleapis.com/auth/bigquery.readonly";
 NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
 

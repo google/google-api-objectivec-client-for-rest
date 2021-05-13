@@ -276,6 +276,33 @@
 
 @end
 
+@implementation GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCommitCursor
+
+@dynamic subscription;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_CommitCursorRequest *)object
+                   subscription:(NSString *)subscription {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"subscription" ];
+  NSString *pathURITemplate = @"v1/cursor/{+subscription}:commitCursor";
+  GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCommitCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.subscription = subscription;
+  query.expectedObjectClass = [GTLRPubsubLite_CommitCursorResponse class];
+  query.loggingName = @"pubsublite.cursor.projects.locations.subscriptions.commitCursor";
+  return query;
+}
+
+@end
+
 @implementation GTLRPubsubLiteQuery_CursorProjectsLocationsSubscriptionsCursorsList
 
 @dynamic pageSize, pageToken, parent;

@@ -376,6 +376,11 @@ NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month = @"MONT
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified = @"TIME_UNIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week = @"WEEK";
 
+// GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms.reservationType
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_ReservationTypeUnspecified = @"RESERVATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Sponsorship = @"SPONSORSHIP";
+NSString * const kGTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms_ReservationType_Standard = @"STANDARD";
+
 // GTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse.detailType
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_AtpVendor = @"ATP_VENDOR";
 NSString * const kGTLRAdExchangeBuyerII_ListCreativeStatusBreakdownByDetailResponse_DetailType_CreativeAttribute = @"CREATIVE_ATTRIBUTE";
@@ -1066,7 +1071,8 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 //
 
 @implementation GTLRAdExchangeBuyerII_GuaranteedFixedPriceTerms
-@dynamic fixedPrices, guaranteedImpressions, guaranteedLooks, minimumDailyLooks;
+@dynamic fixedPrices, guaranteedImpressions, guaranteedLooks, impressionCap,
+         minimumDailyLooks, percentShareOfVoice, reservationType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

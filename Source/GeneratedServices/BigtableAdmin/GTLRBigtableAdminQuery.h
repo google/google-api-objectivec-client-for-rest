@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Only populates 'name' and fields related to the table's encryption state.
+ *  Only populates `name` and fields related to the table's encryption state.
  *
  *  Value: "ENCRYPTION_VIEW"
  */
@@ -1069,7 +1069,55 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
- *  Updates a cluster within an instance.
+ *  Partially updates a cluster within a project. This method is the preferred
+ *  way to update a Cluster.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.partialUpdateCluster
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersPartialUpdateCluster : GTLRBigtableAdminQuery
+
+/**
+ *  The unique name of the cluster. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/a-z*`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The subset of Cluster fields which should be replaced. Must be
+ *  explicitly set.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_Operation.
+ *
+ *  Partially updates a cluster within a project. This method is the preferred
+ *  way to update a Cluster.
+ *
+ *  @param object The @c GTLRBigtableAdmin_Cluster to include in the query.
+ *  @param name The unique name of the cluster. Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/a-z*`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersPartialUpdateCluster
+ */
++ (instancetype)queryWithObject:(GTLRBigtableAdmin_Cluster *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a cluster within an instance. UpdateCluster is deprecated. Please
+ *  use PartialUpdateCluster instead.
  *
  *  Method: bigtableadmin.projects.instances.clusters.update
  *
@@ -1092,7 +1140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 /**
  *  Fetches a @c GTLRBigtableAdmin_Operation.
  *
- *  Updates a cluster within an instance.
+ *  Updates a cluster within an instance. UpdateCluster is deprecated. Please
+ *  use PartialUpdateCluster instead.
  *
  *  @param object The @c GTLRBigtableAdmin_Cluster to include in the query.
  *  @param name The unique name of the cluster. Values are of the form
@@ -1626,7 +1675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
  *        fields related to the table's replication state. (Value:
  *        "REPLICATION_VIEW")
- *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates 'name' and
+ *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates `name` and
  *        fields related to the table's encryption state. (Value:
  *        "ENCRYPTION_VIEW")
  *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
@@ -1735,7 +1784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates `name` and
  *        fields related to the table's replication state. (Value:
  *        "REPLICATION_VIEW")
- *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates 'name' and
+ *    @arg @c kGTLRBigtableAdminViewEncryptionView Only populates `name` and
  *        fields related to the table's encryption state. (Value:
  *        "ENCRYPTION_VIEW")
  *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
@@ -2070,8 +2119,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of results to return. If not set, the service will select
- *  a default.
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

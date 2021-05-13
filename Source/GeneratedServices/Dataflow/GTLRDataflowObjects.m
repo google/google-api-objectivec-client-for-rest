@@ -1586,13 +1586,27 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_ParameterMetadata
-@dynamic helpText, isOptional, label, name, paramType, regexes;
+@dynamic customMetadata, helpText, isOptional, label, name, paramType, regexes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"regexes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataflow_ParameterMetadata_CustomMetadata
+//
+
+@implementation GTLRDataflow_ParameterMetadata_CustomMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2184,7 +2198,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 
 @implementation GTLRDataflow_Snapshot
 @dynamic creationTime, descriptionProperty, diskSizeBytes, identifier,
-         projectId, pubsubMetadata, sourceJobId, state, ttl;
+         projectId, pubsubMetadata, region, sourceJobId, state, ttl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

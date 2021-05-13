@@ -20,7 +20,7 @@
 
 @implementation GTLRAlertCenterQuery_AlertsBatchDelete
 
-+ (instancetype)queryWithObject:(GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsRequest *)object {
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchDeleteAlertsRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -33,7 +33,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsResponse class];
+  query.expectedObjectClass = [GTLRAlertCenter_BatchDeleteAlertsResponse class];
   query.loggingName = @"alertcenter.alerts.batchDelete";
   return query;
 }
@@ -42,7 +42,7 @@
 
 @implementation GTLRAlertCenterQuery_AlertsBatchUndelete
 
-+ (instancetype)queryWithObject:(GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsRequest *)object {
++ (instancetype)queryWithObject:(GTLRAlertCenter_BatchUndeleteAlertsRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -55,7 +55,7 @@
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsResponse class];
+  query.expectedObjectClass = [GTLRAlertCenter_BatchUndeleteAlertsResponse class];
   query.loggingName = @"alertcenter.alerts.batchUndelete";
   return query;
 }
@@ -74,7 +74,7 @@
                                HTTPMethod:@"DELETE"
                        pathParameterNames:pathParams];
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleProtobufEmpty class];
+  query.expectedObjectClass = [GTLRAlertCenter_Empty class];
   query.loggingName = @"alertcenter.alerts.delete";
   return query;
 }
@@ -85,7 +85,7 @@
 
 @dynamic alertId, customerId;
 
-+ (instancetype)queryWithObject:(GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback *)object
++ (instancetype)queryWithObject:(GTLRAlertCenter_AlertFeedback *)object
                         alertId:(NSString *)alertId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -101,7 +101,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback class];
+  query.expectedObjectClass = [GTLRAlertCenter_AlertFeedback class];
   query.loggingName = @"alertcenter.alerts.feedback.create";
   return query;
 }
@@ -120,7 +120,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertFeedbackResponse class];
+  query.expectedObjectClass = [GTLRAlertCenter_ListAlertFeedbackResponse class];
   query.loggingName = @"alertcenter.alerts.feedback.list";
   return query;
 }
@@ -139,7 +139,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert class];
+  query.expectedObjectClass = [GTLRAlertCenter_Alert class];
   query.loggingName = @"alertcenter.alerts.get";
   return query;
 }
@@ -158,7 +158,7 @@
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertMetadata class];
+  query.expectedObjectClass = [GTLRAlertCenter_AlertMetadata class];
   query.loggingName = @"alertcenter.alerts.getMetadata";
   return query;
 }
@@ -175,7 +175,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertsResponse class];
+  query.expectedObjectClass = [GTLRAlertCenter_ListAlertsResponse class];
   query.loggingName = @"alertcenter.alerts.list";
   return query;
 }
@@ -186,7 +186,7 @@
 
 @dynamic alertId;
 
-+ (instancetype)queryWithObject:(GTLRAlertCenter_GoogleAppsAlertcenterV1beta1UndeleteAlertRequest *)object
++ (instancetype)queryWithObject:(GTLRAlertCenter_UndeleteAlertRequest *)object
                         alertId:(NSString *)alertId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -202,7 +202,7 @@
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.alertId = alertId;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert class];
+  query.expectedObjectClass = [GTLRAlertCenter_Alert class];
   query.loggingName = @"alertcenter.alerts.undelete";
   return query;
 }
@@ -219,7 +219,7 @@
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Settings class];
+  query.expectedObjectClass = [GTLRAlertCenter_Settings class];
   query.loggingName = @"alertcenter.getSettings";
   return query;
 }
@@ -230,7 +230,7 @@
 
 @dynamic customerId;
 
-+ (instancetype)queryWithObject:(GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Settings *)object {
++ (instancetype)queryWithObject:(GTLRAlertCenter_Settings *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -243,7 +243,7 @@
                                HTTPMethod:@"PATCH"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Settings class];
+  query.expectedObjectClass = [GTLRAlertCenter_Settings class];
   query.loggingName = @"alertcenter.updateSettings";
   return query;
 }

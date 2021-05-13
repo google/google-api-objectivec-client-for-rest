@@ -634,7 +634,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_ListOtherContactsResponse
-@dynamic nextPageToken, nextSyncToken, otherContacts;
+@dynamic nextPageToken, nextSyncToken, otherContacts, totalSize;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

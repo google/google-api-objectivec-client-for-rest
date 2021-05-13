@@ -12,6 +12,13 @@
 #import "GTLRArtifactRegistryObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRArtifactRegistry_Repository.format
+NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
+NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRArtifactRegistry_CancelOperationRequest
 //
@@ -93,6 +100,28 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_ListRepositoriesResponse
+//
+
+@implementation GTLRArtifactRegistry_ListRepositoriesResponse
+@dynamic nextPageToken, repositories;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"repositories" : [GTLRArtifactRegistry_Repository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"repositories";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_Operation
 //
 
@@ -124,6 +153,36 @@
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Repository
+//
+
+@implementation GTLRArtifactRegistry_Repository
+@dynamic createTime, descriptionProperty, format, kmsKeyName, labels, name,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_Repository_Labels
+//
+
+@implementation GTLRArtifactRegistry_Repository_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

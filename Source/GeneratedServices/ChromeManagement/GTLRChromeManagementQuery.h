@@ -115,7 +115,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /** Maximum number of results to return. Maximum and default are 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to specify the next page in the list. */
+/** Token to specify the page of the request to be returned. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -173,7 +173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /** Maximum number of results to return. Maximum and default are 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to specify next page in the list. */
+/** Token to specify the page of the request to be returned. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -254,7 +254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /** Maximum number of results to return. Maximum and default are 100. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to specify the next page in the list. */
+/** Token to specify the page of the request to be returned. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**

@@ -86,6 +86,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
 
 
 /**
+ *  Request for CommitCursor.
+ */
+@interface GTLRPubsubLite_CommitCursorRequest : GTLRObject
+
+/** The new value for the committed cursor. */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_Cursor *cursor;
+
+/**
+ *  The partition for which to update the cursor. Partitions are zero indexed,
+ *  so `partition` must be in the range [0, topic.num_partitions).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partition;
+
+@end
+
+
+/**
+ *  Response for CommitCursor.
+ */
+@interface GTLRPubsubLite_CommitCursorResponse : GTLRObject
+@end
+
+
+/**
  *  Compute the current head cursor for a partition.
  */
 @interface GTLRPubsubLite_ComputeHeadCursorRequest : GTLRObject

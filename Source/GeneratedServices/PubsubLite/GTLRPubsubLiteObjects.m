@@ -28,6 +28,25 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_CommitCursorRequest
+//
+
+@implementation GTLRPubsubLite_CommitCursorRequest
+@dynamic cursor, partition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_CommitCursorResponse
+//
+
+@implementation GTLRPubsubLite_CommitCursorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_ComputeHeadCursorRequest
 //
 

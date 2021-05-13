@@ -165,7 +165,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry
 @dynamic bigqueryDateShardedSpec, bigqueryTableSpec, descriptionProperty,
          displayName, gcsFilesetSpec, integratedSystem, linkedResource, name,
-         schema, sourceSystemTimestamps, type, userSpecifiedSystem,
+         schema, sourceSystemTimestamps, type, usageSignal, userSpecifiedSystem,
          userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -731,6 +731,41 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_Activate
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal
+@dynamic updateTime, usageWithinTimeRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats
+@dynamic totalCancellations, totalCompletions,
+         totalExecutionTimeForCompletionsMillis, totalFailures;
 @end
 
 

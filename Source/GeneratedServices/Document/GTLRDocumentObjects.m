@@ -629,7 +629,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageAnchorPageRef
-@dynamic boundingPoly, layoutId, layoutType, page;
+@dynamic boundingPoly, confidence, layoutId, layoutType, page;
 @end
 
 
@@ -1251,7 +1251,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageAnchorPageRef
-@dynamic boundingPoly, layoutId, layoutType, page;
+@dynamic boundingPoly, confidence, layoutId, layoutType, page;
 @end
 
 
@@ -1952,7 +1952,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageAnchorPageRef
-@dynamic boundingPoly, layoutId, layoutType, page;
+@dynamic boundingPoly, confidence, layoutId, layoutType, page;
 @end
 
 

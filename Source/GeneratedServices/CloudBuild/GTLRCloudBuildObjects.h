@@ -45,6 +45,7 @@
 @class GTLRCloudBuild_NotifierSpec;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
+@class GTLRCloudBuild_PubsubConfig;
 @class GTLRCloudBuild_PullRequestFilter;
 @class GTLRCloudBuild_PushFilter;
 @class GTLRCloudBuild_RepoSource;
@@ -368,6 +369,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
  *  Value: "SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_PubsubConfig.state
+
+/**
+ *  The Pub/Sub subscription is properly configured.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PubsubConfig_State_Ok;
+/**
+ *  The subscription configuration has not been checked.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PubsubConfig_State_StateUnspecified;
+/**
+ *  The subscription has been deleted.
+ *
+ *  Value: "SUBSCRIPTION_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionDeleted;
+/**
+ *  Some of the subscription's field are misconfigured.
+ *
+ *  Value: "SUBSCRIPTION_MISCONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionMisconfigured;
+/**
+ *  The topic has been deleted.
+ *
+ *  Value: "TOPIC_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PubsubConfig_State_TopicDeleted;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_PullRequestFilter.commentControl
@@ -990,6 +1025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  */
 @property(nonatomic, copy, nullable) NSString *filename;
 
+/** Optional. A Common Expression Language string. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
 /**
  *  GitHubEventsConfig describes the configuration of a trigger that creates a
  *  build whenever a GitHub event is received. Mutually exclusive with
@@ -1032,6 +1070,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *  They must begin and end with an alphanumeric character.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. PubsubConfig describes the configuration of a trigger that creates
+ *  a build whenever a Pub/Sub message is published.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PubsubConfig *pubsubConfig;
 
 /**
  *  Substitutions for Build resource. The keys must match the following regular
@@ -1569,6 +1613,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_PullRequestFilter_CommentCont
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBuild_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  PubsubConfig describes the configuration of a trigger that creates a build
+ *  whenever a Pub/Sub message is published.
+ */
+@interface GTLRCloudBuild_PubsubConfig : GTLRObject
+
+/** Service account that will make the push request. */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Potential issues with the underlying Pub/Sub subscription configuration.
+ *  Only populated on get requests.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_PubsubConfig_State_Ok The Pub/Sub subscription is
+ *        properly configured. (Value: "OK")
+ *    @arg @c kGTLRCloudBuild_PubsubConfig_State_StateUnspecified The
+ *        subscription configuration has not been checked. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_PubsubConfig_State_SubscriptionDeleted The
+ *        subscription has been deleted. (Value: "SUBSCRIPTION_DELETED")
+ *    @arg @c kGTLRCloudBuild_PubsubConfig_State_SubscriptionMisconfigured Some
+ *        of the subscription's field are misconfigured. (Value:
+ *        "SUBSCRIPTION_MISCONFIGURED")
+ *    @arg @c kGTLRCloudBuild_PubsubConfig_State_TopicDeleted The topic has been
+ *        deleted. (Value: "TOPIC_DELETED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Name of the subscription. Format is
+ *  `projects/{project}/subscriptions/{subscription}`.
+ */
+@property(nonatomic, copy, nullable) NSString *subscription;
+
+/**
+ *  The name of the topic from which this subscription is receiving messages.
+ *  Format is `projects/{project}/topics/{topic}`.
+ */
+@property(nonatomic, copy, nullable) NSString *topic;
+
 @end
 
 

@@ -25,6 +25,7 @@
 @class GTLRChromePolicy_GoogleChromePolicyV1BatchInheritOrgUnitPoliciesRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1BatchModifyOrgUnitPoliciesRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1ResolveRequest;
+@class GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -235,6 +236,41 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates an enterprise file from the content provided by user. Returns a
+ *  public download url for end user.
+ *
+ *  Method: chromepolicy.media.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromePolicyChromeManagementPolicy
+ */
+@interface GTLRChromePolicyQuery_MediaUpload : GTLRChromePolicyQuery
+
+/** Required. The customer for which the file upload will apply. */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Fetches a @c GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse.
+ *
+ *  Creates an enterprise file from the content provided by user. Returns a
+ *  public download url for end user.
+ *
+ *  @param object The @c
+ *    GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest to include in
+ *    the query.
+ *  @param customer Required. The customer for which the file upload will apply.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRChromePolicyQuery_MediaUpload
+ */
++ (instancetype)queryWithObject:(GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest *)object
+                       customer:(NSString *)customer
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 

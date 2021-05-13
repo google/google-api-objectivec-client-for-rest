@@ -25,7 +25,10 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource;
 @class GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent;
+@class GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
@@ -101,6 +104,114 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistor
  *  Value: "USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.scope
+
+/**
+ *  Scope unknown or not specified.
+ *
+ *  Value: "DIMENSION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified;
+/**
+ *  Dimension scoped to an event.
+ *
+ *  Value: "EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event;
+/**
+ *  Dimension scoped to a user.
+ *
+ *  Value: "USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.measurementUnit
+
+/**
+ *  This metric measures a currency.
+ *
+ *  Value: "CURRENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency;
+/**
+ *  This metric measures feet.
+ *
+ *  Value: "FEET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet;
+/**
+ *  This metric measures hours.
+ *
+ *  Value: "HOURS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours;
+/**
+ *  This metric measures kilometers.
+ *
+ *  Value: "KILOMETERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers;
+/**
+ *  MeasurementUnit unspecified or missing.
+ *
+ *  Value: "MEASUREMENT_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified;
+/**
+ *  This metric measures meters.
+ *
+ *  Value: "METERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters;
+/**
+ *  This metric measures miles.
+ *
+ *  Value: "MILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles;
+/**
+ *  This metric measures milliseconds.
+ *
+ *  Value: "MILLISECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds;
+/**
+ *  This metric measures minutes.
+ *
+ *  Value: "MINUTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes;
+/**
+ *  This metric measures seconds.
+ *
+ *  Value: "SECONDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds;
+/**
+ *  This metric uses default units.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
+
+/**
+ *  Metric scoped to an event.
+ *
+ *  Value: "EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event;
+/**
+ *  Scope unknown or not specified.
+ *
+ *  Value: "METRIC_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
@@ -354,6 +465,24 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified;
 /**
+ *  ConversionEvent resource
+ *
+ *  Value: "CONVERSION_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent;
+/**
+ *  CustomDimension resource
+ *
+ *  Value: "CUSTOM_DIMENSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension;
+/**
+ *  CustomMetric resource
+ *
+ *  Value: "CUSTOM_METRIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric;
+/**
  *  FirebaseLink resource
  *
  *  Value: "FIREBASE_LINK"
@@ -492,6 +621,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** Output only. Time when stream payload fields were last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Request message for ArchiveCustomDimension RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest : GTLRObject
+@end
+
+
+/**
+ *  Request message for ArchiveCustomMetric RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest : GTLRObject
 @end
 
 
@@ -713,6 +856,15 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** A snapshot of an AndroidAppDataStream resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *androidAppDataStream;
 
+/** A snapshot of a ConversionEvent resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *conversionEvent;
+
+/** A snapshot of a CustomDimension resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *customDimension;
+
+/** A snapshot of a CustomMetric resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *customMetric;
+
 /** A snapshot of a FirebaseLink resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *firebaseLink;
 
@@ -790,6 +942,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  A conversion event in a Google Analytics property.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent : GTLRObject
+
+/**
+ *  Output only. Time when this conversion event was created in the property.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. The event name for this conversion event. Examples: 'click',
+ *  'purchase'
+ */
+@property(nonatomic, copy, nullable) NSString *eventName;
+
+/**
+ *  Output only. If set, this event can currently be deleted via
+ *  DeleteConversionEvent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDeletable;
+
+/**
+ *  Output only. Resource name of this conversion event. Format:
+ *  properties/{property}/conversionEvents/{conversion_event}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Request message for CreateUserLink RPC. Users can have multiple email
  *  addresses associated with their Google account, and one of these email
  *  addresses is the "primary" email address. Any of the email addresses
@@ -812,6 +997,148 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** Required. The user link to create. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaUserLink *userLink;
+
+@end
+
+
+/**
+ *  A definition for a CustomDimension.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension : GTLRObject
+
+/**
+ *  Optional. Description for this custom dimension. Max length of 150
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If set to true, sets this dimension as NPA and excludes it from
+ *  ads personalization. This is currently only supported by user-scoped custom
+ *  dimensions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disallowAdsPersonalization;
+
+/**
+ *  Required. Display name for this custom dimension as shown in the Analytics
+ *  UI. Max length of 82 characters, alphanumeric plus space and underscore
+ *  starting with a letter. Legacy system-generated display names may contain
+ *  square brackets, but updates to this field will never permit square
+ *  brackets.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Resource name for this CustomDimension resource. Format:
+ *  properties/{property}/customDimensions/{customDimension}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Tagging parameter name for this custom dimension. If
+ *  this is a user-scoped dimension, then this is the user property name. If
+ *  this is an event-scoped dimension, then this is the event parameter name.
+ *  May only contain alphanumeric and underscore characters, starting with a
+ *  letter. Max length of 24 characters for user-scoped dimensions, 40
+ *  characters for event-scoped dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. Immutable. The scope of this dimension.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified
+ *        Scope unknown or not specified. (Value: "DIMENSION_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event
+ *        Dimension scoped to an event. (Value: "EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User
+ *        Dimension scoped to a user. (Value: "USER")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  A definition for a custom metric.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric : GTLRObject
+
+/**
+ *  Optional. Description for this custom dimension. Max length of 150
+ *  characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Display name for this custom metric as shown in the Analytics UI.
+ *  Max length of 82 characters, alphanumeric plus space and underscore starting
+ *  with a letter. Legacy system-generated display names may contain square
+ *  brackets, but updates to this field will never permit square brackets.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. Immutable. The type for the custom metric's value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency
+ *        This metric measures a currency. (Value: "CURRENCY")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet
+ *        This metric measures feet. (Value: "FEET")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours
+ *        This metric measures hours. (Value: "HOURS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers
+ *        This metric measures kilometers. (Value: "KILOMETERS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified
+ *        MeasurementUnit unspecified or missing. (Value:
+ *        "MEASUREMENT_UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters
+ *        This metric measures meters. (Value: "METERS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles
+ *        This metric measures miles. (Value: "MILES")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds
+ *        This metric measures milliseconds. (Value: "MILLISECONDS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes
+ *        This metric measures minutes. (Value: "MINUTES")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds
+ *        This metric measures seconds. (Value: "SECONDS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard
+ *        This metric uses default units. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *measurementUnit;
+
+/**
+ *  Output only. Resource name for this CustomMetric resource. Format:
+ *  properties/{property}/customMetrics/{customMetric}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Tagging name for this custom metric. If this is an
+ *  event-scoped metric, then this is the event parameter name. May only contain
+ *  alphanumeric and underscore charactes, starting with a letter. Max length of
+ *  40 characters for event-scoped metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. Immutable. The scope of this custom metric.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event Metric
+ *        scoped to an event. (Value: "EVENT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified
+ *        Scope unknown or not specified. (Value: "METRIC_SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
 
 @end
 
@@ -1055,7 +1382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  Enable personalized advertising features with this integration.
  *  Automatically publish my Google Analytics audience lists and Google
  *  Analytics remarketing events/parameters to the linked Google Ads account. If
- *  this field is not set on create/update it will be defaulted to true.
+ *  this field is not set on create/update, it will be defaulted to true.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1203,6 +1530,87 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *> *androidAppDataStreams;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListConversionEvents RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "conversionEvents" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse : GTLRCollectionObject
+
+/**
+ *  The requested conversion events
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *> *conversionEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListCustomDimensions RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customDimensions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse : GTLRCollectionObject
+
+/**
+ *  List of CustomDimensions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *> *customDimensions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListCustomMetrics RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "customMetrics" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse : GTLRCollectionObject
+
+/**
+ *  List of CustomMetrics.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *> *customMetrics;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -1657,10 +2065,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *directRoles;
 
-/** Email address of the user to link */
+/** Immutable. Email address of the user to link */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
-/** Example format: properties/1234/userLinks/5678 */
+/** Output only. Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end

@@ -277,9 +277,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_EnrolledService_Enrollmen
  *  listed below (case-sensitive): * all * App Engine * BigQuery * Cloud
  *  Bigtable * Cloud Key Management Service * Compute Engine * Cloud Dataflow *
  *  Cloud Identity and Access Management * Cloud Logging * Cloud Pub/Sub * Cloud
- *  Spanner * Cloud Storage * Persistent Disk Note: These values are supported
- *  as input for legacy purposes, but will not be returned from the API. * all *
- *  appengine.googleapis.com * bigquery.googleapis.com * bigtable.googleapis.com
+ *  Spanner * Cloud Storage * Google Kubernetes Engine * Persistent Disk Note:
+ *  These values are supported as input for legacy purposes, but will not be
+ *  returned from the API. * all * appengine.googleapis.com *
+ *  bigquery.googleapis.com * bigtable.googleapis.com * container.googleapis.com
  *  * cloudkms.googleapis.com * compute.googleapis.com * dataflow.googleapis.com
  *  * iam.googleapis.com * logging.googleapis.com * pubsub.googleapis.com *
  *  spanner.googleapis.com * storage.googleapis.com Calls to

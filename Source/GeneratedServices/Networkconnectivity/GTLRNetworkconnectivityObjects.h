@@ -248,7 +248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_QuotaProperties_Quot
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_Check;
 /**
- *  Increases available quota by the operation cost specified for the operation.
+ *  DEPRECATED: Increases available quota by the operation cost specified for
+ *  the operation.
  *
  *  Value: "RELEASE"
  */
@@ -1066,7 +1067,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_S
 /** Immutable. The name of a Hub resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. A list of the URIs of all attached spokes */
+/**
+ *  Output only. A list of the URIs of all attached spokes. This field is
+ *  deprecated and will not be included in future API versions. Call ListSpokes
+ *  on each region instead.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *spokes;
 
 /**
@@ -1931,8 +1936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_S
  *        change any available quota. Only checks if there is enough quota. No
  *        lock is placed on the checked tokens neither. (Value: "CHECK")
  *    @arg @c kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_Release
- *        Increases available quota by the operation cost specified for the
- *        operation. (Value: "RELEASE")
+ *        DEPRECATED: Increases available quota by the operation cost specified
+ *        for the operation. (Value: "RELEASE")
  */
 @property(nonatomic, copy, nullable) NSString *quotaMode;
 

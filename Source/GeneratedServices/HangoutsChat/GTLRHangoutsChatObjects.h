@@ -5,6 +5,8 @@
 //   Google Chat API (chat/v1)
 // Description:
 //   Enables bots to fetch information and perform actions in Google Chat.
+//   Authentication using a service account is a prerequisite for using the
+//   Google Chat REST API.
 // Documentation:
 //   https://developers.google.com/hangouts/chat
 
@@ -69,7 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_NewMessage;
 /**
- *  Privately ask the user for additional auth or config.
+ *  Update a message, with cards only. (Only after a MESSAGE event with a
+ *  matched url, or a CARD_CLICKED event on a human created message).
  *
  *  Value: "REQUEST_CONFIG"
  */
@@ -81,7 +84,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_Request
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified;
 /**
- *  Update the bot's own message. (Only after CARD_CLICKED events.)
+ *  Update the bot's message. This is only permitted on a CARD_CLICKED event
+ *  where the message sender type is BOT.
  *
  *  Value: "UPDATE_MESSAGE"
  */
@@ -445,13 +449,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_NewMessage Post as a new
  *        message in the topic. (Value: "NEW_MESSAGE")
- *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Privately ask
- *        the user for additional auth or config. (Value: "REQUEST_CONFIG")
+ *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_RequestConfig Update a
+ *        message, with cards only. (Only after a MESSAGE event with a matched
+ *        url, or a CARD_CLICKED event on a human created message). (Value:
+ *        "REQUEST_CONFIG")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified Default
  *        type; will be handled as NEW_MESSAGE. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage Update the
- *        bot's own message. (Only after CARD_CLICKED events.) (Value:
- *        "UPDATE_MESSAGE")
+ *        bot's message. This is only permitted on a CARD_CLICKED event where
+ *        the message sender type is BOT. (Value: "UPDATE_MESSAGE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

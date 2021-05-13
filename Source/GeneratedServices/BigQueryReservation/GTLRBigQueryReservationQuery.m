@@ -20,7 +20,7 @@
 
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsCreate
 
-@dynamic enforceSingleAdminProjectPerOrg, parent;
+@dynamic capacityCommitmentId, enforceSingleAdminProjectPerOrg, parent;
 
 + (instancetype)queryWithObject:(GTLRBigQueryReservation_CapacityCommitment *)object
                          parent:(NSString *)parent {
@@ -204,7 +204,7 @@
 
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsReservationsAssignmentsCreate
 
-@dynamic parent;
+@dynamic assignmentId, parent;
 
 + (instancetype)queryWithObject:(GTLRBigQueryReservation_Assignment *)object
                          parent:(NSString *)parent {

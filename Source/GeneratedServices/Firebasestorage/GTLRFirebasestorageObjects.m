@@ -26,7 +26,7 @@
 //
 
 @implementation GTLRFirebasestorage_Bucket
-@dynamic name;
+@dynamic name, reconciling;
 @end
 
 

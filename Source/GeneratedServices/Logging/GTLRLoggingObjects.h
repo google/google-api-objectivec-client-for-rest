@@ -1367,6 +1367,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Log entry field paths that are denied access in this bucket. The following
+ *  fields and their children are eligible: textPayload, jsonPayload,
+ *  protoPayload, httpRequest, labels, sourceLocation. Restricting a repeated
+ *  field will restrict all values. Adding a parent will block all child fields
+ *  e.g. foo.bar will block foo.bar.baz.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedFields;
+
+/**
  *  Logs will be retained by default for this amount of time, after which they
  *  will automatically be deleted. The minimum retention period is 1 day. If
  *  this value is set to zero at bucket creation time, the default time of 30

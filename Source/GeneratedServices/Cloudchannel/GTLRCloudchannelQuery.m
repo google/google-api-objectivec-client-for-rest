@@ -509,6 +509,25 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
 
 @end
 
+@implementation GTLRCloudchannelQuery_AccountsCustomersEntitlementsLookupOffer
+
+@dynamic entitlement;
+
++ (instancetype)queryWithEntitlement:(NSString *)entitlement {
+  NSArray *pathParams = @[ @"entitlement" ];
+  NSString *pathURITemplate = @"v1/{+entitlement}:lookupOffer";
+  GTLRCloudchannelQuery_AccountsCustomersEntitlementsLookupOffer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.entitlement = entitlement;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Offer class];
+  query.loggingName = @"cloudchannel.accounts.customers.entitlements.lookupOffer";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudchannelQuery_AccountsCustomersEntitlementsStartPaidService
 
 @dynamic name;

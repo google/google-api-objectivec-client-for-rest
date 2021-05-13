@@ -33,6 +33,32 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
+@implementation GTLRCloudAssetQuery_AssetsList
+
+@dynamic assetTypes, contentType, pageSize, pageToken, parent, readTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assets";
+  GTLRCloudAssetQuery_AssetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudAsset_ListAssetsResponse class];
+  query.loggingName = @"cloudasset.assets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_FeedsCreate
 
 @dynamic parent;

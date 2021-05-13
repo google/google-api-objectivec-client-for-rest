@@ -96,6 +96,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Apigee"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_ApiKeysService",
+            targets: ["GoogleAPIClientForREST_ApiKeysService"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Appengine",
             targets: ["GoogleAPIClientForREST_Appengine"]
         ),
@@ -110,6 +114,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Assuredworkloads",
             targets: ["GoogleAPIClientForREST_Assuredworkloads"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_BareMetalSolution",
+            targets: ["GoogleAPIClientForREST_BareMetalSolution"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Bigquery",
@@ -432,6 +440,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DriveActivity"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Essentialcontacts",
+            targets: ["GoogleAPIClientForREST_Essentialcontacts"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Eventarc",
             targets: ["GoogleAPIClientForREST_Eventarc"]
         ),
@@ -584,6 +596,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessLodging"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
+            targets: ["GoogleAPIClientForREST_MyBusinessPlaceActions"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Networkconnectivity",
             targets: ["GoogleAPIClientForREST_Networkconnectivity"]
         ),
@@ -610,6 +626,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             targets: ["GoogleAPIClientForREST_PagespeedInsights"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_PaymentsResellerSubscription",
+            targets: ["GoogleAPIClientForREST_PaymentsResellerSubscription"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PeopleService",
@@ -650,6 +670,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_RealTimeBidding",
             targets: ["GoogleAPIClientForREST_RealTimeBidding"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_RecaptchaEnterprise",
+            targets: ["GoogleAPIClientForREST_RecaptchaEnterprise"]
         ),
         .library(
             name: "GoogleAPIClientForREST_RecommendationsAI",
@@ -1024,6 +1048,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_ApiKeysService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ApiKeysService",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Appengine",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Appengine",
@@ -1045,6 +1075,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Assuredworkloads",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Assuredworkloads",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_BareMetalSolution",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/BareMetalSolution",
             publicHeadersPath: "."
         ),
         .target(
@@ -1528,6 +1564,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Essentialcontacts",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Essentialcontacts",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Eventarc",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Eventarc",
@@ -1756,6 +1798,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessPlaceActions",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Networkconnectivity",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Networkconnectivity",
@@ -1795,6 +1843,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_PagespeedInsights",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/PagespeedInsights",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PaymentsResellerSubscription",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PaymentsResellerSubscription",
             publicHeadersPath: "."
         ),
         .target(
@@ -1855,6 +1909,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_RealTimeBidding",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/RealTimeBidding",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_RecaptchaEnterprise",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/RecaptchaEnterprise",
             publicHeadersPath: "."
         ),
         .target(

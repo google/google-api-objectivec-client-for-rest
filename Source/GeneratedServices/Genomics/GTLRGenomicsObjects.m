@@ -13,6 +13,17 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGenomics_Action.flags
+NSString * const kGTLRGenomics_Action_Flags_AlwaysRun          = @"ALWAYS_RUN";
+NSString * const kGTLRGenomics_Action_Flags_BlockExternalNetwork = @"BLOCK_EXTERNAL_NETWORK";
+NSString * const kGTLRGenomics_Action_Flags_DisableImagePrefetch = @"DISABLE_IMAGE_PREFETCH";
+NSString * const kGTLRGenomics_Action_Flags_DisableStandardErrorCapture = @"DISABLE_STANDARD_ERROR_CAPTURE";
+NSString * const kGTLRGenomics_Action_Flags_EnableFuse         = @"ENABLE_FUSE";
+NSString * const kGTLRGenomics_Action_Flags_FlagUnspecified    = @"FLAG_UNSPECIFIED";
+NSString * const kGTLRGenomics_Action_Flags_IgnoreExitStatus   = @"IGNORE_EXIT_STATUS";
+NSString * const kGTLRGenomics_Action_Flags_PublishExposedPorts = @"PUBLISH_EXPOSED_PORTS";
+NSString * const kGTLRGenomics_Action_Flags_RunInBackground    = @"RUN_IN_BACKGROUND";
+
 // GTLRGenomics_FailedEvent.code
 NSString * const kGTLRGenomics_FailedEvent_Code_Aborted        = @"ABORTED";
 NSString * const kGTLRGenomics_FailedEvent_Code_AlreadyExists  = @"ALREADY_EXISTS";
@@ -34,30 +45,73 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_CancelOperationRequest
+//   GTLRGenomics_Accelerator
 //
 
-@implementation GTLRGenomics_CancelOperationRequest
+@implementation GTLRGenomics_Accelerator
+@dynamic count, type;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_ComputeEngine
+//   GTLRGenomics_Action
 //
 
-@implementation GTLRGenomics_ComputeEngine
-@dynamic diskNames, instanceName, machineType, zoneProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"zoneProperty" : @"zone" };
-}
+@implementation GTLRGenomics_Action
+@dynamic commands, credentials, encryptedEnvironment, entrypoint, environment,
+         flags, imageUri, labels, mounts, name, pidNamespace, portMappings,
+         timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"diskNames" : [NSString class]
+    @"commands" : [NSString class],
+    @"flags" : [NSString class],
+    @"mounts" : [GTLRGenomics_Mount class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Action_Environment
+//
+
+@implementation GTLRGenomics_Action_Environment
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Action_Labels
+//
+
+@implementation GTLRGenomics_Action_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Action_PortMappings
+//
+
+@implementation GTLRGenomics_Action_PortMappings
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
 }
 
 @end
@@ -127,10 +181,11 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_Empty
+//   GTLRGenomics_Disk
 //
 
-@implementation GTLRGenomics_Empty
+@implementation GTLRGenomics_Disk
+@dynamic name, sizeGb, sourceImage, type;
 @end
 
 
@@ -165,6 +220,16 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_ExistingDisk
+//
+
+@implementation GTLRGenomics_ExistingDisk
+@dynamic disk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_FailedEvent
 //
 
@@ -175,91 +240,15 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_ListOperationsResponse
+//   GTLRGenomics_Metadata
 //
 
-@implementation GTLRGenomics_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@implementation GTLRGenomics_Metadata
+@dynamic createTime, endTime, events, labels, pipeline, startTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRGenomics_Operation class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_Operation
-//
-
-@implementation GTLRGenomics_Operation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_Operation_Metadata
-//
-
-@implementation GTLRGenomics_Operation_Metadata
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_Operation_Response
-//
-
-@implementation GTLRGenomics_Operation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_OperationEvent
-//
-
-@implementation GTLRGenomics_OperationEvent
-@dynamic descriptionProperty, endTime, startTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_OperationMetadata
-//
-
-@implementation GTLRGenomics_OperationMetadata
-@dynamic clientId, createTime, endTime, events, labels, projectId, request,
-         runtimeMetadata, startTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRGenomics_OperationEvent class]
+    @"events" : [GTLRGenomics_Event class]
   };
   return map;
 }
@@ -269,10 +258,10 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_OperationMetadata_Labels
+//   GTLRGenomics_Metadata_Labels
 //
 
-@implementation GTLRGenomics_OperationMetadata_Labels
+@implementation GTLRGenomics_Metadata_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -283,13 +272,57 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_OperationMetadata_Request
+//   GTLRGenomics_Mount
 //
 
-@implementation GTLRGenomics_OperationMetadata_Request
+@implementation GTLRGenomics_Mount
+@dynamic disk, path, readOnly;
+@end
 
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Network
+//
+
+@implementation GTLRGenomics_Network
+@dynamic name, subnetwork, usePrivateAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_NFSMount
+//
+
+@implementation GTLRGenomics_NFSMount
+@dynamic target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_PersistentDisk
+//
+
+@implementation GTLRGenomics_PersistentDisk
+@dynamic sizeGb, sourceImage, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Pipeline
+//
+
+@implementation GTLRGenomics_Pipeline
+@dynamic actions, encryptedEnvironment, environment, resources, timeout;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRGenomics_Action class]
+  };
+  return map;
 }
 
 @end
@@ -297,13 +330,13 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_OperationMetadata_RuntimeMetadata
+//   GTLRGenomics_Pipeline_Environment
 //
 
-@implementation GTLRGenomics_OperationMetadata_RuntimeMetadata
+@implementation GTLRGenomics_Pipeline_Environment
 
 + (Class)classForAdditionalProperties {
-  return [NSObject class];
+  return [NSString class];
 }
 
 @end
@@ -331,34 +364,16 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_RunPipelineResponse
+//   GTLRGenomics_Resources
 //
 
-@implementation GTLRGenomics_RunPipelineResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_RuntimeMetadata
-//
-
-@implementation GTLRGenomics_RuntimeMetadata
-@dynamic computeEngine;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRGenomics_Status
-//
-
-@implementation GTLRGenomics_Status
-@dynamic code, details, message;
+@implementation GTLRGenomics_Resources
+@dynamic projectId, regions, virtualMachine, zones;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRGenomics_Status_Details_Item class]
+    @"regions" : [NSString class],
+    @"zones" : [NSString class]
   };
   return map;
 }
@@ -368,13 +383,36 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRGenomics_Status_Details_Item
+//   GTLRGenomics_RunPipelineResponse
 //
 
-@implementation GTLRGenomics_Status_Details_Item
+@implementation GTLRGenomics_RunPipelineResponse
+@end
 
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Secret
+//
+
+@implementation GTLRGenomics_Secret
+@dynamic cipherText, keyName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_ServiceAccount
+//
+
+@implementation GTLRGenomics_ServiceAccount
+@dynamic email, scopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -387,6 +425,53 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 @implementation GTLRGenomics_UnexpectedExitStatusEvent
 @dynamic actionId, exitStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_VirtualMachine
+//
+
+@implementation GTLRGenomics_VirtualMachine
+@dynamic accelerators, bootDiskSizeGb, bootImage, cpuPlatform, disks,
+         dockerCacheImages, enableStackdriverMonitoring, labels, machineType,
+         network, nvidiaDriverVersion, preemptible, serviceAccount, volumes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"accelerators" : [GTLRGenomics_Accelerator class],
+    @"disks" : [GTLRGenomics_Disk class],
+    @"dockerCacheImages" : [NSString class],
+    @"volumes" : [GTLRGenomics_Volume class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_VirtualMachine_Labels
+//
+
+@implementation GTLRGenomics_VirtualMachine_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Volume
+//
+
+@implementation GTLRGenomics_Volume
+@dynamic existingDisk, nfsMount, persistentDisk, volume;
 @end
 
 

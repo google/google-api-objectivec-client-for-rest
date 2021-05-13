@@ -873,6 +873,50 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSa
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_SamplerUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
+
+/**
+ *  The TargetServer uses GRPC.
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc;
+/**
+ *  The TargetServer uses HTTP.
+ *
+ *  Value: "HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http;
+/**
+ *  UNSPECIFIED defaults to HTTP for backwards compatibility.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1TargetServerConfig.protocol
+
+/**
+ *  The TargetServer uses GRPC.
+ *
+ *  Value: "GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc;
+/**
+ *  The TargetServer uses HTTP.
+ *
+ *  Value: "HTTP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http;
+/**
+ *  UNSPECIFIED defaults to HTTP for backwards compatibility.
+ *
+ *  Value: "PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
 
 /**
@@ -967,10 +1011,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1UpdateError_Co
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -5025,7 +5069,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
 /**
- *  Cloud Platform location for the runtime instance. Defaults to `us-west1-a`.
+ *  Cloud Platform location for the runtime instance. Defaults to zone
+ *  `us-west1-a`. If a region is provided, `EVAL` organizations will use the
+ *  region for automatically selecting a zone for the runtime instance.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeLocation;
 
@@ -6280,6 +6326,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
+ *  Immutable. The protocol used by this TargetServer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Grpc The
+ *        TargetServer uses GRPC. (Value: "GRPC")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_Http The
+ *        TargetServer uses HTTP. (Value: "HTTP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServer_Protocol_ProtocolUnspecified
+ *        UNSPECIFIED defaults to HTTP for backwards compatibility. (Value:
+ *        "PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
+
+/**
  *  Optional. Specifies TLS configuration info for this TargetServer. The JSON
  *  name is `sSLInfo` for legacy/backwards compatibility reasons -- Edge
  *  originally supported SSL, and the name is still used for TLS configuration.
@@ -6309,6 +6369,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
+
+/**
+ *  The protocol used by this target server.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Grpc
+ *        The TargetServer uses GRPC. (Value: "GRPC")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Http
+ *        The TargetServer uses HTTP. (Value: "HTTP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_ProtocolUnspecified
+ *        UNSPECIFIED defaults to HTTP for backwards compatibility. (Value:
+ *        "PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *protocol;
 
 /** TLS settings for the target server. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1TlsInfoConfig *tlsInfo;
@@ -6595,13 +6669,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1UpdateError_Code_Internal Internal
  *        errors. This means that some invariants expected by the underlying

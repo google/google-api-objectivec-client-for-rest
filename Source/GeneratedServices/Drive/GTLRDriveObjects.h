@@ -433,8 +433,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDrive_Comment : GTLRObject
 
 /**
- *  A region of the document represented as a JSON string. See anchor
- *  documentation for details on how to define and interpret anchor properties.
+ *  A region of the document represented as a JSON string. For details on
+ *  defining anchor properties, refer to Add comments and replies.
  */
 @property(nonatomic, copy, nullable) NSString *anchor;
 

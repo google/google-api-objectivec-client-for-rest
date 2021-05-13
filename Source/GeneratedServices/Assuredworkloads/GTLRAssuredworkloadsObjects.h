@@ -167,6 +167,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject;
 /**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_Keyring;
+/**
  *  Unknown resource type.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
@@ -188,6 +194,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "ENCRYPTION_KEYS_PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring;
 /**
  *  Unknown resource type.
  *
@@ -315,6 +327,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject;
 /**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring;
+/**
  *  Unknown resource type.
  *
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
@@ -336,6 +354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "ENCRYPTION_KEYS_PROJECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject;
+/**
+ *  Keyring resource that hosts encryption keys.
+ *
+ *  Value: "KEYRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring;
 /**
  *  Unknown resource type.
  *
@@ -383,6 +407,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /** Optional. The parent of the workload. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Resource properties in the input that are used for
+ *  creating/customizing workload resources.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings *> *resourceSettings;
 
 @end
 
@@ -620,6 +650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
@@ -632,6 +664,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Represent the custom settings for the resources to be created.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  User-assigned resource display name. If not empty it will be used to create
+ *  a resource with the specified name.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Resource identifier. For a project this represents project_id. If the
@@ -650,6 +688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
@@ -883,6 +923,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
@@ -895,6 +937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Represent the custom settings for the resources to be created.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings : GTLRObject
+
+/**
+ *  User-assigned resource display name. If not empty it will be used to create
+ *  a resource with the specified name.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Resource identifier. For a project this represents project_id. If the
@@ -913,6 +961,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring
+ *        Keyring resource that hosts encryption keys. (Value: "KEYRING")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified
  *        Unknown resource type. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
