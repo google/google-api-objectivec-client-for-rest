@@ -1579,6 +1579,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Person *> *otherContacts;
 
+/**
+ *  The total number of other contacts in the list without pagination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
 @end
 
 

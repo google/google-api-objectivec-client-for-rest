@@ -10,16 +10,6 @@
 
 #import "GTLRGenomics.h"
 
-// ----------------------------------------------------------------------------
-// Authorization scopes
-
-NSString * const kGTLRAuthScopeGenomics              = @"https://www.googleapis.com/auth/genomics";
-NSString * const kGTLRAuthScopeGenomicsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
-
-// ----------------------------------------------------------------------------
-//   GTLRGenomicsService
-//
-
 @implementation GTLRGenomicsService
 
 - (instancetype)init {

@@ -121,6 +121,7 @@ NSString * const kGTLRCloudIdentity_MemberRelation_RelationType_RelationTypeUnsp
 NSString * const kGTLRCloudIdentity_Membership_Type_Group      = @"GROUP";
 NSString * const kGTLRCloudIdentity_Membership_Type_Other      = @"OTHER";
 NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount = @"SERVICE_ACCOUNT";
+NSString * const kGTLRCloudIdentity_Membership_Type_SharedDrive = @"SHARED_DRIVE";
 NSString * const kGTLRCloudIdentity_Membership_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudIdentity_Membership_Type_User       = @"USER";
 

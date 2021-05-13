@@ -562,11 +562,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  location is currently associated with and must also be at least a manager of
  *  the destination account.
  *
- *  Method: mybusinessaccountmanagement.locations.transferLocation
+ *  Method: mybusinessaccountmanagement.locations.transfer
  */
-@interface GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation : GTLRMyBusinessAccountManagementQuery
+@interface GTLRMyBusinessAccountManagementQuery_LocationsTransfer : GTLRMyBusinessAccountManagementQuery
 
-@property(nonatomic, copy, nullable) NSString *locationsId;
+/**
+ *  Required. The name of the location to transfer. `locations/{location_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRMyBusinessAccountManagement_Empty.
@@ -578,12 +581,13 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRMyBusinessAccountManagement_TransferLocationRequest
  *    to include in the query.
- *  @param locationsId NSString
+ *  @param name Required. The name of the location to transfer.
+ *    `locations/{location_id}`.
  *
- *  @return GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation
+ *  @return GTLRMyBusinessAccountManagementQuery_LocationsTransfer
  */
 + (instancetype)queryWithObject:(GTLRMyBusinessAccountManagement_TransferLocationRequest *)object
-                    locationsId:(NSString *)locationsId;
+                           name:(NSString *)name;
 
 @end
 

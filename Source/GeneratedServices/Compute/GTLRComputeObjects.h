@@ -3405,16 +3405,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Undeclare
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ImageList_Warning_Code_Unreachable;
 
 // ----------------------------------------------------------------------------
-// GTLRCompute_Instance.postKeyRevocationActionType
-
-/** Value: "NOOP" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_Noop;
-/** Value: "POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified;
-/** Value: "SHUTDOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_Instance_PostKeyRevocationActionType_Shutdown;
-
-// ----------------------------------------------------------------------------
 // GTLRCompute_Instance.privateIpv6GoogleAccess
 
 /** Value: "ENABLE_BIDIRECTIONAL_ACCESS_TO_GOOGLE" */
@@ -4131,16 +4121,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanc
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Restarting;
 /** Value: "VERIFYING" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceManagedByIgmErrorInstanceActionDetails_Action_Verifying;
-
-// ----------------------------------------------------------------------------
-// GTLRCompute_InstanceProperties.postKeyRevocationActionType
-
-/** Value: "NOOP" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Noop;
-/** Value: "POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified;
-/** Value: "SHUTDOWN" */
-FOUNDATION_EXTERN NSString * const kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Shutdown;
 
 // ----------------------------------------------------------------------------
 // GTLRCompute_InstanceProperties.privateIpv6GoogleAccess
@@ -6861,6 +6841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLicenses;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedLocalSsdTotalGb;
 /** Value: "COMMITTED_MEMORY_OPTIMIZED_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus;
+/** Value: "COMMITTED_N2A_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2aCpus;
 /** Value: "COMMITTED_N2_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_CommittedN2Cpus;
 /** Value: "COMMITTED_N2D_CPUS" */
@@ -6939,6 +6921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_M1Cpus;
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_M2Cpus;
 /** Value: "MACHINE_IMAGES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_MachineImages;
+/** Value: "N2A_CPUS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2aCpus;
 /** Value: "N2_CPUS" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_N2Cpus;
 /** Value: "N2D_CPUS" */
@@ -12515,7 +12499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  The configuration parameters for the autoscaling algorithm. You can define
- *  one or more of the policies for an autoscaler: cpuUtilization,
+ *  one or more signals for an autoscaler: cpuUtilization,
  *  customMetricUtilizations, and loadBalancingUtilization.
  *  If none of these are specified, the default will be to autoscale based on
  *  cpuUtilization to 0.6 or 60%.
@@ -19046,18 +19030,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetResources;
 
 /**
- *  A list of secure labels that controls which instances the firewall rule
- *  applies to. If targetSecureLabel are specified, then the firewall rule
- *  applies only to instances in the VPC network that have one of those secure
- *  labels. targetSecureLabel may not be set at the same time as
- *  targetServiceAccounts. If neither targetServiceAccounts nor
- *  targetSecureLabel are specified, the firewall rule applies to all instances
- *  on the specified network. Maximum number of target label values allowed is
- *  256.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *targetSecureLabels;
-
-/**
  *  A list of service accounts indicating the sets of instances that are applied
  *  with this rule.
  */
@@ -19086,12 +19058,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  256.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *srcIpRanges;
-
-/**
- *  List of firewall label values, which should be matched at the source of the
- *  traffic. Maximum number of source label values allowed is 256.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *srcSecureLabels;
 
 @end
 
@@ -23264,19 +23230,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 
 /**
- *  PostKeyRevocationActionType of the instance.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_Instance_PostKeyRevocationActionType_Noop Value
- *        "NOOP"
- *    @arg @c kGTLRCompute_Instance_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified
- *        Value "POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCompute_Instance_PostKeyRevocationActionType_Shutdown Value
- *        "SHUTDOWN"
- */
-@property(nonatomic, copy, nullable) NSString *postKeyRevocationActionType;
-
-/**
  *  The private IPv6 google access type for the VM. If not specified, use
  *  INHERIT_FROM_SUBNETWORK as default.
  *
@@ -26084,19 +26037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_NetworkInterface *> *networkInterfaces;
 
 /**
- *  PostKeyRevocationActionType of the instance.
- *
- *  Likely values:
- *    @arg @c kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Noop
- *        Value "NOOP"
- *    @arg @c kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_PostKeyRevocationActionTypeUnspecified
- *        Value "POST_KEY_REVOCATION_ACTION_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRCompute_InstanceProperties_PostKeyRevocationActionType_Shutdown
- *        Value "SHUTDOWN"
- */
-@property(nonatomic, copy, nullable) NSString *postKeyRevocationActionType;
-
-/**
  *  The private IPv6 google access type for VMs. If not specified, use
  *  INHERIT_FROM_SUBNETWORK as default.
  *
@@ -27105,9 +27045,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Used only for interconnect attachment that has the encryption option as
  *  IPSEC. The addresses must be RFC 1918 IP address ranges. When creating HA
  *  VPN gateway over the interconnect attachment, if the attachment is
- *  configured to use an RFC 1918 IP address, then the VPN gateway?s IP address
+ *  configured to use an RFC 1918 IP address, then the VPN gateway's IP address
  *  will be allocated from the IP address range specified here. For example, if
- *  the HA VPN gateway?s interface 0 is paired to this interconnect attachment,
+ *  the HA VPN gateway's interface 0 is paired to this interconnect attachment,
  *  then an RFC 1918 IP address for the VPN gateway interface 0 will be
  *  allocated from the IP address specified for this interconnect attachment. If
  *  this field is not specified for interconnect attachment that has encryption
@@ -36568,6 +36508,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "COMMITTED_LOCAL_SSD_TOTAL_GB"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedMemoryOptimizedCpus Value
  *        "COMMITTED_MEMORY_OPTIMIZED_CPUS"
+ *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2aCpus Value
+ *        "COMMITTED_N2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2Cpus Value
  *        "COMMITTED_N2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_CommittedN2dCpus Value
@@ -36630,6 +36572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *    @arg @c kGTLRCompute_Quota_Metric_M1Cpus Value "M1_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_M2Cpus Value "M2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_MachineImages Value "MACHINE_IMAGES"
+ *    @arg @c kGTLRCompute_Quota_Metric_N2aCpus Value "N2A_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2Cpus Value "N2_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_N2dCpus Value "N2D_CPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_NetworkEndpointGroups Value
@@ -43571,9 +43514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  applicable to subnetworks that have the purpose set to
  *  INTERNAL_HTTPS_LOAD_BALANCER and indicates that connections to the load
  *  balancer are being drained. A subnetwork that is draining cannot be used or
- *  modified until it reaches a status of READY CREATING: Subnetwork is
- *  provisioning DELETING: Subnetwork is being deleted UPDATING: Subnetwork is
- *  being updated
+ *  modified until it reaches a status of READY
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Subnetwork_State_Draining Value "DRAINING"

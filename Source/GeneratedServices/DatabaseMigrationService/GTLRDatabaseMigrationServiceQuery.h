@@ -286,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of this connection profile resource in the form of
- *  projects/{project}/locations/{location}/instances/{instance}.
+ *  projects/{project}/locations/{location}/connectionProfiles/{instance}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -315,7 +315,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRDatabaseMigrationService_ConnectionProfile to
  *    include in the query.
  *  @param name The name of this connection profile resource in the form of
- *    projects/{project}/locations/{location}/instances/{instance}.
+ *    projects/{project}/locations/{location}/connectionProfiles/{instance}.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesPatch
  */
@@ -451,8 +451,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of results to return. If not set, the service will select
- *  a default.
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

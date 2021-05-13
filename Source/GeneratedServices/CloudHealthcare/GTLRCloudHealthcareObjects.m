@@ -701,9 +701,9 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirStore
-@dynamic disableReferentialIntegrity, disableResourceVersioning,
-         enableUpdateCreate, labels, name, notificationConfig, streamConfigs,
-         version;
+@dynamic defaultSearchHandlingStrict, disableReferentialIntegrity,
+         disableResourceVersioning, enableUpdateCreate, labels, name,
+         notificationConfig, streamConfigs, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

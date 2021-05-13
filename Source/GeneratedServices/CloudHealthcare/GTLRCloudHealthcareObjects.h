@@ -1790,6 +1790,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @interface GTLRCloudHealthcare_FhirStore : GTLRObject
 
 /**
+ *  If true, overrides the default search behavior for this FHIR store to
+ *  `handling=strict` which returns an error for unrecognized search parameters.
+ *  If false, uses the FHIR specification default `handling=lenient` which
+ *  ignores unrecognized search parameters. The handling can always be changed
+ *  from the default on an individual API call by setting the HTTP header
+ *  `Prefer: handling=strict` or `Prefer: handling=lenient`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultSearchHandlingStrict;
+
+/**
  *  Immutable. Whether to disable referential integrity in this FHIR store. This
  *  field is immutable after FHIR store creation. The default value is false,
  *  meaning that the API enforces referential integrity and fails the requests

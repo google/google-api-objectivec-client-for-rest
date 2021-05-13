@@ -13,71 +13,70 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing.systemActionType
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing_SystemActionType_NoOperation = @"NO_OPERATION";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing_SystemActionType_SystemActionTypeUnspecified = @"SYSTEM_ACTION_TYPE_UNSPECIFIED";
+// GTLRAlertCenter_AlertFeedback.type
+NSString * const kGTLRAlertCenter_AlertFeedback_Type_AlertFeedbackTypeUnspecified = @"ALERT_FEEDBACK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
+NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT_USEFUL";
+NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo.dataSource
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_DataSource_DataSourceUnspecified = @"DATA_SOURCE_UNSPECIFIED";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_DataSource_Drive = @"DRIVE";
+// GTLRAlertCenter_CloudPubsubTopic.payloadFormat
+NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
+NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo.suppressedActionTypes
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_RuleActivate = @"RULE_ACTIVATE";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_SuppressedActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
+// GTLRAlertCenter_MailPhishing.systemActionType
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_NoOperation = @"NO_OPERATION";
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_RemovedFromInbox = @"REMOVED_FROM_INBOX";
+NSString * const kGTLRAlertCenter_MailPhishing_SystemActionType_SystemActionTypeUnspecified = @"SYSTEM_ACTION_TYPE_UNSPECIFIED";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo.trigger
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_Trigger_DriveShare = @"DRIVE_SHARE";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
+// GTLRAlertCenter_RuleViolationInfo.dataSource
+NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_DataSourceUnspecified = @"DATA_SOURCE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive = @"DRIVE";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo.triggeredActionTypes
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_RuleActivate = @"RULE_ACTIVATE";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo_TriggeredActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
+// GTLRAlertCenter_RuleViolationInfo.suppressedActionTypes
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleActivate = @"RULE_ACTIVATE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback.type
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback_Type_AlertFeedbackTypeUnspecified = @"ALERT_FEEDBACK_TYPE_UNSPECIFIED";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT_USEFUL";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
+// GTLRAlertCenter_RuleViolationInfo.trigger
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare = @"DRIVE_SHARE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
 
-// GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificationCloudPubsubTopic.payloadFormat
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificationCloudPubsubTopic_PayloadFormat_Json = @"JSON";
-NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificationCloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
+// GTLRAlertCenter_RuleViolationInfo.triggeredActionTypes
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_Alert = @"ALERT";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBlockExternalSharing = @"DRIVE_BLOCK_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleActivate = @"RULE_ACTIVATE";
+NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAccountWarning
+//   GTLRAlertCenter_AccountWarning
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAccountWarning
+@implementation GTLRAlertCenter_AccountWarning
 @dynamic email, loginDetails;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAccountWarningLoginDetails
+//   GTLRAlertCenter_ActionInfo
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAccountWarningLoginDetails
-@dynamic ipAddress, loginTime;
+@implementation GTLRAlertCenter_ActionInfo
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeActivityRule
+//   GTLRAlertCenter_ActivityRule
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeActivityRule
+@implementation GTLRAlertCenter_ActivityRule
 @dynamic actionNames, createTime, descriptionProperty, displayName, name, query,
          supersededAlerts, supersedingAlert, threshold, triggerSource,
          updateTime, windowSize;
@@ -99,15 +98,71 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAppMakerSqlSetupNotification
+//   GTLRAlertCenter_Alert
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAppMakerSqlSetupNotification
+@implementation GTLRAlertCenter_Alert
+@dynamic alertId, createTime, customerId, data, deleted, endTime, ETag,
+         metadata, securityInvestigationToolLink, source, startTime, type,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Alert_Data
+//
+
+@implementation GTLRAlertCenter_Alert_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AlertFeedback
+//
+
+@implementation GTLRAlertCenter_AlertFeedback
+@dynamic alertId, createTime, customerId, email, feedbackId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AlertMetadata
+//
+
+@implementation GTLRAlertCenter_AlertMetadata
+@dynamic alertId, assignee, customerId, ETag, severity, status, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AppMakerSqlSetupNotification
+//
+
+@implementation GTLRAlertCenter_AppMakerSqlSetupNotification
 @dynamic requestInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"requestInfo" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeAppMakerSqlSetupNotificationRequestInfo class]
+    @"requestInfo" : [GTLRAlertCenter_RequestInfo class]
   };
   return map;
 }
@@ -117,43 +172,163 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAppMakerSqlSetupNotificationRequestInfo
+//   GTLRAlertCenter_AppSettingsChanged
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAppMakerSqlSetupNotificationRequestInfo
-@dynamic appDeveloperEmail, appKey, numberOfRequests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"appDeveloperEmail" : [NSString class]
-  };
-  return map;
-}
-
+@implementation GTLRAlertCenter_AppSettingsChanged
+@dynamic alertDetails, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachment
+//   GTLRAlertCenter_Attachment
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachment
+@implementation GTLRAlertCenter_Attachment
 @dynamic csv;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachmentCsv
+//   GTLRAlertCenter_BadWhitelist
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachmentCsv
+@implementation GTLRAlertCenter_BadWhitelist
+@dynamic domainId, maliciousEntity, messages, sourceIp;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsRequest
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsRequest
+@dynamic alertId, customerId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsResponse
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsResponse
+@dynamic failedAlertStatus, successAlertIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"successAlertIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus
+//
+
+@implementation GTLRAlertCenter_BatchDeleteAlertsResponse_FailedAlertStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAlertCenter_Status class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsRequest
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsRequest
+@dynamic alertId, customerId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertId" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsResponse
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsResponse
+@dynamic failedAlertStatus, successAlertIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"successAlertIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus
+//
+
+@implementation GTLRAlertCenter_BatchUndeleteAlertsResponse_FailedAlertStatus
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAlertCenter_Status class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_CloudPubsubTopic
+//
+
+@implementation GTLRAlertCenter_CloudPubsubTopic
+@dynamic payloadFormat, topicName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Csv
+//
+
+@implementation GTLRAlertCenter_Csv
 @dynamic dataRows, headers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"dataRows" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachmentCsvCsvRow class],
+    @"dataRows" : [GTLRAlertCenter_CsvRow class],
     @"headers" : [NSString class]
   };
   return map;
@@ -164,10 +339,10 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachmentCsvCsvRow
+//   GTLRAlertCenter_CsvRow
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeAttachmentCsvCsvRow
+@implementation GTLRAlertCenter_CsvRow
 @dynamic entries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -182,33 +357,15 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeBadWhitelist
+//   GTLRAlertCenter_DeviceCompromised
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeBadWhitelist
-@dynamic domainId, maliciousEntity, messages, sourceIp;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messages" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeGmailMessageInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeDeviceCompromised
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeDeviceCompromised
+@implementation GTLRAlertCenter_DeviceCompromised
 @dynamic email, events;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeDeviceCompromisedDeviceCompromisedSecurityDetail class]
+    @"events" : [GTLRAlertCenter_DeviceCompromisedSecurityDetail class]
   };
   return map;
 }
@@ -218,10 +375,10 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeDeviceCompromisedDeviceCompromisedSecurityDetail
+//   GTLRAlertCenter_DeviceCompromisedSecurityDetail
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeDeviceCompromisedDeviceCompromisedSecurityDetail
+@implementation GTLRAlertCenter_DeviceCompromisedSecurityDetail
 @dynamic deviceCompromisedState, deviceId, deviceModel, deviceType, iosVendorId,
          resourceId, serialNumber;
 @end
@@ -229,40 +386,49 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeDlpRuleViolation
+//   GTLRAlertCenter_DlpRuleViolation
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeDlpRuleViolation
+@implementation GTLRAlertCenter_DlpRuleViolation
 @dynamic ruleViolationInfo;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeDomainId
+//   GTLRAlertCenter_DomainId
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeDomainId
+@implementation GTLRAlertCenter_DomainId
 @dynamic customerPrimaryDomain;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeDomainWideTakeoutInitiated
+//   GTLRAlertCenter_DomainWideTakeoutInitiated
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeDomainWideTakeoutInitiated
+@implementation GTLRAlertCenter_DomainWideTakeoutInitiated
 @dynamic email, takeoutRequestId;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeGmailMessageInfo
+//   GTLRAlertCenter_Empty
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeGmailMessageInfo
+@implementation GTLRAlertCenter_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_GmailMessageInfo
+//
+
+@implementation GTLRAlertCenter_GmailMessageInfo
 @dynamic attachmentsSha256Hash, date, md5HashMessageBody, md5HashSubject,
          messageBodySnippet, messageId, recipient, subjectText;
 
@@ -278,10 +444,10 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeGoogleOperations
+//   GTLRAlertCenter_GoogleOperations
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeGoogleOperations
+@implementation GTLRAlertCenter_GoogleOperations
 @dynamic affectedUserEmails, attachmentData, descriptionProperty, header, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -300,349 +466,15 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing
+//   GTLRAlertCenter_ListAlertFeedbackResponse
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeMailPhishing
-@dynamic domainId, isInternal, maliciousEntity, messages, systemActionType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messages" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeGmailMessageInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeMaliciousEntity
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeMaliciousEntity
-@dynamic displayName, entity, fromHeader;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypePhishingSpike
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypePhishingSpike
-@dynamic domainId, isInternal, maliciousEntity, messages;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"messages" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeGmailMessageInfo class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfo
-@dynamic dataSource, matchInfo, recipients, resourceInfo, ruleInfo,
-         suppressedActionTypes, trigger, triggeredActionInfo,
-         triggeredActionTypes, triggeringUserEmail;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"matchInfo" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfo class],
-    @"recipients" : [NSString class],
-    @"suppressedActionTypes" : [NSString class],
-    @"triggeredActionInfo" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoActionInfo class],
-    @"triggeredActionTypes" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoActionInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoActionInfo
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfo
-@dynamic predefinedDetector, userDefinedDetector;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfoPredefinedDetectorInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfoPredefinedDetectorInfo
-@dynamic detectorName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfoUserDefinedDetectorInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoMatchInfoUserDefinedDetectorInfo
-@dynamic displayName, resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoResourceInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoResourceInfo
-@dynamic documentId, resourceTitle;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoRuleInfo
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeRuleViolationInfoRuleInfo
-@dynamic displayName, resourceName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeStateSponsoredAttack
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeStateSponsoredAttack
-@dynamic email;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeSuspiciousActivity
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeSuspiciousActivity
-@dynamic email, events;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"events" : [GTLRAlertCenter_GoogleAppsAlertcenterTypeSuspiciousActivitySuspiciousActivitySecurityDetail class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeSuspiciousActivitySuspiciousActivitySecurityDetail
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeSuspiciousActivitySuspiciousActivitySecurityDetail
-@dynamic deviceId, deviceModel, deviceProperty, deviceType, iosVendorId,
-         newValue, oldValue, resourceId, serialNumber;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterTypeUser
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterTypeUser
-@dynamic displayName, emailAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert
-@dynamic alertId, createTime, customerId, data, deleted, endTime, ETag,
-         metadata, securityInvestigationToolLink, source, startTime, type,
-         updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert_Data
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert_Data
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback
-@dynamic alertId, createTime, customerId, email, feedbackId, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertMetadata
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertMetadata
-@dynamic alertId, assignee, customerId, ETag, severity, status, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsRequest
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsRequest
-@dynamic alertId, customerId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"alertId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsResponse
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsResponse
-@dynamic failedAlertStatus, successAlertIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"successAlertIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsResponse_FailedAlertStatus
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchDeleteAlertsResponse_FailedAlertStatus
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRAlertCenter_GoogleRpcStatus class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsRequest
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsRequest
-@dynamic alertId, customerId;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"alertId" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsResponse
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsResponse
-@dynamic failedAlertStatus, successAlertIds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"successAlertIds" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsResponse_FailedAlertStatus
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1BatchUndeleteAlertsResponse_FailedAlertStatus
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRAlertCenter_GoogleRpcStatus class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertFeedbackResponse
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertFeedbackResponse
+@implementation GTLRAlertCenter_ListAlertFeedbackResponse
 @dynamic feedback;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"feedback" : [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1AlertFeedback class]
+    @"feedback" : [GTLRAlertCenter_AlertFeedback class]
   };
   return map;
 }
@@ -652,15 +484,15 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertsResponse
+//   GTLRAlertCenter_ListAlertsResponse
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1ListAlertsResponse
+@implementation GTLRAlertCenter_ListAlertsResponse
 @dynamic alerts, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"alerts" : [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Alert class]
+    @"alerts" : [GTLRAlertCenter_Alert class]
   };
   return map;
 }
@@ -674,15 +506,25 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Settings
+//   GTLRAlertCenter_LoginDetails
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1Settings
-@dynamic notifications;
+@implementation GTLRAlertCenter_LoginDetails
+@dynamic ipAddress, loginTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_MailPhishing
+//
+
+@implementation GTLRAlertCenter_MailPhishing
+@dynamic domainId, isInternal, maliciousEntity, messages, systemActionType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"notifications" : [GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotification class]
+    @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
   };
   return map;
 }
@@ -692,54 +534,45 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotification
+//   GTLRAlertCenter_MaliciousEntity
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotification
+@implementation GTLRAlertCenter_MaliciousEntity
+@dynamic displayName, entity, fromHeader;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_MatchInfo
+//
+
+@implementation GTLRAlertCenter_MatchInfo
+@dynamic predefinedDetector, userDefinedDetector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Notification
+//
+
+@implementation GTLRAlertCenter_Notification
 @dynamic cloudPubsubTopic;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificationCloudPubsubTopic
+//   GTLRAlertCenter_PhishingSpike
 //
 
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificationCloudPubsubTopic
-@dynamic payloadFormat, topicName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleAppsAlertcenterV1beta1UndeleteAlertRequest
-//
-
-@implementation GTLRAlertCenter_GoogleAppsAlertcenterV1beta1UndeleteAlertRequest
-@dynamic customerId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleProtobufEmpty
-//
-
-@implementation GTLRAlertCenter_GoogleProtobufEmpty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_GoogleRpcStatus
-//
-
-@implementation GTLRAlertCenter_GoogleRpcStatus
-@dynamic code, details, message;
+@implementation GTLRAlertCenter_PhishingSpike
+@dynamic domainId, isInternal, maliciousEntity, messages;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRAlertCenter_GoogleRpcStatus_Details_Item class]
+    @"messages" : [GTLRAlertCenter_GmailMessageInfo class]
   };
   return map;
 }
@@ -749,13 +582,210 @@ NSString * const kGTLRAlertCenter_GoogleAppsAlertcenterV1beta1SettingsNotificati
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAlertCenter_GoogleRpcStatus_Details_Item
+//   GTLRAlertCenter_PredefinedDetectorInfo
 //
 
-@implementation GTLRAlertCenter_GoogleRpcStatus_Details_Item
+@implementation GTLRAlertCenter_PredefinedDetectorInfo
+@dynamic detectorName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_ReportingRule
+//
+
+@implementation GTLRAlertCenter_ReportingRule
+@dynamic alertDetails, name, query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RequestInfo
+//
+
+@implementation GTLRAlertCenter_RequestInfo
+@dynamic appDeveloperEmail, appKey, numberOfRequests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appDeveloperEmail" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_ResourceInfo
+//
+
+@implementation GTLRAlertCenter_ResourceInfo
+@dynamic documentId, resourceTitle;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RuleInfo
+//
+
+@implementation GTLRAlertCenter_RuleInfo
+@dynamic displayName, resourceName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_RuleViolationInfo
+//
+
+@implementation GTLRAlertCenter_RuleViolationInfo
+@dynamic dataSource, matchInfo, recipients, resourceInfo, ruleInfo,
+         suppressedActionTypes, trigger, triggeredActionInfo,
+         triggeredActionTypes, triggeringUserEmail;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"matchInfo" : [GTLRAlertCenter_MatchInfo class],
+    @"recipients" : [NSString class],
+    @"suppressedActionTypes" : [NSString class],
+    @"triggeredActionInfo" : [GTLRAlertCenter_ActionInfo class],
+    @"triggeredActionTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Settings
+//
+
+@implementation GTLRAlertCenter_Settings
+@dynamic notifications;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"notifications" : [GTLRAlertCenter_Notification class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_StateSponsoredAttack
+//
+
+@implementation GTLRAlertCenter_StateSponsoredAttack
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Status
+//
+
+@implementation GTLRAlertCenter_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRAlertCenter_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_Status_Details_Item
+//
+
+@implementation GTLRAlertCenter_Status_Details_Item
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SuspiciousActivity
+//
+
+@implementation GTLRAlertCenter_SuspiciousActivity
+@dynamic email, events;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRAlertCenter_SuspiciousActivitySecurityDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_SuspiciousActivitySecurityDetail
+//
+
+@implementation GTLRAlertCenter_SuspiciousActivitySecurityDetail
+@dynamic deviceId, deviceModel, deviceProperty, deviceType, iosVendorId,
+         newValue, oldValue, resourceId, serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UndeleteAlertRequest
+//
+
+@implementation GTLRAlertCenter_UndeleteAlertRequest
+@dynamic customerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_User
+//
+
+@implementation GTLRAlertCenter_User
+@dynamic displayName, emailAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UserChanges
+//
+
+@implementation GTLRAlertCenter_UserChanges
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_UserDefinedDetectorInfo
+//
+
+@implementation GTLRAlertCenter_UserDefinedDetectorInfo
+@dynamic displayName, resourceName;
 @end

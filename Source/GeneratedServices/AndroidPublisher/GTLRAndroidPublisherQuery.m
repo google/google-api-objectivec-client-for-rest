@@ -175,7 +175,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_EditsCommit
 
-@dynamic editId, packageName;
+@dynamic changesNotSentForReview, editId, packageName;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId {

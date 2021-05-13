@@ -2,6 +2,7 @@
   "INFO": [
     "Discovery included 'prod_tt_sasportal:v1alpha1', but skipping as requested.",
     "Guessed formatted name 'APIGateway' from API title 'API Gateway API'",
+    "Guessed formatted name 'BareMetalSolution' from API title 'Bare Metal Solution API'",
     "Guessed formatted name 'DigitalAssetLinks' from API title 'Digital Asset Links API'",
     "Guessed formatted name 'GroupsSettings' from API title 'Groups Settings API'",
     "Guessed formatted name 'SASPortal' from API title 'SAS Portal API'",
@@ -14,6 +15,7 @@
     "Unexpected JSON key under resources.accounts.resources.networkReport.methods.generate: streamingType",
   ],
   "WARNING": [
+    "Method 'chromepolicy.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'cloudsearch.media.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'dfareporting.creativeAssets.insert' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",
     "Method 'displayvideo.advertisers.assets.upload' supports media upload, but doesn't seem to support resumable. It will be up to the developer to use the right upload method.",

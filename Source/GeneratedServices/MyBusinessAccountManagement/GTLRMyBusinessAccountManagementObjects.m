@@ -244,5 +244,5 @@ NSString * const kGTLRMyBusinessAccountManagement_Invitation_TargetType_TargetTy
 //
 
 @implementation GTLRMyBusinessAccountManagement_TransferLocationRequest
-@dynamic destinationAccount, name;
+@dynamic destinationAccount;
 @end

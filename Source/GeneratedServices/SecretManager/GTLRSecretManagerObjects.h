@@ -336,6 +336,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.DestroySecretVersion.
  */
 @interface GTLRSecretManager_DestroySecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -343,6 +351,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.DisableSecretVersion.
  */
 @interface GTLRSecretManager_DisableSecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -361,6 +377,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Request message for SecretManagerService.EnableSecretVersion.
  */
 @interface GTLRSecretManager_EnableSecretVersionRequest : GTLRObject
+
+/**
+ *  Optional. Etag of the SecretVersion. The request succeeds if it matches the
+ *  etag of the currently stored secret version object. If the etag is omitted,
+ *  the request succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 @end
 
 
@@ -765,6 +789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /** Output only. The time at which the Secret was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Etag of the currently stored Secret. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
 /**
  *  Optional. Timestamp in UTC when the Secret is scheduled to expire. This is
  *  always provided on output, regardless of what was sent on input.
@@ -861,6 +888,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  state is DESTROYED.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *destroyTime;
+
+/** Output only. Etag of the currently stored SecretVersion. */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Output only. The resource name of the SecretVersion in the format `projects/

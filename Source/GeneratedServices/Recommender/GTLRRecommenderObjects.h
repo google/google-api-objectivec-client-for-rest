@@ -120,6 +120,40 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Category_Security;
 
 // ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1Insight.severity
+
+/**
+ *  Insight has critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical;
+/**
+ *  Insight has high severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_High;
+/**
+ *  Insight has low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Low;
+/**
+ *  Insight has medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Medium;
+/**
+ *  Insight has unspecified severity.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo.state
 
 /**
@@ -152,6 +186,40 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Insi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecommender_GoogleCloudRecommenderV1Recommendation.priority
+
+/**
+ *  Recommendation has P1 priority (highest priority).
+ *
+ *  Value: "P1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P1;
+/**
+ *  Recommendation has P2 priority (second highest priority).
+ *
+ *  Value: "P2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P2;
+/**
+ *  Recommendation has P3 priority (second lowest priority).
+ *
+ *  Value: "P3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P3;
+/**
+ *  Recommendation has P4 priority (lowest priority).
+ *
+ *  Value: "P4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P4;
+/**
+ *  Recommendation has unspecified priority.
+ *
+ *  Value: "PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_PriorityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo.state
@@ -315,6 +383,23 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  observation_period).
  */
 @property(nonatomic, strong, nullable) GTLRDuration *observationPeriod;
+
+/**
+ *  Insight's severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Critical
+ *        Insight has critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_High
+ *        Insight has high severity. (Value: "HIGH")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Low
+ *        Insight has low severity. (Value: "LOW")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_Medium
+ *        Insight has medium severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Insight_Severity_SeverityUnspecified
+ *        Insight has unspecified severity. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
 
 /** Information state and metadata. */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1InsightStateInfo *stateInfo;
@@ -777,6 +862,25 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *  optimize for one category.
  */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1Impact *primaryImpact;
+
+/**
+ *  Recommendation's priority.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P1
+ *        Recommendation has P1 priority (highest priority). (Value: "P1")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P2
+ *        Recommendation has P2 priority (second highest priority). (Value:
+ *        "P2")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P3
+ *        Recommendation has P3 priority (second lowest priority). (Value: "P3")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_P4
+ *        Recommendation has P4 priority (lowest priority). (Value: "P4")
+ *    @arg @c kGTLRRecommender_GoogleCloudRecommenderV1Recommendation_Priority_PriorityUnspecified
+ *        Recommendation has unspecified priority. (Value:
+ *        "PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
 
 /**
  *  Contains an identifier for a subtype of recommendations produced for the

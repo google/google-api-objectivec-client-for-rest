@@ -388,7 +388,8 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_AccountsLinkRequest
-@dynamic action, linkedAccountId, linkType, services;
+@dynamic action, linkedAccountId, linkType, paymentServiceProviderLinkInfo,
+         services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -907,10 +908,11 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_CarriersCarrier
-@dynamic country, name, services;
+@dynamic country, eddServices, name, services;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"eddServices" : [NSString class],
     @"services" : [NSString class]
   };
   return map;
@@ -1414,11 +1416,13 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 @implementation GTLRShoppingContent_DeliveryTime
 @dynamic cutoffTime, handlingBusinessDayConfig, holidayCutoffs,
          maxHandlingTimeInDays, maxTransitTimeInDays, minHandlingTimeInDays,
-         minTransitTimeInDays, transitBusinessDayConfig, transitTimeTable;
+         minTransitTimeInDays, transitBusinessDayConfig, transitTimeTable,
+         warehouseBasedDeliveryTimes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"holidayCutoffs" : [GTLRShoppingContent_HolidayCutoff class]
+    @"holidayCutoffs" : [GTLRShoppingContent_HolidayCutoff class],
+    @"warehouseBasedDeliveryTimes" : [GTLRShoppingContent_WarehouseBasedDeliveryTime class]
   };
   return map;
 }
@@ -3757,6 +3761,16 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_PaymentServiceProviderLinkInfo
+//
+
+@implementation GTLRShoppingContent_PaymentServiceProviderLinkInfo
+@dynamic externalAccountBusinessCountry, externalAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_PickupCarrierService
 //
 
@@ -5251,6 +5265,16 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ReturnShippingLabel
+//
+
+@implementation GTLRShoppingContent_ReturnShippingLabel
+@dynamic carrier, labelUri, trackingId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Row
 //
 
@@ -5958,6 +5982,17 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 @implementation GTLRShoppingContent_Value
 @dynamic carrierRateName, flatRate, noShipping, pricePercentage, subtableName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_WarehouseBasedDeliveryTime
+//
+
+@implementation GTLRShoppingContent_WarehouseBasedDeliveryTime
+@dynamic carrier, carrierService, originAdministrativeArea, originCity,
+         originCountry, originPostalCode, originStreetAddress;
 @end
 
 

@@ -25,6 +25,8 @@
 @class GTLRArtifactRegistry_Operation;
 @class GTLRArtifactRegistry_Operation_Metadata;
 @class GTLRArtifactRegistry_Operation_Response;
+@class GTLRArtifactRegistry_Repository;
+@class GTLRArtifactRegistry_Repository_Labels;
 @class GTLRArtifactRegistry_Status;
 @class GTLRArtifactRegistry_Status_Details_Item;
 
@@ -34,6 +36,25 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_Repository.format
+
+/**
+ *  Docker package format.
+ *
+ *  Value: "DOCKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docker;
+/**
+ *  Unspecified package format.
+ *
+ *  Value: "FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
 
 /**
  *  The request message for Operations.CancelOperation.
@@ -151,6 +172,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  The response from listing repositories.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "repositories" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRArtifactRegistry_ListRepositoriesResponse : GTLRCollectionObject
+
+/**
+ *  The token to retrieve the next page of repositories, or empty if there are
+ *  no more repositories to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The repositories returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Repository *> *repositories;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -227,6 +275,75 @@ NS_ASSUME_NONNULL_BEGIN
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRArtifactRegistry_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  A Repository for storing artifacts with a specific format.
+ */
+@interface GTLRArtifactRegistry_Repository : GTLRObject
+
+/** The time when the repository was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The user-provided description of the repository.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The format of packages that are stored in the repository.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Docker Docker package
+ *        format. (Value: "DOCKER")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
+ *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  The Cloud KMS resource name of the customer managed encryption key that’s
+ *  used to encrypt the contents of the Repository. Has the form:
+ *  `projects/my-project/locations/my-region/keyRings/my-kr/cryptoKeys/my-key`.
+ *  This value may not be changed after the Repository has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Labels with user-defined metadata. This field may contain up to 64 entries.
+ *  Label keys and values may be no longer than 63 characters. Label keys must
+ *  begin with a lowercase letter and may only contain lowercase letters,
+ *  numeric characters, underscores, and dashes.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Repository_Labels *labels;
+
+/**
+ *  The name of the repository, for example:
+ *  "projects/p1/locations/us-central1/repositories/repo1".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time when the repository was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Labels with user-defined metadata. This field may contain up to 64 entries.
+ *  Label keys and values may be no longer than 63 characters. Label keys must
+ *  begin with a lowercase letter and may only contain lowercase letters,
+ *  numeric characters, underscores, and dashes.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRArtifactRegistry_Repository_Labels : GTLRObject
 @end
 
 

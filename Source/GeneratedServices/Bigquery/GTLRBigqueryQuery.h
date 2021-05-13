@@ -757,6 +757,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
 
 /**
  *  Lists all models in the specified dataset. Requires the READER dataset role.
+ *  After retrieving the list of models, you can get information about a
+ *  particular model by calling the models.get method.
  *
  *  Method: bigquery.models.list
  *
@@ -788,6 +790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigqueryStateFilterRunning;
  *  Fetches a @c GTLRBigquery_ListModelsResponse.
  *
  *  Lists all models in the specified dataset. Requires the READER dataset role.
+ *  After retrieving the list of models, you can get information about a
+ *  particular model by calling the models.get method.
  *
  *  @param projectId Required. Project ID of the models to list.
  *  @param datasetId Required. Dataset ID of the models to list.

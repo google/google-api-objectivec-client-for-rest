@@ -73,6 +73,13 @@ NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
 
+// GTLRCloudBuild_PubsubConfig.state
+NSString * const kGTLRCloudBuild_PubsubConfig_State_Ok         = @"OK";
+NSString * const kGTLRCloudBuild_PubsubConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionDeleted = @"SUBSCRIPTION_DELETED";
+NSString * const kGTLRCloudBuild_PubsubConfig_State_SubscriptionMisconfigured = @"SUBSCRIPTION_MISCONFIGURED";
+NSString * const kGTLRCloudBuild_PubsubConfig_State_TopicDeleted = @"TOPIC_DELETED";
+
 // GTLRCloudBuild_PullRequestFilter.commentControl
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabled = @"COMMENTS_DISABLED";
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
@@ -255,9 +262,9 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 //
 
 @implementation GTLRCloudBuild_BuildTrigger
-@dynamic build, createTime, descriptionProperty, disabled, filename, github,
-         identifier, ignoredFiles, includedFiles, name, substitutions, tags,
-         triggerTemplate;
+@dynamic build, createTime, descriptionProperty, disabled, filename, filter,
+         github, identifier, ignoredFiles, includedFiles, name, pubsubConfig,
+         substitutions, tags, triggerTemplate;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -608,6 +615,16 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_PubsubConfig
+//
+
+@implementation GTLRCloudBuild_PubsubConfig
+@dynamic serviceAccountEmail, state, subscription, topic;
 @end
 
 

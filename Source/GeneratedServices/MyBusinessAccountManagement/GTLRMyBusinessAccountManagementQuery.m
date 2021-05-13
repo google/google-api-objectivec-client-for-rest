@@ -361,28 +361,28 @@
 
 @end
 
-@implementation GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation
+@implementation GTLRMyBusinessAccountManagementQuery_LocationsTransfer
 
-@dynamic locationsId;
+@dynamic name;
 
 + (instancetype)queryWithObject:(GTLRMyBusinessAccountManagement_TransferLocationRequest *)object
-                    locationsId:(NSString *)locationsId {
+                           name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"locationsId" ];
-  NSString *pathURITemplate = @"v1/locations/{locationsId}:transferLocation";
-  GTLRMyBusinessAccountManagementQuery_LocationsTransferLocation *query =
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:transfer";
+  GTLRMyBusinessAccountManagementQuery_LocationsTransfer *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.locationsId = locationsId;
+  query.name = name;
   query.expectedObjectClass = [GTLRMyBusinessAccountManagement_Empty class];
-  query.loggingName = @"mybusinessaccountmanagement.locations.transferLocation";
+  query.loggingName = @"mybusinessaccountmanagement.locations.transfer";
   return query;
 }
 

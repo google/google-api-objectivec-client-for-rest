@@ -113,7 +113,11 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

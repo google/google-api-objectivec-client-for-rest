@@ -91,7 +91,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMailGoogleCom;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGmailMetadata;
 /**
- *  Authorization scope: View and modify but not delete your email
+ *  Authorization scope: Read, compose, and send emails from your Gmail account
  *
  *  Value "https://www.googleapis.com/auth/gmail.modify"
  */

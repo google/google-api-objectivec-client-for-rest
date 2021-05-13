@@ -7485,12 +7485,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsInstancesCreate : GTLRApigeeQuery
 
 /**
- *  Optional. List of environments that will be attached to the instance during
- *  creation.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
-
-/**
  *  Required. Name of the organization. Use the following structure in your
  *  request: `organizations/{org}`.
  */

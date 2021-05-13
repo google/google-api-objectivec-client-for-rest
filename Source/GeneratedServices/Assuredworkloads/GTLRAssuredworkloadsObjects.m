@@ -34,11 +34,13 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workloa
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
@@ -64,11 +66,13 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Com
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceInfo_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings.resourceType
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ConsumerProject = @"CONSUMER_PROJECT";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_EncryptionKeysProject = @"ENCRYPTION_KEYS_PROJECT";
+NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_Keyring = @"KEYRING";
 NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
@@ -77,7 +81,15 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadReso
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata
-@dynamic complianceRegime, createTime, displayName, parent;
+@dynamic complianceRegime, createTime, displayName, parent, resourceSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceSettings" : [GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -187,7 +199,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadReso
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings
-@dynamic resourceId, resourceType;
+@dynamic displayName, resourceId, resourceType;
 @end
 
 
@@ -288,7 +300,7 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadReso
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadResourceSettings
-@dynamic resourceId, resourceType;
+@dynamic displayName, resourceId, resourceType;
 @end
 
 

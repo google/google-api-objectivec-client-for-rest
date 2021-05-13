@@ -11476,11 +11476,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Number of line items that are directly targeting this channel
+ *  negatively.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *negativelyTargetedLineItemCount;
+
+/**
  *  The ID of the partner that owns the channel.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+/**
+ *  Output only. Number of line items that are directly targeting this channel
+ *  positively.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *positivelyTargetedLineItemCount;
 
 @end
 
@@ -17747,6 +17763,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *negativeKeywordListId;
+
+/**
+ *  Output only. Number of line items that are directly targeting this negative
+ *  keyword list.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetedLineItemCount;
 
 @end
 

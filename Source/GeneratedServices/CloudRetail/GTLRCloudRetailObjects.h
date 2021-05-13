@@ -344,7 +344,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *catalogItem;
 
 /**
- *  GCS file path of the import source. Can be set for batch operation error.
+ *  Cloud Storage file path of the import source. Can be set for batch operation
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *gcsPath;
 
@@ -879,8 +880,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *gcsStagingDir;
 
 /**
- *  The project id (can be project # or id) that the BigQuery source is in with
- *  a length limit of 128 characters. If not specified, inherits the project id
+ *  The project ID (can be project # or ID) that the BigQuery source is in with
+ *  a length limit of 128 characters. If not specified, inherits the project ID
  *  from the parent request.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -953,7 +954,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  for product imports: * `product` (default): One JSON Product per line. Each
  *  product must have a valid Product.id. * `product_merchant_center`: See
  *  [Importing catalog data from Merchant
- *  Center](https://cloud.google.com/retail/recommendations-ai/docs/upload-catalog#mcc).
+ *  Center](https://cloud.google.com/retail/recommendations-ai/docs/upload-catalog#mc).
  *  Supported values for user events imports: * `user_event` (default): One JSON
  *  UserEvent per line. * `user_event_ga360`: Using
  *  https://support.google.com/analytics/answer/3437719?hl=en.
@@ -966,7 +967,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  `gs://bucket/directory/object.json`) or a pattern matching one or more
  *  files, such as `gs://bucket/directory/ *.json`. A request can contain at
  *  most 100 files, and each file can be up to 2 GB. See [Importing product
- *  information](https://cloud.google.com/recommendations-ai/docs/upload-catalog)
+ *  information](https://cloud.google.com/retail/recommendations-ai/docs/upload-catalog)
  *  for the expected file format and setup instructions.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *inputUris;
@@ -1185,12 +1186,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The labels for the predict request. * Label keys can contain lowercase
- *  letters, digits and hyphens, must start with a letter, and must end with a
- *  letter or digit. * Non-zero label values can contain lowercase letters,
- *  digits and hyphens, must start with a letter, and must end with a letter or
- *  digit. * No more than 64 labels can be associated with a given request. See
- *  https://goo.gl/xmQnxf for more information on and examples of labels.
+ *  The labels applied to a resource must meet the following requirements: *
+ *  Each resource can have multiple labels, up to a maximum of 64. * Each label
+ *  must be a key-value pair. * Keys have a minimum length of 1 character and a
+ *  maximum length of 63 characters, and cannot be empty. Values can be empty,
+ *  and have a maximum length of 63 characters. * Keys and values can contain
+ *  only lowercase letters, numeric characters, underscores, and dashes. All
+ *  characters must use UTF-8 encoding, and international characters are
+ *  allowed. * The key portion of a label must be unique. However, you can use
+ *  the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Labels *labels;
 
@@ -1243,12 +1250,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 
 
 /**
- *  The labels for the predict request. * Label keys can contain lowercase
- *  letters, digits and hyphens, must start with a letter, and must end with a
- *  letter or digit. * Non-zero label values can contain lowercase letters,
- *  digits and hyphens, must start with a letter, and must end with a letter or
- *  digit. * No more than 64 labels can be associated with a given request. See
- *  https://goo.gl/xmQnxf for more information on and examples of labels.
+ *  The labels applied to a resource must meet the following requirements: *
+ *  Each resource can have multiple labels, up to a maximum of 64. * Each label
+ *  must be a key-value pair. * Keys have a minimum length of 1 character and a
+ *  maximum length of 63 characters, and cannot be empty. Values can be empty,
+ *  and have a maximum length of 63 characters. * Keys and values can contain
+ *  only lowercase letters, numeric characters, underscores, and dashes. All
+ *  characters must use UTF-8 encoding, and international characters are
+ *  allowed. * The key portion of a label must be unique. However, you can use
+ *  the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1996,7 +2009,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  identify a visitor on a single device. This unique identifier should not
  *  change if the visitor log in/out of the website. The field must be a UTF-8
  *  encoded string with a length limit of 128 characters. Otherwise, an
- *  INVALID_ARGUMENT error is returned.
+ *  INVALID_ARGUMENT error is returned. The field should not contain PII or
+ *  user-data. We recommend to use Google Analystics [Client
+ *  ID](https://developers.google.com/analytics/devguides/collection/analyticsjs/field-reference#clientId)
+ *  for this field.
  */
 @property(nonatomic, copy, nullable) NSString *visitorId;
 

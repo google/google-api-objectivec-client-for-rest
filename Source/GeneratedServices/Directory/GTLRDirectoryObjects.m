@@ -402,7 +402,7 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],
     @"diskVolumeReports" : [GTLRDirectory_ChromeOsDevice_DiskVolumeReports_Item class],
     @"lastKnownNetwork" : [GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item class],
-    @"recentUsers" : [GTLRDirectory_RecentUsers class],
+    @"recentUsers" : [GTLRDirectory_ChromeOsDevice_RecentUsers_Item class],
     @"screenshotFiles" : [GTLRDirectory_ChromeOsDevice_ScreenshotFiles_Item class],
     @"systemRamFreeReports" : [GTLRDirectory_ChromeOsDevice_SystemRamFreeReports_Item class]
   };
@@ -476,6 +476,16 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
 
 @implementation GTLRDirectory_ChromeOsDevice_LastKnownNetwork_Item
 @dynamic ipAddress, wanIpAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_ChromeOsDevice_RecentUsers_Item
+//
+
+@implementation GTLRDirectory_ChromeOsDevice_RecentUsers_Item
+@dynamic email, type;
 @end
 
 
@@ -1194,16 +1204,6 @@ NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown  = @"UNKNOWN";
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDirectory_RecentUsers
-//
-
-@implementation GTLRDirectory_RecentUsers
-@dynamic email, type;
 @end
 
 

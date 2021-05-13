@@ -563,6 +563,32 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  Request message for uploading a file for a policy. Next ID: 5
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileRequest : GTLRObject
+
+/**
+ *  Required. The fully qualified policy schema and field name this file is
+ *  uploaded for. This information will be used to validate the content type of
+ *  the file.
+ */
+@property(nonatomic, copy, nullable) NSString *policyField;
+
+@end
+
+
+/**
+ *  Response message for downloading an uploaded file. Next ID: 2
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1UploadPolicyFileResponse : GTLRObject
+
+/** The uri for end user to download the file. */
+@property(nonatomic, copy, nullable) NSString *downloadUri;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc

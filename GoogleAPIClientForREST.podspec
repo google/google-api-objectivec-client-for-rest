@@ -116,6 +116,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Apigee/*.{h,m}'
   end
+  s.subspec 'ApiKeysService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ApiKeysService/*.{h,m}'
+  end
   s.subspec 'Appengine' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Appengine/*.{h,m}'
@@ -131,6 +135,10 @@ Pod::Spec.new do |s|
   s.subspec 'Assuredworkloads' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Assuredworkloads/*.{h,m}'
+  end
+  s.subspec 'BareMetalSolution' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/BareMetalSolution/*.{h,m}'
   end
   s.subspec 'Bigquery' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -452,6 +460,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/DriveActivity/*.{h,m}'
   end
+  s.subspec 'Essentialcontacts' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Essentialcontacts/*.{h,m}'
+  end
   s.subspec 'Eventarc' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Eventarc/*.{h,m}'
@@ -604,6 +616,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessLodging/*.{h,m}'
   end
+  s.subspec 'MyBusinessPlaceActions' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessPlaceActions/*.{h,m}'
+  end
   s.subspec 'Networkconnectivity' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Networkconnectivity/*.{h,m}'
@@ -631,6 +647,10 @@ Pod::Spec.new do |s|
   s.subspec 'PagespeedInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/PagespeedInsights/*.{h,m}'
+  end
+  s.subspec 'PaymentsResellerSubscription' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PaymentsResellerSubscription/*.{h,m}'
   end
   s.subspec 'PeopleService' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -671,6 +691,10 @@ Pod::Spec.new do |s|
   s.subspec 'RealTimeBidding' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/RealTimeBidding/*.{h,m}'
+  end
+  s.subspec 'RecaptchaEnterprise' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/RecaptchaEnterprise/*.{h,m}'
   end
   s.subspec 'RecommendationsAI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

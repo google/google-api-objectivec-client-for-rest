@@ -781,11 +781,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessAccountManagement_Invitation_T
  */
 @property(nonatomic, copy, nullable) NSString *destinationAccount;
 
-/**
- *  Required. The name of the location to transfer. `locations/{location_id}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
 @end
 
 NS_ASSUME_NONNULL_END

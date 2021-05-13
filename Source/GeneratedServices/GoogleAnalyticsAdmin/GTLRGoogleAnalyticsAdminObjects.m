@@ -23,6 +23,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_S
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_System = @"SYSTEM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryEvent_ActorType_User = @"USER";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.scope
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_DimensionScopeUnspecified = @"DIMENSION_SCOPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_Event = @"EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomDimension_Scope_User = @"USER";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.measurementUnit
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency = @"CURRENCY";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Feet = @"FEET";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Hours = @"HOURS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Kilometers = @"KILOMETERS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_MeasurementUnitUnspecified = @"MEASUREMENT_UNIT_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Meters = @"METERS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Miles = @"MILES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Milliseconds = @"MILLISECONDS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Minutes = @"MINUTES";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Seconds = @"SECONDS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Standard = @"STANDARD";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.scope
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event = @"EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement = @"EDITOR_INCLUDING_LINK_MANAGEMENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement = @"EDITOR_WITHOUT_LINK_MANAGEMENT";
@@ -69,6 +91,9 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Account = @"ACCOUNT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_AndroidAppDataStream = @"ANDROID_APP_DATA_STREAM";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ChangeHistoryResourceTypeUnspecified = @"CHANGE_HISTORY_RESOURCE_TYPE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_ConversionEvent = @"CONVERSION_EVENT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomDimension = @"CUSTOM_DIMENSION";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream = @"IOS_APP_DATA_STREAM";
@@ -119,6 +144,24 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream
 @dynamic createTime, displayName, firebaseAppId, name, packageName, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest
 @end
 
 
@@ -297,8 +340,9 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
-@dynamic account, androidAppDataStream, firebaseLink, googleAdsLink,
-         iosAppDataStream, property, webDataStream;
+@dynamic account, androidAppDataStream, conversionEvent, customDimension,
+         customMetric, firebaseLink, googleAdsLink, iosAppDataStream, property,
+         webDataStream;
 @end
 
 
@@ -327,11 +371,53 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent
+@dynamic createTime, eventName, isDeletable, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaCreateUserLinkRequest
 @dynamic notifyNewUser, parent, userLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension
+@dynamic descriptionProperty, disallowAdsPersonalization, displayName, name,
+         parameterName, scope;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
+@dynamic descriptionProperty, displayName, measurementUnit, name, parameterName,
+         scope;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -473,6 +559,72 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 + (NSString *)collectionItemsKey {
   return @"androidAppDataStreams";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse
+@dynamic conversionEvents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conversionEvents" : [GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"conversionEvents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse
+@dynamic customDimensions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customDimensions" : [GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customDimensions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse
+@dynamic customMetrics, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customMetrics" : [GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"customMetrics";
 }
 
 @end

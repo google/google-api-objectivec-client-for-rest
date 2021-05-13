@@ -537,10 +537,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_IamPolicyAnalysisState_Code_D
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -827,7 +827,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
  *  a resource outside the Google Cloud resource hierarchy (such as Google
  *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
- *  policy). See [Supported asset
+ *  policy), or a relationship (e.g. an INSTANCE_TO_INSTANCEGROUP relationship).
+ *  See [Supported asset
  *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
  *  for more information.
  */
@@ -2428,8 +2429,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Defines the conditions under which an EgressPolicy matches a request.
  *  Conditions based on information about the source of the request. Note that
- *  if the destination of the request is protected by a ServicePerimeter, then
- *  that ServicePerimeter must have an IngressPolicy which allows access in
+ *  if the destination of the request is also protected by a ServicePerimeter,
+ *  then that ServicePerimeter must have an IngressPolicy which allows access in
  *  order for this request to succeed.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressFrom : GTLRObject
@@ -2500,23 +2501,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  Defines the conditions under which an EgressPolicy matches a request.
  *  Conditions are based on information about the ApiOperation intended to be
  *  performed on the `resources` specified. Note that if the destination of the
- *  request is protected by a ServicePerimeter, then that ServicePerimeter must
- *  have an IngressPolicy which allows access in order for this request to
- *  succeed.
+ *  request is also protected by a ServicePerimeter, then that ServicePerimeter
+ *  must have an IngressPolicy which allows access in order for this request to
+ *  succeed. The request must match `operations` AND `resources` fields in order
+ *  to be allowed egress out of the perimeter.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1EgressTo : GTLRObject
 
 /**
- *  A list of ApiOperations that this egress rule applies to. A request matches
- *  if it contains an operation/service in this list.
+ *  A list of ApiOperations allowed to be performed by the sources specified in
+ *  the corresponding EgressFrom. A request matches if it uses an
+ *  operation/service in this list.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation *> *operations;
 
 /**
  *  A list of resources, currently only projects in the form `projects/`, that
- *  match this to stanza. A request matches if it contains a resource in this
- *  list. If `*` is specified for resources, then this EgressTo rule will
- *  authorize access to all resources outside the perimeter.
+ *  are allowed to be accessed by sources defined in the corresponding
+ *  EgressFrom. A request matches if it contains a resource in this list. If `*`
+ *  is specified for `resources`, then this EgressTo rule will authorize access
+ *  to all resources outside the perimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -2525,7 +2529,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Defines the conditions under which an IngressPolicy matches a request.
- *  Conditions are based on information about the source of the request.
+ *  Conditions are based on information about the source of the request. The
+ *  request must satisfy what is defined in `sources` AND identity related
+ *  fields in order to match.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressFrom : GTLRObject
 
@@ -2604,8 +2610,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  AccessLevel will cause an error. If no AccessLevel names are listed,
  *  resources within the perimeter can only be accessed via Google Cloud calls
  *  with request origins within the perimeter. Example:
- *  `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If `*` is specified, then
- *  all IngressSources will be allowed.
+ *  `accessPolicies/MY_POLICY/accessLevels/MY_LEVEL`. If a single `*` is
+ *  specified for `access_level`, then all IngressSources will be allowed.
  */
 @property(nonatomic, copy, nullable) NSString *accessLevel;
 
@@ -2625,23 +2631,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Defines the conditions under which an IngressPolicy matches a request.
  *  Conditions are based on information about the ApiOperation intended to be
- *  performed on the destination of the request.
+ *  performed on the target resource of the request. The request must satisfy
+ *  what is defined in `operations` AND `resources` in order to match.
  */
 @interface GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1IngressTo : GTLRObject
 
 /**
- *  A list of ApiOperations the sources specified in corresponding IngressFrom
- *  are allowed to perform in this ServicePerimeter.
+ *  A list of ApiOperations allowed to be performed by the sources specified in
+ *  corresponding IngressFrom in this ServicePerimeter.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_GoogleIdentityAccesscontextmanagerV1ApiOperation *> *operations;
 
 /**
  *  A list of resources, currently only projects in the form `projects/`,
  *  protected by this ServicePerimeter that are allowed to be accessed by
- *  sources defined in the corresponding IngressFrom. A request matches if it
- *  contains a resource in this list. If `*` is specified for resources, then
- *  this IngressTo rule will authorize access to all resources inside the
- *  perimeter, provided that the request also matches the `operations` field.
+ *  sources defined in the corresponding IngressFrom. If a single `*` is
+ *  specified, then access to all resources inside the perimeter are allowed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -3038,13 +3043,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRCloudAsset_IamPolicyAnalysisState_Code_Internal Internal
  *        errors. This means that some invariants expected by the underlying
@@ -3266,6 +3271,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** When this inventory item was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  ListAssets response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assets" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudAsset_ListAssetsResponse : GTLRCollectionObject
+
+/**
+ *  Assets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Asset *> *assets;
+
+/**
+ *  Token to retrieve the next page of results. It expires 72 hours after the
+ *  page token for the first page is generated. Set to empty if there are no
+ *  remaining results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Time the snapshot was taken. */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
 
 @end
 
@@ -3749,8 +3785,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The create timestamp of this resource, at which the resource was created.
  *  The granularity is in seconds. Timestamp.nanos will always be 0. This field
  *  is available only when the resource's proto contains it. To search against
- *  `create_time`: * use a field query (value in seconds). Example: `createTime
- *  >= 1594294238`
+ *  `create_time`: * use a field query. - value in seconds since unix epoch.
+ *  Example: `createTime > 1609459200` - value in date string. Example:
+ *  `createTime > 2021-01-01` - value in date-time string (must be quoted).
+ *  Example: `createTime > "2021-01-01T00:00:00"`
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3888,8 +3926,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  The last update timestamp of this resource, at which the resource was last
  *  modified or deleted. The granularity is in seconds. Timestamp.nanos will
  *  always be 0. This field is available only when the resource's proto contains
- *  it. To search against `update_time`: * use a field query (value in seconds).
- *  Example: `updateTime < 1594294238`
+ *  it. To search against `update_time`: * use a field query. - value in seconds
+ *  since unix epoch. Example: `updateTime < 1609459200` - value in date string.
+ *  Example: `updateTime < 2021-01-01` - value in date-time string (must be
+ *  quoted). Example: `updateTime < "2021-01-01T00:00:00"`
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 

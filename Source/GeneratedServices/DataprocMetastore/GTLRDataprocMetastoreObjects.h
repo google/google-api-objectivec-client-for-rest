@@ -1233,7 +1233,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @interface GTLRDataprocMetastore_MetadataImport : GTLRObject
 
-/** Output only. The time when the metadata import was created. */
+/** Output only. The time when the metadata import was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Immutable. A database dump from a pre-existing metastore's database. */

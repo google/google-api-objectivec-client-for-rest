@@ -13,6 +13,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataproc_BatchOperationMetadata.operationType
+NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch = @"BATCH";
+NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified = @"BATCH_OPERATION_TYPE_UNSPECIFIED";
+
 // GTLRDataproc_ClusterOperationStatus.state
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Done = @"DONE";
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Pending = @"PENDING";
@@ -174,6 +178,43 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_BasicYarnAutoscalingConfig
 @dynamic gracefulDecommissionTimeout, scaleDownFactor,
          scaleDownMinWorkerFraction, scaleUpFactor, scaleUpMinWorkerFraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_BatchOperationMetadata
+//
+
+@implementation GTLRDataproc_BatchOperationMetadata
+@dynamic batch, batchUuid, createTime, descriptionProperty, doneTime, labels,
+         operationType, warnings;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_BatchOperationMetadata_Labels
+//
+
+@implementation GTLRDataproc_BatchOperationMetadata_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

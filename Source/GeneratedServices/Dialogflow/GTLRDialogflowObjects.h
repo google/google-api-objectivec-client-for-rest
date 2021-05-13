@@ -194,6 +194,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
@@ -790,6 +791,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Gene
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest.importOption
+
+/**
+ *  Fallback to default settings if some settings are not supported in the agent
+ *  to import into. E.g. Standard NLU will be used if custom NLU is not
+ *  available.
+ *
+ *  Value: "FALLBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Fallback;
+/**
+ *  Unspecified. Treated as `KEEP`.
+ *
+ *  Value: "IMPORT_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_ImportOptionUnspecified;
+/**
+ *  Always respect settings in exported flow content. It may cause a import
+ *  failure if some settings (e.g. custom NLU) are not supported in the agent to
+ *  import into.
+ *
+ *  Value: "KEEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Keep;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
@@ -2595,6 +2622,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *startFlow;
 
 /**
+ *  The list of all languages supported by the agent (except for the
+ *  `default_language_code`).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedLanguageCodes;
+
+/**
  *  Required. The time zone of the agent from the [time zone
  *  database](https://www.iana.org/time-zones), e.g., America/New_York,
  *  Europe/Paris.
@@ -2998,6 +3031,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  The response message for Flows.ExportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportFlowResponse : GTLRObject
+
+/**
+ *  Uncompressed raw byte content for flow.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *flowContent;
+
+/**
+ *  The URI to a file containing the exported flow. This field is populated only
+ *  if `flow_uri` is specified in ExportFlowRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *flowUri;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.ExportTestCases long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportTestCasesMetadata : GTLRObject
@@ -3274,6 +3329,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  The response message for Flows.ImportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportFlowResponse : GTLRObject
+
+/**
+ *  The unique identifier of the new flow. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *flow;
 
 @end
 
@@ -5442,6 +5511,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
 
+/**
+ *  Optional. Environment name. If not set, draft environment is assumed.
+ *  Format: `projects//locations//agents//environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *environment;
+
 @end
 
 
@@ -5463,6 +5538,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  only if `agent_uri` is specified in ExportAgentRequest.
  */
 @property(nonatomic, copy, nullable) NSString *agentUri;
+
+@end
+
+
+/**
+ *  The request message for Flows.ExportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest : GTLRObject
+
+/**
+ *  Optional. The [Google Cloud Storage](https://cloud.google.com/storage/docs/)
+ *  URI to export the flow to. The format of this URI must be `gs:///`. If left
+ *  unspecified, the serialized flow is returned inline.
+ */
+@property(nonatomic, copy, nullable) NSString *flowUri;
+
+/**
+ *  Optional. Whether to export flows referenced by the specified flow.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeReferencedFlows;
+
+@end
+
+
+/**
+ *  The response message for Flows.ExportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowResponse : GTLRObject
+
+/**
+ *  Uncompressed raw byte content for flow.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *flowContent;
+
+/**
+ *  The URI to a file containing the exported flow. This field is populated only
+ *  if `flow_uri` is specified in ExportFlowRequest.
+ */
+@property(nonatomic, copy, nullable) NSString *flowUri;
 
 @end
 
@@ -5928,6 +6047,59 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Includes details about skipped documents or any other warnings. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleRpcStatus *> *warnings;
+
+@end
+
+
+/**
+ *  The request message for Flows.ImportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest : GTLRObject
+
+/**
+ *  Uncompressed raw byte content for flow.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *flowContent;
+
+/**
+ *  The [Google Cloud Storage](https://cloud.google.com/storage/docs/) URI to
+ *  import flow from. The format of this URI must be `gs:///`.
+ */
+@property(nonatomic, copy, nullable) NSString *flowUri;
+
+/**
+ *  Flow import mode. If not specified, `KEEP` is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Fallback
+ *        Fallback to default settings if some settings are not supported in the
+ *        agent to import into. E.g. Standard NLU will be used if custom NLU is
+ *        not available. (Value: "FALLBACK")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_ImportOptionUnspecified
+ *        Unspecified. Treated as `KEEP`. (Value: "IMPORT_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Keep
+ *        Always respect settings in exported flow content. It may cause a
+ *        import failure if some settings (e.g. custom NLU) are not supported in
+ *        the agent to import into. (Value: "KEEP")
+ */
+@property(nonatomic, copy, nullable) NSString *importOption;
+
+@end
+
+
+/**
+ *  The response message for Flows.ImportFlow.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowResponse : GTLRObject
+
+/**
+ *  The unique identifier of the new flow. Format:
+ *  `projects//locations//agents//flows/`.
+ */
+@property(nonatomic, copy, nullable) NSString *flow;
 
 @end
 
@@ -7303,7 +7475,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  This field can be used to pass custom data into the webhook associated with
- *  the agent. Arbitrary JSON objects are supported.
+ *  the agent. Arbitrary JSON objects are supported. Some integrations that
+ *  query a Dialogflow agent may provide additional information in the payload.
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form: ``` { "telephony": { "caller_id": "+18558363987" } } ```
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Payload *payload;
 
@@ -7359,7 +7534,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  This field can be used to pass custom data into the webhook associated with
- *  the agent. Arbitrary JSON objects are supported.
+ *  the agent. Arbitrary JSON objects are supported. Some integrations that
+ *  query a Dialogflow agent may provide additional information in the payload.
+ *  In particular, for the Dialogflow Phone Gateway integration, this field has
+ *  the form: ``` { "telephony": { "caller_id": "+18558363987" } } ```
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8860,6 +9038,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Configuration for a [Service
+ *  Directory](https://cloud.google.com/service-directory) service.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig *serviceDirectory;
+
+/**
  *  Webhook execution timeout. Execution is considered failed if Dialogflow
  *  doesn't receive a response from webhook at the end of the timeout period.
  *  Defaults to 5 seconds, maximum allowed timeout is 30 seconds.
@@ -9170,6 +9354,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
+
+@end
+
+
+/**
+ *  Represents configuration for a [Service
+ *  Directory](https://cloud.google.com/service-directory) service.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig : GTLRObject
+
+/** Generic Service configuration of this webhook. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService *genericWebService;
+
+/**
+ *  Required. The name of [Service
+ *  Directory](https://cloud.google.com/service-directory) service. Format:
+ *  `projects//locations//namespaces//services/`. `Location ID` of the service
+ *  directory must be the same as the location of the agent.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
 
 @end
 
@@ -14122,8 +14326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  An object that represents a latitude/longitude pair. This is expressed as a
  *  pair of doubles to represent degrees latitude and degrees longitude. Unless
- *  specified otherwise, this must conform to the WGS84 standard. Values must be
- *  within normalized ranges.
+ *  specified otherwise, this object must conform to the WGS84 standard. Values
+ *  must be within normalized ranges.
  */
 @interface GTLRDialogflow_GoogleTypeLatLng : GTLRObject
 

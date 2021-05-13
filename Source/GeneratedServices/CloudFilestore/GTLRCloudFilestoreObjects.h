@@ -486,6 +486,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
  *  Name of the file share in the source Cloud Filestore instance that the
  *  backup is created from.
  */
@@ -742,7 +749,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /**
  *  Unique name of the resource. It uses the form:
  *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
- *  Note: Either project_id or project_number and be used, but keep it
+ *  Note: Either project_id or project_number can be used, but keep it
  *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1233,6 +1240,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  *  single network is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_NetworkConfig *> *networks;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
  *  Output only. The instance state.

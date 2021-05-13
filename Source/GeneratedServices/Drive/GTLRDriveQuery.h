@@ -1199,11 +1199,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The space in which the IDs can be used to create new files. Supported values
- *  are 'drive' and 'appDataFolder'.
+ *  are 'drive' and 'appDataFolder'. (Default: 'drive')
  *
  *  @note If not set, the documented server-side default will be drive.
  */
 @property(nonatomic, copy, nullable) NSString *space;
+
+/**
+ *  The type of items which the IDs can be used for. Supported values are
+ *  'files' and 'shortcuts'. Note that 'shortcuts' are only supported in the
+ *  drive 'space'. (Default: 'files')
+ *
+ *  @note If not set, the documented server-side default will be files.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDrive_GeneratedIds.

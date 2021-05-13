@@ -562,7 +562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /**
  *  Unique name of the resource. It uses the form:
- *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
+ *  Note: Either project_id or project_number and be used, but keep it
+ *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

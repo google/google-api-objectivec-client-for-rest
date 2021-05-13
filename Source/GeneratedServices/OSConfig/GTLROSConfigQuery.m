@@ -7,7 +7,7 @@
 //   OS management tools that can be used for patch management, patch
 //   compliance, and configuration management on VM instances.
 // Documentation:
-//   https://cloud.google.com/compute/docs/manage-os
+//   https://cloud.google.com/compute/docs/osconfig/rest
 
 #import "GTLROSConfigQuery.h"
 

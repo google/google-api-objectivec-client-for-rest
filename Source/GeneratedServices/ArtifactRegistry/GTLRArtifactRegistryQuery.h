@@ -245,6 +245,75 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+/**
+ *  Gets a repository.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGet : GTLRArtifactRegistryQuery
+
+/** Required. The name of the repository to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Repository.
+ *
+ *  Gets a repository.
+ *
+ *  @param name Required. The name of the repository to retrieve.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists repositories.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList : GTLRArtifactRegistryQuery
+
+/** The maximum number of repositories to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous list request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The name of the parent resource whose repositories will be listed.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ListRepositoriesResponse.
+ *
+ *  Lists repositories.
+ *
+ *  @param parent Required. The name of the parent resource whose repositories
+ *    will be listed.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

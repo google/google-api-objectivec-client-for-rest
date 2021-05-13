@@ -82,6 +82,7 @@
 @class GTLRShoppingContent_ReturnPolicy;
 @class GTLRShoppingContent_ReturnpolicyCustomBatchRequest;
 @class GTLRShoppingContent_ReturnPolicyOnline;
+@class GTLRShoppingContent_ReturnShippingLabel;
 @class GTLRShoppingContent_SearchRequest;
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequest;
@@ -2949,6 +2950,50 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                            returnId:(NSString *)returnId;
+
+@end
+
+/**
+ *  Links a return shipping label to a return id. You can only create one return
+ *  label per return id. Since the label is sent to the buyer, the linked return
+ *  label cannot be updated or deleted. If you try to create multiple return
+ *  shipping labels for a single return id, every create request except the
+ *  first will fail.
+ *
+ *  Method: content.orderreturns.labels.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_OrderreturnsLabelsCreate : GTLRShoppingContentQuery
+
+/** Required. The merchant the Return Shipping Label belongs to. */
+@property(nonatomic, assign) long long merchantId;
+
+/** Required. Provide the Google-generated merchant order return ID. */
+@property(nonatomic, copy, nullable) NSString *returnId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ReturnShippingLabel.
+ *
+ *  Links a return shipping label to a return id. You can only create one return
+ *  label per return id. Since the label is sent to the buyer, the linked return
+ *  label cannot be updated or deleted. If you try to create multiple return
+ *  shipping labels for a single return id, every create request except the
+ *  first will fail.
+ *
+ *  @param object The @c GTLRShoppingContent_ReturnShippingLabel to include in
+ *    the query.
+ *  @param merchantId Required. The merchant the Return Shipping Label belongs
+ *    to.
+ *  @param returnId Required. Provide the Google-generated merchant order return
+ *    ID.
+ *
+ *  @return GTLRShoppingContentQuery_OrderreturnsLabelsCreate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_ReturnShippingLabel *)object
+                     merchantId:(long long)merchantId
+                       returnId:(NSString *)returnId;
 
 @end
 

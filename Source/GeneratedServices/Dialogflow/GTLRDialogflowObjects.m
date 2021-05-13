@@ -100,6 +100,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperat
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3GenericKnowledgeOperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest.importOption
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Fallback = @"FALLBACK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_ImportOptionUnspecified = @"IMPORT_OPTION_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest_ImportOption_Keep = @"KEEP";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig.audioEncoding
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAmr = @"AUDIO_ENCODING_AMR";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3InputAudioConfig_AudioEncoding_AudioEncodingAmrWb = @"AUDIO_ENCODING_AMR_WB";
@@ -446,10 +451,18 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 @dynamic avatarUri, defaultLanguageCode, descriptionProperty, displayName,
          enableSpellCorrection, enableStackdriverLogging, name,
-         securitySettings, speechToTextSettings, startFlow, timeZone;
+         securitySettings, speechToTextSettings, startFlow,
+         supportedLanguageCodes, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedLanguageCodes" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -755,6 +768,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportFlowResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportFlowResponse
+@dynamic flowContent, flowUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ExportTestCasesMetadata
 //
 
@@ -930,6 +953,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportFlowResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ImportFlowResponse
+@dynamic flow;
 @end
 
 
@@ -1959,7 +1992,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentRequest
-@dynamic agentUri;
+@dynamic agentUri, environment;
 @end
 
 
@@ -1970,6 +2003,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportAgentResponse
 @dynamic agentContent, agentUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowRequest
+@dynamic flowUri, includeReferencedFlows;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ExportFlowResponse
+@dynamic flowContent, flowUri;
 @end
 
 
@@ -2223,6 +2276,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest
+@dynamic flowContent, flowUri, importOption;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowResponse
+@dynamic flow;
 @end
 
 
@@ -3685,7 +3758,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Webhook
-@dynamic disabled, displayName, genericWebService, name, timeout;
+@dynamic disabled, displayName, genericWebService, name, serviceDirectory,
+         timeout;
 @end
 
 
@@ -3841,6 +3915,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig
+@dynamic genericWebService, service;
 @end
 
 

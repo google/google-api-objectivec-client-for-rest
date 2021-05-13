@@ -3907,14 +3907,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsInstancesCreate
 
-@dynamic environments, parent;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"environments" : [NSString class]
-  };
-  return map;
-}
+@dynamic parent;
 
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Instance *)object
                          parent:(NSString *)parent {

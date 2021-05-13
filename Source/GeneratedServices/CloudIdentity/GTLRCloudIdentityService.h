@@ -51,8 +51,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroup
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudIdentityCloudIdentityGroupsReadonly;
 /**
- *  Authorization scope: View and manage your data across Google Cloud Platform
- *  services
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */

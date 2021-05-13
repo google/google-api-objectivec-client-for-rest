@@ -49,7 +49,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other;
 /**
- *  Location is request paramater. This maps to the {\@link PARAMETERS} in
+ *  Location is request parameter. This maps to the {\@link PARAMETERS} in
  *  {\@link MessageLocation}.
  *
  *  Value: "PARAMETER"
@@ -149,7 +149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeAnalytics_Errors_Code_ServiceUnav
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Other other location
  *        type which can safely be shared externally. (Value: "OTHER")
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Parameter Location
- *        is request paramater. This maps to the {\@link PARAMETERS} in {\@link
+ *        is request parameter. This maps to the {\@link PARAMETERS} in {\@link
  *        MessageLocation}. (Value: "PARAMETER")
  *    @arg @c kGTLRYouTubeAnalytics_ErrorProto_LocationType_Path location is an
  *        xpath-like path pointing to the request field that caused the error.

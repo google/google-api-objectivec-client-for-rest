@@ -26,6 +26,7 @@
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecPrivateApps;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecStoreBuilder;
 @class GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps;
+@class GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaChangeEvent;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestriction;
 @class GTLRAndroidEnterprise_AppRestrictionsSchemaRestrictionRestrictionValue;
@@ -938,6 +939,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /** Options for displaying the Web Apps page. */
 @property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecWebApps *webApps;
 
+/** Options for displaying the Zero Touch page. */
+@property(nonatomic, strong, nullable) GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch *zeroTouch;
+
 @end
 
 
@@ -1015,6 +1019,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 
 /**
  *  Whether the Web Apps page is displayed. Default is true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch
+ */
+@interface GTLRAndroidEnterprise_AdministratorWebTokenSpecZeroTouch : GTLRObject
+
+/**
+ *  Whether zero-touch embedded UI is usable with this token. If enabled, the
+ *  admin can link zero-touch customers to this enterprise.
  *
  *  Uses NSNumber of boolValue.
  */

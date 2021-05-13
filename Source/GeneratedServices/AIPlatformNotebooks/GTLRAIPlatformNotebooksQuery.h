@@ -303,7 +303,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsList : GTLRAIPlatformNotebooksQuery
 
-/** Filter applied to resulting executions. */
+/**
+ *  Filter applied to resulting executions. Currently only supports filtering
+ *  executions by a specified schedule_id. Format: "schedule_id="
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /** Sort by field. */
@@ -1109,8 +1112,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of results to return. If not set, the service will select
- *  a default.
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

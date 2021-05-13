@@ -309,7 +309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion *> *browserVersions;
 
-/** Token to specify the next page in the list. */
+/** Token to specify the next page of the request. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
@@ -340,7 +340,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1InstalledApp *> *installedApps;
 
-/** Token to specify next page in the list. */
+/** Token to specify the next page of the request. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
@@ -389,7 +389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1Device *> *devices;
 
-/** Token to specify the next page in the list. */
+/** Token to specify the next page of the request. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**

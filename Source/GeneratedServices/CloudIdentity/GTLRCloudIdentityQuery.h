@@ -1126,7 +1126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Lists the `Group`s under a customer or namespace.
+ *  Lists the `Group` resources under a customer or namespace.
  *
  *  Method: cloudidentity.groups.list
  *
@@ -1153,9 +1153,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource under which to list all `Group`s. Must be of
- *  the form `identitysources/{identity_source_id}` for external-
- *  identity-mapped groups or `customers/{customer_id}` for Google Groups.
+ *  Required. The parent resource under which to list all `Group` resources.
+ *  Must be of the form `identitysources/{identity_source_id}` for external-
+ *  identity-mapped groups or `customers/{customer_id}` for Google Groups. The
+ *  `customer_id` must begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1176,7 +1177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_ListGroupsResponse.
  *
- *  Lists the `Group`s under a customer or namespace.
+ *  Lists the `Group` resources under a customer or namespace.
  *
  *  @return GTLRCloudIdentityQuery_GroupsList
  *
@@ -1658,10 +1659,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Required. A CEL expression that MUST include member specification AND
  *  label(s). This is a `required` field. Users can search on label attributes
- *  of groups. CONTAINS match ('in') is supported on labels. Certain groups are
- *  uniquely identified by both a 'member_key_id' and a 'member_key_namespace',
- *  which requires an additional query input: 'member_key_namespace'. Example
- *  query: `member_key_id == 'member_key_id_value' && in labels`
+ *  of groups. CONTAINS match ('in') is supported on labels. Identity-mapped
+ *  groups are uniquely identified by both a `member_key_id` and a
+ *  `member_key_namespace`, which requires an additional query input:
+ *  `member_key_namespace`. Example query: `member_key_id ==
+ *  'member_key_id_value' && in labels`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1795,7 +1797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Searches for `Group`s matching a specified query.
+ *  Searches for `Group` resources matching a specified query.
  *
  *  Method: cloudidentity.groups.search
  *
@@ -1827,7 +1829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Language](https://opensource.google/projects/cel). May only contain equality
  *  operators on the parent and inclusion operators on labels (e.g., `parent ==
  *  'customers/{customer_id}' &&
- *  'cloudidentity.googleapis.com/groups.discussion_forum' in labels`).
+ *  'cloudidentity.googleapis.com/groups.discussion_forum' in labels`). The
+ *  `customer_id` must begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -1848,7 +1851,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_SearchGroupsResponse.
  *
- *  Searches for `Group`s matching a specified query.
+ *  Searches for `Group` resources matching a specified query.
  *
  *  @return GTLRCloudIdentityQuery_GroupsSearch
  *

@@ -503,14 +503,14 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of calendar colors, mapping from the color ID to its
  *  definition. A calendarListEntry resource refers to one of these color IDs in
- *  its color field. Read-only.
+ *  its colorId field. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_Colors_Calendar *calendar;
 
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
- *  color field. Read-only.
+ *  colorId field. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_Colors_Event *event;
 
@@ -529,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of calendar colors, mapping from the color ID to its
  *  definition. A calendarListEntry resource refers to one of these color IDs in
- *  its color field. Read-only.
+ *  its colorId field. Read-only.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCalendar_ColorDefinition. Use @c -additionalJSONKeys and @c
@@ -543,7 +543,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A global palette of event colors, mapping from the color ID to its
  *  definition. An event resource may refer to one of these color IDs in its
- *  color field. Read-only.
+ *  colorId field. Read-only.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCalendar_ColorDefinition. Use @c -additionalJSONKeys and @c
@@ -563,11 +563,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  The ID of the conference.
  *  Can be used by developers to keep track of conferences, should not be
  *  displayed to users.
- *  Values for solution types:
- *  - "eventHangout": unset.
- *  - "eventNamedHangout": the name of the Hangout.
- *  - "hangoutsMeet": the 10-letter meeting code, for example "aaa-bbbb-ccc".
- *  - "addOn": defined by 3P conference provider. Optional.
+ *  The ID value is formed differently for each conference solution type: `
+ *  - eventHangout: ID is not set.
+ *  - eventNamedHangout: ID is the name of the Hangout.
+ *  - hangoutsMeet: ID is the 10-letter meeting code, for example aaa-bbbb-ccc.
+ *  - addOn: ID is defined by the third-party provider. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *conferenceId;
 

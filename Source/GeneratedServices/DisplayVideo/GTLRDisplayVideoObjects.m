@@ -2429,7 +2429,9 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_Channel
-@dynamic advertiserId, channelId, displayName, name, partnerId;
+@dynamic advertiserId, channelId, displayName, name,
+         negativelyTargetedLineItemCount, partnerId,
+         positivelyTargetedLineItemCount;
 @end
 
 
@@ -4239,7 +4241,8 @@ NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionDetails_Viewability
 //
 
 @implementation GTLRDisplayVideo_NegativeKeywordList
-@dynamic advertiserId, displayName, name, negativeKeywordListId;
+@dynamic advertiserId, displayName, name, negativeKeywordListId,
+         targetedLineItemCount;
 @end
 
 

@@ -1102,6 +1102,28 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_ListAssetsResponse
+//
+
+@implementation GTLRCloudAsset_ListAssetsResponse
+@dynamic assets, nextPageToken, readTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assets" : [GTLRCloudAsset_Asset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_ListFeedsResponse
 //
 

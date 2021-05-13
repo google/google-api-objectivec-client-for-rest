@@ -469,10 +469,17 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogBucket
 @dynamic createTime, descriptionProperty, lifecycleState, locked, name,
-         retentionDays, updateTime;
+         restrictedFields, retentionDays, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restrictedFields" : [NSString class]
+  };
+  return map;
 }
 
 @end

@@ -1277,7 +1277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CellFormat_WrapStrategy_LegacyWra
 /**
  *  Lines that are longer than the cell width will be written in the next cell
  *  over, so long as that cell is empty. If the next cell over is non-empty,
- *  this behaves the same as CLIP. The text will never wrap to the next line
+ *  this behaves the same as `CLIP`. The text will never wrap to the next line
  *  unless the user manually inserts a new line. Example: | First sentence. | |
  *  Manual newline that is very long. <- Text continues into next cell | Next
  *  newline. |
@@ -1672,7 +1672,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteF
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -1718,7 +1718,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_CutPasteRequest_PasteType_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -2549,7 +2549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Min;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
 /**
  *  The interpolation point is the given percentage over all the cells in the
- *  range of the conditional format. This is equivalent to NUMBER if the value
+ *  range of the conditional format. This is equivalent to `NUMBER` if the value
  *  was: `=(MAX(FLATTEN(range)) * (value / 100)) + (MIN(FLATTEN(range)) * (1 -
  *  (value / 100)))` (where errors in the range are ignored when flattening).
  *
@@ -2558,7 +2558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Number;
 FOUNDATION_EXTERN NSString * const kGTLRSheets_InterpolationPoint_Type_Percent;
 /**
  *  The interpolation point is the given percentile over all the cells in the
- *  range of the conditional format. This is equivalent to NUMBER if the value
+ *  range of the conditional format. This is equivalent to `NUMBER` if the value
  *  was: `=PERCENTILE(FLATTEN(range), value / 100)` (where errors in the range
  *  are ignored when flattening).
  *
@@ -2762,7 +2762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSheets_PasteDataRequest_Type_PasteFormula;
 /**
- *  Like PASTE_NORMAL but without borders.
+ *  Like `PASTE_NORMAL` but without borders.
  *
  *  Value: "PASTE_NO_BORDERS"
  */
@@ -3981,7 +3981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ColorStyle *positiveColorStyle;
 
-/** Text formatting options for baseline value. */
+/**
+ *  Text formatting options for baseline value. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
@@ -3995,7 +3997,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The format of the title. Only valid if the axis is not associated with the
- *  domain.
+ *  domain. The link field is not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *format;
 
@@ -4447,7 +4449,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  How dates, times, and durations should be represented in the output. This is
  *  ignored if value_render_option is FORMATTED_VALUE. The default dateTime
- *  render option is [DateTimeRenderOption.SERIAL_NUMBER].
+ *  render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_DateTimeRenderOption_FormattedString
@@ -4485,7 +4487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  How values should be represented in the output. The default render option is
- *  ValueRenderOption.FORMATTED_VALUE.
+ *  FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchGetValuesByDataFilterRequest_ValueRenderOption_FormattedValue
@@ -4594,7 +4596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  The spreadsheet after updates were applied. This is only set if
- *  [BatchUpdateSpreadsheetRequest.include_spreadsheet_in_response] is `true`.
+ *  BatchUpdateSpreadsheetRequest.include_spreadsheet_in_response is `true`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_Spreadsheet *updatedSpreadsheet;
 
@@ -4629,8 +4631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseDateTimeRenderOption_FormattedString
@@ -4652,7 +4653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesByDataFilterRequest_ResponseValueRenderOption_FormattedValue
@@ -4761,8 +4762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Determines how dates, times, and durations in the response should be
  *  rendered. This is ignored if response_value_render_option is
- *  FORMATTED_VALUE. The default dateTime render option is
- *  DateTimeRenderOption.SERIAL_NUMBER.
+ *  FORMATTED_VALUE. The default dateTime render option is SERIAL_NUMBER.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseDateTimeRenderOption_FormattedString
@@ -4784,7 +4784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Determines how values in the response should be rendered. The default render
- *  option is ValueRenderOption.FORMATTED_VALUE.
+ *  option is FORMATTED_VALUE.
  *
  *  Likely values:
  *    @arg @c kGTLRSheets_BatchUpdateValuesRequest_ResponseValueRenderOption_FormattedValue
@@ -5221,8 +5221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *bubbleSizes;
 
 /**
- *  The format of the text inside the bubbles. Strikethrough and underline are
- *  not supported.
+ *  The format of the text inside the bubbles. Strikethrough, underline, and
+ *  link are not supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *bubbleTextStyle;
 
@@ -5360,7 +5360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  Output only. Information about a data source formula on the cell. The field
  *  is set if user_entered_value is a formula referencing some DATA_SOURCE
- *  sheet, e.g `=SUM(DataSheet!Column)`.
+ *  sheet, e.g. `=SUM(DataSheet!Column)`.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DataSourceFormula *dataSourceFormula;
 
@@ -5403,7 +5403,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /**
  *  A hyperlink this cell points to, if any. If the cell contains multiple
  *  hyperlinks, this field will be empty. This field is read-only. To set it,
- *  use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field.
+ *  use a `=HYPERLINK` formula in the userEnteredValue.formulaValue field. A
+ *  cell-level link can also be set from the userEnteredFormat.textFormat field.
+ *  Alternatively, set a hyperlink in the textFormatRun.format.link field that
+ *  spans the entire cell.
  */
 @property(nonatomic, copy, nullable) NSString *hyperlink;
 
@@ -5516,7 +5519,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *textDirection;
 
-/** The format of the text in the cell (unless overridden by a format run). */
+/**
+ *  The format of the text in the cell (unless overridden by a format run).
+ *  Setting a cell-level link will clear the cell's existing links. Setting a
+ *  link in a format run will clear the cell-level link.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /** The rotation applied to text in a cell */
@@ -5556,7 +5563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CellFormat_WrapStrategy_OverflowCell Lines that are
  *        longer than the cell width will be written in the next cell over, so
  *        long as that cell is empty. If the next cell over is non-empty, this
- *        behaves the same as CLIP. The text will never wrap to the next line
+ *        behaves the same as `CLIP`. The text will never wrap to the next line
  *        unless the user manually inserts a new line. Example: | First
  *        sentence. | | Manual newline that is very long. <- Text continues into
  *        next cell | Next newline. | (Value: "OVERFLOW_CELL")
@@ -5908,7 +5915,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @property(nonatomic, copy, nullable) NSString *subtitle;
 
 /**
- *  The subtitle text format. Strikethrough and underline are not supported.
+ *  The subtitle text format. Strikethrough, underline, and link are not
+ *  supported.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *subtitleTextFormat;
 
@@ -5918,7 +5926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 /** The title of the chart. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** The title text format. Strikethrough and underline are not supported. */
+/**
+ *  The title text format. Strikethrough, underline, and link are not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *titleTextFormat;
 
 /** The title text position. This field is optional. */
@@ -6198,7 +6208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteNoBorders Like
- *        PASTE_NORMAL but without borders. (Value: "PASTE_NO_BORDERS")
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_CopyPasteRequest_PasteType_PasteValues Paste the
@@ -6269,7 +6279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteFormula Paste the
  *        formulas only. (Value: "PASTE_FORMULA")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteNoBorders Like
- *        PASTE_NORMAL but without borders. (Value: "PASTE_NO_BORDERS")
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_CutPasteRequest_PasteType_PasteValues Paste the values
@@ -6479,7 +6489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *placement;
 
-/** The text format used for the data label. */
+/**
+ *  The text format used for the data label. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /**
@@ -7200,8 +7212,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_DeleteSheetRequest : GTLRObject
 
 /**
- *  The ID of the sheet to delete. If the sheet is of SheetType.DATA_SOURCE
- *  type, the associated DataSource is also deleted.
+ *  The ID of the sheet to delete. If the sheet is of DATA_SOURCE type, the
+ *  associated DataSource is also deleted.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7764,7 +7776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 /**
  *  Represents a double value. Note: Dates, Times and DateTimes are represented
- *  as doubles in "serial number" format.
+ *  as doubles in SERIAL_NUMBER format.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -8475,13 +8487,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        uses exactly the value in InterpolationPoint.value. (Value: "NUMBER")
  *    @arg @c kGTLRSheets_InterpolationPoint_Type_Percent The interpolation
  *        point is the given percentage over all the cells in the range of the
- *        conditional format. This is equivalent to NUMBER if the value was:
+ *        conditional format. This is equivalent to `NUMBER` if the value was:
  *        `=(MAX(FLATTEN(range)) * (value / 100)) + (MIN(FLATTEN(range)) * (1 -
  *        (value / 100)))` (where errors in the range are ignored when
  *        flattening). (Value: "PERCENT")
  *    @arg @c kGTLRSheets_InterpolationPoint_Type_Percentile The interpolation
  *        point is the given percentile over all the cells in the range of the
- *        conditional format. This is equivalent to NUMBER if the value was:
+ *        conditional format. This is equivalent to `NUMBER` if the value was:
  *        `=PERCENTILE(FLATTEN(range), value / 100)` (where errors in the range
  *        are ignored when flattening). (Value: "PERCENTILE")
  */
@@ -8555,7 +8567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_TextPosition *position;
 
-/** Text formatting options for key value. */
+/** Text formatting options for key value. The link field is not supported. */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end
@@ -8984,8 +8996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  *        data validation only. (Value: "PASTE_FORMAT")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteFormula Paste the formulas
  *        only. (Value: "PASTE_FORMULA")
- *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNoBorders Like PASTE_NORMAL
- *        but without borders. (Value: "PASTE_NO_BORDERS")
+ *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNoBorders Like
+ *        `PASTE_NORMAL` but without borders. (Value: "PASTE_NO_BORDERS")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteNormal Paste values,
  *        formulas, formats, and merges. (Value: "PASTE_NORMAL")
  *    @arg @c kGTLRSheets_PasteDataRequest_Type_PasteValues Paste the values
@@ -10331,7 +10343,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, copy, nullable) NSString *horizontalAlignment;
 
-/** The text format of title in the slicer. */
+/**
+ *  The text format of title in the slicer. The link field is not supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 /** The title of the slicer. */
@@ -10966,7 +10980,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
  */
 @property(nonatomic, strong, nullable) GTLRSheets_ChartData *sizeData;
 
-/** The text format for all labels on the chart. */
+/**
+ *  The text format for all labels on the chart. The link field is not
+ *  supported.
+ */
 @property(nonatomic, strong, nullable) GTLRSheets_TextFormat *textFormat;
 
 @end

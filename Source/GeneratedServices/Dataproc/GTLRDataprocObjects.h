@@ -25,6 +25,7 @@
 @class GTLRDataproc_AutoscalingPolicy;
 @class GTLRDataproc_BasicAutoscalingAlgorithm;
 @class GTLRDataproc_BasicYarnAutoscalingConfig;
+@class GTLRDataproc_BatchOperationMetadata_Labels;
 @class GTLRDataproc_Binding;
 @class GTLRDataproc_Cluster;
 @class GTLRDataproc_Cluster_Labels;
@@ -126,6 +127,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_BatchOperationMetadata.operationType
+
+/**
+ *  Batch operation type.
+ *
+ *  Value: "BATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_Batch;
+/**
+ *  Batch operation type is unknown.
+ *
+ *  Value: "BATCH_OPERATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterOperationStatus.state
@@ -857,6 +874,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSNumber *scaleUpMinWorkerFraction;
 
+@end
+
+
+/**
+ *  Metadata describing the Batch operation.
+ */
+@interface GTLRDataproc_BatchOperationMetadata : GTLRObject
+
+/** Name of the batch for the operation. */
+@property(nonatomic, copy, nullable) NSString *batch;
+
+/** Batch UUID for the operation. */
+@property(nonatomic, copy, nullable) NSString *batchUuid;
+
+/** The time when the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Short description of the operation.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The time when the operation was finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
+
+/** Labels associated with the operation. */
+@property(nonatomic, strong, nullable) GTLRDataproc_BatchOperationMetadata_Labels *labels;
+
+/**
+ *  The operation type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_BatchOperationMetadata_OperationType_Batch Batch
+ *        operation type. (Value: "BATCH")
+ *    @arg @c kGTLRDataproc_BatchOperationMetadata_OperationType_BatchOperationTypeUnspecified
+ *        Batch operation type is unknown. (Value:
+ *        "BATCH_OPERATION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationType;
+
+/** Warnings encountered during operation execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *warnings;
+
+@end
+
+
+/**
+ *  Labels associated with the operation.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_BatchOperationMetadata_Labels : GTLRObject
 @end
 
 

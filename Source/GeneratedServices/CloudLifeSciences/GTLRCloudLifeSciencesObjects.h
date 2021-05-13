@@ -123,10 +123,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Deadl
  *  implementors can use the following guidelines to decide between
  *  `FAILED_PRECONDITION`, `ABORTED`, and `UNAVAILABLE`: (a) Use `UNAVAILABLE`
  *  if the client can retry just the failing call. (b) Use `ABORTED` if the
- *  client should retry at a higher level (e.g., when a client-specified
+ *  client should retry at a higher level. For example, when a client-specified
  *  test-and-set fails, indicating the client should restart a read-modify-write
- *  sequence). (c) Use `FAILED_PRECONDITION` if the client should not retry
- *  until the system state has been explicitly fixed. E.g., if an "rmdir" fails
+ *  sequence. (c) Use `FAILED_PRECONDITION` if the client should not retry until
+ *  the system state has been explicitly fixed. For example, if an "rmdir" fails
  *  because the directory is non-empty, `FAILED_PRECONDITION` should be returned
  *  since the client should not retry unless the files are deleted from the
  *  directory. HTTP Mapping: 400 Bad Request
@@ -339,6 +339,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableFuse;
+
+/**
+ *  The encrypted environment to pass into the container. This environment is
+ *  merged with values specified in the
+ *  google.cloud.lifesciences.v2beta.Pipeline message, overwriting any duplicate
+ *  values. The secret must decrypt to a JSON-encoded dictionary where key-value
+ *  pairs serve as environment variable names and their values. The decoded
+ *  environment variables can overwrite the values specified by the
+ *  `environment` field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Secret *encryptedEnvironment;
 
 /** If specified, overrides the `ENTRYPOINT` specified in the container. */
 @property(nonatomic, copy, nullable) NSString *entrypoint;
@@ -784,13 +795,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
  *        guidelines to decide between `FAILED_PRECONDITION`, `ABORTED`, and
  *        `UNAVAILABLE`: (a) Use `UNAVAILABLE` if the client can retry just the
  *        failing call. (b) Use `ABORTED` if the client should retry at a higher
- *        level (e.g., when a client-specified test-and-set fails, indicating
- *        the client should restart a read-modify-write sequence). (c) Use
- *        `FAILED_PRECONDITION` if the client should not retry until the system
- *        state has been explicitly fixed. E.g., if an "rmdir" fails because the
- *        directory is non-empty, `FAILED_PRECONDITION` should be returned since
- *        the client should not retry unless the files are deleted from the
- *        directory. HTTP Mapping: 400 Bad Request (Value:
+ *        level. For example, when a client-specified test-and-set fails,
+ *        indicating the client should restart a read-modify-write sequence. (c)
+ *        Use `FAILED_PRECONDITION` if the client should not retry until the
+ *        system state has been explicitly fixed. For example, if an "rmdir"
+ *        fails because the directory is non-empty, `FAILED_PRECONDITION` should
+ *        be returned since the client should not retry unless the files are
+ *        deleted from the directory. HTTP Mapping: 400 Bad Request (Value:
  *        "FAILED_PRECONDITION")
  *    @arg @c kGTLRCloudLifeSciences_FailedEvent_Code_Internal Internal errors.
  *        This means that some invariants expected by the underlying system have
@@ -1182,6 +1193,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudLifeSciences_FailedEvent_Code_Unkno
 
 /** The list of actions to execute, in the order they are specified. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudLifeSciences_Action *> *actions;
+
+/**
+ *  The encrypted environment to pass into every action. Each action can also
+ *  specify its own encrypted environment. The secret must decrypt to a
+ *  JSON-encoded dictionary where key-value pairs serve as environment variable
+ *  names and their values. The decoded environment variables can overwrite the
+ *  values specified by the `environment` field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudLifeSciences_Secret *encryptedEnvironment;
 
 /**
  *  The environment to pass into every action. Each action can also specify

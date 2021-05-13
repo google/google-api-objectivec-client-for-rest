@@ -570,6 +570,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_Other;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_ServiceAccount;
 /**
+ *  Represents Shared drive.
+ *
+ *  Value: "SHARED_DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_Membership_Type_SharedDrive;
+/**
  *  Default. Should not be used.
  *
  *  Value: "TYPE_UNSPECIFIED"
@@ -1364,8 +1370,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 /**
  *  Output only. [Resource
  *  name](https://cloud.google.com/apis/design/resource_names) of the DeviceUser
- *  in format: `devices/{device_id}/deviceUsers/{user_id}`, where user_id is the
- *  ID of the user associated with the user session.
+ *  in format: `devices/{device_id}/deviceUsers/{device_user_id}`, where
+ *  `device_user_id` uniquely identifies a user's use of a device.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1600,9 +1606,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  once added.** Dynamic groups have a label with a key of
  *  `cloudidentity.googleapis.com/groups.dynamic`. Identity-mapped groups for
  *  Cloud Search have a label with a key of `system/groups/external` and an
- *  empty value. Examples:
- *  {"cloudidentity.googleapis.com/groups.discussion_forum": ""} or
- *  {"system/groups/external": ""}.
+ *  empty value.
  */
 @property(nonatomic, strong, nullable) GTLRCloudIdentity_Group_Labels *labels;
 
@@ -1617,7 +1621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  Required. Immutable. The resource name of the entity under which this
  *  `Group` resides in the Cloud Identity resource hierarchy. Must be of the
  *  form `identitysources/{identity_source_id}` for external- identity-mapped
- *  groups or `customers/{customer_id}` for Google Groups.
+ *  groups or `customers/{customer_id}` for Google Groups. The `customer_id`
+ *  must begin with "C" (for example, 'C046psxkn').
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1638,9 +1643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *  once added.** Dynamic groups have a label with a key of
  *  `cloudidentity.googleapis.com/groups.dynamic`. Identity-mapped groups for
  *  Cloud Search have a label with a key of `system/groups/external` and an
- *  empty value. Examples:
- *  {"cloudidentity.googleapis.com/groups.discussion_forum": ""} or
- *  {"system/groups/external": ""}.
+ *  empty value.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -1796,9 +1799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  */
 @interface GTLRCloudIdentity_MemberRelation : GTLRObject
 
-/**
- *  Resource name for this member if member is a GROUP, otherwise it is empty.
- */
+/** Resource name for this member. */
 @property(nonatomic, copy, nullable) NSString *member;
 
 /**
@@ -1870,6 +1871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
  *        (Value: "OTHER")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_ServiceAccount Represents
  *        service account type. (Value: "SERVICE_ACCOUNT")
+ *    @arg @c kGTLRCloudIdentity_Membership_Type_SharedDrive Represents Shared
+ *        drive. (Value: "SHARED_DRIVE")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_TypeUnspecified Default. Should
  *        not be used. (Value: "TYPE_UNSPECIFIED")
  *    @arg @c kGTLRCloudIdentity_Membership_Type_User Represents user type.
@@ -2057,7 +2060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @interface GTLRCloudIdentity_SearchGroupsResponse : GTLRCollectionObject
 
 /**
- *  The `Group`s that match the search query.
+ *  The `Group` resources that match the search query.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -2193,7 +2196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 
 /**
  *  The fully-qualified names of fields to update. May only contain the field
- *  `expiry_detail`.
+ *  `expiry_detail.expire_time`.
  *
  *  String format is a comma-separated list of fields.
  */

@@ -20,10 +20,15 @@
 
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccount;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
@@ -703,7 +708,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
 
-/** Example format: properties/1234/userLinks/5678 */
+/** Output only. Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -713,55 +718,12 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
  *    the query.
- *  @param name Example format: properties/1234/userLinks/5678
+ *  @param name Output only. Example format: properties/1234/userLinks/5678
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsUserLinksPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaUserLink *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Creates an Android app stream with the specified location and attributes.
- *  Note that an Android app stream must be linked to a Firebase app to receive
- *  traffic. To create a working app stream, make sure your property is linked
- *  to a Firebase project. Then, use the Firebase API to create a Firebase app,
- *  which will also create an appropriate data stream in Analytics (may take up
- *  to 24 hours).
- *
- *  Method: analyticsadmin.properties.androidAppDataStreams.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The parent resource where this android app data stream will be
- *  created. Format: properties/123
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream.
- *
- *  Creates an Android app stream with the specified location and attributes.
- *  Note that an Android app stream must be linked to a Firebase app to receive
- *  traffic. To create a working app stream, make sure your property is linked
- *  to a Firebase project. Then, use the Firebase API to create a Firebase app,
- *  which will also create an appropriate data stream in Analytics (may take up
- *  to 24 hours).
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream to
- *    include in the query.
- *  @param parent Required. The parent resource where this android app data
- *    stream will be created. Format: properties/123
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -932,6 +894,156 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a conversion event with the specified attributes.
+ *
+ *  Method: analyticsadmin.properties.conversionEvents.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the parent property where this conversion
+ *  event will be created. Format: properties/123
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent.
+ *
+ *  Creates a conversion event with the specified attributes.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent property where this
+ *    conversion event will be created. Format: properties/123
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a conversion event in a property.
+ *
+ *  Method: analyticsadmin.properties.conversionEvents.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the conversion event to delete. Format:
+ *  properties/{property}/conversionEvents/{conversion_event} Example:
+ *  "properties/123/conversionEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a conversion event in a property.
+ *
+ *  @param name Required. The resource name of the conversion event to delete.
+ *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
+ *    "properties/123/conversionEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a single conversion event.
+ *
+ *  Method: analyticsadmin.properties.conversionEvents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The resource name of the conversion event to retrieve. Format:
+ *  properties/{property}/conversionEvents/{conversion_event} Example:
+ *  "properties/123/conversionEvents/456"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent.
+ *
+ *  Retrieve a single conversion event.
+ *
+ *  @param name Required. The resource name of the conversion event to retrieve.
+ *    Format: properties/{property}/conversionEvents/{conversion_event} Example:
+ *    "properties/123/conversionEvents/456"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of conversion events in the specified parent property.
+ *  Returns an empty list if no conversion events are found.
+ *
+ *  Method: analyticsadmin.properties.conversionEvents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200; (higher values will be
+ *  coerced to the maximum)
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListConversionEvents` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListConversionEvents` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent property. Example:
+ *  'properties/123'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListConversionEventsResponse.
+ *
+ *  Returns a list of conversion events in the specified parent property.
+ *  Returns an empty list if no conversion events are found.
+ *
+ *  @param parent Required. The resource name of the parent property. Example:
+ *    'properties/123'
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Creates an "GA4" property with the specified location and attributes.
  *
  *  Method: analyticsadmin.properties.create
@@ -952,6 +1064,370 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCreate
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object;
+
+@end
+
+/**
+ *  Archives a CustomDimension on a property.
+ *
+ *  Method: analyticsadmin.properties.customDimensions.archive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsArchive : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the CustomDimension to archive. Example format:
+ *  properties/1234/customDimensions/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Archives a CustomDimension on a property.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest to include
+ *    in the query.
+ *  @param name Required. The name of the CustomDimension to archive. Example
+ *    format: properties/1234/customDimensions/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsArchive
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a CustomDimension.
+ *
+ *  Method: analyticsadmin.properties.customDimensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *
+ *  Creates a CustomDimension.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension to
+ *    include in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lookup for a single CustomDimension.
+ *
+ *  Method: analyticsadmin.properties.customDimensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the CustomDimension to get. Example format:
+ *  properties/1234/customDimensions/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *
+ *  Lookup for a single CustomDimension.
+ *
+ *  @param name Required. The name of the CustomDimension to get. Example
+ *    format: properties/1234/customDimensions/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CustomDimensions on a property.
+ *
+ *  Method: analyticsadmin.properties.customDimensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListCustomDimensions` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListCustomDimensions` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListCustomDimensionsResponse.
+ *
+ *  Lists CustomDimensions on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a CustomDimension on a property.
+ *
+ *  Method: analyticsadmin.properties.customDimensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name for this CustomDimension resource. Format:
+ *  properties/{property}/customDimensions/{customDimension}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension.
+ *
+ *  Updates a CustomDimension on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension to
+ *    include in the query.
+ *  @param name Output only. Resource name for this CustomDimension resource.
+ *    Format: properties/{property}/customDimensions/{customDimension}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Archives a CustomMetric on a property.
+ *
+ *  Method: analyticsadmin.properties.customMetrics.archive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsArchive : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the CustomMetric to archive. Example format:
+ *  properties/1234/customMetrics/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Archives a CustomMetric on a property.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest to include in
+ *    the query.
+ *  @param name Required. The name of the CustomMetric to archive. Example
+ *    format: properties/1234/customMetrics/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsArchive
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a CustomMetric.
+ *
+ *  Method: analyticsadmin.properties.customMetrics.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *
+ *  Creates a CustomMetric.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric to include
+ *    in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lookup for a single CustomMetric.
+ *
+ *  Method: analyticsadmin.properties.customMetrics.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the CustomMetric to get. Example format:
+ *  properties/1234/customMetrics/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *
+ *  Lookup for a single CustomMetric.
+ *
+ *  @param name Required. The name of the CustomMetric to get. Example format:
+ *    properties/1234/customMetrics/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists CustomMetrics on a property.
+ *
+ *  Method: analyticsadmin.properties.customMetrics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListCustomMetrics` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListCustomMetrics` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaListCustomMetricsResponse.
+ *
+ *  Lists CustomMetrics on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a CustomMetric on a property.
+ *
+ *  Method: analyticsadmin.properties.customMetrics.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name for this CustomMetric resource. Format:
+ *  properties/{property}/customMetrics/{customMetric}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric.
+ *
+ *  Updates a CustomMetric on a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric to include
+ *    in the query.
+ *  @param name Output only. Resource name for this CustomMetric resource.
+ *    Format: properties/{property}/customMetrics/{customMetric}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -1321,49 +1797,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Creates an iOS app stream with the specified location and attributes. Note
- *  that an iOS app stream must be linked to a Firebase app to receive traffic.
- *  To create a working app stream, make sure your property is linked to a
- *  Firebase project. Then, use the Firebase API to create a Firebase app, which
- *  will also create an appropriate data stream in Analytics (may take up to 24
- *  hours).
- *
- *  Method: analyticsadmin.properties.iosAppDataStreams.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsCreate : GTLRGoogleAnalyticsAdminQuery
-
-/**
- *  Required. The parent resource where this ios app data stream will be
- *  created. Format: properties/123
- */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream.
- *
- *  Creates an iOS app stream with the specified location and attributes. Note
- *  that an iOS app stream must be linked to a Firebase app to receive traffic.
- *  To create a working app stream, make sure your property is linked to a
- *  Firebase project. Then, use the Firebase API to create a Firebase app, which
- *  will also create an appropriate data stream in Analytics (may take up to 24
- *  hours).
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream to
- *    include in the query.
- *  @param parent Required. The parent resource where this ios app data stream
- *    will be created. Format: properties/123
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsCreate
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -1986,7 +2419,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch : GTLRGoogleAnalyticsAdminQuery
 
-/** Example format: properties/1234/userLinks/5678 */
+/** Output only. Example format: properties/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1996,7 +2429,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaUserLink to include in
  *    the query.
- *  @param name Example format: properties/1234/userLinks/5678
+ *  @param name Output only. Example format: properties/1234/userLinks/5678
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUserLinksPatch
  */

@@ -10,75 +10,8 @@
 
 #import "GTLRGenomicsQuery.h"
 
-#import "GTLRGenomicsObjects.h"
-
 @implementation GTLRGenomicsQuery
 
 @dynamic fields;
-
-@end
-
-@implementation GTLRGenomicsQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRGenomics_CancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRGenomicsQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGenomics_Empty class];
-  query.loggingName = @"genomics.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRGenomicsQuery_OperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRGenomicsQuery_OperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGenomics_Operation class];
-  query.loggingName = @"genomics.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRGenomicsQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRGenomicsQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRGenomics_ListOperationsResponse class];
-  query.loggingName = @"genomics.operations.list";
-  return query;
-}
 
 @end

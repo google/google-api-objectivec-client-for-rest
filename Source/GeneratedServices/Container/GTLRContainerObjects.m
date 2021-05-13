@@ -28,6 +28,11 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_ClusterUpdate.desiredDatapathProvider
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_LegacyDatapath = @"LEGACY_DATAPATH";
+
 // GTLRContainer_ClusterUpdate.desiredPrivateIpv6GoogleAccess
 NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessDisabled = @"PRIVATE_IPV6_GOOGLE_ACCESS_DISABLED";
@@ -38,6 +43,11 @@ NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_Pri
 NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
+
+// GTLRContainer_NetworkConfig.datapathProvider
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_LegacyDatapath = @"LEGACY_DATAPATH";
 
 // GTLRContainer_NetworkConfig.privateIpv6GoogleAccess
 NSString * const kGTLRContainer_NetworkConfig_PrivateIpv6GoogleAccess_PrivateIpv6GoogleAccessBidirectional = @"PRIVATE_IPV6_GOOGLE_ACCESS_BIDIRECTIONAL";
@@ -393,9 +403,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ClusterUpdate
-@dynamic desiredAddonsConfig, desiredBinaryAuthorization,
+@dynamic desiredAddonsConfig, desiredAutopilot, desiredBinaryAuthorization,
          desiredClusterAutoscaling, desiredDatabaseEncryption,
-         desiredDefaultSnatStatus, desiredImageType,
+         desiredDatapathProvider, desiredDefaultSnatStatus, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredLocations,
          desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
          desiredMasterVersion, desiredMonitoringService,
@@ -877,8 +887,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_NetworkConfig
-@dynamic defaultSnatStatus, enableIntraNodeVisibility, network,
-         privateIpv6GoogleAccess, subnetwork;
+@dynamic datapathProvider, defaultSnatStatus, enableIntraNodeVisibility,
+         network, privateIpv6GoogleAccess, subnetwork;
 @end
 
 

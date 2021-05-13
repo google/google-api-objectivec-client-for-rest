@@ -290,11 +290,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  use an API key, append it to the URL as the value of a `key` parameter. For
  *  example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
- *  **Note:** [Error Reporting](/error-reporting) is a global service built on
- *  Cloud Logging and doesn't analyze logs stored in regional log buckets or
- *  logs routed to other Google Cloud projects. For more information, see [Using
- *  Error Reporting with regionalized
- *  logs](/error-reporting/docs/regionalization).
+ *  **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a
+ *  global service built on Cloud Logging and doesn't analyze logs stored in
+ *  regional log buckets or logs routed to other Google Cloud projects. For more
+ *  information, see [Using Error Reporting with regionalized logs]
+ *  (https://cloud.google.com/error-reporting/docs/regionalization).
  *
  *  Method: clouderrorreporting.projects.events.report
  *
@@ -320,11 +320,11 @@ FOUNDATION_EXTERN NSString * const kGTLRClouderrorreportingTimeRangePeriodPeriod
  *  use an API key, append it to the URL as the value of a `key` parameter. For
  *  example: `POST
  *  https://clouderrorreporting.googleapis.com/v1beta1/{projectName}/events:report?key=123ABC456`
- *  **Note:** [Error Reporting](/error-reporting) is a global service built on
- *  Cloud Logging and doesn't analyze logs stored in regional log buckets or
- *  logs routed to other Google Cloud projects. For more information, see [Using
- *  Error Reporting with regionalized
- *  logs](/error-reporting/docs/regionalization).
+ *  **Note:** [Error Reporting] (https://cloud.google.com/error-reporting) is a
+ *  global service built on Cloud Logging and doesn't analyze logs stored in
+ *  regional log buckets or logs routed to other Google Cloud projects. For more
+ *  information, see [Using Error Reporting with regionalized logs]
+ *  (https://cloud.google.com/error-reporting/docs/regionalization).
  *
  *  @param object The @c GTLRClouderrorreporting_ReportedErrorEvent to include
  *    in the query.

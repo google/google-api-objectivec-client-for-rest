@@ -323,7 +323,8 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 //
 
 @implementation GTLRNetworkManagement_Endpoint
-@dynamic instance, ipAddress, network, networkType, port, projectId;
+@dynamic cloudSqlInstance, gkeMasterCluster, instance, ipAddress, network,
+         networkType, port, projectId;
 @end
 
 

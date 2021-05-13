@@ -38,6 +38,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_Ev
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_CommitmentChanged = @"COMMITMENT_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_Created = @"CREATED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_LicenseAssignmentChanged = @"LICENSE_ASSIGNMENT_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_LicenseCapChanged = @"LICENSE_CAP_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_PaidServiceStarted = @"PAID_SERVICE_STARTED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_PricePlanSwitched = @"PRICE_PLAN_SWITCHED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1alpha1EntitlementEvent_EventType_RenewalSettingChanged = @"RENEWAL_SETTING_CHANGED";
@@ -144,6 +145,7 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventTyp
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_CommitmentChanged = @"COMMITMENT_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_Created = @"CREATED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_LicenseAssignmentChanged = @"LICENSE_ASSIGNMENT_CHANGED";
+NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_LicenseCapChanged = @"LICENSE_CAP_CHANGED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_PaidServiceStarted = @"PAID_SERVICE_STARTED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_PricePlanSwitched = @"PRICE_PLAN_SWITCHED";
 NSString * const kGTLRCloudchannel_GoogleCloudChannelV1EntitlementEvent_EventType_RenewalSettingChanged = @"RENEWAL_SETTING_CHANGED";

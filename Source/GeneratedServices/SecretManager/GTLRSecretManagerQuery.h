@@ -207,6 +207,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecretManagerQuery_ProjectsSecretsDelete : GTLRSecretManagerQuery
 
 /**
+ *  Optional. Etag of the Secret. The request succeeds if it matches the etag of
+ *  the currently stored secret object. If the etag is omitted, the request
+ *  succeeds.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Required. The resource name of the Secret to delete in the format `projects/
  *  * /secrets/ *`.
  */
@@ -468,7 +475,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
- *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /secrets/ * /versions/latest` is an alias to the most recently created
+ *  SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.access
  *
@@ -479,7 +487,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
- *  /secrets/ * /versions/ *`.
+ *  /secrets/ * /versions/ *`. `projects/ * /secrets/ * /versions/latest` is an
+ *  alias to the most recently created SecretVersion.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -487,10 +496,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecretManager_AccessSecretVersionResponse.
  *
  *  Accesses a SecretVersion. This call returns the secret data. `projects/ *
- *  /secrets/ * /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /secrets/ * /versions/latest` is an alias to the most recently created
+ *  SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
- *    `projects/ * /secrets/ * /versions/ *`.
+ *    `projects/ * /secrets/ * /versions/ *`. `projects/ * /secrets/ *
+ *    /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsAccess
  */
@@ -601,7 +612,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
- *  /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  Method: secretmanager.projects.secrets.versions.get
  *
@@ -613,7 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The resource name of the SecretVersion in the format `projects/ *
  *  /secrets/ * /versions/ *`. `projects/ * /secrets/ * /versions/latest` is an
- *  alias to the `latest` SecretVersion.
+ *  alias to the most recently created SecretVersion.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -621,11 +632,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRSecretManager_SecretVersion.
  *
  *  Gets metadata for a SecretVersion. `projects/ * /secrets/ *
- *  /versions/latest` is an alias to the `latest` SecretVersion.
+ *  /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @param name Required. The resource name of the SecretVersion in the format
  *    `projects/ * /secrets/ * /versions/ *`. `projects/ * /secrets/ *
- *    /versions/latest` is an alias to the `latest` SecretVersion.
+ *    /versions/latest` is an alias to the most recently created SecretVersion.
  *
  *  @return GTLRSecretManagerQuery_ProjectsSecretsVersionsGet
  */

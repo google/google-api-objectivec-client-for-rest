@@ -212,8 +212,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Deletes the given Customer permanently and irreversibly. Possible error
- *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  Deletes the given Customer permanently. Possible error codes: *
+ *  PERMISSION_DENIED: The account making the request does not own this
  *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
  *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
  *  NOT_FOUND: No Customer resource found for the name in the request.
@@ -231,8 +231,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
  *
- *  Deletes the given Customer permanently and irreversibly. Possible error
- *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  Deletes the given Customer permanently. Possible error codes: *
+ *  PERMISSION_DENIED: The account making the request does not own this
  *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
  *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
  *  NOT_FOUND: No Customer resource found for the name in the request.
@@ -246,7 +246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested Customer resource. Possible error codes: *
+ *  Returns the requested Customer resource. Possible error codes: *
  *  PERMISSION_DENIED: The reseller account making the request is different from
  *  the reseller account in the API request. * INVALID_ARGUMENT: Required
  *  request parameters are missing or invalid. * NOT_FOUND: The customer
@@ -269,7 +269,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
- *  Returns a requested Customer resource. Possible error codes: *
+ *  Returns the requested Customer resource. Possible error codes: *
  *  PERMISSION_DENIED: The reseller account making the request is different from
  *  the reseller account in the API request. * INVALID_ARGUMENT: Required
  *  request parameters are missing or invalid. * NOT_FOUND: The customer
@@ -392,7 +392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested ChannelPartnerLink resource. You must be a distributor
+ *  Returns the requested ChannelPartnerLink resource. You must be a distributor
  *  to call this method. Possible error codes: * PERMISSION_DENIED: The reseller
  *  account making the request is different from the reseller account in the API
  *  request. * INVALID_ARGUMENT: Required request parameters are missing or
@@ -430,7 +430,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1ChannelPartnerLink.
  *
- *  Returns a requested ChannelPartnerLink resource. You must be a distributor
+ *  Returns the requested ChannelPartnerLink resource. You must be a distributor
  *  to call this method. Possible error codes: * PERMISSION_DENIED: The reseller
  *  account making the request is different from the reseller account in the API
  *  request. * INVALID_ARGUMENT: Required request parameters are missing or
@@ -676,8 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Deletes the given Customer permanently and irreversibly. Possible error
- *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  Deletes the given Customer permanently. Possible error codes: *
+ *  PERMISSION_DENIED: The account making the request does not own this
  *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
  *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
  *  NOT_FOUND: No Customer resource found for the name in the request.
@@ -695,8 +695,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleProtobufEmpty.
  *
- *  Deletes the given Customer permanently and irreversibly. Possible error
- *  codes: * PERMISSION_DENIED: The account making the request does not own this
+ *  Deletes the given Customer permanently. Possible error codes: *
+ *  PERMISSION_DENIED: The account making the request does not own this
  *  customer. * INVALID_ARGUMENT: Required request parameters are missing or
  *  invalid. * FAILED_PRECONDITION: The customer has existing entitlements. *
  *  NOT_FOUND: No Customer resource found for the name in the request.
@@ -1095,7 +1095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested Entitlement resource. Possible error codes: *
+ *  Returns the requested Entitlement resource. Possible error codes: *
  *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer entitlement was not found. Return value: The
@@ -1118,7 +1118,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Entitlement.
  *
- *  Returns a requested Entitlement resource. Possible error codes: *
+ *  Returns the requested Entitlement resource. Possible error codes: *
  *  PERMISSION_DENIED: The customer doesn't belong to the reseller. *
  *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
  *  NOT_FOUND: The customer entitlement was not found. Return value: The
@@ -1187,6 +1187,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns the requested Offer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The entitlement doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement or offer was not found. Return value: The Offer
+ *  resource.
+ *
+ *  Method: cloudchannel.accounts.customers.entitlements.lookupOffer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersEntitlementsLookupOffer : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the entitlement to retrieve the Offer.
+ *  Entitlement uses the format:
+ *  accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entitlement;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Offer.
+ *
+ *  Returns the requested Offer resource. Possible error codes: *
+ *  PERMISSION_DENIED: The entitlement doesn't belong to the reseller. *
+ *  INVALID_ARGUMENT: Required request parameters are missing or invalid. *
+ *  NOT_FOUND: Entitlement or offer was not found. Return value: The Offer
+ *  resource.
+ *
+ *  @param entitlement Required. The resource name of the entitlement to
+ *    retrieve the Offer. Entitlement uses the format:
+ *    accounts/{account_id}/customers/{customer_id}/entitlements/{entitlement_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersEntitlementsLookupOffer
+ */
++ (instancetype)queryWithEntitlement:(NSString *)entitlement;
 
 @end
 
@@ -1307,7 +1347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 @end
 
 /**
- *  Returns a requested Customer resource. Possible error codes: *
+ *  Returns the requested Customer resource. Possible error codes: *
  *  PERMISSION_DENIED: The reseller account making the request is different from
  *  the reseller account in the API request. * INVALID_ARGUMENT: Required
  *  request parameters are missing or invalid. * NOT_FOUND: The customer
@@ -1330,7 +1370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
  *
- *  Returns a requested Customer resource. Possible error codes: *
+ *  Returns the requested Customer resource. Possible error codes: *
  *  PERMISSION_DENIED: The reseller account making the request is different from
  *  the reseller account in the API request. * INVALID_ARGUMENT: Required
  *  request parameters are missing or invalid. * NOT_FOUND: The customer
