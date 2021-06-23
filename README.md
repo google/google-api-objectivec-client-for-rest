@@ -10,7 +10,7 @@ framework for accessing JSON APIs.
 
 This is the recommended library for accessing JSON-based Google APIs for iOS and
 Mac OS X applications.  The library is compatible with applications built for
-iOS 7 and later, and Mac OS X 10.9 and later.
+iOS 9 and later, and Mac OS X 10.12 and later.
 
 **To get started** with Google APIs and the Objective-C client library, Read the
 [wiki](https://github.com/google/google-api-objectivec-client-for-rest/wiki).
