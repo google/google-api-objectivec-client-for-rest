@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Data Catalog API (datacatalog/v1beta1)
+//   Google Cloud Data Catalog API (datacatalog/v1)
 // Description:
 //   A fully managed and highly scalable data discovery and metadata management
 //   service.
@@ -24,36 +24,42 @@
 @class GTLRDataCatalog_Binding;
 @class GTLRDataCatalog_Expr;
 @class GTLRDataCatalog_GetPolicyOptions;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFileSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1InlineSource;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Schema;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TableSpec;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag_Fields;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagField;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagFieldEnumValue;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate_Fields;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats;
-@class GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ViewSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Schema;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Tag;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Tag_Fields;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagField;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagFieldEnumValue;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec;
 @class GTLRDataCatalog_Policy;
 
 // Generated comments include content from the discovery document; avoid them
@@ -67,188 +73,340 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec.tableSourceType
+// GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec.tableSourceType
 
 /**
  *  BigQuery materialized view.
  *
  *  Value: "BIGQUERY_MATERIALIZED_VIEW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView;
 /**
  *  BigQuery native table.
  *
  *  Value: "BIGQUERY_TABLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryTable;
 /**
  *  Table view.
  *
  *  Value: "BIGQUERY_VIEW"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryView;
 /**
  *  Default unknown type.
  *
  *  Value: "TABLE_SOURCE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.integratedSystem
+// GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
+
+/**
+ *  External table.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_External;
+/**
+ *  Native table.
+ *
+ *  Value: "NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_Native;
+/**
+ *  Default unknown table type.
+ *
+ *  Value: "TABLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_TableTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource.service
+
+/**
+ *  BigQuery service.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_Bigquery;
+/**
+ *  Google Cloud Storage service.
+ *
+ *  Value: "CLOUD_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_CloudStorage;
+/**
+ *  Default unknown service.
+ *
+ *  Value: "SERVICE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_ServiceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.integratedSystem
 
 /**
  *  BigQuery.
  *
  *  Value: "BIGQUERY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Bigquery;
 /**
  *  Cloud Pub/Sub.
  *
  *  Value: "CLOUD_PUBSUB"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub;
+/**
+ *  Dataproc Metastore.
+ *
+ *  Value: "DATAPROC_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_DataprocMetastore;
 /**
  *  Default unknown system.
  *
  *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry.type
+// GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.type
 
 /**
- *  Output only. An entry type which is used for streaming entries. Example:
- *  Pub/Sub topic.
+ *  A group of servers that work together. For example, a Kafka cluster.
+ *
+ *  Value: "CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster;
+/**
+ *  A database.
+ *
+ *  Value: "DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database;
+/**
+ *  An entry type for streaming entries. For example, a Pub/Sub topic.
  *
  *  Value: "DATA_STREAM"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream;
 /**
  *  Default unknown type.
  *
  *  Value: "ENTRY_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified;
 /**
- *  An entry type which is a set of files or objects. Example: Cloud Storage
+ *  An entry type for a set of files or objects. For example, a Cloud Storage
  *  fileset.
  *
  *  Value: "FILESET"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset;
 /**
- *  Output only. The type of models.
- *  https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro
+ *  Output only. The type of models. For more information, see [Supported models
+ *  in BigQuery ML]
+ *  (https://cloud.google.com/bigquery-ml/docs/introduction#supported_models_in).
  *
  *  Value: "MODEL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model;
 /**
- *  Output only. The type of entry that has a GoogleSQL schema, including
- *  logical views.
+ *  Output only. Routine, for example, a BigQuery routine.
+ *
+ *  Value: "ROUTINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine;
+/**
+ *  A service, for example, a Dataproc Metastore service.
+ *
+ *  Value: "SERVICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service;
+/**
+ *  Output only. The entry type that has a GoogleSQL schema, including logical
+ *  views.
  *
  *  Value: "TABLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType.primitiveType
+// GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType.primitiveType
 
 /**
  *  A boolean value.
  *
  *  Value: "BOOL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Bool;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool;
 /**
  *  A double precision number.
  *
  *  Value: "DOUBLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Double;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double;
 /**
- *  This is the default invalid value for a type.
+ *  The default invalid value for a type.
  *
  *  Value: "PRIMITIVE_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
 /**
  *  An UTF-8 string.
  *
  *  Value: "STRING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_String;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String;
 /**
  *  A timestamp.
  *
  *  Value: "TIMESTAMP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Timestamp;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult.searchResultType
+// GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec.routineType
+
+/**
+ *  Stored procedure.
+ *
+ *  Value: "PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_Procedure;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "ROUTINE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_RoutineTypeUnspecified;
+/**
+ *  Non-builtin permanent scalar function.
+ *
+ *  Value: "SCALAR_FUNCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_ScalarFunction;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument.mode
+
+/**
+ *  The argument is input-only.
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_In;
+/**
+ *  The argument is both an input and an output.
+ *
+ *  Value: "INOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_Inout;
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_ModeUnspecified;
+/**
+ *  The argument is output-only.
+ *
+ *  Value: "OUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_Out;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.integratedSystem
+
+/**
+ *  BigQuery.
+ *
+ *  Value: "BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Bigquery;
+/**
+ *  Cloud Pub/Sub.
+ *
+ *  Value: "CLOUD_PUBSUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub;
+/**
+ *  Dataproc Metastore.
+ *
+ *  Value: "DATAPROC_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_DataprocMetastore;
+/**
+ *  Default unknown system.
+ *
+ *  Value: "INTEGRATED_SYSTEM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult.searchResultType
 
 /**
  *  An Entry.
  *
  *  Value: "ENTRY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_Entry;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_Entry;
 /**
  *  An EntryGroup.
  *
  *  Value: "ENTRY_GROUP"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_EntryGroup;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_EntryGroup;
 /**
  *  Default unknown type.
  *
  *  Value: "SEARCH_RESULT_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified;
 /**
  *  A TagTemplate.
  *
  *  Value: "TAG_TEMPLATE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_TagTemplate;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy.activatedPolicyTypes
+// GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy.activatedPolicyTypes
 
 /**
- *  Fine grained access control policy, which enables access control on tagged
- *  resources.
+ *  Fine-grained access control policy that enables access control on tagged
+ *  sub-resources.
  *
  *  Value: "FINE_GRAINED_ACCESS_CONTROL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
 /**
  *  Unspecified policy type.
  *
  *  Value: "POLICY_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy.activatedPolicyTypes
+// GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy.activatedPolicyTypes
 
 /**
- *  Fine grained access control policy, which enables access control on tagged
- *  resources.
+ *  Fine-grained access control policy that enables access control on tagged
+ *  sub-resources.
  *
  *  Value: "FINE_GRAINED_ACCESS_CONTROL"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_FineGrainedAccessControl;
 /**
  *  Unspecified policy type.
  *
  *  Value: "POLICY_TYPE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPolicyTypes_PolicyTypeUnspecified;
 
 /**
  *  Associates `members` with a `role`.
@@ -403,16 +561,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Spec for a group of BigQuery tables with name pattern `[prefix]YYYYMMDD`.
- *  Context:
- *  https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding
+ *  Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
+ *  name pattern. For more information, see [Introduction to partitioned tables]
+ *  (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec : GTLRObject
 
 /**
  *  Output only. The Data Catalog resource name of the dataset entry the current
- *  table belongs to, for example,
- *  `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+ *  table belongs to. For example:
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -425,8 +583,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. The table name prefix of the shards. The name of any given
- *  shard is `[table_prefix]YYYYMMDD`, for example, for shard `MyTable20180101`,
- *  the `table_prefix` is `MyTable`.
+ *  shard is `[table_prefix]YYYYMMDD`. For example, for the `MyTable20180101`
+ *  shard, the `table_prefix` is `MyTable`.
  */
 @property(nonatomic, copy, nullable) NSString *tablePrefix;
 
@@ -434,208 +592,331 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Describes a BigQuery table.
+ *  Fields specific for BigQuery routines.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec : GTLRObject
 
-/**
- *  Output only. The table source type.
- *
- *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView
- *        BigQuery materialized view. (Value: "BIGQUERY_MATERIALIZED_VIEW")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryTable
- *        BigQuery native table. (Value: "BIGQUERY_TABLE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_BigqueryView
- *        Table view. (Value: "BIGQUERY_VIEW")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified
- *        Default unknown type. (Value: "TABLE_SOURCE_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *tableSourceType;
-
-/**
- *  Spec of a BigQuery table. This field should only be populated if
- *  `table_source_type` is `BIGQUERY_TABLE`.
- */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TableSpec *tableSpec;
-
-/**
- *  Table view specification. This field should only be populated if
- *  `table_source_type` is `BIGQUERY_VIEW`.
- */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ViewSpec *viewSpec;
+/** Paths of the imported libraries. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *importedLibraries;
 
 @end
 
 
 /**
- *  Representation of a column within a schema. Columns could be nested inside
- *  other columns.
+ *  Describes a BigQuery table.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec : GTLRObject
 
-/** Required. Name of the column. */
+/**
+ *  Output only. The table source type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView
+ *        BigQuery materialized view. (Value: "BIGQUERY_MATERIALIZED_VIEW")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryTable
+ *        BigQuery native table. (Value: "BIGQUERY_TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryView
+ *        Table view. (Value: "BIGQUERY_VIEW")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified
+ *        Default unknown type. (Value: "TABLE_SOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tableSourceType;
+
+/**
+ *  Specification of a BigQuery table. Populated only if the `table_source_type`
+ *  is `BIGQUERY_TABLE`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TableSpec *tableSpec;
+
+/**
+ *  Table view specification. Populated only if the `table_source_type` is
+ *  `BIGQUERY_VIEW`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec *viewSpec;
+
+@end
+
+
+/**
+ *  A column within a schema. Columns can be nested inside other columns.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema : GTLRObject
+
+/**
+ *  Required. Name of the column. Must be a UTF-8 string without dots (.). The
+ *  maximum size is 64 bytes.
+ */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
- *  Optional. Description of the column. Default value is an empty string.
+ *  Optional. Description of the column. Default value is an empty string. The
+ *  description must be a UTF-8 string with the maximum size of 2000 bytes.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Optional. A column's mode indicates whether the values in this column are
- *  required, nullable, etc. Only `NULLABLE`, `REQUIRED` and `REPEATED` are
- *  supported. Default mode is `NULLABLE`.
+ *  Optional. A column's mode indicates whether values in this column are
+ *  required, nullable, or repeated. Only `NULLABLE`, `REQUIRED`, and `REPEATED`
+ *  values are supported. Default mode is `NULLABLE`.
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
  *  Optional. Schema of sub-columns. A column can have zero or more sub-columns.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema *> *subcolumns;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema *> *subcolumns;
 
-/** Required. Type of the column. */
+/**
+ *  Required. Type of the column. Must be a UTF-8 string with the maximum size
+ *  of 128 bytes.
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
 
 /**
- *  Entry Metadata. A Data Catalog Entry resource represents another resource in
- *  Google Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic), or
- *  outside of Google Cloud Platform. Clients can use the `linked_resource`
- *  field in the Entry resource to refer to the original resource ID of the
- *  source system. An Entry resource contains resource details, such as its
- *  schema. An Entry can also be used to attach flexible metadata, such as a
- *  Tag.
+ *  Cross-regional source used to import an existing taxonomy into a different
+ *  region.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource : GTLRObject
+
+/** Required. The resource name of the source taxonomy to import. */
+@property(nonatomic, copy, nullable) NSString *taxonomy;
+
+@end
+
 
 /**
- *  Specification for a group of BigQuery tables with name pattern
- *  `[prefix]YYYYMMDD`. Context:
- *  https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding.
+ *  Specification that applies to a table resource. Valid only for entries with
+ *  the `TABLE` type.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryDateShardedSpec *bigqueryDateShardedSpec;
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec : GTLRObject
 
 /**
- *  Specification that applies to a BigQuery table. This is only valid on
- *  entries of type `TABLE`.
+ *  Type of this table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_External
+ *        External table. (Value: "EXTERNAL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_Native
+ *        Native table. (Value: "NATIVE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_TableTypeUnspecified
+ *        Default unknown table type. (Value: "TABLE_TYPE_UNSPECIFIED")
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1BigQueryTableSpec *bigqueryTableSpec;
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
 
 /**
- *  Entry description, which can consist of several sentences or paragraphs that
- *  describe entry contents. Default value is an empty string.
+ *  Physical location of an entry.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource : GTLRObject
+
+/**
+ *  Full name of a resource as defined by the service. For example:
+ *  `//bigquery.googleapis.com/projects/{PROJECT_ID}/locations/{LOCATION}/datasets/{DATASET_ID}/tables/{TABLE_ID}`
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Service that physically stores the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_Bigquery
+ *        BigQuery service. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_CloudStorage
+ *        Google Cloud Storage service. (Value: "CLOUD_STORAGE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1DataSource_Service_ServiceUnspecified
+ *        Default unknown service. (Value: "SERVICE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Entry metadata. A Data Catalog entry represents another resource in Google
+ *  Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic) or outside of
+ *  it. You can use the `linked_resource` field in the entry resource to refer
+ *  to the original resource ID of the source system. An entry resource contains
+ *  resource details, for example, its schema. Additionally, you can attach
+ *  flexible metadata to an entry in the form of a Tag.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Entry : GTLRObject
+
+/**
+ *  Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
+ *  name pattern. For more information, see [Introduction to partitioned tables]
+ *  (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec *bigqueryDateShardedSpec;
+
+/**
+ *  Specification that applies to a BigQuery table. Valid only for entries with
+ *  the `TABLE` type.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec *bigqueryTableSpec;
+
+/**
+ *  Specification that applies to a table resource. Valid only for entries with
+ *  the `TABLE` type.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec *databaseTableSpec;
+
+/** Output only. Physical location of the entry. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource *dataSource;
+
+/**
+ *  Entry description that can consist of several sentences or paragraphs that
+ *  describe entry contents. The description must not contain Unicode
+ *  non-characters as well as C0 and C1 control codes except tabs (HT), new
+ *  lines (LF), carriage returns (CR), and page breaks (FF). The maximum size is
+ *  2000 bytes when encoded in UTF-8. Default value is an empty string.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Display information such as title and description. A short name to identify
- *  the entry, for example, "Analytics Data - Jan 2011". Default value is an
- *  empty string.
+ *  Display name of an entry. The name must contain only Unicode letters,
+ *  numbers (0-9), underscores (_), dashes (-), spaces ( ), and can't start or
+ *  end with spaces. The maximum size is 200 bytes when encoded in UTF-8.
+ *  Default value is an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Specification that applies to a Cloud Storage fileset. This is only valid on
- *  entries of type FILESET.
+ *  Fully qualified name (FQN) of the resource. Set automatically for entries
+ *  representing resources from synced systems. Settable only during creation
+ *  and read-only afterwards. Can be used for search and lookup of the entries.
+ *  FQNs take two forms: * For non-regionalized resources:
+ *  `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` * For
+ *  regionalized resources:
+ *  `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
+ *  Example for a DPMS table:
+ *  `dataproc_metastore:{PROJECT_ID}.{LOCATION_ID}.{INSTANCE_ID}.{DATABASE_ID}.{TABLE_ID}`
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec *gcsFilesetSpec;
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
 
 /**
- *  Output only. This field indicates the entry's source system that Data
- *  Catalog integrates with, such as BigQuery or Pub/Sub.
+ *  Specification that applies to a Cloud Storage fileset. Valid only for
+ *  entries with the `FILESET` type.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec *gcsFilesetSpec;
+
+/**
+ *  Output only. Indicates the entry's source system that Data Catalog
+ *  integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore.
  *
  *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_Bigquery
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_Bigquery
  *        BigQuery. (Value: "BIGQUERY")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_CloudPubsub
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_CloudPubsub
  *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_IntegratedSystem_IntegratedSystemUnspecified
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_DataprocMetastore
+ *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem_IntegratedSystemUnspecified
  *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
 /**
  *  The resource this metadata entry refers to. For Google Cloud Platform
- *  resources, `linked_resource` is the [full name of the
- *  resource](https://cloud.google.com/apis/design/resource_names#full_resource_name).
- *  For example, the `linked_resource` for a table resource from BigQuery is: *
- *  //bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId
- *  Output only when Entry is of type in the EntryType enum. For entries with
- *  user_specified_type, this field is optional and defaults to an empty string.
+ *  resources, `linked_resource` is the [Full Resource Name]
+ *  (https://cloud.google.com/apis/design/resource_names#full_resource_name).
+ *  For example, the `linked_resource` for a table resource from BigQuery is:
+ *  `//bigquery.googleapis.com/projects/{PROJECT_ID}/datasets/{DATASET_ID}/tables/{TABLE_ID}`
+ *  Output only when the entry is one of the types in the `EntryType` enum. For
+ *  entries with a `user_specified_type`, this field is optional and defaults to
+ *  an empty string. The resource string must contain only letters (a-z, A-Z),
+ *  numbers (0-9), underscores (_), periods (.), colons (:), slashes (/), dashes
+ *  (-), and hashes (#). The maximum size is 200 bytes when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
 /**
- *  Output only. The Data Catalog resource name of the entry in URL format.
- *  Example: *
- *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id}/entries/{entry_id}
- *  Note that this Entry and its child resources may not actually be stored in
- *  the location in this name.
+ *  Output only. The resource name of an entry in URL format. Note: The entry
+ *  itself and its child resources might not be stored in the location specified
+ *  in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Schema of the entry. An entry might not have any schema attached to it. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Schema *schema;
-
 /**
- *  Output only. Timestamps about the underlying resource, not about this Data
- *  Catalog entry. Output only when Entry is of type in the EntryType enum. For
- *  entries with user_specified_type, this field is optional and defaults to an
- *  empty timestamp.
+ *  Specification that applies to a user-defined function or procedure. Valid
+ *  only for entries with the `ROUTINE` type.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *sourceSystemTimestamps;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec *routineSpec;
+
+/** Schema of the entry. An entry might not have any schema attached to it. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Schema *schema;
 
 /**
- *  The type of the entry. Only used for Entries with types in the EntryType
- *  enum.
+ *  Timestamps from the underlying resource, not from the Data Catalog entry.
+ *  Output only when the entry has a type listed in the `EntryType` enum. For
+ *  entries with `user_specified_type`, this field is optional and defaults to
+ *  an empty timestamp.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *sourceSystemTimestamps;
+
+/**
+ *  The type of the entry. Only used for entries with types listed in the
+ *  `EntryType` enum. Currently, only `FILESET` enum value is allowed. All other
+ *  entries created in Data Catalog must use the `user_specified_type`.
  *
  *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_DataStream
- *        Output only. An entry type which is used for streaming entries.
- *        Example: Pub/Sub topic. (Value: "DATA_STREAM")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_EntryTypeUnspecified
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster A
+ *        group of servers that work together. For example, a Kafka cluster.
+ *        (Value: "CLUSTER")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database A
+ *        database. (Value: "DATABASE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream An
+ *        entry type for streaming entries. For example, a Pub/Sub topic.
+ *        (Value: "DATA_STREAM")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified
  *        Default unknown type. (Value: "ENTRY_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Fileset
- *        An entry type which is a set of files or objects. Example: Cloud
- *        Storage fileset. (Value: "FILESET")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Model
- *        Output only. The type of models.
- *        https://cloud.google.com/bigquery-ml/docs/bigqueryml-intro (Value:
- *        "MODEL")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry_Type_Table
- *        Output only. The type of entry that has a GoogleSQL schema, including
- *        logical views. (Value: "TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset An
+ *        entry type for a set of files or objects. For example, a Cloud Storage
+ *        fileset. (Value: "FILESET")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model Output
+ *        only. The type of models. For more information, see [Supported models
+ *        in BigQuery ML]
+ *        (https://cloud.google.com/bigquery-ml/docs/introduction#supported_models_in).
+ *        (Value: "MODEL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Routine Output
+ *        only. Routine, for example, a BigQuery routine. (Value: "ROUTINE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Service A
+ *        service, for example, a Dataproc Metastore service. (Value: "SERVICE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table Output
+ *        only. The entry type that has a GoogleSQL schema, including logical
+ *        views. (Value: "TABLE")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
-/** Output only. Statistics on the usage level of the resource. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal *usageSignal;
+/** Output only. Resource usage statistics. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal *usageSignal;
 
 /**
- *  This field indicates the entry's source system that Data Catalog does not
- *  integrate with. `user_specified_system` strings must begin with a letter or
- *  underscore and can only contain letters, numbers, and underscores; are case
- *  insensitive; must be at least 1 character and at most 64 characters long.
+ *  Indicates the entry's source system that Data Catalog doesn't automatically
+ *  integrate with. The `user_specified_system` string has the following
+ *  limitations: * Is case insensitive. * Must begin with a letter or
+ *  underscore. * Can only contain letters, numbers, and underscores. * Must be
+ *  at least 1 character and at most 64 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *userSpecifiedSystem;
 
 /**
- *  Entry type if it does not fit any of the input-allowed values listed in
- *  `EntryType` enum above. When creating an entry, users should check the enum
- *  values first, if nothing matches the entry to be created, then provide a
- *  custom value, for example "my_special_type". `user_specified_type` strings
- *  must begin with a letter or underscore and can only contain letters,
- *  numbers, and underscores; are case insensitive; must be at least 1 character
- *  and at most 64 characters long. Currently, only FILESET enum value is
- *  allowed. All other entries created through Data Catalog must use
- *  `user_specified_type`.
+ *  Custom entry type that doesn't match any of the values allowed for input and
+ *  listed in the `EntryType` enum. When creating an entry, first check the type
+ *  values in the enum. If there are no appropriate types for the new entry,
+ *  provide a custom value, for example, `my_special_type`. The
+ *  `user_specified_type` string has the following limitations: * Is case
+ *  insensitive. * Must begin with a letter or underscore. * Can only contain
+ *  letters, numbers, and underscores. * Must be at least 1 character and at
+ *  most 64 characters long.
  */
 @property(nonatomic, copy, nullable) NSString *userSpecifiedType;
 
@@ -643,21 +924,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  EntryGroup Metadata. An EntryGroup resource represents a logical grouping of
- *  zero or more Data Catalog Entry resources.
+ *  Entry group metadata. An `EntryGroup` resource represents a logical grouping
+ *  of zero or more Data Catalog Entry resources.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup : GTLRObject
+
+/** Output only. Timestamps of the entry group. Default value is empty. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *dataCatalogTimestamps;
 
 /**
- *  Output only. Timestamps about this EntryGroup. Default value is empty
- *  timestamps.
- */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *dataCatalogTimestamps;
-
-/**
- *  Entry group description, which can consist of several sentences or
- *  paragraphs that describe entry group contents. Default value is an empty
- *  string.
+ *  Entry group description. Can consist of several sentences or paragraphs that
+ *  describe the entry group contents. Default value is an empty string.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -670,10 +947,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  The resource name of the entry group in URL format. Example: *
- *  projects/{project_id}/locations/{location}/entryGroups/{entry_group_id} Note
- *  that this EntryGroup and its child resources may not actually be stored in
- *  the location in this name.
+ *  The resource name of the entry group in URL format. Note: The entry group
+ *  itself and its child resources might not be stored in the location specified
+ *  in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -683,36 +959,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Response message for ExportTaxonomies.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ExportTaxonomiesResponse : GTLRObject
 
-/** List of taxonomies and policy tags in a tree structure. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy *> *taxonomies;
+/** List of taxonomies and policy tags as nested protocol buffers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy *> *taxonomies;
 
 @end
 
 
 /**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType
+ *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType : GTLRObject
 
-/** Represents an enum type. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType *enumType;
+/** An enum type. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType *enumType;
 
 /**
- *  Represents primitive types - string, bool etc.
+ *  Primitive types, such as string, boolean, etc.
  *
  *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Bool
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool
  *        A boolean value. (Value: "BOOL")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Double
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double
  *        A double precision number. (Value: "DOUBLE")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_PrimitiveTypeUnspecified
- *        This is the default invalid value for a type. (Value:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified
+ *        The default invalid value for a type. (Value:
  *        "PRIMITIVE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_String
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String
  *        An UTF-8 string. (Value: "STRING")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType_PrimitiveType_Timestamp
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp
  *        A timestamp. (Value: "TIMESTAMP")
  */
 @property(nonatomic, copy, nullable) NSString *primitiveType;
@@ -721,22 +997,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType
+ *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumType : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType : GTLRObject
 
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue *> *allowedValues;
+/**
+ *  The set of allowed values for this enum. This set must not be empty and can
+ *  include up to 100 allowed values. The display names of the values in this
+ *  set must not be empty and must be case-insensitively unique within this set.
+ *  The order of items in this set is preserved. This field can be used to
+ *  create, remove, and reorder enum values. To rename enum values, use the
+ *  `RenameTagTemplateFieldEnumValue` method.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue *> *allowedValues;
 
 @end
 
 
 /**
- *  GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue
+ *  GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldTypeEnumTypeEnumValue : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumTypeEnumValue : GTLRObject
 
 /**
  *  Required. The display name of the enum value. Must not be an empty string.
+ *  The name must contain only Unicode letters, numbers (0-9), underscores (_),
+ *  dashes (-), spaces ( ), and can't start or end with spaces. The maximum
+ *  length is 200 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -746,27 +1033,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Describes a Cloud Storage fileset entry.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFilesetSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec : GTLRObject
 
 /**
- *  Required. Patterns to identify a set of files in Google Cloud Storage. See
- *  [Cloud Storage
- *  documentation](https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames)
- *  for more information. Note that bucket wildcards are currently not
- *  supported. Examples of valid file_patterns: * `gs://bucket_name/dir/ *`:
- *  matches all files within `bucket_name/dir` directory. *
- *  `gs://bucket_name/dir/ **`: matches all files in `bucket_name/dir` spanning
- *  all subdirectories. * `gs://bucket_name/file*`: matches files prefixed by
- *  `file` in `bucket_name` * `gs://bucket_name/??.txt`: matches files with two
- *  characters followed by `.txt` in `bucket_name` *
- *  `gs://bucket_name/[aeiou].txt`: matches files that contain a single vowel
- *  character followed by `.txt` in `bucket_name` *
+ *  Required. Patterns to identify a set of files in Google Cloud Storage. For
+ *  more information, see [Wildcard Names]
+ *  (https://cloud.google.com/storage/docs/gsutil/addlhelp/WildcardNames). Note:
+ *  Currently, bucket wildcards are not supported. Examples of valid
+ *  `file_patterns`: * `gs://bucket_name/dir/ *`: matches all files in
+ *  `bucket_name/dir` directory * `gs://bucket_name/dir/ **`: matches all files
+ *  in `bucket_name/dir` and all subdirectories * `gs://bucket_name/file*`:
+ *  matches files prefixed by `file` in `bucket_name` *
+ *  `gs://bucket_name/??.txt`: matches files with two characters followed by
+ *  `.txt` in `bucket_name` * `gs://bucket_name/[aeiou].txt`: matches files that
+ *  contain a single vowel character followed by `.txt` in `bucket_name` *
  *  `gs://bucket_name/[a-m].txt`: matches files that contain `a`, `b`, ... or
  *  `m` followed by `.txt` in `bucket_name` * `gs://bucket_name/a/ * /b`:
- *  matches all files in `bucket_name` that match `a/ * /b` pattern, such as
+ *  matches all files in `bucket_name` that match the `a/ * /b` pattern, such as
  *  `a/c/b`, `a/d/b` * `gs://another_bucket/a.txt`: matches
- *  `gs://another_bucket/a.txt` You can combine wildcards to provide more
- *  powerful matches, for example: * `gs://bucket_name/[a-m]??.j*g`
+ *  `gs://another_bucket/a.txt` You can combine wildcards to match complex sets
+ *  of files, for example: `gs://bucket_name/[a-m]??.j*g`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *filePatterns;
 
@@ -774,24 +1060,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  Output only. Sample files contained in this fileset, not all files contained
  *  in this fileset are represented here.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFileSpec *> *sampleGcsFileSpecs;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec *> *sampleGcsFileSpecs;
 
 @end
 
 
 /**
- *  Specifications of a single file in Cloud Storage.
+ *  Specification of a single file in Cloud Storage.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1GcsFileSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec : GTLRObject
 
-/** Required. The full file path. Example: `gs://bucket_name/a/b.txt`. */
+/** Required. Full file path. Example: `gs://bucket_name/a/b.txt`. */
 @property(nonatomic, copy, nullable) NSString *filePath;
 
-/** Output only. Timestamps about the Cloud Storage file. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *gcsTimestamps;
+/**
+ *  Output only. Creation, modification, and expiration timestamps of a Cloud
+ *  Storage file.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *gcsTimestamps;
 
 /**
- *  Output only. The size of the file, in bytes.
+ *  Output only. File size in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -803,10 +1092,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Request message for ImportTaxonomies.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesRequest : GTLRObject
 
-/** Inline source used for taxonomies to be imported. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1InlineSource *inlineSource;
+/** Cross-regional source taxonomy to import. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource *crossRegionalSource;
+
+/** Inline source taxonomy to import. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource *inlineSource;
 
 @end
 
@@ -814,21 +1106,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Response message for ImportTaxonomies.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesResponse : GTLRObject
 
-/** Taxonomies that were imported. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy *> *taxonomies;
+/** Imported taxonomies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *> *taxonomies;
 
 @end
 
 
 /**
- *  Inline source used for taxonomies import.
+ *  Inline source containing taxonomies to import.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1InlineSource : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource : GTLRObject
 
-/** Required. Taxonomies to be imported. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy *> *taxonomies;
+/** Required. Taxonomies to import. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy *> *taxonomies;
 
 @end
 
@@ -841,7 +1133,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse : GTLRCollectionObject
 
 /**
  *  Entry details.
@@ -849,11 +1141,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry *> *entries;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Entry *> *entries;
 
 /**
- *  Token to retrieve the next page of results. It is set to empty if no items
- *  remain in results.
+ *  Pagination token of the next results page. Empty if there are no more items
+ *  in results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -868,19 +1160,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntryGroupsResponse : GTLRCollectionObject
 
 /**
- *  EntryGroup details.
+ *  Entry group details.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *> *entryGroups;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup *> *entryGroups;
 
 /**
- *  Token to retrieve the next page of results. It is set to empty if no items
- *  remain in results.
+ *  Pagination token to specify in the next call to retrieve the next page of
+ *  results. Empty if there are no more items.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -895,21 +1187,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListPolicyTagsResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListPolicyTagsResponse : GTLRCollectionObject
 
 /**
- *  Token used to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Pagination token of the next results page. Empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The policy tags that are in the requested taxonomy.
+ *  The policy tags that belong to the taxonomy.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag *> *policyTags;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag *> *policyTags;
 
 @end
 
@@ -922,11 +1214,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTagsResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse : GTLRCollectionObject
 
 /**
- *  Token to retrieve the next page of results. It is set to empty if no items
- *  remain in results.
+ *  Pagination token of the next results page. Empty if there are no more items
+ *  in results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -936,7 +1228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *> *tags;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *> *tags;
 
 @end
 
@@ -949,11 +1241,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTaxonomiesResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ListTaxonomiesResponse : GTLRCollectionObject
 
 /**
- *  Token used to retrieve the next page of results, or empty if there are no
- *  more results in the list.
+ *  Pagination token of the next results page. Empty if there are no more
+ *  results in the list.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -963,52 +1255,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy *> *taxonomies;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *> *taxonomies;
 
 @end
 
 
 /**
- *  Denotes one policy tag in a taxonomy (e.g. ssn). Policy Tags can be defined
- *  in a hierarchy. For example, consider the following hierarchy: Geolocation
- *  -> (LatLong, City, ZipCode). PolicyTag "Geolocation" contains three child
- *  policy tags: "LatLong", "City", and "ZipCode".
+ *  Denotes one policy tag in a taxonomy, for example, SSN. Policy tags can be
+ *  defined in a hierarchy. For example: ``` + Geolocation + LatLong + City +
+ *  ZipCode ``` Where the "Geolocation" policy tag contains three children.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag : GTLRObject
 
 /** Output only. Resource names of child policy tags of this policy tag. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *childPolicyTags;
 
 /**
- *  Description of this policy tag. It must: contain only unicode characters,
- *  tabs, newlines, carriage returns and page breaks; and be at most 2000 bytes
- *  long when encoded in UTF-8. If not set, defaults to an empty description. If
- *  not set, defaults to an empty description.
+ *  Description of this policy tag. If not set, defaults to empty. The
+ *  description must contain only Unicode characters, tabs, newlines, carriage
+ *  returns and page breaks, and be at most 2000 bytes long when encoded in
+ *  UTF-8.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. User defined name of this policy tag. It must: be unique within
- *  the parent taxonomy; contain only unicode letters, numbers, underscores,
- *  dashes and spaces; not start or end with spaces; and be at most 200 bytes
- *  long when encoded in UTF-8.
+ *  Required. User-defined name of this policy tag. The name can't start or end
+ *  with spaces and must be unique within the parent taxonomy, contain only
+ *  Unicode letters, numbers, underscores, dashes and spaces, and be at most 200
+ *  bytes long when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name of this policy tag, whose format is:
- *  "projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{id}".
+ *  Output only. Resource name of this policy tag in the URL format. The policy
+ *  tag manager generates unique taxonomy IDs and policy tag IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Resource name of this policy tag's parent policy tag (e.g. for the "LatLong"
- *  policy tag in the example above, this field contains the resource name of
- *  the "Geolocation" policy tag). If empty, it means this policy tag is a top
- *  level policy tag (e.g. this field is empty for the "Geolocation" policy tag
- *  in the example above). If not set, defaults to an empty string.
+ *  Resource name of this policy tag's parent policy tag. If empty, this is a
+ *  top level tag. If not set, defaults to an empty string. For example, for the
+ *  "LatLong" policy tag in the example above, this field contains the resource
+ *  name of the "Geolocation" policy tag, and, for "Geolocation", this field is
+ *  empty.
  */
 @property(nonatomic, copy, nullable) NSString *parentPolicyTag;
 
@@ -1018,7 +1309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Request message for RenameTagTemplateFieldEnumValue.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest : GTLRObject
 
 /**
  *  Required. The new display name of the enum value. For example,
@@ -1032,7 +1323,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Request message for RenameTagTemplateField.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest : GTLRObject
 
 /**
  *  Required. The new ID of this tag template field. For example,
@@ -1044,15 +1335,105 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Represents a schema (e.g. BigQuery, GoogleSQL, Avro schema).
+ *  Request message for ReplaceTaxonomy.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Schema : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ReplaceTaxonomyRequest : GTLRObject
+
+/** Required. Taxonomy to update along with its child policy tags. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy *serializedTaxonomy;
+
+@end
+
 
 /**
- *  Required. Schema of columns. A maximum of 10,000 columns and sub-columns can
- *  be specified.
+ *  Specification that applies to a routine. Valid only for entries with the
+ *  `ROUTINE` type.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ColumnSchema *> *columns;
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec : GTLRObject
+
+/** Fields specific for BigQuery routines. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec *bigqueryRoutineSpec;
+
+/** The body of the routine. */
+@property(nonatomic, copy, nullable) NSString *definitionBody;
+
+/**
+ *  The language the routine is written in. The exact value depends on the
+ *  source system. For BigQuery routines, possible values are: * `SQL` *
+ *  `JAVASCRIPT`
+ */
+@property(nonatomic, copy, nullable) NSString *language;
+
+/**
+ *  Return type of the argument. The exact value depends on the source system
+ *  and the language.
+ */
+@property(nonatomic, copy, nullable) NSString *returnType;
+
+/** Arguments of the routine. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument *> *routineArguments;
+
+/**
+ *  The type of the routine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_Procedure
+ *        Stored procedure. (Value: "PROCEDURE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_RoutineTypeUnspecified
+ *        Unspecified type. (Value: "ROUTINE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpec_RoutineType_ScalarFunction
+ *        Non-builtin permanent scalar function. (Value: "SCALAR_FUNCTION")
+ */
+@property(nonatomic, copy, nullable) NSString *routineType;
+
+@end
+
+
+/**
+ *  Input or output argument of a function or stored procedure.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument : GTLRObject
+
+/**
+ *  Specifies whether the argument is input or output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_In
+ *        The argument is input-only. (Value: "IN")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_Inout
+ *        The argument is both an input and an output. (Value: "INOUT")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_ModeUnspecified
+ *        Unspecified mode. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1RoutineSpecArgument_Mode_Out
+ *        The argument is output-only. (Value: "OUT")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  The name of the argument. A return argument of a function might not have a
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Type of the argument. The exact value depends on the source system and the
+ *  language.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents a schema, for example, a BigQuery, GoogleSQL, or Avro schema.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Schema : GTLRObject
+
+/**
+ *  The unified GoogleSQL-like schema of columns. The overall maximum number of
+ *  columns and nested columns is 10,000. The maximum nested depth is 15 levels.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema *> *columns;
 
 @end
 
@@ -1060,51 +1441,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Request message for SearchCatalog.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequest : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequest : GTLRObject
 
 /**
- *  Specifies the ordering of results, currently supported case-sensitive
- *  choices are: * `relevance`, only supports descending *
- *  `last_modified_timestamp [asc|desc]`, defaults to descending if not
- *  specified If not specified, defaults to `relevance` descending.
+ *  Specifies the order of results. Currently supported case-sensitive values
+ *  are: * `relevance` that can only be descending * `last_modified_timestamp
+ *  [asc|desc]` with descending (`desc`) as default If this parameter is
+ *  omitted, it defaults to the descending `relevance`.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Number of results in the search page. If <=0 then defaults to 10. Max limit
- *  for page_size is 1000. Throws an invalid argument for page_size > 1000.
+ *  Number of results to return in a single search page. Can't be negative or 0,
+ *  defaults to 10 in this case. The maximum number is 1000. If exceeded, throws
+ *  an "invalid argument" exception.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  Optional. Pagination token returned in an earlier
- *  SearchCatalogResponse.next_page_token, which indicates that this is a
- *  continuation of a prior SearchCatalogRequest call, and that the system
- *  should return the next page of data. If empty, the first page is returned.
+ *  Optional. Pagination token that, if specified, returns the next page of
+ *  search results. If empty, returns the first page. This token is returned in
+ *  the SearchCatalogResponse.next_page_token field of the response to a
+ *  previous SearchCatalogRequest call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Optional. The query string in search query syntax. An empty query string
- *  will result in all data assets (in the specified scope) that the user has
- *  access to. Query strings can be simple as "x" or more qualified as: * name:x
- *  * column:x * description:y Note: Query tokens need to have a minimum of 3
- *  characters for substring matching to work correctly. See [Data Catalog
- *  Search
- *  Syntax](https://cloud.google.com/data-catalog/docs/how-to/search-reference)
- *  for more information.
+ *  Optional. The query string with a minimum of 3 characters and specific
+ *  syntax. For more information, see [Data Catalog search
+ *  syntax](/data-catalog/docs/how-to/search-reference). An empty query string
+ *  returns all data assets (in the specified scope) that you have access to. A
+ *  query string can be a simple `xyz` or qualified by predicates: * `name:x` *
+ *  `column:y` * `description:z`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
 /**
- *  Required. The scope of this search request. A `scope` that has empty
- *  `include_org_ids`, `include_project_ids` AND false
- *  `include_gcp_public_datasets` is considered invalid. Data Catalog will
- *  return an error in such a case.
+ *  Required. The scope of this search request. The `scope` is invalid if
+ *  `include_org_ids`, `include_project_ids` are empty AND
+ *  `include_gcp_public_datasets` is set to `false`. In this case, the request
+ *  returns an error.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope *scope;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope *scope;
 
 @end
 
@@ -1112,13 +1492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  The criteria that select the subspace used for query matching.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequestScope : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope : GTLRObject
 
 /**
- *  If `true`, include Google Cloud Platform (GCP) public datasets in the search
- *  results. Info on GCP public datasets is available at
- *  https://cloud.google.com/public-datasets/. By default, GCP public datasets
- *  are excluded.
+ *  If `true`, include Google Cloud Platform (GCP) public datasets in search
+ *  results. By default, they are excluded. See [Google Cloud Public
+ *  Datasets](/public-datasets) for more information.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1126,32 +1505,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  The list of organization IDs to search within. To find your organization ID,
- *  follow instructions in
- *  https://cloud.google.com/resource-manager/docs/creating-managing-organization.
+ *  follow the steps from [Creating and managing organizations]
+ *  (/resource-manager/docs/creating-managing-organization).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeOrgIds;
 
 /**
- *  The list of project IDs to search within. To learn more about the
- *  distinction between project names/IDs/numbers, go to
- *  https://cloud.google.com/docs/overview/#projects.
+ *  The list of project IDs to search within. For more information on the
+ *  distinction between project names, IDs, and numbers, see
+ *  [Projects](/docs/overview/#projects).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeProjectIds;
 
 /**
- *  Optional. The list of locations to search within. 1. If empty, search will
- *  be performed in all locations; 2. If any of the locations are NOT in the
- *  valid locations list, error will be returned; 3. Otherwise, search only the
- *  given locations for matching results. Typical usage is to leave this field
- *  empty. When a location is unreachable as returned in the
- *  `SearchCatalogResponse.unreachable` field, users can repeat the search
- *  request with this parameter set to get additional information on the error.
- *  Valid locations: * asia-east1 * asia-east2 * asia-northeast1 *
- *  asia-northeast2 * asia-northeast3 * asia-south1 * asia-southeast1 *
- *  australia-southeast1 * eu * europe-north1 * europe-west1 * europe-west2 *
- *  europe-west3 * europe-west4 * europe-west6 * global *
- *  northamerica-northeast1 * southamerica-east1 * us * us-central1 * us-east1 *
- *  us-east4 * us-west1 * us-west2
+ *  Optional. The list of locations to search within. If empty, all locations
+ *  are searched. Returns an error if any location in the list isn't one of the
+ *  [Supported
+ *  regions](https://cloud.google.com/data-catalog/docs/concepts/regions#supported_regions).
+ *  If a location is unreachable, its name is returned in the
+ *  `SearchCatalogResponse.unreachable` field. To get additional information on
+ *  the error, repeat the search request and set the location name as the value
+ *  of this parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedLocations;
 
@@ -1166,9 +1540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *        should support automatic pagination (when @c shouldFetchNextPages is
  *        enabled).
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResponse : GTLRCollectionObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResponse : GTLRCollectionObject
 
-/** The token that can be used to retrieve the next page of results. */
+/**
+ *  Pagination token that can be used in subsequent calls to retrieve the next
+ *  page of results.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
@@ -1177,13 +1554,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult *> *results;
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult *> *results;
 
 /**
- *  Unreachable locations. Search result does not include data from those
- *  locations. Users can get additional information on the error by repeating
- *  the search request with a more restrictive parameter -- setting the value
- *  for `SearchDataCatalogRequest.scope.restricted_locations`.
+ *  Unreachable locations. Search results don't include data from those
+ *  locations. To get additional information on an error, repeat the search
+ *  request and restrict it to specific locations by setting the
+ *  `SearchCatalogRequest.scope.restricted_locations` parameter.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1191,82 +1568,111 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  A result that appears in the response of a search request. Each result
- *  captures details of one entry that matches the search.
+ *  Result in the response to a search request. Each result captures details of
+ *  one entry that matches the search.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult : GTLRObject
 
 /**
- *  The full name of the cloud resource the entry belongs to. See:
- *  https://cloud.google.com/apis/design/resource_names#full_resource_name.
- *  Example: *
- *  `//bigquery.googleapis.com/projects/projectId/datasets/datasetId/tables/tableId`
+ *  Fully qualified name (FQN) of the resource. FQNs take two forms: * For
+ *  non-regionalized resources:
+ *  `{SYSTEM}:{PROJECT}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}` * For
+ *  regionalized resources:
+ *  `{SYSTEM}:{PROJECT}.{LOCATION_ID}.{PATH_TO_RESOURCE_SEPARATED_WITH_DOTS}`
+ *  Example for a DPMS table:
+ *  `dataproc_metastore:PROJECT_ID.LOCATION_ID.INSTANCE_ID.DATABASE_ID.TABLE_ID`
+ */
+@property(nonatomic, copy, nullable) NSString *fullyQualifiedName;
+
+/**
+ *  Output only. The source system that Data Catalog automatically integrates
+ *  with, such as BigQuery, Cloud Pub/Sub, or Dataproc Metastore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_Bigquery
+ *        BigQuery. (Value: "BIGQUERY")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_CloudPubsub
+ *        Cloud Pub/Sub. (Value: "CLOUD_PUBSUB")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_DataprocMetastore
+ *        Dataproc Metastore. (Value: "DATAPROC_METASTORE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_IntegratedSystem_IntegratedSystemUnspecified
+ *        Default unknown system. (Value: "INTEGRATED_SYSTEM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *integratedSystem;
+
+/**
+ *  The full name of the Google Cloud resource the entry belongs to. For more
+ *  information, see [Full Resource Name]
+ *  (/apis/design/resource_names#full_resource_name). Example:
+ *  `//bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID`
  */
 @property(nonatomic, copy, nullable) NSString *linkedResource;
 
-/** Last-modified timestamp of the entry from the managing system. */
+/** The last modification timestamp of the entry in the source system. */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifyTime;
 
 /**
- *  The relative resource name of the resource in URL format. Examples: *
- *  `projects/{project_id}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}`
- *  * `projects/{project_id}/tagTemplates/{tag_template_id}`
+ *  The relative name of the resource in URL format. Examples: *
+ *  `projects/{PROJECT_ID}/locations/{LOCATION_ID}/entryGroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`
+ *  * `projects/{PROJECT_ID}/tagTemplates/{TAG_TEMPLATE_ID}`
  */
 @property(nonatomic, copy, nullable) NSString *relativeResourceName;
 
 /**
- *  Sub-type of the search result. This is a dot-delimited description of the
- *  resource's full type, and is the same as the value callers would provide in
- *  the "type" search facet. Examples: `entry.table`, `entry.dataStream`,
- *  `tagTemplate`.
+ *  Sub-type of the search result. A dot-delimited full type of the resource.
+ *  The same type you specify in the `type` search predicate. Examples:
+ *  `entry.table`, `entry.dataStream`, `tagTemplate`.
  */
 @property(nonatomic, copy, nullable) NSString *searchResultSubtype;
 
 /**
- *  Type of the search result. This field can be used to determine which Get
+ *  Type of the search result. You can use this field to determine which get
  *  method to call to fetch the full resource.
  *
  *  Likely values:
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_Entry
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_Entry
  *        An Entry. (Value: "ENTRY")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_EntryGroup
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_EntryGroup
  *        An EntryGroup. (Value: "ENTRY_GROUP")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_SearchResultTypeUnspecified
  *        Default unknown type. (Value: "SEARCH_RESULT_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResult_SearchResultType_TagTemplate
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResult_SearchResultType_TagTemplate
  *        A TagTemplate. (Value: "TAG_TEMPLATE")
  */
 @property(nonatomic, copy, nullable) NSString *searchResultType;
+
+/** Custom source system that you can manually integrate Data Catalog with. */
+@property(nonatomic, copy, nullable) NSString *userSpecifiedSystem;
 
 @end
 
 
 /**
- *  Message representing one policy tag when exported as a nested proto.
+ *  A nested protocol buffer that represents a policy tag and all its
+ *  descendants.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag : GTLRObject
 
-/** Children of the policy tag if any. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag *> *childPolicyTags;
+/** Children of the policy tag, if any. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag *> *childPolicyTags;
 
 /**
- *  Description of the serialized policy tag. The length of the description is
- *  limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an
- *  empty description.
+ *  Description of the serialized policy tag. At most 2000 bytes when encoded in
+ *  UTF-8. If not set, defaults to an empty description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Display name of the policy tag. Max 200 bytes when encoded in
+ *  Required. Display name of the policy tag. At most 200 bytes when encoded in
  *  UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Resource name of the policy tag. This field will be ignored when calling
- *  ImportTaxonomies.
+ *  Resource name of the policy tag. This field is ignored when calling
+ *  `ImportTaxonomies`.
  */
 @property(nonatomic, copy, nullable) NSString *policyTag;
 
@@ -1274,64 +1680,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Message capturing a taxonomy and its policy tag hierarchy as a nested proto.
- *  Used for taxonomy import/export and mutation.
+ *  A nested protocol buffer that represents a taxonomy and the hierarchy of its
+ *  policy tags. Used for taxonomy replacement, import, and export.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedTaxonomy : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy : GTLRObject
 
-/** A list of policy types that are activated for a taxonomy. */
+/** A list of policy types that are activated per taxonomy. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *activatedPolicyTypes;
 
 /**
- *  Description of the serialized taxonomy. The length of the description is
- *  limited to 2000 bytes when encoded in UTF-8. If not set, defaults to an
- *  empty description.
+ *  Description of the serialized taxonomy. At most 2000 bytes when encoded in
+ *  UTF-8. If not set, defaults to an empty description.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. Display name of the taxonomy. Max 200 bytes when encoded in UTF-8.
+ *  Required. Display name of the taxonomy. At most 200 bytes when encoded in
+ *  UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Top level policy tags associated with the taxonomy if any. */
-@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SerializedPolicyTag *> *policyTags;
+/** Top level policy tags associated with the taxonomy, if any. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag *> *policyTags;
 
 @end
 
 
 /**
- *  Timestamps about this resource according to a particular system.
+ *  Timestamps associated with this resource in a particular system.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps : GTLRObject
 
-/** The creation time of the resource within the given system. */
+/** Creation timestamp of the resource within the given system. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Output only. The expiration time of the resource within the given system.
- *  Currently only apllicable to BigQuery resources.
+ *  Output only. Expiration timestamp of the resource within the given system.
+ *  Currently only applicable to BigQuery resources.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
-/** The last-modified time of the resource within the given system. */
+/**
+ *  Timestamp of the last modification of the resource or its metadata within a
+ *  given system. Note: Depending on the source system, not every modification
+ *  updates this timestamp. For example, BigQuery timestamps every metadata
+ *  modification but not data or permission changes.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Normal BigQuery table spec.
+ *  Normal BigQuery table specification.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TableSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TableSpec : GTLRObject
 
 /**
- *  Output only. If the table is a dated shard, i.e., with name pattern
- *  `[prefix]YYYYMMDD`, `grouped_entry` is the Data Catalog resource name of the
- *  date sharded grouped entry, for example,
- *  `projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}`.
+ *  Output only. If the table is date-sharded, that is, it matches the
+ *  `[prefix]YYYYMMDD` name pattern, this field is the Data Catalog resource
+ *  name of the date-sharded grouped entry. For example:
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/entrygroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`.
  *  Otherwise, `grouped_entry` is empty.
  */
 @property(nonatomic, copy, nullable) NSString *groupedEntry;
@@ -1340,39 +1751,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Tags are used to attach custom metadata to Data Catalog resources. Tags
- *  conform to the specifications within their tag template. See [Data Catalog
+ *  Tags contain custom metadata and are attached to Data Catalog resources.
+ *  Tags conform with the specification of their tag template. See [Data Catalog
  *  IAM](https://cloud.google.com/data-catalog/docs/concepts/iam) for
  *  information on the permissions needed to create or view tags.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Tag : GTLRObject
 
 /**
- *  Resources like Entry can have schemas associated with them. This scope
- *  allows users to attach tags to an individual column based on that schema.
- *  For attaching a tag to a nested column, use `.` to separate the column
- *  names. Example: * `outer_column.inner_column`
+ *  Resources like entry can have schemas associated with them. This scope
+ *  allows you to attach tags to an individual column based on that schema. To
+ *  attach a tag to a nested column, separate column names with a dot (`.`).
+ *  Example: `column.nested_column`.
  */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
- *  Required. This maps the ID of a tag field to the value of and additional
- *  information about that field. Valid field IDs are defined by the tag's
- *  template. A tag must have at least 1 field and at most 500 fields.
+ *  Required. Maps the ID of a tag field to its value and additional information
+ *  about that field. Tag template defines valid field IDs. A tag must have at
+ *  least 1 field and at most 500 fields.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag_Fields *fields;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Tag_Fields *fields;
 
 /**
- *  The resource name of the tag in URL format. Example: *
- *  projects/{project_id}/locations/{location}/entrygroups/{entry_group_id}/entries/{entry_id}/tags/{tag_id}
- *  where `tag_id` is a system-generated identifier. Note that this Tag may not
- *  actually be stored in the location in this name.
+ *  The resource name of the tag in URL format where tag ID is a
+ *  system-generated identifier. Note: The tag itself might not be stored in the
+ *  location specified in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The resource name of the tag template that this tag uses. Example:
- *  * projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
+ *  Required. The resource name of the tag template this tag uses. Example:
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/tagTemplates/{TAG_TEMPLATE_ID}`
  *  This field cannot be modified after creation.
  *
  *  Remapped to 'templateProperty' to avoid language reserved word 'template'.
@@ -1386,27 +1796,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  Required. This maps the ID of a tag field to the value of and additional
- *  information about that field. Valid field IDs are defined by the tag's
- *  template. A tag must have at least 1 field and at most 500 fields.
+ *  Required. Maps the ID of a tag field to its value and additional information
+ *  about that field. Tag template defines valid field IDs. A tag must have at
+ *  least 1 field and at most 500 fields.
  *
  *  @note This class is documented as having more properties of
- *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagField. Use @c
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1TagField. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag_Fields : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Tag_Fields : GTLRObject
 @end
 
 
 /**
- *  Contains the value and supporting information for a field within a Tag.
+ *  Contains the value and additional information on a field within a Tag.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagField : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagField : GTLRObject
 
 /**
- *  Holds the value for a tag field with boolean type.
+ *  The value of a tag field with a boolean type.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1416,41 +1826,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Holds the value for a tag field with double type.
+ *  The value of a tag field with a double type.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
 /**
- *  Holds the value for a tag field with enum type. This value must be one of
- *  the allowed values in the definition of this enum.
+ *  The value of a tag field with an enum type. This value must be one of the
+ *  allowed values listed in this enum.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagFieldEnumValue *enumValue;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TagFieldEnumValue *enumValue;
 
 /**
  *  Output only. The order of this field with respect to other fields in this
- *  tag. It can be set in Tag. For example, a higher value can indicate a more
+ *  tag. Can be set by Tag. For example, a higher value can indicate a more
  *  important field. The value can be negative. Multiple fields can have the
- *  same order, and field orders within a tag do not have to be sequential.
+ *  same order, and field orders within a tag don't have to be sequential.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *order;
 
-/** Holds the value for a tag field with string type. */
+/**
+ *  The value of a tag field with a string type. The maximum length is 2000
+ *  UTF-8 characters.
+ */
 @property(nonatomic, copy, nullable) NSString *stringValue;
 
-/** Holds the value for a tag field with timestamp type. */
+/** The value of a tag field with a timestamp type. */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampValue;
 
 @end
 
 
 /**
- *  Holds an enum value.
+ *  An enum value.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagFieldEnumValue : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagFieldEnumValue : GTLRObject
 
 /** The display name of the enum value. */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -1459,36 +1872,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 
 /**
- *  A tag template defines a tag, which can have one or more typed fields. The
- *  template is used to create and attach the tag to GCP resources. [Tag
- *  template
- *  roles](https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles)
- *  provide permissions to create, edit, and use the template. See, for example,
- *  the [TagTemplate
- *  User](https://cloud.google.com/data-catalog/docs/how-to/template-user) role,
- *  which includes permission to use the tag template to tag resources.
+ *  A tag template defines a tag that can have one or more typed fields. The
+ *  template is used to create tags that are attached to GCP resources. [Tag
+ *  template roles]
+ *  (https://cloud.google.com/iam/docs/understanding-roles#data-catalog-roles)
+ *  provide permissions to create, edit, and use the template. For example, see
+ *  the [TagTemplate User]
+ *  (https://cloud.google.com/data-catalog/docs/how-to/template-user) role that
+ *  includes a permission to use the tag template to tag resources.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate : GTLRObject
 
-/** The display name for this template. Defaults to an empty string. */
+/**
+ *  Display name for this template. Defaults to an empty string. The name must
+ *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
+ *  spaces ( ), and can't start or end with spaces. The maximum length is 200
+ *  characters.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
  *  Required. Map of tag template field IDs to the settings for the field. This
- *  map is an exhaustive list of the allowed fields. This map must contain at
+ *  map is an exhaustive list of the allowed fields. The map must contain at
  *  least one field and at most 500 fields. The keys to this map are tag
- *  template field IDs. Field IDs can contain letters (both uppercase and
- *  lowercase), numbers (0-9) and underscores (_). Field IDs must be at least 1
- *  character long and at most 64 characters long. Field IDs must start with a
+ *  template field IDs. The IDs have the following limitations: * Can contain
+ *  uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must
+ *  be at least 1 character and at most 64 characters long. * Must start with a
  *  letter or underscore.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate_Fields *fields;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields *fields;
 
 /**
- *  The resource name of the tag template in URL format. Example: *
- *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template_id}
- *  Note that this TagTemplate and its child resources may not actually be
- *  stored in the location in this name.
+ *  The resource name of the tag template in URL format. Note: The tag template
+ *  itself and its child resources might not be stored in the location specified
+ *  in its name.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1497,27 +1914,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Required. Map of tag template field IDs to the settings for the field. This
- *  map is an exhaustive list of the allowed fields. This map must contain at
+ *  map is an exhaustive list of the allowed fields. The map must contain at
  *  least one field and at most 500 fields. The keys to this map are tag
- *  template field IDs. Field IDs can contain letters (both uppercase and
- *  lowercase), numbers (0-9) and underscores (_). Field IDs must be at least 1
- *  character long and at most 64 characters long. Field IDs must start with a
+ *  template field IDs. The IDs have the following limitations: * Can contain
+ *  uppercase and lowercase letters, numbers (0-9) and underscores (_). * Must
+ *  be at least 1 character and at most 64 characters long. * Must start with a
  *  letter or underscore.
  *
  *  @note This class is documented as having more properties of
- *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField. Use @c
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate_Fields : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields : GTLRObject
 @end
 
 
 /**
  *  The template for an individual field within a tag template.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField : GTLRObject
 
 /**
  *  The description for this field. Defaults to an empty string.
@@ -1526,11 +1943,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The display name for this field. Defaults to an empty string. */
+/**
+ *  The display name for this field. Defaults to an empty string. The name must
+ *  contain only Unicode letters, numbers (0-9), underscores (_), dashes (-),
+ *  spaces ( ), and can't start or end with spaces. The maximum length is 200
+ *  characters.
+ */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Whether this is a required field. Defaults to false.
+ *  If true, this field is required. Defaults to false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1538,37 +1960,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 
 /**
  *  Output only. The resource name of the tag template field in URL format.
- *  Example: *
- *  projects/{project_id}/locations/{location}/tagTemplates/{tag_template}/fields/{field}
- *  Note that this TagTemplateField may not actually be stored in the location
- *  in this name.
+ *  Example:
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/tagTemplates/{TAG_TEMPLATE}/fields/{FIELD}`
+ *  Note: The tag template field itself might not be stored in the location
+ *  specified in its name. The name must contain only letters (a-z, A-Z),
+ *  numbers (0-9), or underscores (_), and must start with a letter or
+ *  underscore. The maximum length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The order of this field with respect to other fields in this tag template. A
- *  higher value indicates a more important field. The value can be negative.
- *  Multiple fields can have the same order, and field orders within a tag do
- *  not have to be sequential.
+ *  The order of this field with respect to other fields in this tag template.
+ *  For example, a higher value can indicate a more important field. The value
+ *  can be negative. Multiple fields can have the same order and field orders
+ *  within a tag don't have to be sequential.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *order;
 
 /** Required. The type of value this tag field can contain. */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1FieldType *type;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType *type;
 
 @end
 
 
 /**
- *  A taxonomy is a collection of policy tags that classify data along a common
- *  axis. For instance a data *sensitivity* taxonomy could contain policy tags
- *  denoting PII such as age, zipcode, and SSN. A data *origin* taxonomy could
- *  contain policy tags to distinguish user data, employee data, partner data,
- *  public data.
+ *  A taxonomy is a collection of hierarchical policy tags that classify data
+ *  along a common axis. For example, a "data sensitivity" taxonomy might
+ *  contain the following policy tags: ``` + PII + Account number + Age + SSN +
+ *  Zipcode + Financials + Revenue ``` A "data origin" taxonomy might contain
+ *  the following policy tags: ``` + User data + Employee data + Partner data +
+ *  Public data ```
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy : GTLRObject
 
 /**
  *  Optional. A list of policy types that are activated for this taxonomy. If
@@ -1577,109 +2002,107 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 @property(nonatomic, strong, nullable) NSArray<NSString *> *activatedPolicyTypes;
 
 /**
- *  Optional. Description of this taxonomy. It must: contain only unicode
- *  characters, tabs, newlines, carriage returns and page breaks; and be at most
- *  2000 bytes long when encoded in UTF-8. If not set, defaults to an empty
- *  description.
+ *  Optional. Description of this taxonomy. If not set, defaults to empty. The
+ *  description must contain only Unicode characters, tabs, newlines, carriage
+ *  returns, and page breaks, and be at most 2000 bytes long when encoded in
+ *  UTF-8.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. User defined name of this taxonomy. It must: contain only unicode
- *  letters, numbers, underscores, dashes and spaces; not start or end with
- *  spaces; and be at most 200 bytes long when encoded in UTF-8.
+ *  Required. User-defined name of this taxonomy. The name can't start or end
+ *  with spaces, must contain only Unicode letters, numbers, underscores,
+ *  dashes, and spaces, and be at most 200 bytes long when encoded in UTF-8.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name of this taxonomy, whose format is:
- *  "projects/{project_number}/locations/{location_id}/taxonomies/{id}".
+ *  Output only. Resource name of this taxonomy in URL format. Note: Policy tag
+ *  manager generates unique taxonomy IDs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. Number of policy tags contained in this taxonomy.
+ *  Output only. Number of policy tags in this taxonomy.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *policyTagCount;
 
-/**
- *  Output only. Timestamps about this taxonomy. Only create_time and
- *  update_time are used.
- */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SystemTimestamps *taxonomyTimestamps;
+/** Output only. Creation and modification timestamps of this taxonomy. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *taxonomyTimestamps;
 
 @end
 
 
 /**
- *  The set of all usage signals that we store in Data Catalog.
+ *  The set of all usage signals that Data Catalog stores. Note: Usually, these
+ *  signals are updated daily. In rare cases, an update may fail but will be
+ *  performed again on the next day.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal : GTLRObject
 
-/** The timestamp of the end of the usage statistics duration. */
+/** The end timestamp of the duration of usage statistics. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Usage statistics over each of the pre-defined time ranges, supported strings
- *  for time ranges are {"24H", "7D", "30D"}.
+ *  Usage statistics over each of the predefined time ranges. Supported time
+ *  ranges are `{"24H", "7D", "30D"}`.
  */
-@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange *usageWithinTimeRange;
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange *usageWithinTimeRange;
 
 @end
 
 
 /**
- *  Usage statistics over each of the pre-defined time ranges, supported strings
- *  for time ranges are {"24H", "7D", "30D"}.
+ *  Usage statistics over each of the predefined time ranges. Supported time
+ *  ranges are `{"24H", "7D", "30D"}`.
  *
  *  @note This class is documented as having more properties of
- *        GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats. Use @c
+ *        GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
  *        of properties and then fetch them; or @c -additionalProperties to
  *        fetch them all at once.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageSignal_UsageWithinTimeRange : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageSignal_UsageWithinTimeRange : GTLRObject
 @end
 
 
 /**
- *  Detailed counts on the entry's usage. Caveats: - Only BigQuery tables have
- *  usage stats - The usage stats only inlude BigQuery query jobs - The usage
- *  stats might be underestimated, e.g. wildcard table references are not yet
- *  counted in usage computation
- *  https://cloud.google.com/bigquery/docs/querying-wildcard-tables
+ *  Detailed statistics on the entry's usage. Usage statistics have the
+ *  following limitations: - Only BigQuery tables have them. - They only include
+ *  BigQuery query jobs. - They might be underestimated because wildcard table
+ *  references are not yet counted. For more information, see [Querying multiple
+ *  tables using a wildcard table]
+ *  (https://cloud.google.com/bigquery/docs/querying-wildcard-tables)
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1UsageStats : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1UsageStats : GTLRObject
 
 /**
- *  The number of times that the underlying entry was attempted to be used but
- *  was cancelled by the user.
+ *  The number of cancelled attempts to use the underlying entry.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCancellations;
 
 /**
- *  The number of times that the underlying entry was successfully used.
+ *  The number of successful uses of the underlying entry.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCompletions;
 
 /**
- *  Total time spent (in milliseconds) during uses the resulted in completions.
+ *  Total time spent only on successful uses, in milliseconds.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalExecutionTimeForCompletionsMillis;
 
 /**
- *  The number of times that the underlying entry was attempted to be used but
- *  failed.
+ *  The number of failed attempts to use the underlying entry.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -1691,7 +2114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1beta
 /**
  *  Table view specification.
  */
-@interface GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ViewSpec : GTLRObject
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec : GTLRObject
 
 /** Output only. The query that defines the table view. */
 @property(nonatomic, copy, nullable) NSString *viewQuery;

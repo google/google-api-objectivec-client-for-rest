@@ -452,6 +452,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_FactCheckTools"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Firebaseappcheck",
+            targets: ["GoogleAPIClientForREST_Firebaseappcheck"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
             targets: ["GoogleAPIClientForREST_FirebaseCloudMessaging"]
         ),
@@ -548,12 +552,20 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_IAMCredentials"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Ideahub",
+            targets: ["GoogleAPIClientForREST_Ideahub"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_IdentityToolkit",
             targets: ["GoogleAPIClientForREST_IdentityToolkit"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Indexing",
             targets: ["GoogleAPIClientForREST_Indexing"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_Keep",
+            targets: ["GoogleAPIClientForREST_Keep"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Kgsearch",
@@ -694,6 +706,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Reseller",
             targets: ["GoogleAPIClientForREST_Reseller"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_ResourceSettings",
+            targets: ["GoogleAPIClientForREST_ResourceSettings"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Safebrowsing",
@@ -1582,6 +1598,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Firebaseappcheck",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Firebaseappcheck",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_FirebaseCloudMessaging",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/FirebaseCloudMessaging",
@@ -1726,6 +1748,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Ideahub",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Ideahub",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_IdentityToolkit",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/IdentityToolkit",
@@ -1735,6 +1763,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Indexing",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Indexing",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_Keep",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Keep",
             publicHeadersPath: "."
         ),
         .target(
@@ -1945,6 +1979,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Reseller",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Reseller",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ResourceSettings",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/ResourceSettings",
             publicHeadersPath: "."
         ),
         .target(

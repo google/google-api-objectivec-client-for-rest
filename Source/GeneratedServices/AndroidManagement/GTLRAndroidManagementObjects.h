@@ -262,25 +262,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationEvent_Event
 // GTLRAndroidManagement_ApplicationPolicy.autoUpdateMode
 
 /**
- *  This feature is not generally available yet.
+ *  The app is automatically updated with low priority to minimize the impact on
+ *  the user.The app is updated when all of the following constraints are met:
+ *  The device is not actively used. The device is connected to an unmetered
+ *  network. The device is charging.The device is notified about a new update
+ *  within 24 hours after it is published by the developer, after which the app
+ *  is updated the next time the constraints above are met.
  *
  *  Value: "AUTO_UPDATE_DEFAULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault;
 /**
- *  This feature is not generally available yet.
+ *  The app is updated as soon as possible. No constraints are applied.The
+ *  device is notified immediately about a new update after it becomes
+ *  available.
  *
  *  Value: "AUTO_UPDATE_HIGH_PRIORITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority;
 /**
- *  This feature is not generally available yet.
+ *  Unspecified. Defaults to AUTO_UPDATE_DEFAULT.
  *
  *  Value: "AUTO_UPDATE_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified;
 /**
- *  This feature is not generally available yet.
+ *  The app is not automatically updated for a maximum of 90 days after the app
+ *  becomes out of date.90 days after the app becomes out of date, the latest
+ *  available version is installed automatically with low priority (see
+ *  AUTO_UPDATE_DEFAULT). After the app is updated it is not automatically
+ *  updated again until 90 days after it becomes out of date again.The user can
+ *  still manually update the app from the Play Store at any time.
  *
  *  Value: "AUTO_UPDATE_POSTPONED"
  */
@@ -1379,14 +1391,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetailCon
 // GTLRAndroidManagement_PasswordRequirements.passwordQuality
 
 /**
- *  The password must contain alphabetic (or symbol) characters.
+ *  The password must contain alphabetic (or symbol) characters.This, when
+ *  applied on personally owned work profile devices on Android 12
+ *  device-scoped, will be treated as COMPLEXITY_HIGH for application. See
+ *  PasswordQuality for details.
  *
  *  Value: "ALPHABETIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic;
 /**
  *  The password must contain both numeric and alphabetic (or symbol)
- *  characters.
+ *  characters.This, when applied on personally owned work profile devices on
+ *  Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *  application. See PasswordQuality for details.
  *
  *  Value: "ALPHANUMERIC"
  */
@@ -1395,7 +1412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  *  The device must be secured with a low-security biometric recognition
  *  technology, at minimum. This includes technologies that can recognize the
  *  identity of an individual that are roughly equivalent to a 3-digit PIN
- *  (false detection is less than 1 in 1,000).
+ *  (false detection is less than 1 in 1,000).This, when applied on personally
+ *  owned work profile devices on Android 12 device-scoped, will be treated as
+ *  COMPLEXITY_LOW for application. See PasswordQuality for details.
  *
  *  Value: "BIOMETRIC_WEAK"
  */
@@ -1404,20 +1423,58 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  *  The password must meet the minimum requirements specified in
  *  passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols, etc.
  *  For example, if passwordMinimumSymbols is 2, the password must contain at
- *  least two symbols.
+ *  least two symbols.This, when applied on personally owned work profile
+ *  devices on Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *  application. In this case, the requirements in passwordMinimumLength,
+ *  passwordMinimumLetters, passwordMinimumSymbols, etc are not applied. See
+ *  PasswordQuality for details.
  *
  *  Value: "COMPLEX"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex;
 /**
- *  The password must contain numeric characters.
+ *  Password satisfies one of the following:On Android 12 and above: PIN with no
+ *  repeating (4444) or ordered (1234, 4321, 2468) sequences, length at least 8
+ *  alphabetic, length at least 6 alphanumeric, length at least 6Enforcement
+ *  varies among different Android versions, management modes and password
+ *  scopes. See PasswordQuality for details.
+ *
+ *  Value: "COMPLEXITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh;
+/**
+ *  Password satisfies one of the following: pattern PIN with repeating (4444)
+ *  or ordered (1234, 4321, 2468) sequencesEnforcement varies among different
+ *  Android versions, management modes and password scopes. See PasswordQuality
+ *  for details.
+ *
+ *  Value: "COMPLEXITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow;
+/**
+ *  Password satisfies one of the following: PIN with no repeating (4444) or
+ *  ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic, length
+ *  at least 4 alphanumeric, length at least 4Enforcement varies among different
+ *  Android versions, management modes and password scopes. See PasswordQuality
+ *  for details.
+ *
+ *  Value: "COMPLEXITY_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium;
+/**
+ *  The password must contain numeric characters.This, when applied on
+ *  personally owned work profile devices on Android 12 device-scoped, will be
+ *  treated as COMPLEXITY_MEDIUM for application. See PasswordQuality for
+ *  details.
  *
  *  Value: "NUMERIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric;
 /**
  *  The password must contain numeric characters with no repeating (4444) or
- *  ordered (1234, 4321, 2468) sequences.
+ *  ordered (1234, 4321, 2468) sequences.This, when applied on personally owned
+ *  work profile devices on Android 12 device-scoped, will be treated as
+ *  COMPLEXITY_MEDIUM for application. See PasswordQuality for details.
  *
  *  Value: "NUMERIC_COMPLEX"
  */
@@ -1430,7 +1487,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified;
 /**
  *  A password is required, but there are no restrictions on what the password
- *  must contain.
+ *  must contain.This, when applied on personally owned work profile devices on
+ *  Android 12 device-scoped, will be treated as COMPLEXITY_LOW for application.
+ *  See PasswordQuality for details.
  *
  *  Value: "SOMETHING"
  */
@@ -2027,7 +2086,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_SystemUpdate_Type_Syst
  *  Install automatically within a daily maintenance window. This also
  *  configures Play apps to be updated within the window. This is strongly
  *  recommended for kiosk devices because this is the only way apps persistently
- *  pinned to the foreground can be updated by Play.
+ *  pinned to the foreground can be updated by Play.If autoUpdateMode is set to
+ *  AUTO_UPDATE_HIGH_PRIORITY for an app, then the maintenance window is ignored
+ *  for that app and it is updated as soon as possible even outside of the
+ *  maintenance window.
  *
  *  Value: "WINDOWED"
  */
@@ -2146,6 +2208,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatur
  *  Value: "WEB_APPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps;
+/**
+ *  The zero-touch iframe
+ *  (https://developers.google.com/android/management/zero-touch-iframe).
+ *
+ *  Value: "ZERO_TOUCH_CUSTOMER_MANAGEMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustomerManagement;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_WebToken.permissions
@@ -2394,21 +2463,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *accessibleTrackIds;
 
 /**
- *  This feature is not generally available yet.
+ *  Controls the auto-update mode for the app.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateDefault
- *        This feature is not generally available yet. (Value:
- *        "AUTO_UPDATE_DEFAULT")
+ *        The app is automatically updated with low priority to minimize the
+ *        impact on the user.The app is updated when all of the following
+ *        constraints are met: The device is not actively used. The device is
+ *        connected to an unmetered network. The device is charging.The device
+ *        is notified about a new update within 24 hours after it is published
+ *        by the developer, after which the app is updated the next time the
+ *        constraints above are met. (Value: "AUTO_UPDATE_DEFAULT")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateHighPriority
- *        This feature is not generally available yet. (Value:
- *        "AUTO_UPDATE_HIGH_PRIORITY")
+ *        The app is updated as soon as possible. No constraints are applied.The
+ *        device is notified immediately about a new update after it becomes
+ *        available. (Value: "AUTO_UPDATE_HIGH_PRIORITY")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdateModeUnspecified
- *        This feature is not generally available yet. (Value:
+ *        Unspecified. Defaults to AUTO_UPDATE_DEFAULT. (Value:
  *        "AUTO_UPDATE_MODE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_AutoUpdateMode_AutoUpdatePostponed
- *        This feature is not generally available yet. (Value:
- *        "AUTO_UPDATE_POSTPONED")
+ *        The app is not automatically updated for a maximum of 90 days after
+ *        the app becomes out of date.90 days after the app becomes out of date,
+ *        the latest available version is installed automatically with low
+ *        priority (see AUTO_UPDATE_DEFAULT). After the app is updated it is not
+ *        automatically updated again until 90 days after it becomes out of date
+ *        again.The user can still manually update the app from the Play Store
+ *        at any time. (Value: "AUTO_UPDATE_POSTPONED")
  */
 @property(nonatomic, copy, nullable) NSString *autoUpdateMode;
 
@@ -3023,6 +3103,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *  when application_reports_enabled is true in the device's policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_ApplicationReport *> *applicationReports;
+
+/**
+ *  The password requirements currently applied to the device. The applied
+ *  requirements may be slightly different from those specified in
+ *  passwordPolicies in some cases. fieldPath is set based on passwordPolicies.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_PasswordRequirements *> *appliedPasswordPolicies;
 
 /** The name of the policy currently applied to the device. */
 @property(nonatomic, copy, nullable) NSString *appliedPolicyName;
@@ -3781,6 +3868,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *skinTemperatures;
 
+@end
+
+
+/**
+ *  Response on issuing a command. This is currently empty as a placeholder.
+ */
+@interface GTLRAndroidManagement_IssueCommandResponse : GTLRObject
 @end
 
 
@@ -4654,33 +4748,71 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphabetic
- *        The password must contain alphabetic (or symbol) characters. (Value:
- *        "ALPHABETIC")
+ *        The password must contain alphabetic (or symbol) characters.This, when
+ *        applied on personally owned work profile devices on Android 12
+ *        device-scoped, will be treated as COMPLEXITY_HIGH for application. See
+ *        PasswordQuality for details. (Value: "ALPHABETIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric
  *        The password must contain both numeric and alphabetic (or symbol)
- *        characters. (Value: "ALPHANUMERIC")
+ *        characters.This, when applied on personally owned work profile devices
+ *        on Android 12 device-scoped, will be treated as COMPLEXITY_HIGH for
+ *        application. See PasswordQuality for details. (Value: "ALPHANUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak
  *        The device must be secured with a low-security biometric recognition
  *        technology, at minimum. This includes technologies that can recognize
  *        the identity of an individual that are roughly equivalent to a 3-digit
- *        PIN (false detection is less than 1 in 1,000). (Value:
- *        "BIOMETRIC_WEAK")
+ *        PIN (false detection is less than 1 in 1,000).This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_LOW for application. See PasswordQuality
+ *        for details. (Value: "BIOMETRIC_WEAK")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex
  *        The password must meet the minimum requirements specified in
  *        passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols,
  *        etc. For example, if passwordMinimumSymbols is 2, the password must
- *        contain at least two symbols. (Value: "COMPLEX")
+ *        contain at least two symbols.This, when applied on personally owned
+ *        work profile devices on Android 12 device-scoped, will be treated as
+ *        COMPLEXITY_HIGH for application. In this case, the requirements in
+ *        passwordMinimumLength, passwordMinimumLetters, passwordMinimumSymbols,
+ *        etc are not applied. See PasswordQuality for details. (Value:
+ *        "COMPLEX")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh
+ *        Password satisfies one of the following:On Android 12 and above: PIN
+ *        with no repeating (4444) or ordered (1234, 4321, 2468) sequences,
+ *        length at least 8 alphabetic, length at least 6 alphanumeric, length
+ *        at least 6Enforcement varies among different Android versions,
+ *        management modes and password scopes. See PasswordQuality for details.
+ *        (Value: "COMPLEXITY_HIGH")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow
+ *        Password satisfies one of the following: pattern PIN with repeating
+ *        (4444) or ordered (1234, 4321, 2468) sequencesEnforcement varies among
+ *        different Android versions, management modes and password scopes. See
+ *        PasswordQuality for details. (Value: "COMPLEXITY_LOW")
+ *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium
+ *        Password satisfies one of the following: PIN with no repeating (4444)
+ *        or ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic,
+ *        length at least 4 alphanumeric, length at least 4Enforcement varies
+ *        among different Android versions, management modes and password
+ *        scopes. See PasswordQuality for details. (Value: "COMPLEXITY_MEDIUM")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric
- *        The password must contain numeric characters. (Value: "NUMERIC")
+ *        The password must contain numeric characters.This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_MEDIUM for application. See
+ *        PasswordQuality for details. (Value: "NUMERIC")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex
  *        The password must contain numeric characters with no repeating (4444)
- *        or ordered (1234, 4321, 2468) sequences. (Value: "NUMERIC_COMPLEX")
+ *        or ordered (1234, 4321, 2468) sequences.This, when applied on
+ *        personally owned work profile devices on Android 12 device-scoped,
+ *        will be treated as COMPLEXITY_MEDIUM for application. See
+ *        PasswordQuality for details. (Value: "NUMERIC_COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified
  *        There are no password requirements. (Value:
  *        "PASSWORD_QUALITY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Something
  *        A password is required, but there are no restrictions on what the
- *        password must contain. (Value: "SOMETHING")
+ *        password must contain.This, when applied on personally owned work
+ *        profile devices on Android 12 device-scoped, will be treated as
+ *        COMPLEXITY_LOW for application. See PasswordQuality for details.
+ *        (Value: "SOMETHING")
  */
 @property(nonatomic, copy, nullable) NSString *passwordQuality;
 
@@ -4920,8 +5052,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<NSString *> *androidDevicePolicyTracks;
 
 /**
- *  The app auto update policy, which controls when automatic app updates can be
- *  applied.
+ *  Deprecated. Use autoUpdateMode instead.When autoUpdateMode is set to
+ *  AUTO_UPDATE_POSTPONED or AUTO_UPDATE_HIGH_PRIORITY, this field has no
+ *  effect.The app auto update policy, which controls when automatic app updates
+ *  can be applied.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_Policy_AppAutoUpdatePolicy_Always Apps are
@@ -6040,7 +6174,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        automatically within a daily maintenance window. This also configures
  *        Play apps to be updated within the window. This is strongly
  *        recommended for kiosk devices because this is the only way apps
- *        persistently pinned to the foreground can be updated by Play. (Value:
+ *        persistently pinned to the foreground can be updated by Play.If
+ *        autoUpdateMode is set to AUTO_UPDATE_HIGH_PRIORITY for an app, then
+ *        the maintenance window is ignored for that app and it is updated as
+ *        soon as possible even outside of the maintenance window. (Value:
  *        "WINDOWED")
  */
 @property(nonatomic, copy, nullable) NSString *type;

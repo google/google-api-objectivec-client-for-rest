@@ -145,6 +145,7 @@ NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_NeverCollapse = @"NEVER_CO
 NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingModeUnspecified = @"SPACING_MODE_UNSPECIFIED";
 
 // GTLRDocs_PositionedObjectPositioning.layout
+NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BehindText = @"BEHIND_TEXT";
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft = @"BREAK_LEFT";
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeftRight = @"BREAK_LEFT_RIGHT";
 NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BreakRight = @"BREAK_RIGHT";

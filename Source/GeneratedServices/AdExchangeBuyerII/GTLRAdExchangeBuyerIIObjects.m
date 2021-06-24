@@ -373,6 +373,8 @@ NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Hour = @"HOUR"
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Lifetime = @"LIFETIME";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Minute = @"MINUTE";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month = @"MONTH";
+NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Pod = @"POD";
+NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Stream = @"STREAM";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified = @"TIME_UNIT_TYPE_UNSPECIFIED";
 NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Week = @"WEEK";
 
@@ -1691,6 +1693,24 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAdExchangeBuyerII_PauseProposalDealsRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_PauseProposalDealsRequest
+@dynamic externalDealIds, reason;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDealIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAdExchangeBuyerII_PauseProposalRequest
 //
 
@@ -1872,6 +1892,24 @@ NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_TargetedPositionTypes_Pre
 
 @implementation GTLRAdExchangeBuyerII_RemoveDealAssociationRequest
 @dynamic association;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAdExchangeBuyerII_ResumeProposalDealsRequest
+//
+
+@implementation GTLRAdExchangeBuyerII_ResumeProposalDealsRequest
+@dynamic externalDealIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDealIds" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

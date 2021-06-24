@@ -536,7 +536,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers, e.g. "apns-priority": "10".
+ *  for supported headers such as `apns-expiration` and `apns-priority`.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Headers *headers;
 
@@ -545,7 +545,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body.
+ *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
+ *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
+ *  10 if not explicitly set.
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_ApnsConfig_Payload *payload;
 
@@ -556,7 +558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  HTTP request headers defined in Apple Push Notification Service. Refer to
  *  [APNs request
  *  headers](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)
- *  for supported headers, e.g. "apns-priority": "10".
+ *  for supported headers such as `apns-expiration` and `apns-priority`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -572,7 +574,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  payload. See [Payload Key
  *  Reference](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/generating_a_remote_notification).
  *  If present, it overrides google.firebase.fcm.v1.Notification.title and
- *  google.firebase.fcm.v1.Notification.body.
+ *  google.firebase.fcm.v1.Notification.body. The backend sets a default value
+ *  for `apns-expiration` of 30 days and a default value for `apns-priority` of
+ *  10 if not explicitly set.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -753,8 +757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 @property(nonatomic, copy, nullable) NSString *condition;
 
 /**
- *  Input only. Arbitrary key/value payload. The key should not be a reserved
- *  word ("from", "message_type", or any word starting with "google" or "gcm").
+ *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
+ *  key should not be a reserved word ("from", "message_type", or any word
+ *  starting with "google" or "gcm"). When sending payloads containing only data
+ *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
+ *  allowed in
+ *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  */
 @property(nonatomic, strong, nullable) GTLRFirebaseCloudMessaging_Message_Data *data;
 
@@ -791,8 +799,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 
 /**
- *  Input only. Arbitrary key/value payload. The key should not be a reserved
- *  word ("from", "message_type", or any word starting with "google" or "gcm").
+ *  Input only. Arbitrary key/value payload, which must be UTF-8 encoded. The
+ *  key should not be a reserved word ("from", "message_type", or any word
+ *  starting with "google" or "gcm"). When sending payloads containing only data
+ *  fields to iOS devices, only normal priority (`"apns-priority": "5"`) is
+ *  allowed in
+ *  [`ApnsConfig`](/docs/reference/fcm/rest/v1/projects.messages#apnsconfig).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

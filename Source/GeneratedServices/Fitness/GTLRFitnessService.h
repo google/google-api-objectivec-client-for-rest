@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessActivityRead;
 /**
- *  Authorization scope: See and add to your Google Fit physical activity data
+ *  Authorization scope: Add to your Google Fit physical activity data
  *
  *  Value "https://www.googleapis.com/auth/fitness.activity.write"
  */
@@ -51,8 +51,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessActivityWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseRead;
 /**
- *  Authorization scope: See and add info about your blood glucose to Google
- *  Fit. I consent to Google sharing my blood glucose information with this app.
+ *  Authorization scope: Add info about your blood glucose to Google Fit. I
+ *  consent to Google using my blood glucose information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_glucose.write"
  */
@@ -65,9 +65,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodGlucoseWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
 /**
- *  Authorization scope: See and add info about your blood pressure in Google
- *  Fit. I consent to Google sharing my blood pressure information with this
- *  app.
+ *  Authorization scope: Add info about your blood pressure in Google Fit. I
+ *  consent to Google using my blood pressure information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.blood_pressure.write"
  */
@@ -87,16 +86,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
 /**
- *  Authorization scope: See and add to info about your body temperature in
- *  Google Fit. I consent to Google sharing my body temperature information with
- *  this app.
+ *  Authorization scope: Add to info about your body temperature in Google Fit.
+ *  I consent to Google using my body temperature information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.body_temperature.write"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
 /**
- *  Authorization scope: See and add info about your body measurements and heart
- *  rate to Google Fit
+ *  Authorization scope: Add info about your body measurements and heart rate to
+ *  Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.write"
  */
@@ -109,8 +107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessHeartRateRead;
 /**
- *  Authorization scope: See and add to your heart rate data in Google Fit. I
- *  consent to Google sharing my heart rate information with this app.
+ *  Authorization scope: Add to your heart rate data in Google Fit. I consent to
+ *  Google using my heart rate information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.heart_rate.write"
  */
@@ -122,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessHeartRateWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessLocationRead;
 /**
- *  Authorization scope: See and add to your Google Fit location data
+ *  Authorization scope: Add to your Google Fit location data
  *
  *  Value "https://www.googleapis.com/auth/fitness.location.write"
  */
@@ -134,7 +132,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessLocationWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionRead;
 /**
- *  Authorization scope: See and add to info about your nutrition in Google Fit
+ *  Authorization scope: Add to info about your nutrition in Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.nutrition.write"
  */
@@ -147,9 +145,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessNutritionWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationRead;
 /**
- *  Authorization scope: See and add info about your oxygen saturation in Google
- *  Fit. I consent to Google sharing my oxygen saturation information with this
- *  app.
+ *  Authorization scope: Add info about your oxygen saturation in Google Fit. I
+ *  consent to Google using my oxygen saturation information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.oxygen_saturation.write"
  */
@@ -163,9 +160,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessOxygenSaturationWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthRead;
 /**
- *  Authorization scope: See and add info about your reproductive health in
- *  Google Fit. I consent to Google sharing my reproductive health information
- *  with this app.
+ *  Authorization scope: Add info about your reproductive health in Google Fit.
+ *  I consent to Google using my reproductive health information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.reproductive_health.write"
  */
@@ -178,8 +174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessReproductiveHealthWrite;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessSleepRead;
 /**
- *  Authorization scope: See and add to your sleep data in Google Fit. I consent
- *  to Google sharing my sleep information with this app.
+ *  Authorization scope: Add to your sleep data in Google Fit. I consent to
+ *  Google using my sleep information with this app.
  *
  *  Value "https://www.googleapis.com/auth/fitness.sleep.write"
  */

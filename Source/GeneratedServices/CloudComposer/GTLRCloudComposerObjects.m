@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict = @"CONFLICT";
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified = @"CONFLICT_RESULT_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict = @"NO_CONFLICT";
+
 // GTLRCloudComposer_Environment.state
 NSString * const kGTLRCloudComposer_Environment_State_Creating = @"CREATING";
 NSString * const kGTLRCloudComposer_Environment_State_Deleting = @"DELETING";
@@ -48,6 +53,16 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
   return @{ @"descriptionProperty" : @"description" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_CheckUpgradeResponse
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeResponse
+@dynamic buildLogUri, containsPypiModulesConflict, pypiConflictBuildLogExtract;
 @end
 
 

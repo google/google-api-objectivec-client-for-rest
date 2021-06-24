@@ -1229,8 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_SDKInfo_Language_Unknown;
 // GTLRDataflow_SdkVersion.sdkSupportStatus
 
 /**
- *  This version of the SDK is deprecated and will eventually be no longer
- *  supported.
+ *  This version of the SDK is deprecated and will eventually be unsupported.
  *
  *  Value: "DEPRECATED"
  */
@@ -1541,7 +1540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_De
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetNone;
 /**
- *  Stage pacakges typically useful to workers written in Python.
+ *  Stage packages typically useful to workers written in Python.
  *
  *  Value: "DEFAULT_PACKAGE_SET_PYTHON"
  */
@@ -2595,8 +2594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /**
  *  The list of experiments to enable. This field should be used for SDK related
  *  experiments and not for service related experiments. The proper field for
- *  service related experiments is service_options. For more details see the
- *  rationale at go/user-specified-service-options.
+ *  service related experiments is service_options.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *experiments;
 
@@ -2636,8 +2634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /**
  *  The list of service options to enable. This field should be used for service
  *  related experiments only. These experiments, when graduating to GA, should
- *  be replaced by dedicated fields or become default (i.e. always on). For more
- *  details see the rationale at go/user-specified-service-options.
+ *  be replaced by dedicated fields or become default (i.e. always on).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceOptions;
 
@@ -3028,6 +3025,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *numWorkers;
+
+/**
+ *  Docker registry location of container image to use for the 'worker harness.
+ *  Default is the container for the version of the SDK. Note this field is only
+ *  valid for portable pipelines.
+ */
+@property(nonatomic, copy, nullable) NSString *sdkContainerImage;
 
 /** The email address of the service account to run the job as. */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
@@ -5379,8 +5383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *
  *  Likely values:
  *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Deprecated This version
- *        of the SDK is deprecated and will eventually be no longer supported.
- *        (Value: "DEPRECATED")
+ *        of the SDK is deprecated and will eventually be unsupported. (Value:
+ *        "DEPRECATED")
  *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Stale A newer version of
  *        the SDK family exists, and an update is recommended. (Value: "STALE")
  *    @arg @c kGTLRDataflow_SdkVersion_SdkSupportStatus_Supported This is a
@@ -7123,7 +7127,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *        Indicates that no packages should be staged at the worker unless
  *        explicitly specified by the job. (Value: "DEFAULT_PACKAGE_SET_NONE")
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetPython
- *        Stage pacakges typically useful to workers written in Python. (Value:
+ *        Stage packages typically useful to workers written in Python. (Value:
  *        "DEFAULT_PACKAGE_SET_PYTHON")
  *    @arg @c kGTLRDataflow_WorkerPool_DefaultPackageSet_DefaultPackageSetUnknown
  *        The default set of packages to stage is unknown, or unspecified.

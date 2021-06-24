@@ -1246,6 +1246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** Output only. The time when the metadata import finished. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
 /**
  *  Immutable. The relative resource name of the metadata import, of the
  *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}.

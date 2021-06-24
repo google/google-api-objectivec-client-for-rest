@@ -24,15 +24,16 @@ NSString * const kGTLRDataproc_ClusterOperationStatus_State_Running = @"RUNNING"
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Unknown = @"UNKNOWN";
 
 // GTLRDataproc_ClusterStatus.state
-NSString * const kGTLRDataproc_ClusterStatus_State_Creating = @"CREATING";
-NSString * const kGTLRDataproc_ClusterStatus_State_Deleting = @"DELETING";
-NSString * const kGTLRDataproc_ClusterStatus_State_Error    = @"ERROR";
-NSString * const kGTLRDataproc_ClusterStatus_State_Running  = @"RUNNING";
-NSString * const kGTLRDataproc_ClusterStatus_State_Starting = @"STARTING";
-NSString * const kGTLRDataproc_ClusterStatus_State_Stopped  = @"STOPPED";
-NSString * const kGTLRDataproc_ClusterStatus_State_Stopping = @"STOPPING";
-NSString * const kGTLRDataproc_ClusterStatus_State_Unknown  = @"UNKNOWN";
-NSString * const kGTLRDataproc_ClusterStatus_State_Updating = @"UPDATING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Creating    = @"CREATING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Deleting    = @"DELETING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Error       = @"ERROR";
+NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate = @"ERROR_DUE_TO_UPDATE";
+NSString * const kGTLRDataproc_ClusterStatus_State_Running     = @"RUNNING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Starting    = @"STARTING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Stopped     = @"STOPPED";
+NSString * const kGTLRDataproc_ClusterStatus_State_Stopping    = @"STOPPING";
+NSString * const kGTLRDataproc_ClusterStatus_State_Unknown     = @"UNKNOWN";
+NSString * const kGTLRDataproc_ClusterStatus_State_Updating    = @"UPDATING";
 
 // GTLRDataproc_ClusterStatus.substate
 NSString * const kGTLRDataproc_ClusterStatus_Substate_StaleStatus = @"STALE_STATUS";
@@ -752,7 +753,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceReference
-@dynamic instanceId, instanceName, publicKey;
+@dynamic instanceId, instanceName, publicEciesKey, publicKey;
 @end
 
 

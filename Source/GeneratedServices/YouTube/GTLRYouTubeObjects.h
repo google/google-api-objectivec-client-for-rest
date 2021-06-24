@@ -11044,6 +11044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
 @interface GTLRYouTube_TestItem : GTLRObject
 
 /**
+ *  featuredPart
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *featuredPart;
+
+/**
  *  gaia
  *
  *  Uses NSNumber of longLongValue.

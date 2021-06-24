@@ -179,6 +179,29 @@
 
 @end
 
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:getIamPolicy";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
+  query.loggingName = @"metastore.projects.locations.services.backups.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -193,6 +216,60 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDataprocMetastore_ListBackupsResponse class];
   query.loggingName = @"metastore.projects.locations.services.backups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:setIamPolicy";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_Policy class];
+  query.loggingName = @"metastore.projects.locations.services.backups.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1beta/{+resource}:testIamPermissions";
+  GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDataprocMetastore_TestIamPermissionsResponse class];
+  query.loggingName = @"metastore.projects.locations.services.backups.testIamPermissions";
   return query;
 }
 

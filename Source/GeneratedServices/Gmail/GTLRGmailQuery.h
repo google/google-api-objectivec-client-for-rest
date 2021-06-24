@@ -291,7 +291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, assign) BOOL includeSpamTrash;
 
 /**
- *  Maximum number of drafts to return.
+ *  Maximum number of drafts to return. This field defaults to 100. The maximum
+ *  allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -489,7 +490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, copy, nullable) NSString *labelId;
 
 /**
- *  The maximum number of history records to return.
+ *  Maximum number of history records to return. This field defaults to 100. The
+ *  maximum allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -1214,7 +1216,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
- *  Maximum number of messages to return.
+ *  Maximum number of messages to return. This field defaults to 100. The
+ *  maximum allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */
@@ -3014,7 +3017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labelIds;
 
 /**
- *  Maximum number of threads to return.
+ *  Maximum number of threads to return. This field defaults to 100. The maximum
+ *  allowed value for this field is 500.
  *
  *  @note If not set, the documented server-side default will be 100.
  */

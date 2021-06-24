@@ -84,17 +84,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewFull;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewMessageViewUnspecified;
 /**
- *  Server responses include all the message fields except data field.
+ *  Server responses include all the message fields except data field, and
+ *  schematized_data fields.
  *
  *  Value: "PARSED_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewParsedOnly;
 /**
- *  Server responses include all the message fields except parsed_data field.
+ *  Server responses include all the message fields except parsed_data field,
+ *  and schematized_data fields.
  *
  *  Value: "RAW_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
+/**
+ *  Server responses include all the message fields except data and parsed_data
+ *  fields.
+ *
+ *  Value: "SCHEMATIZED_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1265,11 +1274,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Queries all data_ids that are consented for a specified use in the given
  *  consent store and writes them to a specified destination. The returned
  *  Operation includes a progress counter for the number of User data mappings
- *  processed. Errors are logged to Cloud Logging (see [Viewing error logs in
- *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
- *  For example, the following sample log entry shows a `failed to evaluate
- *  consent policy` error that occurred during a QueryAccessibleData call to
- *  consent store
+ *  processed. If the request is successful, a detailed response is returned of
+ *  type QueryAccessibleDataResponse, contained in the response field when the
+ *  operation finishes. The metadata field type is OperationMetadata. Errors are
+ *  logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). For
+ *  example, the following sample log entry shows a `failed to evaluate consent
+ *  policy` error that occurred during a QueryAccessibleData call to consent
+ *  store
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  ```json jsonPayload: { \@type:
  *  "type.googleapis.com/google.cloud.healthcare.logging.QueryAccessibleDataLogEntry"
@@ -1304,11 +1316,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *  Queries all data_ids that are consented for a specified use in the given
  *  consent store and writes them to a specified destination. The returned
  *  Operation includes a progress counter for the number of User data mappings
- *  processed. Errors are logged to Cloud Logging (see [Viewing error logs in
- *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
- *  For example, the following sample log entry shows a `failed to evaluate
- *  consent policy` error that occurred during a QueryAccessibleData call to
- *  consent store
+ *  processed. If the request is successful, a detailed response is returned of
+ *  type QueryAccessibleDataResponse, contained in the response field when the
+ *  operation finishes. The metadata field type is OperationMetadata. Errors are
+ *  logged to Cloud Logging (see [Viewing error logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)). For
+ *  example, the following sample log entry shows a `failed to evaluate consent
+ *  policy` error that occurred during a QueryAccessibleData call to consent
+ *  store
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/consentStores/{consent_store_id}`.
  *  ```json jsonPayload: { \@type:
  *  "type.googleapis.com/google.cloud.healthcare.logging.QueryAccessibleDataLogEntry"
@@ -5189,11 +5204,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @arg @c kGTLRCloudHealthcareViewMessageViewUnspecified Not specified,
  *        equivalent to FULL. (Value: "MESSAGE_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRCloudHealthcareViewRawOnly Server responses include all the
- *        message fields except parsed_data field. (Value: "RAW_ONLY")
+ *        message fields except parsed_data field, and schematized_data fields.
+ *        (Value: "RAW_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewParsedOnly Server responses include all
- *        the message fields except data field. (Value: "PARSED_ONLY")
+ *        the message fields except data field, and schematized_data fields.
+ *        (Value: "PARSED_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewFull Server responses include all the
  *        message fields. (Value: "FULL")
+ *    @arg @c kGTLRCloudHealthcareViewSchematizedOnly Server responses include
+ *        all the message fields except data and parsed_data fields. (Value:
+ *        "SCHEMATIZED_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewBasic Server responses include only the
  *        name field. (Value: "BASIC")
  */
@@ -5343,11 +5363,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewRawOnly;
  *    @arg @c kGTLRCloudHealthcareViewMessageViewUnspecified Not specified,
  *        equivalent to FULL. (Value: "MESSAGE_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRCloudHealthcareViewRawOnly Server responses include all the
- *        message fields except parsed_data field. (Value: "RAW_ONLY")
+ *        message fields except parsed_data field, and schematized_data fields.
+ *        (Value: "RAW_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewParsedOnly Server responses include all
- *        the message fields except data field. (Value: "PARSED_ONLY")
+ *        the message fields except data field, and schematized_data fields.
+ *        (Value: "PARSED_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewFull Server responses include all the
  *        message fields. (Value: "FULL")
+ *    @arg @c kGTLRCloudHealthcareViewSchematizedOnly Server responses include
+ *        all the message fields except data and parsed_data fields. (Value:
+ *        "SCHEMATIZED_ONLY")
  *    @arg @c kGTLRCloudHealthcareViewBasic Server responses include only the
  *        name field. (Value: "BASIC")
  */

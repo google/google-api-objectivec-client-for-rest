@@ -2406,9 +2406,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_OrgunitsDelete : GTLRDirectoryQuery
 
-/** Parses org unit path without url decode to allow for plus in ou name */
-@property(nonatomic, assign) BOOL allowPlus;
-
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
@@ -2450,9 +2447,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunitReadonly
  */
 @interface GTLRDirectoryQuery_OrgunitsGet : GTLRDirectoryQuery
-
-/** Parses org unit path without url decode to allow for plus in ou name */
-@property(nonatomic, assign) BOOL allowPlus;
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
@@ -2582,9 +2576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  */
 @interface GTLRDirectoryQuery_OrgunitsPatch : GTLRDirectoryQuery
 
-/** Parses org unit path without url decode to allow for plus in ou name */
-@property(nonatomic, assign) BOOL allowPlus;
-
 /**
  *  The unique ID for the customer's Google Workspace account. As an account
  *  administrator, you can also use the `my_customer` alias to represent your
@@ -2627,9 +2618,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *    @c kGTLRAuthScopeDirectoryDirectoryOrgunit
  */
 @interface GTLRDirectoryQuery_OrgunitsUpdate : GTLRDirectoryQuery
-
-/** Parses org unit path without url decode to allow for plus in ou name */
-@property(nonatomic, assign) BOOL allowPlus;
 
 /**
  *  The unique ID for the customer's Google Workspace account. As an account

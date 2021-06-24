@@ -110,6 +110,15 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_IncorrectPassword;
 /**
+ *  Indicates that the user was served a 2FA challenge. Sufficiently old
+ *  assessments with this reason that have not been overwritten with
+ *  PASSED_TWO_FACTOR will be treated as an abandoned 2FA flow, equivalent to
+ *  FAILED_TWO_FACTOR.
+ *
+ *  Value: "INITIATED_TWO_FACTOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_InitiatedTwoFactor;
+/**
  *  Indicates that the user passed a 2FA challenge.
  *
  *  Value: "PASSED_TWO_FACTOR"

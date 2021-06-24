@@ -3624,6 +3624,25 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @end
 
+@implementation GTLRApigeeQuery_OrganizationsGetRuntimeConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRApigeeQuery_OrganizationsGetRuntimeConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRApigee_GoogleCloudApigeeV1RuntimeConfig class];
+  query.loggingName = @"apigee.organizations.getRuntimeConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRApigeeQuery_OrganizationsGetSyncAuthorization
 
 @dynamic name;

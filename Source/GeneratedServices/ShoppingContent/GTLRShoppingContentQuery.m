@@ -2929,6 +2929,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @end
 
+@implementation GTLRShoppingContentQuery_ProductsUpdate
+
+@dynamic merchantId, productId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_Product *)object
+                     merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"merchantId", @"productId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/products/{productId}";
+  GTLRShoppingContentQuery_ProductsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.productId = productId;
+  query.expectedObjectClass = [GTLRShoppingContent_Product class];
+  query.loggingName = @"content.products.update";
+  return query;
+}
+
+@end
+
 @implementation GTLRShoppingContentQuery_PubsubnotificationsettingsGet
 
 @dynamic merchantId;

@@ -34,6 +34,12 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Googl
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating = @"UPDATING";
 
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Active = @"ACTIVE";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Failed = @"FAILED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Updating = @"UPDATING";
+
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Deleting = @"DELETING";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy_State_Ready = @"READY";
@@ -48,6 +54,12 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Sched
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Thursday = @"THURSDAY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Tuesday = @"TUESDAY";
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday = @"WEDNESDAY";
+
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.state
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating = @"CREATING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Ready = @"READY";
+NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
 NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust_State_Connected = @"CONNECTED";
@@ -107,6 +119,25 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate
+@dynamic expireTime, issuingCertificate, subject, subjectAlternativeName,
+         thumbprint;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"subjectAlternativeName" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -371,7 +402,7 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1NodeSloMetadata
-@dynamic exclusions, location, nodeId;
+@dynamic exclusions, location, nodeId, perSliEligibility;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -443,7 +474,7 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic eligibility, exclusions, nodes, perSliEligibility, tier;
+@dynamic exclusions, nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -453,6 +484,17 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings
+@dynamic certificate, certificatePassword, certificatePfx, name, state,
+         updateTime;
 @end
 
 
@@ -518,6 +560,29 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse
+@dynamic nextPageToken, sqlIntegrations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sqlIntegrations" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sqlIntegrations";
 }
 
 @end
@@ -726,6 +791,16 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest
 @dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration
+//
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration
+@dynamic createTime, name, sqlInstance, state, updateTime;
 @end
 
 

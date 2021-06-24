@@ -1088,7 +1088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIam_WorkloadIdentityPoolProvider_State_S
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAudiences;
 
-/** Required. The OIDC issuer URL. */
+/** Required. The OIDC issuer URL. Must be an HTTPS endpoint. */
 @property(nonatomic, copy, nullable) NSString *issuerUri;
 
 @end

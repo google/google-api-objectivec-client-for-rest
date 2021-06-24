@@ -59,6 +59,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRPagespeedInsights_AuditRefs : GTLRObject
 
+/** The conventional acronym for the audit/metric. */
+@property(nonatomic, copy, nullable) NSString *acronym;
+
 /** The category group that the audit belongs to (optional). */
 @property(nonatomic, copy, nullable) NSString *group;
 
@@ -68,6 +71,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Any audit IDs closely relevant to this one. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relevantAudits;
 
 /**
  *  The weight this audit's score has on the overall category score.
@@ -261,6 +267,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The unit of the numeric_value field. Used to format the numeric value for
+ *  display.
+ */
+@property(nonatomic, copy, nullable) NSString *numericUnit;
 
 /**
  *  A numeric value that has a meaning specific to the audit, e.g. the number of
@@ -533,11 +545,66 @@ NS_ASSUME_NONNULL_BEGIN
 /** The tooltip text on an expandable chevron icon. */
 @property(nonatomic, copy, nullable) NSString *auditGroupExpandTooltip;
 
+/**
+ *  Text link pointing to the Lighthouse scoring calculator. This link
+ *  immediately follows a sentence stating the performance score is calculated
+ *  from the perf metrics.
+ */
+@property(nonatomic, copy, nullable) NSString *calculatorLink;
+
 /** The label for the initial request in a critical request chain. */
 @property(nonatomic, copy, nullable) NSString *crcInitialNavigation;
 
 /** The label for values shown in the summary of critical request chains. */
 @property(nonatomic, copy, nullable) NSString *crcLongestDurationLabel;
+
+/**
+ *  Option in a dropdown menu that copies the Lighthouse JSON object to the
+ *  system clipboard.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownCopyJSON;
+
+/**
+ *  Option in a dropdown menu that toggles the themeing of the report between
+ *  Light(default) and Dark themes.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownDarkTheme;
+
+/**
+ *  Option in a dropdown menu that opens a full Lighthouse report in a print
+ *  dialog.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownPrintExpanded;
+
+/**
+ *  Option in a dropdown menu that opens a small, summary report in a print
+ *  dialog.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownPrintSummary;
+
+/**
+ *  Option in a dropdown menu that saves the current report as a new GitHub
+ *  Gist.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownSaveGist;
+
+/**
+ *  Option in a dropdown menu that saves the Lighthouse report HTML locally to
+ *  the system as a '.html' file.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownSaveHTML;
+
+/**
+ *  Option in a dropdown menu that saves the Lighthouse JSON object to the local
+ *  system as a '.json' file.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownSaveJSON;
+
+/**
+ *  Option in a dropdown menu that opens the current report in the Lighthouse
+ *  Viewer Application.
+ */
+@property(nonatomic, copy, nullable) NSString *dropdownViewer;
 
 /** The label shown next to an audit or metric that has had an error. */
 @property(nonatomic, copy, nullable) NSString *errorLabel;
@@ -545,11 +612,16 @@ NS_ASSUME_NONNULL_BEGIN
 /** The error string shown next to an erroring audit. */
 @property(nonatomic, copy, nullable) NSString *errorMissingAuditInfo;
 
+/**
+ *  Label for button to create an issue against the Lighthouse GitHub project.
+ */
+@property(nonatomic, copy, nullable) NSString *footerIssue;
+
 /** The title of the lab data performance category. */
 @property(nonatomic, copy, nullable) NSString *labDataTitle;
 
 /**
- *  The disclaimer shown under performance explaning that the network can vary.
+ *  The disclaimer shown under performance explaining that the network can vary.
  */
 @property(nonatomic, copy, nullable) NSString *lsPerformanceCategoryDescription;
 
@@ -572,8 +644,122 @@ NS_ASSUME_NONNULL_BEGIN
 /** The heading that is shown above a list of audits that are passing. */
 @property(nonatomic, copy, nullable) NSString *passedAuditsGroupTitle;
 
+/**
+ *  Descriptive explanation for emulation setting when emulating a generic
+ *  desktop form factor, as opposed to a mobile-device like form factor.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeDesktopEmulation;
+
+/**
+ *  Descriptive explanation for emulation setting when emulating a Nexus 5X
+ *  mobile device.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeMobileEmulation;
+
+/**
+ *  Descriptive explanation for emulation setting when no device emulation is
+ *  set.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeNoEmulation;
+
+/**
+ *  Label for a row in a table that shows the version of the Axe library used
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsAxeVersion;
+
+/**
+ *  Label for a row in a table that shows the estimated CPU power of the machine
+ *  running Lighthouse. Example row values: 532, 1492, 783.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsBenchmark;
+
+/**
+ *  Label for a row in a table that shows in what tool Lighthouse is being run
+ *  (e.g. The lighthouse CLI, Chrome DevTools, Lightrider, WebPageTest, etc).
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsChannel;
+
+/**
+ *  Label for a row in a table that describes the CPU throttling conditions that
+ *  were used during a Lighthouse run, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsCPUThrottling;
+
+/**
+ *  Label for a row in a table that describes the kind of device that was
+ *  emulated for the Lighthouse run. Example values for row elements: 'No
+ *  Emulation', 'Emulated Desktop', etc.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsDevice;
+
+/**
+ *  Label for a row in a table that shows the time at which a Lighthouse run was
+ *  conducted; formatted as a timestamp, e.g. Jan 1, 1970 12:00 AM UTC.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsFetchTime;
+
+/**
+ *  Label for a row in a table that describes the network throttling conditions
+ *  that were used during a Lighthouse run, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsNetworkThrottling;
+
+/**
+ *  Title of the Runtime settings table in a Lighthouse report. Runtime settings
+ *  are the environment configurations that a specific report used at auditing
+ *  time.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsTitle;
+
+/**
+ *  Label for a row in a table that shows the User Agent that was detected on
+ *  the Host machine that ran Lighthouse.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsUA;
+
+/**
+ *  Label for a row in a table that shows the User Agent that was used to send
+ *  out all network requests during the Lighthouse run.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsUANetwork;
+
+/**
+ *  Label for a row in a table that shows the URL that was audited during a
+ *  Lighthouse run.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeSettingsUrl;
+
+/**
+ *  Descriptive explanation for a runtime setting that is set to an unknown
+ *  value.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeUnknown;
+
 /** The label that explains the score gauges scale (0-49, 50-89, 90-100). */
 @property(nonatomic, copy, nullable) NSString *scorescaleLabel;
+
+/**
+ *  Label preceding a radio control for filtering the list of audits. The radio
+ *  choices are various performance metrics (FCP, LCP, TBT), and if chosen, the
+ *  audits in the report are hidden if they are not relevant to the selected
+ *  metric.
+ */
+@property(nonatomic, copy, nullable) NSString *showRelevantAudits;
+
+/** The label for the button to show only a few lines of a snippet */
+@property(nonatomic, copy, nullable) NSString *snippetCollapseButtonLabel;
+
+/** The label for the button to show all lines of a snippet */
+@property(nonatomic, copy, nullable) NSString *snippetExpandButtonLabel;
+
+/** This label is for a filter checkbox above a table of items */
+@property(nonatomic, copy, nullable) NSString *thirdPartyResourcesLabel;
+
+/**
+ *  Descriptive explanation for environment throttling that was provided by the
+ *  runtime environment instead of provided by Lighthouse throttling.
+ */
+@property(nonatomic, copy, nullable) NSString *throttlingProvided;
 
 /**
  *  The label shown preceding important warnings that may have invalidated an
@@ -583,6 +769,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The disclaimer shown below a performance metric value. */
 @property(nonatomic, copy, nullable) NSString *varianceDisclaimer;
+
+/** Label for a button that opens the Treemap App */
+@property(nonatomic, copy, nullable) NSString *viewTreemapLabel;
+
+/** The heading that is shown above a list of audits that have warnings */
+@property(nonatomic, copy, nullable) NSString *warningAuditsGroupTitle;
 
 /** The label shown above a bulleted list of warnings. */
 @property(nonatomic, copy, nullable) NSString *warningHeader;

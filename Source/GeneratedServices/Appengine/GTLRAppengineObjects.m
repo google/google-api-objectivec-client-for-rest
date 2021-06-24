@@ -146,6 +146,11 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Serving  = @"SERVING";
 NSString * const kGTLRAppengine_Version_ServingStatus_ServingStatusUnspecified = @"SERVING_STATUS_UNSPECIFIED";
 NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 
+// GTLRAppengine_VpcAccessConnector.egressSetting
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic = @"ALL_TRAFFIC";
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified = @"EGRESS_SETTING_UNSPECIFIED";
+NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges = @"PRIVATE_IP_RANGES";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRAppengine_ApiConfigHandler
@@ -1270,7 +1275,7 @@ NSString * const kGTLRAppengine_Version_ServingStatus_Stopped  = @"STOPPED";
 //
 
 @implementation GTLRAppengine_VpcAccessConnector
-@dynamic name;
+@dynamic egressSetting, name;
 @end
 
 

@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
@@ -26,6 +26,27 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
+
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+/**
+ *  Authorization scope: View and manage Genomics data
+ *
+ *  Value "https://www.googleapis.com/auth/genomics"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomics;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Platform data
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGenomicsCloudPlatform;
+
+// ----------------------------------------------------------------------------
+//   GTLRGenomicsService
+//
 
 /**
  *  Service for executing Genomics API queries.

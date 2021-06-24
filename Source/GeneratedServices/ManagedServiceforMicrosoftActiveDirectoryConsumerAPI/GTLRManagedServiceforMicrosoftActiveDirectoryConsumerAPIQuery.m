@@ -181,6 +181,25 @@
 
 @end
 
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/ldapssettings";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.getLdapssettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -308,6 +327,44 @@
 
 @end
 
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.sqlIntegrations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sqlIntegrations";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.sqlIntegrations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsTestIamPermissions
 
 @dynamic resource;
@@ -330,6 +387,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsResponse class];
   query.loggingName = @"managedidentities.projects.locations.global.domains.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/ldapssettings";
+  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation class];
+  query.loggingName = @"managedidentities.projects.locations.global.domains.updateLdapssettings";
   return query;
 }
 

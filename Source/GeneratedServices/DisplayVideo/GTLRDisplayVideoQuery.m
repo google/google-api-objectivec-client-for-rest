@@ -16,6 +16,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// loiSapinInvoiceType
+NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeMedia = @"LOI_SAPIN_INVOICE_TYPE_MEDIA";
+NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypePlatform = @"LOI_SAPIN_INVOICE_TYPE_PLATFORM";
+NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeUnspecified = @"LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED";
+
 // targetingType
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeAgeRange = @"TARGETING_TYPE_AGE_RANGE";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeApp = @"TARGETING_TYPE_APP";
@@ -41,6 +46,7 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySource = @"
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeInventorySourceGroup = @"TARGETING_TYPE_INVENTORY_SOURCE_GROUP";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeKeyword = @"TARGETING_TYPE_KEYWORD";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage = @"TARGETING_TYPE_LANGUAGE";
+NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition = @"TARGETING_TYPE_NATIVE_CONTENT_POSITION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeNegativeKeywordList = @"TARGETING_TYPE_NEGATIVE_KEYWORD_LIST";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOnScreenPosition = @"TARGETING_TYPE_ON_SCREEN_POSITION";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeOperatingSystem = @"TARGETING_TYPE_OPERATING_SYSTEM";
@@ -981,6 +987,44 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
   query.targetingType = targetingType;
   query.expectedObjectClass = [GTLRDisplayVideo_ListInsertionOrderAssignedTargetingOptionsResponse class];
   query.loggingName = @"displayvideo.advertisers.insertionOrders.targetingTypes.assignedTargetingOptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInvoicesList
+
+@dynamic advertiserId, issueMonth, loiSapinInvoiceType, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/invoices";
+  GTLRDisplayVideoQuery_AdvertisersInvoicesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListInvoicesResponse class];
+  query.loggingName = @"displayvideo.advertisers.invoices.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersInvoicesLookupInvoiceCurrency
+
+@dynamic advertiserId, invoiceMonth;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v1/advertisers/{+advertiserId}/invoices:lookupInvoiceCurrency";
+  GTLRDisplayVideoQuery_AdvertisersInvoicesLookupInvoiceCurrency *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_LookupInvoiceCurrencyResponse class];
+  query.loggingName = @"displayvideo.advertisers.invoices.lookupInvoiceCurrency";
   return query;
 }
 

@@ -189,6 +189,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_AnalyzeMoveResponse
+//
+
+@implementation GTLRCloudAsset_AnalyzeMoveResponse
+@dynamic moveAnalysis;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"moveAnalysis" : [GTLRCloudAsset_MoveAnalysis class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_Asset
 //
 
@@ -1046,7 +1064,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_IamPolicySearchResult
-@dynamic explanation, policy, project, resource;
+@dynamic assetType, explanation, folders, organization, policy, project,
+         resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"folders" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1137,6 +1164,45 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_MoveAnalysis
+//
+
+@implementation GTLRCloudAsset_MoveAnalysis
+@dynamic analysis, displayName, error;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_MoveAnalysisResult
+//
+
+@implementation GTLRCloudAsset_MoveAnalysisResult
+@dynamic blockers, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"blockers" : [GTLRCloudAsset_MoveImpact class],
+    @"warnings" : [GTLRCloudAsset_MoveImpact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_MoveImpact
+//
+
+@implementation GTLRCloudAsset_MoveImpact
+@dynamic detail;
 @end
 
 

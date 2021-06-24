@@ -56,6 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** The URI to be redirected to when access is denied. */
 @property(nonatomic, copy, nullable) NSString *accessDeniedPageUri;
 
+/**
+ *  Whether to generate a troubleshooting URL on access denied events to this
+ *  application.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generateTroubleshootingUri;
+
 @end
 
 

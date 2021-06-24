@@ -2619,6 +2619,8 @@ NS_ASSUME_NONNULL_BEGIN
 /** Exchange where this publisher profile is from. E.g. AdX, Rubicon etc... */
 @property(nonatomic, copy, nullable) NSString *exchange;
 
+@property(nonatomic, copy, nullable) NSString *forecastInventory;
+
 /** Link to publisher's Google+ page. */
 @property(nonatomic, copy, nullable) NSString *googlePlusLink;
 
@@ -2666,15 +2668,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *programmaticContact;
 
 /**
- *  The list of app IDs represented in this pubisher profile. Empty if this is a
- *  parent profile. Deprecated in favor of publisher_app.
+ *  The list of app IDs represented in this publisher profile. Empty if this is
+ *  a parent profile. Deprecated in favor of publisher_app.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *publisherAppIds;
 
 /**
- *  The list of apps represented in this pubisher profile. Empty if this is a
+ *  The list of apps represented in this publisher profile. Empty if this is a
  *  parent profile.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAdExchangeBuyer_MobileApplication *> *publisherApps;

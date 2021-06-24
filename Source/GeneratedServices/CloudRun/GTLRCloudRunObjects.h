@@ -5,7 +5,8 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on HTTP traffic.
+//   based on incoming requets. The Cloud Run Admin API follows the Knative
+//   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
 
@@ -323,10 +324,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  ConfigMapEnvSource selects a ConfigMap to populate the environment variables
- *  with. The contents of the target ConfigMap's Data field will represent the
- *  key-value pairs as environment variables.
+ *  Not supported by Cloud Run ConfigMapEnvSource selects a ConfigMap to
+ *  populate the environment variables with. The contents of the target
+ *  ConfigMap's Data field will represent the key-value pairs as environment
+ *  variables.
  */
 @interface GTLRCloudRun_ConfigMapEnvSource : GTLRObject
 
@@ -336,15 +337,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_LocalObjectReference *localObjectReference;
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  ConfigMap to select from.
- */
+/** The ConfigMap to select from. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the ConfigMap must be defined
+ *  (Optional) Specify whether the ConfigMap must be defined
  *
  *  Uses NSNumber of boolValue.
  */
@@ -354,15 +351,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  Selects a key from a ConfigMap.
+ *  Not supported by Cloud Run Selects a key from a ConfigMap.
  */
 @interface GTLRCloudRun_ConfigMapKeySelector : GTLRObject
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  key to select.
- */
+/** The key to select. */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
@@ -371,15 +364,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_LocalObjectReference *localObjectReference;
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  ConfigMap to select from.
- */
+/** The ConfigMap to select from. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the ConfigMap or its key must be defined
+ *  (Optional) Specify whether the ConfigMap or its key must be defined
  *
  *  Uses NSNumber of boolValue.
  */
@@ -389,11 +378,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  Adapts a ConfigMap into a volume. The contents of the target ConfigMap's
- *  Data field will be presented in a volume as files using the keys in the Data
- *  field as the file names, unless the items element is populated with specific
- *  mappings of keys to paths.
+ *  Not supported by Cloud Run Adapts a ConfigMap into a volume. The contents of
+ *  the target ConfigMap's Data field will be presented in a volume as files
+ *  using the keys in the Data field as the file names, unless the items element
+ *  is populated with specific mappings of keys to paths.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -401,8 +389,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_ConfigMapVolumeSource : GTLRCollectionObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Mode bits to use on created files by default. Must be a value
+ *  (Optional) Mode bits to use on created files by default. Must be a value
  *  between 0 and 0777. Defaults to 0644. Directories within the path are not
  *  affected by this setting. This might be in conflict with other options that
  *  affect the file mode, like fsGroup, and the result can be other mode bits
@@ -413,12 +400,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *defaultMode;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported If unspecified, each key-value pair in the Data field of the
+ *  (Optional) If unspecified, each key-value pair in the Data field of the
  *  referenced Secret will be projected into the volume as a file whose name is
  *  the key and content is the value. If specified, the listed keys will be
  *  projected into the specified paths, and unlisted keys will not be present.
- *  If a key is specified which is not present in the Secret, the volume setup
+ *  If a key is specified that is not present in the Secret, the volume setup
  *  will error unless it is marked optional.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -426,15 +412,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_KeyToPath *> *items;
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported Name
- *  of the config.
- */
+/** Name of the config. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the Secret or its keys must be defined.
+ *  (Optional) Specify whether the Secret or its keys must be defined.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -541,8 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_Container : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: supported Cloud Run for Anthos:
- *  supported Arguments to the entrypoint. The docker image's CMD is used if
+ *  (Optional) Arguments to the entrypoint. The docker image's CMD is used if
  *  this is not provided. Variable references $(VAR_NAME) are expanded using the
  *  container's environment. If a variable cannot be resolved, the reference in
  *  the input string will be unchanged. The $(VAR_NAME) syntax can be escaped
@@ -554,15 +535,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *command;
 
-/**
- *  (Optional) Cloud Run fully managed: supported Cloud Run for Anthos:
- *  supported List of environment variables to set in the container.
- */
+/** (Optional) List of environment variables to set in the container. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_EnvVar *> *env;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported List of sources to populate environment variables in the
+ *  (Optional) List of sources to populate environment variables in the
  *  container. The keys defined within a source must be a C_IDENTIFIER. All
  *  invalid keys will be reported as an event when the container is starting.
  *  When a key exists in multiple sources, the value associated with the last
@@ -572,23 +549,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_EnvFromSource *> *envFrom;
 
 /**
- *  Cloud Run fully managed: only supports containers from Google Container
- *  Registry Cloud Run for Anthos: supported URL of the Container image. More
- *  info: https://kubernetes.io/docs/concepts/containers/images
+ *  Only supports containers from Google Container Registry or Artifact Registry
+ *  URL of the Container image. More info:
+ *  https://kubernetes.io/docs/concepts/containers/images
  */
 @property(nonatomic, copy, nullable) NSString *image;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Image pull policy. One of Always, Never, IfNotPresent. Defaults to
- *  Always if :latest tag is specified, or IfNotPresent otherwise. More info:
+ *  (Optional) Image pull policy. One of Always, Never, IfNotPresent. Defaults
+ *  to Always if :latest tag is specified, or IfNotPresent otherwise. More info:
  *  https://kubernetes.io/docs/concepts/containers/images#updating-images
  */
 @property(nonatomic, copy, nullable) NSString *imagePullPolicy;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Periodic probe of container liveness. Container will be restarted
+ *  (Optional) Periodic probe of container liveness. Container will be restarted
  *  if the probe fails. More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  */
@@ -611,31 +586,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ContainerPort *> *ports;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Periodic probe of container service readiness. Container will be
+ *  (Optional) Periodic probe of container service readiness. Container will be
  *  removed from service endpoints if the probe fails. More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_Probe *readinessProbe;
 
 /**
- *  (Optional) Cloud Run fully managed: supported Cloud Run for Anthos:
- *  supported Compute Resources required by this container. More info:
+ *  (Optional) Compute Resources required by this container. More info:
  *  https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ResourceRequirements *resources;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Security options the pod should run with. More info:
+ *  (Optional) Security options the pod should run with. More info:
  *  https://kubernetes.io/docs/concepts/policy/security-context/ More info:
  *  https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_SecurityContext *securityContext;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos: not
- *  supported Startup probe of application within the container. All other
+ *  (Optional) Startup probe of application within the container. All other
  *  probes are disabled if a startup probe is provided, until it succeeds.
  *  Container will not be added to service endpoints if the probe fails. More
  *  info:
@@ -644,8 +615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) GTLRCloudRun_Probe *startupProbe;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Path at which the file to which the container's termination
+ *  (Optional) Path at which the file to which the container's termination
  *  message will be written is mounted into the container's filesystem. Message
  *  written is intended to be brief final status, such as an assertion failure
  *  message. Will be truncated by the node if greater than 4096 bytes. The total
@@ -655,8 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *terminationMessagePath;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Indicate how the termination message should be populated. File
+ *  (Optional) Indicate how the termination message should be populated. File
  *  will use the contents of terminationMessagePath to populate the container
  *  status message on both success and failure. FallbackToLogsOnError will use
  *  the last chunk of container log output if the termination message file is
@@ -667,15 +636,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *terminationMessagePolicy;
 
 /**
- *  (Optional) Cloud Run fully managed: supported Volume to mount into the
- *  container's filesystem. Only supports SecretVolumeSources. Cloud Run for
- *  Anthos: supported Pod volumes to mount into the container's filesystem.
+ *  (Optional) Volume to mount into the container's filesystem. Only supports
+ *  SecretVolumeSources. Pod volumes to mount into the container's filesystem.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_VolumeMount *> *volumeMounts;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Container's working directory. If not specified, the container
+ *  (Optional) Container's working directory. If not specified, the container
  *  runtime's default will be used, which might be configured in the container
  *  image.
  */
@@ -703,10 +670,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Protocol for port. Must be "TCP". Defaults to "TCP".
- */
+/** (Optional) Protocol for port. Must be "TCP". Defaults to "TCP". */
 @property(nonatomic, copy, nullable) NSString *protocol;
 
 @end
@@ -815,28 +779,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  EnvFromSource represents the source of a set of ConfigMaps
+ *  Not supported by Cloud Run EnvFromSource represents the source of a set of
+ *  ConfigMaps
  */
 @interface GTLRCloudRun_EnvFromSource : GTLRObject
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported The ConfigMap to select from
- */
+/** (Optional) The ConfigMap to select from */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ConfigMapEnvSource *configMapRef;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported An optional identifier to prepend to each key in the ConfigMap.
+ *  (Optional) An optional identifier to prepend to each key in the ConfigMap.
  *  Must be a C_IDENTIFIER.
  */
 @property(nonatomic, copy, nullable) NSString *prefix;
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported The Secret to select from
- */
+/** (Optional) The Secret to select from */
 @property(nonatomic, strong, nullable) GTLRCloudRun_SecretEnvSource *secretRef;
 
 @end
@@ -861,10 +818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *value;
 
 /**
- *  (Optional) Cloud Run fully managed: supported Source for the environment
- *  variable's value. Only supports secret_key_ref. Cloud Run for Anthos:
- *  supported Source for the environment variable's value. Cannot be used if
- *  value is not empty.
+ *  (Optional) Source for the environment variable's value. Only supports
+ *  secret_key_ref. Source for the environment variable's value. Cannot be used
+ *  if value is not empty.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_EnvVarSource *valueFrom;
 
@@ -872,36 +828,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
  *  EnvVarSource represents a source for the value of an EnvVar.
  */
 @interface GTLRCloudRun_EnvVarSource : GTLRObject
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Selects a key of a ConfigMap.
- */
+/** (Optional) Not supported by Cloud Run Selects a key of a ConfigMap. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ConfigMapKeySelector *configMapKeyRef;
 
-/**
- *  (Optional) Cloud Run fully managed: supported. Selects a key (version) of a
- *  secret in Secret Manager. Cloud Run for Anthos: supported. Selects a key of
- *  a secret in the pod's namespace.
- */
+/** (Optional) Selects a key (version) of a secret in Secret Manager. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_SecretKeySelector *secretKeyRef;
 
 @end
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  ExecAction describes a "run in container" action.
+ *  Not supported by Cloud Run ExecAction describes a "run in container" action.
  */
 @interface GTLRCloudRun_ExecAction : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Command is the command line to execute inside the container, the
+ *  (Optional) Command is the command line to execute inside the container, the
  *  working directory for the command is root ('/') in the container's
  *  filesystem. The command is simply exec'd, it is not run inside a shell, so
  *  traditional shell instructions ('|', etc) won't work. To use a shell, you
@@ -1005,77 +951,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  HTTPGetAction describes an action based on HTTP Get requests.
+ *  Not supported by Cloud Run HTTPGetAction describes an action based on HTTP
+ *  Get requests.
  */
 @interface GTLRCloudRun_HTTPGetAction : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Host name to connect to, defaults to the pod IP. You probably want
- *  to set "Host" in httpHeaders instead.
+ *  (Optional) Host name to connect to, defaults to the pod IP. You probably
+ *  want to set "Host" in httpHeaders instead.
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Custom headers to set in the request. HTTP allows repeated
+ *  (Optional) Custom headers to set in the request. HTTP allows repeated
  *  headers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_HTTPHeader *> *httpHeaders;
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Path to access on the HTTP server.
- */
+/** (Optional) Path to access on the HTTP server. */
 @property(nonatomic, copy, nullable) NSString *path;
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Scheme to use for connecting to the host. Defaults to HTTP.
- */
+/** (Optional) Scheme to use for connecting to the host. Defaults to HTTP. */
 @property(nonatomic, copy, nullable) NSString *scheme;
 
 @end
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  HTTPHeader describes a custom header to be used in HTTP probes
+ *  Not supported by Cloud Run HTTPHeader describes a custom header to be used
+ *  in HTTP probes
  */
 @interface GTLRCloudRun_HTTPHeader : GTLRObject
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  header field name
- */
+/** The header field name */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  header field value
- */
+/** The header field value */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
 
 /**
- *  Cloud Run fully managed: supported Cloud Run for Anthos: supported Maps a
- *  string key to a path within a volume.
+ *  Maps a string key to a path within a volume.
  */
 @interface GTLRCloudRun_KeyToPath : GTLRObject
 
 /**
- *  Cloud Run fully managed: supported The Cloud Secret Manager secret version.
- *  Can be 'latest' for the latest value or an integer for a specific version.
- *  Cloud Run for Anthos: supported The key to project.
+ *  The Cloud Secret Manager secret version. Can be 'latest' for the latest
+ *  value or an integer for a specific version. The key to project.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Mode bits to use on this file, must be a value between 0000 and
+ *  (Optional) Mode bits to use on this file, must be a value between 0000 and
  *  0777. If not specified, the volume defaultMode will be used. This might be
  *  in conflict with other options that affect the file mode, like fsGroup, and
  *  the result can be other mode bits set.
@@ -1085,9 +1014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *mode;
 
 /**
- *  Cloud Run fully managed: supported Cloud Run for Anthos: supported The
- *  relative path of the file to map the key to. May not be an absolute path.
- *  May not contain the path element '..'. May not start with the string '..'.
+ *  The relative path of the file to map the key to. May not be an absolute
+ *  path. May not contain the path element '..'. May not start with the string
+ *  '..'.
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -1337,15 +1266,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  LocalObjectReference contains enough information to let you locate the
- *  referenced object inside the same namespace.
+ *  Not supported by Cloud Run LocalObjectReference contains enough information
+ *  to let you locate the referenced object inside the same namespace.
  */
 @interface GTLRCloudRun_LocalObjectReference : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Name of the referent. More info:
+ *  (Optional) Name of the referent. More info:
  *  https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1429,11 +1356,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) GTLRCloudRun_ObjectMeta_Annotations *annotations;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported The name of the cluster which the object belongs to. This is used
- *  to distinguish resources with same name and namespace in different clusters.
- *  This field is not set anywhere right now and apiserver is going to ignore it
- *  if set in create or update request.
+ *  (Optional) Not supported by Cloud Run The name of the cluster which the
+ *  object belongs to. This is used to distinguish resources with same name and
+ *  namespace in different clusters. This field is not set anywhere right now
+ *  and apiserver is going to ignore it if set in create or update request.
  */
 @property(nonatomic, copy, nullable) NSString *clusterName;
 
@@ -1448,62 +1374,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) GTLRDateTime *creationTimestamp;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Number of seconds allowed for this object to gracefully terminate
- *  before it will be removed from the system. Only set when deletionTimestamp
- *  is also set. May only be shortened. Read-only.
+ *  (Optional) Not supported by Cloud Run Number of seconds allowed for this
+ *  object to gracefully terminate before it will be removed from the system.
+ *  Only set when deletionTimestamp is also set. May only be shortened.
+ *  Read-only.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deletionGracePeriodSeconds;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported DeletionTimestamp is RFC 3339 date and time at which this resource
- *  will be deleted. This field is set by the server when a graceful deletion is
- *  requested by the user, and is not directly settable by a client. The
- *  resource is expected to be deleted (no longer visible from resource lists,
- *  and not reachable by name) after the time in this field, once the finalizers
- *  list is empty. As long as the finalizers list contains items, deletion is
- *  blocked. Once the deletionTimestamp is set, this value may not be unset or
- *  be set further into the future, although it may be shortened or the resource
- *  may be deleted prior to this time. For example, a user may request that a
- *  pod is deleted in 30 seconds. The Kubelet will react by sending a graceful
- *  termination signal to the containers in the pod. After that 30 seconds, the
- *  Kubelet will send a hard termination signal (SIGKILL) to the container and
- *  after cleanup, remove the pod from the API. In the presence of network
- *  partitions, this object may still exist after this timestamp, until an
- *  administrator or automated process can determine the resource is fully
- *  terminated. If not set, graceful deletion of the object has not been
- *  requested. Populated by the system when a graceful deletion is requested.
- *  Read-only. More info:
+ *  (Optional) Not supported by Cloud Run DeletionTimestamp is RFC 3339 date and
+ *  time at which this resource will be deleted. This field is set by the server
+ *  when a graceful deletion is requested by the user, and is not directly
+ *  settable by a client. The resource is expected to be deleted (no longer
+ *  visible from resource lists, and not reachable by name) after the time in
+ *  this field, once the finalizers list is empty. As long as the finalizers
+ *  list contains items, deletion is blocked. Once the deletionTimestamp is set,
+ *  this value may not be unset or be set further into the future, although it
+ *  may be shortened or the resource may be deleted prior to this time. For
+ *  example, a user may request that a pod is deleted in 30 seconds. The Kubelet
+ *  will react by sending a graceful termination signal to the containers in the
+ *  pod. After that 30 seconds, the Kubelet will send a hard termination signal
+ *  (SIGKILL) to the container and after cleanup, remove the pod from the API.
+ *  In the presence of network partitions, this object may still exist after
+ *  this timestamp, until an administrator or automated process can determine
+ *  the resource is fully terminated. If not set, graceful deletion of the
+ *  object has not been requested. Populated by the system when a graceful
+ *  deletion is requested. Read-only. More info:
  *  https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *deletionTimestamp;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Must be empty before the object is deleted from the registry. Each
- *  entry is an identifier for the responsible component that will remove the
- *  entry from the list. If the deletionTimestamp of the object is non-nil,
- *  entries in this list can only be removed. +patchStrategy=merge
+ *  (Optional) Not supported by Cloud Run Must be empty before the object is
+ *  deleted from the registry. Each entry is an identifier for the responsible
+ *  component that will remove the entry from the list. If the deletionTimestamp
+ *  of the object is non-nil, entries in this list can only be removed.
+ *  +patchStrategy=merge
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *finalizers;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported GenerateName is an optional prefix, used by the server, to
- *  generate a unique name ONLY IF the Name field has not been provided. If this
- *  field is used, the name returned to the client will be different than the
- *  name passed. This value will also be combined with a unique suffix. The
- *  provided value has the same validation rules as the Name field, and may be
- *  truncated by the length of the suffix required to make the value unique on
- *  the server. If this field is specified and the generated name exists, the
- *  server will NOT return a 409 - instead, it will either return 201 Created or
- *  500 with Reason ServerTimeout indicating a unique name could not be found in
- *  the time allotted, and the client should retry (optionally after the time
- *  indicated in the Retry-After header). Applied only if Name is not specified.
- *  More info:
+ *  (Optional) Not supported by Cloud Run GenerateName is an optional prefix,
+ *  used by the server, to generate a unique name ONLY IF the Name field has not
+ *  been provided. If this field is used, the name returned to the client will
+ *  be different than the name passed. This value will also be combined with a
+ *  unique suffix. The provided value has the same validation rules as the Name
+ *  field, and may be truncated by the length of the suffix required to make the
+ *  value unique on the server. If this field is specified and the generated
+ *  name exists, the server will NOT return a 409 - instead, it will either
+ *  return 201 Created or 500 with Reason ServerTimeout indicating a unique name
+ *  could not be found in the time allotted, and the client should retry
+ *  (optionally after the time indicated in the Retry-After header). Applied
+ *  only if Name is not specified. More info:
  *  https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency
  *  string generateName = 2;
  */
@@ -1545,9 +1469,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *namespaceProperty;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported List of objects that own this object. If ALL objects in the list
- *  have been deleted, this object will be garbage collected.
+ *  (Optional) Not supported by Cloud Run List of objects that own this object.
+ *  If ALL objects in the list have been deleted, this object will be garbage
+ *  collected.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_OwnerReference *> *ownerReferences;
 
@@ -1746,38 +1670,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported Probe
- *  describes a health check to be performed against a container to determine
- *  whether it is alive or ready to receive traffic.
+ *  Not supported by Cloud Run Probe describes a health check to be performed
+ *  against a container to determine whether it is alive or ready to receive
+ *  traffic.
  */
 @interface GTLRCloudRun_Probe : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported One and only one of the following should be specified. Exec
+ *  (Optional) One and only one of the following should be specified. Exec
  *  specifies the action to take. A field inlined from the Handler message.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ExecAction *exec;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Minimum consecutive failures for the probe to be considered failed
- *  after having succeeded. Defaults to 3. Minimum value is 1.
+ *  (Optional) Minimum consecutive failures for the probe to be considered
+ *  failed after having succeeded. Defaults to 3. Minimum value is 1.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failureThreshold;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported HTTPGet specifies the http request to perform. A field inlined
+ *  (Optional) HTTPGet specifies the http request to perform. A field inlined
  *  from the Handler message.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_HTTPGetAction *httpGet;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Number of seconds after the container has started before liveness
+ *  (Optional) Number of seconds after the container has started before liveness
  *  probes are initiated. More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  *
@@ -1786,8 +1706,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *initialDelaySeconds;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported How often (in seconds) to perform the probe. Default to 10
+ *  (Optional) How often (in seconds) to perform the probe. Default to 10
  *  seconds. Minimum value is 1.
  *
  *  Uses NSNumber of intValue.
@@ -1795,8 +1714,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *periodSeconds;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Minimum consecutive successes for the probe to be considered
+ *  (Optional) Minimum consecutive successes for the probe to be considered
  *  successful after having failed. Defaults to 1. Must be 1 for liveness.
  *  Minimum value is 1.
  *
@@ -1805,15 +1723,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *successThreshold;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported TCPSocket specifies an action involving a TCP port. TCP hooks not
+ *  (Optional) TCPSocket specifies an action involving a TCP port. TCP hooks not
  *  yet supported A field inlined from the Handler message.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_TCPSocketAction *tcpSocket;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Number of seconds after which the probe times out. Defaults to 1
+ *  (Optional) Number of seconds after which the probe times out. Defaults to 1
  *  second. Minimum value is 1. More info:
  *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes
  *
@@ -1865,22 +1781,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_ResourceRequirements : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note:
- *  The only supported values for CPU are '1', '2', and '4'. Setting 4 CPU
- *  requires at least 2Gi of memory. Cloud Run for Anthos: supported Limits
- *  describes the maximum amount of compute resources allowed. The values of the
- *  map is string form of the 'quantity' k8s type:
+ *  (Optional) Only memory and CPU are supported. Note: The only supported
+ *  values for CPU are '1', '2', and '4'. Setting 4 CPU requires at least 2Gi of
+ *  memory. Limits describes the maximum amount of compute resources allowed.
+ *  The values of the map is string form of the 'quantity' k8s type:
  *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ResourceRequirements_Limits *limits;
 
 /**
- *  (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note:
- *  The only supported values for CPU are '1' and '2'. Cloud Run for Anthos:
- *  supported Requests describes the minimum amount of compute resources
- *  required. If Requests is omitted for a container, it defaults to Limits if
- *  that is explicitly specified, otherwise to an implementation-defined value.
- *  The values of the map is string form of the 'quantity' k8s type:
+ *  (Optional) Only memory and CPU are supported. Note: The only supported
+ *  values for CPU are '1' and '2'. Requests describes the minimum amount of
+ *  compute resources required. If Requests is omitted for a container, it
+ *  defaults to Limits if that is explicitly specified, otherwise to an
+ *  implementation-defined value. The values of the map is string form of the
+ *  'quantity' k8s type:
  *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ResourceRequirements_Requests *requests;
@@ -1889,11 +1804,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note:
- *  The only supported values for CPU are '1', '2', and '4'. Setting 4 CPU
- *  requires at least 2Gi of memory. Cloud Run for Anthos: supported Limits
- *  describes the maximum amount of compute resources allowed. The values of the
- *  map is string form of the 'quantity' k8s type:
+ *  (Optional) Only memory and CPU are supported. Note: The only supported
+ *  values for CPU are '1', '2', and '4'. Setting 4 CPU requires at least 2Gi of
+ *  memory. Limits describes the maximum amount of compute resources allowed.
+ *  The values of the map is string form of the 'quantity' k8s type:
  *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -1906,12 +1820,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  (Optional) Cloud Run fully managed: Only memory and CPU are supported. Note:
- *  The only supported values for CPU are '1' and '2'. Cloud Run for Anthos:
- *  supported Requests describes the minimum amount of compute resources
- *  required. If Requests is omitted for a container, it defaults to Limits if
- *  that is explicitly specified, otherwise to an implementation-defined value.
- *  The values of the map is string form of the 'quantity' k8s type:
+ *  (Optional) Only memory and CPU are supported. Note: The only supported
+ *  values for CPU are '1' and '2'. Requests describes the minimum amount of
+ *  compute resources required. If Requests is omitted for a container, it
+ *  defaults to Limits if that is explicitly specified, otherwise to an
+ *  implementation-defined value. The values of the map is string form of the
+ *  'quantity' k8s type:
  *  https://github.com/kubernetes/kubernetes/blob/master/staging/src/k8s.io/apimachinery/pkg/api/resource/quantity.go
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -2179,10 +2093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  SecretEnvSource selects a Secret to populate the environment variables with.
- *  The contents of the target Secret's Data field will represent the key-value
- *  pairs as environment variables.
+ *  Not supported by Cloud Run SecretEnvSource selects a Secret to populate the
+ *  environment variables with. The contents of the target Secret's Data field
+ *  will represent the key-value pairs as environment variables.
  */
 @interface GTLRCloudRun_SecretEnvSource : GTLRObject
 
@@ -2192,15 +2105,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_LocalObjectReference *localObjectReference;
 
-/**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported The
- *  Secret to select from.
- */
+/** The Secret to select from. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the Secret must be defined
+ *  (Optional) Specify whether the Secret must be defined
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2210,16 +2119,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
  *  SecretKeySelector selects a key of a Secret.
  */
 @interface GTLRCloudRun_SecretKeySelector : GTLRObject
 
 /**
- *  Cloud Run fully managed: supported A Cloud Secret Manager secret version.
- *  Must be 'latest' for the latest version or an integer for a specific
- *  version. Cloud Run for Anthos: supported The key of the secret to select
- *  from. Must be a valid secret key.
+ *  A Cloud Secret Manager secret version. Must be 'latest' for the latest
+ *  version or an integer for a specific version. The key of the secret to
+ *  select from. Must be a valid secret key.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
@@ -2230,19 +2137,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) GTLRCloudRun_LocalObjectReference *localObjectReference;
 
 /**
- *  Cloud Run fully managed: supported The name of the secret in Cloud Secret
- *  Manager. By default, the secret is assumed to be in the same project. If the
- *  secret is in another project, you must define an alias. An alias definition
- *  has the form: :projects//secrets/. If multiple alias definitions are needed,
- *  they must be separated by commas. The alias definitions must be set on the
- *  run.googleapis.com/secrets annotation. Cloud Run for Anthos: supported The
- *  name of the secret in the pod's namespace to select from.
+ *  The name of the secret in Cloud Secret Manager. By default, the secret is
+ *  assumed to be in the same project. If the secret is in another project, you
+ *  must define an alias. An alias definition has the form: :projects//secrets/.
+ *  If multiple alias definitions are needed, they must be separated by commas.
+ *  The alias definitions must be set on the run.googleapis.com/secrets
+ *  annotation. The name of the secret in the pod's namespace to select from.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the Secret or its key must be defined
+ *  (Optional) Specify whether the Secret or its key must be defined
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2252,11 +2157,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: supported The secret's value will be presented as
- *  the content of a file whose name is defined in the item path. If no items
- *  are defined, the name of the file is the secret_name. Cloud Run for Anthos:
- *  supported The contents of the target Secret's Data field will be presented
- *  in a volume as files using the keys in the Data field as the file names.
+ *  The secret's value will be presented as the content of a file whose name is
+ *  defined in the item path. If no items are defined, the name of the file is
+ *  the secret_name. The contents of the target Secret's Data field will be
+ *  presented in a volume as files using the keys in the Data field as the file
+ *  names.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -2264,8 +2169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_SecretVolumeSource : GTLRCollectionObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Mode bits to use on created files by default. Must be a value
+ *  (Optional) Mode bits to use on created files by default. Must be a value
  *  between 0000 and 0777. Defaults to 0644. Directories within the path are not
  *  affected by this setting. This might be in conflict with other options that
  *  affect the file mode, like fsGroup, and the result can be other mode bits
@@ -2278,16 +2182,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSNumber *defaultMode;
 
 /**
- *  (Optional) Cloud Run fully managed: supported If unspecified, the volume
- *  will expose a file whose name is the secret_name. If specified, the key will
- *  be used as the version to fetch from Cloud Secret Manager and the path will
- *  be the name of the file exposed in the volume. When items are defined, they
- *  must specify a key and a path. Cloud Run for Anthos: supported If
+ *  (Optional) If unspecified, the volume will expose a file whose name is the
+ *  secret_name. If specified, the key will be used as the version to fetch from
+ *  Cloud Secret Manager and the path will be the name of the file exposed in
+ *  the volume. When items are defined, they must specify a key and a path. If
  *  unspecified, each key-value pair in the Data field of the referenced Secret
  *  will be projected into the volume as a file whose name is the key and
  *  content is the value. If specified, the listed keys will be projected into
  *  the specified paths, and unlisted keys will not be present. If a key is
- *  specified which is not present in the Secret, the volume setup will error
+ *  specified that is not present in the Secret, the volume setup will error
  *  unless it is marked optional.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -2296,21 +2199,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_KeyToPath *> *items;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Specify whether the Secret or its keys must be defined.
+ *  (Optional) Specify whether the Secret or its keys must be defined.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *optional;
 
 /**
- *  Cloud Run fully managed: supported The name of the secret in Cloud Secret
- *  Manager. By default, the secret is assumed to be in the same project. If the
- *  secret is in another project, you must define an alias. An alias definition
- *  has the form: :projects//secrets/. If multiple alias definitions are needed,
- *  they must be separated by commas. The alias definitions must be set on the
- *  run.googleapis.com/secrets annotation. Cloud Run for Anthos: supported Name
- *  of the secret in the container's namespace to use.
+ *  The name of the secret in Cloud Secret Manager. By default, the secret is
+ *  assumed to be in the same project. If the secret is in another project, you
+ *  must define an alias. An alias definition has the form: :projects//secrets/.
+ *  If multiple alias definitions are needed, they must be separated by commas.
+ *  The alias definitions must be set on the run.googleapis.com/secrets
+ *  annotation. Name of the secret in the container's namespace to use.
  */
 @property(nonatomic, copy, nullable) NSString *secretName;
 
@@ -2318,17 +2219,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  SecurityContext holds security configuration that will be applied to a
- *  container. Some fields are present in both SecurityContext and
- *  PodSecurityContext. When both are set, the values in SecurityContext take
- *  precedence.
+ *  Not supported by Cloud Run SecurityContext holds security configuration that
+ *  will be applied to a container. Some fields are present in both
+ *  SecurityContext and PodSecurityContext. When both are set, the values in
+ *  SecurityContext take precedence.
  */
 @interface GTLRCloudRun_SecurityContext : GTLRObject
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported The UID to run the entrypoint of the container process. Defaults
+ *  (Optional) The UID to run the entrypoint of the container process. Defaults
  *  to user specified in image metadata if unspecified. May also be set in
  *  PodSecurityContext. If set in both SecurityContext and PodSecurityContext,
  *  the value specified in SecurityContext takes precedence.
@@ -2631,19 +2530,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  TCPSocketAction describes an action based on opening a socket
+ *  Not supported by Cloud Run TCPSocketAction describes an action based on
+ *  opening a socket
  */
 @interface GTLRCloudRun_TCPSocketAction : GTLRObject
 
-/**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Optional: Host name to connect to, defaults to the pod IP.
- */
+/** (Optional) Optional: Host name to connect to, defaults to the pod IP. */
 @property(nonatomic, copy, nullable) NSString *host;
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
  *  Number or name of the port to access on the container. Number must be in the
  *  range 1 to 65535. Name must be an IANA_SVC_NAME. This field is currently
  *  limited to integer types only because of proto's inability to properly
@@ -2743,57 +2638,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  Volume represents a named volume in a container.
+ *  Not supported by Cloud Run Volume represents a named volume in a container.
  */
 @interface GTLRCloudRun_Volume : GTLRObject
 
-/** Cloud Run fully managed: not supported Cloud Run for Anthos: supported */
 @property(nonatomic, strong, nullable) GTLRCloudRun_ConfigMapVolumeSource *configMap;
 
-/**
- *  Cloud Run fully managed: supported Cloud Run for Anthos: supported Volume's
- *  name.
- */
+/** Volume's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Cloud Run fully managed: supported Cloud Run for Anthos: supported */
 @property(nonatomic, strong, nullable) GTLRCloudRun_SecretVolumeSource *secret;
 
 @end
 
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run for Anthos: supported
- *  VolumeMount describes a mounting of a Volume within a container.
+ *  Not supported by Cloud Run VolumeMount describes a mounting of a Volume
+ *  within a container.
  */
 @interface GTLRCloudRun_VolumeMount : GTLRObject
 
 /**
- *  Cloud Run fully managed: supported Cloud Run for Anthos: supported Path
- *  within the container at which the volume should be mounted. Must not contain
- *  ':'.
+ *  Path within the container at which the volume should be mounted. Must not
+ *  contain ':'.
  */
 @property(nonatomic, copy, nullable) NSString *mountPath;
 
-/**
- *  Cloud Run fully managed: supported Cloud Run for Anthos: supported This must
- *  match the Name of a Volume.
- */
+/** This must match the Name of a Volume. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  (Optional) Cloud Run fully managed: supported Cloud Run for Anthos:
- *  supported Only true is accepted. Defaults to true.
+ *  (Optional) Only true is accepted. Defaults to true.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *readOnly;
 
 /**
- *  (Optional) Cloud Run fully managed: not supported Cloud Run for Anthos:
- *  supported Path within the volume from which the container's volume should be
- *  mounted. Defaults to "" (volume's root).
+ *  (Optional) Path within the volume from which the container's volume should
+ *  be mounted. Defaults to "" (volume's root).
  */
 @property(nonatomic, copy, nullable) NSString *subPath;
 

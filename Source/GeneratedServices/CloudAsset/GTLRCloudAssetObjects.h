@@ -80,6 +80,9 @@
 @class GTLRCloudAsset_Inventory;
 @class GTLRCloudAsset_Inventory_Items;
 @class GTLRCloudAsset_Item;
+@class GTLRCloudAsset_MoveAnalysis;
+@class GTLRCloudAsset_MoveAnalysisResult;
+@class GTLRCloudAsset_MoveImpact;
 @class GTLRCloudAsset_Operation_Metadata;
 @class GTLRCloudAsset_Operation_Response;
 @class GTLRCloudAsset_Options;
@@ -822,6 +825,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  The response message for resource move analysis.
+ */
+@interface GTLRCloudAsset_AnalyzeMoveResponse : GTLRObject
+
+/**
+ *  The list of analyses returned from performing the intended resource move
+ *  analysis. The analysis is grouped by different Cloud services.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_MoveAnalysis *> *moveAnalysis;
+
+@end
+
+
+/**
  *  An asset in Google Cloud. An asset can be any resource in the Google Cloud
  *  [resource
  *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
@@ -1391,7 +1408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  name `temporal_asset`. Example: a Feed with expression
  *  ("temporal_asset.deleted == true") will only publish Asset deletions. Other
  *  fields of `Expr` are optional. See our [user
- *  guide](https://cloud.google.com/asset-inventory/docs/monitoring-asset-changes#feed_with_condition)
+ *  guide](https://cloud.google.com/asset-inventory/docs/monitoring-asset-changes-with-condition)
  *  for detailed instructions.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Expr *condition;
@@ -3126,10 +3143,36 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @interface GTLRCloudAsset_IamPolicySearchResult : GTLRObject
 
 /**
+ *  The type of the resource associated with this IAM policy. Example:
+ *  `compute.googleapis.com/Disk`. To search against the `asset_type`: * specify
+ *  the `asset_types` field in your search request.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
  *  Explanation about the IAM policy search result. It contains additional
  *  information to explain why the search result matches the query.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Explanation *explanation;
+
+/**
+ *  The folder(s) that the IAM policy belongs to, in the form of
+ *  folders/{FOLDER_NUMBER}. This field is available when the IAM policy belongs
+ *  to one or more folders. To search against `folders`: * use a field query.
+ *  Example: `folders:(123 OR 456)` * use a free text query. Example: `123` *
+ *  specify the `scope` field as this folder in your search request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *folders;
+
+/**
+ *  The organization that the IAM policy belongs to, in the form of
+ *  organizations/{ORGANIZATION_NUMBER}. This field is available when the IAM
+ *  policy belongs to an organization. To search against `organization`: * use a
+ *  field query. Example: `organization:123` * use a free text query. Example:
+ *  `123` * specify the `scope` field as this organization in your search
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
 
 /**
  *  The IAM policy directly set on the given resource. Note that the original
@@ -3313,6 +3356,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /** A list of feeds. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_Feed *> *feeds;
+
+@end
+
+
+/**
+ *  A message to group the analysis information.
+ */
+@interface GTLRCloudAsset_MoveAnalysis : GTLRObject
+
+/** Analysis result of moving the target resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_MoveAnalysisResult *analysis;
+
+/**
+ *  The user friendly display name of the analysis. E.g. IAM, Organization
+ *  Policy etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Description of error encountered when performing the analysis. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_Status *error;
+
+@end
+
+
+/**
+ *  An analysis result including blockers and warnings.
+ */
+@interface GTLRCloudAsset_MoveAnalysisResult : GTLRObject
+
+/**
+ *  Blocking information that would prevent the target resource from moving to
+ *  the specified destination at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_MoveImpact *> *blockers;
+
+/**
+ *  Warning information indicating that moving the target resource to the
+ *  specified destination might be unsafe. This can include important policy
+ *  information and configuration changes, but will not block moves at runtime.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_MoveImpact *> *warnings;
+
+@end
+
+
+/**
+ *  A message to group impacts of moving the target resource.
+ */
+@interface GTLRCloudAsset_MoveImpact : GTLRObject
+
+/** User friendly impact detail in a free form message. */
+@property(nonatomic, copy, nullable) NSString *detail;
 
 @end
 

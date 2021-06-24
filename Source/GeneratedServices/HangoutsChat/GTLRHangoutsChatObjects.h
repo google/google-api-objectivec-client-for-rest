@@ -31,8 +31,39 @@
 @class GTLRHangoutsChat_Card;
 @class GTLRHangoutsChat_CardAction;
 @class GTLRHangoutsChat_CardHeader;
+@class GTLRHangoutsChat_CardWithId;
+@class GTLRHangoutsChat_Color;
 @class GTLRHangoutsChat_DriveDataRef;
 @class GTLRHangoutsChat_FormAction;
+@class GTLRHangoutsChat_GoogleAppsCardV1Action;
+@class GTLRHangoutsChat_GoogleAppsCardV1ActionParameter;
+@class GTLRHangoutsChat_GoogleAppsCardV1BorderStyle;
+@class GTLRHangoutsChat_GoogleAppsCardV1Button;
+@class GTLRHangoutsChat_GoogleAppsCardV1ButtonList;
+@class GTLRHangoutsChat_GoogleAppsCardV1Card;
+@class GTLRHangoutsChat_GoogleAppsCardV1CardAction;
+@class GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter;
+@class GTLRHangoutsChat_GoogleAppsCardV1CardHeader;
+@class GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker;
+@class GTLRHangoutsChat_GoogleAppsCardV1DecoratedText;
+@class GTLRHangoutsChat_GoogleAppsCardV1Divider;
+@class GTLRHangoutsChat_GoogleAppsCardV1Grid;
+@class GTLRHangoutsChat_GoogleAppsCardV1GridItem;
+@class GTLRHangoutsChat_GoogleAppsCardV1Icon;
+@class GTLRHangoutsChat_GoogleAppsCardV1Image;
+@class GTLRHangoutsChat_GoogleAppsCardV1ImageComponent;
+@class GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle;
+@class GTLRHangoutsChat_GoogleAppsCardV1OnClick;
+@class GTLRHangoutsChat_GoogleAppsCardV1OpenLink;
+@class GTLRHangoutsChat_GoogleAppsCardV1Section;
+@class GTLRHangoutsChat_GoogleAppsCardV1SelectionInput;
+@class GTLRHangoutsChat_GoogleAppsCardV1SelectionItem;
+@class GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem;
+@class GTLRHangoutsChat_GoogleAppsCardV1Suggestions;
+@class GTLRHangoutsChat_GoogleAppsCardV1SwitchControl;
+@class GTLRHangoutsChat_GoogleAppsCardV1TextInput;
+@class GTLRHangoutsChat_GoogleAppsCardV1TextParagraph;
+@class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_Image;
 @class GTLRHangoutsChat_ImageButton;
 @class GTLRHangoutsChat_KeyValue;
@@ -174,6 +205,322 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Remove
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Action.loadIndicator
+
+/**
+ *  Nothing is displayed.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_None;
+/**
+ *  Displays a spinner to indicate that content is loading.
+ *
+ *  Value: "SPINNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_Spinner;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1BorderStyle.type
+
+/**
+ *  No value specified.
+ *
+ *  Value: "BORDER_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified;
+/**
+ *  No border.
+ *
+ *  Value: "NO_BORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder;
+/**
+ *  Outline.
+ *
+ *  Value: "STROKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Card.displayStyle
+
+/** Value: "DISPLAY_STYLE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_DisplayStyleUnspecified;
+/**
+ *  The header of the card appears at the bottom of the sidebar, partially
+ *  covering the current top card of the stack. Clicking the header pops the
+ *  card into the card stack. If the card has no header, a generated header is
+ *  used instead.
+ *
+ *  Value: "PEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Peek;
+/**
+ *  The card is shown by replacing the view of the top card in the card stack.
+ *
+ *  Value: "REPLACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1CardHeader.imageType
+
+/**
+ *  Applies a circular mask to the image.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Circle;
+/**
+ *  Applies no cropping to the image.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker.type
+
+/**
+ *  The user can select a date and time.
+ *
+ *  Value: "DATE_AND_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTime;
+/**
+ *  The user can only select a date.
+ *
+ *  Value: "DATE_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly;
+/**
+ *  The user can only select a time.
+ *
+ *  Value: "TIME_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1GridItem.layout
+
+/**
+ *  No layout specified.
+ *
+ *  Value: "GRID_ITEM_LAYOUT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_GridItemLayoutUnspecified;
+/**
+ *  The title and subtitle are shown above the grid item's image.
+ *
+ *  Value: "TEXT_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextAbove;
+/**
+ *  The title and subtitle are shown below the grid item's image.
+ *
+ *  Value: "TEXT_BELOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextBelow;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1GridItem.textAlignment
+
+/**
+ *  Alignment to the center position.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Center;
+/**
+ *  Alignment to the end position.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_End;
+/**
+ *  Unspecified alignment.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Alignment to the start position.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Start;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Icon.imageType
+
+/**
+ *  Applies a circular mask to the image.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Circle;
+/**
+ *  Applies no cropping to the image.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle.type
+
+/**
+ *  Applies a circular crop.
+ *
+ *  Value: "CIRCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Circle;
+/**
+ *  No value specified.
+ *
+ *  Value: "IMAGE_CROP_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_ImageCropTypeUnspecified;
+/**
+ *  Applies a rectangular crop with a 4:3 aspect ratio.
+ *
+ *  Value: "RECTANGLE_4_3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Rectangle43;
+/**
+ *  Applies a rectangular crop with a custom aspect ratio.
+ *
+ *  Value: "RECTANGLE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_RectangleCustom;
+/**
+ *  Applies a square crop.
+ *
+ *  Value: "SQUARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Square;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1OpenLink.onClose
+
+/**
+ *  Doesn’t reload the card after the child window closes. Reloads the card
+ *  after the child window closes. If used in conjunction with
+ *  [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *  the child window acts as a modal dialog and the main card is blocked until
+ *  the child window closes.
+ *
+ *  Value: "NOTHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Nothing;
+/** Value: "RELOAD" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Reload;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1OpenLink.openAs
+
+/**
+ *  The link opens as a full size window (if that's the frame used by the
+ *  client.
+ *
+ *  Value: "FULL_SIZE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize;
+/**
+ *  The link opens as an overlay, such as a pop-up.
+ *
+ *  Value: "OVERLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1SelectionInput.type
+
+/**
+ *  The selection type is a checkbox.
+ *
+ *  Value: "CHECK_BOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox;
+/**
+ *  The selection type is a dropdown.
+ *
+ *  Value: "DROPDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown;
+/**
+ *  The selection type is a radio button.
+ *
+ *  Value: "RADIO_BUTTON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton;
+/**
+ *  The selection type is a switch.
+ *
+ *  Value: "SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1SwitchControl.controlType
+
+/**
+ *  Deprecated in favor of `CHECK_BOX`.
+ *
+ *  Value: "CHECKBOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Checkbox;
+/** Value: "CHECK_BOX" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_CheckBox;
+/** Value: "SWITCH" */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Switch;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1TextInput.type
+
+/**
+ *  The text is put into multiple lines.
+ *
+ *  Value: "MULTIPLE_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine;
+/**
+ *  The text is put into a single line.
+ *
+ *  Value: "SINGLE_LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
+
+/**
+ *  Alignment to the center position.
+ *
+ *  Value: "CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center;
+/**
+ *  Alignment to the end position.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End;
+/**
+ *  Unspecified alignment.
+ *
+ *  Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified;
+/**
+ *  Alignment to the start position.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ImageButton.icon
@@ -673,6 +1020,112 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 
 /**
+ *  Widgets for chatbots to specify.
+ */
+@interface GTLRHangoutsChat_CardWithId : GTLRObject
+
+/**
+ *  Card proto that allows chatbots to specify UI elements and editable widgets.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Card *card;
+
+/** Chatbot-specified identifier for this widget. Scoped within a message. */
+@property(nonatomic, copy, nullable) NSString *cardId;
+
+@end
+
+
+/**
+ *  Represents a color in the RGBA color space. This representation is designed
+ *  for simplicity of conversion to/from color representations in various
+ *  languages over compactness. For example, the fields of this representation
+ *  can be trivially provided to the constructor of `java.awt.Color` in Java; it
+ *  can also be trivially provided to UIColor's `+colorWithRed:green:blue:alpha`
+ *  method in iOS; and, with just a little work, it can be easily formatted into
+ *  a CSS `rgba()` string in JavaScript. This reference page doesn't carry
+ *  information about the absolute color space that should be used to interpret
+ *  the RGB value (e.g. sRGB, Adobe RGB, DCI-P3, BT.2020, etc.). By default,
+ *  applications should assume the sRGB color space. When color equality needs
+ *  to be decided, implementations, unless documented otherwise, treat two
+ *  colors as equal if all their red, green, blue, and alpha values each differ
+ *  by at most 1e-5. Example (Java): import com.google.type.Color; // ... public
+ *  static java.awt.Color fromProto(Color protocolor) { float alpha =
+ *  protocolor.hasAlpha() ? protocolor.getAlpha().getValue() : 1.0; return new
+ *  java.awt.Color( protocolor.getRed(), protocolor.getGreen(),
+ *  protocolor.getBlue(), alpha); } public static Color toProto(java.awt.Color
+ *  color) { float red = (float) color.getRed(); float green = (float)
+ *  color.getGreen(); float blue = (float) color.getBlue(); float denominator =
+ *  255.0; Color.Builder resultBuilder = Color .newBuilder() .setRed(red /
+ *  denominator) .setGreen(green / denominator) .setBlue(blue / denominator);
+ *  int alpha = color.getAlpha(); if (alpha != 255) { result.setAlpha(
+ *  FloatValue .newBuilder() .setValue(((float) alpha) / denominator) .build());
+ *  } return resultBuilder.build(); } // ... Example (iOS / Obj-C): // ...
+ *  static UIColor* fromProto(Color* protocolor) { float red = [protocolor red];
+ *  float green = [protocolor green]; float blue = [protocolor blue];
+ *  FloatValue* alpha_wrapper = [protocolor alpha]; float alpha = 1.0; if
+ *  (alpha_wrapper != nil) { alpha = [alpha_wrapper value]; } return [UIColor
+ *  colorWithRed:red green:green blue:blue alpha:alpha]; } static Color*
+ *  toProto(UIColor* color) { CGFloat red, green, blue, alpha; if (![color
+ *  getRed:&red green:&green blue:&blue alpha:&alpha]) { return nil; } Color*
+ *  result = [[Color alloc] init]; [result setRed:red]; [result setGreen:green];
+ *  [result setBlue:blue]; if (alpha <= 0.9999) { [result
+ *  setAlpha:floatWrapperWithValue(alpha)]; } [result autorelease]; return
+ *  result; } // ... Example (JavaScript): // ... var protoToCssColor =
+ *  function(rgb_color) { var redFrac = rgb_color.red || 0.0; var greenFrac =
+ *  rgb_color.green || 0.0; var blueFrac = rgb_color.blue || 0.0; var red =
+ *  Math.floor(redFrac * 255); var green = Math.floor(greenFrac * 255); var blue
+ *  = Math.floor(blueFrac * 255); if (!('alpha' in rgb_color)) { return
+ *  rgbToCssColor(red, green, blue); } var alphaFrac = rgb_color.alpha.value ||
+ *  0.0; var rgbParams = [red, green, blue].join(','); return ['rgba(',
+ *  rgbParams, ',', alphaFrac, ')'].join(''); }; var rgbToCssColor =
+ *  function(red, green, blue) { var rgbNumber = new Number((red << 16) | (green
+ *  << 8) | blue); var hexString = rgbNumber.toString(16); var missingZeros = 6
+ *  - hexString.length; var resultBuilder = ['#']; for (var i = 0; i <
+ *  missingZeros; i++) { resultBuilder.push('0'); }
+ *  resultBuilder.push(hexString); return resultBuilder.join(''); }; // ...
+ */
+@interface GTLRHangoutsChat_Color : GTLRObject
+
+/**
+ *  The fraction of this color that should be applied to the pixel. That is, the
+ *  final pixel color is defined by the equation: `pixel color = alpha * (this
+ *  color) + (1.0 - alpha) * (background color)` This means that a value of 1.0
+ *  corresponds to a solid color, whereas a value of 0.0 corresponds to a
+ *  completely transparent color. This uses a wrapper message rather than a
+ *  simple float scalar so that it is possible to distinguish between a default
+ *  value and the value being unset. If omitted, this color object is rendered
+ *  as a solid color (as if the alpha value had been explicitly given a value of
+ *  1.0).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *alpha;
+
+/**
+ *  The amount of blue in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *blue;
+
+/**
+ *  The amount of green in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *green;
+
+/**
+ *  The amount of red in the color as a value in the interval [0, 1].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *red;
+
+@end
+
+
+/**
  *  Google Chat events.
  */
 @interface GTLRHangoutsChat_DeprecatedEvent : GTLRObject
@@ -680,15 +1133,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 /**
  *  The form action data associated with an interactive card that was clicked.
  *  Only populated for CARD_CLICKED events. See the [Interactive Cards
- *  guide](/hangouts/chat/how-tos/cards-onclick) for more information.
+ *  guide](/chat/how-tos/cards-onclick) for more information.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_FormAction *action;
 
 /**
  *  The URL the bot should redirect the user to after they have completed an
  *  authorization or configuration flow outside of Google Chat. See the
- *  [Authorizing access to 3p services guide](/hangouts/chat/how-tos/auth-3p)
- *  for more information.
+ *  [Authorizing access to 3p services guide](/chat/how-tos/auth-3p) for more
+ *  information.
  */
 @property(nonatomic, copy, nullable) NSString *configCompleteRedirectUrl;
 
@@ -776,6 +1229,1010 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
 
 /** List of action parameters. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_ActionParameter *> *parameters;
+
+@end
+
+
+/**
+ *  An action that describes the behavior when the form is submitted. For
+ *  example, an Apps Script can be invoked to handle the form.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Action : GTLRObject
+
+/**
+ *  Apps Script function to invoke when the containing element is
+ *  clicked/activated.
+ */
+@property(nonatomic, copy, nullable) NSString *function;
+
+/**
+ *  loadIndicator
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_None
+ *        Nothing is displayed. (Value: "NONE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_Spinner
+ *        Displays a spinner to indicate that content is loading. (Value:
+ *        "SPINNER")
+ */
+@property(nonatomic, copy, nullable) NSString *loadIndicator;
+
+/** List of action parameters. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1ActionParameter *> *parameters;
+
+/**
+ *  Indicates whether form values persist after the action. The default value is
+ *  `false`. If `true`, form values remain after the action is triggered. When
+ *  using
+ *  [LoadIndicator.NONE](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  for actions, `persist_values` = `true`is recommended, as it ensures that any
+ *  changes made by the user after form or on change actions are sent to the
+ *  server are not overwritten by the response. If `false`, the form values are
+ *  cleared when the action is triggered. When `persist_values` is set to
+ *  `false`, it is strongly recommended that the card use
+ *  [LoadIndicator.SPINNER](workspace/add-ons/reference/rpc/google.apps.card.v1#loadindicator)
+ *  for all actions, as this locks the UI to ensure no changes are made by the
+ *  user while the action is being processed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *persistValues;
+
+@end
+
+
+/**
+ *  List of string parameters to supply when the action method is invoked. For
+ *  example, consider three snooze buttons: snooze now, snooze 1 day, snooze
+ *  next week. You might use action method = snooze(), passing the snooze type
+ *  and snooze time in the list of string parameters.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ActionParameter : GTLRObject
+
+/** The name of the parameter for the action script. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Represents the complete border style applied to widgets.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1BorderStyle : GTLRObject
+
+/**
+ *  The corner radius for the border.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cornerRadius;
+
+/** The colors to use when the type is `BORDER_TYPE_STROKE`. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *strokeColor;
+
+/**
+ *  The border type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified
+ *        No value specified. (Value: "BORDER_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder No
+ *        border. (Value: "NO_BORDER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke Outline.
+ *        (Value: "STROKE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  A button. Can be a text button or an image button.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Button : GTLRObject
+
+/**
+ *  The alternative text used for accessibility. Has no effect when an icon is
+ *  set; use `icon.alt_text` instead.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** If set, the button is filled with a solid background. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_Color *color;
+
+/**
+ *  If true, the button is displayed in a disabled state and doesn't respond to
+ *  user actions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/** The icon image. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
+
+/** The action to perform when the button is clicked. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
+
+/** The text of the button. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A list of buttons layed out horizontally.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ButtonList : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Button *> *buttons;
+
+@end
+
+
+/**
+ *  A card is a UI element that can contain UI widgets such as text and images.
+ *  For more information, see Cards . For example, the following JSON creates a
+ *  card that has a header with the name, position, icons, and link for a
+ *  contact, followed by a section with contact information like email and phone
+ *  number. ``` { "header": { "title": "Heba Salam", "subtitle": "Software
+ *  Engineer", "imageStyle": "ImageStyle.AVATAR", "imageUrl":
+ *  "https://example.com/heba_salam.png", "imageAltText": "Avatar for Heba
+ *  Salam" }, "sections" : [ { "header": "Contact Info", "widgets": [ {
+ *  "decorated_text": { "icon": { "knownIcon": "EMAIL" }, "content":
+ *  "heba.salam\@example.com" } }, { "decoratedText": { "icon": { "knownIcon":
+ *  "PERSON" }, "content": "Online" } }, { "decoratedText": { "icon": {
+ *  "knownIcon": "PHONE" }, "content": "+1 (555) 555-1234" } }, { "buttons": [ {
+ *  "textButton": { "text": "Share", }, "onClick": { "openLink": { "url":
+ *  "https://example.com/share" } } }, { "textButton": { "text": "Edit", },
+ *  "onClick": { "action": { "function": "goToView", "parameters": [ { "key":
+ *  "viewType", "value": "EDIT" } ], "loadIndicator": "LoadIndicator.SPINNER" }
+ *  } } ] } ], "collapsible": true, "uncollapsibleWidgetsCount": 3 } ],
+ *  "cardActions": [ { "actionLabel": "Send Feedback", "onClick": { "openLink":
+ *  { "url": "https://example.com/feedback" } } } ], "name":
+ *  "contact-card-K3wB6arF2H9L" } ```
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Card : GTLRObject
+
+/**
+ *  The actions of this card. They are added to a card's generated toolbar menu.
+ *  For example, the following JSON constructs a card action menu with Settings
+ *  and Send Feedback options: ``` "card_actions": [ { "actionLabel": "Setting",
+ *  "onClick": { "action": { "functionName": "goToView", "parameters": [ {
+ *  "key": "viewType", "value": "SETTING" } ], "loadIndicator":
+ *  "LoadIndicator.SPINNER" } } }, { "actionLabel": "Send Feedback", "onClick":
+ *  { "openLink": { "url": "https://example.com/feedback" } } } ] ```
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1CardAction *> *cardActions;
+
+/**
+ *  The display style for peekCardHeader.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_DisplayStyleUnspecified
+ *        Value "DISPLAY_STYLE_UNSPECIFIED"
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Peek The
+ *        header of the card appears at the bottom of the sidebar, partially
+ *        covering the current top card of the stack. Clicking the header pops
+ *        the card into the card stack. If the card has no header, a generated
+ *        header is used instead. (Value: "PEEK")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Replace The
+ *        card is shown by replacing the view of the top card in the card stack.
+ *        (Value: "REPLACE")
+ */
+@property(nonatomic, copy, nullable) NSString *displayStyle;
+
+/** The fixed footer shown at the bottom of this card. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter *fixedFooter;
+
+/** The header of the card. A header usually contains a title and an image. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardHeader *header;
+
+/**
+ *  Name of the card, which is used as a identifier for the card in card
+ *  navigation.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  When displaying contextual content, the peek card header acts as a
+ *  placeholder so that the user can navigate forward between the homepage cards
+ *  and the contextual cards.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1CardHeader *peekCardHeader;
+
+/** Sections are separated by a line divider. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Section *> *sections;
+
+@end
+
+
+/**
+ *  A card action is the action associated with the card. For example, an
+ *  invoice card might include actions such as delete invoice, email invoice, or
+ *  open the invoice in a browser.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1CardAction : GTLRObject
+
+/** The label that displays as the action menu item. */
+@property(nonatomic, copy, nullable) NSString *actionLabel;
+
+/** The onclick action for this action item. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
+
+@end
+
+
+/**
+ *  A persistent (sticky) footer that is added to the bottom of the card.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter : GTLRObject
+
+/**
+ *  The primary button of the fixed footer. The button must be a text button
+ *  with text and color set.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *primaryButton;
+
+/**
+ *  The secondary button of the fixed footer. The button must be a text button
+ *  with text and color set. `primaryButton` must be set if `secondaryButton` is
+ *  set.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *secondaryButton;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1CardHeader
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1CardHeader : GTLRObject
+
+/** The alternative text of this image which is used for accessibility. */
+@property(nonatomic, copy, nullable) NSString *imageAltText;
+
+/**
+ *  The image's type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Circle
+ *        Applies a circular mask to the image. (Value: "CIRCLE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Square
+ *        Applies no cropping to the image. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/** The URL of the image in the card header. */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+/** The subtitle of the card header. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/**
+ *  The title of the card header. The title must be specified. The header has a
+ *  fixed height: if both a title and subtitle are specified, each takes up one
+ *  line. If only the title is specified, it takes up both lines.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The widget that lets users to specify a date and time.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker : GTLRObject
+
+/** The label for the field that displays to the user. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/**
+ *  The name of the text input that's used in formInput, and uniquely identifies
+ *  this input.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Triggered when the user clicks Save or Clear from the date/time picker
+ *  dialog. This is only triggered if the value changed as a result of the
+ *  Save/Clear operation.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
+
+/**
+ *  The number representing the time zone offset from UTC, in minutes. If set,
+ *  the `value_ms_epoch` is displayed in the specified time zone. If not set, it
+ *  uses the user's time zone setting on the client side.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timezoneOffsetDate;
+
+/**
+ *  The type of the date/time picker.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTime
+ *        The user can select a date and time. (Value: "DATE_AND_TIME")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly The
+ *        user can only select a date. (Value: "DATE_ONLY")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly The
+ *        user can only select a time. (Value: "TIME_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The value to display as the default value before user input or previous user
+ *  input. It is represented in milliseconds (Epoch time). For `DATE_AND_TIME`
+ *  type, the full epoch value is used. For `DATE_ONLY` type, only date of the
+ *  epoch time is used. For `TIME_ONLY` type, only time of the epoch time is
+ *  used. For example, you can set epoch time to `3 * 60 * 60 * 1000` to
+ *  represent 3am.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *valueMsEpoch;
+
+@end
+
+
+/**
+ *  A widget that displays text with optional decorations such as a label above
+ *  or below the text, an icon in front of the text, a selection widget or a
+ *  button after the text.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1DecoratedText : GTLRObject
+
+/** The formatted text label that shows below the main text. */
+@property(nonatomic, copy, nullable) NSString *bottomLabel;
+
+/** A button that can be clicked to trigger an action. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *button;
+
+/** An icon displayed after the text. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *endIcon;
+
+/** Deprecated in favor of start_icon. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *icon;
+
+/** Only the top and bottom label and content region are clickable. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
+
+/** The icon displayed in front of the text. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *startIcon;
+
+/**
+ *  A switch widget can be clicked to change its state or trigger an action.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SwitchControl *switchControl;
+
+/**
+ *  Required. The main widget formatted text. See Text formatting for details.
+ */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/** The formatted text label that shows above the main text. */
+@property(nonatomic, copy, nullable) NSString *topLabel;
+
+/**
+ *  The wrap text setting. If `true`, the text is wrapped and displayed in
+ *  multiline. Otherwise, the text is truncated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wrapText;
+
+@end
+
+
+/**
+ *  A divider that appears in between widgets.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Divider : GTLRObject
+@end
+
+
+/**
+ *  Represents a Grid widget that displays items in a configurable grid layout.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Grid : GTLRCollectionObject
+
+/** The border style to apply to each grid item. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1BorderStyle *borderStyle;
+
+/**
+ *  The number of columns to display in the grid. A default value is used if
+ *  this field isn't specified, and that default value is different depending on
+ *  where the grid is shown (dialog versus companion).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnCount;
+
+/**
+ *  The items to display in the grid.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1GridItem *> *items;
+
+/**
+ *  This callback is reused by each individual grid item, but with the item's
+ *  identifier and index in the items list added to the callback's parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
+
+/** The text that displays in the grid header. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Represents a single item in the grid layout.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1GridItem : GTLRObject
+
+/**
+ *  A user-specified identifier for this grid item. This identifier is returned
+ *  in the parent Grid's onClick callback parameters.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The image that displays in the grid item. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ImageComponent *image;
+
+/**
+ *  The layout to use for the grid item.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_GridItemLayoutUnspecified
+ *        No layout specified. (Value: "GRID_ITEM_LAYOUT_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextAbove The
+ *        title and subtitle are shown above the grid item's image. (Value:
+ *        "TEXT_ABOVE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextBelow The
+ *        title and subtitle are shown below the grid item's image. (Value:
+ *        "TEXT_BELOW")
+ */
+@property(nonatomic, copy, nullable) NSString *layout;
+
+/** The grid item's subtitle. */
+@property(nonatomic, copy, nullable) NSString *subtitle;
+
+/**
+ *  The horizontal alignment of the grid item's text.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Center
+ *        Alignment to the center position. (Value: "CENTER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_End
+ *        Alignment to the end position. (Value: "END")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_HorizontalAlignmentUnspecified
+ *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Start
+ *        Alignment to the start position. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *textAlignment;
+
+/** The grid item's title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1Icon
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Icon : GTLRObject
+
+/**
+ *  The description of the icon, used for accessibility. The default value is
+ *  provided if you don't specify one.
+ */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** The icon specified by a URL. */
+@property(nonatomic, copy, nullable) NSString *iconUrl;
+
+/**
+ *  The crop style applied to the image. In some cases, applying a `CIRCLE` crop
+ *  causes the image to be drawn larger than a standard icon.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Circle Applies a
+ *        circular mask to the image. (Value: "CIRCLE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Square Applies no
+ *        cropping to the image. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *imageType;
+
+/** The icon specified by the string name of a list of known icons */
+@property(nonatomic, copy, nullable) NSString *knownIcon;
+
+@end
+
+
+/**
+ *  An image that is specified by a URL and can have an onClick action.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Image : GTLRObject
+
+/** The alternative text of this image, used for accessibility. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** An image URL. */
+@property(nonatomic, copy, nullable) NSString *imageUrl;
+
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OnClick *onClick;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1ImageComponent
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ImageComponent : GTLRObject
+
+/** The accessibility label for the image. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/** The border style to apply to the image. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1BorderStyle *borderStyle;
+
+/** The crop style to apply to the image. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle *cropStyle;
+
+/** The image URL. */
+@property(nonatomic, copy, nullable) NSString *imageUri;
+
+@end
+
+
+/**
+ *  Represents the crop style applied to an image.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle : GTLRObject
+
+/**
+ *  The aspect ratio to use if the crop type is `RECTANGLE_CUSTOM`.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aspectRatio;
+
+/**
+ *  The crop type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Circle
+ *        Applies a circular crop. (Value: "CIRCLE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_ImageCropTypeUnspecified
+ *        No value specified. (Value: "IMAGE_CROP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Rectangle43
+ *        Applies a rectangular crop with a 4:3 aspect ratio. (Value:
+ *        "RECTANGLE_4_3")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_RectangleCustom
+ *        Applies a rectangular crop with a custom aspect ratio. (Value:
+ *        "RECTANGLE_CUSTOM")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Square
+ *        Applies a square crop. (Value: "SQUARE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1OnClick
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1OnClick : GTLRObject
+
+/** If specified, an action is triggered by this onClick. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *action;
+
+/** A new card is pushed to the card stack after clicking if specified. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Card *card;
+
+/**
+ *  An add-on triggers this action when the action needs to open a link. This
+ *  differs from the open_link above in that this needs to talk to server to get
+ *  the link. Thus some preparation work is required for web client to do before
+ *  the open link action response comes back.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *openDynamicLinkAction;
+
+/** If specified, this onClick triggers an open link action. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1OpenLink *openLink;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1OpenLink
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1OpenLink : GTLRObject
+
+/**
+ *  onClose
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Nothing Doesn’t
+ *        reload the card after the child window closes. Reloads the card after
+ *        the child window closes. If used in conjunction with
+ *        [OpenAs.OVERLAY](/workspace/add-ons/reference/rpc/google.apps.card.v1#openas),
+ *        the child window acts as a modal dialog and the main card is blocked
+ *        until the child window closes. (Value: "NOTHING")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Reload Value
+ *        "RELOAD"
+ */
+@property(nonatomic, copy, nullable) NSString *onClose;
+
+/**
+ *  openAs
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize The
+ *        link opens as a full size window (if that's the frame used by the
+ *        client. (Value: "FULL_SIZE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay The link
+ *        opens as an overlay, such as a pop-up. (Value: "OVERLAY")
+ */
+@property(nonatomic, copy, nullable) NSString *openAs;
+
+/** The URL to open. */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  A section contains a collection of widgets that are rendered vertically in
+ *  the order that they are specified. Across all platforms, cards have a narrow
+ *  fixed width, so there is currently no need for layout properties, for
+ *  example, float.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Section : GTLRObject
+
+/**
+ *  Indicates whether this section is collapsible. If a section is collapsible,
+ *  the description must be given.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *collapsible;
+
+/** The header of the section. Formatted text is supported. */
+@property(nonatomic, copy, nullable) NSString *header;
+
+/**
+ *  The number of uncollapsible widgets. For example, when a section contains
+ *  five widgets and the `numUncollapsibleWidget` is set to `2`, the first two
+ *  widgets are always shown and the last three are collapsed as default. The
+ *  `numUncollapsibleWidget` is taken into account only when collapsible is set
+ *  to `true`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uncollapsibleWidgetsCount;
+
+/** A section must contain at least 1 widget. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1Widget *> *widgets;
+
+@end
+
+
+/**
+ *  A widget that creates a UI item (for example, a drop-down list) with options
+ *  for users to select.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1SelectionInput : GTLRCollectionObject
+
+/**
+ *  items
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1SelectionItem *> *items;
+
+/** The label displayed ahead of the switch control. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the text input which is used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If specified, the form is submitted when the selection changes. If not
+ *  specified, you must specify a separate button.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
+
+/**
+ *  type
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox The
+ *        selection type is a checkbox. (Value: "CHECK_BOX")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown The
+ *        selection type is a dropdown. (Value: "DROPDOWN")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton
+ *        The selection type is a radio button. (Value: "RADIO_BUTTON")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch The
+ *        selection type is a switch. (Value: "SWITCH")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The item in the switch control. A radio button, at most one of the items is
+ *  selected.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1SelectionItem : GTLRObject
+
+/**
+ *  If more than one item is selected for `RADIO_BUTTON` and `DROPDOWN`, the
+ *  first selected item is treated as selected and the ones after are ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selected;
+
+/** The text to be displayed. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  The value associated with this item. The client should use this as a form
+ *  input value.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A suggestion item. Only supports text for now.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A container wrapping elements necessary for showing suggestion items used in
+ *  text input autocomplete.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Suggestions : GTLRCollectionObject
+
+/**
+ *  A list of suggestions items which will be used in are used in autocomplete.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem *> *items;
+
+@end
+
+
+/**
+ *  GTLRHangoutsChat_GoogleAppsCardV1SwitchControl
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1SwitchControl : GTLRObject
+
+/**
+ *  The control type, either switch or checkbox.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Checkbox
+ *        Deprecated in favor of `CHECK_BOX`. (Value: "CHECKBOX")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_CheckBox
+ *        Value "CHECK_BOX"
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Switch
+ *        Value "SWITCH"
+ */
+@property(nonatomic, copy, nullable) NSString *controlType;
+
+/** The name of the switch widget that's used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The action when the switch state is changed. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
+
+/**
+ *  If the switch is selected.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *selected;
+
+/** The value is what is passed back in the callback. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A text input is a UI item where users can input text. A text input can also
+ *  have an onChange action and suggestions.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1TextInput : GTLRObject
+
+/**
+ *  The refresh function that returns suggestions based on the user's input
+ *  text. If the callback is not specified, autocomplete is done in client side
+ *  based on the initial suggestion items.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *autoCompleteAction;
+
+/** The hint text. */
+@property(nonatomic, copy, nullable) NSString *hintText;
+
+/** The initial suggestions made before any user input. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Suggestions *initialSuggestions;
+
+/** At least one of label and hintText must be specified. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** The name of the text input which is used in formInput. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The onChange action, for example, invoke a function. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Action *onChangeAction;
+
+/**
+ *  The style of the text, for example, a single line or multiple lines.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine The
+ *        text is put into multiple lines. (Value: "MULTIPLE_LINE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine The
+ *        text is put into a single line. (Value: "SINGLE_LINE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The default value when there is no input from the user. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  A paragraph of text that supports formatting. See [Text
+ *  formatting](workspace/add-ons/concepts/widgets#text_formatting") for
+ *  details.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1TextParagraph : GTLRObject
+
+/** The text that's shown in the widget. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  A widget is a UI element that presents texts, images, etc.
+ */
+@interface GTLRHangoutsChat_GoogleAppsCardV1Widget : GTLRObject
+
+/**
+ *  A list of buttons. For example, the following JSON creates two buttons. The
+ *  first is a filled text button and the second is an image button that opens a
+ *  link: ``` "buttonList": { "buttons": [ "button": { "text": "Edit", "Color":
+ *  { "Red": 255 "Green": 255 "Blue": 255 } "disabled": true }, "button": {
+ *  "icon": { "knownIcon": "INVITE" "altText": "check calendar" }, "onClick": {
+ *  "openLink": { "url": "https://example.com/calendar" } } }, ] } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1ButtonList *buttonList;
+
+/**
+ *  Displays a selection/input widget for date/time. For example, the following
+ *  JSON creates a date/time picker for an appointment time: ```
+ *  "date_time_picker": { "name": "appointment_time", "label": "Book your
+ *  appointment at:", "type": "DateTimePickerType.DATE_AND_TIME",
+ *  "valueMsEpoch": "796435200000" } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker *dateTimePicker;
+
+/**
+ *  Displays a decorated text item in this widget. For example, the following
+ *  JSON creates a decorated text widget showing email address: ```
+ *  "decoratedText": { "icon": { "knownIcon": "EMAIL" }, "topLabel": "Email
+ *  Address", "content": "heba.salam\@example.com", "bottomLabel": "This is a
+ *  new Email address!", "switchWidget": { "name":
+ *  "has_send_welcome_email_to_heba_salam", "selected": false, "controlType":
+ *  "ControlType.CHECKBOX" } } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1DecoratedText *decoratedText;
+
+/**
+ *  Displays a divider. For example, the following JSON creates a divider: ```
+ *  "divider": { } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Divider *divider;
+
+/**
+ *  Displays a grid with a collection of items. For example, the following JSON
+ *  creates a 2 column grid with a single item: ``` "grid": { "title": "A fine
+ *  collection of items", "numColumns": 2, "borderStyle": { "type": "STROKE",
+ *  "cornerRadius": 4.0 }, "items": [ "image": { "imageUri":
+ *  "https://www.example.com/image.png", "cropStyle": { "type": "SQUARE" },
+ *  "borderStyle": { "type": "STROKE" } }, "title": "An item", "textAlignment":
+ *  "CENTER" ], "onClick": { "openLink": { "url":"https://www.example.com" } } }
+ *  ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Grid *grid;
+
+/**
+ *  The horizontal alignment of this widget.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center
+ *        Alignment to the center position. (Value: "CENTER")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End
+ *        Alignment to the end position. (Value: "END")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified
+ *        Unspecified alignment. (Value: "HORIZONTAL_ALIGNMENT_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start
+ *        Alignment to the start position. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *horizontalAlignment;
+
+/**
+ *  Displays an image in this widget. For example, the following JSON creates an
+ *  image with alternative text: ``` "image": { "imageUrl":
+ *  "https://example.com/heba_salam.png" "altText": "Avatar for Heba Salam" }
+ *  ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Image *image;
+
+/**
+ *  Displays a switch control in this widget. For example, the following JSON
+ *  creates a dropdown selection for size: ``` "switchControl": { "name":
+ *  "size", "label": "Size" "type": "SelectionType.DROPDOWN", "items": [ {
+ *  "text": "S", "value": "small", "selected": false }, { "text": "M", "value":
+ *  "medium", "selected": true }, { "text": "L", "value": "large", "selected":
+ *  false }, { "text": "XL", "value": "extra_large", "selected": false } ] } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1SelectionInput *selectionInput;
+
+/**
+ *  Displays a text input in this widget. For example, the following JSON
+ *  creates a text input for mail address: ``` "textInput": { "name":
+ *  "mailing_address", "label": "Mailing Address" } ``` As another example, the
+ *  following JSON creates a text input for programming language with static
+ *  suggestions: ``` "textInput": { "name": "preferred_programing_language",
+ *  "label": "Preferred Language", "initialSuggestions": { "items": [ { "text":
+ *  "C++" }, { "text": "Java" }, { "text": "JavaScript" }, { "text": "Python" }
+ *  ] } } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextInput *textInput;
+
+/**
+ *  Displays a text paragraph in this widget. For example, the following JSON
+ *  creates a bolded text: ``` "textParagraph": { "text": " *bold text*" } ```
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *textParagraph;
 
 @end
 
@@ -1084,6 +2541,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_Ty
  *  normally displayed below the plain-text body of the message.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Card *> *cards;
+
+/**
+ *  Rich, formatted and interactive cards that can be used to display UI
+ *  elements and editable widgets, such as: formatted text, buttons, clickable
+ *  images, checkboxes, radio buttons. Cards are normally displayed below the
+ *  plain-text body of the message. This v2 allows input widgets. The string key
+ *  is a unique identifier among cards in the same message for identifying
+ *  inputs.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_CardWithId *> *cardsV2;
 
 /**
  *  Output only. The time at which the message was created in Hangouts Chat

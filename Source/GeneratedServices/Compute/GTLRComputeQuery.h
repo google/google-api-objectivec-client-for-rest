@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -135,6 +135,7 @@
 @class GTLRCompute_SecurityPolicy;
 @class GTLRCompute_SecurityPolicyReference;
 @class GTLRCompute_SecurityPolicyRule;
+@class GTLRCompute_ServiceAttachment;
 @class GTLRCompute_ShieldedInstanceConfig;
 @class GTLRCompute_ShieldedInstanceIntegrityPolicy;
 @class GTLRCompute_SignedUrlKey;
@@ -189,9 +190,17 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // direction
 
-/** Value: "INCOMING" */
+/**
+ *  For routes exported from peer network.
+ *
+ *  Value: "INCOMING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeDirectionIncoming;
-/** Value: "OUTGOING" */
+/**
+ *  For routes exported from local network.
+ *
+ *  Value: "OUTGOING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 // ----------------------------------------------------------------------------
@@ -199,11 +208,23 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeDirectionOutgoing;
 
 /** Value: "INVALID" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionInvalid;
-/** Value: "NO_EFFECT" */
+/**
+ *  No changes can be made to the instance.
+ *
+ *  Value: "NO_EFFECT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionNoEffect;
-/** Value: "REFRESH" */
+/**
+ *  The instance will not restart.
+ *
+ *  Value: "REFRESH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRefresh;
-/** Value: "RESTART" */
+/**
+ *  The instance will restart.
+ *
+ *  Value: "RESTART"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRestart;
 
 // ----------------------------------------------------------------------------
@@ -211,11 +232,23 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRestart;
 
 /** Value: "INVALID" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionInvalid;
-/** Value: "NO_EFFECT" */
+/**
+ *  No changes can be made to the instance.
+ *
+ *  Value: "NO_EFFECT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffect;
-/** Value: "REFRESH" */
+/**
+ *  The instance will not restart.
+ *
+ *  Value: "REFRESH"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh;
-/** Value: "RESTART" */
+/**
+ *  The instance will restart.
+ *
+ *  Value: "RESTART"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart;
 
 // ----------------------------------------------------------------------------
@@ -254,13 +287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -288,13 +321,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -391,13 +424,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -414,13 +447,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -488,13 +521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -522,13 +555,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -583,14 +616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -670,14 +702,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -721,13 +752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -744,13 +775,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -813,13 +844,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -847,13 +878,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -905,14 +936,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1002,14 +1032,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1060,13 +1089,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1083,13 +1112,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1156,14 +1185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1214,14 +1242,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1273,14 +1300,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1322,14 +1348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1375,14 +1400,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1458,14 +1482,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1508,13 +1531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1531,13 +1554,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1596,14 +1619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1647,14 +1669,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1700,14 +1721,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1753,13 +1773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1787,13 +1807,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -1846,14 +1866,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1899,14 +1918,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -1965,9 +1983,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Gets the most recent health check results for this BackendService.
- *  Example request body:
- *  { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
+ *  Gets the most recent health check results for this BackendService. Example
+ *  request body: { "group":
+ *  "/zones/us-east1-b/instanceGroups/lb-backend-example" }
  *
  *  Method: compute.backendServices.getHealth
  *
@@ -1988,9 +2006,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_BackendServiceGroupHealth.
  *
- *  Gets the most recent health check results for this BackendService.
- *  Example request body:
- *  { "group": "/zones/us-east1-b/instanceGroups/lb-backend-example" }
+ *  Gets the most recent health check results for this BackendService. Example
+ *  request body: { "group":
+ *  "/zones/us-east1-b/instanceGroups/lb-backend-example" }
  *
  *  @param object The @c GTLRCompute_ResourceGroupReference to include in the
  *    query.
@@ -2008,8 +2026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Creates a BackendService resource in the specified project using the data
- *  included in the request. For more information, see Backend services
- *  overview.
+ *  included in the request. For more information, see Backend services overview
+ *  .
  *
  *  Method: compute.backendServices.insert
  *
@@ -2025,14 +2043,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2040,8 +2057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Creates a BackendService resource in the specified project using the data
- *  included in the request. For more information, see Backend services
- *  overview.
+ *  included in the request. For more information, see Backend services overview
+ *  .
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -2076,13 +2093,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2099,13 +2116,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2165,14 +2182,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2220,14 +2236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2272,14 +2287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2322,14 +2336,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2383,13 +2396,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2417,13 +2430,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2482,14 +2495,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2542,14 +2554,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2692,14 +2703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2756,13 +2766,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2779,13 +2789,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2850,14 +2860,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -2909,14 +2918,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3011,14 +3019,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3120,13 +3127,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3154,13 +3161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3258,13 +3265,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3281,13 +3288,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3352,14 +3359,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3431,14 +3437,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3480,13 +3485,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -3503,13 +3508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3642,14 +3647,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3686,14 +3690,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3729,14 +3732,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3773,14 +3775,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3944,14 +3945,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -3970,7 +3970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Lists all the policies that have been configured for the specified project.
+ *  Lists all the policies that have been configured for the specified folder or
+ *  organization.
  *
  *  Method: compute.firewallPolicies.list
  *
@@ -3991,13 +3992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4014,13 +4015,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4042,7 +4043,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_FirewallPolicyList.
  *
- *  Lists all the policies that have been configured for the specified project.
+ *  Lists all the policies that have been configured for the specified folder or
+ *  organization.
  *
  *  @return GTLRComputeQuery_FirewallPoliciesList
  *
@@ -4062,6 +4064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_FirewallPoliciesListAssociations : GTLRComputeQuery
 
@@ -4102,14 +4105,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4143,14 +4145,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4189,14 +4190,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4235,14 +4235,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4279,14 +4278,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4386,14 +4384,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4463,14 +4460,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4512,13 +4508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4535,13 +4531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4599,14 +4595,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4651,14 +4646,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4703,13 +4697,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4737,13 +4731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -4798,14 +4792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4885,14 +4878,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -4937,13 +4929,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4960,13 +4952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -5033,14 +5025,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5086,14 +5077,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5145,14 +5135,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5197,14 +5186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5276,14 +5264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5325,13 +5312,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5348,13 +5335,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -5410,14 +5397,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5489,14 +5475,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5539,13 +5524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5562,13 +5547,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -5627,14 +5612,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5715,14 +5699,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5768,14 +5751,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5823,14 +5805,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5874,14 +5855,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -5959,14 +5939,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -6010,13 +5989,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6033,13 +6012,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6098,13 +6077,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6127,13 +6106,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6195,13 +6174,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6229,13 +6208,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6358,13 +6337,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6381,13 +6360,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6430,12 +6409,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  Method: compute.globalOperations.wait
  *
@@ -6460,12 +6439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param operation Name of the Operations resource to return.
@@ -6564,13 +6543,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6587,13 +6566,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6648,14 +6627,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -6727,14 +6706,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -6777,13 +6756,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6800,13 +6779,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -6864,14 +6843,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -6919,13 +6898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -6953,13 +6932,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -7012,14 +6991,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7091,14 +7069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7141,13 +7118,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7164,13 +7141,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -7229,14 +7206,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7280,14 +7256,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7329,14 +7304,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7408,14 +7382,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7458,13 +7431,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7481,13 +7454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -7546,14 +7519,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7597,14 +7569,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7646,14 +7617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7725,14 +7695,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7775,13 +7744,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -7798,13 +7767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -7863,14 +7832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7914,14 +7882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7963,14 +7930,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -7990,8 +7956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Sets the deprecation status of an image.
- *  If an empty request body is given, clears the deprecation status instead.
+ *  Sets the deprecation status of an image. If an empty request body is given,
+ *  clears the deprecation status instead.
  *
  *  Method: compute.images.deprecate
  *
@@ -8010,22 +7976,21 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Sets the deprecation status of an image.
- *  If an empty request body is given, clears the deprecation status instead.
+ *  Sets the deprecation status of an image. If an empty request body is given,
+ *  clears the deprecation status instead.
  *
  *  @param object The @c GTLRCompute_DeprecationStatus to include in the query.
  *  @param project Project ID for this request.
@@ -8171,14 +8136,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8225,13 +8189,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8248,13 +8212,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -8316,14 +8280,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8463,11 +8426,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the number of instances that you abandon. This operation is marked as DONE
  *  when the action is scheduled even if the instances have not yet been removed
  *  from the group. You must separately verify the status of the abandoning
- *  action with the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  action with the listmanagedinstances method. If the group is part of a
+ *  backend service that has enabled connection draining, it can take up to 60
+ *  seconds after the connection draining duration has elapsed before the VM
+ *  instance is removed or deleted. You can specify a maximum of 1000 instances
+ *  with this method per request.
  *
  *  Method: compute.instanceGroupManagers.abandonInstances
  *
@@ -8486,14 +8449,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8514,11 +8476,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the number of instances that you abandon. This operation is marked as DONE
  *  when the action is scheduled even if the instances have not yet been removed
  *  from the group. You must separately verify the status of the abandoning
- *  action with the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  action with the listmanagedinstances method. If the group is part of a
+ *  backend service that has enabled connection draining, it can take up to 60
+ *  seconds after the connection draining duration has elapsed before the VM
+ *  instance is removed or deleted. You can specify a maximum of 1000 instances
+ *  with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersAbandonInstancesRequest to include in the
@@ -8559,13 +8521,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8593,13 +8555,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -8705,13 +8667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8772,14 +8733,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8818,11 +8778,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  group by the number of instances that you delete. This operation is marked
  *  as DONE when the action is scheduled even if the instances are still being
  *  deleted. You must separately verify the status of the deleting action with
- *  the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  the listmanagedinstances method. If the group is part of a backend service
+ *  that has enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration has elapsed before the VM instance is removed
+ *  or deleted. You can specify a maximum of 1000 instances with this method per
+ *  request.
  *
  *  Method: compute.instanceGroupManagers.deleteInstances
  *
@@ -8841,14 +8801,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -8868,11 +8827,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  group by the number of instances that you delete. This operation is marked
  *  as DONE when the action is scheduled even if the instances are still being
  *  deleted. You must separately verify the status of the deleting action with
- *  the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  the listmanagedinstances method. If the group is part of a backend service
+ *  that has enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration has elapsed before the VM instance is removed
+ *  or deleted. You can specify a maximum of 1000 instances with this method per
+ *  request.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManagersDeleteInstancesRequest
  *    to include in the query.
@@ -8989,9 +8948,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  using the specified instance template. This operation is marked as DONE when
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
- *  with the listmanagedinstances method.
- *  A managed instance group can have up to 1000 VM instances per group. Please
- *  contact Cloud Support if you need an increase in this limit.
+ *  with the listmanagedinstances method. A managed instance group can have up
+ *  to 1000 VM instances per group. Please contact Cloud Support if you need an
+ *  increase in this limit.
  *
  *  Method: compute.instanceGroupManagers.insert
  *
@@ -9007,14 +8966,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9033,9 +8991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  using the specified instance template. This operation is marked as DONE when
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
- *  with the listmanagedinstances method.
- *  A managed instance group can have up to 1000 VM instances per group. Please
- *  contact Cloud Support if you need an increase in this limit.
+ *  with the listmanagedinstances method. A managed instance group can have up
+ *  to 1000 VM instances per group. Please contact Cloud Support if you need an
+ *  increase in this limit.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -9074,13 +9032,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9097,13 +9055,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -9173,20 +9131,20 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The name of the managed instance group. It must be a string that meets the
  *  requirements in RFC1035, or an unsigned long integer: must match regexp
- *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|1-9{0,19}.
  */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
 
@@ -9203,13 +9161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -9248,7 +9206,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param instanceGroupManager The name of the managed instance group. It must
  *    be a string that meets the requirements in RFC1035, or an unsigned long
  *    integer: must match regexp pattern:
- *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|1-9{0,19}.
  *
  *  @return GTLRComputeQuery_InstanceGroupManagersListErrors
  *
@@ -9289,13 +9247,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9315,13 +9273,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -9397,13 +9355,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -9423,13 +9381,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -9505,14 +9463,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9571,14 +9528,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9621,11 +9577,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  configuration. This operation is marked as DONE when the flag is set even if
  *  the instances have not yet been recreated. You must separately verify the
  *  status of each instance by checking its currentAction field; for more
- *  information, see Checking the status of managed instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  information, see Checking the status of managed instances. If the group is
+ *  part of a backend service that has enabled connection draining, it can take
+ *  up to 60 seconds after the connection draining duration has elapsed before
+ *  the VM instance is removed or deleted. You can specify a maximum of 1000
+ *  instances with this method per request.
  *
  *  Method: compute.instanceGroupManagers.recreateInstances
  *
@@ -9644,14 +9600,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9670,11 +9625,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  configuration. This operation is marked as DONE when the flag is set even if
  *  the instances have not yet been recreated. You must separately verify the
  *  status of each instance by checking its currentAction field; for more
- *  information, see Checking the status of managed instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  information, see Checking the status of managed instances. If the group is
+ *  part of a backend service that has enabled connection draining, it can take
+ *  up to 60 seconds after the connection draining duration has elapsed before
+ *  the VM instance is removed or deleted. You can specify a maximum of 1000
+ *  instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_InstanceGroupManagersRecreateInstancesRequest to include in
@@ -9699,17 +9654,16 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the size, the group deletes instances. The resize operation is marked DONE
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
- *  or deleting actions with the listmanagedinstances method.
- *  When resizing down, the instance group arbitrarily chooses the order in
- *  which VMs are deleted. The group takes into account some VM attributes when
- *  making the selection including:
- *  + The status of the VM instance. + The health of the VM instance. + The
- *  instance template version the VM is based on. + For regional managed
- *  instance groups, the location of the VM instance.
- *  This list is subject to change.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  or deleting actions with the listmanagedinstances method. When resizing
+ *  down, the instance group arbitrarily chooses the order in which VMs are
+ *  deleted. The group takes into account some VM attributes when making the
+ *  selection including: + The status of the VM instance. + The health of the VM
+ *  instance. + The instance template version the VM is based on. + For regional
+ *  managed instance groups, the location of the VM instance. This list is
+ *  subject to change. If the group is part of a backend service that has
+ *  enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration has elapsed before the VM instance is removed
+ *  or deleted.
  *
  *  Method: compute.instanceGroupManagers.resize
  *
@@ -9728,14 +9682,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9761,17 +9714,16 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  the size, the group deletes instances. The resize operation is marked DONE
  *  when the resize actions are scheduled even if the group has not yet added or
  *  deleted any instances. You must separately verify the status of the creating
- *  or deleting actions with the listmanagedinstances method.
- *  When resizing down, the instance group arbitrarily chooses the order in
- *  which VMs are deleted. The group takes into account some VM attributes when
- *  making the selection including:
- *  + The status of the VM instance. + The health of the VM instance. + The
- *  instance template version the VM is based on. + For regional managed
- *  instance groups, the location of the VM instance.
- *  This list is subject to change.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  or deleting actions with the listmanagedinstances method. When resizing
+ *  down, the instance group arbitrarily chooses the order in which VMs are
+ *  deleted. The group takes into account some VM attributes when making the
+ *  selection including: + The status of the VM instance. + The health of the VM
+ *  instance. + The instance template version the VM is based on. + For regional
+ *  managed instance groups, the location of the VM instance. This list is
+ *  subject to change. If the group is part of a backend service that has
+ *  enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration has elapsed before the VM instance is removed
+ *  or deleted.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the managed instance group is
@@ -9813,14 +9765,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9881,14 +9832,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -9947,14 +9897,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10013,14 +9962,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10077,13 +10025,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10111,13 +10059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -10171,14 +10119,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10211,9 +10158,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Returns the specified zonal instance group. Get a list of available zonal
- *  instance groups by making a list() request.
- *  For managed instance groups, use the instanceGroupManagers or
- *  regionInstanceGroupManagers methods instead.
+ *  instance groups by making a list() request. For managed instance groups, use
+ *  the instanceGroupManagers or regionInstanceGroupManagers methods instead.
  *
  *  Method: compute.instanceGroups.get
  *
@@ -10241,9 +10187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_InstanceGroup.
  *
  *  Returns the specified zonal instance group. Get a list of available zonal
- *  instance groups by making a list() request.
- *  For managed instance groups, use the instanceGroupManagers or
- *  regionInstanceGroupManagers methods instead.
+ *  instance groups by making a list() request. For managed instance groups, use
+ *  the instanceGroupManagers or regionInstanceGroupManagers methods instead.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -10276,14 +10221,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10315,9 +10259,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Retrieves the list of zonal instance group resources contained within the
- *  specified zone.
- *  For managed instance groups, use the instanceGroupManagers or
- *  regionInstanceGroupManagers methods instead.
+ *  specified zone. For managed instance groups, use the instanceGroupManagers
+ *  or regionInstanceGroupManagers methods instead.
  *
  *  Method: compute.instanceGroups.list
  *
@@ -10338,13 +10281,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10361,13 +10304,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -10397,9 +10340,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_InstanceGroupList.
  *
  *  Retrieves the list of zonal instance group resources contained within the
- *  specified zone.
- *  For managed instance groups, use the instanceGroupManagers or
- *  regionInstanceGroupManagers methods instead.
+ *  specified zone. For managed instance groups, use the instanceGroupManagers
+ *  or regionInstanceGroupManagers methods instead.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty The name of the zone where the instance group is
@@ -10439,13 +10381,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10468,13 +10410,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -10529,10 +10471,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Removes one or more instances from the specified instance group, but does
- *  not delete those instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration before the VM instance is removed or deleted.
+ *  not delete those instances. If the group is part of a backend service that
+ *  has enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration before the VM instance is removed or deleted.
  *
  *  Method: compute.instanceGroups.removeInstances
  *
@@ -10554,14 +10495,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10576,10 +10516,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Removes one or more instances from the specified instance group, but does
- *  not delete those instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration before the VM instance is removed or deleted.
+ *  not delete those instances. If the group is part of a backend service that
+ *  has enabled connection draining, it can take up to 60 seconds after the
+ *  connection draining duration before the VM instance is removed or deleted.
  *
  *  @param object The @c GTLRCompute_InstanceGroupsRemoveInstancesRequest to
  *    include in the query.
@@ -10618,14 +10557,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10681,14 +10619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10743,14 +10680,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10806,13 +10742,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10840,13 +10776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -10909,14 +10845,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -10967,14 +10902,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11025,14 +10959,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11087,14 +11020,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11152,14 +11084,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11448,17 +11379,16 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Specifies the starting byte position of the output to return. To start with
  *  the first byte of output to the specified port, omit this field or set it to
- *  `0`.
- *  If the output for that byte position is available, this field matches the
- *  `start` parameter sent with the request. If the amount of serial console
+ *  `0`. If the output for that byte position is available, this field matches
+ *  the `start` parameter sent with the request. If the amount of serial console
  *  output exceeds the size of the buffer (1 MB), the oldest output is discarded
  *  and is no longer available. If the requested start position refers to
  *  discarded output, the start position is adjusted to the oldest output still
  *  available, and the adjusted start position is returned as the `start`
- *  property value.
- *  You can also provide a negative start position, which translates to the most
- *  recent number of bytes written to the serial port. For example, -3 is
- *  interpreted as the most recent 3 bytes written to the serial console.
+ *  property value. You can also provide a negative start position, which
+ *  translates to the most recent number of bytes written to the serial port.
+ *  For example, -3 is interpreted as the most recent 3 bytes written to the
+ *  serial console.
  */
 @property(nonatomic, assign) long long start;
 
@@ -11546,25 +11476,24 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Specifies instance template to create the instance.
- *  This field is optional. It can be a full or partial URL. For example, the
- *  following are all valid URLs to an instance template:
- *  -
- *  https://www.googleapis.com/compute/v1/projects/project/global/instanceTemplates/instanceTemplate
- *  - projects/project/global/instanceTemplates/instanceTemplate
- *  - global/instanceTemplates/instanceTemplate
+ *  Specifies instance template to create the instance. This field is optional.
+ *  It can be a full or partial URL. For example, the following are all valid
+ *  URLs to an instance template: -
+ *  https://www.googleapis.com/compute/v1/projects/project
+ *  /global/instanceTemplates/instanceTemplate -
+ *  projects/project/global/instanceTemplates/instanceTemplate -
+ *  global/instanceTemplates/instanceTemplate
  */
 @property(nonatomic, copy, nullable) NSString *sourceInstanceTemplate;
 
@@ -11615,13 +11544,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11638,13 +11567,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -11714,13 +11643,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -11743,13 +11672,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -11820,14 +11749,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11879,14 +11807,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -11939,14 +11866,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12006,14 +11932,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12114,14 +12039,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12174,14 +12098,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12234,14 +12157,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12294,14 +12216,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12354,14 +12275,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12417,14 +12337,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12478,14 +12397,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12539,14 +12457,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12600,14 +12517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12700,14 +12616,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12757,14 +12672,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12821,14 +12735,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -12929,9 +12842,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Likely values:
  *    @arg @c kGTLRComputeMinimalActionInvalid Value "INVALID"
- *    @arg @c kGTLRComputeMinimalActionNoEffect Value "NO_EFFECT"
- *    @arg @c kGTLRComputeMinimalActionRefresh Value "REFRESH"
- *    @arg @c kGTLRComputeMinimalActionRestart Value "RESTART"
+ *    @arg @c kGTLRComputeMinimalActionNoEffect No changes can be made to the
+ *        instance. (Value: "NO_EFFECT")
+ *    @arg @c kGTLRComputeMinimalActionRefresh The instance will not restart.
+ *        (Value: "REFRESH")
+ *    @arg @c kGTLRComputeMinimalActionRestart The instance will restart.
+ *        (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *minimalAction;
 
@@ -12943,9 +12859,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Likely values:
  *    @arg @c kGTLRComputeMostDisruptiveAllowedActionInvalid Value "INVALID"
- *    @arg @c kGTLRComputeMostDisruptiveAllowedActionNoEffect Value "NO_EFFECT"
- *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRefresh Value "REFRESH"
- *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRestart Value "RESTART"
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionNoEffect No changes can be
+ *        made to the instance. (Value: "NO_EFFECT")
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRefresh The instance will
+ *        not restart. (Value: "REFRESH")
+ *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRestart The instance will
+ *        restart. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
@@ -12955,14 +12874,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13019,14 +12937,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13083,14 +13000,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13149,14 +13065,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13214,14 +13129,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13276,14 +13190,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13397,14 +13310,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13449,13 +13361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13472,13 +13384,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -13610,13 +13522,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13644,13 +13556,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -13705,14 +13617,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13792,14 +13703,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -13848,13 +13758,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13871,13 +13781,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -13944,14 +13854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -14035,13 +13944,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14058,13 +13967,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -14121,14 +14030,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -14233,14 +14141,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -14282,13 +14189,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14305,13 +14212,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -14369,14 +14276,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -14401,7 +14307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code. Caution This
+ *  projects that have permissions to read the License Code. *Caution* This
  *  resource is intended for use only by third-party partners who are creating
  *  Cloud Marketplace images.
  *
@@ -14424,7 +14330,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_LicenseCode.
  *
  *  Return a specified license code. License codes are mirrored across all
- *  projects that have permissions to read the License Code. Caution This
+ *  projects that have permissions to read the License Code. *Caution* This
  *  resource is intended for use only by third-party partners who are creating
  *  Cloud Marketplace images.
  *
@@ -14440,7 +14346,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. Caution
+ *  Returns permissions that a caller has on the specified resource. *Caution*
  *  This resource is intended for use only by third-party partners who are
  *  creating Cloud Marketplace images.
  *
@@ -14462,7 +14368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource. Caution
+ *  Returns permissions that a caller has on the specified resource. *Caution*
  *  This resource is intended for use only by third-party partners who are
  *  creating Cloud Marketplace images.
  *
@@ -14480,7 +14386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Deletes the specified license. Caution This resource is intended for use
+ *  Deletes the specified license. *Caution* This resource is intended for use
  *  only by third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.delete
@@ -14500,21 +14406,20 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Deletes the specified license. Caution This resource is intended for use
+ *  Deletes the specified license. *Caution* This resource is intended for use
  *  only by third-party partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
@@ -14528,7 +14433,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns the specified License resource. Caution This resource is intended
+ *  Returns the specified License resource. *Caution* This resource is intended
  *  for use only by third-party partners who are creating Cloud Marketplace
  *  images.
  *
@@ -14550,7 +14455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_License.
  *
- *  Returns the specified License resource. Caution This resource is intended
+ *  Returns the specified License resource. *Caution* This resource is intended
  *  for use only by third-party partners who are creating Cloud Marketplace
  *  images.
  *
@@ -14566,8 +14471,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists. Caution This resource is intended for use only by
- *  third-party partners who are creating Cloud Marketplace images.
+ *  policy or resource exists. *Caution* This resource is intended for use only
+ *  by third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.getIamPolicy
  *
@@ -14591,8 +14496,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Gets the access control policy for a resource. May be empty if no such
- *  policy or resource exists. Caution This resource is intended for use only by
- *  third-party partners who are creating Cloud Marketplace images.
+ *  policy or resource exists. *Caution* This resource is intended for use only
+ *  by third-party partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *  @param resource Name or id of the resource for this request.
@@ -14605,8 +14510,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Create a License resource in the specified project. Caution This resource is
- *  intended for use only by third-party partners who are creating Cloud
+ *  Create a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
  *  Marketplace images.
  *
  *  Method: compute.licenses.insert
@@ -14626,22 +14531,21 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Create a License resource in the specified project. Caution This resource is
- *  intended for use only by third-party partners who are creating Cloud
+ *  Create a License resource in the specified project. *Caution* This resource
+ *  is intended for use only by third-party partners who are creating Cloud
  *  Marketplace images.
  *
  *  @param object The @c GTLRCompute_License to include in the query.
@@ -14660,8 +14564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud. Caution This resource is intended for use only by third-party
- *  partners who are creating Cloud Marketplace images.
+ *  windows-cloud. *Caution* This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.list
  *
@@ -14682,13 +14586,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14705,13 +14609,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -14738,8 +14642,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  licenses attached to publicly-available images, like Debian 9. If you want
  *  to get a list of publicly-available licenses, use this method to make a
  *  request to the respective image project, such as debian-cloud or
- *  windows-cloud. Caution This resource is intended for use only by third-party
- *  partners who are creating Cloud Marketplace images.
+ *  windows-cloud. *Caution* This resource is intended for use only by
+ *  third-party partners who are creating Cloud Marketplace images.
  *
  *  @param project Project ID for this request.
  *
@@ -14755,7 +14659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Caution This resource is intended for use only by
+ *  existing policy. *Caution* This resource is intended for use only by
  *  third-party partners who are creating Cloud Marketplace images.
  *
  *  Method: compute.licenses.setIamPolicy
@@ -14776,7 +14680,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Policy.
  *
  *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Caution This resource is intended for use only by
+ *  existing policy. *Caution* This resource is intended for use only by
  *  third-party partners who are creating Cloud Marketplace images.
  *
  *  @param object The @c GTLRCompute_GlobalSetPolicyRequest to include in the
@@ -14793,7 +14697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Returns permissions that a caller has on the specified resource. Caution
+ *  Returns permissions that a caller has on the specified resource. *Caution*
  *  This resource is intended for use only by third-party partners who are
  *  creating Cloud Marketplace images.
  *
@@ -14815,7 +14719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_TestPermissionsResponse.
  *
- *  Returns permissions that a caller has on the specified resource. Caution
+ *  Returns permissions that a caller has on the specified resource. *Caution*
  *  This resource is intended for use only by third-party partners who are
  *  creating Cloud Marketplace images.
  *
@@ -14854,13 +14758,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -14888,13 +14792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -14992,13 +14896,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15015,13 +14919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -15088,13 +14992,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15122,13 +15026,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -15183,14 +15087,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15250,14 +15153,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15315,14 +15217,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15422,14 +15323,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15484,13 +15384,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15507,13 +15407,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -15583,13 +15483,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15612,13 +15512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -15737,14 +15637,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15786,14 +15685,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15898,14 +15796,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -15947,13 +15844,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -15970,13 +15867,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -16028,8 +15925,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  The direction of the exchanged routes.
  *
  *  Likely values:
- *    @arg @c kGTLRComputeDirectionIncoming Value "INCOMING"
- *    @arg @c kGTLRComputeDirectionOutgoing Value "OUTGOING"
+ *    @arg @c kGTLRComputeDirectionIncoming For routes exported from peer
+ *        network. (Value: "INCOMING")
+ *    @arg @c kGTLRComputeDirectionOutgoing For routes exported from local
+ *        network. (Value: "OUTGOING")
  */
 @property(nonatomic, copy, nullable) NSString *direction;
 
@@ -16043,13 +15942,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16069,13 +15968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -16145,14 +16044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16194,14 +16092,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16243,14 +16140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16291,14 +16187,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16343,14 +16238,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16404,13 +16298,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16438,13 +16332,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -16497,14 +16391,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16552,14 +16445,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16704,14 +16596,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -16765,13 +16656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16788,13 +16679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -16862,13 +16753,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -16888,13 +16779,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -16962,14 +16853,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -17065,14 +16955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -17170,13 +17059,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17204,13 +17093,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -17265,14 +17154,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -17397,14 +17285,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -17448,13 +17335,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17471,13 +17358,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -17623,13 +17510,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17657,13 +17544,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -17761,13 +17648,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17784,13 +17671,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -17857,13 +17744,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -17891,13 +17778,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -17952,14 +17839,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18039,14 +17925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18091,13 +17976,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18114,13 +17999,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -18187,14 +18072,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18277,14 +18161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18319,14 +18202,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18364,14 +18246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18406,14 +18287,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18513,13 +18393,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18536,13 +18416,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -18600,13 +18480,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -18623,13 +18503,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -18685,14 +18565,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18729,14 +18608,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18775,14 +18653,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18821,14 +18698,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18872,14 +18748,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -18921,14 +18796,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19000,14 +18875,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19050,13 +18925,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19073,13 +18948,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -19137,14 +19012,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19192,13 +19067,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19226,13 +19101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -19288,14 +19163,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19377,14 +19252,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19429,13 +19304,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19452,13 +19327,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -19524,14 +19399,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19581,14 +19456,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19668,14 +19542,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19719,13 +19592,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -19742,13 +19615,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -19814,14 +19687,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19868,14 +19740,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -19920,14 +19791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20049,14 +19919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20102,13 +19971,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20125,13 +19994,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -20199,14 +20068,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20234,8 +20102,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. For more information, see Backend services
- *  overview.
+ *  included in the request. For more information, see Backend services overview
+ *  .
  *
  *  Method: compute.regionBackendServices.update
  *
@@ -20257,14 +20125,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20272,8 +20139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Updates the specified regional BackendService resource with the data
- *  included in the request. For more information, see Backend services
- *  overview.
+ *  included in the request. For more information, see Backend services overview
+ *  .
  *
  *  @param object The @c GTLRCompute_BackendService to include in the query.
  *  @param project Project ID for this request.
@@ -20290,7 +20157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
- *  Retrieves an aggregated list of commitments.
+ *  Retrieves an aggregated list of commitments by region.
  *
  *  Method: compute.regionCommitments.aggregatedList
  *
@@ -20311,13 +20178,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20345,13 +20212,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -20373,7 +20240,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Fetches a @c GTLRCompute_CommitmentAggregatedList.
  *
- *  Retrieves an aggregated list of commitments.
+ *  Retrieves an aggregated list of commitments by region.
  *
  *  @param project Project ID for this request.
  *
@@ -20444,14 +20311,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20495,13 +20361,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20518,13 +20384,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -20589,14 +20455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20644,14 +20509,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20700,14 +20564,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20833,14 +20696,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -20888,13 +20750,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -20911,13 +20773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -20982,14 +20844,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21036,14 +20897,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21129,14 +20989,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21266,13 +21125,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21289,13 +21148,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -21359,14 +21218,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21413,14 +21271,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21505,14 +21362,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21557,13 +21413,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21580,13 +21436,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -21656,14 +21512,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21750,14 +21605,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21802,13 +21656,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -21825,13 +21679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -21898,14 +21752,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21954,14 +21807,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -21993,11 +21845,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  instance group by the number of instances that you abandon. This operation
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
- *  of the abandoning action with the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  of the abandoning action with the listmanagedinstances method. If the group
+ *  is part of a backend service that has enabled connection draining, it can
+ *  take up to 60 seconds after the connection draining duration has elapsed
+ *  before the VM instance is removed or deleted. You can specify a maximum of
+ *  1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.abandonInstances
  *
@@ -22019,14 +21871,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22040,11 +21891,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  instance group by the number of instances that you abandon. This operation
  *  is marked as DONE when the action is scheduled even if the instances have
  *  not yet been removed from the group. You must separately verify the status
- *  of the abandoning action with the listmanagedinstances method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  of the abandoning action with the listmanagedinstances method. If the group
+ *  is part of a backend service that has enabled connection draining, it can
+ *  take up to 60 seconds after the connection draining duration has elapsed
+ *  before the VM instance is removed or deleted. You can specify a maximum of
+ *  1000 instances with this method per request.
  *
  *  @param object The @c
  *    GTLRCompute_RegionInstanceGroupManagersAbandonInstancesRequest to include
@@ -22136,13 +21987,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22198,14 +22048,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22235,10 +22084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  deleteInstances operation is marked DONE if the deleteInstances request is
  *  successful. The underlying actions take additional time. You must separately
  *  verify the status of the deleting action with the listmanagedinstances
- *  method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  method. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.deleteInstances
@@ -22261,14 +22109,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22282,10 +22129,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  deleteInstances operation is marked DONE if the deleteInstances request is
  *  successful. The underlying actions take additional time. You must separately
  *  verify the status of the deleting action with the listmanagedinstances
- *  method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  method. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is removed or deleted.
  *  You can specify a maximum of 1000 instances with this method per request.
  *
  *  @param object The @c
@@ -22391,8 +22237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  using the specified instance template. This operation is marked as DONE when
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
- *  with the listmanagedinstances method.
- *  A regional managed instance group can contain up to 2000 instances.
+ *  with the listmanagedinstances method. A regional managed instance group can
+ *  contain up to 2000 instances.
  *
  *  Method: compute.regionInstanceGroupManagers.insert
  *
@@ -22411,14 +22257,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22430,8 +22275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  using the specified instance template. This operation is marked as DONE when
  *  the group is created even if the instances in the group have not yet been
  *  created. You must separately verify the status of the individual instances
- *  with the listmanagedinstances method.
- *  A regional managed instance group can contain up to 2000 instances.
+ *  with the listmanagedinstances method. A regional managed instance group can
+ *  contain up to 2000 instances.
  *
  *  @param object The @c GTLRCompute_InstanceGroupManager to include in the
  *    query.
@@ -22469,13 +22314,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22492,13 +22337,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -22563,20 +22408,20 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  The name of the managed instance group. It must be a string that meets the
  *  requirements in RFC1035, or an unsigned long integer: must match regexp
- *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *  pattern: (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|1-9{0,19}.
  */
 @property(nonatomic, copy, nullable) NSString *instanceGroupManager;
 
@@ -22593,13 +22438,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -22635,7 +22480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param instanceGroupManager The name of the managed instance group. It must
  *    be a string that meets the requirements in RFC1035, or an unsigned long
  *    integer: must match regexp pattern:
- *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|[1-9][0-9]{0,19}.
+ *    (?:[a-z](?:[-a-z0-9]{0,61}[a-z0-9])?)|1-9{0,19}.
  *
  *  @return GTLRComputeQuery_RegionInstanceGroupManagersListErrors
  *
@@ -22674,13 +22519,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22700,13 +22545,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -22775,13 +22620,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -22801,13 +22646,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -22881,14 +22726,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22942,14 +22786,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -22984,11 +22827,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  configuration. This operation is marked as DONE when the flag is set even if
  *  the instances have not yet been recreated. You must separately verify the
  *  status of each instance by checking its currentAction field; for more
- *  information, see Checking the status of managed instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  information, see Checking the status of managed instances. If the group is
+ *  part of a backend service that has enabled connection draining, it can take
+ *  up to 60 seconds after the connection draining duration has elapsed before
+ *  the VM instance is removed or deleted. You can specify a maximum of 1000
+ *  instances with this method per request.
  *
  *  Method: compute.regionInstanceGroupManagers.recreateInstances
  *
@@ -23010,14 +22853,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23029,11 +22871,11 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  configuration. This operation is marked as DONE when the flag is set even if
  *  the instances have not yet been recreated. You must separately verify the
  *  status of each instance by checking its currentAction field; for more
- *  information, see Checking the status of managed instances.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
- *  You can specify a maximum of 1000 instances with this method per request.
+ *  information, see Checking the status of managed instances. If the group is
+ *  part of a backend service that has enabled connection draining, it can take
+ *  up to 60 seconds after the connection draining duration has elapsed before
+ *  the VM instance is removed or deleted. You can specify a maximum of 1000
+ *  instances with this method per request.
  *
  *  @param object The @c GTLRCompute_RegionInstanceGroupManagersRecreateRequest
  *    to include in the query.
@@ -23053,14 +22895,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Changes the intended size of the managed instance group. If you increase the
  *  size, the group creates new instances using the current instance template.
- *  If you decrease the size, the group deletes one or more instances.
- *  The resize operation is marked DONE if the resize request is successful. The
+ *  If you decrease the size, the group deletes one or more instances. The
+ *  resize operation is marked DONE if the resize request is successful. The
  *  underlying actions take additional time. You must separately verify the
  *  status of the creating or deleting actions with the listmanagedinstances
- *  method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  method. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is removed or deleted.
  *
  *  Method: compute.regionInstanceGroupManagers.resize
  *
@@ -23082,14 +22923,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23101,14 +22941,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Changes the intended size of the managed instance group. If you increase the
  *  size, the group creates new instances using the current instance template.
- *  If you decrease the size, the group deletes one or more instances.
- *  The resize operation is marked DONE if the resize request is successful. The
+ *  If you decrease the size, the group deletes one or more instances. The
+ *  resize operation is marked DONE if the resize request is successful. The
  *  underlying actions take additional time. You must separately verify the
  *  status of the creating or deleting actions with the listmanagedinstances
- *  method.
- *  If the group is part of a backend service that has enabled connection
- *  draining, it can take up to 60 seconds after the connection draining
- *  duration has elapsed before the VM instance is removed or deleted.
+ *  method. If the group is part of a backend service that has enabled
+ *  connection draining, it can take up to 60 seconds after the connection
+ *  draining duration has elapsed before the VM instance is removed or deleted.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region scoping this request.
@@ -23149,14 +22988,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23206,14 +23044,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23264,14 +23101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23361,13 +23197,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23384,13 +23220,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -23457,13 +23293,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23485,13 +23321,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -23566,14 +23402,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23619,14 +23454,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23679,14 +23513,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23779,14 +23612,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -23833,13 +23665,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -23856,13 +23688,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -23931,14 +23763,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24020,14 +23852,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24072,13 +23904,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24095,13 +23927,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -24241,13 +24073,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24264,13 +24096,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -24318,12 +24150,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  Method: compute.regionOperations.wait
  *
@@ -24351,12 +24183,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param region Name of the region for this request.
@@ -24427,13 +24259,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24450,13 +24282,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -24512,14 +24344,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24604,14 +24436,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24656,13 +24488,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24679,13 +24511,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -24747,14 +24579,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24839,14 +24670,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -24891,13 +24721,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -24914,13 +24744,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -24982,14 +24812,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25035,14 +24864,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25127,14 +24956,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25179,13 +25008,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25202,13 +25031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -25270,14 +25099,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25329,14 +25158,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25510,13 +25339,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25533,13 +25362,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -25739,13 +25568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -25773,13 +25602,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -25828,14 +25657,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -25973,14 +25801,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26032,13 +25859,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26055,13 +25882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -26125,14 +25952,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26280,13 +26106,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26314,13 +26140,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -26372,14 +26198,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26504,14 +26329,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26555,13 +26379,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26578,13 +26402,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -26731,13 +26555,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26765,13 +26589,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -26823,14 +26647,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -26916,13 +26739,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -26939,13 +26762,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -27054,14 +26877,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27105,13 +26927,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27128,13 +26950,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -27197,14 +27019,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27297,14 +27118,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27350,14 +27170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27432,14 +27251,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27481,13 +27299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27504,13 +27322,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -27597,14 +27415,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27714,14 +27531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -27763,13 +27579,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27786,13 +27602,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -27837,6 +27653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
  */
 @interface GTLRComputeQuery_SecurityPoliciesListPreconfiguredExpressionSets : GTLRComputeQuery
 
@@ -27850,13 +27667,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -27873,13 +27690,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -27932,14 +27749,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28038,11 +27854,526 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 @end
 
 /**
+ *  Retrieves the list of all ServiceAttachment resources, regional and global,
+ *  available to the specified project.
+ *
+ *  Method: compute.serviceAttachments.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_ServiceAttachmentAggregatedList.
+ *
+ *  Retrieves the list of all ServiceAttachment resources, regional and global,
+ *  available to the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified ServiceAttachment in the given scope
+ *
+ *  Method: compute.serviceAttachments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsDelete : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the ServiceAttachment resource to delete. */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified ServiceAttachment in the given scope
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *  @param serviceAttachment Name of the ServiceAttachment resource to delete.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment;
+
+@end
+
+/**
+ *  Returns the specified ServiceAttachment resource in the given scope.
+ *
+ *  Method: compute.serviceAttachments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name of the ServiceAttachment resource to return. */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
+
+/**
+ *  Fetches a @c GTLRCompute_ServiceAttachment.
+ *
+ *  Returns the specified ServiceAttachment resource in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *  @param serviceAttachment Name of the ServiceAttachment resource to return.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  Method: compute.serviceAttachments.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsGetIamPolicy : GTLRComputeQuery
+
+/** Requested IAM Policy version. */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Gets the access control policy for a resource. May be empty if no such
+ *  policy or resource exists.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsGetIamPolicy
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a ServiceAttachment in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.serviceAttachments.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a ServiceAttachment in the specified project in the given scope
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_ServiceAttachment to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the ServiceAttachments for a project in the given scope.
+ *
+ *  Method: compute.serviceAttachments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. The
+ *  expression must specify the field name, a comparison operator, and the value
+ *  that you want to use for filtering. The value must be a string, a number, or
+ *  a boolean. The comparison operator must be either `=`, `!=`, `>`, or `<`.
+ *  For example, if you are filtering Compute Engine instances, you can exclude
+ *  instances named `example-instance` by specifying `name != example-instance`.
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region of this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_ServiceAttachmentList.
+ *
+ *  Lists the ServiceAttachments for a project in the given scope.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region of this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Patches the specified ServiceAttachment resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  Method: compute.serviceAttachments.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsPatch : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The region scoping this request and should conform to RFC1035. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The resource id of the ServiceAttachment to patch. It should conform to
+ *  RFC1035 resource name or be a string form on an unsigned long number.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAttachment;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified ServiceAttachment resource with the data included in
+ *  the request. This method supports PATCH semantics and uses JSON merge patch
+ *  format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_ServiceAttachment to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region The region scoping this request and should conform to RFC1035.
+ *  @param serviceAttachment The resource id of the ServiceAttachment to patch.
+ *    It should conform to RFC1035 resource name or be a string form on an
+ *    unsigned long number.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+              serviceAttachment:(NSString *)serviceAttachment;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  Method: compute.serviceAttachments.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsSetIamPolicy : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.
+ *
+ *  @param object The @c GTLRCompute_RegionSetPolicyRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.serviceAttachments.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ServiceAttachmentsTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_ServiceAttachmentsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Deletes the specified Snapshot resource. Keep in mind that deleting a single
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
- *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snapshots.
+ *  snapshots, the data will be moved to the next corresponding snapshot. For
+ *  more information, see Deleting snapshots.
  *
  *  Method: compute.snapshots.delete
  *
@@ -28058,14 +28389,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28078,8 +28408,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Deletes the specified Snapshot resource. Keep in mind that deleting a single
  *  snapshot might not necessarily delete all the data on that snapshot. If any
  *  data on the snapshot that is marked for deletion is needed for subsequent
- *  snapshots, the data will be moved to the next corresponding snapshot.
- *  For more information, see Deleting snapshots.
+ *  snapshots, the data will be moved to the next corresponding snapshot. For
+ *  more information, see Deleting snapshots.
  *
  *  @param project Project ID for this request.
  *  @param snapshot Name of the Snapshot resource to delete.
@@ -28187,13 +28517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28210,13 +28540,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -28386,13 +28716,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28420,13 +28750,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -28476,14 +28806,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28558,14 +28888,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28608,13 +28938,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28631,13 +28961,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -28693,14 +29023,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28783,14 +29112,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -28833,13 +29161,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28856,13 +29184,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -28922,13 +29250,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -28945,13 +29273,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -29001,14 +29329,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29058,13 +29385,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29092,13 +29419,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -29150,14 +29477,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29201,14 +29527,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29339,14 +29664,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29390,13 +29714,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29413,13 +29737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -29482,13 +29806,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29505,13 +29829,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -29582,14 +29906,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29681,14 +30004,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29774,14 +30096,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29854,14 +30176,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -29903,13 +30225,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -29926,13 +30248,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -29987,14 +30309,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30043,13 +30365,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30077,13 +30399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -30133,14 +30455,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30215,14 +30536,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30265,13 +30585,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30288,13 +30608,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -30334,7 +30654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Patches the specified TargetHttpProxy resource with the data included in the
  *  request. This method supports PATCH semantics and uses JSON merge patch
- *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *  format and processing rules.
  *
  *  Method: compute.targetHttpProxies.patch
  *
@@ -30350,14 +30670,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30369,7 +30689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Patches the specified TargetHttpProxy resource with the data included in the
  *  request. This method supports PATCH semantics and uses JSON merge patch
- *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *  format and processing rules.
  *
  *  @param object The @c GTLRCompute_TargetHttpProxy to include in the query.
  *  @param project Project ID for this request.
@@ -30400,14 +30720,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30454,13 +30773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30488,13 +30807,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -30544,14 +30863,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30626,14 +30944,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30676,13 +30993,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -30699,13 +31016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -30745,7 +31062,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  Patches the specified TargetHttpsProxy resource with the data included in
  *  the request. This method supports PATCH semantics and uses JSON merge patch
- *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *  format and processing rules.
  *
  *  Method: compute.targetHttpsProxies.patch
  *
@@ -30761,14 +31078,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ *  end_interface: MixerMutationRequestBuilder
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30780,7 +31097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *
  *  Patches the specified TargetHttpsProxy resource with the data included in
  *  the request. This method supports PATCH semantics and uses JSON merge patch
- *  format and processing rules. (== suppress_warning http-rest-shadowed ==)
+ *  format and processing rules.
  *
  *  @param object The @c GTLRCompute_TargetHttpsProxy to include in the query.
  *  @param project Project ID for this request.
@@ -30811,14 +31128,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30864,14 +31180,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30920,14 +31235,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -30976,14 +31290,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31030,13 +31343,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31064,13 +31377,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -31119,14 +31432,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31219,14 +31531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31278,13 +31589,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31301,13 +31612,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -31373,14 +31684,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31427,14 +31737,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31483,13 +31792,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31517,13 +31826,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -31575,14 +31884,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31710,14 +32018,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31762,13 +32069,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -31785,13 +32092,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -31853,14 +32160,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31907,14 +32213,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -31964,14 +32269,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32014,14 +32318,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32096,14 +32399,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32146,13 +32448,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32169,13 +32471,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -32229,14 +32531,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32282,14 +32583,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32332,14 +32632,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32388,14 +32687,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32444,14 +32742,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32526,14 +32823,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32576,13 +32872,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32599,13 +32895,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -32659,14 +32955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32712,14 +33007,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32767,13 +33061,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -32801,13 +33095,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -32859,14 +33153,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -32951,14 +33244,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33003,13 +33295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33026,13 +33318,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -33097,13 +33389,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33131,13 +33423,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -33187,14 +33479,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33269,14 +33560,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33298,9 +33588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Initiates a cache invalidation operation, invalidating the specified path,
- *  scoped to the specified UrlMap.
- *  For more information, see [Invalidating cached
- *  content](/cdn/docs/invalidating-cached-content).
+ *  scoped to the specified UrlMap. For more information, see [Invalidating
+ *  cached content](/cdn/docs/invalidating-cached-content).
  *
  *  Method: compute.urlMaps.invalidateCache
  *
@@ -33316,14 +33605,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33334,9 +33622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Initiates a cache invalidation operation, invalidating the specified path,
- *  scoped to the specified UrlMap.
- *  For more information, see [Invalidating cached
- *  content](/cdn/docs/invalidating-cached-content).
+ *  scoped to the specified UrlMap. For more information, see [Invalidating
+ *  cached content](/cdn/docs/invalidating-cached-content).
  *
  *  @param object The @c GTLRCompute_CacheInvalidationRule to include in the
  *    query.
@@ -33373,13 +33660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33396,13 +33683,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -33457,14 +33744,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33507,14 +33793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33597,13 +33882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33631,13 +33916,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -33689,14 +33974,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33819,14 +34103,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -33871,13 +34154,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -33894,13 +34177,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -33963,14 +34246,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -34061,13 +34343,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34095,13 +34377,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -34153,14 +34435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -34245,14 +34526,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 /**
  *  An optional request ID to identify requests. Specify a unique request ID so
  *  that if you must retry your request, the server will know to ignore the
- *  request if it has already been completed.
- *  For example, consider a situation where you make an initial request and the
- *  request times out. If you make the request again with the same request ID,
- *  the server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments.
- *  The request ID must be a valid UUID with the exception that zero UUID is not
- *  supported (00000000-0000-0000-0000-000000000000).
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
@@ -34297,13 +34577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34320,13 +34600,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -34474,13 +34754,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34497,13 +34777,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -34554,12 +34834,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  Method: compute.zoneOperations.wait
  *
@@ -34591,12 +34871,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Operation resource. This method differs from the `GET` method in that it
  *  waits for no more than the default deadline (2 minutes) and then returns the
  *  current state of the operation, which might be `DONE` or still in progress.
- *  This method is called on a best-effort basis. Specifically:
- *  - In uncommon cases, when the server is overloaded, the request might return
- *  before the default deadline is reached, or might return after zero seconds.
- *  - If the default deadline is reached, there is no guarantee that the
- *  operation is actually done when the method returns. Be prepared to retry if
- *  the operation is not `DONE`.
+ *  This method is called on a best-effort basis. Specifically: - In uncommon
+ *  cases, when the server is overloaded, the request might return before the
+ *  default deadline is reached, or might return after zero seconds. - If the
+ *  default deadline is reached, there is no guarantee that the operation is
+ *  actually done when the method returns. Be prepared to retry if the operation
+ *  is not `DONE`.
  *
  *  @param project Project ID for this request.
  *  @param zoneProperty Name of the zone for this request.
@@ -34671,13 +34951,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  You can also filter nested fields. For example, you could specify
  *  `scheduling.automaticRestart = false` to include instances only if they are
  *  not scheduled for automatic restarts. You can use filtering on nested fields
- *  to filter based on resource labels.
- *  To filter on multiple expressions, provide each separate expression within
- *  parentheses. For example: ``` (scheduling.automaticRestart = true)
- *  (cpuPlatform = "Intel Skylake") ``` By default, each expression is an `AND`
- *  expression. However, you can include `AND` and `OR` expressions explicitly.
- *  For example: ``` (cpuPlatform = "Intel Skylake") OR (cpuPlatform = "Intel
- *  Broadwell") AND (scheduling.automaticRestart = true) ```
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ```
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -34694,13 +34974,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sorts list results by a certain order. By default, results are returned in
- *  alphanumerical order based on the resource name.
- *  You can also sort results in descending order based on the creation
- *  timestamp using `orderBy="creationTimestamp desc"`. This sorts results based
- *  on the `creationTimestamp` field in reverse chronological order (newest
- *  result first). Use this to sort resources like operations so that the newest
- *  operation is returned first.
- *  Currently, only sorting by `name` or `creationTimestamp desc` is supported.
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

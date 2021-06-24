@@ -43,6 +43,80 @@ NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Message = @"MESSAGE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_RemovedFromSpace = @"REMOVED_FROM_SPACE";
 NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified = @"UNSPECIFIED";
 
+// GTLRHangoutsChat_GoogleAppsCardV1Action.loadIndicator
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_None = @"NONE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Action_LoadIndicator_Spinner = @"SPINNER";
+
+// GTLRHangoutsChat_GoogleAppsCardV1BorderStyle.type
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_BorderTypeUnspecified = @"BORDER_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_NoBorder = @"NO_BORDER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1BorderStyle_Type_Stroke = @"STROKE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1Card.displayStyle
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_DisplayStyleUnspecified = @"DISPLAY_STYLE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Peek = @"PEEK";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Card_DisplayStyle_Replace = @"REPLACE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1CardHeader.imageType
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1CardHeader_ImageType_Square = @"SQUARE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker.type
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTime = @"DATE_AND_TIME";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly = @"DATE_ONLY";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly = @"TIME_ONLY";
+
+// GTLRHangoutsChat_GoogleAppsCardV1GridItem.layout
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_GridItemLayoutUnspecified = @"GRID_ITEM_LAYOUT_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextAbove = @"TEXT_ABOVE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_Layout_TextBelow = @"TEXT_BELOW";
+
+// GTLRHangoutsChat_GoogleAppsCardV1GridItem.textAlignment
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Center = @"CENTER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_End = @"END";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1GridItem_TextAlignment_Start = @"START";
+
+// GTLRHangoutsChat_GoogleAppsCardV1Icon.imageType
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Circle = @"CIRCLE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Icon_ImageType_Square = @"SQUARE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle.type
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Circle = @"CIRCLE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_ImageCropTypeUnspecified = @"IMAGE_CROP_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Rectangle43 = @"RECTANGLE_4_3";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_RectangleCustom = @"RECTANGLE_CUSTOM";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle_Type_Square = @"SQUARE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1OpenLink.onClose
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Nothing = @"NOTHING";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OnClose_Reload = @"RELOAD";
+
+// GTLRHangoutsChat_GoogleAppsCardV1OpenLink.openAs
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_FullSize = @"FULL_SIZE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1OpenLink_OpenAs_Overlay = @"OVERLAY";
+
+// GTLRHangoutsChat_GoogleAppsCardV1SelectionInput.type
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown = @"DROPDOWN";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_RadioButton = @"RADIO_BUTTON";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Switch = @"SWITCH";
+
+// GTLRHangoutsChat_GoogleAppsCardV1SwitchControl.controlType
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Checkbox = @"CHECKBOX";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_CheckBox = @"CHECK_BOX";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Switch = @"SWITCH";
+
+// GTLRHangoutsChat_GoogleAppsCardV1TextInput.type
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine = @"MULTIPLE_LINE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine = @"SINGLE_LINE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1Widget.horizontalAlignment
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Center = @"CENTER";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_End = @"END";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_HorizontalAlignmentUnspecified = @"HORIZONTAL_ALIGNMENT_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_HorizontalAlignment_Start = @"START";
+
 // GTLRHangoutsChat_ImageButton.icon
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane   = @"AIRPLANE";
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bookmark   = @"BOOKMARK";
@@ -237,6 +311,26 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_CardWithId
+//
+
+@implementation GTLRHangoutsChat_CardWithId
+@dynamic card, cardId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Color
+//
+
+@implementation GTLRHangoutsChat_Color
+@dynamic alpha, blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_DeprecatedEvent
 //
 
@@ -280,6 +374,361 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Action
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Action
+@dynamic function, loadIndicator, parameters, persistValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [GTLRHangoutsChat_GoogleAppsCardV1ActionParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1ActionParameter
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1ActionParameter
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1BorderStyle
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1BorderStyle
+@dynamic cornerRadius, strokeColor, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Button
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Button
+@dynamic altText, color, disabled, icon, onClick, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1ButtonList
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1ButtonList
+@dynamic buttons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buttons" : [GTLRHangoutsChat_GoogleAppsCardV1Button class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Card
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Card
+@dynamic cardActions, displayStyle, fixedFooter, header, name, peekCardHeader,
+         sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cardActions" : [GTLRHangoutsChat_GoogleAppsCardV1CardAction class],
+    @"sections" : [GTLRHangoutsChat_GoogleAppsCardV1Section class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1CardAction
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1CardAction
+@dynamic actionLabel, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1CardFixedFooter
+@dynamic primaryButton, secondaryButton;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1CardHeader
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1CardHeader
+@dynamic imageAltText, imageType, imageUrl, subtitle, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1DateTimePicker
+@dynamic label, name, onChangeAction, timezoneOffsetDate, type, valueMsEpoch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1DecoratedText
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1DecoratedText
+@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
+         text, topLabel, wrapText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Divider
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Divider
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Grid
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Grid
+@dynamic borderStyle, columnCount, items, onClick, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRHangoutsChat_GoogleAppsCardV1GridItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1GridItem
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1GridItem
+@dynamic identifier, image, layout, subtitle, textAlignment, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Icon
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Icon
+@dynamic altText, iconUrl, imageType, knownIcon;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Image
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Image
+@dynamic altText, imageUrl, onClick;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1ImageComponent
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1ImageComponent
+@dynamic altText, borderStyle, cropStyle, imageUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1ImageCropStyle
+@dynamic aspectRatio, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1OnClick
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1OnClick
+@dynamic action, card, openDynamicLinkAction, openLink;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1OpenLink
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1OpenLink
+@dynamic onClose, openAs, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Section
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Section
+@dynamic collapsible, header, uncollapsibleWidgetsCount, widgets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"widgets" : [GTLRHangoutsChat_GoogleAppsCardV1Widget class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1SelectionInput
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionInput
+@dynamic items, label, name, onChangeAction, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRHangoutsChat_GoogleAppsCardV1SelectionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1SelectionItem
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1SelectionItem
+@dynamic selected, text, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Suggestions
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Suggestions
+@dynamic items;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRHangoutsChat_GoogleAppsCardV1SuggestionItem class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1SwitchControl
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1SwitchControl
+@dynamic controlType, name, onChangeAction, selected, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1TextInput
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1TextInput
+@dynamic autoCompleteAction, hintText, initialSuggestions, label, name,
+         onChangeAction, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1TextParagraph
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1TextParagraph
+@dynamic text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_GoogleAppsCardV1Widget
+//
+
+@implementation GTLRHangoutsChat_GoogleAppsCardV1Widget
+@dynamic buttonList, dateTimePicker, decoratedText, divider, grid,
+         horizontalAlignment, image, selectionInput, textInput, textParagraph;
 @end
 
 
@@ -384,7 +833,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, attachment, cards,
+@dynamic actionResponse, annotations, argumentText, attachment, cards, cardsV2,
          createTime, fallbackText, name, previewText, sender, slashCommand,
          space, text, thread;
 
@@ -392,7 +841,8 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   NSDictionary<NSString *, Class> *map = @{
     @"annotations" : [GTLRHangoutsChat_Annotation class],
     @"attachment" : [GTLRHangoutsChat_Attachment class],
-    @"cards" : [GTLRHangoutsChat_Card class]
+    @"cards" : [GTLRHangoutsChat_Card class],
+    @"cardsV2" : [GTLRHangoutsChat_CardWithId class]
   };
   return map;
 }

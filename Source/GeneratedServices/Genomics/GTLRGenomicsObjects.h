@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
@@ -25,8 +25,13 @@
 @class GTLRGenomics_Action_Environment;
 @class GTLRGenomics_Action_Labels;
 @class GTLRGenomics_Action_PortMappings;
+@class GTLRGenomics_CheckInRequest_Event;
+@class GTLRGenomics_CheckInResponse_Features;
+@class GTLRGenomics_CheckInResponse_Metadata;
 @class GTLRGenomics_ContainerStartedEvent_PortMappings;
 @class GTLRGenomics_Disk;
+@class GTLRGenomics_DiskStatus;
+@class GTLRGenomics_Empty;
 @class GTLRGenomics_Event;
 @class GTLRGenomics_Event_Details;
 @class GTLRGenomics_ExistingDisk;
@@ -34,15 +39,25 @@
 @class GTLRGenomics_Mount;
 @class GTLRGenomics_Network;
 @class GTLRGenomics_NFSMount;
+@class GTLRGenomics_Operation;
+@class GTLRGenomics_Operation_Metadata;
+@class GTLRGenomics_Operation_Response;
 @class GTLRGenomics_PersistentDisk;
 @class GTLRGenomics_Pipeline;
 @class GTLRGenomics_Pipeline_Environment;
 @class GTLRGenomics_Resources;
+@class GTLRGenomics_RunPipelineRequest_Labels;
 @class GTLRGenomics_Secret;
 @class GTLRGenomics_ServiceAccount;
+@class GTLRGenomics_Status;
+@class GTLRGenomics_Status_Details_Item;
+@class GTLRGenomics_TimestampedEvent;
+@class GTLRGenomics_TimestampedEvent_Data;
 @class GTLRGenomics_VirtualMachine;
 @class GTLRGenomics_VirtualMachine_Labels;
 @class GTLRGenomics_Volume;
+@class GTLRGenomics_WorkerStatus;
+@class GTLRGenomics_WorkerStatus_AttachedDisks;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -497,6 +512,101 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRGenomics_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  The parameters to the CheckIn method.
+ */
+@interface GTLRGenomics_CheckInRequest : GTLRObject
+
+/** The deadline has expired and the worker needs more time. */
+@property(nonatomic, strong, nullable) GTLRGenomics_Empty *deadlineExpired;
+
+/** A workflow specific event occurred. */
+@property(nonatomic, strong, nullable) GTLRGenomics_CheckInRequest_Event *event;
+
+/** A list of timestamped events. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGenomics_TimestampedEvent *> *events;
+
+/** The operation has finished with the given result. */
+@property(nonatomic, strong, nullable) GTLRGenomics_Status *result;
+
+/**
+ *  An SOS report for an unexpected VM failure.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sosReport;
+
+/** Data about the status of the worker VM. */
+@property(nonatomic, strong, nullable) GTLRGenomics_WorkerStatus *workerStatus;
+
+@end
+
+
+/**
+ *  A workflow specific event occurred.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_CheckInRequest_Event : GTLRObject
+@end
+
+
+/**
+ *  The response to the CheckIn method.
+ */
+@interface GTLRGenomics_CheckInResponse : GTLRObject
+
+/**
+ *  The deadline by which the worker must request an extension. The backend will
+ *  allow for network transmission time and other delays, but the worker must
+ *  attempt to transmit the extension request no later than the deadline.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deadline;
+
+/** Feature configuration for the operation. */
+@property(nonatomic, strong, nullable) GTLRGenomics_CheckInResponse_Features *features;
+
+/** The metadata that describes the operation assigned to the worker. */
+@property(nonatomic, strong, nullable) GTLRGenomics_CheckInResponse_Metadata *metadata;
+
+@end
+
+
+/**
+ *  Feature configuration for the operation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_CheckInResponse_Features : GTLRObject
+@end
+
+
+/**
+ *  The metadata that describes the operation assigned to the worker.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_CheckInResponse_Metadata : GTLRObject
+@end
+
+
+/**
  *  An event generated when a container is forcibly terminated by the worker.
  *  Currently, this only occurs when the container outlives the timeout
  *  specified by the user.
@@ -647,6 +757,39 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 /** The Compute Engine disk type. If unspecified, `pd-standard` is used. */
 @property(nonatomic, copy, nullable) NSString *type;
 
+@end
+
+
+/**
+ *  The status of a disk on a VM.
+ */
+@interface GTLRGenomics_DiskStatus : GTLRObject
+
+/**
+ *  Free disk space.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeSpaceBytes;
+
+/**
+ *  Total disk space.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSpaceBytes;
+
+@end
+
+
+/**
+ *  A generic empty message that you can re-use to avoid defining duplicated
+ *  empty messages in your APIs. A typical example is to use it as the request
+ *  or the response type of an API method. For instance: service Foo { rpc
+ *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); } The JSON
+ *  representation for `Empty` is empty JSON object `{}`.
+ */
+@interface GTLRGenomics_Empty : GTLRObject
 @end
 
 
@@ -824,6 +967,30 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 
 
 /**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGenomics_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGenomics_Operation *> *operations;
+
+@end
+
+
+/**
  *  Carries information about the pipeline execution that is returned in the
  *  long running operation's metadata field.
  */
@@ -935,6 +1102,68 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 /** A target NFS mount. The target must be specified as `address:/mount". */
 @property(nonatomic, copy, nullable) NSString *target;
 
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRGenomics_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRGenomics_Status *error;
+
+/**
+ *  An OperationMetadata or Metadata object. This will always be returned with
+ *  the Operation.
+ */
+@property(nonatomic, strong, nullable) GTLRGenomics_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. For example:
+ *  `operations/CJHU7Oi_ChDrveSpBRjfuL-qzoWAgEw`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** An Empty object. */
+@property(nonatomic, strong, nullable) GTLRGenomics_Operation_Response *response;
+
+@end
+
+
+/**
+ *  An OperationMetadata or Metadata object. This will always be returned with
+ *  the Operation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  An Empty object.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_Operation_Response : GTLRObject
 @end
 
 
@@ -1068,6 +1297,52 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 
 
 /**
+ *  The arguments to the `RunPipeline` method. The requesting user must have the
+ *  `iam.serviceAccounts.actAs` permission for the Cloud Genomics service
+ *  account or the request will fail.
+ */
+@interface GTLRGenomics_RunPipelineRequest : GTLRObject
+
+/**
+ *  User-defined labels to associate with the returned operation. These labels
+ *  are not propagated to any Google Cloud Platform resources used by the
+ *  operation, and can be modified at any time. To associate labels with
+ *  resources created while executing the operation, see the appropriate
+ *  resource message (for example, `VirtualMachine`).
+ */
+@property(nonatomic, strong, nullable) GTLRGenomics_RunPipelineRequest_Labels *labels;
+
+/** Required. The description of the pipeline to run. */
+@property(nonatomic, strong, nullable) GTLRGenomics_Pipeline *pipeline;
+
+/**
+ *  The name of an existing Pub/Sub topic. The server will publish messages to
+ *  this topic whenever the status of the operation changes. The Genomics
+ *  Service Agent account must have publisher permissions to the specified topic
+ *  or notifications will not be sent.
+ */
+@property(nonatomic, copy, nullable) NSString *pubSubTopic;
+
+@end
+
+
+/**
+ *  User-defined labels to associate with the returned operation. These labels
+ *  are not propagated to any Google Cloud Platform resources used by the
+ *  operation, and can be modified at any time. To associate labels with
+ *  resources created while executing the operation, see the appropriate
+ *  resource message (for example, `VirtualMachine`).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGenomics_RunPipelineRequest_Labels : GTLRObject
+@end
+
+
+/**
  *  The response to the RunPipeline method, returned in the operation's result
  *  field on success.
  */
@@ -1114,6 +1389,78 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRGenomics_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGenomics_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRGenomics_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  An event that occured in the operation assigned to the worker and the time
+ *  of occurance.
+ */
+@interface GTLRGenomics_TimestampedEvent : GTLRObject
+
+/** The event data. */
+@property(nonatomic, strong, nullable) GTLRGenomics_TimestampedEvent_Data *data;
+
+/** The time when the event happened. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+@end
+
+
+/**
+ *  The event data.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_TimestampedEvent_Data : GTLRObject
 @end
 
 
@@ -1249,6 +1596,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
 @property(nonatomic, strong, nullable) NSNumber *preemptible;
 
 /**
+ *  If specified, the VM will only be allocated inside the matching reservation.
+ *  It will fail if the VM parameters don't match the reservation.
+ */
+@property(nonatomic, copy, nullable) NSString *reservation;
+
+/**
  *  The service account to install on the VM. This account does not need any
  *  permissions other than those required by the pipeline.
  */
@@ -1343,6 +1696,53 @@ FOUNDATION_EXTERN NSString * const kGTLRGenomics_FailedEvent_Code_Unknown;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  The status of the worker VM.
+ */
+@interface GTLRGenomics_WorkerStatus : GTLRObject
+
+/** Status of attached disks. */
+@property(nonatomic, strong, nullable) GTLRGenomics_WorkerStatus_AttachedDisks *attachedDisks;
+
+/** Status of the boot disk. */
+@property(nonatomic, strong, nullable) GTLRGenomics_DiskStatus *bootDisk;
+
+/**
+ *  Free RAM.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeRamBytes;
+
+/**
+ *  Total RAM.
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalRamBytes;
+
+/**
+ *  System uptime.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uptimeSeconds;
+
+@end
+
+
+/**
+ *  Status of attached disks.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGenomics_DiskStatus. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGenomics_WorkerStatus_AttachedDisks : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

@@ -365,8 +365,8 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_BackendRule
-@dynamic address, deadline, disableAuth, jwtAudience, minDeadline,
-         operationDeadline, pathTranslation, protocol, selector;
+@dynamic address, deadline, disableAuth, jwtAudience, operationDeadline,
+         pathTranslation, protocol, selector;
 @end
 
 
@@ -1215,6 +1215,15 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_PartialDeleteConnectionMetadata
+//
+
+@implementation GTLRServiceNetworking_PartialDeleteConnectionMetadata
 @end
 
 

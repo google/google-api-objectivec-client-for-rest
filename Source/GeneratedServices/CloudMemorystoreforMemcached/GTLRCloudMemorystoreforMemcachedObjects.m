@@ -380,7 +380,7 @@ NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolicy_Channel_UpdateCh
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata
-@dynamic eligibility, exclusions, nodes, perSliEligibility, tier;
+@dynamic exclusions, nodes, perSliEligibility, tier;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

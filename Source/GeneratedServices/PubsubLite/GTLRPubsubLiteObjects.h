@@ -25,6 +25,7 @@
 @class GTLRPubsubLite_PartitionCursor;
 @class GTLRPubsubLite_RetentionConfig;
 @class GTLRPubsubLite_Subscription;
+@class GTLRPubsubLite_TimeTarget;
 @class GTLRPubsubLite_Topic;
 
 // Generated comments include content from the discovery document; avoid them
@@ -194,6 +195,44 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
  *  timestamp will be unset if there are no messages.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *minimumPublishTime;
+
+@end
+
+
+/**
+ *  Compute the corresponding cursor for a publish or event time in a topic
+ *  partition.
+ */
+@interface GTLRPubsubLite_ComputeTimeCursorRequest : GTLRObject
+
+/**
+ *  Required. The partition for which we should compute the cursor.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partition;
+
+/**
+ *  Required. The target publish or event time. Specifying a future time will
+ *  return an unset cursor.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_TimeTarget *target;
+
+@end
+
+
+/**
+ *  Response containing the cursor corresponding to a publish or event time in a
+ *  topic partition.
+ */
+@interface GTLRPubsubLite_ComputeTimeCursorResponse : GTLRObject
+
+/**
+ *  If present, the cursor references the first message with time greater than
+ *  or equal to the specified target time. If such a message cannot be found,
+ *  the cursor will be unset (i.e. `cursor` is not present).
+ */
+@property(nonatomic, strong, nullable) GTLRPubsubLite_Cursor *cursor;
 
 @end
 
@@ -451,6 +490,31 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequir
  *  projects/{project_number}/locations/{location}/topics/{topic_id}
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  A target publish or event time. Can be used for seeking to or retrieving the
+ *  corresponding cursor.
+ */
+@interface GTLRPubsubLite_TimeTarget : GTLRObject
+
+/**
+ *  Request the cursor of the first message with event time greater than or
+ *  equal to `event_time`. If messages are missing an event time, the publish
+ *  time is used as a fallback. As event times are user supplied, subsequent
+ *  messages may have event times less than `event_time` and should be filtered
+ *  by the client, if necessary.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Request the cursor of the first message with publish time greater than or
+ *  equal to `publish_time`. All messages thereafter are guaranteed to have
+ *  publish times >= `publish_time`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
 
 @end
 

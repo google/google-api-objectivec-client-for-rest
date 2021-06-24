@@ -1315,8 +1315,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  The name of the dataset resource to create and write the redacted data to. *
  *  The destination dataset must not exist. * The destination dataset must be in
- *  the same project and location as the source dataset. De-identifying data
- *  across multiple projects or locations is not supported.
+ *  the same location as the source dataset. De-identifying data across multiple
+ *  locations is not supported.
  */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
@@ -1336,8 +1336,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *  * The destination dataset must exist. * The source dataset and destination
- *  dataset must both reside in the same project. De-identifying data across
- *  multiple projects is not supported. * The destination DICOM store must not
+ *  dataset must both reside in the same location. De-identifying data across
+ *  multiple locations is not supported. * The destination DICOM store must not
  *  exist. * The caller must have the necessary permissions to create the
  *  destination DICOM store.
  */
@@ -1362,10 +1362,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
  *  * The destination dataset must exist. * The source dataset and destination
- *  dataset must both reside in the same project. De-identifying data across
- *  multiple projects is not supported. * The destination FHIR store must exist.
- *  * The caller must have the healthcare.fhirResources.update permission to
- *  write to the destination FHIR store.
+ *  dataset must both reside in the same location. De-identifying data across
+ *  multiple locations is not supported. * The destination FHIR store must
+ *  exist. * The caller must have the healthcare.fhirResources.update permission
+ *  to write to the destination FHIR store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
 
@@ -3557,6 +3557,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        fetch them all at once.
  */
 @interface GTLRCloudHealthcare_QueryAccessibleDataRequest_ResourceAttributes : GTLRObject
+@end
+
+
+/**
+ *  Response for successful QueryAccessibleData operations. This structure is
+ *  included in the response upon operation completion.
+ */
+@interface GTLRCloudHealthcare_QueryAccessibleDataResponse : GTLRObject
+
+/**
+ *  List of files, each of which contains a list of data_id(s) that are
+ *  consented for a specified use in the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gcsUris;
+
 @end
 
 

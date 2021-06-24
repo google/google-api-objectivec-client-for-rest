@@ -41,6 +41,7 @@ NSString * const kGTLROnDemandScanning_DiscoveryOccurrence_ContinuousAnalysis_In
 // GTLROnDemandScanning_Occurrence.kind
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Attestation = @"ATTESTATION";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Build   = @"BUILD";
+NSString * const kGTLROnDemandScanning_Occurrence_Kind_Compliance = @"COMPLIANCE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Deployment = @"DEPLOYMENT";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Discovery = @"DISCOVERY";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Image   = @"IMAGE";
@@ -48,6 +49,12 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_NoteKindUnspecified = @"N
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Package = @"PACKAGE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade = @"UPGRADE";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
+
+// GTLROnDemandScanning_PackageData.packageType
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go = @"GO";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven = @"MAVEN";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os = @"OS";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
 
 // GTLROnDemandScanning_Version.kind
 NSString * const kGTLROnDemandScanning_Version_Kind_Maximum    = @"MAXIMUM";
@@ -282,6 +289,24 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_ComplianceOccurrence
+//
+
+@implementation GTLROnDemandScanning_ComplianceOccurrence
+@dynamic nonComplianceReason, nonCompliantFiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"nonCompliantFiles" : [GTLROnDemandScanning_NonCompliantFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_DeploymentOccurrence
 //
 
@@ -489,13 +514,23 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROnDemandScanning_NonCompliantFile
+//
+
+@implementation GTLROnDemandScanning_NonCompliantFile
+@dynamic displayCommand, path, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROnDemandScanning_Occurrence
 //
 
 @implementation GTLROnDemandScanning_Occurrence
-@dynamic attestation, build, createTime, deployment, discovery, image, kind,
-         name, noteName, package, remediation, resourceUri, updateTime, upgrade,
-         vulnerability;
+@dynamic attestation, build, compliance, createTime, deployment, discovery,
+         image, kind, name, noteName, package, remediation, resourceUri,
+         updateTime, upgrade, vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -550,7 +585,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_PackageData
-@dynamic cpeUri, os, osVersion, package, unused, version;
+@dynamic cpeUri, os, osVersion, package, packageType, unused, version;
 @end
 
 

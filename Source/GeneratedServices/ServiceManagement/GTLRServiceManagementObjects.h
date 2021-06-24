@@ -1242,14 +1242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
- *  Minimum deadline in seconds needed for this method. Calls having deadline
- *  value lower than this will be rejected.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minDeadline;
-
-/**
  *  The number of seconds to wait for the completion of a long running
  *  operation. The default is no deadline.
  *
@@ -3416,6 +3408,34 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceManagement_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  A message representing the message types used by a long-running operation.
+ *  Example: rpc Export(ExportRequest) returns (google.longrunning.Operation) {
+ *  option (google.longrunning.operation_info) = { response_type:
+ *  "ExportResponse" metadata_type: "ExportMetadata" }; }
+ */
+@interface GTLRServiceManagement_OperationInfo : GTLRObject
+
+/**
+ *  Required. The message name of the metadata type for this long-running
+ *  operation. If the response is in a different package from the rpc, a
+ *  fully-qualified message name must be used (e.g. `google.protobuf.Struct`).
+ *  Note: Altering this value constitutes a breaking change.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataType;
+
+/**
+ *  Required. The message name of the primary return type for this long-running
+ *  operation. This type will be used to deserialize the LRO's response. If the
+ *  response is in a different package from the rpc, a fully-qualified message
+ *  name must be used (e.g. `google.protobuf.Struct`). Note: Altering this value
+ *  constitutes a breaking change.
+ */
+@property(nonatomic, copy, nullable) NSString *responseType;
+
 @end
 
 

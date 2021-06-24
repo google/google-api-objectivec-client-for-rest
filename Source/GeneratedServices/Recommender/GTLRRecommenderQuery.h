@@ -69,8 +69,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  Method: recommender.billingAccounts.locations.insightTypes.insights.list
  *
@@ -81,7 +81,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
- *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ *  filter fields: * `stateInfo.state` * `insightSubtype` * `severity` Examples:
+ *  * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity =
+ *  HIGH` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity =
+ *  HIGH)` (These expressions are based on the filter language described at
+ *  https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -102,12 +107,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  2.
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -119,17 +126,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
  *
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    3.
+ *    *
  *    `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    4.
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -213,8 +222,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  Method: recommender.billingAccounts.locations.recommenders.recommendations.list
  *
@@ -225,8 +234,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
- *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
- *  state_info.state:"FAILED"
+ *  fields: * `state_info.state` * `recommenderSubtype` * `priority` Examples: *
+ *  `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `recommenderSubtype = REMOVE_ROLE OR recommenderSubtype = REPLACE_ROLE` *
+ *  `priority = P1 OR priority = P2` * `stateInfo.state = ACTIVE AND (priority =
+ *  P1 OR priority = P2)` (These expressions are based on the filter language
+ *  described at https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -247,12 +260,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  2.
+ *  * `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]` *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
@@ -264,17 +277,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
  *
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    3.
- *    `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    4.
+ *    * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
@@ -446,8 +460,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  Method: recommender.folders.locations.insightTypes.insights.list
  *
@@ -458,7 +472,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
- *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ *  filter fields: * `stateInfo.state` * `insightSubtype` * `severity` Examples:
+ *  * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity =
+ *  HIGH` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity =
+ *  HIGH)` (These expressions are based on the filter language described at
+ *  https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -479,12 +498,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  2.
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -496,17 +517,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
  *
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    3.
+ *    *
  *    `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    4.
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -590,8 +613,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  Method: recommender.folders.locations.recommenders.recommendations.list
  *
@@ -602,8 +625,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
- *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
- *  state_info.state:"FAILED"
+ *  fields: * `state_info.state` * `recommenderSubtype` * `priority` Examples: *
+ *  `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `recommenderSubtype = REMOVE_ROLE OR recommenderSubtype = REPLACE_ROLE` *
+ *  `priority = P1 OR priority = P2` * `stateInfo.state = ACTIVE AND (priority =
+ *  P1 OR priority = P2)` (These expressions are based on the filter language
+ *  described at https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -624,12 +651,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  2.
+ *  * `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]` *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
@@ -641,17 +668,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
  *
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    3.
- *    `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    4.
+ *    * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
@@ -823,8 +851,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  Method: recommender.organizations.locations.insightTypes.insights.list
  *
@@ -835,7 +863,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
- *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ *  filter fields: * `stateInfo.state` * `insightSubtype` * `severity` Examples:
+ *  * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity =
+ *  HIGH` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity =
+ *  HIGH)` (These expressions are based on the filter language described at
+ *  https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -856,12 +889,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  2.
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -873,17 +908,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
  *
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    3.
+ *    *
  *    `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    4.
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -967,8 +1004,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  Method: recommender.organizations.locations.recommenders.recommendations.list
  *
@@ -979,8 +1016,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
- *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
- *  state_info.state:"FAILED"
+ *  fields: * `state_info.state` * `recommenderSubtype` * `priority` Examples: *
+ *  `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `recommenderSubtype = REMOVE_ROLE OR recommenderSubtype = REPLACE_ROLE` *
+ *  `priority = P1 OR priority = P2` * `stateInfo.state = ACTIVE AND (priority =
+ *  P1 OR priority = P2)` (These expressions are based on the filter language
+ *  described at https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1001,12 +1042,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  2.
+ *  * `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]` *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
@@ -1018,17 +1059,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
  *
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    3.
- *    `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    4.
+ *    * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to
@@ -1200,8 +1242,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  Method: recommender.projects.locations.insightTypes.insights.list
  *
@@ -1212,7 +1254,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Filter expression to restrict the insights returned. Supported
- *  filter fields: state Eg: `state:"DISMISSED" or state:"ACTIVE"
+ *  filter fields: * `stateInfo.state` * `insightSubtype` * `severity` Examples:
+ *  * `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `insightSubtype = PERMISSIONS_USAGE` * `severity = CRITICAL OR severity =
+ *  HIGH` * `stateInfo.state = ACTIVE AND (severity = CRITICAL OR severity =
+ *  HIGH)` (These expressions are based on the filter language described at
+ *  https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1233,12 +1280,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  2.
+ *  *
+ *  `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *  *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -1250,17 +1299,19 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRRecommender_GoogleCloudRecommenderV1ListInsightsResponse.
  *
- *  Lists insights for a Cloud project. Requires the recommender.*.list IAM
- *  permission for the specified insight type.
+ *  Lists insights for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified insight type.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    3.
+ *    *
  *    `folders/[FOLDER_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
- *    4.
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/insightTypes/[INSIGHT_TYPE_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ INSIGHT_TYPE_ID refers to
@@ -1344,8 +1395,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  Method: recommender.projects.locations.recommenders.recommendations.list
  *
@@ -1356,8 +1407,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Filter expression to restrict the recommendations returned. Supported filter
- *  fields: state_info.state Eg: `state_info.state:"DISMISSED" or
- *  state_info.state:"FAILED"
+ *  fields: * `state_info.state` * `recommenderSubtype` * `priority` Examples: *
+ *  `stateInfo.state = ACTIVE OR stateInfo.state = DISMISSED` *
+ *  `recommenderSubtype = REMOVE_ROLE OR recommenderSubtype = REPLACE_ROLE` *
+ *  `priority = P1 OR priority = P2` * `stateInfo.state = ACTIVE AND (priority =
+ *  P1 OR priority = P2)` (These expressions are based on the filter language
+ *  described at https://google.aip.dev/160)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1378,12 +1433,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The container resource on which to execute the request. Acceptable
- *  formats: 1.
+ *  formats: *
  *  `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  2.
+ *  * `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *  *
  *  `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  3. `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *  4.
+ *  * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]` *
  *  `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *  LOCATION here refers to GCP Locations:
  *  https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to supported
@@ -1395,17 +1450,18 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRRecommender_GoogleCloudRecommenderV1ListRecommendationsResponse.
  *
- *  Lists recommendations for a Cloud project. Requires the recommender.*.list
- *  IAM permission for the specified recommender.
+ *  Lists recommendations for the specified Cloud Resource. Requires the
+ *  recommender.*.list IAM permission for the specified recommender.
  *
  *  @param parent Required. The container resource on which to execute the
- *    request. Acceptable formats: 1.
+ *    request. Acceptable formats: *
  *    `projects/[PROJECT_NUMBER]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    2.
+ *    *
+ *    `projects/[PROJECT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `billingAccounts/[BILLING_ACCOUNT_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    3.
- *    `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
- *    4.
+ *    * `folders/[FOLDER_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
+ *    *
  *    `organizations/[ORGANIZATION_ID]/locations/[LOCATION]/recommenders/[RECOMMENDER_ID]`
  *    LOCATION here refers to GCP Locations:
  *    https://cloud.google.com/about/locations/ RECOMMENDER_ID refers to

@@ -2733,6 +2733,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 /** The URL to fetch a native video ad. */
 @property(nonatomic, copy, nullable) NSString *videoUrl;
 
+/** The contents of a VAST document for a native video ad. */
+@property(nonatomic, copy, nullable) NSString *videoVastXml;
+
 @end
 
 

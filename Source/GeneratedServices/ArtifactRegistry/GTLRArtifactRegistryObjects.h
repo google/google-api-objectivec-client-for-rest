@@ -55,6 +55,30 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Docke
  *  Value: "FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified;
+/**
+ *  Maven package format.
+ *
+ *  Value: "MAVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Maven;
+/**
+ *  NPM package format.
+ *
+ *  Value: "NPM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
+/**
+ *  PyPI package format.
+ *
+ *  Value: "PYPI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi;
+/**
+ *  Python package format.
+ *
+ *  Value: "PYTHON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Python;
 
 /**
  *  The request message for Operations.CancelOperation.
@@ -64,12 +88,25 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Forma
 
 
 /**
- *  DockerImage represents a docker artifact.
+ *  DockerImage represents a docker artifact. The following fields are returned
+ *  as untyped metadata in the Version resource, using camelcase keys (i.e.
+ *  metadata.imageSizeBytes): - imageSizeBytes - mediaType - buildTime
  */
 @interface GTLRArtifactRegistry_DockerImage : GTLRObject
 
 /**
- *  Calculated size of the image.
+ *  The time this image was built. This field is returned as the
+ *  'metadata.buildTime' field in the Version resource. The build time is
+ *  returned to the client as an RFC 3339 string, which can be easily used with
+ *  the JavaScript Date constructor and keeps the Version timestamps returned
+ *  via OnePlatform consistent, as JSON marshals google.protobuf.Timestamp into
+ *  an RFC 3339 string.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildTime;
+
+/**
+ *  Calculated size of the image. This field is returned as the
+ *  'metadata.imageSizeBytes' field in the Version resource.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -77,7 +114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Forma
 
 /**
  *  Media type of this image, e.g.
- *  "application/vnd.docker.distribution.manifest.v2+json".
+ *  "application/vnd.docker.distribution.manifest.v2+json". This field is
+ *  returned as the 'metadata.mediaType' field in the Version resource.
  */
 @property(nonatomic, copy, nullable) NSString *mediaType;
 
@@ -301,6 +339,14 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Forma
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
  *        Unspecified package format. (Value: "FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Maven Maven package
+ *        format. (Value: "MAVEN")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Npm NPM package format.
+ *        (Value: "NPM")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Pypi PyPI package format.
+ *        (Value: "PYPI")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Python Python package
+ *        format. (Value: "PYTHON")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

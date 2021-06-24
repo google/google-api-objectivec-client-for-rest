@@ -66,6 +66,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// loiSapinInvoiceType
+
+/**
+ *  Invoices with Media cost.
+ *
+ *  Value: "LOI_SAPIN_INVOICE_TYPE_MEDIA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeMedia;
+/**
+ *  Invoices with Platform fee.
+ *
+ *  Value: "LOI_SAPIN_INVOICE_TYPE_PLATFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypePlatform;
+/**
+ *  Value is not specified.
+ *
+ *  Value: "LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // targetingType
 
 /**
@@ -218,6 +240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeKe
  *  Value: "TARGETING_TYPE_LANGUAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeLanguage;
+/**
+ *  Target ads to a specific native content position.
+ *
+ *  Value: "TARGETING_TYPE_NATIVE_CONTENT_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition;
 /**
  *  Target ads to a specific negative keyword list.
  *
@@ -957,6 +985,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1104,6 +1135,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -1303,6 +1337,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -1448,6 +1485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersCampaignsTargetingTypesAssignedTargetingOptionsList
  *
@@ -2641,6 +2681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -2776,6 +2819,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -2962,6 +3008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3095,6 +3144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersInsertionOrdersTargetingTypesAssignedTargetingOptionsList
  *
@@ -3105,6 +3157,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId
                      insertionOrderId:(long long)insertionOrderId
                         targetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Lists invoices posted for an advertiser in a given month. Invoices generated
+ *  by billing profiles with a "Partner" invoice level are not retrievable
+ *  through this method.
+ *
+ *  Method: displayvideo.advertisers.invoices.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersInvoicesList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser to list invoices for. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  The month to list the invoices for. If not set, the request will retrieve
+ *  invoices for the previous month. Must be in the format YYYYMM.
+ */
+@property(nonatomic, copy, nullable) NSString *issueMonth;
+
+/**
+ *  Select type of invoice to retrieve for Loi Sapin advertisers. Only
+ *  applicable to Loi Sapin advertisers. Will be ignored otherwise.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeUnspecified
+ *        Value is not specified. (Value: "LOI_SAPIN_INVOICE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypeMedia
+ *        Invoices with Media cost. (Value: "LOI_SAPIN_INVOICE_TYPE_MEDIA")
+ *    @arg @c kGTLRDisplayVideoLoiSapinInvoiceTypeLoiSapinInvoiceTypePlatform
+ *        Invoices with Platform fee. (Value: "LOI_SAPIN_INVOICE_TYPE_PLATFORM")
+ */
+@property(nonatomic, copy, nullable) NSString *loiSapinInvoiceType;
+
+/**
+ *  Requested page size. Must be between `1` and `100`. If unspecified will
+ *  default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid value
+ *  is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A token identifying a page of results the server should return. Typically,
+ *  this is the value of next_page_token returned from the previous call to
+ *  `ListInvoices` method. If not specified, the first page of results will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListInvoicesResponse.
+ *
+ *  Lists invoices posted for an advertiser in a given month. Invoices generated
+ *  by billing profiles with a "Partner" invoice level are not retrievable
+ *  through this method.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to list invoices for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersInvoicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Retrieves the invoice currency used by an advertiser in a given month.
+ *
+ *  Method: displayvideo.advertisers.invoices.lookupInvoiceCurrency
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideoMediaplanning
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersInvoicesLookupInvoiceCurrency : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser to lookup currency for. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Month for which the currency is needed. If not set, the request will return
+ *  existing currency settings for the advertiser. Must be in the format YYYYMM.
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceMonth;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_LookupInvoiceCurrencyResponse.
+ *
+ *  Retrieves the invoice currency used by an advertiser in a given month.
+ *
+ *  @param advertiserId Required. The ID of the advertiser to lookup currency
+ *    for.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersInvoicesLookupInvoiceCurrency
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
 
 @end
 
@@ -3644,6 +3800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -3779,6 +3938,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -3930,6 +4092,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4064,6 +4229,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -4218,6 +4386,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4353,6 +4524,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsGet
  */
@@ -4538,6 +4712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -4670,6 +4847,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsTargetingTypesAssignedTargetingOptionsList
  *
@@ -6053,6 +6233,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6187,6 +6370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -6335,6 +6521,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6468,6 +6657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -6619,6 +6811,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -6753,6 +6948,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -6932,6 +7130,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -7064,6 +7265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersTargetingTypesAssignedTargetingOptionsList
  *
@@ -8973,6 +9177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9105,6 +9312,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsCreate
  */
@@ -9251,6 +9461,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9382,6 +9595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsDelete
  */
@@ -9531,6 +9747,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9663,6 +9882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsGet
  */
@@ -9840,6 +10062,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -9969,6 +10194,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_PartnersTargetingTypesAssignedTargetingOptionsList
  *
@@ -10184,6 +10412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10313,6 +10544,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsGet
  */
@@ -10494,6 +10728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10621,6 +10858,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsList
  *
@@ -10764,6 +11004,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  */
 @property(nonatomic, copy, nullable) NSString *targetingType;
 
@@ -10895,6 +11138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeVi
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeSubExchange Purchase
  *        impressions from specific sub-exchanges. (Value:
  *        "TARGETING_TYPE_SUB_EXCHANGE")
+ *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *
  *  @return GTLRDisplayVideoQuery_TargetingTypesTargetingOptionsSearch
  */

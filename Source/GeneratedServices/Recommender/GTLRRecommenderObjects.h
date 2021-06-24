@@ -38,6 +38,8 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata;
+@class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection;
+@class GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details;
 @class GTLRRecommender_GoogleCloudRecommenderV1ValueMatcher;
 @class GTLRRecommender_GoogleTypeMoney;
 
@@ -316,6 +318,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
+
+/** Use with CategoryType.SECURITY */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection *securityProjection;
 
 @end
 
@@ -683,7 +688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
 @interface GTLRRecommender_GoogleCloudRecommenderV1Operation : GTLRObject
 
 /**
- *  Type of this operation. Contains one of 'and', 'remove', 'replace', 'move',
+ *  Type of this operation. Contains one of 'add', 'remove', 'replace', 'move',
  *  'copy', 'test' and custom operations. This field is case-insensitive and
  *  always populated.
  */
@@ -979,6 +984,29 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  *        fetch them all at once.
  */
 @interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata : GTLRObject
+@end
+
+
+/**
+ *  Contains various ways of describing the impact on Security.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection : GTLRObject
+
+/** Additional security impact details that is provided by the recommender. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details *details;
+
+@end
+
+
+/**
+ *  Additional security impact details that is provided by the recommender.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details : GTLRObject
 @end
 
 

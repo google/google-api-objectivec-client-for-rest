@@ -133,11 +133,13 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_Deployment
-@dynamic allowedBillingModes, defaultBillingMode, displayName, name, sasUserIds;
+@dynamic allowedBillingModes, defaultBillingMode, displayName, frns, name,
+         sasUserIds;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowedBillingModes" : [NSString class],
+    @"frns" : [NSString class],
     @"sasUserIds" : [NSString class]
   };
   return map;
@@ -509,7 +511,7 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_SetPolicyRequest
-@dynamic policy, resource;
+@dynamic disableNotification, policy, resource;
 @end
 
 

@@ -40,6 +40,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3MatchIntentRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Page;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseRequest;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType;
@@ -151,7 +152,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an agent in the specified location.
+ *  Creates an agent in the specified location. Note: You should always train
+ *  flows prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.create
  *
@@ -170,7 +173,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent.
  *
- *  Creates an agent in the specified location.
+ *  Creates an agent in the specified location. Note: You should always train
+ *  flows prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent to
  *    include in the query.
@@ -216,7 +221,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an entity type in the specified agent.
+ *  Creates an entity type in the specified agent. Note: You should always train
+ *  a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.create
  *
@@ -246,7 +253,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.
  *
- *  Creates an entity type in the specified agent.
+ *  Creates an entity type in the specified agent. Note: You should always train
+ *  a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType to
  *    include in the query.
@@ -261,7 +270,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified entity type.
+ *  Deletes the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.delete
  *
@@ -291,7 +302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified entity type.
+ *  Deletes the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the entity type to delete. Format:
  *    `projects//locations//agents//entityTypes/`.
@@ -401,7 +414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified entity type.
+ *  Updates the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.entityTypes.patch
  *
@@ -439,7 +454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.
  *
- *  Updates the specified entity type.
+ *  Updates the specified entity type. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType to
  *    include in the query.
@@ -451,6 +468,51 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches a list of continuous test results for a given environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.continuousTestResults.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList : GTLRDialogflowQuery
+
+/**
+ *  The maximum number of items to return in a single page. By default 100 and
+ *  at most 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The next_page_token value returned from a previous list request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The environment to list results for. Format:
+ *  `projects//locations//agents// environments/`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse.
+ *
+ *  Fetches a list of continuous test results for a given environment.
+ *
+ *  @param parent Required. The environment to list results for. Format:
+ *    `projects//locations//agents// environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -938,6 +1000,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
+ *  Kicks off a continuous test under the specified Environment.
+ *
+ *  Method: dialogflow.projects.locations.agents.environments.runContinuousTest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDialogflow
+ *    @c kGTLRAuthScopeDialogflowCloudPlatform
+ */
+@interface GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest : GTLRDialogflowQuery
+
+/** Required. Format: `projects//locations//agents//environments/`. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
+ *
+ *  Kicks off a continuous test under the specified Environment.
+ *
+ *  @param object The @c
+ *    GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest to
+ *    include in the query.
+ *  @param environment Required. Format:
+ *    `projects//locations//agents//environments/`.
+ *
+ *  @return GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest
+ */
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest *)object
+                    environment:(NSString *)environment;
+
+@end
+
+/**
  *  Processes a natural language query and returns structured, actionable data
  *  as a result. This method is not idempotent, because it may cause session
  *  entity types to be updated, which in turn might affect results of future
@@ -1342,7 +1436,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a flow in the specified agent.
+ *  Creates a flow in the specified agent. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.create
  *
@@ -1374,7 +1470,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow.
  *
- *  Creates a flow in the specified agent.
+ *  Creates a flow in the specified agent. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow to include
  *    in the query.
@@ -1547,7 +1645,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Imports the specified flow to the specified agent from a binary file.
+ *  Imports the specified flow to the specified agent from a binary file. Note:
+ *  You should always train a flow prior to sending it queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.import
  *
@@ -1566,7 +1667,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
- *  Imports the specified flow to the specified agent from a binary file.
+ *  Imports the specified flow to the specified agent from a binary file. Note:
+ *  You should always train a flow prior to sending it queries. See the
+ *  [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3ImportFlowRequest to include in
@@ -1639,7 +1743,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates a page in the specified flow.
+ *  Creates a page in the specified flow. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.create
  *
@@ -1677,7 +1783,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page.
  *
- *  Creates a page in the specified flow.
+ *  Creates a page in the specified flow. Note: You should always train a flow
+ *  prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page to include
  *    in the query.
@@ -1692,7 +1800,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified page.
+ *  Deletes the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.delete
  *
@@ -1721,7 +1831,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified page.
+ *  Deletes the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the page to delete. Format:
  *    `projects//locations//agents//Flows//pages/`.
@@ -1846,7 +1958,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified page.
+ *  Updates the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.pages.patch
  *
@@ -1893,7 +2007,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page.
  *
- *  Updates the specified page.
+ *  Updates the specified page. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Page to include
  *    in the query.
@@ -1909,7 +2025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified flow.
+ *  Updates the specified flow. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.patch
  *
@@ -1949,7 +2067,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow.
  *
- *  Updates the specified flow.
+ *  Updates the specified flow. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Flow to include
  *    in the query.
@@ -1965,7 +2085,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 
 /**
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained.
+ *  trained. Note: You should always train a flow prior to sending it queries.
+ *  See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.train
  *
@@ -1984,7 +2106,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *  Fetches a @c GTLRDialogflow_GoogleLongrunningOperation.
  *
  *  Trains the specified flow. Note that only the flow in 'draft' environment is
- *  trained.
+ *  trained. Note: You should always train a flow prior to sending it queries.
+ *  See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TrainFlowRequest to include in the
@@ -2000,7 +2124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an TransitionRouteGroup in the specified flow.
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.create
  *
@@ -2030,7 +2156,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
  *
- *  Creates an TransitionRouteGroup in the specified flow.
+ *  Creates an TransitionRouteGroup in the specified flow. Note: You should
+ *  always train a flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
@@ -2046,7 +2174,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified TransitionRouteGroup.
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.delete
  *
@@ -2075,7 +2205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified TransitionRouteGroup.
+ *  Deletes the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the TransitionRouteGroup to delete.
  *    Format: `projects//locations//agents//flows//transitionRouteGroups/`.
@@ -2187,7 +2319,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified TransitionRouteGroup.
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.flows.transitionRouteGroups.patch
  *
@@ -2226,7 +2360,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup.
  *
- *  Updates the specified TransitionRouteGroup.
+ *  Updates the specified TransitionRouteGroup. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionRouteGroup to include in
@@ -2567,7 +2703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Creates an intent in the specified agent.
+ *  Creates an intent in the specified agent. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.create
  *
@@ -2596,7 +2734,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent.
  *
- *  Creates an intent in the specified agent.
+ *  Creates an intent in the specified agent. Note: You should always train a
+ *  flow prior to sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent to
  *    include in the query.
@@ -2611,7 +2751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Deletes the specified intent.
+ *  Deletes the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.delete
  *
@@ -2630,7 +2772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleProtobufEmpty.
  *
- *  Deletes the specified intent.
+ *  Deletes the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param name Required. The name of the intent to delete. Format:
  *    `projects//locations//agents//intents/`.
@@ -2750,7 +2894,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified intent.
+ *  Updates the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.intents.patch
  *
@@ -2788,7 +2934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent.
  *
- *  Updates the specified intent.
+ *  Updates the specified intent. Note: You should always train a flow prior to
+ *  sending it queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Intent to
  *    include in the query.
@@ -2848,7 +2996,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 @end
 
 /**
- *  Updates the specified agent.
+ *  Updates the specified agent. Note: You should always train flows prior to
+ *  sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.patch
  *
@@ -2876,7 +3026,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Fetches a @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent.
  *
- *  Updates the specified agent.
+ *  Updates the specified agent. Note: You should always train flows prior to
+ *  sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c GTLRDialogflow_GoogleCloudDialogflowCxV3Agent to
  *    include in the query.
@@ -2894,7 +3046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
 /**
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed.
+ *  entity types, flows) will be removed. Note: You should always train flows
+ *  prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  Method: dialogflow.projects.locations.agents.restore
  *
@@ -2915,7 +3069,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflowViewTestCaseViewUnspecified;
  *
  *  Restores the specified agent from a binary file. Replaces the current agent
  *  with a new one. Note that all existing resources in agent (e.g. intents,
- *  entity types, flows) will be removed.
+ *  entity types, flows) will be removed. Note: You should always train flows
+ *  prior to sending them queries. See the [training
+ *  documentation](https://cloud.google.com/dialogflow/cx/docs/concept/training).
  *
  *  @param object The @c
  *    GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest to include in

@@ -23,6 +23,11 @@ NSString * const kGTLRCloudAssetContentTypeOrgPolicy           = @"ORG_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOsInventory         = @"OS_INVENTORY";
 NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
+// view
+NSString * const kGTLRCloudAssetViewAnalysisViewUnspecified = @"ANALYSIS_VIEW_UNSPECIFIED";
+NSString * const kGTLRCloudAssetViewBasic                   = @"BASIC";
+NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -268,6 +273,25 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @end
 
+@implementation GTLRCloudAssetQuery_V1AnalyzeMove
+
+@dynamic destinationParent, resource, view;
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:analyzeMove";
+  GTLRCloudAssetQuery_V1AnalyzeMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudAsset_AnalyzeMoveResponse class];
+  query.loggingName = @"cloudasset.analyzeMove";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudAssetQuery_V1BatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,
@@ -332,7 +356,14 @@ NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 @implementation GTLRCloudAssetQuery_V1SearchAllIamPolicies
 
-@dynamic pageSize, pageToken, query, scope;
+@dynamic assetTypes, orderBy, pageSize, pageToken, query, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetTypes" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithScope:(NSString *)scope {
   NSArray *pathParams = @[ @"scope" ];

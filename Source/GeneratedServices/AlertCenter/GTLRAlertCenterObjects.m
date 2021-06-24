@@ -564,6 +564,16 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAlertCenter_OutOfDomainForwarding
+//
+
+@implementation GTLRAlertCenter_OutOfDomainForwarding
+@dynamic actorEmail, enableTime, forwardeeEmail, ipAddress;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAlertCenter_PhishingSpike
 //
 

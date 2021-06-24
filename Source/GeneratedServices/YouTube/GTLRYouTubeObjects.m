@@ -3305,7 +3305,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_TestItem
-@dynamic gaia, identifier, snippet;
+@dynamic featuredPart, gaia, identifier, snippet;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

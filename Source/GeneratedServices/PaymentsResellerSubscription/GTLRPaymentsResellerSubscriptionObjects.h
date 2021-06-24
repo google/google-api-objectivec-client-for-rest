@@ -25,6 +25,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Promotion;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription;
 @class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails;
+@class GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
 
 // Generated comments include content from the discovery document; avoid them
@@ -205,6 +206,29 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *  Value: "CANCELLATION_REASON_UPGRADE_DOWNGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails.billingCycleSpec
+
+/**
+ *  The billing cycle of the new subscription aligns with the previous
+ *  subscription it upgrades or downgrades from.
+ *
+ *  Value: "BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription;
+/**
+ *  The billing cycle of the new subscription starts immediately.
+ *
+ *  Value: "BILLING_CYCLE_SPEC_START_IMMEDIATELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately;
+/**
+ *  Billing cycle spec is not specified.
+ *
+ *  Value: "BILLING_CYCLE_SPEC_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified;
 
 /**
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
@@ -618,6 +642,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Optional. Details about the previous subscription that this new subscription
+ *  upgrades/downgrades from. Only populated if this subscription is an
+ *  upgrade/downgrade from another subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails *upgradeDowngradeDetails;
+
 @end
 
 
@@ -651,6 +682,39 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
  *        "CANCELLATION_REASON_UPGRADE_DOWNGRADE")
  */
 @property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Details about the previous subscription that this new subscription
+ *  upgrades/downgrades from.
+ */
+@interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails : GTLRObject
+
+/**
+ *  Required. Specifies the billing cycle spec for the new upgraded/downgraded
+ *  subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription
+ *        The billing cycle of the new subscription aligns with the previous
+ *        subscription it upgrades or downgrades from. (Value:
+ *        "BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately
+ *        The billing cycle of the new subscription starts immediately. (Value:
+ *        "BILLING_CYCLE_SPEC_START_IMMEDIATELY")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified
+ *        Billing cycle spec is not specified. (Value:
+ *        "BILLING_CYCLE_SPEC_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *billingCycleSpec;
+
+/**
+ *  Required. The previous subscription id to be replaced. This is not the full
+ *  resource name, use the subscription_id segment only.
+ */
+@property(nonatomic, copy, nullable) NSString *previousSubscriptionId;
 
 @end
 

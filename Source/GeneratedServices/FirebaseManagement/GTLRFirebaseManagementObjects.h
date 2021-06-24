@@ -194,24 +194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseManagement_ShaCertificate_CertTy
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
 
-/**
- *  Deprecated. Instead, to link a Project with a Google Analytics account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
- *  add Firebase resources to the GCP `Project`. The region code (CLDR) that the
- *  account will use for Google Analytics data For example: US, GB, or DE In
- *  Java, use `com.google.i18n.identifiers.RegionCode`.
- */
-@property(nonatomic, copy, nullable) NSString *regionCode;
-
-/**
- *  Deprecated. Instead, to link a Project with a Google Analytics account, call
- *  [`AddGoogleAnalytics`](../../v1beta1/projects/addGoogleAnalytics) after you
- *  add Firebase resources to the GCP `Project`. The time zone that the account
- *  will use for Google Analytics data. For example: America/Los_Angeles or
- *  Africa/Abidjan
- */
-@property(nonatomic, copy, nullable) NSString *timeZone;
-
 @end
 
 

@@ -2015,6 +2015,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitT
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month;
 /**
+ *  Pod
+ *
+ *  Value: "POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Pod;
+/**
+ *  Stream
+ *
+ *  Value: "STREAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Stream;
+/**
  *  A placeholder for an undefined time unit type. This just indicates the
  *  variable with this value hasn't been initialized.
  *
@@ -4551,6 +4563,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        (Value: "MINUTE")
  *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Month Month
  *        (Value: "MONTH")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Pod Pod (Value:
+ *        "POD")
+ *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_Stream Stream
+ *        (Value: "STREAM")
  *    @arg @c kGTLRAdExchangeBuyerII_FrequencyCap_TimeUnitType_TimeUnitTypeUnspecified
  *        A placeholder for an undefined time unit type. This just indicates the
  *        variable with this value hasn't been initialized. (Value:
@@ -5625,6 +5641,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 
 /**
+ *  Request message to pause serving for finalized deals.
+ */
+@interface GTLRAdExchangeBuyerII_PauseProposalDealsRequest : GTLRObject
+
+/**
+ *  The external_deal_id's of the deals to be paused. If empty, all the deals in
+ *  the proposal will be paused.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalDealIds;
+
+/**
+ *  The reason why the deals are being paused. This human readable message will
+ *  be displayed in the seller's UI. (Max length: 1000 unicode code units.)
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  Request message to pause serving for an already-finalized proposal.
  */
 @interface GTLRAdExchangeBuyerII_PauseProposalRequest : GTLRObject
@@ -6175,6 +6211,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
 
 /** The association between a creative and a deal that should be removed. */
 @property(nonatomic, strong, nullable) GTLRAdExchangeBuyerII_CreativeDealAssociation *association;
+
+@end
+
+
+/**
+ *  Request message to resume (unpause) serving for already-finalized deals.
+ */
+@interface GTLRAdExchangeBuyerII_ResumeProposalDealsRequest : GTLRObject
+
+/**
+ *  The external_deal_id's of the deals to resume. If empty, all the deals in
+ *  the proposal will be resumed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalDealIds;
 
 @end
 

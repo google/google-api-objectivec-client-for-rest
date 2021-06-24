@@ -648,6 +648,33 @@
 
 @end
 
+@implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:updateConfig";
+  GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAIPlatformNotebooks_Operation class];
+  query.loggingName = @"notebooks.projects.locations.instances.updateConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateShieldedInstanceConfig
 
 @dynamic name;

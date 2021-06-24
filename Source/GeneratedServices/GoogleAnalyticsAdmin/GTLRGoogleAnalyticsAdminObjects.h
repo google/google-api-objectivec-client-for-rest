@@ -32,7 +32,9 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary;
 @class GTLRGoogleAnalyticsAdmin_V1alphaUpdateUserLinkRequest;
@@ -214,40 +216,50 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
 
 /**
- *  Firebase users have edit access to the Analytics property and may manage the
- *  Firebase link.
+ *  Terms of service have been accepted
  *
- *  Value: "EDITOR_INCLUDING_LINK_MANAGEMENT"
+ *  Value: "GOOGLE_SIGNALS_CONSENT_CONSENTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented;
 /**
- *  Firebase users have edit access to the Analytics property, but may not
- *  manage the Firebase link.
+ *  Terms of service have not been accepted
  *
- *  Value: "EDITOR_WITHOUT_LINK_MANAGEMENT"
+ *  Value: "GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented;
 /**
- *  Unspecified maximum user access.
+ *  Google Signals consent value defaults to GOOGLE_SIGNALS_CONSENT_UNSPECIFIED.
+ *  This will be treated as GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED.
  *
- *  Value: "MAXIMUM_USER_ACCESS_UNSPECIFIED"
+ *  Value: "GOOGLE_SIGNALS_CONSENT_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_MaximumUserAccessUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.state
+
 /**
- *  Firebase users have no access to the Analytics property.
+ *  Google Signals is disabled.
  *
- *  Value: "NO_ACCESS"
+ *  Value: "GOOGLE_SIGNALS_DISABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_NoAccess;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled;
 /**
- *  Firebase users have Read & Analyze access to the Analytics property.
+ *  Google Signals is enabled.
  *
- *  Value: "READ_AND_ANALYZE"
+ *  Value: "GOOGLE_SIGNALS_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_ReadAndAnalyze;
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled;
+/**
+ *  Google Signals status defaults to GOOGLE_SIGNALS_STATE_UNSPECIFIED to
+ *  represent that the user has not made an explicit choice.
+ *
+ *  Value: "GOOGLE_SIGNALS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
@@ -495,11 +507,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink;
 /**
+ *  GoogleSignalsSettings resource
+ *
+ *  Value: "GOOGLE_SIGNALS_SETTINGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings;
+/**
  *  IosAppDataStream resource
  *
  *  Value: "IOS_APP_DATA_STREAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream;
+/**
+ *  MeasurementProtocolSecret resource
+ *
+ *  Value: "MEASUREMENT_PROTOCOL_SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_MeasurementProtocolSecret;
 /**
  *  Property resource
  *
@@ -871,8 +895,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** A snapshot of a GoogleAdsLink resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink *googleAdsLink;
 
+/** A snapshot of a GoogleSignalsSettings resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *googleSignalsSettings;
+
 /** A snapshot of an IosAppDataStream resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream *iosAppDataStream;
+
+/** A snapshot of a MeasurementProtocolSecret resource in change history. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *measurementProtocolSecret;
 
 /** A snapshot of a Property resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaProperty *property;
@@ -952,10 +982,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Immutable. The event name for this conversion event. Examples: 'click',
- *  'purchase'
+ *  Output only. If set to true, this conversion event refers to a custom event.
+ *  If set to false, this conversion event refers to a default event in GA.
+ *  Default events typically have special meaning in GA. Default events are
+ *  usually created for you by the GA system, but in some cases can be created
+ *  by property admins. Custom events count towards the maximum number of custom
+ *  conversion events that may be created per property.
+ *
+ *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, copy, nullable) NSString *eventName;
+@property(nonatomic, strong, nullable) NSNumber *custom;
 
 /**
  *  Output only. If set, this event can currently be deleted via
@@ -963,7 +999,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isDeletable;
+@property(nonatomic, strong, nullable) NSNumber *deletable;
+
+/**
+ *  Immutable. The event name for this conversion event. Examples: 'click',
+ *  'purchase'
+ */
+@property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
  *  Output only. Resource name of this conversion event. Format:
@@ -1314,29 +1356,6 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** Output only. Time when this FirebaseLink was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/**
- *  Maximum user access to the GA4 property allowed to admins of the linked
- *  Firebase project.
- *
- *  Likely values:
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement
- *        Firebase users have edit access to the Analytics property and may
- *        manage the Firebase link. (Value: "EDITOR_INCLUDING_LINK_MANAGEMENT")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement
- *        Firebase users have edit access to the Analytics property, but may not
- *        manage the Firebase link. (Value: "EDITOR_WITHOUT_LINK_MANAGEMENT")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_MaximumUserAccessUnspecified
- *        Unspecified maximum user access. (Value:
- *        "MAXIMUM_USER_ACCESS_UNSPECIFIED")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_NoAccess
- *        Firebase users have no access to the Analytics property. (Value:
- *        "NO_ACCESS")
- *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_ReadAndAnalyze
- *        Firebase users have Read & Analyze access to the Analytics property.
- *        (Value: "READ_AND_ANALYZE")
- */
-@property(nonatomic, copy, nullable) NSString *maximumUserAccess;
-
 /** Output only. Example format: properties/1234/firebaseLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1398,14 +1417,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 /** Output only. Time when this link was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Immutable. Google Ads customer ID. */
-@property(nonatomic, copy, nullable) NSString *customerId;
-
 /**
  *  Output only. Email address of the user that created the link. An empty
  *  string will be returned if the email address can't be retrieved.
  */
-@property(nonatomic, copy, nullable) NSString *emailAddress;
+@property(nonatomic, copy, nullable) NSString *creatorEmailAddress;
+
+/** Immutable. Google Ads customer ID. */
+@property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Output only. Format:
@@ -1416,6 +1435,54 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** Output only. Time when this link was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Settings values for Google Signals. This is a singleton resource.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings : GTLRObject
+
+/**
+ *  Output only. Terms of Service acceptance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented
+ *        Terms of service have been accepted (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_CONSENTED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented
+ *        Terms of service have not been accepted (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified
+ *        Google Signals consent value defaults to
+ *        GOOGLE_SIGNALS_CONSENT_UNSPECIFIED. This will be treated as
+ *        GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED. (Value:
+ *        "GOOGLE_SIGNALS_CONSENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consent;
+
+/**
+ *  Output only. Resource name of this setting. Format:
+ *  properties/{property_id}/googleSignalsSettings Example:
+ *  "properties/1000/googleSignalsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Status of this setting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled
+ *        Google Signals is disabled. (Value: "GOOGLE_SIGNALS_DISABLED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled
+ *        Google Signals is enabled. (Value: "GOOGLE_SIGNALS_ENABLED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified
+ *        Google Signals status defaults to GOOGLE_SIGNALS_STATE_UNSPECIFIED to
+ *        represent that the user has not made an explicit choice. (Value:
+ *        "GOOGLE_SIGNALS_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -1705,6 +1772,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Response message for ListMeasurementProtocolSecret RPC
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "measurementProtocolSecrets" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse : GTLRCollectionObject
+
+/**
+ *  A list of secrets for the parent stream specified in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *> *measurementProtocolSecrets;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListProperties RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1781,6 +1875,31 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaWebDataStream *> *webDataStreams;
+
+@end
+
+
+/**
+ *  A secret value used for sending hits to Measurement Protocol.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret : GTLRObject
+
+/** Required. Human-readable display name for this secret. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Resource name of this secret. This secret may be a child of any
+ *  type of stream. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The measurement protocol secret value. Pass this value to the
+ *  api_secret field of the Measurement Protocol API when sending hits to this
+ *  secret's parent property.
+ */
+@property(nonatomic, copy, nullable) NSString *secretValue;
 
 @end
 

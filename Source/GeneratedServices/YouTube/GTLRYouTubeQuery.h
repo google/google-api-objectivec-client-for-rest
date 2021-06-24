@@ -4443,7 +4443,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  The *part* parameter specifies the superChatEvent resource parts that the
- *  API response will include. Supported values are id and snippet.
+ *  API response will include. This parameter is currently not supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 
@@ -4453,7 +4453,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  Retrieves a list of resources, possibly filtered.
  *
  *  @param part The *part* parameter specifies the superChatEvent resource parts
- *    that the API response will include. Supported values are id and snippet.
+ *    that the API response will include. This parameter is currently not
+ *    supported.
  *
  *  @return GTLRYouTubeQuery_SuperChatEventsList
  *

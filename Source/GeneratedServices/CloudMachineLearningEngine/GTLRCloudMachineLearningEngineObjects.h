@@ -38,6 +38,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1ExplanationConfig;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutputHyperparameterMetric;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1IntegratedGradientsAttribution;
@@ -72,6 +73,7 @@
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1StudyConfigParameterSpecMatchingParentIntValueSpec;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput;
+@class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Trial;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrialParameter;
 @class GTLRCloudMachineLearningEngine_GoogleCloudMlV1Version;
@@ -1681,6 +1683,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 /** The trial id for these results. */
 @property(nonatomic, copy, nullable) NSString *trialId;
 
+/**
+ *  The web URIs for the training job. Currently for debug terminal access to
+ *  the job. Only set for in-progress hyperparameter tuning trials with web
+ *  access enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris *webAccessUris;
+
 @end
 
 
@@ -1693,6 +1702,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  *        fetch them all at once.
  */
 @interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters : GTLRObject
+@end
+
+
+/**
+ *  The web URIs for the training job. Currently for debug terminal access to
+ *  the job. Only set for in-progress hyperparameter tuning trials with web
+ *  access enabled.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris : GTLRObject
 @end
 
 
@@ -3266,6 +3289,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
 @property(nonatomic, strong, nullable) NSArray<NSString *> *args;
 
 /**
+ *  Optional. Whether to enable web access for the training job.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWebAccess;
+
+/**
  *  Optional. Options for using customer-managed encryption keys (CMEK) to
  *  protect resources created by a training job, instead of using Google's
  *  default encryption. If this is set, then all resources created by the
@@ -3594,6 +3624,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput *> *trials;
 
+/**
+ *  Output only. The web URIs for the training job. Currently for debug terminal
+ *  access to the job.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris *webAccessUris;
+
+@end
+
+
+/**
+ *  Output only. The web URIs for the training job. Currently for debug terminal
+ *  access to the job.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris : GTLRObject
 @end
 
 

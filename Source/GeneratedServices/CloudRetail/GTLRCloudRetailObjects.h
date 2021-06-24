@@ -1224,7 +1224,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  product being clicked/purchased given the user's context and history. *
  *  `strictFiltering`: Boolean. True by default. If set to false, the service
  *  will return generic (unfiltered) popular products instead of empty if your
- *  filter blocks all prediction results.
+ *  filter blocks all prediction results. * `priceRerankLevel`: String. Default
+ *  empty. If set to be non-empty, then it needs to be one of
+ *  {'no-price-reranking', 'low-price-reranking', 'medium-price-reranking',
+ *  'high-price-reranking'}. This gives request level control and adjust
+ *  prediction results based on product price. * `diversityLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
+ *  'auto-diversity'}. This gives request level control and adjust prediction
+ *  results based on product category.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2PredictRequest_Params *params;
 
@@ -1282,7 +1290,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  product being clicked/purchased given the user's context and history. *
  *  `strictFiltering`: Boolean. True by default. If set to false, the service
  *  will return generic (unfiltered) popular products instead of empty if your
- *  filter blocks all prediction results.
+ *  filter blocks all prediction results. * `priceRerankLevel`: String. Default
+ *  empty. If set to be non-empty, then it needs to be one of
+ *  {'no-price-reranking', 'low-price-reranking', 'medium-price-reranking',
+ *  'high-price-reranking'}. This gives request level control and adjust
+ *  prediction results based on product price. * `diversityLevel`: String.
+ *  Default empty. If set to be non-empty, then it needs to be one of
+ *  {'no-diversity', 'low-diversity', 'medium-diversity', 'high-diversity',
+ *  'auto-diversity'}. This gives request level control and adjust prediction
+ *  results based on product category.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -1423,7 +1439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  {"text": ["vendor123", "vendor456"]}, "lengths_cm": {"numbers":[2.3, 15.4]},
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
- *  count: 150 by default; 100 for Type.VARIANT. * The key must be a UTF-8
+ *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
  *  encoded string with a length limit of 128 characters.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
@@ -1562,7 +1578,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
- *  Immutable. The type of the product. This field is output-only. Default to
+ *  Immutable. The type of the product. Default to
  *  Catalog.product_level_config.ingestion_product_type if unset.
  *
  *  Likely values:
@@ -1612,7 +1628,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  {"text": ["vendor123", "vendor456"]}, "lengths_cm": {"numbers":[2.3, 15.4]},
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
- *  count: 150 by default; 100 for Type.VARIANT. * The key must be a UTF-8
+ *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
  *  encoded string with a length limit of 128 characters.
  *
  *  @note This class is documented as having more properties of
@@ -1917,7 +1933,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
 /**
  *  Required. User event type. Allowed values are: * `add-to-cart`: Products
  *  being added to cart. * `category-page-view`: Special pages such as sale or
- *  promotion pages viewed. * `detail-page-view`: Products detail page viewed. *
+ *  promotion pages viewed. * `completion`: Completion query result
+ *  showed/clicked. * `detail-page-view`: Products detail page viewed. *
  *  `home-page-view`: Homepage viewed. * `promotion-offered`: Promotion is
  *  offered to a user. * `promotion-not-offered`: Promotion is not offered to a
  *  user. * `purchase-complete`: User finishing a purchase. * `search`: Product

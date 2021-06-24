@@ -270,6 +270,9 @@ NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alp
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Alphanumeric = @"ALPHANUMERIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_BiometricWeak = @"BIOMETRIC_WEAK";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex = @"COMPLEX";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh = @"COMPLEXITY_HIGH";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow = @"COMPLEXITY_LOW";
+NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium = @"COMPLEXITY_MEDIUM";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric = @"NUMERIC";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_NumericComplex = @"NUMERIC_COMPLEX";
 NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_PasswordQualityUnspecified = @"PASSWORD_QUALITY_UNSPECIFIED";
@@ -416,6 +419,7 @@ NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PlaySearch = @"
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_PrivateApps = @"PRIVATE_APPS";
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_StoreBuilder = @"STORE_BUILDER";
 NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_WebApps = @"WEB_APPS";
+NSString * const kGTLRAndroidManagement_WebToken_EnabledFeatures_ZeroTouchCustomerManagement = @"ZERO_TOUCH_CUSTOMER_MANAGEMENT";
 
 // GTLRAndroidManagement_WebToken.permissions
 NSString * const kGTLRAndroidManagement_WebToken_Permissions_ApproveApps = @"APPROVE_APPS";
@@ -698,10 +702,11 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 //
 
 @implementation GTLRAndroidManagement_Device
-@dynamic apiLevel, applicationReports, appliedPolicyName, appliedPolicyVersion,
-         appliedState, commonCriteriaModeInfo, deviceSettings, disabledReason,
-         displays, enrollmentTime, enrollmentTokenData, enrollmentTokenName,
-         hardwareInfo, hardwareStatusSamples, lastPolicyComplianceReportTime,
+@dynamic apiLevel, applicationReports, appliedPasswordPolicies,
+         appliedPolicyName, appliedPolicyVersion, appliedState,
+         commonCriteriaModeInfo, deviceSettings, disabledReason, displays,
+         enrollmentTime, enrollmentTokenData, enrollmentTokenName, hardwareInfo,
+         hardwareStatusSamples, lastPolicyComplianceReportTime,
          lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
          memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
          policyCompliant, policyName, powerManagementEvents,
@@ -711,6 +716,7 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"applicationReports" : [GTLRAndroidManagement_ApplicationReport class],
+    @"appliedPasswordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
     @"displays" : [GTLRAndroidManagement_Display class],
     @"hardwareStatusSamples" : [GTLRAndroidManagement_HardwareStatus class],
     @"memoryEvents" : [GTLRAndroidManagement_MemoryEvent class],
@@ -871,6 +877,15 @@ NSString * const kGTLRAndroidManagement_WebToken_Permissions_WebTokenPermissionU
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_IssueCommandResponse
+//
+
+@implementation GTLRAndroidManagement_IssueCommandResponse
 @end
 
 

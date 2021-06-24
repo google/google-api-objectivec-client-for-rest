@@ -470,7 +470,8 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput
 @dynamic allMetrics, builtInAlgorithmOutput, endTime, finalMetric,
-         hyperparameters, isTrialStoppedEarly, startTime, state, trialId;
+         hyperparameters, isTrialStoppedEarly, startTime, state, trialId,
+         webAccessUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -488,6 +489,20 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_Hyperparameters
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput_WebAccessUris
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1201,11 +1216,11 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingInput
-@dynamic args, encryptionConfig, evaluatorConfig, evaluatorCount, evaluatorType,
-         hyperparameters, jobDir, masterConfig, masterType, network,
-         packageUris, parameterServerConfig, parameterServerCount,
-         parameterServerType, pythonModule, pythonVersion, region,
-         runtimeVersion, scaleTier, scheduling, serviceAccount,
+@dynamic args, enableWebAccess, encryptionConfig, evaluatorConfig,
+         evaluatorCount, evaluatorType, hyperparameters, jobDir, masterConfig,
+         masterType, network, packageUris, parameterServerConfig,
+         parameterServerCount, parameterServerType, pythonModule, pythonVersion,
+         region, runtimeVersion, scaleTier, scheduling, serviceAccount,
          useChiefInTfConfig, workerConfig, workerCount, workerType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1227,13 +1242,27 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput
 @dynamic builtInAlgorithmOutput, completedTrialCount, consumedMLUnits,
          hyperparameterMetricTag, isBuiltInAlgorithmJob,
-         isHyperparameterTuningJob, trials;
+         isHyperparameterTuningJob, trials, webAccessUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"trials" : [GTLRCloudMachineLearningEngine_GoogleCloudMlV1HyperparameterOutput class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris
+//
+
+@implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1TrainingOutput_WebAccessUris
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

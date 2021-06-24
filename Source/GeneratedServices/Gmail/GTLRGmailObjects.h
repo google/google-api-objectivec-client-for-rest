@@ -772,7 +772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmail_WatchRequest_LabelFilterAction_Inc
 
 /**
  *  Labels are used to categorize messages and threads within the user's
- *  mailbox.
+ *  mailbox. The maximum number of labels supported for a user's mailbox is
+ *  10,000.
  */
 @interface GTLRGmail_Label : GTLRObject
 

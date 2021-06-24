@@ -17,6 +17,10 @@
 // GTLRArtifactRegistry_Repository.format
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi  = @"PYPI";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
 
 // ----------------------------------------------------------------------------
 //
@@ -33,7 +37,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"F
 //
 
 @implementation GTLRArtifactRegistry_DockerImage
-@dynamic imageSizeBytes, mediaType, name, tags, uploadTime, uri;
+@dynamic buildTime, imageSizeBytes, mediaType, name, tags, uploadTime, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

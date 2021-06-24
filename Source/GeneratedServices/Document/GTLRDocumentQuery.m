@@ -20,33 +20,6 @@
 
 @end
 
-@implementation GTLRDocumentQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRDocument_GoogleLongrunningCancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRDocumentQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
-  query.loggingName = @"documentai.operations.cancel";
-  return query;
-}
-
-@end
-
 @implementation GTLRDocumentQuery_OperationsDelete
 
 @dynamic name;
@@ -61,25 +34,6 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
   query.loggingName = @"documentai.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRDocumentQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRDocumentQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningListOperationsResponse class];
-  query.loggingName = @"documentai.operations.list";
   return query;
 }
 
@@ -123,6 +77,25 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsOperationsCancelOperation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
+  query.loggingName = @"documentai.projects.locations.operations.cancelOperation";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsLocationsOperationsGet
 
 @dynamic name;
@@ -137,6 +110,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
   query.loggingName = @"documentai.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"documentai.projects.locations.operations.list";
   return query;
 }
 
@@ -334,6 +326,25 @@
 
 @end
 
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"uiv1beta3/{+name}";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsCancelOperation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleProtobufEmpty class];
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.cancelOperation";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsGet
 
 @dynamic name;
@@ -348,6 +359,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
   query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"uiv1beta3/{+name}";
+  GTLRDocumentQuery_Uiv1beta3ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"documentai.uiv1beta3.projects.locations.operations.list";
   return query;
 }
 

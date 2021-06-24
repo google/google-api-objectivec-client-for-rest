@@ -1857,7 +1857,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Create a new table by restoring from a completed backup. The new table must
- *  be in the same instance as the instance containing the backup. The returned
+ *  be in the same project as the instance containing the backup. The returned
  *  table long-running operation can be used to track the progress of the
  *  operation, and to cancel it. The metadata field type is
  *  RestoreTableMetadata. The response type is Table, if successful.
@@ -1875,8 +1875,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Required. The name of the instance in which to create the restored table.
- *  This instance must be the parent of the source backup. Values are of the
- *  form `projects//instances/`.
+ *  This instance must be in the same project as the source backup. Values are
+ *  of the form `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1884,7 +1884,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_Operation.
  *
  *  Create a new table by restoring from a completed backup. The new table must
- *  be in the same instance as the instance containing the backup. The returned
+ *  be in the same project as the instance containing the backup. The returned
  *  table long-running operation can be used to track the progress of the
  *  operation, and to cancel it. The metadata field type is
  *  RestoreTableMetadata. The response type is Table, if successful.
@@ -1892,8 +1892,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  @param object The @c GTLRBigtableAdmin_RestoreTableRequest to include in the
  *    query.
  *  @param parent Required. The name of the instance in which to create the
- *    restored table. This instance must be the parent of the source backup.
- *    Values are of the form `projects//instances/`.
+ *    restored table. This instance must be in the same project as the source
+ *    backup. Values are of the form `projects//instances/`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesTablesRestore
  */

@@ -1415,10 +1415,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricConversionsPerMille;
 /** Value: "METRIC_CONVERTING_PATHS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricConvertingPaths;
+/** Value: "METRIC_COOKIE_CONSENTED_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieConsentedFloodlightImpressions;
 /** Value: "METRIC_COOKIE_REACH_AVERAGE_IMPRESSION_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachAverageImpressionFrequency;
 /** Value: "METRIC_COOKIE_REACH_IMPRESSION_REACH" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieReachImpressionReach;
+/** Value: "METRIC_COOKIE_UNCONSENTED_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCookieUnconsentedFloodlightImpressions;
 /** Value: "METRIC_COUNTERS" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricCounters;
 /** Value: "METRIC_CPM_FEE1_ADVERTISER" */
@@ -1479,6 +1483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoCorrectedClicks;
 /** Value: "METRIC_DEMO_POPULATION" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDemoPopulation;
+/** Value: "METRIC_DUPLICATE_FLOODLIGHT_IMPRESSIONS" */
+FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricDuplicateFloodlightImpressions;
 /** Value: "METRIC_ENGAGEMENT_RATE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricEngagementRate;
 /** Value: "METRIC_ENGAGEMENTS" */
@@ -1793,8 +1799,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricNielsenReachShare;
 /** Value: "METRIC_NIELSEN_UNIQUE_AUDIENCE" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricNielsenUniqueAudience;
-/** Value: "METRIC_OMID_CAPABLE" */
-FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricOmidCapable;
 /** Value: "METRIC_ORIGINAL_AUDIENCE_FREQUENCY" */
 FOUNDATION_EXTERN NSString * const kGTLRDoubleClickBidManager_Parameters_Metrics_MetricOriginalAudienceFrequency;
 /** Value: "METRIC_PATH_CONVERSION_RATE" */

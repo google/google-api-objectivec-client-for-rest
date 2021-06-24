@@ -1154,13 +1154,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 @interface GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
 /**
- *  Optional. Global per-instance SLI eligibility which applies to all defined
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
- */
-@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
-
-/**
  *  List of SLO exclusion windows. When multiple entries in the list match
  *  (matching the exclusion time-window against current time point) the
  *  exclusion reason used in the first matching entry will be published. It is
@@ -1184,8 +1177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 
 /**
  *  Optional. Multiple per-instance SLI eligibilities which apply for individual
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
+ *  SLIs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
 

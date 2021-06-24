@@ -190,6 +190,13 @@ NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Launc
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRMonitoring_OperationMetadata.state
+NSString * const kGTLRMonitoring_OperationMetadata_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Created = @"CREATED";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Done  = @"DONE";
+NSString * const kGTLRMonitoring_OperationMetadata_State_Running = @"RUNNING";
+NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRMonitoring_ResourceGroup.resourceType
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_AwsElbLoadBalancer = @"AWS_ELB_LOAD_BALANCER";
 NSString * const kGTLRMonitoring_ResourceGroup_ResourceType_Instance = @"INSTANCE";
@@ -1402,6 +1409,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_OperationMetadata
+//
+
+@implementation GTLRMonitoring_OperationMetadata
+@dynamic createTime, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_Option
 //
 
@@ -1547,7 +1564,21 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_Service
 @dynamic appEngine, cloudEndpoints, clusterIstio, custom, displayName,
-         istioCanonicalService, meshIstio, name, telemetry;
+         istioCanonicalService, meshIstio, name, telemetry, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Service_UserLabels
+//
+
+@implementation GTLRMonitoring_Service_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1568,7 +1599,21 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 @implementation GTLRMonitoring_ServiceLevelObjective
 @dynamic calendarPeriod, displayName, goal, name, rollingPeriod,
-         serviceLevelIndicator;
+         serviceLevelIndicator, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_ServiceLevelObjective_UserLabels
+//
+
+@implementation GTLRMonitoring_ServiceLevelObjective_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

@@ -43,6 +43,7 @@
 @class GTLRAIPlatformNotebooks_SwitchRuntimeRequest;
 @class GTLRAIPlatformNotebooks_TestIamPermissionsRequest;
 @class GTLRAIPlatformNotebooks_TriggerScheduleRequest;
+@class GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest;
 @class GTLRAIPlatformNotebooks_UpdateShieldedInstanceConfigRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceInternalRequest;
 @class GTLRAIPlatformNotebooks_UpgradeInstanceRequest;
@@ -986,6 +987,39 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Update Notebook Instance configurations.
+ *
+ *  Method: notebooks.projects.locations.instances.updateConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateConfig : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Update Notebook Instance configurations.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesUpdateConfig
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -430,7 +430,7 @@
 //
 
 @implementation GTLRServiceControl_ResourceInfo
-@dynamic name, permission, type;
+@dynamic container, location, name, permission, type;
 @end
 
 

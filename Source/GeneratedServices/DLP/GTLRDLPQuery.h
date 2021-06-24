@@ -55,7 +55,7 @@ NS_ASSUME_NONNULL_BEGIN
 // type
 
 /**
- *  Unused
+ *  Defaults to INSPECT_JOB.
  *
  *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
  */
@@ -1004,7 +1004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The type of job. Defaults to `DlpJobType.INSPECT`
  *
  *  Likely values:
- *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
  *        "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
  *        sensitive data. (Value: "INSPECT_JOB")
@@ -1474,6 +1474,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The type of jobs. Will use `DlpJobType.INSPECT` if not set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
@@ -2684,7 +2697,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The type of job. Defaults to `DlpJobType.INSPECT`
  *
  *  Likely values:
- *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
  *        "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
  *        sensitive data. (Value: "INSPECT_JOB")
@@ -3247,6 +3260,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The type of jobs. Will use `DlpJobType.INSPECT` if not set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.
@@ -4023,7 +4049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  The type of job. Defaults to `DlpJobType.INSPECT`
  *
  *  Likely values:
- *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Unused (Value:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
  *        "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
  *        sensitive data. (Value: "INSPECT_JOB")
@@ -4624,6 +4650,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLPTypeRiskAnalysisJob;
  *  parent=projects/example-project/locations/europe-west3
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  The type of jobs. Will use `DlpJobType.INSPECT` if not set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLPTypeDlpJobTypeUnspecified Defaults to INSPECT_JOB. (Value:
+ *        "DLP_JOB_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDLPTypeInspectJob The job inspected Google Cloud for
+ *        sensitive data. (Value: "INSPECT_JOB")
+ *    @arg @c kGTLRDLPTypeRiskAnalysisJob The job executed a Risk Analysis
+ *        computation. (Value: "RISK_ANALYSIS_JOB")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Fetches a @c GTLRDLP_GooglePrivacyDlpV2ListJobTriggersResponse.

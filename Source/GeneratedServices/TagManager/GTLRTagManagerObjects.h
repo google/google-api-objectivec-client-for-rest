@@ -505,6 +505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpTimer;
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_AmpVisibility;
 /** Value: "click" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Click;
+/** Value: "consentInit" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ConsentInit;
 /** Value: "customEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_CustomEvent;
 /** Value: "domReady" */
@@ -541,6 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FirebaseUserEnga
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_FormSubmission;
 /** Value: "historyChange" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_HistoryChange;
+/** Value: "init" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Init;
 /** Value: "jsError" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_JsError;
 /** Value: "linkClick" */
@@ -549,6 +553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_LinkClick;
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Pageview;
 /** Value: "scrollDepth" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ScrollDepth;
+/** Value: "serverPageview" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_ServerPageview;
 /** Value: "timer" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Trigger_Type_Timer;
 /** Value: "triggerGroup" */
@@ -2556,6 +2562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_Trigger_Type_AmpTimer Value "ampTimer"
  *    @arg @c kGTLRTagManager_Trigger_Type_AmpVisibility Value "ampVisibility"
  *    @arg @c kGTLRTagManager_Trigger_Type_Click Value "click"
+ *    @arg @c kGTLRTagManager_Trigger_Type_ConsentInit Value "consentInit"
  *    @arg @c kGTLRTagManager_Trigger_Type_CustomEvent Value "customEvent"
  *    @arg @c kGTLRTagManager_Trigger_Type_DomReady Value "domReady"
  *    @arg @c kGTLRTagManager_Trigger_Type_ElementVisibility Value
@@ -2588,10 +2595,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *        "firebaseUserEngagement"
  *    @arg @c kGTLRTagManager_Trigger_Type_FormSubmission Value "formSubmission"
  *    @arg @c kGTLRTagManager_Trigger_Type_HistoryChange Value "historyChange"
+ *    @arg @c kGTLRTagManager_Trigger_Type_Init Value "init"
  *    @arg @c kGTLRTagManager_Trigger_Type_JsError Value "jsError"
  *    @arg @c kGTLRTagManager_Trigger_Type_LinkClick Value "linkClick"
  *    @arg @c kGTLRTagManager_Trigger_Type_Pageview Value "pageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_ScrollDepth Value "scrollDepth"
+ *    @arg @c kGTLRTagManager_Trigger_Type_ServerPageview Value "serverPageview"
  *    @arg @c kGTLRTagManager_Trigger_Type_Timer Value "timer"
  *    @arg @c kGTLRTagManager_Trigger_Type_TriggerGroup Value "triggerGroup"
  *    @arg @c kGTLRTagManager_Trigger_Type_WindowLoaded Value "windowLoaded"

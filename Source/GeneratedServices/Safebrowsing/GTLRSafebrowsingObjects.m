@@ -38,6 +38,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUp
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatEntryType_Url = @"URL";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest.threatType
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_ClientIncident = @"CLIENT_INCIDENT";
@@ -87,6 +88,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUp
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatEntryType_Url = @"URL";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse.threatType
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_ClientIncident = @"CLIENT_INCIDENT";
@@ -122,6 +124,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_Platfor
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_PlatformType_Windows = @"WINDOWS";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit.threatType
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_ClientIncident = @"CLIENT_INCIDENT";
@@ -168,6 +171,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_Threat
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatEntryTypes_Url = @"URL";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo.threatTypes
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_ClientIncident = @"CLIENT_INCIDENT";
@@ -207,6 +211,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescrip
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatEntryType_Url = @"URL";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor.threatType
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_ClientIncident = @"CLIENT_INCIDENT";
@@ -246,6 +251,7 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_Threa
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatEntryType_Url = @"URL";
 
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch.threatType
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_AccuracyTips = @"ACCURACY_TIPS";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_ApiAbuse = @"API_ABUSE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_ApkMalwareOffline = @"APK_MALWARE_OFFLINE";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_ClientIncident = @"CLIENT_INCIDENT";

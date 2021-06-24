@@ -1288,7 +1288,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_OrgunitsDelete
 
-@dynamic allowPlus, customerId, orgUnitPath;
+@dynamic customerId, orgUnitPath;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                         orgUnitPath:(NSString *)orgUnitPath {
@@ -1310,7 +1310,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_OrgunitsGet
 
-@dynamic allowPlus, customerId, orgUnitPath;
+@dynamic customerId, orgUnitPath;
 
 + (instancetype)queryWithCustomerId:(NSString *)customerId
                         orgUnitPath:(NSString *)orgUnitPath {
@@ -1379,7 +1379,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_OrgunitsPatch
 
-@dynamic allowPlus, customerId, orgUnitPath;
+@dynamic customerId, orgUnitPath;
 
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId
@@ -1410,7 +1410,7 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @implementation GTLRDirectoryQuery_OrgunitsUpdate
 
-@dynamic allowPlus, customerId, orgUnitPath;
+@dynamic customerId, orgUnitPath;
 
 + (instancetype)queryWithObject:(GTLRDirectory_OrgUnit *)object
                      customerId:(NSString *)customerId

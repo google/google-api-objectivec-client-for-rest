@@ -1622,6 +1622,24 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_QueryAccessibleDataResponse
+//
+
+@implementation GTLRCloudHealthcare_QueryAccessibleDataResponse
+@dynamic gcsUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gcsUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_RedactConfig
 //
 

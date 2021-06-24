@@ -375,3 +375,30 @@
 }
 
 @end
+
+@implementation GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor
+
+@dynamic topic;
+
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeTimeCursorRequest *)object
+                          topic:(NSString *)topic {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"topic" ];
+  NSString *pathURITemplate = @"v1/topicStats/{+topic}:computeTimeCursor";
+  GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.topic = topic;
+  query.expectedObjectClass = [GTLRPubsubLite_ComputeTimeCursorResponse class];
+  query.loggingName = @"pubsublite.topicStats.projects.locations.topics.computeTimeCursor";
+  return query;
+}
+
+@end

@@ -26,8 +26,11 @@
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChildLink;
 @class GTLRSpanner_CommitStats;
+@class GTLRSpanner_ContextValue;
 @class GTLRSpanner_Database;
 @class GTLRSpanner_Delete;
+@class GTLRSpanner_DerivedMetric;
+@class GTLRSpanner_DiagnosticMessage;
 @class GTLRSpanner_EncryptionConfig;
 @class GTLRSpanner_EncryptionInfo;
 @class GTLRSpanner_ExecuteSqlRequest_Params;
@@ -35,11 +38,24 @@
 @class GTLRSpanner_Expr;
 @class GTLRSpanner_Field;
 @class GTLRSpanner_GetPolicyOptions;
+@class GTLRSpanner_IndexedHotKey;
+@class GTLRSpanner_IndexedHotKey_SparseHotKeys;
+@class GTLRSpanner_IndexedKeyRangeInfos;
+@class GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos;
 @class GTLRSpanner_Instance;
 @class GTLRSpanner_Instance_Labels;
 @class GTLRSpanner_InstanceConfig;
 @class GTLRSpanner_KeyRange;
+@class GTLRSpanner_KeyRangeInfo;
+@class GTLRSpanner_KeyRangeInfos;
 @class GTLRSpanner_KeySet;
+@class GTLRSpanner_LocalizedString;
+@class GTLRSpanner_LocalizedString_Args;
+@class GTLRSpanner_Metric;
+@class GTLRSpanner_Metric_IndexedHotKeys;
+@class GTLRSpanner_Metric_IndexedKeyRangeInfos;
+@class GTLRSpanner_MetricMatrix;
+@class GTLRSpanner_MetricMatrixRow;
 @class GTLRSpanner_Mutation;
 @class GTLRSpanner_Operation;
 @class GTLRSpanner_Operation_Metadata;
@@ -54,6 +70,7 @@
 @class GTLRSpanner_PlanNode_ExecutionStats;
 @class GTLRSpanner_PlanNode_Metadata;
 @class GTLRSpanner_Policy;
+@class GTLRSpanner_PrefixNode;
 @class GTLRSpanner_QueryOptions;
 @class GTLRSpanner_QueryPlan;
 @class GTLRSpanner_ReadOnly;
@@ -66,6 +83,9 @@
 @class GTLRSpanner_ResultSetMetadata;
 @class GTLRSpanner_ResultSetStats;
 @class GTLRSpanner_ResultSetStats_QueryStats;
+@class GTLRSpanner_Scan;
+@class GTLRSpanner_Scan_Details;
+@class GTLRSpanner_ScanData;
 @class GTLRSpanner_Session;
 @class GTLRSpanner_Session_Labels;
 @class GTLRSpanner_ShortRepresentation;
@@ -80,6 +100,7 @@
 @class GTLRSpanner_TransactionOptions;
 @class GTLRSpanner_TransactionSelector;
 @class GTLRSpanner_Type;
+@class GTLRSpanner_VisualizationData;
 @class GTLRSpanner_Write;
 
 // Generated comments include content from the discovery document; avoid them
@@ -116,6 +137,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_Ready;
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSpanner_ContextValue.severity
+
+/**
+ *  Severity level signaling an error "Error"
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Error;
+/**
+ *  Severity level signaling a non recoverable error "Fatal"
+ *
+ *  Value: "FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Fatal;
+/**
+ *  Lowest severity level "Info".
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Info;
+/**
+ *  Required default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUnspecified;
+/**
+ *  Middle severity level "Warning".
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRSpanner_Database.state
 
 /**
@@ -148,6 +203,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_ReadyOptimizing;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Database_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_DiagnosticMessage.severity
+
+/**
+ *  Severity level signaling an error "Error"
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Error;
+/**
+ *  Severity level signaling a non recoverable error "Fatal"
+ *
+ *  Value: "FATAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Fatal;
+/**
+ *  Lowest severity level "Info".
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Info;
+/**
+ *  Required default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_SeverityUnspecified;
+/**
+ *  Middle severity level "Warning".
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_EncryptionInfo.encryptionType
@@ -221,6 +310,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_Ready;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Instance_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Metric.aggregation
+
+/**
+ *  Required default value.
+ *
+ *  Value: "AGGREGATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified;
+/**
+ *  Use the maximum of all values.
+ *
+ *  Value: "MAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_Max;
+/**
+ *  Use the sum of all values.
+ *
+ *  Value: "SUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Metric_Aggregation_Sum;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_PlanNode.kind
@@ -415,6 +526,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Float64;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Int64;
 /**
+ *  Encoded as a JSON-formatted 'string' as described in RFC 7159. The following
+ *  rules will be applied when parsing JSON input: - Whitespace will be stripped
+ *  from the document. - If a JSON object has duplicate keys, only the first key
+ *  will be preserved. - Members of a JSON object are not guaranteed to have
+ *  their order preserved. JSON array elements will have their order preserved.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Json;
+/**
  *  Encoded as `string`, in decimal format or scientific notation format.
  *  Decimal format: `[+-]Digits[.[Digits]]` or `+-.Digits` Scientific notation:
  *  `[+-]Digits[.[Digits]][ExponentIndicator[+-]Digits]` or
@@ -453,6 +574,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
  *  Value: "TYPE_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_VisualizationData.keyUnit
+
+/**
+ *  Each entry corresponds to a chunk of keys
+ *
+ *  Value: "CHUNK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk;
+/**
+ *  Each entry corresponds to one key
+ *
+ *  Value: "KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key;
+/**
+ *  Required default value
+ *
+ *  Value: "KEY_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified;
 
 /**
  *  A backup of a Cloud Spanner database.
@@ -775,13 +918,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  `mutation_count` value can help you maximize the number of mutations in a
  *  transaction and minimize the number of API round trips. You can also monitor
  *  this value to prevent transactions from exceeding the system
- *  [limit](http://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data).
+ *  [limit](https://cloud.google.com/spanner/quotas#limits_for_creating_reading_updating_and_deleting_data).
  *  If the number of mutations exceeds the limit, the server returns
- *  [INVALID_ARGUMENT](http://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT).
+ *  [INVALID_ARGUMENT](https://cloud.google.com/spanner/docs/reference/rest/v1/Code#ENUM_VALUES.INVALID_ARGUMENT).
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mutationCount;
+
+@end
+
+
+/**
+ *  A message representing context for a KeyRangeInfo, including a label, value,
+ *  unit, and severity.
+ */
+@interface GTLRSpanner_ContextValue : GTLRObject
+
+/** The label for the context value. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *label;
+
+/**
+ *  The severity of this context.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Error Severity level signaling
+ *        an error "Error" (Value: "ERROR")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Fatal Severity level signaling
+ *        a non recoverable error "Fatal" (Value: "FATAL")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Info Lowest severity level
+ *        "Info". (Value: "INFO")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_SeverityUnspecified Required
+ *        default value. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_ContextValue_Severity_Warning Middle severity level
+ *        "Warning". (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** The unit of the context value. */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+/**
+ *  The value for the context.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
 
 @end
 
@@ -1013,6 +1195,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 /** Required. The table whose rows will be deleted. */
 @property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  A message representing a derived metric.
+ */
+@interface GTLRSpanner_DerivedMetric : GTLRObject
+
+/** The name of the denominator metric. e.g. "rows". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *denominator;
+
+/** The name of the numerator metric. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *numerator;
+
+@end
+
+
+/**
+ *  A message representing the key visualizer diagnostic messages.
+ */
+@interface GTLRSpanner_DiagnosticMessage : GTLRObject
+
+/** Information about this diagnostic information. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/** The metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *metric;
+
+/**
+ *  Whether this message is specific only for the current metric. By default
+ *  Diagnostics are shown for all metrics, regardless which metric is the
+ *  currently selected metric in the UI. However occasionally a metric will
+ *  generate so many messages that the resulting visual clutter becomes
+ *  overwhelming. In this case setting this to true, will show the diagnostic
+ *  messages for that metric only if it is the currently selected metric.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *metricSpecific;
+
+/**
+ *  The severity of the diagnostic message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Error Severity level
+ *        signaling an error "Error" (Value: "ERROR")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Fatal Severity level
+ *        signaling a non recoverable error "Fatal" (Value: "FATAL")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Info Lowest severity level
+ *        "Info". (Value: "INFO")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_SeverityUnspecified
+ *        Required default value. (Value: "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_DiagnosticMessage_Severity_Warning Middle severity
+ *        level "Warning". (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** The short message. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *shortMessage;
 
 @end
 
@@ -1420,6 +1662,66 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  A message representing a (sparse) collection of hot keys for specific key
+ *  buckets.
+ */
+@interface GTLRSpanner_IndexedHotKey : GTLRObject
+
+/**
+ *  A (sparse) mapping from key bucket index to the index of the specific hot
+ *  row key for that key bucket. The index of the hot row key can be translated
+ *  to the actual row key via the ScanData.VisualizationData.indexed_keys
+ *  repeated field.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_IndexedHotKey_SparseHotKeys *sparseHotKeys;
+
+@end
+
+
+/**
+ *  A (sparse) mapping from key bucket index to the index of the specific hot
+ *  row key for that key bucket. The index of the hot row key can be translated
+ *  to the actual row key via the ScanData.VisualizationData.indexed_keys
+ *  repeated field.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_IndexedHotKey_SparseHotKeys : GTLRObject
+@end
+
+
+/**
+ *  A message representing a (sparse) collection of KeyRangeInfos for specific
+ *  key buckets.
+ */
+@interface GTLRSpanner_IndexedKeyRangeInfos : GTLRObject
+
+/**
+ *  A (sparse) mapping from key bucket index to the KeyRangeInfos for that key
+ *  bucket.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos *keyRangeInfos;
+
+@end
+
+
+/**
+ *  A (sparse) mapping from key bucket index to the KeyRangeInfos for that key
+ *  bucket.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_KeyRangeInfos. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos : GTLRObject
+@end
+
+
+/**
  *  An isolated set of Cloud Spanner resources on which databases can be hosted.
  */
 @interface GTLRSpanner_Instance : GTLRObject
@@ -1478,6 +1780,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/**
+ *  The number of processing units allocated to this instance. At most one of
+ *  processing_units or node_count should be present in the message. This may be
+ *  zero in API responses for instances that are not yet in state `READY`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *processingUnits;
 
 /**
  *  Output only. The current instance state. For CreateInstance, the state must
@@ -1619,6 +1930,78 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  Can be any valid JSON type.
  */
 @property(nonatomic, strong, nullable) NSArray *startOpen;
+
+@end
+
+
+/**
+ *  A message representing information for a key range (possibly one key).
+ */
+@interface GTLRSpanner_KeyRangeInfo : GTLRObject
+
+/** The list of context values for this key range. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_ContextValue *> *contextValues;
+
+/**
+ *  The index of the end key in indexed_keys.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endKeyIndex;
+
+/** Information about this key range, for all metrics. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/**
+ *  The number of keys this range covers.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keysCount;
+
+/** The name of the metric. e.g. "latency". */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *metric;
+
+/**
+ *  The index of the start key in indexed_keys.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startKeyIndex;
+
+/**
+ *  The unit of the metric. This is an unstructured field and will be mapped as
+ *  is to the user.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *unit;
+
+/**
+ *  The value of the metric.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  A message representing a list of specific information for multiple key
+ *  ranges.
+ */
+@interface GTLRSpanner_KeyRangeInfos : GTLRObject
+
+/** The list individual KeyRangeInfos. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_KeyRangeInfo *> *infos;
+
+/**
+ *  The total size of the list of all KeyRangeInfos. This may be larger than the
+ *  number of repeated messages above. If that is the case, this number may be
+ *  used to determine how many are not being shown.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
 
 @end
 
@@ -1860,6 +2243,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Response method from the ListScans method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "scans" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSpanner_ListScansResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Available scans based on the list query parameters.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Scan *> *scans;
+
+@end
+
+
+/**
  *  The response for ListSessions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1882,6 +2292,181 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Session *> *sessions;
+
+@end
+
+
+/**
+ *  A message representing a user-facing string whose value may need to be
+ *  translated before being displayed.
+ */
+@interface GTLRSpanner_LocalizedString : GTLRObject
+
+/**
+ *  A map of arguments used when creating the localized message. Keys represent
+ *  parameter names which may be used by the localized version when substituting
+ *  dynamic values.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString_Args *args;
+
+/**
+ *  The canonical English version of this message. If no token is provided or
+ *  the front-end has no message associated with the token, this text will be
+ *  displayed as-is.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The token identifying the message, e.g. 'METRIC_READ_CPU'. This should be
+ *  unique within the service.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  A map of arguments used when creating the localized message. Keys represent
+ *  parameter names which may be used by the localized version when substituting
+ *  dynamic values.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSpanner_LocalizedString_Args : GTLRObject
+@end
+
+
+/**
+ *  A message representing the actual monitoring data, values for each key
+ *  bucket over time, of a metric.
+ */
+@interface GTLRSpanner_Metric : GTLRObject
+
+/**
+ *  The aggregation function used to aggregate each key bucket
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_AggregationUnspecified Required
+ *        default value. (Value: "AGGREGATION_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_Max Use the maximum of all values.
+ *        (Value: "MAX")
+ *    @arg @c kGTLRSpanner_Metric_Aggregation_Sum Use the sum of all values.
+ *        (Value: "SUM")
+ */
+@property(nonatomic, copy, nullable) NSString *aggregation;
+
+/** The category of the metric, e.g. "Activity", "Alerts", "Reads", etc. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *category;
+
+/**
+ *  The references to numerator and denominator metrics for a derived metric.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_DerivedMetric *derived;
+
+/** The displayed label of the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *displayLabel;
+
+/**
+ *  Whether the metric has any non-zero data.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasNonzeroData;
+
+/**
+ *  The value that is considered hot for the metric. On a per metric basis
+ *  hotness signals high utilization and something that might potentially be a
+ *  cause for concern by the end user. hot_value is used to calibrate and scale
+ *  visual color scales.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hotValue;
+
+/**
+ *  The (sparse) mapping from time index to an IndexedHotKey message,
+ *  representing those time intervals for which there are hot keys.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Metric_IndexedHotKeys *indexedHotKeys;
+
+/**
+ *  The (sparse) mapping from time interval index to an IndexedKeyRangeInfos
+ *  message, representing those time intervals for which there are informational
+ *  messages concerning key ranges.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_Metric_IndexedKeyRangeInfos *indexedKeyRangeInfos;
+
+/** Information about the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *info;
+
+/** The data for the metric as a matrix. */
+@property(nonatomic, strong, nullable) GTLRSpanner_MetricMatrix *matrix;
+
+/** The unit of the metric. */
+@property(nonatomic, strong, nullable) GTLRSpanner_LocalizedString *unit;
+
+/**
+ *  Whether the metric is visible to the end user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *visible;
+
+@end
+
+
+/**
+ *  The (sparse) mapping from time index to an IndexedHotKey message,
+ *  representing those time intervals for which there are hot keys.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_IndexedHotKey. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Metric_IndexedHotKeys : GTLRObject
+@end
+
+
+/**
+ *  The (sparse) mapping from time interval index to an IndexedKeyRangeInfos
+ *  message, representing those time intervals for which there are informational
+ *  messages concerning key ranges.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSpanner_IndexedKeyRangeInfos. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Metric_IndexedKeyRangeInfos : GTLRObject
+@end
+
+
+/**
+ *  A message representing a matrix of floats.
+ */
+@interface GTLRSpanner_MetricMatrix : GTLRObject
+
+/** The rows of the matrix. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_MetricMatrixRow *> *rows;
+
+@end
+
+
+/**
+ *  A message representing a row of a matrix of floats.
+ */
+@interface GTLRSpanner_MetricMatrixRow : GTLRObject
+
+/**
+ *  The columns of the row.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *cols;
 
 @end
 
@@ -2507,6 +3092,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  A message representing a key prefix node in the key prefix hierarchy. for
+ *  eg. Bigtable keyspaces are lexicographically ordered mappings of keys to
+ *  values. Keys often have a shared prefix structure where users use the keys
+ *  to organize data. Eg ///employee In this case Keysight will possibly use one
+ *  node for a company and reuse it for all employees that fall under the
+ *  company. Doing so improves legibility in the UI.
+ */
+@interface GTLRSpanner_PrefixNode : GTLRObject
+
+/**
+ *  Whether this corresponds to a data_source name.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataSourceNode;
+
+/**
+ *  The depth in the prefix hierarchy.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *depth;
+
+/**
+ *  The index of the end key bucket of the range that this node spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  The index of the start key bucket of the range that this node spans.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+/** The string represented by the prefix node. */
+@property(nonatomic, copy, nullable) NSString *word;
+
+@end
+
+
+/**
  *  Query optimizer configuration.
  */
 @interface GTLRSpanner_QueryOptions : GTLRObject
@@ -3068,6 +3697,75 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
 
 
 /**
+ *  Scan is a structure which describes Cloud Key Visualizer scan information.
+ */
+@interface GTLRSpanner_Scan : GTLRObject
+
+/** Additional information provided by the implementer. */
+@property(nonatomic, strong, nullable) GTLRSpanner_Scan_Details *details;
+
+/** The upper bound for when the scan is defined. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The unique name of the scan, specific to the Database service implementing
+ *  this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Cloud Key Visualizer scan data. Note, this field is not
+ *  available to the ListScans method.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_ScanData *scanData;
+
+/**
+ *  A range of time (inclusive) for when the scan is defined. The lower bound
+ *  for when the scan is defined.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Additional information provided by the implementer.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_Scan_Details : GTLRObject
+@end
+
+
+/**
+ *  ScanData contains Cloud Key Visualizer scan data used by the caller to
+ *  construct a visualization.
+ */
+@interface GTLRSpanner_ScanData : GTLRObject
+
+/**
+ *  Cloud Key Visualizer scan data. The range of time this information covers is
+ *  captured via the above time range fields. Note, this field is not available
+ *  to the ListScans method.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_VisualizationData *data;
+
+/** The upper bound for when the contained data is defined. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  A range of time (inclusive) for when the contained data is defined. The
+ *  lower bound for when the contained data is defined.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  A session in the Cloud Spanner API.
  */
 @interface GTLRSpanner_Session : GTLRObject
@@ -3609,6 +4307,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *        `"NaN"`, `"Infinity"`, or `"-Infinity"`. (Value: "FLOAT64")
  *    @arg @c kGTLRSpanner_Type_Code_Int64 Encoded as `string`, in decimal
  *        format. (Value: "INT64")
+ *    @arg @c kGTLRSpanner_Type_Code_Json Encoded as a JSON-formatted 'string'
+ *        as described in RFC 7159. The following rules will be applied when
+ *        parsing JSON input: - Whitespace will be stripped from the document. -
+ *        If a JSON object has duplicate keys, only the first key will be
+ *        preserved. - Members of a JSON object are not guaranteed to have their
+ *        order preserved. JSON array elements will have their order preserved.
+ *        (Value: "JSON")
  *    @arg @c kGTLRSpanner_Type_Code_Numeric Encoded as `string`, in decimal
  *        format or scientific notation format. Decimal format:
  *        `[+-]Digits[.[Digits]]` or `+-.Digits` Scientific notation:
@@ -3764,6 +4469,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
  *  name. Otherwise, only fields mentioned in field_mask need be included.
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_Instance *instance;
+
+@end
+
+
+/**
+ *  GTLRSpanner_VisualizationData
+ */
+@interface GTLRSpanner_VisualizationData : GTLRObject
+
+/** The token signifying the end of a data_source. */
+@property(nonatomic, copy, nullable) NSString *dataSourceEndToken;
+
+/**
+ *  The token delimiting a datasource name from the rest of a key in a
+ *  data_source.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSourceSeparatorToken;
+
+/** The list of messages (info, alerts, ...) */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_DiagnosticMessage *> *diagnosticMessages;
+
+/**
+ *  We discretize the entire keyspace into buckets. Assuming each bucket has an
+ *  inclusive keyrange and covers keys from k(i) ... k(n). In this case k(n)
+ *  would be an end key for a given range. end_key_string is the collection of
+ *  all such end keys
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *endKeyStrings;
+
+/**
+ *  Whether this scan contains PII.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasPii;
+
+/**
+ *  Keys of key ranges that contribute significantly to a given metric Can be
+ *  thought of as heavy hitters.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *indexedKeys;
+
+/** The token delimiting the key prefixes. */
+@property(nonatomic, copy, nullable) NSString *keySeparator;
+
+/**
+ *  The unit for the key: e.g. 'key' or 'chunk'.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_Chunk Each entry
+ *        corresponds to a chunk of keys (Value: "CHUNK")
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_Key Each entry corresponds
+ *        to one key (Value: "KEY")
+ *    @arg @c kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified Required
+ *        default value (Value: "KEY_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *keyUnit;
+
+/** The list of data objects for each metric. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Metric *> *metrics;
+
+/**
+ *  The list of extracted key prefix nodes used in the key prefix hierarchy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSpanner_PrefixNode *> *prefixNodes;
 
 @end
 

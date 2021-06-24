@@ -23,6 +23,7 @@
 #endif
 
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Binding;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DailyCycle;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Date;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DenyMaintenancePeriod;
@@ -55,6 +56,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation_Response;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Status;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Status_Details_Item;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TimeOfDay;
@@ -172,6 +174,34 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings.state
+
+/**
+ *  The LDAPS setting is ready.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Active;
+/**
+ *  The LDAPS setting is not applied correctly.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Failed;
+/**
+ *  Not Set
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_StateUnspecified;
+/**
+ *  The LDAPS setting is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_MaintenancePolicy.state
 
 /**
@@ -244,6 +274,34 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Value: "WEDNESDAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Schedule_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.state
+
+/**
+ *  The sqlIntegration is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating;
+/**
+ *  The sqlIntegration is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting;
+/**
+ *  The sqlIntegration is ready.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Ready;
+/**
+ *  Not Set
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Trust.state
@@ -429,6 +487,29 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  Certificate used to configure LDAPS.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate : GTLRObject
+
+/** The certificate expire time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** The issuer of this certificate. */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate *issuingCertificate;
+
+/** The certificate subject. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/** The additional hostnames for the domain. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *subjectAlternativeName;
+
+/** The certificate thumbprint which uniquely identifies the certificate. */
+@property(nonatomic, copy, nullable) NSString *thumbprint;
+
 @end
 
 
@@ -844,7 +925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Unique name of the resource. It uses the form:
- *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
+ *  Note: Either project_id or project_number can be used, but keep it
+ *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1106,6 +1189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
+/**
+ *  If present, this will override eligibility for the node coming from instance
+ *  or exclusions for specified SLIs.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
 @end
 
 
@@ -1249,13 +1338,6 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
 /**
- *  Optional. Global per-instance SLI eligibility which applies to all defined
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
- */
-@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
-
-/**
  *  List of SLO exclusion windows. When multiple entries in the list match
  *  (matching the exclusion time-window against current time point) the
  *  exclusion reason used in the first matching entry will be published. It is
@@ -1279,8 +1361,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 /**
  *  Optional. Multiple per-instance SLI eligibilities which apply for individual
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
+ *  SLIs.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
 
@@ -1290,6 +1371,76 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  mandatory and must not be empty.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
+
+@end
+
+
+/**
+ *  LDAPSSettings represents the ldaps settings for domain resource. LDAP is the
+ *  Lightweight Directory Access Protocol, defined in
+ *  https://tools.ietf.org/html/rfc4511. The settings object configures LDAP
+ *  over SSL/TLS, whether it is over port 636 or the StartTLS operation. If
+ *  LDAPSSettings is being changed, it will be placed into the UPDATING state,
+ *  which indicates that the resource is being reconciled. At this point, Get
+ *  will reflect an intermediate state.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings : GTLRObject
+
+/**
+ *  Output only. The certificate used to configure LDAPS. Certificates can be
+ *  chained with a maximum length of 15.
+ */
+@property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate *certificate;
+
+/** Input only. The password used to encrypt the uploaded pfx certificate. */
+@property(nonatomic, copy, nullable) NSString *certificatePassword;
+
+/**
+ *  Input only. The uploaded PKCS12-formatted certificate to configure LDAPS
+ *  with. It will enable the domain controllers in this domain to accept LDAPS
+ *  connections (either LDAP over SSL/TLS or the StartTLS operation). A valid
+ *  certificate chain must form a valid x.509 certificate chain (or be comprised
+ *  of a single self-signed certificate. It must be encrypted with either: 1)
+ *  PBES2 + PBKDF2 + AES256 encryption and SHA256 PRF; or 2)
+ *  pbeWithSHA1And3-KeyTripleDES-CBC Private key must be included for the leaf /
+ *  single self-signed certificate. Note: For a fqdn your-example-domain.com,
+ *  the wildcard fqdn is *.your-example-domain.com. Specifically the leaf
+ *  certificate must have: - Either a blank subject or a subject with CN
+ *  matching the wildcard fqdn. - Exactly two SANs - the fqdn and wildcard fqdn.
+ *  - Encipherment and digital key signature key usages. - Server authentication
+ *  extended key usage (OID=1.3.6.1.5.5.7.3.1) - Private key must be in one of
+ *  the following formats: RSA, ECDSA, ED25519. - Private key must have
+ *  appropriate key length: 2048 for RSA, 256 for ECDSA - Signature algorithm of
+ *  the leaf certificate cannot be MD2, MD5 or SHA1.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *certificatePfx;
+
+/**
+ *  The resource name of the LDAPS settings. Uses the form:
+ *  `projects/{project}/locations/{location}/domains/{domain}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of this LDAPS settings.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Active
+ *        The LDAPS setting is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Failed
+ *        The LDAPS setting is not applied correctly. (Value: "FAILED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_StateUnspecified
+ *        Not Set (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings_State_Updating
+ *        The LDAPS setting is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1368,6 +1519,37 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation *> *operations;
+
+@end
+
+
+/**
+ *  ListSqlIntegrationsResponse is the response message for ListSqlIntegrations
+ *  method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sqlIntegrations" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse : GTLRCollectionObject
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of SQLIntegrations of a domain.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration *> *sqlIntegrations;
+
+/** A list of locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1802,6 +1984,50 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  but certain Cloud Platform services (such as Projects) might reject them.
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Policy *policy;
+
+@end
+
+
+/**
+ *  Represents the Sql instance integrated with AD.
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration : GTLRObject
+
+/**
+ *  Output only. The time sql integration was created. Synthetic field is
+ *  populated automatically by CCFE.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The unique name of the sql integration in the form of
+ *  `projects/{project_id}/locations/global/domains/{domain_name}/sqlIntegrations/{sql_integration}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The full resource name of an integrated sql instance */
+@property(nonatomic, copy, nullable) NSString *sqlInstance;
+
+/**
+ *  Output only. The current state of the sql integration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating
+ *        The sqlIntegration is being created. (Value: "CREATING")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting
+ *        The sqlIntegration is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Ready
+ *        The sqlIntegration is ready. (Value: "READY")
+ *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_StateUnspecified
+ *        Not Set (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time sql integration was updated. Synthetic field is
+ *  populated automatically by CCFE.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 

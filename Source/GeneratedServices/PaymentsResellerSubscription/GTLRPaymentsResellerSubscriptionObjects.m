@@ -44,6 +44,11 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUnspecified = @"CANCELLATION_REASON_UNSPECIFIED";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails_Reason_CancellationReasonUpgradeDowngrade = @"CANCELLATION_REASON_UPGRADE_DOWNGRADE";
 
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails.billingCycleSpec
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription = @"BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately = @"BILLING_CYCLE_SPEC_START_IMMEDIATELY";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified = @"BILLING_CYCLE_SPEC_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest
@@ -225,7 +230,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 @dynamic cancellationDetails, createTime, cycleEndTime, endUserEntitled,
          freeTrialEndTime, name, partnerUserToken, products, promotions,
-         redirectUri, serviceLocation, state, updateTime;
+         redirectUri, serviceLocation, state, updateTime,
+         upgradeDowngradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -245,6 +251,16 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails
 @dynamic reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails
+//
+
+@implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionUpgradeDowngradeDetails
+@dynamic billingCycleSpec, previousSubscriptionId;
 @end
 
 

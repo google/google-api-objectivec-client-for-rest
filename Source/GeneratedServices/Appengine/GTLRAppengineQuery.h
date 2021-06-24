@@ -613,7 +613,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *domainMappingsId;
 
 /**
- *  Standard field mask for the set of fields to be updated.
+ *  Required. Standard field mask for the set of fields to be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1111,7 +1111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *appsId;
 
 /**
- *  Standard field mask for the set of fields to be updated.
+ *  Required. Standard field mask for the set of fields to be updated.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1336,7 +1336,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *servicesId;
 
 /**
- *  Standard field mask for the set of fields to be updated.
+ *  Required. Standard field mask for the set of fields to be updated.
  *
  *  String format is a comma-separated list of fields.
  */

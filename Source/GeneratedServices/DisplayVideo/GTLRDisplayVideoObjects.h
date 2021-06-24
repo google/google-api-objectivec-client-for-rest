@@ -48,7 +48,9 @@
 @class GTLRDisplayVideo_BiddingStrategy;
 @class GTLRDisplayVideo_BrowserAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_BrowserTargetingOptionDetails;
+@class GTLRDisplayVideo_BudgetSummary;
 @class GTLRDisplayVideo_Campaign;
+@class GTLRDisplayVideo_CampaignBudget;
 @class GTLRDisplayVideo_CampaignFlight;
 @class GTLRDisplayVideo_CampaignGoal;
 @class GTLRDisplayVideo_CarrierAndIspAssignedTargetingOptionDetails;
@@ -130,6 +132,7 @@
 @class GTLRDisplayVideo_InventorySourceGroupAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_InventorySourceStatus;
 @class GTLRDisplayVideo_InventorySourceVideoCreativeConfig;
+@class GTLRDisplayVideo_Invoice;
 @class GTLRDisplayVideo_KeywordAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_LanguageAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_LanguageTargetingOptionDetails;
@@ -143,6 +146,8 @@
 @class GTLRDisplayVideo_MeasurementConfig;
 @class GTLRDisplayVideo_MobileApp;
 @class GTLRDisplayVideo_Money;
+@class GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_NativeContentPositionTargetingOptionDetails;
 @class GTLRDisplayVideo_NegativeKeyword;
 @class GTLRDisplayVideo_NegativeKeywordList;
 @class GTLRDisplayVideo_NegativeKeywordListAssignedTargetingOptionDetails;
@@ -165,6 +170,8 @@
 @class GTLRDisplayVideo_PartnerRevenueModel;
 @class GTLRDisplayVideo_PerformanceGoal;
 @class GTLRDisplayVideo_PerformanceGoalBidStrategy;
+@class GTLRDisplayVideo_PrismaConfig;
+@class GTLRDisplayVideo_PrismaCpeCode;
 @class GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_PublisherReviewStatus;
 @class GTLRDisplayVideo_RateDetails;
@@ -1065,6 +1072,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_Tar
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeLanguage;
 /**
+ *  Target ads to a specific native content position.
+ *
+ *  Value: "TARGETING_TYPE_NATIVE_CONTENT_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeNativeContentPosition;
+/**
  *  Target ads to a specific negative keyword list.
  *
  *  Value: "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
@@ -1343,6 +1356,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Campaign_EntityStatus_Entit
  *  Value: "ENTITY_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Campaign_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CampaignBudget.budgetUnit
+
+/**
+ *  Budgeting in currency amounts.
+ *
+ *  Value: "BUDGET_UNIT_CURRENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitCurrency;
+/**
+ *  Budgeting in impression amounts.
+ *
+ *  Value: "BUDGET_UNIT_IMPRESSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitImpressions;
+/**
+ *  Type value is not specified or is unknown in this version.
+ *
+ *  Value: "BUDGET_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_CampaignBudget.externalBudgetSource
+
+/**
+ *  Budget source is Mediaocean.
+ *
+ *  Value: "EXTERNAL_BUDGET_SOURCE_MEDIA_OCEAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceMediaOcean;
+/**
+ *  Budget has no external source.
+ *
+ *  Value: "EXTERNAL_BUDGET_SOURCE_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceNone;
+/**
+ *  External budget source value is not specified or unknown in this version.
+ *
+ *  Value: "EXTERNAL_BUDGET_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_CampaignGoal.campaignGoalType
@@ -1771,6 +1828,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_LANGUAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeLanguage;
+/**
+ *  Target ads to a specific native content position.
+ *
+ *  Value: "TARGETING_TYPE_NATIVE_CONTENT_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNativeContentPosition;
 /**
  *  Target ads to a specific negative keyword list.
  *
@@ -2624,6 +2687,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOpti
  *  Value: "TARGETING_TYPE_LANGUAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeLanguage;
+/**
+ *  Target ads to a specific native content position.
+ *
+ *  Value: "TARGETING_TYPE_NATIVE_CONTENT_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNativeContentPosition;
 /**
  *  Target ads to a specific negative keyword list.
  *
@@ -3672,6 +3741,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeKargo;
 /**
+ *  Media.net.
+ *
+ *  Value: "EXCHANGE_MEDIANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMedianet;
+/**
  *  MicroAd.
  *
  *  Value: "EXCHANGE_MICROAD"
@@ -4053,6 +4128,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_KARGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeKargo;
+/**
+ *  Media.net.
+ *
+ *  Value: "EXCHANGE_MEDIANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMedianet;
 /**
  *  MicroAd.
  *
@@ -4463,6 +4544,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_KARGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeKargo;
+/**
+ *  Media.net.
+ *
+ *  Value: "EXCHANGE_MEDIANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMedianet;
 /**
  *  MicroAd.
  *
@@ -4986,6 +5073,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceT
  *  Value: "RECENCY_40_DAYS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency40Days;
+/**
+ *  Recency is 45 days.
+ *
+ *  Value: "RECENCY_45_DAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency45Days;
 /**
  *  Recency is 5 days.
  *
@@ -6365,6 +6458,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeKargo;
 /**
+ *  Media.net.
+ *
+ *  Value: "EXCHANGE_MEDIANET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMedianet;
+/**
  *  MicroAd.
  *
  *  Value: "EXCHANGE_MICROAD"
@@ -6725,6 +6824,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySourceStatus_Selle
  *  Value: "ENTITY_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySourceStatus_SellerStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_Invoice.invoiceType
+
+/**
+ *  The invoice has a negative amount.
+ *
+ *  Value: "INVOICE_TYPE_CREDIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeCredit;
+/**
+ *  The invoice has a positive amount.
+ *
+ *  Value: "INVOICE_TYPE_INVOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeInvoice;
+/**
+ *  Not specified or is unknown in this version.
+ *
+ *  Value: "INVOICE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_LineItem.entityStatus
@@ -7145,6 +7266,100 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MobileApp_Platform_Ios;
  *  Value: "PLATFORM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MobileApp_Platform_PlatformUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails.contentPosition
+
+/**
+ *  Native content position is in-article, i.e., ads appear between the
+ *  paragraphs of pages.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_IN_ARTICLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle;
+/**
+ *  Native content position is in-feed, i.e., ads appear in a scrollable stream
+ *  of content. A feed is typically editorial (e.g. a list of articles or news)
+ *  or listings (e.g. a list of products or services).
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInFeed;
+/**
+ *  Native content position is peripheral, i.e., ads appear outside of core
+ *  content on pages, such as the right- or left-hand side of the page.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_PERIPHERAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionPeripheral;
+/**
+ *  Native content position is recommendation, i.e., ads appear in sections for
+ *  recommended content.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionRecommendation;
+/**
+ *  The native content position is unknown.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionUnknown;
+/**
+ *  Native content position is not specified in this version. This enum is a
+ *  place holder for a default value and does not represent a real native
+ *  content position.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_NativeContentPositionTargetingOptionDetails.contentPosition
+
+/**
+ *  Native content position is in-article, i.e., ads appear between the
+ *  paragraphs of pages.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_IN_ARTICLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle;
+/**
+ *  Native content position is in-feed, i.e., ads appear in a scrollable stream
+ *  of content. A feed is typically editorial (e.g. a list of articles or news)
+ *  or listings (e.g. a list of products or services).
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_IN_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionInFeed;
+/**
+ *  Native content position is peripheral, i.e., ads appear outside of core
+ *  content on pages, such as the right- or left-hand side of the page.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_PERIPHERAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionPeripheral;
+/**
+ *  Native content position is recommendation, i.e., ads appear in sections for
+ *  recommended content.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_RECOMMENDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionRecommendation;
+/**
+ *  The native content position is unknown.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionUnknown;
+/**
+ *  Native content position is not specified in this version. This enum is a
+ *  place holder for a default value and does not represent a real native
+ *  content position.
+ *
+ *  Value: "NATIVE_CONTENT_POSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ObaIcon.position
@@ -7943,6 +8158,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_PrismaConfig.prismaType
+
+/**
+ *  Audio type.
+ *
+ *  Value: "PRISMA_TYPE_AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeAudio;
+/**
+ *  Display type.
+ *
+ *  Value: "PRISMA_TYPE_DISPLAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeDisplay;
+/**
+ *  Fee type.
+ *
+ *  Value: "PRISMA_TYPE_FEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeFee;
+/**
+ *  Search type.
+ *
+ *  Value: "PRISMA_TYPE_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeSearch;
+/**
+ *  Social type.
+ *
+ *  Value: "PRISMA_TYPE_SOCIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeSocial;
+/**
+ *  Type is not specified or unknown in this version.
+ *
+ *  Value: "PRISMA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeUnspecified;
+/**
+ *  Video type.
+ *
+ *  Value: "PRISMA_TYPE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeVideo;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionDetails.proximityRadiusRange
 
 /**
@@ -8710,6 +8971,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeLanguage;
 /**
+ *  Target ads to a specific native content position.
+ *
+ *  Value: "TARGETING_TYPE_NATIVE_CONTENT_POSITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeNativeContentPosition;
+/**
  *  Target ads to a specific negative keyword list.
  *
  *  Value: "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST"
@@ -9416,6 +9683,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *partnerId;
+
+/**
+ *  Whether integration with Mediaocean (Prisma) is enabled. By enabling this,
+ *  you agree to the following: On behalf of my company, I authorize Mediaocean
+ *  (Prisma) to send budget segment plans to Google, and I authorize Google to
+ *  send corresponding reporting and invoices from DV360 to Mediaocean for the
+ *  purposes of budget planning, billing, and reconciliation for this
+ *  advertiser.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *prismaEnabled;
 
 /** Targeting settings related to ad serving of the advertiser. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdvertiserTargetingConfig *servingConfig;
@@ -10173,6 +10452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Native content position details. This field will be populated when the
+ *  targeting_type is `TARGETING_TYPE_NATIVE_CONTENT_POSITION`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails *nativeContentPositionDetails;
+
+/**
  *  Keyword details. This field will be populated when the targeting_type is
  *  `TARGETING_TYPE_NEGATIVE_KEYWORD_LIST`. A maximum of 4 negative keyword
  *  lists can be assigned to a resource.
@@ -10305,6 +10590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeLanguage
  *        Target ads to a specific language (for example, English or Japanese).
  *        (Value: "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideo_AssignedTargetingOption_TargetingType_TargetingTypeNegativeKeywordList
  *        Target ads to a specific negative keyword list. (Value:
  *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
@@ -10779,6 +11067,54 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Summarized information of an individual campaign budget.
+ */
+@interface GTLRDisplayVideo_BudgetSummary : GTLRObject
+
+/**
+ *  Corresponds to the external_budget_id of a campaign budget. If the value is
+ *  not set in the campaign budget, this field will be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *externalBudgetId;
+
+/**
+ *  The sum of charges made under this budget before taxes, in micros of the
+ *  invoice's currency. For example, if currency_code is `USD`, then 1000000
+ *  represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preTaxAmountMicros;
+
+/**
+ *  Relevant client, product, and estimate codes from the Mediaocean Prisma
+ *  tool. Only applicable for campaign budgets with an external_budget_source of
+ *  EXTERNAL_BUDGET_SOURCE_MEDIA_OCEAN.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PrismaCpeCode *prismaCpeCode;
+
+/**
+ *  The amount of tax applied to charges under this budget, in micros of the
+ *  invoice's currency. For example, if currency_code is `USD`, then 1000000
+ *  represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *taxAmountMicros;
+
+/**
+ *  The total sum of charges made under this budget, including tax, in micros of
+ *  the invoice's currency. For example, if currency_code is `USD`, then 1000000
+ *  represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalAmountMicros;
+
+@end
+
+
+/**
  *  Request message for BulkEditAdvertiserAssignedTargetingOptions.
  */
 @interface GTLRDisplayVideo_BulkEditAdvertiserAssignedTargetingOptionsRequest : GTLRObject
@@ -11219,6 +11555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
+/**
+ *  The list of budgets available to this campaign. If this field is not set,
+ *  the campaign uses an unlimited budget.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CampaignBudget *> *campaignBudgets;
+
 /** Required. The planned spend and duration of the campaign. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CampaignFlight *campaignFlight;
 
@@ -11279,6 +11621,99 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  the system.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Settings that control how the campaign budget is allocated.
+ */
+@interface GTLRDisplayVideo_CampaignBudget : GTLRObject
+
+/**
+ *  Required. The total amount the linked insertion order segments can budget.
+ *  The amount is in micros. Must be greater than 0. For example, 500000000
+ *  represents 500 standard units of the currency.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *budgetAmountMicros;
+
+/**
+ *  The unique ID of the campaign budget. Assigned by the system. Do not set for
+ *  new budgets. Must be included when updating or adding budgets to
+ *  campaign_budgets. Otherwise, a new ID will be generated and assigned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *budgetId;
+
+/**
+ *  Required. Immutable. Specifies whether the budget is measured in currency or
+ *  impressions.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitCurrency
+ *        Budgeting in currency amounts. (Value: "BUDGET_UNIT_CURRENCY")
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitImpressions
+ *        Budgeting in impression amounts. (Value: "BUDGET_UNIT_IMPRESSIONS")
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_BudgetUnit_BudgetUnitUnspecified
+ *        Type value is not specified or is unknown in this version. (Value:
+ *        "BUDGET_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *budgetUnit;
+
+/**
+ *  Required. The date range for the campaign budget. Linked budget segments may
+ *  have a different date range. They are resolved relative to the parent
+ *  advertiser's time zone. Both `start_date` and `end_date` must be before the
+ *  year 2037.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_DateRange *dateRange;
+
+/**
+ *  Required. The display name of the budget. Must be UTF-8 encoded with a
+ *  maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The ID identifying this budget to the external source. If this
+ *  field is set and the invoice detail level of the corresponding billing
+ *  profile is set to "Budget level PO", all impressions served against this
+ *  budget will include this ID on the invoice. Must be unique under the
+ *  campaign.
+ */
+@property(nonatomic, copy, nullable) NSString *externalBudgetId;
+
+/**
+ *  Required. The external source of the budget.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceMediaOcean
+ *        Budget source is Mediaocean. (Value:
+ *        "EXTERNAL_BUDGET_SOURCE_MEDIA_OCEAN")
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceNone
+ *        Budget has no external source. (Value: "EXTERNAL_BUDGET_SOURCE_NONE")
+ *    @arg @c kGTLRDisplayVideo_CampaignBudget_ExternalBudgetSource_ExternalBudgetSourceUnspecified
+ *        External budget source value is not specified or unknown in this
+ *        version. (Value: "EXTERNAL_BUDGET_SOURCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *externalBudgetSource;
+
+/**
+ *  Immutable. The ID used to group budgets to be included the same invoice. If
+ *  this field is set and the invoice level of the corresponding billing profile
+ *  is set to "Budget invoice grouping ID", all external_budget_id sharing the
+ *  same invoice_grouping_id will be grouped in the same invoice.
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceGroupingId;
+
+/**
+ *  Additional metadata for use by the Mediaocean Prisma tool. Required for
+ *  Mediaocean budgets. Only applicable to prisma_enabled advertisers.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PrismaConfig *prismaConfig;
 
 @end
 
@@ -12030,6 +12465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeLanguage
  *        Target ads to a specific language (for example, English or Japanese).
  *        (Value: "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideo_CreateAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNegativeKeywordList
  *        Target ads to a specific negative keyword list. (Value:
  *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
@@ -13143,6 +13581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeLanguage
  *        Target ads to a specific language (for example, English or Japanese).
  *        (Value: "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest_TargetingType_TargetingTypeNegativeKeywordList
  *        Target ads to a specific negative keyword list. (Value:
  *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")
@@ -13862,6 +14303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        InMobi. (Value: "EXCHANGE_INMOBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMedianet
+ *        Media.net. (Value: "EXCHANGE_MEDIANET")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMicroad
  *        MicroAd. (Value: "EXCHANGE_MICROAD")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeMopub
@@ -14022,6 +14465,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        InMobi. (Value: "EXCHANGE_INMOBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMedianet
+ *        Media.net. (Value: "EXCHANGE_MEDIANET")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMicroad
  *        MicroAd. (Value: "EXCHANGE_MICROAD")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeMopub
@@ -14185,6 +14630,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        InMobi. (Value: "EXCHANGE_INMOBI")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeKargo
  *        Kargo. (Value: "EXCHANGE_KARGO")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMedianet
+ *        Media.net. (Value: "EXCHANGE_MEDIANET")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMicroad
  *        MicroAd. (Value: "EXCHANGE_MICROAD")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeMopub
@@ -14580,6 +15027,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        Recency is 3 hours. (Value: "RECENCY_3_HOURS")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency40Days
  *        Recency is 40 days. (Value: "RECENCY_40_DAYS")
+ *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency45Days
+ *        Recency is 45 days. (Value: "RECENCY_45_DAYS")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Days
  *        Recency is 5 days. (Value: "RECENCY_5_DAYS")
  *    @arg @c kGTLRDisplayVideo_FirstAndThirdPartyAudienceTargetingSetting_Recency_Recency5Minutes
@@ -15556,7 +16005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 @property(nonatomic, strong, nullable) NSNumber *budgetAmountMicros;
 
 /**
- *  The ID of the campaign budget linked to this insertion order budget segment.
+ *  The budget_id of the campaign budget that this insertion order budget
+ *  segment is a part of.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -15942,6 +16392,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *        (Value: "EXCHANGE_INMOBI")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeKargo Kargo.
  *        (Value: "EXCHANGE_KARGO")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMedianet
+ *        Media.net. (Value: "EXCHANGE_MEDIANET")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMicroad
  *        MicroAd. (Value: "EXCHANGE_MICROAD")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeMopub MoPub.
@@ -16272,6 +16724,139 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  the inventory source.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+@end
+
+
+/**
+ *  A single invoice.
+ */
+@interface GTLRDisplayVideo_Invoice : GTLRObject
+
+/**
+ *  The budget grouping ID for this invoice. This field will only be set if the
+ *  invoice level of the corresponding billing profile was set to "Budget
+ *  invoice grouping ID".
+ */
+@property(nonatomic, copy, nullable) NSString *budgetInvoiceGroupingId;
+
+/**
+ *  The list of summarized information for each budget associated with this
+ *  invoice. This field will only be set if the invoice detail level of the
+ *  corresponding billing profile was set to "Budget level PO".
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_BudgetSummary *> *budgetSummaries;
+
+/**
+ *  The ID of the original invoice being adjusted by this invoice, if
+ *  applicable. May appear on the invoice PDF as `Reference invoice number`. If
+ *  replaced_invoice_ids is set, this field will be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *correctedInvoiceId;
+
+/** The currency used in the invoice in ISO 4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** The display name of the invoice. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** The date when the invoice is due. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_Date *dueDate;
+
+/** The unique ID of the invoice. */
+@property(nonatomic, copy, nullable) NSString *invoiceId;
+
+/**
+ *  The type of invoice document.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeCredit The
+ *        invoice has a negative amount. (Value: "INVOICE_TYPE_CREDIT")
+ *    @arg @c kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeInvoice The
+ *        invoice has a positive amount. (Value: "INVOICE_TYPE_INVOICE")
+ *    @arg @c kGTLRDisplayVideo_Invoice_InvoiceType_InvoiceTypeUnspecified Not
+ *        specified or is unknown in this version. (Value:
+ *        "INVOICE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *invoiceType;
+
+/** The date when the invoice was issued. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_Date *issueDate;
+
+/** The resource name of the invoice. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The total amount of costs or adjustments not tied to a particular budget, in
+ *  micros of the invoice's currency. For example, if currency_code is `USD`,
+ *  then 1000000 represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nonBudgetMicros;
+
+/**
+ *  The ID of the payments account the invoice belongs to. Appears on the
+ *  invoice PDF as `Billing Account Number`.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsAccountId;
+
+/**
+ *  The ID of the payments profile the invoice belongs to. Appears on the
+ *  invoice PDF as `Billing ID`.
+ */
+@property(nonatomic, copy, nullable) NSString *paymentsProfileId;
+
+/**
+ *  The URL to download a PDF copy of the invoice. This URL is user specific and
+ *  requires a valid OAuth 2.0 access token to access. The access token must be
+ *  provided in an `Authorization: Bearer` HTTP header and be authorized for one
+ *  of the following scopes: *
+ *  `https://www.googleapis.com/auth/display-video-mediaplanning` *
+ *  `https://www.googleapis.com/auth/display-video` The URL will be valid for 7
+ *  days after retrieval of this invoice object or until this invoice is
+ *  retrieved again.
+ */
+@property(nonatomic, copy, nullable) NSString *pdfUrl;
+
+/** Purchase order number associated with the invoice. */
+@property(nonatomic, copy, nullable) NSString *purchaseOrderNumber;
+
+/**
+ *  The ID(s) of any originally issued invoice that is being cancelled by this
+ *  invoice, if applicable. Multiple invoices may be listed if those invoices
+ *  are being consolidated into a single invoice. May appear on invoice PDF as
+ *  `Replaced invoice numbers`. If corrected_invoice_id is set, this field will
+ *  be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *replacedInvoiceIds;
+
+/** The service start and end dates which are covered by this invoice. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_DateRange *serviceDateRange;
+
+/**
+ *  The pre-tax subtotal amount, in micros of the invoice's currency. For
+ *  example, if currency_code is `USD`, then 1000000 represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *subtotalAmountMicros;
+
+/**
+ *  The invoice total amount, in micros of the invoice's currency. For example,
+ *  if currency_code is `USD`, then 1000000 represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalAmountMicros;
+
+/**
+ *  The sum of all taxes in invoice, in micros of the invoice's currency. For
+ *  example, if currency_code is `USD`, then 1000000 represents one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalTaxAmountMicros;
 
 @end
 
@@ -17123,6 +17708,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  GTLRDisplayVideo_ListInvoicesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "invoices" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDisplayVideo_ListInvoicesResponse : GTLRCollectionObject
+
+/**
+ *  The list of invoices. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_Invoice *> *invoices;
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `ListInvoices` method to retrieve
+ *  the next page of results. This token will be absent if there are no more
+ *  invoices to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for ListLineItemAssignedTargetingOptions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -17508,6 +18122,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  GTLRDisplayVideo_LookupInvoiceCurrencyResponse
+ */
+@interface GTLRDisplayVideo_LookupInvoiceCurrencyResponse : GTLRObject
+
+/** Currency used by the advertiser in ISO 4217 format. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+@end
+
+
+/**
  *  A single manual trigger in Display & Video 360.
  */
 @interface GTLRDisplayVideo_ManualTrigger : GTLRObject
@@ -17709,6 +18334,96 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Details for native content position assigned targeting option. This will be
+ *  populated in the native_content_position_details field when targeting_type
+ *  is `TARGETING_TYPE_NATIVE_CONTENT_POSITION`. Explicitly targeting all
+ *  options is not supported. Remove all native content position targeting
+ *  options to achieve this effect.
+ */
+@interface GTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content position.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle
+ *        Native content position is in-article, i.e., ads appear between the
+ *        paragraphs of pages. (Value: "NATIVE_CONTENT_POSITION_IN_ARTICLE")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionInFeed
+ *        Native content position is in-feed, i.e., ads appear in a scrollable
+ *        stream of content. A feed is typically editorial (e.g. a list of
+ *        articles or news) or listings (e.g. a list of products or services).
+ *        (Value: "NATIVE_CONTENT_POSITION_IN_FEED")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionPeripheral
+ *        Native content position is peripheral, i.e., ads appear outside of
+ *        core content on pages, such as the right- or left-hand side of the
+ *        page. (Value: "NATIVE_CONTENT_POSITION_PERIPHERAL")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionRecommendation
+ *        Native content position is recommendation, i.e., ads appear in
+ *        sections for recommended content. (Value:
+ *        "NATIVE_CONTENT_POSITION_RECOMMENDATION")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionUnknown
+ *        The native content position is unknown. (Value:
+ *        "NATIVE_CONTENT_POSITION_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionAssignedTargetingOptionDetails_ContentPosition_NativeContentPositionUnspecified
+ *        Native content position is not specified in this version. This enum is
+ *        a place holder for a default value and does not represent a real
+ *        native content position. (Value:
+ *        "NATIVE_CONTENT_POSITION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentPosition;
+
+/**
+ *  Required. The targeting_option_id field when targeting_type is
+ *  `TARGETING_TYPE_NATIVE_CONTENT_POSITION`.
+ */
+@property(nonatomic, copy, nullable) NSString *targetingOptionId;
+
+@end
+
+
+/**
+ *  Represents a targetable native content position. This will be populated in
+ *  the native_content_position_details field when targeting_type is
+ *  `TARGETING_TYPE_NATIVE_CONTENT_POSITION`.
+ */
+@interface GTLRDisplayVideo_NativeContentPositionTargetingOptionDetails : GTLRObject
+
+/**
+ *  Output only. The content position.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionInArticle
+ *        Native content position is in-article, i.e., ads appear between the
+ *        paragraphs of pages. (Value: "NATIVE_CONTENT_POSITION_IN_ARTICLE")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionInFeed
+ *        Native content position is in-feed, i.e., ads appear in a scrollable
+ *        stream of content. A feed is typically editorial (e.g. a list of
+ *        articles or news) or listings (e.g. a list of products or services).
+ *        (Value: "NATIVE_CONTENT_POSITION_IN_FEED")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionPeripheral
+ *        Native content position is peripheral, i.e., ads appear outside of
+ *        core content on pages, such as the right- or left-hand side of the
+ *        page. (Value: "NATIVE_CONTENT_POSITION_PERIPHERAL")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionRecommendation
+ *        Native content position is recommendation, i.e., ads appear in
+ *        sections for recommended content. (Value:
+ *        "NATIVE_CONTENT_POSITION_RECOMMENDATION")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionUnknown
+ *        The native content position is unknown. (Value:
+ *        "NATIVE_CONTENT_POSITION_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_NativeContentPositionTargetingOptionDetails_ContentPosition_NativeContentPositionUnspecified
+ *        Native content position is not specified in this version. This enum is
+ *        a place holder for a default value and does not represent a real
+ *        native content position. (Value:
+ *        "NATIVE_CONTENT_POSITION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *contentPosition;
 
 @end
 
@@ -18758,6 +19473,63 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 
 
 /**
+ *  Settings specific to the Mediaocean Prisma tool.
+ */
+@interface GTLRDisplayVideo_PrismaConfig : GTLRObject
+
+/**
+ *  Required. Relevant client, product, and estimate codes from the Mediaocean
+ *  Prisma tool.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_PrismaCpeCode *prismaCpeCode;
+
+/**
+ *  Required. The Prisma type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeAudio Audio
+ *        type. (Value: "PRISMA_TYPE_AUDIO")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeDisplay
+ *        Display type. (Value: "PRISMA_TYPE_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeFee Fee type.
+ *        (Value: "PRISMA_TYPE_FEE")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeSearch Search
+ *        type. (Value: "PRISMA_TYPE_SEARCH")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeSocial Social
+ *        type. (Value: "PRISMA_TYPE_SOCIAL")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeUnspecified
+ *        Type is not specified or unknown in this version. (Value:
+ *        "PRISMA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_PrismaConfig_PrismaType_PrismaTypeVideo Video
+ *        type. (Value: "PRISMA_TYPE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *prismaType;
+
+/** Required. The entity allocated this budget (DSP, site, etc.). */
+@property(nonatomic, copy, nullable) NSString *supplier;
+
+@end
+
+
+/**
+ *  Google Payments Center supports searching and filtering on the component
+ *  fields of this code.
+ */
+@interface GTLRDisplayVideo_PrismaCpeCode : GTLRObject
+
+/** The Prisma client code. */
+@property(nonatomic, copy, nullable) NSString *prismaClientCode;
+
+/** The Prisma estimate code. */
+@property(nonatomic, copy, nullable) NSString *prismaEstimateCode;
+
+/** The Prisma product code. */
+@property(nonatomic, copy, nullable) NSString *prismaProductCode;
+
+@end
+
+
+/**
  *  Targeting details for proximity location list. This will be populated in the
  *  details field of an AssignedTargetingOption when targeting_type is
  *  `TARGETING_TYPE_PROXIMITY_LOCATION_LIST`.
@@ -19584,6 +20356,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
 /** Output only. The resource name for this targeting option. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Native content position details. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_NativeContentPositionTargetingOptionDetails *nativeContentPositionDetails;
+
 /** On screen position details. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_OnScreenPositionTargetingOptionDetails *onScreenPositionDetails;
 
@@ -19685,6 +20460,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ViewabilityTargetingOptionD
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeLanguage
  *        Target ads to a specific language (for example, English or Japanese).
  *        (Value: "TARGETING_TYPE_LANGUAGE")
+ *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeNativeContentPosition
+ *        Target ads to a specific native content position. (Value:
+ *        "TARGETING_TYPE_NATIVE_CONTENT_POSITION")
  *    @arg @c kGTLRDisplayVideo_TargetingOption_TargetingType_TargetingTypeNegativeKeywordList
  *        Target ads to a specific negative keyword list. (Value:
  *        "TARGETING_TYPE_NEGATIVE_KEYWORD_LIST")

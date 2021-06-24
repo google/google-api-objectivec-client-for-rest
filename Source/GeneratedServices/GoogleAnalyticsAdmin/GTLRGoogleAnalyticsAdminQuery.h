@@ -32,7 +32,9 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProvisionAccountTicketRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest;
@@ -849,6 +851,214 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The parent resource where this secret will be created. Any type of
+ *  stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *  parent. Format: properties/{property}/webDataStreams/{webDataStream}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Creates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this secret will be
+ *    created. Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the MeasurementProtocolSecret to delete. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the MeasurementProtocolSecret to delete.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the measurement protocol secret to lookup. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the measurement protocol secret to lookup.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  Method: analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 10
+ *  resources will be returned. The maximum value is 10. Higher values will be
+ *  coerced to the maximum.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMeasurementProtocolSecrets`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMeasurementProtocolSecrets` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent stream. Any type of stream
+ *  (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent.
+ *  Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse.
+ *
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  @param parent Required. The resource name of the parent stream. Any type of
+ *    stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *    parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this secret. This secret may be a child of any
+ *  type of stream. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Omitted fields will not be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Updates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param name Output only. Resource name of this secret. This secret may be a
+ *    child of any type of stream. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates an android app stream on a property.
  *
  *  Method: analyticsadmin.properties.androidAppDataStreams.patch
@@ -1585,45 +1795,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates a FirebaseLink on a property
- *
- *  Method: analyticsadmin.properties.firebaseLinks.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
- */
-@interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksPatch : GTLRGoogleAnalyticsAdminQuery
-
-/** Output only. Example format: properties/1234/firebaseLinks/5678 */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. The list of fields to be updated. Field names must be in snake
- *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
- *  replace the entire entity, use one path with the string "*" to match all
- *  fields.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.
- *
- *  Updates a FirebaseLink on a property
- *
- *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink to include
- *    in the query.
- *  @param name Output only. Example format: properties/1234/firebaseLinks/5678
- *
- *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksPatch
- */
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Lookup for a single "GA4" Property.
  *
  *  Method: analyticsadmin.properties.get
@@ -1649,6 +1820,37 @@ NS_ASSUME_NONNULL_BEGIN
  *    properties/{property_id} Example: "properties/1000"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for Google Signals settings for a property.
+ *
+ *  Method: analyticsadmin.properties.getGoogleSignalsSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the google signals settings to retrieve. Format:
+ *  properties/{property}/googleSignalsSettings
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.
+ *
+ *  Lookup for Google Signals settings for a property.
+ *
+ *  @param name Required. The name of the google signals settings to retrieve.
+ *    Format: properties/{property}/googleSignalsSettings
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -1921,6 +2123,214 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The parent resource where this secret will be created. Any type of
+ *  stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *  parent. Format: properties/{property}/webDataStreams/{webDataStream}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Creates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this secret will be
+ *    created. Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the MeasurementProtocolSecret to delete. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the MeasurementProtocolSecret to delete.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the measurement protocol secret to lookup. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the measurement protocol secret to lookup.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  Method: analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 10
+ *  resources will be returned. The maximum value is 10. Higher values will be
+ *  coerced to the maximum.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMeasurementProtocolSecrets`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMeasurementProtocolSecrets` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent stream. Any type of stream
+ *  (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent.
+ *  Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse.
+ *
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  @param parent Required. The resource name of the parent stream. Any type of
+ *    stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *    parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this secret. This secret may be a child of any
+ *  type of stream. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Omitted fields will not be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Updates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param name Output only. Resource name of this secret. This secret may be a
+ *    child of any type of stream. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates an iOS app stream on a property.
  *
  *  Method: analyticsadmin.properties.iosAppDataStreams.patch
@@ -2070,6 +2480,51 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesPatch
  */
 + (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaProperty *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates Google Signals settings for a property.
+ *
+ *  Method: analyticsadmin.properties.updateGoogleSignalsSettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this setting. Format:
+ *  properties/{property_id}/googleSignalsSettings Example:
+ *  "properties/1000/googleSignalsSettings"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Field names must be in snake
+ *  case (e.g., "field_to_update"). Omitted fields will not be updated. To
+ *  replace the entire entity, use one path with the string "*" to match all
+ *  fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.
+ *
+ *  Updates Google Signals settings for a property.
+ *
+ *  @param object The @c GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
+ *    to include in the query.
+ *  @param name Output only. Resource name of this setting. Format:
+ *    properties/{property_id}/googleSignalsSettings Example:
+ *    "properties/1000/googleSignalsSettings"
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *)object
                            name:(NSString *)name;
 
 @end
@@ -2662,6 +3117,214 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The parent resource where this secret will be created. Any type of
+ *  stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *  parent. Format: properties/{property}/webDataStreams/{webDataStream}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Creates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param parent Required. The parent resource where this secret will be
+ *    created. Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the MeasurementProtocolSecret to delete. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes target MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the MeasurementProtocolSecret to delete.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  Method: analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the measurement protocol secret to lookup. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *  Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *  AndroidAppDataStream) may be a parent.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Lookup for a single "GA4" MeasurementProtocolSecret.
+ *
+ *  @param name Required. The name of the measurement protocol secret to lookup.
+ *    Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *    Note: Any type of stream (WebDataStream, IosAppDataStream,
+ *    AndroidAppDataStream) may be a parent.
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  Method: analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 10
+ *  resources will be returned. The maximum value is 10. Higher values will be
+ *  coerced to the maximum.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListMeasurementProtocolSecrets`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListMeasurementProtocolSecrets` must match the
+ *  call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent stream. Any type of stream
+ *  (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a parent.
+ *  Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse.
+ *
+ *  Returns child MeasurementProtocolSecrets under the specified parent
+ *  Property.
+ *
+ *  @param parent Required. The resource name of the parent stream. Any type of
+ *    stream (WebDataStream, IosAppDataStream, AndroidAppDataStream) may be a
+ *    parent. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a measurement protocol secret.
+ *
+ *  Method: analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. Resource name of this secret. This secret may be a child of any
+ *  type of stream. Format:
+ *  properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The list of fields to be updated. Omitted fields will not be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret.
+ *
+ *  Updates a measurement protocol secret.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret to include in
+ *    the query.
+ *  @param name Output only. Resource name of this secret. This secret may be a
+ *    child of any type of stream. Format:
+ *    properties/{property}/webDataStreams/{webDataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name;
 
 @end
 

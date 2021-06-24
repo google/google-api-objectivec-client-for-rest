@@ -194,6 +194,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
 /**
+ *  The cluster has encountered an error while being updated. Jobs can still be
+ *  submitted to the cluster, but it can no longer be updated.
+ *
+ *  Value: "ERROR_DUE_TO_UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate;
+/**
  *  The cluster is currently running and healthy. It is ready for use.
  *
  *  Value: "RUNNING"
@@ -898,7 +905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** The time when the operation was finished. */
+/** The time when the operation finished. */
 @property(nonatomic, strong, nullable) GTLRDateTime *doneTime;
 
 /** Labels associated with the operation. */
@@ -1361,6 +1368,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *        deleted. It cannot be used. (Value: "DELETING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Error The cluster encountered an
  *        error. It is not ready for use. (Value: "ERROR")
+ *    @arg @c kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate The cluster has
+ *        encountered an error while being updated. Jobs can still be submitted
+ *        to the cluster, but it can no longer be updated. (Value:
+ *        "ERROR_DUE_TO_UPDATE")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
  *        running and healthy. It is ready for use. (Value: "RUNNING")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Starting The cluster is being
@@ -1406,7 +1417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Confidential Instance Config for clusters using Confidential VMs
- *  (https://cloud.google.com/compute/confidential-vm/docs) NEXT ID: 2
+ *  (https://cloud.google.com/compute/confidential-vm/docs)
  */
 @interface GTLRDataproc_ConfidentialInstanceConfig : GTLRObject
 
@@ -1594,7 +1605,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Optional. Confidential Instance Config for clusters using Confidential VMs
- *  (https://cloud.google.com/compute/confidential-vm/docs)
+ *  (https://cloud.google.com/compute/confidential-vm/docs).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ConfidentialInstanceConfig *confidentialInstanceConfig;
 
@@ -2130,7 +2141,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** The user-friendly name of the Compute Engine instance. */
 @property(nonatomic, copy, nullable) NSString *instanceName;
 
-/** The public key used for sharing data with this instance. */
+/** The public ECIES key used for sharing data with this instance. */
+@property(nonatomic, copy, nullable) NSString *publicEciesKey;
+
+/** The public RSA key used for sharing data with this instance. */
 @property(nonatomic, copy, nullable) NSString *publicKey;
 
 @end

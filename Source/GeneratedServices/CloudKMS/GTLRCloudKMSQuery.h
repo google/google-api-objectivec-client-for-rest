@@ -943,7 +943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
- *  error if called on an asymmetric key.
+ *  error if called on a key whose purpose is not ENCRYPT_DECRYPT.
  *
  *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.updatePrimaryVersion
  *
@@ -960,7 +960,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_CryptoKey.
  *
  *  Update the version of a CryptoKey that will be used in Encrypt. Returns an
- *  error if called on an asymmetric key.
+ *  error if called on a key whose purpose is not ENCRYPT_DECRYPT.
  *
  *  @param object The @c GTLRCloudKMS_UpdateCryptoKeyPrimaryVersionRequest to
  *    include in the query.

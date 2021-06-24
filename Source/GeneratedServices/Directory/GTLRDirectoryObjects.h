@@ -3288,7 +3288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_FailureInfo_ErrorCode_Unknown;
  */
 @property(nonatomic, strong, nullable) NSNumber *agreedToTerms;
 
-/** Output only. List of the user's alias email addresses. */
+/** Output only. A list of the user's alias email addresses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aliases;
 
 /**

@@ -31,6 +31,7 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3 = @"TPU_V
 // GTLRAIPlatformNotebooks_Execution.state
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Expired = @"EXPIRED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Failed = @"FAILED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Preparing = @"PREPARING";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Queued = @"QUEUED";
@@ -427,6 +428,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_InstanceConfig
+//
+
+@implementation GTLRAIPlatformNotebooks_InstanceConfig
+@dynamic enableHealthMonitoring, notebookUpgradeSchedule;
 @end
 
 
@@ -1129,6 +1140,16 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 //
 
 @implementation GTLRAIPlatformNotebooks_TriggerScheduleRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest
+@dynamic config;
 @end
 
 

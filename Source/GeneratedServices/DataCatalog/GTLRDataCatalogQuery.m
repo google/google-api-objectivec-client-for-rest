@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Data Catalog API (datacatalog/v1beta1)
+//   Google Cloud Data Catalog API (datacatalog/v1)
 // Description:
 //   A fully managed and highly scalable data discovery and metadata management
 //   service.
@@ -21,20 +21,20 @@
 
 @implementation GTLRDataCatalogQuery_CatalogSearch
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogRequest *)object {
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1beta1/catalog:search";
+  NSString *pathURITemplate = @"v1/catalog:search";
   GTLRDataCatalogQuery_CatalogSearch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1SearchCatalogResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogResponse class];
   query.loggingName = @"datacatalog.catalog.search";
   return query;
 }
@@ -43,15 +43,15 @@
 
 @implementation GTLRDataCatalogQuery_EntriesLookup
 
-@dynamic linkedResource, sqlResource;
+@dynamic fullyQualifiedName, linkedResource, sqlResource;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1beta1/entries:lookup";
+  NSString *pathURITemplate = @"v1/entries:lookup";
   GTLRDataCatalogQuery_EntriesLookup *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Entry class];
   query.loggingName = @"datacatalog.entries.lookup";
   return query;
 }
@@ -62,7 +62,7 @@
 
 @dynamic entryGroupId, parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -71,14 +71,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/entryGroups";
+  NSString *pathURITemplate = @"v1/{+parent}/entryGroups";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.create";
   return query;
 }
@@ -91,7 +91,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -108,7 +108,7 @@
 
 @dynamic entryId, parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Entry *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -117,14 +117,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/entries";
+  NSString *pathURITemplate = @"v1/{+parent}/entries";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Entry class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.create";
   return query;
 }
@@ -137,7 +137,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -156,13 +156,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Entry class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.get";
   return query;
 }
@@ -182,7 +182,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -202,13 +202,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/entries";
+  NSString *pathURITemplate = @"v1/{+parent}/entries";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntriesResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntriesResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.list";
   return query;
 }
@@ -219,7 +219,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Entry *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -228,14 +228,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Entry class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Entry class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.patch";
   return query;
 }
@@ -246,7 +246,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -255,14 +255,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/tags";
+  NSString *pathURITemplate = @"v1/{+parent}/tags";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.tags.create";
   return query;
 }
@@ -275,7 +275,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -294,13 +294,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/tags";
+  NSString *pathURITemplate = @"v1/{+parent}/tags";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTagsResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.tags.list";
   return query;
 }
@@ -311,7 +311,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -320,14 +320,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTagsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.entries.tags.patch";
   return query;
 }
@@ -347,7 +347,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsEntriesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -367,13 +367,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.get";
   return query;
 }
@@ -393,7 +393,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -413,13 +413,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/entryGroups";
+  NSString *pathURITemplate = @"v1/{+parent}/entryGroups";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListEntryGroupsResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListEntryGroupsResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.list";
   return query;
 }
@@ -430,7 +430,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -439,14 +439,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1EntryGroup class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.patch";
   return query;
 }
@@ -466,7 +466,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -484,7 +484,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -493,14 +493,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/tags";
+  NSString *pathURITemplate = @"v1/{+parent}/tags";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.tags.create";
   return query;
 }
@@ -513,7 +513,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -532,13 +532,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/tags";
+  NSString *pathURITemplate = @"v1/{+parent}/tags";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTagsResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListTagsResponse class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.tags.list";
   return query;
 }
@@ -549,7 +549,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Tag *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -558,14 +558,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTagsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Tag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Tag class];
   query.loggingName = @"datacatalog.projects.locations.entryGroups.tags.patch";
   return query;
 }
@@ -585,7 +585,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataCatalogQuery_ProjectsLocationsEntryGroupsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -603,7 +603,7 @@
 
 @dynamic parent, tagTemplateId;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -612,14 +612,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/tagTemplates";
+  NSString *pathURITemplate = @"v1/{+parent}/tagTemplates";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.create";
   return query;
 }
@@ -632,7 +632,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -649,7 +649,7 @@
 
 @dynamic parent, tagTemplateFieldId;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -658,14 +658,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/fields";
+  NSString *pathURITemplate = @"v1/{+parent}/fields";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.fields.create";
   return query;
 }
@@ -678,7 +678,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -695,7 +695,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldEnumValueRequest *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldEnumValueRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -704,14 +704,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:rename";
+  NSString *pathURITemplate = @"v1/{+name}:rename";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsEnumValuesRename *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.fields.enumValues.rename";
   return query;
 }
@@ -722,7 +722,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -731,14 +731,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.fields.patch";
   return query;
 }
@@ -749,7 +749,7 @@
 
 @dynamic name;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1RenameTagTemplateFieldRequest *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1RenameTagTemplateFieldRequest *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -758,14 +758,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}:rename";
+  NSString *pathURITemplate = @"v1/{+name}:rename";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesFieldsRename *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplateField class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplateField class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.fields.rename";
   return query;
 }
@@ -778,13 +778,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.get";
   return query;
 }
@@ -804,7 +804,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -822,7 +822,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -831,14 +831,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1TagTemplate class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate class];
   query.loggingName = @"datacatalog.projects.locations.tagTemplates.patch";
   return query;
 }
@@ -858,7 +858,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -885,7 +885,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataCatalogQuery_ProjectsLocationsTagTemplatesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -903,7 +903,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -912,14 +912,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/taxonomies";
+  NSString *pathURITemplate = @"v1/{+parent}/taxonomies";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.create";
   return query;
 }
@@ -932,7 +932,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -958,13 +958,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/taxonomies:export";
+  NSString *pathURITemplate = @"v1/{+parent}/taxonomies:export";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesExport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ExportTaxonomiesResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ExportTaxonomiesResponse class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.export";
   return query;
 }
@@ -977,13 +977,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.get";
   return query;
 }
@@ -1003,7 +1003,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1021,7 +1021,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesRequest *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1030,14 +1030,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/taxonomies:import";
+  NSString *pathURITemplate = @"v1/{+parent}/taxonomies:import";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesImport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ImportTaxonomiesResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ImportTaxonomiesResponse class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.import";
   return query;
 }
@@ -1050,13 +1050,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/taxonomies";
+  NSString *pathURITemplate = @"v1/{+parent}/taxonomies";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListTaxonomiesResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListTaxonomiesResponse class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.list";
   return query;
 }
@@ -1067,7 +1067,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1076,14 +1076,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1Taxonomy class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.patch";
   return query;
 }
@@ -1094,7 +1094,7 @@
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1103,14 +1103,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/policyTags";
+  NSString *pathURITemplate = @"v1/{+parent}/policyTags";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.policyTags.create";
   return query;
 }
@@ -1123,7 +1123,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1142,13 +1142,13 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.policyTags.get";
   return query;
 }
@@ -1168,7 +1168,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1188,13 +1188,13 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1beta1/{+parent}/policyTags";
+  NSString *pathURITemplate = @"v1/{+parent}/policyTags";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
                        pathParameterNames:pathParams];
   query.parent = parent;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1ListPolicyTagsResponse class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1ListPolicyTagsResponse class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.policyTags.list";
   return query;
 }
@@ -1205,7 +1205,7 @@
 
 @dynamic name, updateMask;
 
-+ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag *)object
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag *)object
                            name:(NSString *)name {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -1214,14 +1214,14 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta1/{+name}";
+  NSString *pathURITemplate = @"v1/{+name}";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
-  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1beta1PolicyTag class];
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1PolicyTag class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.policyTags.patch";
   return query;
 }
@@ -1241,7 +1241,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1268,7 +1268,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesPolicyTagsTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1277,6 +1277,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataCatalog_TestIamPermissionsResponse class];
   query.loggingName = @"datacatalog.projects.locations.taxonomies.policyTags.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesReplace
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataCatalog_GoogleCloudDatacatalogV1ReplaceTaxonomyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:replace";
+  GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesReplace *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy class];
+  query.loggingName = @"datacatalog.projects.locations.taxonomies.replace";
   return query;
 }
 
@@ -1295,7 +1322,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1322,7 +1349,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1beta1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
   GTLRDataCatalogQuery_ProjectsLocationsTaxonomiesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

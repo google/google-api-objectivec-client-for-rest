@@ -87,6 +87,26 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_ComputeTimeCursorRequest
+//
+
+@implementation GTLRPubsubLite_ComputeTimeCursorRequest
+@dynamic partition, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_ComputeTimeCursorResponse
+//
+
+@implementation GTLRPubsubLite_ComputeTimeCursorResponse
+@dynamic cursor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_Cursor
 //
 
@@ -235,6 +255,16 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 @implementation GTLRPubsubLite_Subscription
 @dynamic deliveryConfig, name, topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_TimeTarget
+//
+
+@implementation GTLRPubsubLite_TimeTarget
+@dynamic eventTime, publishTime;
 @end
 
 

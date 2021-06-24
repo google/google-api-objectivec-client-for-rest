@@ -804,7 +804,7 @@ NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersion_VastVersionUnspe
 @implementation GTLRRealTimeBidding_NativeContent
 @dynamic advertiserName, appIcon, body, callToAction, clickLinkUrl,
          clickTrackingUrl, headline, image, logo, priceDisplayText, starRating,
-         videoUrl;
+         videoUrl, videoVastXml;
 @end
 
 
