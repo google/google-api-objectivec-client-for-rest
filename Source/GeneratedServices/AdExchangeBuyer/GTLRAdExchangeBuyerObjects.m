@@ -1156,11 +1156,12 @@
 //
 
 @implementation GTLRAdExchangeBuyer_PublisherProfileApiProto
-@dynamic audience, buyerPitchStatement, directContact, exchange, googlePlusLink,
-         isParent, isPublished, kind, logoUrl, mediaKitLink, name, overview,
-         profileId, programmaticContact, publisherAppIds, publisherApps,
-         publisherDomains, publisherProfileId, publisherProvidedForecast,
-         rateCardInfoLink, samplePageLink, seller, state, topHeadlines;
+@dynamic audience, buyerPitchStatement, directContact, exchange,
+         forecastInventory, googlePlusLink, isParent, isPublished, kind,
+         logoUrl, mediaKitLink, name, overview, profileId, programmaticContact,
+         publisherAppIds, publisherApps, publisherDomains, publisherProfileId,
+         publisherProvidedForecast, rateCardInfoLink, samplePageLink, seller,
+         state, topHeadlines;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

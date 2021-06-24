@@ -667,7 +667,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2DlpJob_State_Runni
 // GTLRDLP_GooglePrivacyDlpV2DlpJob.type
 
 /**
- *  Unused
+ *  Defaults to INSPECT_JOB.
  *
  *  Value: "DLP_JOB_TYPE_UNSPECIFIED"
  */
@@ -2821,7 +2821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_DlpJobTypeUnspecified
- *        Unused (Value: "DLP_JOB_TYPE_UNSPECIFIED")
+ *        Defaults to INSPECT_JOB. (Value: "DLP_JOB_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_InspectJob The job
  *        inspected Google Cloud for sensitive data. (Value: "INSPECT_JOB")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2DlpJob_Type_RiskAnalysisJob The job
@@ -2988,7 +2988,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordCondition *condition;
 
-/** Required. Input field(s) to apply the transformation to. */
+/**
+ *  Required. Input field(s) to apply the transformation to. When you have
+ *  columns that reference their position within a list, omit the index from the
+ *  FieldId. FieldId name matching ignores the index. For example, instead of
+ *  "contact.nums[0].type", use "contact.nums.type".
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2FieldId *> *fields;
 
 /**
@@ -3176,13 +3181,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  provide all of this functionality, but requires more configuration. This
  *  message is provided as a convenience to the user for simple bucketing
  *  strategies. The transformed value will be a hyphenated string of
- *  {lower_bound}-{upper_bound}, i.e if lower_bound = 10 and upper_bound = 20
- *  all values that are within this bucket will be replaced with "10-20". This
- *  can be used on data of type: double, long. If the bound Value type differs
- *  from the type of data being transformed, we will first attempt converting
- *  the type of the data to be transformed to match the type of the bound before
- *  comparing. See https://cloud.google.com/dlp/docs/concepts-bucketing to learn
- *  more.
+ *  {lower_bound}-{upper_bound}. For example, if lower_bound = 10 and
+ *  upper_bound = 20, all values that are within this bucket will be replaced
+ *  with "10-20". This can be used on data of type: double, long. If the bound
+ *  Value type differs from the type of data being transformed, we will first
+ *  attempt converting the type of the data to be transformed to match the type
+ *  of the bound before comparing. See
+ *  https://cloud.google.com/dlp/docs/concepts-bucketing to learn more.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig : GTLRObject
 
@@ -4199,9 +4204,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Include to use an existing data crypto key wrapped by KMS. The wrapped key
- *  must be a 128/192/256 bit key. Authorization requires the following IAM
- *  permissions when sending a request to perform a crypto transformation using
- *  a kms-wrapped crypto key: dlp.kms.encrypt
+ *  must be a 128-, 192-, or 256-bit key. Authorization requires the following
+ *  IAM permissions when sending a request to perform a crypto transformation
+ *  using a KMS-wrapped crypto key: dlp.kms.encrypt For more information, see
+ *  [Creating a wrapped key]
+ *  (https://cloud.google.com/dlp/docs/create-wrapped-key).
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KmsWrappedCryptoKey : GTLRObject
 

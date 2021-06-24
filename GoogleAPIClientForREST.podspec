@@ -472,6 +472,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FactCheckTools/*.{h,m}'
   end
+  s.subspec 'Firebaseappcheck' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Firebaseappcheck/*.{h,m}'
+  end
   s.subspec 'FirebaseCloudMessaging' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FirebaseCloudMessaging/*.{h,m}'
@@ -568,6 +572,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/IAMCredentials/*.{h,m}'
   end
+  s.subspec 'Ideahub' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Ideahub/*.{h,m}'
+  end
   s.subspec 'IdentityToolkit' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/IdentityToolkit/*.{h,m}'
@@ -575,6 +583,10 @@ Pod::Spec.new do |s|
   s.subspec 'Indexing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Indexing/*.{h,m}'
+  end
+  s.subspec 'Keep' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Keep/*.{h,m}'
   end
   s.subspec 'Kgsearch' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -715,6 +727,10 @@ Pod::Spec.new do |s|
   s.subspec 'Reseller' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Reseller/*.{h,m}'
+  end
+  s.subspec 'ResourceSettings' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/ResourceSettings/*.{h,m}'
   end
   s.subspec 'Safebrowsing' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

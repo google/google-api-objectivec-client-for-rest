@@ -69,7 +69,7 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1Impact
-@dynamic category, costProjection;
+@dynamic category, costProjection, securityProjection;
 @end
 
 
@@ -443,6 +443,30 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection
+@dynamic details;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1SecurityProjection_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -44,6 +44,7 @@
 @class GTLRDrive_File_ExportLinks;
 @class GTLRDrive_File_ImageMediaMetadata;
 @class GTLRDrive_File_ImageMediaMetadata_Location;
+@class GTLRDrive_File_LinkShareMetadata;
 @class GTLRDrive_File_Properties;
 @class GTLRDrive_File_ShortcutDetails;
 @class GTLRDrive_File_VideoMediaMetadata;
@@ -1087,6 +1088,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDrive_User *lastModifyingUser;
 
 /**
+ *  Contains details about the link URLs that clients are using to refer to this
+ *  item.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_File_LinkShareMetadata *linkShareMetadata;
+
+/**
  *  The MD5 checksum for the content of the file. This is only applicable to
  *  files with binary content in Google Drive.
  */
@@ -1142,8 +1149,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *ownedByMe;
 
 /**
- *  The owners of the file. Currently, only certain legacy files may have more
- *  than one owner. Not populated for items in shared drives.
+ *  The owner of this file. Only certain legacy files may have more than one
+ *  owner. This field isn't populated for items in shared drives.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_User *> *owners;
 
@@ -1180,6 +1187,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quotaBytesUsed;
+
+/** A key needed to access the item via a shared link. */
+@property(nonatomic, copy, nullable) NSString *resourceKey;
 
 /**
  *  Whether the file has been shared. Not populated for items in shared drives.
@@ -1375,6 +1385,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canChangeCopyRequiresWriterPermission;
+
+/**
+ *  Whether the current user can change the securityUpdateEnabled field on link
+ *  share metadata.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canChangeSecurityUpdateEnabled;
 
 /**
  *  Deprecated
@@ -1762,6 +1780,29 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Contains details about the link URLs that clients are using to refer to this
+ *  item.
+ */
+@interface GTLRDrive_File_LinkShareMetadata : GTLRObject
+
+/**
+ *  Whether the file is eligible for security update.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityUpdateEligible;
+
+/**
+ *  Whether the security update is enabled for this file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *securityUpdateEnabled;
+
+@end
+
+
+/**
  *  A collection of arbitrary key-value pairs which are visible to all apps.
  *  Entries with null values are cleared in update and copy requests.
  *
@@ -1789,6 +1830,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  created.
  */
 @property(nonatomic, copy, nullable) NSString *targetMimeType;
+
+/** The ResourceKey for the target file. */
+@property(nonatomic, copy, nullable) NSString *targetResourceKey;
 
 @end
 

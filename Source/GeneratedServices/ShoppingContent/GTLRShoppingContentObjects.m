@@ -2315,7 +2315,10 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_Metrics
-@dynamic clicks, ctr, impressions;
+@dynamic aos, aovMicros, clicks, ctr, daysToShip, impressions, itemDaysToShip,
+         itemFillRate, orderedItems, orderedItemSalesMicros, orders,
+         rejectedItems, returnedItems, returnRate, returnsMicros, shippedItems,
+         shippedItemSalesMicros, shippedOrders, unshippedItems, unshippedOrders;
 @end
 
 
@@ -2942,7 +2945,7 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_OrderreturnsLineItem
-@dynamic lineItemId, quantity;
+@dynamic lineItemId, productId, quantity;
 @end
 
 
@@ -4085,15 +4088,17 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
          displayAdsValue, energyEfficiencyClass, excludedDestinations,
          expirationDate, gender, googleProductCategory, gtin, identifier,
          identifierExists, imageLink, includedDestinations, installment,
-         isBundle, itemGroupId, kind, link, loyaltyPoints, material,
-         maxEnergyEfficiencyClass, maxHandlingTime, minEnergyEfficiencyClass,
-         minHandlingTime, mobileLink, mpn, multipack, offerId, pattern, price,
-         productDetails, productHighlights, productTypes, promotionIds,
-         salePrice, salePriceEffectiveDate, sellOnGoogleQuantity, shipping,
-         shippingHeight, shippingLabel, shippingLength, shippingWeight,
-         shippingWidth, shoppingAdsExcludedCountries, sizes, sizeSystem,
-         sizeType, source, subscriptionCost, targetCountry, taxCategory, taxes,
-         title, transitTimeLabel, unitPricingBaseMeasure, unitPricingMeasure;
+         isBundle, itemGroupId, kind, link, linkTemplate, loyaltyPoints,
+         material, maxEnergyEfficiencyClass, maxHandlingTime,
+         minEnergyEfficiencyClass, minHandlingTime, mobileLink,
+         mobileLinkTemplate, mpn, multipack, offerId, pattern, pickupMethod,
+         pickupSla, price, productDetails, productHighlights, productTypes,
+         promotionIds, salePrice, salePriceEffectiveDate, sellOnGoogleQuantity,
+         shipping, shippingHeight, shippingLabel, shippingLength,
+         shippingWeight, shippingWidth, shoppingAdsExcludedCountries, sizes,
+         sizeSystem, sizeType, source, subscriptionCost, targetCountry,
+         taxCategory, taxes, title, transitTimeLabel, unitPricingBaseMeasure,
+         unitPricingMeasure;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -4176,7 +4181,7 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_ProductsCustomBatchRequestEntry
-@dynamic batchId, feedId, merchantId, method, product, productId;
+@dynamic batchId, feedId, merchantId, method, product, productId, updateMask;
 @end
 
 
@@ -5329,7 +5334,10 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_Segments
-@dynamic date, offerId, program;
+@dynamic brand, categoryL1, categoryL2, categoryL3, categoryL4, categoryL5,
+         currencyCode, customLabel0, customLabel1, customLabel2, customLabel3,
+         customLabel4, date, offerId, productTypeL1, productTypeL2,
+         productTypeL3, productTypeL4, productTypeL5, program, title, week;
 @end
 
 

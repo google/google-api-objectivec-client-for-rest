@@ -81,6 +81,7 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandSt
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerIncompatibleOsError = @"DOCKER_INCOMPATIBLE_OS_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerInvalidUlimit = @"DOCKER_INVALID_ULIMIT";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError = @"DOCKER_LOGIN_ERROR";
+NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerMissingContainer = @"DOCKER_MISSING_CONTAINER";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError = @"DOCKER_PREPARELAYER_ERROR";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerTooManySymbolicLinkLevels = @"DOCKER_TOO_MANY_SYMBOLIC_LINK_LEVELS";
 NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerUnavailable = @"DOCKER_UNAVAILABLE";
@@ -814,7 +815,18 @@ NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemoteworkersV1test2Adm
 //
 
 @implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsage
-@dynamic cpuUsedPercent, diskUsage, memoryUsage;
+@dynamic cpuUsedPercent, diskUsage, memoryUsage, totalDiskIoStats;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats
+//
+
+@implementation GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats
+@dynamic readBytesCount, readCount, readTimeMs, writeBytesCount, writeCount,
+         writeTimeMs;
 @end
 
 

@@ -27,6 +27,7 @@
 @class GTLRCloudBuild_HttpBody;
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RetryBuildRequest;
+@class GTLRCloudBuild_RunBuildTriggerRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -673,12 +674,285 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Creates a new `BuildTrigger`. This API is experimental.
  *
+ *  Method: cloudbuild.projects.locations.triggers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate : GTLRCloudBuildQuery
+
+/**
+ *  The parent resource where this trigger will be created. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the project for which to configure automatic builds. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_BuildTrigger.
+ *
+ *  Creates a new `BuildTrigger`. This API is experimental.
+ *
+ *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
+ *  @param parent The parent resource where this trigger will be created.
+ *    Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `Trigger` to delete. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. ID of the project that owns the trigger. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. ID of the `BuildTrigger` to delete. */
+@property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Empty.
+ *
+ *  Deletes a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
+ *
+ *  @param name The name of the `Trigger` to delete. Format:
+ *    `projects/{project}/locations/{location}/triggers/{trigger}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns information about a `BuildTrigger`. This API is experimental.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersGet : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `Trigger` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. ID of the project that owns the trigger. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. Identifier (`id` or `name`) of the `BuildTrigger` to get. */
+@property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_BuildTrigger.
+ *
+ *  Returns information about a `BuildTrigger`. This API is experimental.
+ *
+ *  @param name The name of the `Trigger` to retrieve. Format:
+ *    `projects/{project}/locations/{location}/triggers/{trigger}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists existing `BuildTrigger`s. This API is experimental.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersList : GTLRCloudBuildQuery
+
+/** Number of results to return in the list. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Token to provide to skip to a particular spot in the list. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent of the collection of `Triggers`. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. ID of the project for which to list BuildTriggers. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListBuildTriggersResponse.
+ *
+ *  Lists existing `BuildTrigger`s. This API is experimental.
+ *
+ *  @param parent The parent of the collection of `Triggers`. Format:
+ *    `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch : GTLRCloudBuildQuery
+
+/** Required. ID of the project that owns the trigger. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  The `Trigger` name with format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`, where
+ *  {trigger} is a unique identifier generated by the service.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Required. ID of the `BuildTrigger` to update. */
+@property(nonatomic, copy, nullable) NSString *triggerId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_BuildTrigger.
+ *
+ *  Updates a `BuildTrigger` by its project ID and trigger ID. This API is
+ *  experimental.
+ *
+ *  @param object The @c GTLRCloudBuild_BuildTrigger to include in the query.
+ *  @param resourceName The `Trigger` name with format:
+ *    `projects/{project}/locations/{location}/triggers/{trigger}`, where
+ *    {trigger} is a unique identifier generated by the service.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_BuildTrigger *)object
+                   resourceName:(NSString *)resourceName;
+
+@end
+
+/**
+ *  Runs a `BuildTrigger` at a particular source revision.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersRun : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `Trigger` to run. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Runs a `BuildTrigger` at a particular source revision.
+ *
+ *  @param object The @c GTLRCloudBuild_RunBuildTriggerRequest to include in the
+ *    query.
+ *  @param name The name of the `Trigger` to run. Format:
+ *    `projects/{project}/locations/{location}/triggers/{trigger}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersRun
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_RunBuildTriggerRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
+ *  webhook request targeted at a specific trigger.
+ *
+ *  Method: cloudbuild.projects.locations.triggers.webhook
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `ReceiveTriggerWebhook` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Project in which the specified trigger lives */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Secret token used for authorization if an OAuth token isn't provided. */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/** Name of the trigger to run the payload against */
+@property(nonatomic, copy, nullable) NSString *trigger;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ReceiveTriggerWebhookResponse.
+ *
+ *  ReceiveTriggerWebhook [Experimental] is called when the API receives a
+ *  webhook request targeted at a specific trigger.
+ *
+ *  @param object The @c GTLRCloudBuild_HttpBody to include in the query.
+ *  @param name The name of the `ReceiveTriggerWebhook` to retrieve. Format:
+ *    `projects/{project}/locations/{location}/triggers/{trigger}`
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new `BuildTrigger`. This API is experimental.
+ *
  *  Method: cloudbuild.projects.triggers.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersCreate : GTLRCloudBuildQuery
+
+/**
+ *  The parent resource where this trigger will be created. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /** Required. ID of the project for which to configure automatic builds. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -709,6 +983,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersDelete : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `Trigger` to delete. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -741,6 +1021,12 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeCloudBuildCloudPlatform
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersGet : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `Trigger` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Required. ID of the project that owns the trigger. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -779,6 +1065,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Token to provide to skip to a particular spot in the list. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The parent of the collection of `Triggers`. Format:
+ *  `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
 
 /** Required. ID of the project for which to list BuildTriggers. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -846,6 +1138,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersRun : GTLRCloudBuildQuery
 
+/**
+ *  The name of the `Trigger` to run. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** Required. ID of the project. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
@@ -876,6 +1174,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: cloudbuild.projects.triggers.webhook
  */
 @interface GTLRCloudBuildQuery_ProjectsTriggersWebhook : GTLRCloudBuildQuery
+
+/**
+ *  The name of the `ReceiveTriggerWebhook` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/triggers/{trigger}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Project in which the specified trigger lives */
 @property(nonatomic, copy, nullable) NSString *projectId;

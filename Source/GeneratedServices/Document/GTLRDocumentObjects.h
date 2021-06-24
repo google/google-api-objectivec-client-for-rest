@@ -1086,6 +1086,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed;
 
+// ----------------------------------------------------------------------------
+// GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
+
+/**
+ *  The default priority level.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default;
+/**
+ *  The urgent priority level. The labeling manager should allocate labeler
+ *  resource to the urgent task queue to respect this priority level.
+ *
+ *  Value: "URGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent;
+
 /**
  *  The common metadata for long running operations.
  */
@@ -1774,6 +1791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageParagraph *> *paragraphs;
 
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageTable *> *tables;
 
@@ -1853,7 +1873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1943,6 +1965,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** A list of detected languages for name together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenance *provenance;
 
 /** A list of detected languages for value together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageDetectedLanguage *> *valueDetectedLanguages;
@@ -2297,6 +2322,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent revisions corresponding collection of items (eg.
+ *  list of entities, properties within entities, etc.)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The index of the [Document.revisions] identifying the parent revision.
@@ -3011,6 +3044,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageParagraph *> *paragraphs;
 
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageTable *> *tables;
 
@@ -3090,7 +3126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3180,6 +3218,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** A list of detected languages for name together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenance *provenance;
 
 /** A list of detected languages for value together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageDetectedLanguage *> *valueDetectedLanguages;
@@ -3534,6 +3575,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent revisions corresponding collection of items (eg.
+ *  list of entities, properties within entities, etc.)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The index of the [Document.revisions] identifying the parent revision.
@@ -4063,6 +4112,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
+ *  The long running operation metadata for delete processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  The long running operation metadata for disable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the disable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorResponse : GTLRObject
+@end
+
+
+/**
+ *  The long running operation metadata for enable processor method.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata : GTLRObject
+
+/** The basic metadata of the long running operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message for the enable processor method. Intentionally empty proto
+ *  for adding fields in future.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorResponse : GTLRObject
+@end
+
+
+/**
  *  The status of human review on a processed document.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus : GTLRObject
@@ -4491,6 +4589,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageParagraph *> *paragraphs;
 
+/** The history of this page. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
 /** A list of visually detected tables on the page. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageTable *> *tables;
 
@@ -4570,7 +4671,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /**
  *  Required. Index into the Document.pages element, for example using
- *  Document.pages to locate the related page element.
+ *  Document.pages to locate the related page element. This field is skipped
+ *  when its value is the default 0. See
+ *  https://developers.google.com/protocol-buffers/docs/proto3#json.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -4660,6 +4763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 /** A list of detected languages for name together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *nameDetectedLanguages;
+
+/** The history of this annotation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
 
 /** A list of detected languages for value together with confidence. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageDetectedLanguage *> *valueDetectedLanguages;
@@ -5014,6 +5120,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The index of the parent revisions corresponding collection of items (eg.
+ *  list of entities, properties within entities, etc.)
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
  *  The index of the [Document.revisions] identifying the parent revision.
@@ -5408,12 +5522,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
 
 
 /**
- *  Request message for review document method.
+ *  Request message for review document method. Next Id: 6.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest : GTLRObject
 
+/**
+ *  Whether the validation should be performed on the ad-hoc review request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSchemaValidation;
+
 /** An inline document proto. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Document *inlineDocument;
+
+/**
+ *  The priority of the human review task.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default
+ *        The default priority level. (Value: "DEFAULT")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent
+ *        The urgent priority level. The labeling manager should allocate
+ *        labeler resource to the urgent task queue to respect this priority
+ *        level. (Value: "URGENT")
+ */
+@property(nonatomic, copy, nullable) NSString *priority;
 
 @end
 
@@ -5534,13 +5668,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanRev
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDocument_GoogleCloudLocationLocation_Metadata : GTLRObject
-@end
-
-
-/**
- *  The request message for Operations.CancelOperation.
- */
-@interface GTLRDocument_GoogleLongrunningCancelOperationRequest : GTLRObject
 @end
 
 

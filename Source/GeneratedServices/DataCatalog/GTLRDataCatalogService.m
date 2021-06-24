@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Google Cloud Data Catalog API (datacatalog/v1beta1)
+//   Google Cloud Data Catalog API (datacatalog/v1)
 // Description:
 //   A fully managed and highly scalable data discovery and metadata management
 //   service.

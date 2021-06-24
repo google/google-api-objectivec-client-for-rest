@@ -24,6 +24,7 @@
 @class GTLRCloudRedis_FailoverInstanceRequest;
 @class GTLRCloudRedis_ImportInstanceRequest;
 @class GTLRCloudRedis_Instance;
+@class GTLRCloudRedis_RescheduleMaintenanceRequest;
 @class GTLRCloudRedis_UpgradeInstanceRequest;
 
 // Generated comments include content from the discovery document; avoid them
@@ -464,6 +465,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudRedis_Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Reschedule maintenance for a given instance in a given project and location.
+ *
+ *  Method: redis.projects.locations.instances.rescheduleMaintenance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsInstancesRescheduleMaintenance : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis instance resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Reschedule maintenance for a given instance in a given project and location.
+ *
+ *  @param object The @c GTLRCloudRedis_RescheduleMaintenanceRequest to include
+ *    in the query.
+ *  @param name Required. Redis instance resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsInstancesRescheduleMaintenance
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_RescheduleMaintenanceRequest *)object
                            name:(NSString *)name;
 
 @end

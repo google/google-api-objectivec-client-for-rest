@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:

@@ -65,6 +65,10 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Ent
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
 
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
@@ -110,6 +114,10 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSER
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
 
 // GTLRSQLAdmin_Flag.type
 NSString * const kGTLRSQLAdmin_Flag_Type_Boolean               = @"BOOLEAN";
@@ -230,9 +238,11 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidSharedPre
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_InvalidWalLevel = @"INVALID_WAL_LEVEL";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup = @"PRIMARY_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup = @"REPLICA_ALREADY_SETUP";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified = @"SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning = @"SQLSERVER_AGENT_NOT_RUNNING";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch = @"SQLSERVER_SERVERNAME_MISMATCH";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner = @"UNSUPPORTED_DEFINER";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedExtensions = @"UNSUPPORTED_EXTENSIONS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidMode = @"UNSUPPORTED_GTID_MODE";
@@ -800,8 +810,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_InsightsConfig
-@dynamic queryInsightsEnabled, queryStringLength, recordApplicationTags,
-         recordClientAddress;
+@dynamic queryInsightsEnabled, queryPlansPerMinute, queryStringLength,
+         recordApplicationTags, recordClientAddress;
 @end
 
 

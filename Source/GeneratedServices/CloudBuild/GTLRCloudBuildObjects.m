@@ -85,6 +85,17 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsDisabl
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabled = @"COMMENTS_ENABLED";
 NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnabledForExternalContributorsOnly = @"COMMENTS_ENABLED_FOR_EXTERNAL_CONTRIBUTORS_ONLY";
 
+// GTLRCloudBuild_Warning.priority
+NSString * const kGTLRCloudBuild_Warning_Priority_Alert        = @"ALERT";
+NSString * const kGTLRCloudBuild_Warning_Priority_Info         = @"INFO";
+NSString * const kGTLRCloudBuild_Warning_Priority_PriorityUnspecified = @"PRIORITY_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_Warning_Priority_Warning      = @"WARNING";
+
+// GTLRCloudBuild_WebhookConfig.state
+NSString * const kGTLRCloudBuild_WebhookConfig_State_Ok        = @"OK";
+NSString * const kGTLRCloudBuild_WebhookConfig_State_SecretDeleted = @"SECRET_DELETED";
+NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudBuild_ArtifactObjects
@@ -149,7 +160,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
          identifier, images, logsBucket, logUrl, name, options, projectId,
          queueTtl, results, secrets, serviceAccount, source, sourceProvenance,
          startTime, status, statusDetail, steps, substitutions, tags, timeout,
-         timing;
+         timing, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -160,7 +171,8 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
     @"images" : [NSString class],
     @"secrets" : [GTLRCloudBuild_Secret class],
     @"steps" : [GTLRCloudBuild_BuildStep class],
-    @"tags" : [NSString class]
+    @"tags" : [NSString class],
+    @"warnings" : [GTLRCloudBuild_Warning class]
   };
   return map;
 }
@@ -264,7 +276,7 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 @implementation GTLRCloudBuild_BuildTrigger
 @dynamic build, createTime, descriptionProperty, disabled, filename, filter,
          github, identifier, ignoredFiles, includedFiles, name, pubsubConfig,
-         substitutions, tags, triggerTemplate;
+         resourceName, substitutions, tags, triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -720,6 +732,16 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_RunBuildTriggerRequest
+//
+
+@implementation GTLRCloudBuild_RunBuildTriggerRequest
+@dynamic projectId, source, triggerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Secret
 //
 
@@ -907,4 +929,24 @@ NSString * const kGTLRCloudBuild_PullRequestFilter_CommentControl_CommentsEnable
 
 @implementation GTLRCloudBuild_Volume
 @dynamic name, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_Warning
+//
+
+@implementation GTLRCloudBuild_Warning
+@dynamic priority, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WebhookConfig
+//
+
+@implementation GTLRCloudBuild_WebhookConfig
+@dynamic secret, state;
 @end

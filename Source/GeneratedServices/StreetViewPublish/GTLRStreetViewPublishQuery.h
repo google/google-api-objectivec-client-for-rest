@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  Server reponses do not include the download URL for the photo bytes. The
+ *  Server responses do not include the download URL for the photo bytes. The
  *  default value.
  *
  *  Value: "BASIC"
@@ -176,8 +176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  in the Photo response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
@@ -270,8 +271,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  in the Photo response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")
@@ -385,8 +387,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStreetViewPublishViewIncludeDownloadUrl;
  *  returned in the Photos response.
  *
  *  Likely values:
- *    @arg @c kGTLRStreetViewPublishViewBasic Server reponses do not include the
- *        download URL for the photo bytes. The default value. (Value: "BASIC")
+ *    @arg @c kGTLRStreetViewPublishViewBasic Server responses do not include
+ *        the download URL for the photo bytes. The default value. (Value:
+ *        "BASIC")
  *    @arg @c kGTLRStreetViewPublishViewIncludeDownloadUrl Server responses
  *        include the download URL for the photo bytes. (Value:
  *        "INCLUDE_DOWNLOAD_URL")

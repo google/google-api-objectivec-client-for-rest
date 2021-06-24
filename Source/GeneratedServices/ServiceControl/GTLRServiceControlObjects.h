@@ -963,6 +963,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRServiceControl_ResourceInfo : GTLRObject
 
+/**
+ *  Optional. The identifier of the container of this resource. For Google Cloud
+ *  APIs, the resource container must be one of the following formats: -
+ *  `projects/` - `folders/` - `organizations/` For the policy enforcement on
+ *  the container level (VPCSC and Location Policy check), this field takes
+ *  precedence on the container extracted from name when presents.
+ */
+@property(nonatomic, copy, nullable) NSString *container;
+
+/**
+ *  Optional. The location of the resource. The value must be a valid zone,
+ *  region or multiregion. For example: "europe-west4" or
+ *  "northamerica-northeast1-a"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** The name of the resource referenced in the request. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1070,7 +1086,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  A string representing the principal_subject associated with the identity.
- *  See go/3pical for more info on how principal_subject is formatted.
+ *  For most identities, the format will be
+ *  `principal://iam.googleapis.com/{identity pool name}/subject/{subject)`
+ *  except for some GKE identities (GKE_WORKLOAD, FREEFORM, GKE_HUB_WORKLOAD)
+ *  that are still in the legacy format `serviceAccount:{identity pool
+ *  name}[{subject}]`
  */
 @property(nonatomic, copy, nullable) NSString *principalSubject;
 

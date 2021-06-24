@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.5)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -220,7 +220,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"summaryAccountId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountActiveAdSummaries/{summaryAccountId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountActiveAdSummaries/{summaryAccountId}";
   GTLRDfareportingQuery_AccountActiveAdSummariesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -247,7 +247,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountPermissionGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountPermissionGroups/{id}";
   GTLRDfareportingQuery_AccountPermissionGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -267,7 +267,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountPermissionGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountPermissionGroups";
   GTLRDfareportingQuery_AccountPermissionGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -293,7 +293,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountPermissions/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountPermissions/{id}";
   GTLRDfareportingQuery_AccountPermissionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -313,7 +313,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountPermissions";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountPermissions";
   GTLRDfareportingQuery_AccountPermissionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -339,7 +339,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accounts/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accounts/{id}";
   GTLRDfareportingQuery_AccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -367,7 +367,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accounts";
   GTLRDfareportingQuery_AccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -398,7 +398,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accounts";
   GTLRDfareportingQuery_AccountsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -426,7 +426,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accounts";
   GTLRDfareportingQuery_AccountsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -453,7 +453,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountUserProfiles/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountUserProfiles/{id}";
   GTLRDfareportingQuery_AccountUserProfilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -480,7 +480,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountUserProfiles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountUserProfiles";
   GTLRDfareportingQuery_AccountUserProfilesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -508,7 +508,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountUserProfiles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountUserProfiles";
   GTLRDfareportingQuery_AccountUserProfilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -539,7 +539,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountUserProfiles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountUserProfiles";
   GTLRDfareportingQuery_AccountUserProfilesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -567,7 +567,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/accountUserProfiles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/accountUserProfiles";
   GTLRDfareportingQuery_AccountUserProfilesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -594,7 +594,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/ads/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/ads/{id}";
   GTLRDfareportingQuery_AdsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -621,7 +621,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/ads";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/ads";
   GTLRDfareportingQuery_AdsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -662,7 +662,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/ads";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/ads";
   GTLRDfareportingQuery_AdsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -693,7 +693,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/ads";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/ads";
   GTLRDfareportingQuery_AdsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -721,7 +721,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/ads";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/ads";
   GTLRDfareportingQuery_AdsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -748,7 +748,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups/{id}";
   GTLRDfareportingQuery_AdvertiserGroupsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -774,7 +774,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups/{id}";
   GTLRDfareportingQuery_AdvertiserGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -801,7 +801,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups";
   GTLRDfareportingQuery_AdvertiserGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -829,7 +829,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups";
   GTLRDfareportingQuery_AdvertiserGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -860,7 +860,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups";
   GTLRDfareportingQuery_AdvertiserGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -888,7 +888,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserGroups";
   GTLRDfareportingQuery_AdvertiserGroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -915,7 +915,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserLandingPages/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserLandingPages/{id}";
   GTLRDfareportingQuery_AdvertiserLandingPagesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -942,7 +942,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserLandingPages";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserLandingPages";
   GTLRDfareportingQuery_AdvertiserLandingPagesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -972,7 +972,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserLandingPages";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserLandingPages";
   GTLRDfareportingQuery_AdvertiserLandingPagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1003,7 +1003,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserLandingPages";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserLandingPages";
   GTLRDfareportingQuery_AdvertiserLandingPagesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1031,7 +1031,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertiserLandingPages";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertiserLandingPages";
   GTLRDfareportingQuery_AdvertiserLandingPagesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1058,7 +1058,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertisers/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertisers/{id}";
   GTLRDfareportingQuery_AdvertisersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1085,7 +1085,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertisers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertisers";
   GTLRDfareportingQuery_AdvertisersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1116,7 +1116,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertisers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertisers";
   GTLRDfareportingQuery_AdvertisersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1147,7 +1147,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertisers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertisers";
   GTLRDfareportingQuery_AdvertisersPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1175,7 +1175,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/advertisers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/advertisers";
   GTLRDfareportingQuery_AdvertisersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1195,7 +1195,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/browsers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/browsers";
   GTLRDfareportingQuery_BrowsersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1224,7 +1224,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"campaignId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns/{campaignId}/campaignCreativeAssociations";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns/{campaignId}/campaignCreativeAssociations";
   GTLRDfareportingQuery_CampaignCreativeAssociationsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1248,7 +1248,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"campaignId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns/{campaignId}/campaignCreativeAssociations";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns/{campaignId}/campaignCreativeAssociations";
   GTLRDfareportingQuery_CampaignCreativeAssociationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1275,7 +1275,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns/{id}";
   GTLRDfareportingQuery_CampaignsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1302,7 +1302,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns";
   GTLRDfareportingQuery_CampaignsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1335,7 +1335,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns";
   GTLRDfareportingQuery_CampaignsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1366,7 +1366,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns";
   GTLRDfareportingQuery_CampaignsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1394,7 +1394,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/campaigns";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/campaigns";
   GTLRDfareportingQuery_CampaignsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1421,7 +1421,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/changeLogs/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/changeLogs/{id}";
   GTLRDfareportingQuery_ChangeLogsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1451,7 +1451,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/changeLogs";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/changeLogs";
   GTLRDfareportingQuery_ChangeLogsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1479,7 +1479,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/cities";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/cities";
   GTLRDfareportingQuery_CitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1505,7 +1505,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/connectionTypes/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/connectionTypes/{id}";
   GTLRDfareportingQuery_ConnectionTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1525,7 +1525,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/connectionTypes";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/connectionTypes";
   GTLRDfareportingQuery_ConnectionTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1551,7 +1551,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories/{id}";
   GTLRDfareportingQuery_ContentCategoriesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1577,7 +1577,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories/{id}";
   GTLRDfareportingQuery_ContentCategoriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1604,7 +1604,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories";
   GTLRDfareportingQuery_ContentCategoriesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1632,7 +1632,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories";
   GTLRDfareportingQuery_ContentCategoriesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1663,7 +1663,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories";
   GTLRDfareportingQuery_ContentCategoriesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1691,7 +1691,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/contentCategories";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/contentCategories";
   GTLRDfareportingQuery_ContentCategoriesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -1718,7 +1718,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/conversions/batchinsert";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/conversions/batchinsert";
   GTLRDfareportingQuery_ConversionsBatchinsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1745,7 +1745,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/conversions/batchupdate";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/conversions/batchupdate";
   GTLRDfareportingQuery_ConversionsBatchupdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1768,7 +1768,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"dartId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/countries/{dartId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/countries/{dartId}";
   GTLRDfareportingQuery_CountriesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1788,7 +1788,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/countries";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/countries";
   GTLRDfareportingQuery_CountriesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1818,7 +1818,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"advertiserId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeAssets/{advertiserId}/creativeAssets";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeAssets/{advertiserId}/creativeAssets";
   GTLRDfareportingQuery_CreativeAssetsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1847,7 +1847,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{id}";
   GTLRDfareportingQuery_CreativeFieldsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1873,7 +1873,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{id}";
   GTLRDfareportingQuery_CreativeFieldsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1900,7 +1900,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields";
   GTLRDfareportingQuery_CreativeFieldsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1929,7 +1929,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields";
   GTLRDfareportingQuery_CreativeFieldsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1960,7 +1960,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields";
   GTLRDfareportingQuery_CreativeFieldsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -1988,7 +1988,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields";
   GTLRDfareportingQuery_CreativeFieldsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2016,7 +2016,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues/{id}";
   GTLRDfareportingQuery_CreativeFieldValuesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2044,7 +2044,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues/{id}";
   GTLRDfareportingQuery_CreativeFieldValuesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2075,7 +2075,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
   GTLRDfareportingQuery_CreativeFieldValuesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2107,7 +2107,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
   GTLRDfareportingQuery_CreativeFieldValuesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2142,7 +2142,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
   GTLRDfareportingQuery_CreativeFieldValuesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2174,7 +2174,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"creativeFieldId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeFields/{creativeFieldId}/creativeFieldValues";
   GTLRDfareportingQuery_CreativeFieldValuesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2202,7 +2202,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeGroups/{id}";
   GTLRDfareportingQuery_CreativeGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2229,7 +2229,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeGroups";
   GTLRDfareportingQuery_CreativeGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2258,7 +2258,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeGroups";
   GTLRDfareportingQuery_CreativeGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2289,7 +2289,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeGroups";
   GTLRDfareportingQuery_CreativeGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2317,7 +2317,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creativeGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creativeGroups";
   GTLRDfareportingQuery_CreativeGroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2344,7 +2344,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creatives/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creatives/{id}";
   GTLRDfareportingQuery_CreativesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2371,7 +2371,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creatives";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creatives";
   GTLRDfareportingQuery_CreativesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2405,7 +2405,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creatives";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creatives";
   GTLRDfareportingQuery_CreativesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2436,7 +2436,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creatives";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creatives";
   GTLRDfareportingQuery_CreativesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2464,7 +2464,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/creatives";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/creatives";
   GTLRDfareportingQuery_CreativesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2473,33 +2473,6 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_Creative class];
   query.loggingName = @"dfareporting.creatives.update";
-  return query;
-}
-
-@end
-
-@implementation GTLRDfareportingQuery_CustomEventsBatchinsert
-
-@dynamic profileId;
-
-+ (instancetype)queryWithObject:(GTLRDfareporting_CustomEventsBatchInsertRequest *)object
-                      profileId:(long long)profileId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/customEvents/batchinsert";
-  GTLRDfareportingQuery_CustomEventsBatchinsert *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.profileId = profileId;
-  query.expectedObjectClass = [GTLRDfareporting_CustomEventsBatchInsertResponse class];
-  query.loggingName = @"dfareporting.customEvents.batchinsert";
   return query;
 }
 
@@ -2518,7 +2491,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/dimensionvalues/query";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/dimensionvalues/query";
   GTLRDfareportingQuery_DimensionValuesQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2545,7 +2518,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/directorySites/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/directorySites/{id}";
   GTLRDfareportingQuery_DirectorySitesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2572,7 +2545,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/directorySites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/directorySites";
   GTLRDfareportingQuery_DirectorySitesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2601,7 +2574,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/directorySites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/directorySites";
   GTLRDfareportingQuery_DirectorySitesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2625,7 +2598,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"objectId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/dynamicTargetingKeys/{objectId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/dynamicTargetingKeys/{objectId}";
   GTLRDfareportingQuery_DynamicTargetingKeysDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2653,7 +2626,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/dynamicTargetingKeys";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/dynamicTargetingKeys";
   GTLRDfareportingQuery_DynamicTargetingKeysInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2680,7 +2653,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/dynamicTargetingKeys";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/dynamicTargetingKeys";
   GTLRDfareportingQuery_DynamicTargetingKeysList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2706,7 +2679,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags/{id}";
   GTLRDfareportingQuery_EventTagsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2732,7 +2705,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags/{id}";
   GTLRDfareportingQuery_EventTagsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2759,7 +2732,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags";
   GTLRDfareportingQuery_EventTagsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2788,7 +2761,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags";
   GTLRDfareportingQuery_EventTagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2819,7 +2792,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags";
   GTLRDfareportingQuery_EventTagsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -2847,7 +2820,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/eventTags";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/eventTags";
   GTLRDfareportingQuery_EventTagsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -2870,7 +2843,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"fileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"reports/{reportId}/files/{fileId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/reports/{reportId}/files/{fileId}";
   GTLRDfareportingQuery_FilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2900,7 +2873,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/files";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/files";
   GTLRDfareportingQuery_FilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2926,7 +2899,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities/{id}";
   GTLRDfareportingQuery_FloodlightActivitiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -2945,7 +2918,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities/generatetag";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities/generatetag";
   GTLRDfareportingQuery_FloodlightActivitiesGeneratetag *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -2971,7 +2944,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities/{id}";
   GTLRDfareportingQuery_FloodlightActivitiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -2998,7 +2971,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities";
   GTLRDfareportingQuery_FloodlightActivitiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3029,7 +3002,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities";
   GTLRDfareportingQuery_FloodlightActivitiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3060,7 +3033,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities";
   GTLRDfareportingQuery_FloodlightActivitiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3088,7 +3061,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivities";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivities";
   GTLRDfareportingQuery_FloodlightActivitiesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -3115,7 +3088,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivityGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivityGroups/{id}";
   GTLRDfareportingQuery_FloodlightActivityGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3142,7 +3115,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivityGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivityGroups";
   GTLRDfareportingQuery_FloodlightActivityGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3170,7 +3143,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivityGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivityGroups";
   GTLRDfareportingQuery_FloodlightActivityGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3201,7 +3174,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivityGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivityGroups";
   GTLRDfareportingQuery_FloodlightActivityGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3229,7 +3202,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightActivityGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightActivityGroups";
   GTLRDfareportingQuery_FloodlightActivityGroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -3256,7 +3229,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightConfigurations/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightConfigurations/{id}";
   GTLRDfareportingQuery_FloodlightConfigurationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3283,7 +3256,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightConfigurations";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightConfigurations";
   GTLRDfareportingQuery_FloodlightConfigurationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3314,7 +3287,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightConfigurations";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightConfigurations";
   GTLRDfareportingQuery_FloodlightConfigurationsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3342,7 +3315,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/floodlightConfigurations";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/floodlightConfigurations";
   GTLRDfareportingQuery_FloodlightConfigurationsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -3370,7 +3343,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/inventoryItems/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/inventoryItems/{id}";
   GTLRDfareportingQuery_InventoryItemsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3404,7 +3377,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/inventoryItems";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/inventoryItems";
   GTLRDfareportingQuery_InventoryItemsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3424,7 +3397,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/languages";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/languages";
   GTLRDfareportingQuery_LanguagesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3443,7 +3416,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/metros";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/metros";
   GTLRDfareportingQuery_MetrosList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3469,7 +3442,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileApps/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/mobileApps/{id}";
   GTLRDfareportingQuery_MobileAppsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3497,7 +3470,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileApps";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/mobileApps";
   GTLRDfareportingQuery_MobileAppsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3523,7 +3496,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileCarriers/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/mobileCarriers/{id}";
   GTLRDfareportingQuery_MobileCarriersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3543,7 +3516,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/mobileCarriers";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/mobileCarriers";
   GTLRDfareportingQuery_MobileCarriersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3565,7 +3538,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"dartId", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/operatingSystems/{dartId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/operatingSystems/{dartId}";
   GTLRDfareportingQuery_OperatingSystemsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3585,7 +3558,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/operatingSystems";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/operatingSystems";
   GTLRDfareportingQuery_OperatingSystemsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3611,7 +3584,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/operatingSystemVersions/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/operatingSystemVersions/{id}";
   GTLRDfareportingQuery_OperatingSystemVersionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3631,7 +3604,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/operatingSystemVersions";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/operatingSystemVersions";
   GTLRDfareportingQuery_OperatingSystemVersionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3658,7 +3631,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/orderDocuments/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/orderDocuments/{id}";
   GTLRDfareportingQuery_OrderDocumentsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3692,7 +3665,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/orderDocuments";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/orderDocuments";
   GTLRDfareportingQuery_OrderDocumentsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3720,7 +3693,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/orders/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/orders/{id}";
   GTLRDfareportingQuery_OrdersGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3753,7 +3726,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"projectId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{projectId}/orders";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{projectId}/orders";
   GTLRDfareportingQuery_OrdersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3780,7 +3753,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementGroups/{id}";
   GTLRDfareportingQuery_PlacementGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3807,7 +3780,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementGroups";
   GTLRDfareportingQuery_PlacementGroupsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3845,7 +3818,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementGroups";
   GTLRDfareportingQuery_PlacementGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3876,7 +3849,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementGroups";
   GTLRDfareportingQuery_PlacementGroupsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -3904,7 +3877,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementGroups";
   GTLRDfareportingQuery_PlacementGroupsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -3932,7 +3905,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements/generatetags";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements/generatetags";
   GTLRDfareportingQuery_PlacementsGeneratetags *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -3958,7 +3931,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements/{id}";
   GTLRDfareportingQuery_PlacementsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -3985,7 +3958,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements";
   GTLRDfareportingQuery_PlacementsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4026,7 +3999,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements";
   GTLRDfareportingQuery_PlacementsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4057,7 +4030,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements";
   GTLRDfareportingQuery_PlacementsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -4085,7 +4058,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies/{id}";
   GTLRDfareportingQuery_PlacementStrategiesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -4111,7 +4084,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies/{id}";
   GTLRDfareportingQuery_PlacementStrategiesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4138,7 +4111,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies";
   GTLRDfareportingQuery_PlacementStrategiesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4166,7 +4139,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies";
   GTLRDfareportingQuery_PlacementStrategiesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4197,7 +4170,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies";
   GTLRDfareportingQuery_PlacementStrategiesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -4225,7 +4198,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placementStrategies";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placementStrategies";
   GTLRDfareportingQuery_PlacementStrategiesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -4252,7 +4225,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/placements";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/placements";
   GTLRDfareportingQuery_PlacementsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -4279,7 +4252,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/platformTypes/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/platformTypes/{id}";
   GTLRDfareportingQuery_PlatformTypesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4299,7 +4272,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/platformTypes";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/platformTypes";
   GTLRDfareportingQuery_PlatformTypesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4321,7 +4294,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"code", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/postalCodes/{code}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/postalCodes/{code}";
   GTLRDfareportingQuery_PostalCodesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4341,7 +4314,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/postalCodes";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/postalCodes";
   GTLRDfareportingQuery_PostalCodesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4367,7 +4340,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects/{id}";
   GTLRDfareportingQuery_ProjectsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4396,7 +4369,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/projects";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/projects";
   GTLRDfareportingQuery_ProjectsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4415,7 +4388,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/regions";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/regions";
   GTLRDfareportingQuery_RegionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4441,7 +4414,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingLists/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingLists/{id}";
   GTLRDfareportingQuery_RemarketingListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4464,7 +4437,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"remarketingListId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingListShares/{remarketingListId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingListShares/{remarketingListId}";
   GTLRDfareportingQuery_RemarketingListSharesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4496,7 +4469,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingListShares";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingListShares";
   GTLRDfareportingQuery_RemarketingListSharesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -4524,7 +4497,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingListShares";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingListShares";
   GTLRDfareportingQuery_RemarketingListSharesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -4551,7 +4524,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingLists";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingLists";
   GTLRDfareportingQuery_RemarketingListsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4573,7 +4546,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 + (instancetype)queryWithProfileId:(long long)profileId
                       advertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingLists";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingLists";
   GTLRDfareportingQuery_RemarketingListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4605,7 +4578,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingLists";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingLists";
   GTLRDfareportingQuery_RemarketingListsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -4633,7 +4606,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/remarketingLists";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/remarketingLists";
   GTLRDfareportingQuery_RemarketingListsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -4660,7 +4633,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/compatiblefields/query";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/compatiblefields/query";
   GTLRDfareportingQuery_ReportsCompatibleFieldsQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4683,7 +4656,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}";
   GTLRDfareportingQuery_ReportsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -4706,7 +4679,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"fileId", @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}/files/{fileId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}/files/{fileId}";
   GTLRDfareportingQuery_ReportsFilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4742,7 +4715,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}/files";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}/files";
   GTLRDfareportingQuery_ReportsFilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4765,7 +4738,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}";
   GTLRDfareportingQuery_ReportsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4792,7 +4765,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports";
   GTLRDfareportingQuery_ReportsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4812,7 +4785,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports";
   GTLRDfareportingQuery_ReportsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4841,7 +4814,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}";
   GTLRDfareportingQuery_ReportsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -4865,7 +4838,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}/run";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}/run";
   GTLRDfareportingQuery_ReportsRun *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4895,7 +4868,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"profileId", @"reportId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/reports/{reportId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/reports/{reportId}";
   GTLRDfareportingQuery_ReportsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -4923,7 +4896,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sites/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sites/{id}";
   GTLRDfareportingQuery_SitesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -4950,7 +4923,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sites";
   GTLRDfareportingQuery_SitesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -4982,7 +4955,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sites";
   GTLRDfareportingQuery_SitesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5013,7 +4986,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sites";
   GTLRDfareportingQuery_SitesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5041,7 +5014,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sites";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sites";
   GTLRDfareportingQuery_SitesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -5068,7 +5041,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sizes/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sizes/{id}";
   GTLRDfareportingQuery_SizesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5095,7 +5068,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sizes";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sizes";
   GTLRDfareportingQuery_SizesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5122,7 +5095,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/sizes";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/sizes";
   GTLRDfareportingQuery_SizesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5148,7 +5121,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/subaccounts/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/subaccounts/{id}";
   GTLRDfareportingQuery_SubaccountsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5175,7 +5148,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/subaccounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/subaccounts";
   GTLRDfareportingQuery_SubaccountsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5203,7 +5176,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/subaccounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/subaccounts";
   GTLRDfareportingQuery_SubaccountsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5234,7 +5207,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/subaccounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/subaccounts";
   GTLRDfareportingQuery_SubaccountsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5262,7 +5235,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/subaccounts";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/subaccounts";
   GTLRDfareportingQuery_SubaccountsUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -5289,7 +5262,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetableRemarketingLists/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetableRemarketingLists/{id}";
   GTLRDfareportingQuery_TargetableRemarketingListsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5311,7 +5284,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 + (instancetype)queryWithProfileId:(long long)profileId
                       advertiserId:(long long)advertiserId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetableRemarketingLists";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetableRemarketingLists";
   GTLRDfareportingQuery_TargetableRemarketingListsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5338,7 +5311,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetingTemplates/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetingTemplates/{id}";
   GTLRDfareportingQuery_TargetingTemplatesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5365,7 +5338,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetingTemplates";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetingTemplates";
   GTLRDfareportingQuery_TargetingTemplatesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5393,7 +5366,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetingTemplates";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetingTemplates";
   GTLRDfareportingQuery_TargetingTemplatesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5424,7 +5397,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetingTemplates";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetingTemplates";
   GTLRDfareportingQuery_TargetingTemplatesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5452,7 +5425,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/targetingTemplates";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/targetingTemplates";
   GTLRDfareportingQuery_TargetingTemplatesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -5472,7 +5445,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}";
   GTLRDfareportingQuery_UserProfilesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5488,7 +5461,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 @implementation GTLRDfareportingQuery_UserProfilesList
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"userprofiles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles";
   GTLRDfareportingQuery_UserProfilesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5513,7 +5486,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRolePermissionGroups/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRolePermissionGroups/{id}";
   GTLRDfareportingQuery_UserRolePermissionGroupsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5533,7 +5506,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRolePermissionGroups";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRolePermissionGroups";
   GTLRDfareportingQuery_UserRolePermissionGroupsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5559,7 +5532,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRolePermissions/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRolePermissions/{id}";
   GTLRDfareportingQuery_UserRolePermissionsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5586,7 +5559,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRolePermissions";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRolePermissions";
   GTLRDfareportingQuery_UserRolePermissionsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5612,7 +5585,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles/{id}";
   GTLRDfareportingQuery_UserRolesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -5638,7 +5611,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles/{id}";
   GTLRDfareportingQuery_UserRolesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5665,7 +5638,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles";
   GTLRDfareportingQuery_UserRolesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -5693,7 +5666,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles";
   GTLRDfareportingQuery_UserRolesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5724,7 +5697,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles";
   GTLRDfareportingQuery_UserRolesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -5752,7 +5725,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
     return nil;
   }
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/userRoles";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/userRoles";
   GTLRDfareportingQuery_UserRolesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -5779,7 +5752,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   NSArray *pathParams = @[
     @"id", @"profileId"
   ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/videoFormats/{id}";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/videoFormats/{id}";
   GTLRDfareportingQuery_VideoFormatsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -5799,7 +5772,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];
-  NSString *pathURITemplate = @"userprofiles/{profileId}/videoFormats";
+  NSString *pathURITemplate = @"dfareporting/v3.5/userprofiles/{profileId}/videoFormats";
   GTLRDfareportingQuery_VideoFormatsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil

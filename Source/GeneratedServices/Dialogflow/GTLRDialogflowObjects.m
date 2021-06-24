@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult.result
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_AggregatedTestResultUnspecified = @"AGGREGATED_TEST_RESULT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Failed = @"FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Passed = @"PASSED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Done = @"DONE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata_State_Pending = @"PENDING";
@@ -58,6 +63,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestRunDifference
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Append = @"APPEND";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult.result
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_AggregatedTestResultUnspecified = @"AGGREGATED_TEST_RESULT_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Failed = @"FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Passed = @"PASSED";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.responseType
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Final = @"FINAL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Partial = @"PARTIAL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_ResponseTypeUnspecified = @"RESPONSE_TYPE_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.autoExpansionMode
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_AutoExpansionMode_AutoExpansionModeDefault = @"AUTO_EXPANSION_MODE_DEFAULT";
@@ -616,6 +631,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult
+@dynamic name, result, runTime, testCaseResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testCaseResults" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurn
 //
 
@@ -630,7 +663,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput
-@dynamic injectedParameters, input, isWebhookEnabled;
+@dynamic enableSentimentAnalysis, injectedParameters, input, isWebhookEnabled;
 @end
 
 
@@ -848,7 +881,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Fulfillment
-@dynamic conditionalCases, messages, setParameterActions, tag, webhook;
+@dynamic conditionalCases, messages, returnPartialResponses,
+         setParameterActions, tag, webhook;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1345,6 +1379,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestMetadata
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestResponse
+@dynamic continuousTestResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunTestCaseMetadata
 //
 
@@ -1650,6 +1712,24 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult
+@dynamic name, result, runTime, testCaseResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"testCaseResults" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn
 //
 
@@ -1664,7 +1744,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput
-@dynamic injectedParameters, input, isWebhookEnabled;
+@dynamic enableSentimentAnalysis, injectedParameters, input, isWebhookEnabled;
 @end
 
 
@@ -1776,7 +1856,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse
-@dynamic outputAudio, outputAudioConfig, queryResult, responseId;
+@dynamic allowCancellation, outputAudio, outputAudioConfig, queryResult,
+         responseId, responseType;
 @end
 
 
@@ -2171,7 +2252,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Fulfillment
-@dynamic conditionalCases, messages, setParameterActions, tag, webhook;
+@dynamic conditionalCases, messages, returnPartialResponses,
+         setParameterActions, tag, webhook;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2504,6 +2586,28 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 + (NSString *)collectionItemsKey {
   return @"agents";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse
+@dynamic continuousTestResults, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"continuousTestResults" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"continuousTestResults";
 }
 
 @end
@@ -3269,6 +3373,43 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RestoreAgentRequest
 @dynamic agentContent, agentUri, restoreOption;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestMetadata
+@dynamic errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRDialogflow_GoogleCloudDialogflowCxV3TestError class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestResponse
+@dynamic continuousTestResult;
 @end
 
 
@@ -5029,11 +5170,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1QueryResult
-@dynamic action, allRequiredParamsPresent, diagnosticInfo, fulfillmentMessages,
-         fulfillmentText, intent, intentDetectionConfidence, knowledgeAnswers,
-         languageCode, outputContexts, parameters, queryText,
-         sentimentAnalysisResult, speechRecognitionConfidence, webhookPayload,
-         webhookSource;
+@dynamic action, allRequiredParamsPresent, cancelsSlotFilling, diagnosticInfo,
+         fulfillmentMessages, fulfillmentText, intent,
+         intentDetectionConfidence, knowledgeAnswers, languageCode,
+         outputContexts, parameters, queryText, sentimentAnalysisResult,
+         speechRecognitionConfidence, webhookPayload, webhookSource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5986,10 +6127,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2QueryResult
-@dynamic action, allRequiredParamsPresent, diagnosticInfo, fulfillmentMessages,
-         fulfillmentText, intent, intentDetectionConfidence, languageCode,
-         outputContexts, parameters, queryText, sentimentAnalysisResult,
-         speechRecognitionConfidence, webhookPayload, webhookSource;
+@dynamic action, allRequiredParamsPresent, cancelsSlotFilling, diagnosticInfo,
+         fulfillmentMessages, fulfillmentText, intent,
+         intentDetectionConfidence, languageCode, outputContexts, parameters,
+         queryText, sentimentAnalysisResult, speechRecognitionConfidence,
+         webhookPayload, webhookSource;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

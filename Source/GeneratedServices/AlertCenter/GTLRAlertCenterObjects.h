@@ -385,7 +385,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Required. A unique identifier for the system that reported the alert. This
  *  is output only after alert is created. Supported sources are any of the
  *  following: * Google Operations * Mobile device management * Gmail phishing *
- *  Domain wide takeout * State sponsored attack * Google identity
+ *  Data Loss Prevention * Domain wide takeout * State sponsored attack * Google
+ *  identity
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -397,7 +398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /**
  *  Required. The type of the alert. This is output only after alert is created.
  *  For a list of available alert types see [Google Workspace Alert
- *  types](/admin-sdk/alertcenter/reference/alert-types).
+ *  types](https://developers.google.com/admin-sdk/alertcenter/reference/alert-types).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -1031,12 +1032,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /**
  *  Settings for callback notifications. For more details see [Google Workspace
- *  Alert Notification](/admin-sdk/alertcenter/guides/notifications).
+ *  Alert
+ *  Notification](https://developers.google.com/admin-sdk/alertcenter/guides/notifications).
  */
 @interface GTLRAlertCenter_Notification : GTLRObject
 
 /** A Google Cloud Pub/sub topic destination. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_CloudPubsubTopic *cloudPubsubTopic;
+
+@end
+
+
+/**
+ *  An alert that gets triggered when a user enables autoforwarding to an email
+ *  which is outside of its domain
+ */
+@interface GTLRAlertCenter_OutOfDomainForwarding : GTLRObject
+
+/** Email of the actor who triggered the alert. */
+@property(nonatomic, copy, nullable) NSString *actorEmail;
+
+/** The time the email forwarding was enabled */
+@property(nonatomic, strong, nullable) GTLRDateTime *enableTime;
+
+/** Email to which emails are being forwarded */
+@property(nonatomic, copy, nullable) NSString *forwardeeEmail;
+
+/** IP address of the user while enabling forwarding */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 @end
 

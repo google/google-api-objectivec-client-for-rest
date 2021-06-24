@@ -99,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesCreate : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for the project which owns this `Release`. Format:
+ *  Required. Resource name for the project which owns this `Release`. Format:
  *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -124,8 +124,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  UpdateRelease method.
  *
  *  @param object The @c GTLRFirebaseRules_Release to include in the query.
- *  @param name Resource name for the project which owns this `Release`. Format:
- *    `projects/{project_id}`
+ *  @param name Required. Resource name for the project which owns this
+ *    `Release`. Format: `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesCreate
  */
@@ -146,7 +146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesDelete : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for the `Release` to delete. Format:
+ *  Required. Resource name for the `Release` to delete. Format:
  *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -156,7 +156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Delete a `Release` by resource name.
  *
- *  @param name Resource name for the `Release` to delete. Format:
+ *  @param name Required. Resource name for the `Release` to delete. Format:
  *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesDelete
@@ -178,7 +178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesGet : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name of the `Release`. Format:
+ *  Required. Resource name of the `Release`. Format:
  *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -188,7 +188,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get a `Release` by name.
  *
- *  @param name Resource name of the `Release`. Format:
+ *  @param name Required. Resource name of the `Release`. Format:
  *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGet
@@ -228,7 +228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @property(nonatomic, copy, nullable) NSString *executableVersion;
 
 /**
- *  Resource name of the `Release`. Format:
+ *  Required. Resource name of the `Release`. Format:
  *  `projects/{project_id}/releases/{release_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -238,7 +238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get the `Release` executable to use when enforcing rules.
  *
- *  @param name Resource name of the `Release`. Format:
+ *  @param name Required. Resource name of the `Release`. Format:
  *    `projects/{project_id}/releases/{release_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesGetExecutable
@@ -263,25 +263,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 
 /**
  *  `Release` filter. The list method supports filters with restrictions on the
- *  `Release.name`, `Release.ruleset_name`, and `Release.test_suite_name`.
- *  Example 1: A filter of 'name=prod*' might return `Release`s with names
- *  within 'projects/foo' prefixed with 'prod': Name | Ruleset Name
- *  ------------------------------|------------- projects/foo/releases/prod |
- *  projects/foo/rulesets/uuid1234 projects/foo/releases/prod/v1 |
- *  projects/foo/rulesets/uuid1234 projects/foo/releases/prod/v2 |
+ *  `Release.name`, and `Release.ruleset_name`. Example 1: A filter of
+ *  'name=prod*' might return `Release`s with names within 'projects/foo'
+ *  prefixed with 'prod': Name -> Ruleset Name: * projects/foo/releases/prod ->
+ *  projects/foo/rulesets/uuid1234 * projects/foo/releases/prod/v1 ->
+ *  projects/foo/rulesets/uuid1234 * projects/foo/releases/prod/v2 ->
  *  projects/foo/rulesets/uuid8888 Example 2: A filter of `name=prod*
  *  ruleset_name=uuid1234` would return only `Release` instances for
  *  'projects/foo' with names prefixed with 'prod' referring to the same
- *  `Ruleset` name of 'uuid1234': Name | Ruleset Name
- *  ------------------------------|------------- projects/foo/releases/prod |
- *  projects/foo/rulesets/1234 projects/foo/releases/prod/v1 |
- *  projects/foo/rulesets/1234 In the examples, the filter parameters refer to
- *  the search filters are relative to the project. Fully qualified prefixed may
- *  also be used. e.g. `test_suite_name=projects/foo/testsuites/uuid1`
+ *  `Ruleset` name of 'uuid1234': Name -> Ruleset Name: *
+ *  projects/foo/releases/prod -> projects/foo/rulesets/1234 *
+ *  projects/foo/releases/prod/v1 -> projects/foo/rulesets/1234 In the examples,
+ *  the filter parameters refer to the search filters are relative to the
+ *  project. Fully qualified prefixed may also be used.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Resource name for the project. Format: `projects/{project_id}` */
+/**
+ *  Required. Resource name for the project. Format: `projects/{project_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -302,7 +302,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  filtered by `Release` name, `Ruleset` name, `TestSuite` name, or any
  *  combination thereof.
  *
- *  @param name Resource name for the project. Format: `projects/{project_id}`
+ *  @param name Required. Resource name for the project. Format:
+ *    `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesList
  *
@@ -315,9 +316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @end
 
 /**
- *  Update a `Release` via PATCH. Only updates to the `ruleset_name` and
- *  `test_suite_name` fields will be honored. `Release` rename is not supported.
- *  To create a `Release` use the CreateRelease method.
+ *  Update a `Release` via PATCH. Only updates to `ruleset_name` will be
+ *  honored. `Release` rename is not supported. To create a `Release` use the
+ *  CreateRelease method.
  *
  *  Method: firebaserules.projects.releases.patch
  *
@@ -328,7 +329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsReleasesPatch : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for the project which owns this `Release`. Format:
+ *  Required. Resource name for the project which owns this `Release`. Format:
  *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -336,14 +337,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 /**
  *  Fetches a @c GTLRFirebaseRules_Release.
  *
- *  Update a `Release` via PATCH. Only updates to the `ruleset_name` and
- *  `test_suite_name` fields will be honored. `Release` rename is not supported.
- *  To create a `Release` use the CreateRelease method.
+ *  Update a `Release` via PATCH. Only updates to `ruleset_name` will be
+ *  honored. `Release` rename is not supported. To create a `Release` use the
+ *  CreateRelease method.
  *
  *  @param object The @c GTLRFirebaseRules_UpdateReleaseRequest to include in
  *    the query.
- *  @param name Resource name for the project which owns this `Release`. Format:
- *    `projects/{project_id}`
+ *  @param name Required. Resource name for the project which owns this
+ *    `Release`. Format: `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsReleasesPatch
  */
@@ -367,7 +368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsCreate : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for Project which owns this `Ruleset`. Format:
+ *  Required. Resource name for Project which owns this `Ruleset`. Format:
  *  `projects/{project_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -381,8 +382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  encountered. For a detailed view of `Source` issues, use TestRuleset.
  *
  *  @param object The @c GTLRFirebaseRules_Ruleset to include in the query.
- *  @param name Resource name for Project which owns this `Ruleset`. Format:
- *    `projects/{project_id}`
+ *  @param name Required. Resource name for Project which owns this `Ruleset`.
+ *    Format: `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsCreate
  */
@@ -404,7 +405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsDelete : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for the ruleset to delete. Format:
+ *  Required. Resource name for the ruleset to delete. Format:
  *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -415,7 +416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  Delete a `Ruleset` by resource name. If the `Ruleset` is referenced by a
  *  `Release` the operation will fail.
  *
- *  @param name Resource name for the ruleset to delete. Format:
+ *  @param name Required. Resource name for the ruleset to delete. Format:
  *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsDelete
@@ -437,7 +438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsRulesetsGet : GTLRFirebaseRulesQuery
 
 /**
- *  Resource name for the ruleset to get. Format:
+ *  Required. Resource name for the ruleset to get. Format:
  *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -447,7 +448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  Get a `Ruleset` by name including the full `Source` contents.
  *
- *  @param name Resource name for the ruleset to get. Format:
+ *  @param name Required. Resource name for the ruleset to get. Format:
  *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsGet
@@ -479,7 +480,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Resource name for the project. Format: `projects/{project_id}` */
+/**
+ *  Required. Resource name for the project. Format: `projects/{project_id}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -500,7 +503,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *  name. The full `Source` contents of a `Ruleset` may be retrieved with
  *  GetRuleset.
  *
- *  @param name Resource name for the project. Format: `projects/{project_id}`
+ *  @param name Required. Resource name for the project. Format:
+ *    `projects/{project_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsRulesetsList
  *
@@ -535,10 +539,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
 @interface GTLRFirebaseRulesQuery_ProjectsTest : GTLRFirebaseRulesQuery
 
 /**
- *  Tests may either provide `source` or a `Ruleset` resource name. For tests
- *  against `source`, the resource name must refer to the project: Format:
- *  `projects/{project_id}` For tests against a `Ruleset`, this must be the
- *  `Ruleset` resource name: Format:
+ *  Required. Tests may either provide `source` or a `Ruleset` resource name.
+ *  For tests against `source`, the resource name must refer to the project:
+ *  Format: `projects/{project_id}` For tests against a `Ruleset`, this must be
+ *  the `Ruleset` resource name: Format:
  *  `projects/{project_id}/rulesets/{ruleset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -560,10 +564,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseRulesExecutableVersionReleaseExe
  *
  *  @param object The @c GTLRFirebaseRules_TestRulesetRequest to include in the
  *    query.
- *  @param name Tests may either provide `source` or a `Ruleset` resource name.
- *    For tests against `source`, the resource name must refer to the project:
- *    Format: `projects/{project_id}` For tests against a `Ruleset`, this must
- *    be the `Ruleset` resource name: Format:
+ *  @param name Required. Tests may either provide `source` or a `Ruleset`
+ *    resource name. For tests against `source`, the resource name must refer to
+ *    the project: Format: `projects/{project_id}` For tests against a
+ *    `Ruleset`, this must be the `Ruleset` resource name: Format:
  *    `projects/{project_id}/rulesets/{ruleset_id}`
  *
  *  @return GTLRFirebaseRulesQuery_ProjectsTest

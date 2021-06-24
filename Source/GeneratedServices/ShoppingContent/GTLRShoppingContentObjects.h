@@ -4546,6 +4546,26 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 @interface GTLRShoppingContent_Metrics : GTLRObject
 
 /**
+ *  Average order size - the average number of items in an order. **This metric
+ *  cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aos;
+
+/**
+ *  Average order value - the average value (total price of items) of all placed
+ *  orders. The currency of the returned value is stored in the currency_code
+ *  segment. If this metric is selected, 'segments.currency_code' is
+ *  automatically added to the SELECT clause in the search query (unless it is
+ *  explicitly selected by the user) and the currency_code segment is populated
+ *  in the response. **This metric cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aovMicros;
+
+/**
  *  Number of clicks.
  *
  *  Uses NSNumber of longLongValue.
@@ -4562,11 +4582,152 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 @property(nonatomic, strong, nullable) NSNumber *ctr;
 
 /**
+ *  Average number of days between an order being placed and the order being
+ *  fully shipped, reported on the last shipment date. **This metric cannot be
+ *  segmented by product dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daysToShip;
+
+/**
  *  Number of times merchant's products are shown.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *impressions;
+
+/**
+ *  Average number of days between an item being ordered and the item being
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *itemDaysToShip;
+
+/**
+ *  Percentage of shipped items in relation to all finalized items (shipped or
+ *  rejected by the merchant; unshipped items are not taken into account),
+ *  reported on the order date. Item fill rate is lowered by merchant
+ *  rejections.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *itemFillRate;
+
+/**
+ *  Number of ordered items. Excludes customer cancellations that happened
+ *  within 30 minutes of placing the order.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderedItems;
+
+/**
+ *  Total price of ordered items. Excludes shipping, taxes (US only), and
+ *  customer cancellations that happened within 30 minutes of placing the order.
+ *  The currency of the returned value is stored in the currency_code segment.
+ *  If this metric is selected, 'segments.currency_code' is automatically added
+ *  to the SELECT clause in the search query (unless it is explicitly selected
+ *  by the user) and the currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orderedItemSalesMicros;
+
+/**
+ *  Number of placed orders. Excludes customer cancellations that happened
+ *  within 30 minutes of placing the order. **This metric cannot be segmented by
+ *  product dimensions.**
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orders;
+
+/**
+ *  Number of ordered items canceled by the merchant, reported on the order
+ *  date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rejectedItems;
+
+/**
+ *  Number of ordered items sent back for return, reported on the date when the
+ *  merchant accepted the return.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnedItems;
+
+/**
+ *  Total price of returned items divided by the total price of shipped items,
+ *  reported on the order date. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnRate;
+
+/**
+ *  Total price of ordered items sent back for return, reported on the date when
+ *  the merchant accepted the return. The currency of the returned value is
+ *  stored in the currency_code segment. If this metric is selected,
+ *  'segments.currency_code' is automatically added to the SELECT clause in the
+ *  search query (unless it is explicitly selected by the user) and the
+ *  currency_code segment is populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnsMicros;
+
+/**
+ *  Number of shipped items, reported on the shipment date.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedItems;
+
+/**
+ *  Total price of shipped items, reported on the order date. Excludes shipping
+ *  and taxes (US only). The currency of the returned value is stored in the
+ *  currency_code segment. If this metric is selected, 'segments.currency_code'
+ *  is automatically added to the SELECT clause in the search query (unless it
+ *  is explicitly selected by the user) and the currency_code segment is
+ *  populated in the response.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedItemSalesMicros;
+
+/**
+ *  Number of fully shipped orders, reported on the last shipment date. **This
+ *  metric cannot be segmented by product dimensions.**
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shippedOrders;
+
+/**
+ *  Number of ordered items not shipped up until the end of the queried day. If
+ *  a multi-day period is specified in the search query, the returned value is
+ *  the average number of unshipped items over the days in the queried period.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unshippedItems;
+
+/**
+ *  Number of orders not shipped or partially shipped up until the end of the
+ *  queried day. If a multi-day period is specified in the search query, the
+ *  returned value is the average number of unshipped orders over the days in
+ *  the queried period. **This metric cannot be segmented by product
+ *  dimensions.**
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unshippedOrders;
 
 @end
 
@@ -5900,9 +6061,15 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  The ID of the line item. This value is assigned by Google when an order is
- *  created.
+ *  created. Either lineItemId or productId is required.
  */
 @property(nonatomic, copy, nullable) NSString *lineItemId;
+
+/**
+ *  The ID of the product to cancel. This is the REST ID used in the products
+ *  service. Either lineItemId or productId is required.
+ */
+@property(nonatomic, copy, nullable) NSString *productId;
 
 /**
  *  The quantity of this line item.
@@ -6531,13 +6698,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  (Best Express) - "`canada post`" (Canada Post) - "`purolator`" (Purolator) -
  *  "`canpar`" (Canpar) - "`india post`" (India Post) - "`blue dart`" (Blue
  *  Dart) - "`delhivery`" (Delhivery) - "`dtdc`" (DTDC) - "`tpc india`" (TPC
- *  India) Supported carriers for FR are: - "`la poste`" (La Poste) *automatic
- *  status updates * - "`colissimo`" (Colissimo by La Poste) *automatic status
- *  updates* - "`ups`" (United Parcel Service) *automatic status updates * -
- *  "`chronopost`" (Chronopost by La Poste) - "`gls`" (General Logistics Systems
- *  France) - "`dpd`" (DPD Group by GeoPost) - "`bpost`" (Belgian Post Group) -
- *  "`colis prive`" (Colis Privé) - "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) -
- *  "`tnt`" (TNT) - "`db schenker`" (DB Schenker) - "`aramex`" (Aramex)
+ *  India) - "`lso`" (Lone Star Overnight) - "`tww`" (Team Worldwide) Supported
+ *  carriers for FR are: - "`la poste`" (La Poste) *automatic status updates * -
+ *  "`colissimo`" (Colissimo by La Poste) *automatic status updates* - "`ups`"
+ *  (United Parcel Service) *automatic status updates * - "`chronopost`"
+ *  (Chronopost by La Poste) - "`gls`" (General Logistics Systems France) -
+ *  "`dpd`" (DPD Group by GeoPost) - "`bpost`" (Belgian Post Group) - "`colis
+ *  prive`" (Colis Privé) - "`boxtal`" (Boxtal) - "`geodis`" (GEODIS) - "`tnt`"
+ *  (TNT) - "`db schenker`" (DB Schenker) - "`aramex`" (Aramex)
  */
 @property(nonatomic, copy, nullable) NSString *carrier;
 
@@ -7276,7 +7444,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  Required. The delivery postal code, as a continuous string without spaces or
- *  dashes, e.g. "95016".
+ *  dashes, e.g. "95016". This field will be anonymized in returned
+ *  OrderTrackingSignal creation response.
  */
 @property(nonatomic, copy, nullable) NSString *deliveryPostalCode;
 
@@ -7307,7 +7476,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_DateTime *orderCreatedTime;
 
-/** Required. The ID of the order on the merchant side. */
+/**
+ *  Required. The ID of the order on the merchant side. This field will be
+ *  hashed in returned OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
 /**
@@ -7372,7 +7544,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
 
-/** Required. The shipment ID. */
+/**
+ *  Required. The shipment ID. This field will be hashed in returned
+ *  OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
 
 @end
@@ -7416,7 +7591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  The origin postal code, as a continuous string without spaces or dashes,
- *  e.g. "95016".
+ *  e.g. "95016". This field will be anonymized in returned OrderTrackingSignal
+ *  creation response.
  */
 @property(nonatomic, copy, nullable) NSString *originPostalCode;
 
@@ -7427,7 +7603,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @property(nonatomic, copy, nullable) NSString *originRegionCode;
 
-/** Required. The shipment ID. */
+/**
+ *  Required. The shipment ID. This field will be hashed in returned
+ *  OrderTrackingSignal creation response.
+ */
 @property(nonatomic, copy, nullable) NSString *shipmentId;
 
 /**
@@ -8056,10 +8235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /**
  *  Required product attributes are primarily defined by the products data
  *  specification. See the Products Data Specification Help Center article for
- *  information. Some attributes are country-specific, so make sure you select
- *  the appropriate country in the drop-down selector at the top of the page.
- *  Product data. After inserting, updating, or deleting a product, it may take
- *  several minutes before changes take effect.
+ *  information. Product data. After inserting, updating, or deleting a product,
+ *  it may take several minutes before changes take effect.
  */
 @interface GTLRShoppingContent_Product : GTLRObject
 
@@ -8265,6 +8442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /** URL directly linking to your item's page on your website. */
 @property(nonatomic, copy, nullable) NSString *link;
 
+/** URL template for merchant hosted local storefront. */
+@property(nonatomic, copy, nullable) NSString *linkTemplate;
+
 /**
  *  Loyalty points that users receive after purchasing the item. Japan only.
  */
@@ -8296,6 +8476,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /** URL for the mobile-optimized version of your item's landing page. */
 @property(nonatomic, copy, nullable) NSString *mobileLink;
 
+/**
+ *  URL template for merchant hosted local storefront optimized for mobile
+ *  devices.
+ */
+@property(nonatomic, copy, nullable) NSString *mobileLinkTemplate;
+
 /** Manufacturer Part Number (MPN) of the item. */
 @property(nonatomic, copy, nullable) NSString *mpn;
 
@@ -8317,6 +8503,19 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /** The item's pattern (e.g. polka dots). */
 @property(nonatomic, copy, nullable) NSString *pattern;
+
+/**
+ *  The pick up option for the item. Acceptable values are: - "`buy`" -
+ *  "`reserve`" - "`ship to store`" - "`not supported`"
+ */
+@property(nonatomic, copy, nullable) NSString *pickupMethod;
+
+/**
+ *  Item store pickup timeline. Acceptable values are: - "`same day`" - "`next
+ *  day`" - "`2-day`" - "`3-day`" - "`4-day`" - "`5-day`" - "`6-day`" -
+ *  "`7-day`" - "`multi-week`"
+ */
+@property(nonatomic, copy, nullable) NSString *pickupSla;
 
 /** Price of the item. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Price *price;
@@ -8506,7 +8705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 
 /**
  *  The method of the batch entry. Acceptable values are: - "`delete`" - "`get`"
- *  - "`insert`"
+ *  - "`insert`" - "`update`"
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -8518,6 +8717,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *  or `delete`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The comma-separated list of product attributes to be updated. Example:
+ *  `"title,salePrice"`. Attributes specified in the update mask without a value
+ *  specified in the body will be deleted from the product. Only top-level
+ *  product attributes can be updated. If not defined, product attributes with
+ *  set values will be updated and other attributes will stay unchanged. Only
+ *  defined if the method is `update`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 
@@ -9438,7 +9649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @property(nonatomic, strong, nullable) NSNumber *applicationCount;
 
-/** Stats specific to buybox winning rules for product report. */
+/** Stats specific to buybox winning rules for product report (deprecated). */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingProductReportBuyboxWinningProductStats *buyboxWinningProductStats;
 
 /**
@@ -9726,7 +9937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @interface GTLRShoppingContent_RepricingRuleReport : GTLRObject
 
-/** Stats specific to buybox winning rules for rule report. */
+/** Stats specific to buybox winning rules for rule report (deprecated). */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_RepricingRuleReportBuyboxWinningRuleStats *buyboxWinningRuleStats;
 
 /**
@@ -10673,11 +10884,66 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  */
 @interface GTLRShoppingContent_Segments : GTLRObject
 
+/** Brand of the product. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/** Product category (1st level) in Google's product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *categoryL1;
+
+/** Product category (2nd level) in Google's product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *categoryL2;
+
+/** Product category (3rd level) in Google's product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *categoryL3;
+
+/** Product category (4th level) in Google's product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *categoryL4;
+
+/** Product category (5th level) in Google's product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *categoryL5;
+
+/**
+ *  Currency in which price metrics are represented, e.g., if you select
+ *  `ordered_item_sales_micros`, the returned value will be represented by this
+ *  currency.
+ */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/** Custom label 0 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel0;
+
+/** Custom label 1 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel1;
+
+/** Custom label 2 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel2;
+
+/** Custom label 3 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel3;
+
+/** Custom label 4 for custom grouping of products. */
+@property(nonatomic, copy, nullable) NSString *customLabel4;
+
 /** Date in the merchant timezone to which metrics apply. */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Date *date;
 
 /** Merchant-provided id of the product. */
 @property(nonatomic, copy, nullable) NSString *offerId;
+
+/** Product category (1st level) in merchant's own product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *productTypeL1;
+
+/** Product category (2nd level) in merchant's own product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *productTypeL2;
+
+/** Product category (3rd level) in merchant's own product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *productTypeL3;
+
+/** Product category (4th level) in merchant's own product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *productTypeL4;
+
+/** Product category (5th level) in merchant's own product taxonomy. */
+@property(nonatomic, copy, nullable) NSString *productTypeL5;
 
 /**
  *  Program to which metrics apply, e.g., Free Product Listing.
@@ -10695,6 +10961,14 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
  *        (Value: "SHOPPING_ADS")
  */
 @property(nonatomic, copy, nullable) NSString *program;
+
+/** Title of the product. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  First day of the week (Monday) of the metrics date in the merchant timezone.
+ */
+@property(nonatomic, strong, nullable) GTLRShoppingContent_Date *week;
 
 @end
 
@@ -11829,7 +12103,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_Segments_Program_Shoppin
 /** Required. The weight unit. Acceptable values are: - "`kg`" - "`lb`" */
 @property(nonatomic, copy, nullable) NSString *unit;
 
-/** Required. The weight represented as a number. */
+/**
+ *  Required. The weight represented as a number. The weight can have a maximum
+ *  precision of four decimal places.
+ */
 @property(nonatomic, copy, nullable) NSString *value;
 
 @end

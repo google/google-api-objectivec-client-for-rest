@@ -55,6 +55,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_CheckUpgradeResponse.containsPypiModulesConflict
+
+/**
+ *  There were python packages conflicts.
+ *
+ *  Value: "CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict;
+/**
+ *  It is unknown whether build had conflicts or not.
+ *
+ *  Value: "CONFLICT_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified;
+/**
+ *  There were no python packages conflicts.
+ *
+ *  Value: "NO_CONFLICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_Environment.state
 
 /**
@@ -186,6 +208,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  *  `2001:db8::/32`.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Message containing information about the result of an upgrade check
+ *  operation.
+ */
+@interface GTLRCloudComposer_CheckUpgradeResponse : GTLRObject
+
+/** Output only. Url for a docker build log of an upgraded image. */
+@property(nonatomic, copy, nullable) NSString *buildLogUri;
+
+/**
+ *  Output only. Whether build has succeeded or failed on modules conflicts.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_Conflict
+ *        There were python packages conflicts. (Value: "CONFLICT")
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_ConflictResultUnspecified
+ *        It is unknown whether build had conflicts or not. (Value:
+ *        "CONFLICT_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_CheckUpgradeResponse_ContainsPypiModulesConflict_NoConflict
+ *        There were no python packages conflicts. (Value: "NO_CONFLICT")
+ */
+@property(nonatomic, copy, nullable) NSString *containsPypiModulesConflict;
+
+/**
+ *  Output only. Extract from a docker image build log containing information
+ *  about pypi modules conflicts.
+ */
+@property(nonatomic, copy, nullable) NSString *pypiConflictBuildLogExtract;
 
 @end
 

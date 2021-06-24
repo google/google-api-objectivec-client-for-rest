@@ -32,9 +32,11 @@
 @class GTLRAdExchangeBuyerII_CompleteSetupRequest;
 @class GTLRAdExchangeBuyerII_Creative;
 @class GTLRAdExchangeBuyerII_FilterSet;
+@class GTLRAdExchangeBuyerII_PauseProposalDealsRequest;
 @class GTLRAdExchangeBuyerII_PauseProposalRequest;
 @class GTLRAdExchangeBuyerII_Proposal;
 @class GTLRAdExchangeBuyerII_RemoveDealAssociationRequest;
+@class GTLRAdExchangeBuyerII_ResumeProposalDealsRequest;
 @class GTLRAdExchangeBuyerII_ResumeProposalRequest;
 @class GTLRAdExchangeBuyerII_StopWatchingCreativeRequest;
 @class GTLRAdExchangeBuyerII_WatchCreativeRequest;
@@ -1021,6 +1023,98 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerIIFilterSyntaxPql;
  *        information.
  */
 + (instancetype)queryWithAccountId:(NSString *)accountId;
+
+@end
+
+/**
+ *  Update given deals to pause serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.pause endpoint. It is
+ *  a no-op to pause already-paused deals. It is an error to call
+ *  PauseProposalDeals for deals which are not part of the proposal of
+ *  proposal_id or which are not finalized or renegotiating.
+ *
+ *  Method: adexchangebuyer2.accounts.finalizedProposals.pause
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause : GTLRAdExchangeBuyerIIQuery
+
+/** Account ID of the buyer. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The proposal_id of the proposal containing the deals. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Proposal.
+ *
+ *  Update given deals to pause serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to true for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.pause endpoint. It is
+ *  a no-op to pause already-paused deals. It is an error to call
+ *  PauseProposalDeals for deals which are not part of the proposal of
+ *  proposal_id or which are not finalized or renegotiating.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_PauseProposalDealsRequest to
+ *    include in the query.
+ *  @param accountId Account ID of the buyer.
+ *  @param proposalId The proposal_id of the proposal containing the deals.
+ *
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsPause
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_PauseProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId;
+
+@end
+
+/**
+ *  Update given deals to resume serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.resume endpoint. It
+ *  is a no-op to resume running deals or deals paused by the other party. It is
+ *  an error to call ResumeProposalDeals for deals which are not part of the
+ *  proposal of proposal_id or which are not finalized or renegotiating.
+ *
+ *  Method: adexchangebuyer2.accounts.finalizedProposals.resume
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAdExchangeBuyerIIAdexchangeBuyer
+ */
+@interface GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume : GTLRAdExchangeBuyerIIQuery
+
+/** Account ID of the buyer. */
+@property(nonatomic, copy, nullable) NSString *accountId;
+
+/** The proposal_id of the proposal containing the deals. */
+@property(nonatomic, copy, nullable) NSString *proposalId;
+
+/**
+ *  Fetches a @c GTLRAdExchangeBuyerII_Proposal.
+ *
+ *  Update given deals to resume serving. This method will set the
+ *  `DealServingMetadata.DealPauseStatus.has_buyer_paused` bit to false for all
+ *  listed deals in the request. Currently, this method only applies to PG and
+ *  PD deals. For PA deals, please call accounts.proposals.resume endpoint. It
+ *  is a no-op to resume running deals or deals paused by the other party. It is
+ *  an error to call ResumeProposalDeals for deals which are not part of the
+ *  proposal of proposal_id or which are not finalized or renegotiating.
+ *
+ *  @param object The @c GTLRAdExchangeBuyerII_ResumeProposalDealsRequest to
+ *    include in the query.
+ *  @param accountId Account ID of the buyer.
+ *  @param proposalId The proposal_id of the proposal containing the deals.
+ *
+ *  @return GTLRAdExchangeBuyerIIQuery_AccountsFinalizedProposalsResume
+ */
++ (instancetype)queryWithObject:(GTLRAdExchangeBuyerII_ResumeProposalDealsRequest *)object
+                      accountId:(NSString *)accountId
+                     proposalId:(NSString *)proposalId;
 
 @end
 

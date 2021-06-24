@@ -1239,7 +1239,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 @property(nonatomic, strong, nullable) GTLRCloudTasks_StackdriverLoggingConfig *stackdriverLoggingConfig;
 
 /**
- *  Output only. The state of the queue. `state` can only be changed by called
+ *  Output only. The state of the queue. `state` can only be changed by calling
  *  PauseQueue, ResumeQueue, or uploading
  *  [queue.yaml/xml](https://cloud.google.com/appengine/docs/python/config/queueref).
  *  UpdateQueue cannot be used to change `state`.

@@ -2,13 +2,23 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
 //   https://cloud.google.com/genomics
 
 #import "GTLRGenomics.h"
+
+// ----------------------------------------------------------------------------
+// Authorization scopes
+
+NSString * const kGTLRAuthScopeGenomics              = @"https://www.googleapis.com/auth/genomics";
+NSString * const kGTLRAuthScopeGenomicsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+
+// ----------------------------------------------------------------------------
+//   GTLRGenomicsService
+//
 
 @implementation GTLRGenomicsService
 

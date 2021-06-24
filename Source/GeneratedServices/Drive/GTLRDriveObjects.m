@@ -333,14 +333,14 @@
          driveId, explicitlyTrashed, exportLinks, fileExtension, folderColorRgb,
          fullFileExtension, hasAugmentedPermissions, hasThumbnail,
          headRevisionId, iconLink, identifier, imageMediaMetadata,
-         isAppAuthorized, kind, lastModifyingUser, md5Checksum, mimeType,
-         modifiedByMe, modifiedByMeTime, modifiedTime, name, originalFilename,
-         ownedByMe, owners, parents, permissionIds, permissions, properties,
-         quotaBytesUsed, shared, sharedWithMeTime, sharingUser, shortcutDetails,
-         size, spaces, starred, teamDriveId, thumbnailLink, thumbnailVersion,
-         trashed, trashedTime, trashingUser, version, videoMediaMetadata,
-         viewedByMe, viewedByMeTime, viewersCanCopyContent, webContentLink,
-         webViewLink, writersCanShare;
+         isAppAuthorized, kind, lastModifyingUser, linkShareMetadata,
+         md5Checksum, mimeType, modifiedByMe, modifiedByMeTime, modifiedTime,
+         name, originalFilename, ownedByMe, owners, parents, permissionIds,
+         permissions, properties, quotaBytesUsed, resourceKey, shared,
+         sharedWithMeTime, sharingUser, shortcutDetails, size, spaces, starred,
+         teamDriveId, thumbnailLink, thumbnailVersion, trashed, trashedTime,
+         trashingUser, version, videoMediaMetadata, viewedByMe, viewedByMeTime,
+         viewersCanCopyContent, webContentLink, webViewLink, writersCanShare;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -386,17 +386,18 @@
 
 @implementation GTLRDrive_File_Capabilities
 @dynamic canAddChildren, canAddFolderFromAnotherDrive, canAddMyDriveParent,
-         canChangeCopyRequiresWriterPermission, canChangeViewersCanCopyContent,
-         canComment, canCopy, canDelete, canDeleteChildren, canDownload,
-         canEdit, canListChildren, canModifyContent,
-         canModifyContentRestriction, canMoveChildrenOutOfDrive,
-         canMoveChildrenOutOfTeamDrive, canMoveChildrenWithinDrive,
-         canMoveChildrenWithinTeamDrive, canMoveItemIntoTeamDrive,
-         canMoveItemOutOfDrive, canMoveItemOutOfTeamDrive,
-         canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
-         canMoveTeamDriveItem, canReadDrive, canReadRevisions, canReadTeamDrive,
-         canRemoveChildren, canRemoveMyDriveParent, canRename, canShare,
-         canTrash, canTrashChildren, canUntrash;
+         canChangeCopyRequiresWriterPermission, canChangeSecurityUpdateEnabled,
+         canChangeViewersCanCopyContent, canComment, canCopy, canDelete,
+         canDeleteChildren, canDownload, canEdit, canListChildren,
+         canModifyContent, canModifyContentRestriction,
+         canMoveChildrenOutOfDrive, canMoveChildrenOutOfTeamDrive,
+         canMoveChildrenWithinDrive, canMoveChildrenWithinTeamDrive,
+         canMoveItemIntoTeamDrive, canMoveItemOutOfDrive,
+         canMoveItemOutOfTeamDrive, canMoveItemWithinDrive,
+         canMoveItemWithinTeamDrive, canMoveTeamDriveItem, canReadDrive,
+         canReadRevisions, canReadTeamDrive, canRemoveChildren,
+         canRemoveMyDriveParent, canRename, canShare, canTrash,
+         canTrashChildren, canUntrash;
 @end
 
 
@@ -439,6 +440,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_File_LinkShareMetadata
+//
+
+@implementation GTLRDrive_File_LinkShareMetadata
+@dynamic securityUpdateEligible, securityUpdateEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_File_Properties
 //
 
@@ -457,7 +468,7 @@
 //
 
 @implementation GTLRDrive_File_ShortcutDetails
-@dynamic targetId, targetMimeType;
+@dynamic targetId, targetMimeType, targetResourceKey;
 @end
 
 

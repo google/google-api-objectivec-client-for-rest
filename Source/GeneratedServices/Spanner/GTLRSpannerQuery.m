@@ -22,6 +22,11 @@ NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeEncryptionTypeUnspeci
 NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeGoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
 NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption = @"USE_DATABASE_ENCRYPTION";
 
+// view
+NSString * const kGTLRSpannerViewFull            = @"FULL";
+NSString * const kGTLRSpannerViewSummary         = @"SUMMARY";
+NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -518,6 +523,25 @@ NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption
   query.resource = resource;
   query.expectedObjectClass = [GTLRSpanner_Policy class];
   query.loggingName = @"spanner.projects.instances.databases.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans
+
+@dynamic endTime, name, startTime, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/scans";
+  GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSpanner_Scan class];
+  query.loggingName = @"spanner.projects.instances.databases.getScans";
   return query;
 }
 
@@ -1343,6 +1367,25 @@ NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption
   query.resource = resource;
   query.expectedObjectClass = [GTLRSpanner_TestIamPermissionsResponse class];
   query.loggingName = @"spanner.projects.instances.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRSpannerQuery_ScansList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}";
+  GTLRSpannerQuery_ScansList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSpanner_ListScansResponse class];
+  query.loggingName = @"spanner.scans.list";
   return query;
 }
 

@@ -22,8 +22,37 @@
 @class GTLRGKEHub_AuditLogConfig;
 @class GTLRGKEHub_Authority;
 @class GTLRGKEHub_Binding;
+@class GTLRGKEHub_CommonFeatureSpec;
+@class GTLRGKEHub_CommonFeatureState;
+@class GTLRGKEHub_ConfigManagementConfigSync;
+@class GTLRGKEHub_ConfigManagementConfigSyncDeploymentState;
+@class GTLRGKEHub_ConfigManagementConfigSyncState;
+@class GTLRGKEHub_ConfigManagementConfigSyncVersion;
+@class GTLRGKEHub_ConfigManagementErrorResource;
+@class GTLRGKEHub_ConfigManagementGatekeeperDeploymentState;
+@class GTLRGKEHub_ConfigManagementGitConfig;
+@class GTLRGKEHub_ConfigManagementGroupVersionKind;
+@class GTLRGKEHub_ConfigManagementHierarchyControllerConfig;
+@class GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState;
+@class GTLRGKEHub_ConfigManagementHierarchyControllerState;
+@class GTLRGKEHub_ConfigManagementHierarchyControllerVersion;
+@class GTLRGKEHub_ConfigManagementInstallError;
+@class GTLRGKEHub_ConfigManagementMembershipSpec;
+@class GTLRGKEHub_ConfigManagementMembershipState;
+@class GTLRGKEHub_ConfigManagementOperatorState;
+@class GTLRGKEHub_ConfigManagementPolicyController;
+@class GTLRGKEHub_ConfigManagementPolicyControllerState;
+@class GTLRGKEHub_ConfigManagementPolicyControllerVersion;
+@class GTLRGKEHub_ConfigManagementSyncError;
+@class GTLRGKEHub_ConfigManagementSyncState;
 @class GTLRGKEHub_ConnectAgentResource;
 @class GTLRGKEHub_Expr;
+@class GTLRGKEHub_Feature;
+@class GTLRGKEHub_Feature_Labels;
+@class GTLRGKEHub_Feature_MembershipSpecs;
+@class GTLRGKEHub_Feature_MembershipStates;
+@class GTLRGKEHub_FeatureResourceState;
+@class GTLRGKEHub_FeatureState;
 @class GTLRGKEHub_GkeCluster;
 @class GTLRGKEHub_GoogleRpcStatus;
 @class GTLRGKEHub_GoogleRpcStatus_Details_Item;
@@ -34,7 +63,10 @@
 @class GTLRGKEHub_Membership;
 @class GTLRGKEHub_Membership_Labels;
 @class GTLRGKEHub_MembershipEndpoint;
+@class GTLRGKEHub_MembershipFeatureSpec;
+@class GTLRGKEHub_MembershipFeatureState;
 @class GTLRGKEHub_MembershipState;
+@class GTLRGKEHub_MultiClusterIngressFeatureSpec;
 @class GTLRGKEHub_Operation;
 @class GTLRGKEHub_Operation_Metadata;
 @class GTLRGKEHub_Operation_Response;
@@ -78,6 +110,442 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_DataWrite;
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.gitSync
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.importer
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.monitor
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.reconcilerManager
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.rootReconciler
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementConfigSyncDeploymentState.syncer
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperAudit
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementGatekeeperDeploymentState.gatekeeperControllerManagerState
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.extension
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState.hnc
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementOperatorState.deploymentState
+
+/**
+ *  Deployment's state cannot be determined
+ *
+ *  Value: "DEPLOYMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_DeploymentStateUnspecified;
+/**
+ *  Deployment was attempted to be installed, but has errors
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error;
+/**
+ *  Deployment is installed
+ *
+ *  Value: "INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Installed;
+/**
+ *  Deployment is not installed
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_ConfigManagementSyncState.code
+
+/**
+ *  Indicates an error configuring ACM, and user action is required
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Error;
+/**
+ *  ACM has been installed (operator manifest deployed), but not configured.
+ *
+ *  Value: "NOT_CONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured;
+/**
+ *  ACM has not been installed (no operator pod found)
+ *
+ *  Value: "NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled;
+/**
+ *  ACM is in the progress of syncing a new change
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Pending;
+/**
+ *  ACM cannot determine a sync code
+ *
+ *  Value: "SYNC_CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified;
+/**
+ *  ACM successfully synced the git Repo with the cluster
+ *
+ *  Value: "SYNCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Synced;
+/**
+ *  Error authorizing with the cluster
+ *
+ *  Value: "UNAUTHORIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Unauthorized;
+/**
+ *  Cluster could not be reached
+ *
+ *  Value: "UNREACHABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ConfigManagementSyncState_Code_Unreachable;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_FeatureResourceState.state
+
+/**
+ *  The Feature is enabled in this Hub, and the Feature resource is fully
+ *  available.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_Active;
+/**
+ *  The Feature is being disabled in this Hub, and the Feature resource is being
+ *  deleted.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_Disabling;
+/**
+ *  The Feature is being enabled, and the Feature resource is being created.
+ *  Once complete, the corresponding Feature will be enabled in this Hub.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_Enabling;
+/**
+ *  The Feature resource is being updated by the Hub Service.
+ *
+ *  Value: "SERVICE_UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_ServiceUpdating;
+/**
+ *  State is unknown or not set.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_StateUnspecified;
+/**
+ *  The Feature resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureResourceState_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_FeatureState.code
+
+/**
+ *  Unknown or not set.
+ *
+ *  Value: "CODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_CodeUnspecified;
+/**
+ *  The Feature is not operating or is in a severely degraded state. The Feature
+ *  may need intervention to return to normal operation. See the description and
+ *  any associated Feature-specific details for more information.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_Error;
+/**
+ *  The Feature is operating normally.
+ *
+ *  Value: "OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_Ok;
+/**
+ *  The Feature has encountered an issue, and is operating in a degraded state.
+ *  The Feature may need intervention to return to normal operation. See the
+ *  description and any associated Feature-specific details for more
+ *  information.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_FeatureState_Code_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRGKEHub_MembershipState.code
@@ -211,6 +679,16 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 @property(nonatomic, copy, nullable) NSString *issuer;
 
 /**
+ *  Optional. OIDC verification keys for this Membership in JWKS format (RFC
+ *  7517). When this field is set, OIDC discovery will NOT be performed on
+ *  `issuer`, and instead OIDC tokens will be validated using this field.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *oidcJwks;
+
+/**
  *  Output only. The name of the workload identity pool in which `issuer` will
  *  be recognized. There is a single Workload Identity Pool per Hub that is
  *  shared between all Memberships that belong to that Hub. For a Hub hosted in
@@ -287,6 +765,676 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 
 
 /**
+ *  CommonFeatureSpec contains Hub-wide configuration information
+ */
+@interface GTLRGKEHub_CommonFeatureSpec : GTLRObject
+
+/** Multicluster Ingress-specific spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_MultiClusterIngressFeatureSpec *multiclusteringress;
+
+@end
+
+
+/**
+ *  CommonFeatureState contains Hub-wide Feature status information.
+ */
+@interface GTLRGKEHub_CommonFeatureState : GTLRObject
+
+/** Output only. The "running state" of the Feature in this Hub. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
+
+@end
+
+
+/**
+ *  Configuration for Config Sync
+ */
+@interface GTLRGKEHub_ConfigManagementConfigSync : GTLRObject
+
+/** Git repo configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGitConfig *git;
+
+/**
+ *  Specifies whether the Config Sync Repo is in “hierarchical” or
+ *  “unstructured” mode.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceFormat;
+
+@end
+
+
+/**
+ *  The state of ConfigSync's deployment on a cluster
+ */
+@interface GTLRGKEHub_ConfigManagementConfigSyncDeploymentState : GTLRObject
+
+/**
+ *  Deployment state of the git-sync pod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_GitSync_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *gitSync;
+
+/**
+ *  Deployment state of the importer pod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Importer_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *importer;
+
+/**
+ *  Deployment state of the monitor pod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Monitor_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *monitor;
+
+/**
+ *  Deployment state of reconciler-manager pod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_ReconcilerManager_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *reconcilerManager;
+
+/**
+ *  Deployment state of root-reconciler
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_RootReconciler_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *rootReconciler;
+
+/**
+ *  Deployment state of the syncer pod
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementConfigSyncDeploymentState_Syncer_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *syncer;
+
+@end
+
+
+/**
+ *  State information for ConfigSync
+ */
+@interface GTLRGKEHub_ConfigManagementConfigSyncState : GTLRObject
+
+/**
+ *  Information about the deployment of ConfigSync, including the version of the
+ *  various Pods deployed
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncDeploymentState *deploymentState;
+
+/** The state of ConfigSync's process to sync configs to a cluster */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementSyncState *syncState;
+
+/** The version of ConfigSync deployed */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncVersion *version;
+
+@end
+
+
+/**
+ *  Specific versioning information pertaining to ConfigSync's Pods
+ */
+@interface GTLRGKEHub_ConfigManagementConfigSyncVersion : GTLRObject
+
+/** Version of the deployed git-sync pod */
+@property(nonatomic, copy, nullable) NSString *gitSync;
+
+/** Version of the deployed importer pod */
+@property(nonatomic, copy, nullable) NSString *importer;
+
+/** Version of the deployed monitor pod */
+@property(nonatomic, copy, nullable) NSString *monitor;
+
+/** Version of the deployed reconciler-manager pod */
+@property(nonatomic, copy, nullable) NSString *reconcilerManager;
+
+/** Version of the deployed reconciler container in root-reconciler pod */
+@property(nonatomic, copy, nullable) NSString *rootReconciler;
+
+/** Version of the deployed syncer pod */
+@property(nonatomic, copy, nullable) NSString *syncer;
+
+@end
+
+
+/**
+ *  Model for a config file in the git repo with an associated Sync error
+ */
+@interface GTLRGKEHub_ConfigManagementErrorResource : GTLRObject
+
+/** Group/version/kind of the resource that is causing an error */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGroupVersionKind *resourceGvk;
+
+/** Metadata name of the resource that is causing an error */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Namespace of the resource that is causing an error */
+@property(nonatomic, copy, nullable) NSString *resourceNamespace;
+
+/** Path in the git repo of the erroneous config */
+@property(nonatomic, copy, nullable) NSString *sourcePath;
+
+@end
+
+
+/**
+ *  State of Policy Controller installation.
+ */
+@interface GTLRGKEHub_ConfigManagementGatekeeperDeploymentState : GTLRObject
+
+/**
+ *  Status of gatekeeper-audit deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperAudit_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *gatekeeperAudit;
+
+/**
+ *  Status of gatekeeper-controller-manager pod.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementGatekeeperDeploymentState_GatekeeperControllerManagerState_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *gatekeeperControllerManagerState;
+
+@end
+
+
+/**
+ *  Git repo configuration for a single cluster.
+ */
+@interface GTLRGKEHub_ConfigManagementGitConfig : GTLRObject
+
+/**
+ *  The GCP Service Account Email used for auth when secret_type is
+ *  gcpServiceAccount.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
+
+/**
+ *  URL for the HTTPS proxy to be used when communicating with the Git repo.
+ */
+@property(nonatomic, copy, nullable) NSString *httpsProxy;
+
+/**
+ *  The path within the Git repository that represents the top level of the repo
+ *  to sync. Default: the root directory of the repository.
+ */
+@property(nonatomic, copy, nullable) NSString *policyDir;
+
+/** Type of secret configured for access to the Git repo. */
+@property(nonatomic, copy, nullable) NSString *secretType;
+
+/** The branch of the repository to sync from. Default: master. */
+@property(nonatomic, copy, nullable) NSString *syncBranch;
+
+/** The URL of the Git repository to use as the source of truth. */
+@property(nonatomic, copy, nullable) NSString *syncRepo;
+
+/** Git revision (tag or hash) to check out. Default HEAD. */
+@property(nonatomic, copy, nullable) NSString *syncRev;
+
+/**
+ *  Period in seconds between consecutive syncs. Default: 15.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *syncWaitSecs;
+
+@end
+
+
+/**
+ *  A Kubernetes object's GVK
+ */
+@interface GTLRGKEHub_ConfigManagementGroupVersionKind : GTLRObject
+
+/** Kubernetes Group */
+@property(nonatomic, copy, nullable) NSString *group;
+
+/** Kubernetes Kind */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Kubernetes Version */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for Hierarchy Controller
+ */
+@interface GTLRGKEHub_ConfigManagementHierarchyControllerConfig : GTLRObject
+
+/**
+ *  Whether Hierarchy Controller is enabled in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Whether hierarchical resource quota is enabled in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHierarchicalResourceQuota;
+
+/**
+ *  Whether pod tree labels are enabled in this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePodTreeLabels;
+
+@end
+
+
+/**
+ *  Deployment state for Hierarchy Controller
+ */
+@interface GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState : GTLRObject
+
+/**
+ *  The deployment state for Hierarchy Controller extension (e.g. v0.7.0-hc.1)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Extension_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *extension;
+
+/**
+ *  The deployment state for open source HNC (e.g. v0.7.0-hc.0)
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState_Hnc_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *hnc;
+
+@end
+
+
+/**
+ *  State for Hierarchy Controller
+ */
+@interface GTLRGKEHub_ConfigManagementHierarchyControllerState : GTLRObject
+
+/** The deployment state for Hierarchy Controller */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerDeploymentState *state;
+
+/** The version for Hierarchy Controller */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerVersion *version;
+
+@end
+
+
+/**
+ *  Version for Hierarchy Controller
+ */
+@interface GTLRGKEHub_ConfigManagementHierarchyControllerVersion : GTLRObject
+
+/** Version for Hierarchy Controller extension */
+@property(nonatomic, copy, nullable) NSString *extension;
+
+/** Version for open source HNC */
+@property(nonatomic, copy, nullable) NSString *hnc;
+
+@end
+
+
+/**
+ *  Errors pertaining to the installation of ACM
+ */
+@interface GTLRGKEHub_ConfigManagementInstallError : GTLRObject
+
+/** A string representing the user facing error message */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+@end
+
+
+/**
+ *  **Anthos Config Management**: Configuration for a single cluster. Intended
+ *  to parallel the ConfigManagement CR.
+ */
+@interface GTLRGKEHub_ConfigManagementMembershipSpec : GTLRObject
+
+/** Config Sync configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSync *configSync;
+
+/** Hierarchy Controller configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController;
+
+/** Policy Controller configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController;
+
+/** Version of ACM installed. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  **Anthos Config Management**: State for a single cluster.
+ */
+@interface GTLRGKEHub_ConfigManagementMembershipState : GTLRObject
+
+/**
+ *  The user-defined name for the cluster used by ClusterSelectors to group
+ *  clusters together. This should match Membership's membership_name, unless
+ *  the user installed ACM on the cluster manually prior to enabling the ACM hub
+ *  feature. Unique within a Anthos Config Management installation.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/** Current sync status */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementConfigSyncState *configSyncState;
+
+/** Hierarchy Controller status */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerState *hierarchyControllerState;
+
+/**
+ *  Membership configuration in the cluster. This represents the actual state in
+ *  the cluster, while the MembershipSpec in the FeatureSpec represents the
+ *  intended state
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *membershipSpec;
+
+/** Current install status of ACM's Operator */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementOperatorState *operatorState;
+
+/** PolicyController status */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerState *policyControllerState;
+
+@end
+
+
+/**
+ *  State information for an ACM's Operator
+ */
+@interface GTLRGKEHub_ConfigManagementOperatorState : GTLRObject
+
+/**
+ *  The state of the Operator's deployment
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_DeploymentStateUnspecified
+ *        Deployment's state cannot be determined (Value:
+ *        "DEPLOYMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Error
+ *        Deployment was attempted to be installed, but has errors (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_Installed
+ *        Deployment is installed (Value: "INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementOperatorState_DeploymentState_NotInstalled
+ *        Deployment is not installed (Value: "NOT_INSTALLED")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentState;
+
+/** Install errors. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementInstallError *> *errors;
+
+/** The semenatic version number of the operator */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for Policy Controller
+ */
+@interface GTLRGKEHub_ConfigManagementPolicyController : GTLRObject
+
+/**
+ *  Sets the interval for Policy Controller Audit Scans (in seconds). When set
+ *  to 0, this disables audit functionality altogether.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auditIntervalSeconds;
+
+/**
+ *  Enables the installation of Policy Controller. If false, the rest of
+ *  PolicyController fields take no effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The set of namespaces that are excluded from Policy Controller checks.
+ *  Namespaces do not need to currently exist on the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *exemptableNamespaces;
+
+/**
+ *  Logs all denies and dry run failures.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logDeniesEnabled;
+
+/**
+ *  Enables the ability to use Constraint Templates that reference to objects
+ *  other than the object currently being evaluated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *referentialRulesEnabled;
+
+/**
+ *  Installs the default template library along with Policy Controller.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *templateLibraryInstalled;
+
+@end
+
+
+/**
+ *  State for PolicyControllerState.
+ */
+@interface GTLRGKEHub_ConfigManagementPolicyControllerState : GTLRObject
+
+/** The state about the policy controller installation. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementGatekeeperDeploymentState *deploymentState;
+
+/** The version of Gatekeeper Policy Controller deployed. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyControllerVersion *version;
+
+@end
+
+
+/**
+ *  The build version of Gatekeeper Policy Controller is using.
+ */
+@interface GTLRGKEHub_ConfigManagementPolicyControllerVersion : GTLRObject
+
+/**
+ *  The gatekeeper image tag that is composed of ACM version, git tag, build
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  An ACM created error representing a problem syncing configurations
+ */
+@interface GTLRGKEHub_ConfigManagementSyncError : GTLRObject
+
+/** An ACM defined error code */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/** A description of the error */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** A list of config(s) associated with the error, if any */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementErrorResource *> *errorResources;
+
+@end
+
+
+/**
+ *  State indicating an ACM's progress syncing configurations to a cluster
+ */
+@interface GTLRGKEHub_ConfigManagementSyncState : GTLRObject
+
+/**
+ *  Sync status code
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Error Indicates an
+ *        error configuring ACM, and user action is required (Value: "ERROR")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotConfigured ACM has
+ *        been installed (operator manifest deployed), but not configured.
+ *        (Value: "NOT_CONFIGURED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_NotInstalled ACM has
+ *        not been installed (no operator pod found) (Value: "NOT_INSTALLED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Pending ACM is in the
+ *        progress of syncing a new change (Value: "PENDING")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_SyncCodeUnspecified ACM
+ *        cannot determine a sync code (Value: "SYNC_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Synced ACM successfully
+ *        synced the git Repo with the cluster (Value: "SYNCED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Unauthorized Error
+ *        authorizing with the cluster (Value: "UNAUTHORIZED")
+ *    @arg @c kGTLRGKEHub_ConfigManagementSyncState_Code_Unreachable Cluster
+ *        could not be reached (Value: "UNREACHABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A list of errors resulting from problematic configs. This list will be
+ *  truncated after 100 errors, although it is unlikely for that many errors to
+ *  simultaneously exist.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementSyncError *> *errors;
+
+/** Token indicating the state of the importer. */
+@property(nonatomic, copy, nullable) NSString *importToken;
+
+/**
+ *  Timestamp of when ACM last successfully synced the repo The time format is
+ *  specified in https://golang.org/pkg/time/#Time.String This field is being
+ *  deprecated. Use last_sync_time instead. (b/154053616)
+ */
+@property(nonatomic, copy, nullable) NSString *lastSync;
+
+/** Timestamp type of when ACM last successfully synced the repo */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSyncTime;
+
+/** Token indicating the state of the repo. */
+@property(nonatomic, copy, nullable) NSString *sourceToken;
+
+/** Token indicating the state of the syncer. */
+@property(nonatomic, copy, nullable) NSString *syncToken;
+
+@end
+
+
+/**
  *  ConnectAgentResource represents a Kubernetes resource manifest for Connect
  *  Agent deployment.
  */
@@ -357,6 +1505,196 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Feature represents the settings and status of any Hub Feature.
+ */
+@interface GTLRGKEHub_Feature : GTLRObject
+
+/** Output only. When the Feature resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. When the Feature resource was deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/** GCP labels for this Feature. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Feature_Labels *labels;
+
+/**
+ *  Optional. Membership-specific configuration for this Feature. If this
+ *  Feature does not support any per-Membership configuration, this field may be
+ *  unused. The keys indicate which Membership the configuration is for, in the
+ *  form: projects/{p}/locations/{l}/memberships/{m} Where {p} is the project,
+ *  {l} is a valid location and {m} is a valid Membership in this project at
+ *  that location. {p} WILL match the Feature's project. {p} will always be
+ *  returned as the project number, but the project ID is also accepted during
+ *  input. If the same Membership is specified in the map twice (using the
+ *  project ID form, and the project number form), exactly ONE of the entries
+ *  will be saved, with no guarantees as to which. For this reason, it is
+ *  recommended the same format be used for all entries when mutating a Feature.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Feature_MembershipSpecs *membershipSpecs;
+
+/**
+ *  Output only. Membership-specific Feature status. If this Feature does report
+ *  any per-Membership status, this field may be unused. The keys indicate which
+ *  Membership the state is for, in the form:
+ *  projects/{p}/locations/{l}/memberships/{m} Where {p} is the project number,
+ *  {l} is a valid location and {m} is a valid Membership in this project at
+ *  that location. {p} MUST match the Feature's project number.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_Feature_MembershipStates *membershipStates;
+
+/**
+ *  Output only. The full, unique name of this Feature resource in the format
+ *  `projects/ * /locations/ * /features/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. State of the Feature resource itself. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FeatureResourceState *resourceState;
+
+/**
+ *  Optional. Hub-wide Feature configuration. If this Feature does not support
+ *  any Hub-wide configuration, this field may be unused.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEHub_CommonFeatureSpec *spec;
+
+/** Output only. The Hub-wide Feature state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_CommonFeatureState *state;
+
+/** Output only. When the Feature resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  GCP labels for this Feature.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_Feature_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Membership-specific configuration for this Feature. If this
+ *  Feature does not support any per-Membership configuration, this field may be
+ *  unused. The keys indicate which Membership the configuration is for, in the
+ *  form: projects/{p}/locations/{l}/memberships/{m} Where {p} is the project,
+ *  {l} is a valid location and {m} is a valid Membership in this project at
+ *  that location. {p} WILL match the Feature's project. {p} will always be
+ *  returned as the project number, but the project ID is also accepted during
+ *  input. If the same Membership is specified in the map twice (using the
+ *  project ID form, and the project number form), exactly ONE of the entries
+ *  will be saved, with no guarantees as to which. For this reason, it is
+ *  recommended the same format be used for all entries when mutating a Feature.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_MembershipFeatureSpec. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGKEHub_Feature_MembershipSpecs : GTLRObject
+@end
+
+
+/**
+ *  Output only. Membership-specific Feature status. If this Feature does report
+ *  any per-Membership status, this field may be unused. The keys indicate which
+ *  Membership the state is for, in the form:
+ *  projects/{p}/locations/{l}/memberships/{m} Where {p} is the project number,
+ *  {l} is a valid location and {m} is a valid Membership in this project at
+ *  that location. {p} MUST match the Feature's project number.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_MembershipFeatureState. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRGKEHub_Feature_MembershipStates : GTLRObject
+@end
+
+
+/**
+ *  FeatureResourceState describes the state of a Feature *resource* in the
+ *  GkeHub API. See `FeatureState` for the "running state" of the Feature in the
+ *  Hub and across Memberships.
+ */
+@interface GTLRGKEHub_FeatureResourceState : GTLRObject
+
+/**
+ *  The current state of the Feature resource in the Hub API.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_Active The Feature is
+ *        enabled in this Hub, and the Feature resource is fully available.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_Disabling The Feature is
+ *        being disabled in this Hub, and the Feature resource is being deleted.
+ *        (Value: "DISABLING")
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_Enabling The Feature is
+ *        being enabled, and the Feature resource is being created. Once
+ *        complete, the corresponding Feature will be enabled in this Hub.
+ *        (Value: "ENABLING")
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_ServiceUpdating The Feature
+ *        resource is being updated by the Hub Service. (Value:
+ *        "SERVICE_UPDATING")
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_StateUnspecified State is
+ *        unknown or not set. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_FeatureResourceState_State_Updating The Feature
+ *        resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  FeatureState describes the high-level state of a Feature. It may be used to
+ *  describe a Feature's state at the environ-level, or per-membershop,
+ *  depending on the context.
+ */
+@interface GTLRGKEHub_FeatureState : GTLRObject
+
+/**
+ *  The high-level, machine-readable status of this Feature.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_FeatureState_Code_CodeUnspecified Unknown or not set.
+ *        (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_FeatureState_Code_Error The Feature is not operating
+ *        or is in a severely degraded state. The Feature may need intervention
+ *        to return to normal operation. See the description and any associated
+ *        Feature-specific details for more information. (Value: "ERROR")
+ *    @arg @c kGTLRGKEHub_FeatureState_Code_Ok The Feature is operating
+ *        normally. (Value: "OK")
+ *    @arg @c kGTLRGKEHub_FeatureState_Code_Warning The Feature has encountered
+ *        an issue, and is operating in a degraded state. The Feature may need
+ *        intervention to return to normal operation. See the description and
+ *        any associated Feature-specific details for more information. (Value:
+ *        "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A human-readable description of the current status.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The time this status and any related Feature-specific details were updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -483,6 +1821,34 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *vcpuCount;
+
+@end
+
+
+/**
+ *  Response message for the `GkeHub.ListFeatures` method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGKEHub_ListFeaturesResponse : GTLRCollectionObject
+
+/**
+ *  A token to request the next page of resources from the `ListFeatures`
+ *  method. The value of an empty string means that there are no more resources
+ *  to return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of matching Features
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_Feature *> *resources;
 
 @end
 
@@ -734,6 +2100,33 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 
 
 /**
+ *  MembershipFeatureSpec contains configuration information for a single
+ *  Membership.
+ */
+@interface GTLRGKEHub_MembershipFeatureSpec : GTLRObject
+
+/** Config Management-specific spec. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipSpec *configmanagement;
+
+@end
+
+
+/**
+ *  MembershipFeatureState contains Feature status information for a single
+ *  Membership.
+ */
+@interface GTLRGKEHub_MembershipFeatureState : GTLRObject
+
+/** Config Management-specific state. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementMembershipState *configmanagement;
+
+/** The high-level state of this Feature for a single membership. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_FeatureState *state;
+
+@end
+
+
+/**
  *  MembershipState describes the state of a Membership resource.
  */
 @interface GTLRGKEHub_MembershipState : GTLRObject
@@ -756,6 +2149,21 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
+ *  **Multi-cluster Ingress**: The configuration for the MultiClusterIngress
+ *  feature.
+ */
+@interface GTLRGKEHub_MultiClusterIngressFeatureSpec : GTLRObject
+
+/**
+ *  Fully-qualified Membership name which hosts the MultiClusterIngress CRD.
+ *  Example: `projects/foo-proj/locations/global/memberships/bar`
+ */
+@property(nonatomic, copy, nullable) NSString *configMembership;
 
 @end
 

@@ -36,6 +36,7 @@
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_Instance_Labels;
 @class GTLRAIPlatformNotebooks_Instance_Metadata;
+@class GTLRAIPlatformNotebooks_InstanceConfig;
 @class GTLRAIPlatformNotebooks_LocalDisk;
 @class GTLRAIPlatformNotebooks_LocalDiskInitializeParams;
 @class GTLRAIPlatformNotebooks_LocalDiskInitializeParams_Labels;
@@ -172,6 +173,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Canc
  *  Value: "CANCELLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling;
+/**
+ *  The jobs has become expired (added for uCAIP jobs)
+ *  https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Expired;
 /**
  *  The job failed. `error_message` should contain the details of the failure.
  *
@@ -1260,6 +1268,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Cancelling The job is
  *        being cancelled. `error_message` should describe the reason for the
  *        cancellation. (Value: "CANCELLING")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Expired The jobs has
+ *        become expired (added for uCAIP jobs)
+ *        https://cloud.google.com/vertex-ai/docs/reference/rest/v1/JobState
+ *        (Value: "EXPIRED")
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Failed The job failed.
  *        `error_message` should contain the details of the failure. (Value:
  *        "FAILED")
@@ -1830,6 +1842,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *        fetch them all at once.
  */
 @interface GTLRAIPlatformNotebooks_Instance_Metadata : GTLRObject
+@end
+
+
+/**
+ *  Notebook instance configurations that can be updated.
+ */
+@interface GTLRAIPlatformNotebooks_InstanceConfig : GTLRObject
+
+/**
+ *  Verifies core internal services are running. More info: go/notebooks-health
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableHealthMonitoring;
+
+/**
+ *  Cron expression in UTC timezone, used to schedule instance auto upgrade.
+ *  Please follow the [cron format](https://en.wikipedia.org/wiki/Cron).
+ */
+@property(nonatomic, copy, nullable) NSString *notebookUpgradeSchedule;
+
 @end
 
 
@@ -2904,7 +2937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Output only. Display name used for UI purposes. Name can only contain
- *  alphanumeric characters, hyphens ‘-’, and underscores ‘_’.
+ *  alphanumeric characters, hyphens '-', and underscores '_'.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3267,6 +3300,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Request for created scheduled notebooks
  */
 @interface GTLRAIPlatformNotebooks_TriggerScheduleRequest : GTLRObject
+@end
+
+
+/**
+ *  Request for updating instance configurations.
+ */
+@interface GTLRAIPlatformNotebooks_UpdateInstanceConfigRequest : GTLRObject
+
+/** The instance configurations to be updated. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_InstanceConfig *config;
+
 @end
 
 

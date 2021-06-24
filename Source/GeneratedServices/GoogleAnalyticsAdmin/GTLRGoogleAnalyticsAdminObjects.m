@@ -45,12 +45,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_S
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_Event = @"EVENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_Scope_MetricScopeUnspecified = @"METRIC_SCOPE_UNSPECIFIED";
 
-// GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink.maximumUserAccess
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorIncludingLinkManagement = @"EDITOR_INCLUDING_LINK_MANAGEMENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_EditorWithoutLinkManagement = @"EDITOR_WITHOUT_LINK_MANAGEMENT";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_MaximumUserAccessUnspecified = @"MAXIMUM_USER_ACCESS_UNSPECIFIED";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_NoAccess = @"NO_ACCESS";
-NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink_MaximumUserAccess_ReadAndAnalyze = @"READ_AND_ANALYZE";
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.consent
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentConsented = @"GOOGLE_SIGNALS_CONSENT_CONSENTED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentNotConsented = @"GOOGLE_SIGNALS_CONSENT_NOT_CONSENTED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_Consent_GoogleSignalsConsentUnspecified = @"GOOGLE_SIGNALS_CONSENT_UNSPECIFIED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings.state
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsDisabled = @"GOOGLE_SIGNALS_DISABLED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled = @"GOOGLE_SIGNALS_ENABLED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified = @"GOOGLE_SIGNALS_STATE_UNSPECIFIED";
 
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
@@ -96,7 +99,9 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_CustomMetric = @"CUSTOM_METRIC";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_FirebaseLink = @"FIREBASE_LINK";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleAdsLink = @"GOOGLE_ADS_LINK";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_GoogleSignalsSettings = @"GOOGLE_SIGNALS_SETTINGS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_IosAppDataStream = @"IOS_APP_DATA_STREAM";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_MeasurementProtocolSecret = @"MEASUREMENT_PROTOCOL_SECRET";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_Property = @"PROPERTY";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_ResourceType_WebDataStream = @"WEB_DATA_STREAM";
 
@@ -341,8 +346,8 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
 @dynamic account, androidAppDataStream, conversionEvent, customDimension,
-         customMetric, firebaseLink, googleAdsLink, iosAppDataStream, property,
-         webDataStream;
+         customMetric, firebaseLink, googleAdsLink, googleSignalsSettings,
+         iosAppDataStream, measurementProtocolSecret, property, webDataStream;
 @end
 
 
@@ -375,7 +380,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent
-@dynamic createTime, eventName, isDeletable, name;
+@dynamic createTime, custom, deletable, eventName, name;
 @end
 
 
@@ -463,7 +468,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink
-@dynamic createTime, maximumUserAccess, name, project;
+@dynamic createTime, name, project;
 @end
 
 
@@ -483,8 +488,18 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 //
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink
-@dynamic adsPersonalizationEnabled, canManageClients, createTime, customerId,
-         emailAddress, name, updateTime;
+@dynamic adsPersonalizationEnabled, canManageClients, createTime,
+         creatorEmailAddress, customerId, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings
+@dynamic consent, name, state;
 @end
 
 
@@ -698,6 +713,28 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse
+@dynamic measurementProtocolSecrets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"measurementProtocolSecrets" : [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"measurementProtocolSecrets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaListPropertiesResponse
 //
 
@@ -759,6 +796,16 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
   return @"webDataStreams";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret
+@dynamic displayName, name, secretValue;
 @end
 
 

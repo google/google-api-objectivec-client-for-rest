@@ -897,8 +897,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog".For more information about log names,
- *  see LogEntry.
+ *  "projects/my-project-id/logs/syslog",
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *  information about log names, see LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -915,8 +916,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *    folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For
- *    example, "projects/my-project-id/logs/syslog".For more information about
- *    log names, see LogEntry.
+ *    example, "projects/my-project-id/logs/syslog",
+ *    "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *    information about log names, see LogEntry.
  *
  *  @return GTLRLoggingQuery_BillingAccountsLogsDelete
  */
@@ -2495,8 +2497,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog".For more information about log names,
- *  see LogEntry.
+ *  "projects/my-project-id/logs/syslog",
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *  information about log names, see LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -2513,8 +2516,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *    folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For
- *    example, "projects/my-project-id/logs/syslog".For more information about
- *    log names, see LogEntry.
+ *    example, "projects/my-project-id/logs/syslog",
+ *    "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *    information about log names, see LogEntry.
  *
  *  @return GTLRLoggingQuery_FoldersLogsDelete
  */
@@ -3543,8 +3547,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog".For more information about log names,
- *  see LogEntry.
+ *  "projects/my-project-id/logs/syslog",
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *  information about log names, see LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -3561,8 +3566,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *    folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For
- *    example, "projects/my-project-id/logs/syslog".For more information about
- *    log names, see LogEntry.
+ *    example, "projects/my-project-id/logs/syslog",
+ *    "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *    information about log names, see LogEntry.
  *
  *  @return GTLRLoggingQuery_LogsDelete
  */
@@ -4578,8 +4584,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog".For more information about log names,
- *  see LogEntry.
+ *  "projects/my-project-id/logs/syslog",
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *  information about log names, see LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -4596,8 +4603,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *    folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For
- *    example, "projects/my-project-id/logs/syslog".For more information about
- *    log names, see LogEntry.
+ *    example, "projects/my-project-id/logs/syslog",
+ *    "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *    information about log names, see LogEntry.
  *
  *  @return GTLRLoggingQuery_OrganizationsLogsDelete
  */
@@ -5925,8 +5933,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *  billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *  folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For example,
- *  "projects/my-project-id/logs/syslog".For more information about log names,
- *  see LogEntry.
+ *  "projects/my-project-id/logs/syslog",
+ *  "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *  information about log names, see LogEntry.
  */
 @property(nonatomic, copy, nullable) NSString *logName;
 
@@ -5943,8 +5952,9 @@ NS_ASSUME_NONNULL_BEGIN
  *    organizations/[ORGANIZATION_ID]/logs/[LOG_ID]
  *    billingAccounts/[BILLING_ACCOUNT_ID]/logs/[LOG_ID]
  *    folders/[FOLDER_ID]/logs/[LOG_ID][LOG_ID] must be URL-encoded. For
- *    example, "projects/my-project-id/logs/syslog".For more information about
- *    log names, see LogEntry.
+ *    example, "projects/my-project-id/logs/syslog",
+ *    "organizations/123/logs/cloudaudit.googleapis.com%2Factivity".For more
+ *    information about log names, see LogEntry.
  *
  *  @return GTLRLoggingQuery_ProjectsLogsDelete
  */

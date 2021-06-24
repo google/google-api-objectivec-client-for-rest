@@ -350,6 +350,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "SQLSERVER_2017_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.instanceType
@@ -581,6 +605,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Sta
  *  Value: "SQLSERVER_2017_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2019Web;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.type
@@ -957,14 +1005,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_Status_SqlOperationSt
 // GTLRSQLAdmin_Reschedule.rescheduleType
 
 /**
- *  If the user wants to schedule the maintenance to happen now.
+ *  Reschedules maintenance to happen now (within 5 minutes).
  *
  *  Value: "IMMEDIATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate;
 /**
- *  If the user wants to use the existing maintenance policy to find the next
- *  available window.
+ *  Reschedules maintenance to occur within one week from the originally
+ *  scheduled day and time.
  *
  *  Value: "NEXT_AVAILABLE_WINDOW"
  */
@@ -972,7 +1020,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_NextA
 /** Value: "RESCHEDULE_TYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_RescheduleTypeUnspecified;
 /**
- *  If the user wants to reschedule the maintenance to a specific time.
+ *  Reschedules maintenance to a specific time and day.
  *
  *  Value: "SPECIFIC_TIME"
  */
@@ -1176,6 +1224,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "PGLOGICAL_NODE_ALREADY_EXISTS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists;
+/**
+ *  The primary instance has been setup and will fail the setup.
+ *
+ *  Value: "PRIMARY_ALREADY_SETUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup;
 /** Value: "REPLICA_ALREADY_SETUP" */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup;
 /** Value: "SQL_EXTERNAL_SYNC_SETTING_ERROR_TYPE_UNSPECIFIED" */
@@ -1186,6 +1240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "SQLSERVER_AGENT_NOT_RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning;
+/**
+ *  SQL Server \@\@SERVERNAME does not match actual host name
+ *
+ *  Value: "SQLSERVER_SERVERNAME_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch;
 /**
  *  The customer has a definer that will break EM setup.
  *
@@ -1788,6 +1848,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Web
  *        The database version is SQL Server 2017 Web. (Value:
  *        "SQLSERVER_2017_WEB")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Enterprise
+ *        The database version is SQL Server 2019 Enterprise. (Value:
+ *        "SQLSERVER_2019_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Express
+ *        The database version is SQL Server 2019 Express. (Value:
+ *        "SQLSERVER_2019_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Standard
+ *        The database version is SQL Server 2019 Standard. (Value:
+ *        "SQLSERVER_2019_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2019Web
+ *        The database version is SQL Server 2019 Web. (Value:
+ *        "SQLSERVER_2019_WEB")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -1876,8 +1948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  This field represents the report generated by the proactive database
  *  wellness job for OutOfDisk issues. Writers: -- the proactive database
- *  wellness job for OOD. Readers: -- the Pantheon frontend -- the proactive
- *  database wellness job
+ *  wellness job for OOD. Readers: -- the proactive database wellness job
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlOutOfDiskReport *outOfDiskReport;
 
@@ -1930,7 +2001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The service account email address assigned to the instance. This property is
- *  applicable only to Second Generation instances.
+ *  read-only.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmailAddress;
 
@@ -2530,6 +2601,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *queryInsightsEnabled;
+
+/**
+ *  Number of query plans generated by Insights per minute. Default is 5.
+ *  Changing this will restart the database.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queryPlansPerMinute;
 
 /**
  *  Maximum query length stored in bytes. Default value: 1024 bytes. Range:
@@ -3224,16 +3303,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Required. The type of the reschedule.
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate If the user
- *        wants to schedule the maintenance to happen now. (Value: "IMMEDIATE")
- *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow If the
- *        user wants to use the existing maintenance policy to find the next
- *        available window. (Value: "NEXT_AVAILABLE_WINDOW")
+ *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate Reschedules
+ *        maintenance to happen now (within 5 minutes). (Value: "IMMEDIATE")
+ *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow
+ *        Reschedules maintenance to occur within one week from the originally
+ *        scheduled day and time. (Value: "NEXT_AVAILABLE_WINDOW")
  *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_RescheduleTypeUnspecified
  *        Value "RESCHEDULE_TYPE_UNSPECIFIED"
- *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTime If the user
- *        wants to reschedule the maintenance to a specific time. (Value:
- *        "SPECIFIC_TIME")
+ *    @arg @c kGTLRSQLAdmin_Reschedule_RescheduleType_SpecificTime Reschedules
+ *        maintenance to a specific time and day. (Value: "SPECIFIC_TIME")
  */
 @property(nonatomic, copy, nullable) NSString *rescheduleType;
 
@@ -3581,6 +3659,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PrimaryAlreadySetup
+ *        The primary instance has been setup and will fail the setup. (Value:
+ *        "PRIMARY_ALREADY_SETUP")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_ReplicaAlreadySetup
  *        Value "REPLICA_ALREADY_SETUP"
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlExternalSyncSettingErrorTypeUnspecified
@@ -3588,6 +3669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverAgentNotRunning
  *        SQL Server Agent is not running. (Value:
  *        "SQLSERVER_AGENT_NOT_RUNNING")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_SqlserverServernameMismatch
+ *        SQL Server \@\@SERVERNAME does not match actual host name (Value:
+ *        "SQLSERVER_SERVERNAME_MISMATCH")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedDefiner
  *        The customer has a definer that will break EM setup. (Value:
  *        "UNSUPPORTED_DEFINER")
@@ -3645,7 +3729,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The minimum recommended increase size in GigaBytes This field is consumed by
  *  the frontend Writers: -- the proactive database wellness job for OOD.
- *  Readers: -- the Pantheon frontend
  *
  *  Uses NSNumber of intValue.
  */
@@ -3654,8 +3737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  This field represents the state generated by the proactive database wellness
  *  job for OutOfDisk issues. Writers: -- the proactive database wellness job
- *  for OOD. Readers: -- the Pantheon frontend -- the proactive database
- *  wellness job
+ *  for OOD. Readers: -- the proactive database wellness job
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal The

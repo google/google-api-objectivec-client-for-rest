@@ -48,7 +48,7 @@ NSString * const kGTLRFirebaseManagement_ShaCertificate_CertType_ShaCertificateT
 //
 
 @implementation GTLRFirebaseManagement_AddFirebaseRequest
-@dynamic locationId, regionCode, timeZone;
+@dynamic locationId;
 @end
 
 

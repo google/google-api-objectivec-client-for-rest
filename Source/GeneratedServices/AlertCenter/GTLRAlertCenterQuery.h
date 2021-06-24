@@ -200,9 +200,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A query string for filtering alert feedback results. For more
- *  details, see [Query filters](/admin-sdk/alertcenter/guides/query-filters)
+ *  details, see [Query
+ *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
  *  and [Supported query filter
- *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
+ *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.feedback.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -311,9 +312,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. A query string for filtering alert results. For more details, see
- *  [Query filters](/admin-sdk/alertcenter/guides/query-filters) and [Supported
- *  query filter
- *  fields](/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
+ *  [Query
+ *  filters](https://developers.google.com/admin-sdk/alertcenter/guides/query-filters)
+ *  and [Supported query filter
+ *  fields](https://developers.google.com/admin-sdk/alertcenter/reference/filter-fields#alerts.list).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

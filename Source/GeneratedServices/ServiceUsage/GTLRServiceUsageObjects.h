@@ -1092,14 +1092,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *jwtAudience;
 
 /**
- *  Minimum deadline in seconds needed for this method. Calls having deadline
- *  value lower than this will be rejected.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minDeadline;
-
-/**
  *  The number of seconds to wait for the completion of a long running
  *  operation. The default is no deadline.
  *

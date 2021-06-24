@@ -29,6 +29,7 @@
 @class GTLROnDemandScanning_Category;
 @class GTLROnDemandScanning_CloudRepoSourceContext;
 @class GTLROnDemandScanning_Command;
+@class GTLROnDemandScanning_ComplianceOccurrence;
 @class GTLROnDemandScanning_DeploymentOccurrence;
 @class GTLROnDemandScanning_DiscoveryOccurrence;
 @class GTLROnDemandScanning_FileHashes;
@@ -41,6 +42,7 @@
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_Layer;
 @class GTLROnDemandScanning_Location;
+@class GTLROnDemandScanning_NonCompliantFile;
 @class GTLROnDemandScanning_Occurrence;
 @class GTLROnDemandScanning_Operation;
 @class GTLROnDemandScanning_Operation_Metadata;
@@ -209,6 +211,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Attesta
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Build;
 /**
+ *  This represents a Compliance Note
+ *
+ *  Value: "COMPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Compliance;
+/**
  *  The note and occurrence track deployment events.
  *
  *  Value: "DEPLOYMENT"
@@ -250,6 +258,22 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Upgrade
  *  Value: "VULNERABILITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability;
+
+// ----------------------------------------------------------------------------
+// GTLROnDemandScanning_PackageData.packageType
+
+/** Value: "GO" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go;
+/** Value: "MAVEN" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven;
+/**
+ *  Operating System
+ *
+ *  Value: "OS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os;
+/** Value: "PACKAGE_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_Version.kind
@@ -698,6 +722,18 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  An indication that the compliance checks in the associated ComplianceNote
+ *  were not satisfied for particular resources or a specified reason.
+ */
+@interface GTLROnDemandScanning_ComplianceOccurrence : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *nonComplianceReason;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_NonCompliantFile *> *nonCompliantFiles;
+
+@end
+
+
+/**
  *  The period during which some deployable was active in a runtime.
  */
 @interface GTLROnDemandScanning_DeploymentOccurrence : GTLRObject
@@ -1058,6 +1094,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Details about files that caused a compliance check to fail.
+ */
+@interface GTLROnDemandScanning_NonCompliantFile : GTLRObject
+
+/** Command to display the non-compliant files. */
+@property(nonatomic, copy, nullable) NSString *displayCommand;
+
+/**
+ *  display_command is a single command that can be used to display a list of
+ *  non compliant files. When there is no such command, we can also iterate a
+ *  list of non compliant file using 'path'. Empty if `display_command` is set.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/** Explains why a file is non compliant for a CIS check. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  An instance of an analysis type that has been found on a resource.
  */
 @interface GTLROnDemandScanning_Occurrence : GTLRObject
@@ -1067,6 +1124,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** Describes a verifiable build. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildOccurrence *build;
+
+/** Describes a compliance violation on a linked resource. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_ComplianceOccurrence *compliance;
 
 /** Output only. The time this occurrence was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -1091,6 +1151,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        a logical "role" that can attest to artifacts. (Value: "ATTESTATION")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Build The note and
  *        occurrence assert build provenance. (Value: "BUILD")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Compliance This represents a
+ *        Compliance Note (Value: "COMPLIANCE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Deployment The note and
  *        occurrence track deployment events. (Value: "DEPLOYMENT")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Discovery The note and
@@ -1253,6 +1315,19 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The package being analysed for vulnerabilities */
 @property(nonatomic, copy, nullable) NSString *package;
+
+/**
+ *  The type of package: os, maven, go, etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Go Value "GO"
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Maven Value "MAVEN"
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Os Operating System
+ *        (Value: "OS")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified
+ *        Value "PACKAGE_TYPE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *packageType;
 
 @property(nonatomic, copy, nullable) NSString *unused;
 

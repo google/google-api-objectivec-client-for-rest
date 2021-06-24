@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #import "GTLRCompute.h"
 
@@ -173,6 +173,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#securityPolicyList" : [GTLRCompute_SecurityPolicyList class],
     @"compute#securityPolicyRule" : [GTLRCompute_SecurityPolicyRule class],
     @"compute#serialPortOutput" : [GTLRCompute_SerialPortOutput class],
+    @"compute#serviceAttachment" : [GTLRCompute_ServiceAttachment class],
+    @"compute#serviceAttachmentAggregatedList" : [GTLRCompute_ServiceAttachmentAggregatedList class],
+    @"compute#serviceAttachmentList" : [GTLRCompute_ServiceAttachmentList class],
     @"compute#shieldedInstanceIdentity" : [GTLRCompute_ShieldedInstanceIdentity class],
     @"compute#snapshot" : [GTLRCompute_Snapshot class],
     @"compute#snapshotList" : [GTLRCompute_SnapshotList class],

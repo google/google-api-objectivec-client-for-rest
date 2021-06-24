@@ -1398,7 +1398,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 /**
  *  The order id of the latest recurring order associated with the purchase of
- *  the subscription.
+ *  the subscription. If the subscription was canceled because payment was
+ *  declined, this will be the order id from the payment declined order.
  */
 @property(nonatomic, copy, nullable) NSString *orderId;
 
@@ -1412,9 +1413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 @property(nonatomic, strong, nullable) NSNumber *paymentState;
 
 /**
- *  Price of the subscription, not including tax. Price is expressed in
- *  micro-units, where 1,000,000 micro-units represents one unit of the
- *  currency. For example, if the subscription price is €1.99,
+ *  Price of the subscription, For tax exclusive countries, the price doesn't
+ *  include tax. For tax inclusive countries, the price includes tax. Price is
+ *  expressed in micro-units, where 1,000,000 micro-units represents one unit of
+ *  the currency. For example, if the subscription price is €1.99,
  *  price_amount_micros is 1990000.
  *
  *  Uses NSNumber of longLongValue.

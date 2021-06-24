@@ -47,6 +47,7 @@
 @class GTLRContainer_HorizontalPodAutoscaling;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
+@class GTLRContainer_ILBSubsettingConfig;
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_Jwk;
@@ -893,8 +894,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_CanonicalCode_
 // GTLRContainer_StatusCondition.code
 
 /**
+ *  Cluster CA is expiring soon.
+ *
+ *  Value: "CA_EXPIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_CaExpiring;
+/**
  *  Unable to perform an encrypt operation against the CloudKMS key used for
- *  etcd level encryption. More codes TBA
+ *  etcd level encryption.
  *
  *  Value: "CLOUD_KMS_KEY_ERROR"
  */
@@ -931,6 +938,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOper
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_UpgradeAvailableEvent.resourceType
+
+/**
+ *  Master / control plane
+ *
+ *  Value: "MASTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master;
+/**
+ *  Node pool
+ *
+ *  Value: "NODE_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool;
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "UPGRADE_RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeEvent.resourceType
@@ -1160,6 +1189,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  'pd-balanced') If unspecified, the default disk type is 'pd-standard'
  */
 @property(nonatomic, copy, nullable) NSString *diskType;
+
+/** The image type to use for NAP created node. */
+@property(nonatomic, copy, nullable) NSString *imageType;
 
 /** Specifies the node management options for NAP created node-pools. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeManagement *management;
@@ -1803,6 +1835,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** The desired config of Intra-node visibility. */
 @property(nonatomic, strong, nullable) GTLRContainer_IntraNodeVisibilityConfig *desiredIntraNodeVisibilityConfig;
 
+/** The desired L4 Internal Load Balancer Subsetting configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ILBSubsettingConfig *desiredL4ilbSubsettingConfig;
+
 /**
  *  The desired list of Google Compute Engine
  *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
@@ -2298,6 +2333,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
+ *  ILBSubsettingConfig contains the desired config of L4 Internal LoadBalancer
+ *  subsetting on this cluster.
+ */
+@interface GTLRContainer_ILBSubsettingConfig : GTLRObject
+
+/**
+ *  Enables l4 ILB subsetting for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -2832,6 +2883,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableIntraNodeVisibility;
+
+/**
+ *  Whether L4ILB Subsetting is enabled for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableL4ilbSubsetting;
 
 /**
  *  Output only. The relative name of the Google Compute Engine
@@ -4764,9 +4822,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  canonical_code instead.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_StatusCondition_Code_CaExpiring Cluster CA is
+ *        expiring soon. (Value: "CA_EXPIRING")
  *    @arg @c kGTLRContainer_StatusCondition_Code_CloudKmsKeyError Unable to
  *        perform an encrypt operation against the CloudKMS key used for etcd
- *        level encryption. More codes TBA (Value: "CLOUD_KMS_KEY_ERROR")
+ *        level encryption. (Value: "CLOUD_KMS_KEY_ERROR")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceQuotaExceeded Google
  *        Compute Engine quota was exceeded. (Value: "GCE_QUOTA_EXCEEDED")
  *    @arg @c kGTLRContainer_StatusCondition_Code_GceStockout GCE_STOCKOUT
@@ -4969,6 +5029,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+@end
+
+
+/**
+ *  UpgradeAvailableEvent is a notification sent to customers when a new
+ *  available version is released.
+ */
+@interface GTLRContainer_UpgradeAvailableEvent : GTLRObject
+
+/**
+ *  The release channel of the version. If empty, it means a non-channel
+ *  release.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ReleaseChannel *releaseChannel;
+
+/**
+ *  Optional relative path to the resource. For example, the relative path of
+ *  the node pool.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  The resource type of the release version.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master Master /
+ *        control plane (Value: "MASTER")
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool Node
+ *        pool (Value: "NODE_POOL")
+ *    @arg @c kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified
+ *        Default value. This shouldn't be used. (Value:
+ *        "UPGRADE_RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** The release version available for upgrade. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 

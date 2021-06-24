@@ -485,6 +485,117 @@
 
 @end
 
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
+  query.loggingName = @"analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse class];
+  query.loggingName = @"analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsMeasurementProtocolSecretsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.androidAppDataStreams.measurementProtocolSecrets.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesAndroidAppDataStreamsPatch
 
 @dynamic name, updateMask;
@@ -940,33 +1051,6 @@
 
 @end
 
-@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksPatch
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1alpha/{+name}";
-  GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink class];
-  query.loggingName = @"analyticsadmin.properties.firebaseLinks.patch";
-  return query;
-}
-
-@end
-
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesGet
 
 @dynamic name;
@@ -981,6 +1065,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
   query.loggingName = @"analyticsadmin.properties.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesGetGoogleSignalsSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings class];
+  query.loggingName = @"analyticsadmin.properties.getGoogleSignalsSettings";
   return query;
 }
 
@@ -1135,6 +1238,117 @@
 
 @end
 
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
+  query.loggingName = @"analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse class];
+  query.loggingName = @"analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsMeasurementProtocolSecretsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.iosAppDataStreams.measurementProtocolSecrets.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleAnalyticsAdminQuery_PropertiesIosAppDataStreamsPatch
 
 @dynamic name, updateMask;
@@ -1201,6 +1415,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaProperty class];
   query.loggingName = @"analyticsadmin.properties.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateGoogleSignalsSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings class];
+  query.loggingName = @"analyticsadmin.properties.updateGoogleSignalsSettings";
   return query;
 }
 
@@ -1568,6 +1809,117 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListWebDataStreamsResponse class];
   query.loggingName = @"analyticsadmin.properties.webDataStreams.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty class];
+  query.loggingName = @"analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/measurementProtocolSecrets";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaListMeasurementProtocolSecretsResponse class];
+  query.loggingName = @"analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1alpha/{+name}";
+  GTLRGoogleAnalyticsAdminQuery_PropertiesWebDataStreamsMeasurementProtocolSecretsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret class];
+  query.loggingName = @"analyticsadmin.properties.webDataStreams.measurementProtocolSecrets.patch";
   return query;
 }
 

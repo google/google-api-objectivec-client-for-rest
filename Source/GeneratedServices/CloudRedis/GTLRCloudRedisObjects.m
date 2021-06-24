@@ -44,6 +44,22 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_Disabled = @"DIS
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_ServerAuthentication = @"SERVER_AUTHENTICATION";
 NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptionModeUnspecified = @"TRANSIT_ENCRYPTION_MODE_UNSPECIFIED";
 
+// GTLRCloudRedis_RescheduleMaintenanceRequest.rescheduleType
+NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Immediate = @"IMMEDIATE";
+NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
+NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified = @"RESCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime = @"SPECIFIC_TIME";
+
+// GTLRCloudRedis_WeeklyMaintenanceWindow.day
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Friday = @"FRIDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Monday = @"MONDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudRedis_Empty
@@ -165,9 +181,10 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 @implementation GTLRCloudRedis_Instance
 @dynamic alternativeLocationId, authEnabled, authorizedNetwork, connectMode,
          createTime, currentLocationId, displayName, host, labels, locationId,
-         memorySizeGb, name, persistenceIamIdentity, port, redisConfigs,
-         redisVersion, reservedIpRange, serverCaCerts, state, statusMessage,
-         tier, transitEncryptionMode;
+         maintenancePolicy, maintenanceSchedule, memorySizeGb, name,
+         persistenceIamIdentity, port, redisConfigs, redisVersion,
+         reservedIpRange, serverCaCerts, state, statusMessage, tier,
+         transitEncryptionMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -324,6 +341,38 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_MaintenancePolicy
+//
+
+@implementation GTLRCloudRedis_MaintenancePolicy
+@dynamic createTime, descriptionProperty, updateTime, weeklyMaintenanceWindow;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"weeklyMaintenanceWindow" : [GTLRCloudRedis_WeeklyMaintenanceWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_MaintenanceSchedule
+//
+
+@implementation GTLRCloudRedis_MaintenanceSchedule
+@dynamic canReschedule, endTime, scheduleDeadlineTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_Operation
 //
 
@@ -372,6 +421,16 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_RescheduleMaintenanceRequest
+//
+
+@implementation GTLRCloudRedis_RescheduleMaintenanceRequest
+@dynamic rescheduleType, scheduleTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_Status
 //
 
@@ -404,6 +463,16 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_TimeOfDay
+//
+
+@implementation GTLRCloudRedis_TimeOfDay
+@dynamic hours, minutes, nanos, seconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_TlsCertificate
 //
 
@@ -419,4 +488,14 @@ NSString * const kGTLRCloudRedis_Instance_TransitEncryptionMode_TransitEncryptio
 
 @implementation GTLRCloudRedis_UpgradeInstanceRequest
 @dynamic redisVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_WeeklyMaintenanceWindow
+//
+
+@implementation GTLRCloudRedis_WeeklyMaintenanceWindow
+@dynamic day, duration, startTime;
 @end

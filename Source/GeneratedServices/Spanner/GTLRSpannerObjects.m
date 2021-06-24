@@ -19,11 +19,25 @@ NSString * const kGTLRSpanner_Backup_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Backup_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRSpanner_ContextValue.severity
+NSString * const kGTLRSpanner_ContextValue_Severity_Error      = @"ERROR";
+NSString * const kGTLRSpanner_ContextValue_Severity_Fatal      = @"FATAL";
+NSString * const kGTLRSpanner_ContextValue_Severity_Info       = @"INFO";
+NSString * const kGTLRSpanner_ContextValue_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRSpanner_ContextValue_Severity_Warning    = @"WARNING";
+
 // GTLRSpanner_Database.state
 NSString * const kGTLRSpanner_Database_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Database_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Database_State_ReadyOptimizing  = @"READY_OPTIMIZING";
 NSString * const kGTLRSpanner_Database_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSpanner_DiagnosticMessage.severity
+NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Error = @"ERROR";
+NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Fatal = @"FATAL";
+NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Info  = @"INFO";
+NSString * const kGTLRSpanner_DiagnosticMessage_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRSpanner_DiagnosticMessage_Severity_Warning = @"WARNING";
 
 // GTLRSpanner_EncryptionInfo.encryptionType
 NSString * const kGTLRSpanner_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
@@ -39,6 +53,11 @@ NSString * const kGTLRSpanner_ExecuteSqlRequest_QueryMode_Profile = @"PROFILE";
 NSString * const kGTLRSpanner_Instance_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Instance_State_Ready            = @"READY";
 NSString * const kGTLRSpanner_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRSpanner_Metric.aggregation
+NSString * const kGTLRSpanner_Metric_Aggregation_AggregationUnspecified = @"AGGREGATION_UNSPECIFIED";
+NSString * const kGTLRSpanner_Metric_Aggregation_Max           = @"MAX";
+NSString * const kGTLRSpanner_Metric_Aggregation_Sum           = @"SUM";
 
 // GTLRSpanner_PlanNode.kind
 NSString * const kGTLRSpanner_PlanNode_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
@@ -78,11 +97,17 @@ NSString * const kGTLRSpanner_Type_Code_Bytes               = @"BYTES";
 NSString * const kGTLRSpanner_Type_Code_Date                = @"DATE";
 NSString * const kGTLRSpanner_Type_Code_Float64             = @"FLOAT64";
 NSString * const kGTLRSpanner_Type_Code_Int64               = @"INT64";
+NSString * const kGTLRSpanner_Type_Code_Json                = @"JSON";
 NSString * const kGTLRSpanner_Type_Code_Numeric             = @"NUMERIC";
 NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
+
+// GTLRSpanner_VisualizationData.keyUnit
+NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Chunk  = @"CHUNK";
+NSString * const kGTLRSpanner_VisualizationData_KeyUnit_Key    = @"KEY";
+NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"KEY_UNIT_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -220,6 +245,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ContextValue
+//
+
+@implementation GTLRSpanner_ContextValue
+@dynamic label, severity, unit, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_CreateBackupMetadata
 //
 
@@ -312,6 +347,26 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_Delete
 @dynamic keySet, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_DerivedMetric
+//
+
+@implementation GTLRSpanner_DerivedMetric
+@dynamic denominator, numerator;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_DiagnosticMessage
+//
+
+@implementation GTLRSpanner_DiagnosticMessage
+@dynamic info, metric, metricSpecific, severity, shortMessage;
 @end
 
 
@@ -484,11 +539,60 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_IndexedHotKey
+//
+
+@implementation GTLRSpanner_IndexedHotKey
+@dynamic sparseHotKeys;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_IndexedHotKey_SparseHotKeys
+//
+
+@implementation GTLRSpanner_IndexedHotKey_SparseHotKeys
+
++ (Class)classForAdditionalProperties {
+  return [NSNumber class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_IndexedKeyRangeInfos
+//
+
+@implementation GTLRSpanner_IndexedKeyRangeInfos
+@dynamic keyRangeInfos;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos
+//
+
+@implementation GTLRSpanner_IndexedKeyRangeInfos_KeyRangeInfos
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSpanner_KeyRangeInfos class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_Instance
 //
 
 @implementation GTLRSpanner_Instance
-@dynamic config, displayName, endpointUris, labels, name, nodeCount, state;
+@dynamic config, displayName, endpointUris, labels, name, nodeCount,
+         processingUnits, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -546,6 +650,43 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
     @"endOpen" : [NSObject class],
     @"startClosed" : [NSObject class],
     @"startOpen" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_KeyRangeInfo
+//
+
+@implementation GTLRSpanner_KeyRangeInfo
+@dynamic contextValues, endKeyIndex, info, keysCount, metric, startKeyIndex,
+         unit, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contextValues" : [GTLRSpanner_ContextValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_KeyRangeInfos
+//
+
+@implementation GTLRSpanner_KeyRangeInfos
+@dynamic infos, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infos" : [GTLRSpanner_KeyRangeInfo class]
   };
   return map;
 }
@@ -729,6 +870,28 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ListScansResponse
+//
+
+@implementation GTLRSpanner_ListScansResponse
+@dynamic nextPageToken, scans;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scans" : [GTLRSpanner_Scan class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"scans";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ListSessionsResponse
 //
 
@@ -744,6 +907,105 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 + (NSString *)collectionItemsKey {
   return @"sessions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_LocalizedString
+//
+
+@implementation GTLRSpanner_LocalizedString
+@dynamic args, message, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_LocalizedString_Args
+//
+
+@implementation GTLRSpanner_LocalizedString_Args
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Metric
+//
+
+@implementation GTLRSpanner_Metric
+@dynamic aggregation, category, derived, displayLabel, hasNonzeroData, hotValue,
+         indexedHotKeys, indexedKeyRangeInfos, info, matrix, unit, visible;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Metric_IndexedHotKeys
+//
+
+@implementation GTLRSpanner_Metric_IndexedHotKeys
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSpanner_IndexedHotKey class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Metric_IndexedKeyRangeInfos
+//
+
+@implementation GTLRSpanner_Metric_IndexedKeyRangeInfos
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSpanner_IndexedKeyRangeInfos class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_MetricMatrix
+//
+
+@implementation GTLRSpanner_MetricMatrix
+@dynamic rows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rows" : [GTLRSpanner_MetricMatrixRow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_MetricMatrixRow
+//
+
+@implementation GTLRSpanner_MetricMatrixRow
+@dynamic cols;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"cols" : [NSNumber class]
+  };
+  return map;
 }
 
 @end
@@ -1020,6 +1282,16 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_PrefixNode
+//
+
+@implementation GTLRSpanner_PrefixNode
+@dynamic dataSourceNode, depth, endIndex, startIndex, word;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_QueryOptions
 //
 
@@ -1205,6 +1477,40 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_RollbackRequest
 @dynamic transactionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Scan
+//
+
+@implementation GTLRSpanner_Scan
+@dynamic details, endTime, name, scanData, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Scan_Details
+//
+
+@implementation GTLRSpanner_Scan_Details
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ScanData
+//
+
+@implementation GTLRSpanner_ScanData
+@dynamic data, endTime, startTime;
 @end
 
 
@@ -1500,6 +1806,30 @@ NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPEC
 
 @implementation GTLRSpanner_UpdateInstanceRequest
 @dynamic fieldMask, instance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_VisualizationData
+//
+
+@implementation GTLRSpanner_VisualizationData
+@dynamic dataSourceEndToken, dataSourceSeparatorToken, diagnosticMessages,
+         endKeyStrings, hasPii, indexedKeys, keySeparator, keyUnit, metrics,
+         prefixNodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"diagnosticMessages" : [GTLRSpanner_DiagnosticMessage class],
+    @"endKeyStrings" : [NSString class],
+    @"indexedKeys" : [NSString class],
+    @"metrics" : [GTLRSpanner_Metric class],
+    @"prefixNodes" : [GTLRSpanner_PrefixNode class]
+  };
+  return map;
+}
+
 @end
 
 

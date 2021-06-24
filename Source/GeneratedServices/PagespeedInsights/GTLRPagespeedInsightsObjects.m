@@ -19,10 +19,17 @@
 //
 
 @implementation GTLRPagespeedInsights_AuditRefs
-@dynamic group, identifier, weight;
+@dynamic acronym, group, identifier, relevantAudits, weight;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"relevantAudits" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -105,7 +112,8 @@
 
 @implementation GTLRPagespeedInsights_LighthouseAuditResultV5
 @dynamic descriptionProperty, details, displayValue, errorMessage, explanation,
-         identifier, numericValue, score, scoreDisplayMode, title, warnings;
+         identifier, numericUnit, numericValue, score, scoreDisplayMode, title,
+         warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -281,12 +289,25 @@
 //
 
 @implementation GTLRPagespeedInsights_RendererFormattedStrings
-@dynamic auditGroupExpandTooltip, crcInitialNavigation, crcLongestDurationLabel,
-         errorLabel, errorMissingAuditInfo, labDataTitle,
+@dynamic auditGroupExpandTooltip, calculatorLink, crcInitialNavigation,
+         crcLongestDurationLabel, dropdownCopyJSON, dropdownDarkTheme,
+         dropdownPrintExpanded, dropdownPrintSummary, dropdownSaveGist,
+         dropdownSaveHTML, dropdownSaveJSON, dropdownViewer, errorLabel,
+         errorMissingAuditInfo, footerIssue, labDataTitle,
          lsPerformanceCategoryDescription, manualAuditsGroupTitle,
          notApplicableAuditsGroupTitle, opportunityResourceColumnLabel,
-         opportunitySavingsColumnLabel, passedAuditsGroupTitle, scorescaleLabel,
-         toplevelWarningsMessage, varianceDisclaimer, warningHeader;
+         opportunitySavingsColumnLabel, passedAuditsGroupTitle,
+         runtimeDesktopEmulation, runtimeMobileEmulation, runtimeNoEmulation,
+         runtimeSettingsAxeVersion, runtimeSettingsBenchmark,
+         runtimeSettingsChannel, runtimeSettingsCPUThrottling,
+         runtimeSettingsDevice, runtimeSettingsFetchTime,
+         runtimeSettingsNetworkThrottling, runtimeSettingsTitle,
+         runtimeSettingsUA, runtimeSettingsUANetwork, runtimeSettingsUrl,
+         runtimeUnknown, scorescaleLabel, showRelevantAudits,
+         snippetCollapseButtonLabel, snippetExpandButtonLabel,
+         thirdPartyResourcesLabel, throttlingProvided, toplevelWarningsMessage,
+         varianceDisclaimer, viewTreemapLabel, warningAuditsGroupTitle,
+         warningHeader;
 @end
 
 

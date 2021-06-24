@@ -6,7 +6,7 @@
 // Description:
 //   Creates and runs virtual machines on Google Cloud Platform.
 // Documentation:
-//   https://developers.google.com/compute/docs/reference/latest/
+//   https://cloud.google.com/compute/
 
 #import "GTLRComputeQuery.h"
 
@@ -13161,6 +13161,255 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
   query.securityPolicy = securityPolicy;
   query.expectedObjectClass = [GTLRCompute_Operation class];
   query.loggingName = @"compute.securityPolicies.removeRule";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsAggregatedList
+
+@dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project {
+  NSArray *pathParams = @[ @"project" ];
+  NSString *pathURITemplate = @"projects/{project}/aggregated/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsAggregatedList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachmentAggregatedList class];
+  query.loggingName = @"compute.serviceAttachments.aggregatedList";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsDelete
+
+@dynamic project, region, requestId, serviceAttachment;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment {
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsGet
+
+@dynamic project, region, serviceAttachment;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+               serviceAttachment:(NSString *)serviceAttachment {
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachment class];
+  query.loggingName = @"compute.serviceAttachments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, project, region, resource;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                        resource:(NSString *)resource {
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/getIamPolicy";
+  GTLRComputeQuery_ServiceAttachmentsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.serviceAttachments.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsInsert
+
+@dynamic project, region, requestId;
+
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsList
+
+@dynamic filter, maxResults, orderBy, pageToken, project, region,
+         returnPartialSuccess;
+
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region {
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments";
+  GTLRComputeQuery_ServiceAttachmentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_ServiceAttachmentList class];
+  query.loggingName = @"compute.serviceAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsPatch
+
+@dynamic project, region, requestId, serviceAttachment;
+
++ (instancetype)queryWithObject:(GTLRCompute_ServiceAttachment *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+              serviceAttachment:(NSString *)serviceAttachment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"serviceAttachment"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{serviceAttachment}";
+  GTLRComputeQuery_ServiceAttachmentsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.serviceAttachment = serviceAttachment;
+  query.expectedObjectClass = [GTLRCompute_Operation class];
+  query.loggingName = @"compute.serviceAttachments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsSetIamPolicy
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_RegionSetPolicyRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/setIamPolicy";
+  GTLRComputeQuery_ServiceAttachmentsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_Policy class];
+  query.loggingName = @"compute.serviceAttachments.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRComputeQuery_ServiceAttachmentsTestIamPermissions
+
+@dynamic project, region, resource;
+
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region", @"resource"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/serviceAttachments/{resource}/testIamPermissions";
+  GTLRComputeQuery_ServiceAttachmentsTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCompute_TestPermissionsResponse class];
+  query.loggingName = @"compute.serviceAttachments.testIamPermissions";
   return query;
 }
 

@@ -563,7 +563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /**
  *  Unique name of the resource. It uses the form:
  *  `projects/{project_id|project_number}/locations/{location_id}/instances/{instance_id}`
- *  Note: Either project_id or project_number and be used, but keep it
+ *  Note: Either project_id or project_number can be used, but keep it
  *  consistent with other APIs (e.g. RescheduleUpdate)
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -969,13 +969,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 @interface GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata : GTLRObject
 
 /**
- *  Optional. Global per-instance SLI eligibility which applies to all defined
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
- */
-@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1SloEligibility *eligibility;
-
-/**
  *  List of SLO exclusion windows. When multiple entries in the list match
  *  (matching the exclusion time-window against current time point) the
  *  exclusion reason used in the first matching entry will be published. It is
@@ -999,8 +992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 
 /**
  *  Optional. Multiple per-instance SLI eligibilities which apply for individual
- *  SLIs. Exactly one of 'eligibility' and 'per_sli_eligibility' fields must be
- *  used.
+ *  SLIs.
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
 

@@ -21,6 +21,7 @@
 @class GTLRPubsubLite_CommitCursorRequest;
 @class GTLRPubsubLite_ComputeHeadCursorRequest;
 @class GTLRPubsubLite_ComputeMessageStatsRequest;
+@class GTLRPubsubLite_ComputeTimeCursorRequest;
 @class GTLRPubsubLite_Subscription;
 @class GTLRPubsubLite_Topic;
 
@@ -613,6 +614,37 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeMessageStats
  */
 + (instancetype)queryWithObject:(GTLRPubsubLite_ComputeMessageStatsRequest *)object
+                          topic:(NSString *)topic;
+
+@end
+
+/**
+ *  Compute the corresponding cursor for a publish or event time in a topic
+ *  partition.
+ *
+ *  Method: pubsublite.topicStats.projects.locations.topics.computeTimeCursor
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePubsubLiteCloudPlatform
+ */
+@interface GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor : GTLRPubsubLiteQuery
+
+/** Required. The topic for which we should compute the cursor. */
+@property(nonatomic, copy, nullable) NSString *topic;
+
+/**
+ *  Fetches a @c GTLRPubsubLite_ComputeTimeCursorResponse.
+ *
+ *  Compute the corresponding cursor for a publish or event time in a topic
+ *  partition.
+ *
+ *  @param object The @c GTLRPubsubLite_ComputeTimeCursorRequest to include in
+ *    the query.
+ *  @param topic Required. The topic for which we should compute the cursor.
+ *
+ *  @return GTLRPubsubLiteQuery_TopicStatsProjectsLocationsTopicsComputeTimeCursor
+ */
++ (instancetype)queryWithObject:(GTLRPubsubLite_ComputeTimeCursorRequest *)object
                           topic:(NSString *)topic;
 
 @end

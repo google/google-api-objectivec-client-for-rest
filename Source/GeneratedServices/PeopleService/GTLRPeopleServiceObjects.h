@@ -404,7 +404,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Person_AgeRange_TwentyOneO
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified;
 /**
- *  [Currents Page.](https://gsuite.google.com/products/currents/)
+ *  [Currents Page.](https://workspace.google.com/products/currents/)
  *
  *  Value: "PAGE"
  */
@@ -426,7 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_PersonMetadata_ObjectType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified;
 /**
- *  [Currents Page.](https://gsuite.google.com/products/currents/)
+ *  [Currents Page.](https://workspace.google.com/products/currents/)
  *
  *  Value: "PAGE"
  */
@@ -442,7 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_ProfileMetadata_ObjectType
 // GTLRPeopleService_ProfileMetadata.userTypes
 
 /**
- *  The user is a G Suite user.
+ *  The user is a Google Workspace user.
  *
  *  Value: "GOOGLE_APPS_USER"
  */
@@ -484,14 +484,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Account;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_Contact;
 /**
- *  [G Suite domain shared
+ *  [Google Workspace domain shared
  *  contact](https://support.google.com/a/answer/9281635).
  *
  *  Value: "DOMAIN_CONTACT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleService_Source_Type_DomainContact;
 /**
- *  [G Suite domain profile](https://support.google.com/a/answer/1628008).
+ *  [Google Workspace domain
+ *  profile](https://support.google.com/a/answer/1628008).
  *
  *  Value: "DOMAIN_PROFILE"
  */
@@ -950,7 +951,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  The contact group name set by the group owner or a system provided name for
- *  system groups.
+ *  system groups. For
+ *  [`contactGroups.create`](/people/api/rest/v1/contactGroups/create) or
+ *  [`contactGroups.update`](/people/api/rest/v1/contactGroups/update) the name
+ *  must be unique to the users contact groups. Attempting to create a group
+ *  with a duplicate name will return a HTTP 409 error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1169,12 +1174,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 
 /**
- *  A G Suite Domain membership.
+ *  A Google Workspace Domain membership.
  */
 @interface GTLRPeopleService_DomainMembership : GTLRObject
 
 /**
- *  True if the person is in the viewer's G Suite domain.
+ *  True if the person is in the viewer's Google Workspace domain.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1984,7 +1989,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /** Output only. The person's cover photos. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CoverPhoto *> *coverPhotos;
 
-/** The person's email addresses. */
+/**
+ *  The person's email addresses. For
+ *  [`connections.list`](/people/api/rest/v1/people.connections/list),
+ *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list), and
+ *  [`people.listDirectoryPeople`](/people/api/rest/v1/people/listDirectoryPeople)
+ *  the number of email addresses is limited to 100. If a Person has more email
+ *  addresses the entire set can be obtained by calling
+ *  ['people.get'](/people/api/rest/v1/people/get).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_EmailAddress *> *emailAddresses;
 
 /**
@@ -2038,7 +2051,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 /** The person's past or current organizations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Organization *> *organizations;
 
-/** The person's phone numbers. */
+/**
+ *  The person's phone numbers. For
+ *  [`connections.list`](/people/api/rest/v1/people.connections/list),
+ *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list), and
+ *  [`people.listDirectoryPeople`](/people/api/rest/v1/people/listDirectoryPeople)
+ *  the number of phone numbers is limited to 100. If a Person has more phone
+ *  numbers the entire set can be obtained by calling
+ *  ['people.get'](/people/api/rest/v1/people/get).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PhoneNumber *> *phoneNumbers;
 
 /** Output only. The person's photos. */
@@ -2098,8 +2119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Output only. True if the person resource has been deleted. Populated only
- *  for [`connections.list`](/people/api/rest/v1/people.connections/list)
- *  requests that include a sync token.
+ *  for [`connections.list`](/people/api/rest/v1/people.connections/list) and
+ *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list) requests that
+ *  include a sync token.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2117,7 +2139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_ObjectTypeUnspecified
  *        Unspecified. (Value: "OBJECT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Page [Currents
- *        Page.](https://gsuite.google.com/products/currents/) (Value: "PAGE")
+ *        Page.](https://workspace.google.com/products/currents/) (Value:
+ *        "PAGE")
  *    @arg @c kGTLRPeopleService_PersonMetadata_ObjectType_Person Person.
  *        (Value: "PERSON")
  */
@@ -2245,7 +2268,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_ObjectTypeUnspecified
  *        Unspecified. (Value: "OBJECT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_Page [Currents
- *        Page.](https://gsuite.google.com/products/currents/) (Value: "PAGE")
+ *        Page.](https://workspace.google.com/products/currents/) (Value:
+ *        "PAGE")
  *    @arg @c kGTLRPeopleService_ProfileMetadata_ObjectType_Person Person.
  *        (Value: "PERSON")
  */
@@ -2495,11 +2519,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
  *        contact](https://contacts.google.com). You can view the contact at
  *        [https://contact.google.com/](https://contact.google.com/){id}, where
  *        {id} is the source id. (Value: "CONTACT")
- *    @arg @c kGTLRPeopleService_Source_Type_DomainContact [G Suite domain
- *        shared contact](https://support.google.com/a/answer/9281635). (Value:
- *        "DOMAIN_CONTACT")
- *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [G Suite domain
- *        profile](https://support.google.com/a/answer/1628008). (Value:
+ *    @arg @c kGTLRPeopleService_Source_Type_DomainContact [Google Workspace
+ *        domain shared contact](https://support.google.com/a/answer/9281635).
+ *        (Value: "DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleService_Source_Type_DomainProfile [Google Workspace
+ *        domain profile](https://support.google.com/a/answer/1628008). (Value:
  *        "DOMAIN_PROFILE")
  *    @arg @c kGTLRPeopleService_Source_Type_OtherContact [Google "Other
  *        contact"](https://contacts.google.com/other). (Value: "OTHER_CONTACT")

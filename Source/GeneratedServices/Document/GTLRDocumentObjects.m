@@ -193,6 +193,10 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Sk
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_ValidationPassed = @"VALIDATION_PASSED";
 
+// GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest.priority
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Default = @"DEFAULT";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest_Priority_Urgent = @"URGENT";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata
@@ -585,7 +589,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, tables, tokens, transforms, visualElements;
+         pageNumber, paragraphs, provenance, tables, tokens, transforms,
+         visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -677,8 +682,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentPageFormField
-@dynamic fieldName, fieldValue, nameDetectedLanguages, valueDetectedLanguages,
-         valueType;
+@dynamic fieldName, fieldValue, nameDetectedLanguages, provenance,
+         valueDetectedLanguages, valueType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -887,7 +892,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta1DocumentProvenanceParent
-@dynamic identifier, revision;
+@dynamic identifier, index, revision;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1207,7 +1212,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, tables, tokens, transforms, visualElements;
+         pageNumber, paragraphs, provenance, tables, tokens, transforms,
+         visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1299,8 +1305,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentPageFormField
-@dynamic fieldName, fieldValue, nameDetectedLanguages, valueDetectedLanguages,
-         valueType;
+@dynamic fieldName, fieldValue, nameDetectedLanguages, provenance,
+         valueDetectedLanguages, valueType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1509,7 +1515,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta2DocumentProvenanceParent
-@dynamic identifier, revision;
+@dynamic identifier, index, revision;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1757,6 +1763,54 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DeleteProcessorMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DisableProcessorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorMetadata
+@dynamic commonMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorResponse
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3EnableProcessorResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocument_GoogleCloudDocumentaiV1beta3HumanReviewStatus
 //
 
@@ -1908,7 +1962,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPage
 @dynamic blocks, detectedLanguages, dimension, formFields, image, layout, lines,
-         pageNumber, paragraphs, tables, tokens, transforms, visualElements;
+         pageNumber, paragraphs, provenance, tables, tokens, transforms,
+         visualElements;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2000,8 +2055,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentPageFormField
-@dynamic fieldName, fieldValue, nameDetectedLanguages, valueDetectedLanguages,
-         valueType;
+@dynamic fieldName, fieldValue, nameDetectedLanguages, provenance,
+         valueDetectedLanguages, valueType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2210,7 +2265,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenanceParent
-@dynamic identifier, revision;
+@dynamic identifier, index, revision;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2432,7 +2487,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1ReviewDocumentRequest
-@dynamic inlineDocument;
+@dynamic enableSchemaValidation, inlineDocument, priority;
 @end
 
 
@@ -2513,15 +2568,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1HumanReviewStatus_State_Va
   return [NSObject class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDocument_GoogleLongrunningCancelOperationRequest
-//
-
-@implementation GTLRDocument_GoogleLongrunningCancelOperationRequest
 @end
 
 

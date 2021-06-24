@@ -65,12 +65,14 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Active = @"ACT
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Creating = @"CREATING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Updating = @"UPDATING";
 
 // GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Active = @"ACTIVE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Creating = @"CREATING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Updating = @"UPDATING";
 
 // GTLRApigee_GoogleCloudApigeeV1Instance.peeringCidrRange
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_CidrRangeUnspecified = @"CIDR_RANGE_UNSPECIFIED";
@@ -86,6 +88,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Active = @"ACTIVE
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating = @"CREATING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating = @"UPDATING";
 
 // GTLRApigee_GoogleCloudApigeeV1NatAddress.state
 NSString * const kGTLRApigee_GoogleCloudApigeeV1NatAddress_State_Active = @"ACTIVE";
@@ -127,6 +130,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Active = @"AC
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Creating = @"CREATING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Updating = @"UPDATING";
 
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_SubscriptionType_Paid = @"PAID";
@@ -949,7 +953,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1DeploymentConfig
-@dynamic attributes, basePath, location, name, proxyUid, uid;
+@dynamic attributes, basePath, location, name, proxyUid, serviceAccount, uid;
 @end
 
 
@@ -2536,6 +2540,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RoutingRule
 @dynamic basepath, envGroupRevision, environment, receiver, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1RuntimeConfig
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1RuntimeConfig
+@dynamic analyticsBucket, name, tenantProjectId, traceBucket;
 @end
 
 

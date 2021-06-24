@@ -884,6 +884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_ParagraphStyle_SpacingMode_SpacingM
 // GTLRDocs_PositionedObjectPositioning.layout
 
 /**
+ *  The positioned object is behind the text.
+ *
+ *  Value: "BEHIND_TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_PositionedObjectPositioning_Layout_BehindText;
+/**
  *  Breaks text such that the positioned object is on the left and text is on
  *  the right.
  *
@@ -4538,6 +4544,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  The layout of this positioned object.
  *
  *  Likely values:
+ *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BehindText The
+ *        positioned object is behind the text. (Value: "BEHIND_TEXT")
  *    @arg @c kGTLRDocs_PositionedObjectPositioning_Layout_BreakLeft Breaks text
  *        such that the positioned object is on the left and text is on the
  *        right. (Value: "BREAK_LEFT")

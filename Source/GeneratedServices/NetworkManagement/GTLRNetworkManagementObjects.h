@@ -2618,10 +2618,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @interface GTLRNetworkManagement_Trace : GTLRObject
 
 /**
- *  Derived from the source and destination endpoints definition, and validated
- *  by the data plane model. If there are multiple traces starting from
- *  different source locations, then the endpoint_info may be different between
- *  traces.
+ *  Derived from the source and destination endpoints definition specified by
+ *  user request, and validated by the data plane model. If there are multiple
+ *  traces starting from different source locations, then the endpoint_info may
+ *  be different between traces.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_EndpointInfo *endpointInfo;
 

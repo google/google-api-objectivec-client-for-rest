@@ -4,8 +4,9 @@
 // API:
 //   Cloud Search API (cloudsearch/v1)
 // Description:
-//   Cloud Search provides cloud-based search capabilities over G Suite data.
-//   The Cloud Search API allows indexing of non-G Suite data into Cloud Search.
+//   Cloud Search provides cloud-based search capabilities over Google Workspace
+//   data. The Cloud Search API allows indexing of non-Google Workspace data
+//   into Cloud Search.
 // Documentation:
 //   https://developers.google.com/cloud-search/docs/guides/
 
@@ -1712,7 +1713,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Number of results that match the bucket value. Counts are only returned for
- *  searches when count accuracy is ensured. Can be empty.
+ *  searches when count accuracy is ensured. Cloud Search does not guarantee
+ *  facet counts for any query and facet counts might be present only
+ *  intermittently, even for identical queries. Do not build dependencies on
+ *  facet count existence; instead use facet ount percentages which are always
+ *  returned.
  *
  *  Uses NSNumber of intValue.
  */

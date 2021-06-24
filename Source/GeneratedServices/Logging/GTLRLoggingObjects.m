@@ -595,7 +595,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_LogMetric
-@dynamic bucketOptions, createTime, descriptionProperty, filter,
+@dynamic bucketOptions, createTime, descriptionProperty, disabled, filter,
          labelExtractors, metricDescriptor, name, updateTime, valueExtractor,
          version;
 

@@ -155,12 +155,18 @@ NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unimplemented = @"
 NSString * const kGTLRContainer_StatusCondition_CanonicalCode_Unknown = @"UNKNOWN";
 
 // GTLRContainer_StatusCondition.code
+NSString * const kGTLRContainer_StatusCondition_Code_CaExpiring = @"CA_EXPIRING";
 NSString * const kGTLRContainer_StatusCondition_Code_CloudKmsKeyError = @"CLOUD_KMS_KEY_ERROR";
 NSString * const kGTLRContainer_StatusCondition_Code_GceQuotaExceeded = @"GCE_QUOTA_EXCEEDED";
 NSString * const kGTLRContainer_StatusCondition_Code_GceStockout = @"GCE_STOCKOUT";
 NSString * const kGTLRContainer_StatusCondition_Code_GkeServiceAccountDeleted = @"GKE_SERVICE_ACCOUNT_DELETED";
 NSString * const kGTLRContainer_StatusCondition_Code_SetByOperator = @"SET_BY_OPERATOR";
 NSString * const kGTLRContainer_StatusCondition_Code_Unknown   = @"UNKNOWN";
+
+// GTLRContainer_UpgradeAvailableEvent.resourceType
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_Master = @"MASTER";
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_NodePool = @"NODE_POOL";
+NSString * const kGTLRContainer_UpgradeAvailableEvent_ResourceType_UpgradeResourceTypeUnspecified = @"UPGRADE_RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRContainer_UpgradeEvent.resourceType
 NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Master = @"MASTER";
@@ -227,8 +233,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AutoprovisioningNodePoolDefaults
-@dynamic bootDiskKmsKey, diskSizeGb, diskType, management, minCpuPlatform,
-         oauthScopes, serviceAccount, shieldedInstanceConfig, upgradeSettings;
+@dynamic bootDiskKmsKey, diskSizeGb, diskType, imageType, management,
+         minCpuPlatform, oauthScopes, serviceAccount, shieldedInstanceConfig,
+         upgradeSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -406,14 +413,15 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @dynamic desiredAddonsConfig, desiredAutopilot, desiredBinaryAuthorization,
          desiredClusterAutoscaling, desiredDatabaseEncryption,
          desiredDatapathProvider, desiredDefaultSnatStatus, desiredImageType,
-         desiredIntraNodeVisibilityConfig, desiredLocations,
-         desiredLoggingService, desiredMasterAuthorizedNetworksConfig,
-         desiredMasterVersion, desiredMonitoringService,
-         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
-         desiredNotificationConfig, desiredPrivateClusterConfig,
-         desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
-         desiredResourceUsageExportConfig, desiredShieldedNodes,
-         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
+         desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
+         desiredLocations, desiredLoggingService,
+         desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
+         desiredMonitoringService, desiredNodePoolAutoscaling,
+         desiredNodePoolId, desiredNodeVersion, desiredNotificationConfig,
+         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
+         desiredReleaseChannel, desiredResourceUsageExportConfig,
+         desiredShieldedNodes, desiredVerticalPodAutoscaling,
+         desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -640,6 +648,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_HttpLoadBalancing
 @dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_ILBSubsettingConfig
+//
+
+@implementation GTLRContainer_ILBSubsettingConfig
+@dynamic enabled;
 @end
 
 
@@ -888,7 +906,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NetworkConfig
 @dynamic datapathProvider, defaultSnatStatus, enableIntraNodeVisibility,
-         network, privateIpv6GoogleAccess, subnetwork;
+         enableL4ilbSubsetting, network, privateIpv6GoogleAccess, subnetwork;
 @end
 
 
@@ -1576,6 +1594,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_UpgradeAvailableEvent
+//
+
+@implementation GTLRContainer_UpgradeAvailableEvent
+@dynamic releaseChannel, resource, resourceType, version;
 @end
 
 

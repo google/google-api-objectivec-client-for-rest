@@ -160,6 +160,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest.threatType
 
 /**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_AccuracyTips;
+/**
  *  API abuse threat type.
  *
  *  Value: "API_ABUSE"
@@ -418,6 +425,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse.threatType
 
 /**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_AccuracyTips;
+/**
  *  API abuse threat type.
  *
  *  Value: "API_ABUSE"
@@ -605,6 +619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // ----------------------------------------------------------------------------
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit.threatType
 
+/**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_AccuracyTips;
 /**
  *  API abuse threat type.
  *
@@ -854,6 +875,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo.threatTypes
 
 /**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatInfo_ThreatTypes_AccuracyTips;
+/**
  *  API abuse threat type.
  *
  *  Value: "API_ABUSE"
@@ -1066,6 +1094,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor.threatType
 
 /**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_AccuracyTips;
+/**
  *  API abuse threat type.
  *
  *  Value: "API_ABUSE"
@@ -1277,6 +1312,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 // ----------------------------------------------------------------------------
 // GTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch.threatType
 
+/**
+ *  List from the Jigsaw team to show accuracy tips in Chrome. See
+ *  go/sb-accuracytips.
+ *
+ *  Value: "ACCURACY_TIPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_AccuracyTips;
 /**
  *  API abuse threat type.
  *
@@ -1512,6 +1554,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  The type of threat posed by entries present in the list.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_AccuracyTips
+ *        List from the Jigsaw team to show accuracy tips in Chrome. See
+ *        go/sb-accuracytips. (Value: "ACCURACY_TIPS")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_ApiAbuse
  *        API abuse threat type. (Value: "API_ABUSE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesRequestListUpdateRequest_ThreatType_ApkMalwareOffline
@@ -1730,6 +1775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  The threat type for which data is returned.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_AccuracyTips
+ *        List from the Jigsaw team to show accuracy tips in Chrome. See
+ *        go/sb-accuracytips. (Value: "ACCURACY_TIPS")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_ApiAbuse
  *        API abuse threat type. (Value: "API_ABUSE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4FetchThreatListUpdatesResponseListUpdateResponse_ThreatType_ApkMalwareOffline
@@ -2115,6 +2163,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  The threat type reported.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_AccuracyTips
+ *        List from the Jigsaw team to show accuracy tips in Chrome. See
+ *        go/sb-accuracytips. (Value: "ACCURACY_TIPS")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_ApiAbuse
  *        API abuse threat type. (Value: "API_ABUSE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatHit_ThreatType_ApkMalwareOffline
@@ -2302,6 +2353,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  The threat type posed by the list's entries.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_AccuracyTips
+ *        List from the Jigsaw team to show accuracy tips in Chrome. See
+ *        go/sb-accuracytips. (Value: "ACCURACY_TIPS")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_ApiAbuse
  *        API abuse threat type. (Value: "API_ABUSE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatListDescriptor_ThreatType_ApkMalwareOffline
@@ -2419,6 +2473,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  The threat type matching this threat.
  *
  *  Likely values:
+ *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_AccuracyTips
+ *        List from the Jigsaw team to show accuracy tips in Chrome. See
+ *        go/sb-accuracytips. (Value: "ACCURACY_TIPS")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_ApiAbuse
  *        API abuse threat type. (Value: "API_ABUSE")
  *    @arg @c kGTLRSafebrowsing_GoogleSecuritySafebrowsingV4ThreatMatch_ThreatType_ApkMalwareOffline

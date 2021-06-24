@@ -76,6 +76,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeOsInventory;
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  The default/unset value. The API will default to the FULL view.
+ *
+ *  Value: "ANALYSIS_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewAnalysisViewUnspecified;
+/**
+ *  Basic analysis only including blockers which will prevent the specified
+ *  resource move at runtime.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewBasic;
+/**
+ *  Full analysis including all level of impacts of the specified resource move.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -153,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 /**
  *  Required. Name of the organization or project the assets belong to. Format:
  *  "organizations/[organization-number]" (such as "organizations/123"),
- *  "projects/[project-number]" (such as "projects/my-project-id"), or
- *  "projects/[project-id]" (such as "projects/12345").
+ *  "projects/[project-id]" (such as "projects/my-project-id"), or
+ *  "projects/[project-number]" (such as "projects/12345").
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -175,8 +198,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *
  *  @param parent Required. Name of the organization or project the assets
  *    belong to. Format: "organizations/[organization-number]" (such as
- *    "organizations/123"), "projects/[project-number]" (such as
- *    "projects/my-project-id"), or "projects/[project-id]" (such as
+ *    "organizations/123"), "projects/[project-id]" (such as
+ *    "projects/my-project-id"), or "projects/[project-number]" (such as
  *    "projects/12345").
  *
  *  @return GTLRCloudAssetQuery_AssetsList
@@ -622,6 +645,72 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @end
 
 /**
+ *  Analyze moving a resource to a specified destination without kicking off the
+ *  actual move. The analysis is best effort depending on the user's permissions
+ *  of viewing different hierarchical policies and configurations. The policies
+ *  and configuration are subject to change before the actual resource migration
+ *  takes place.
+ *
+ *  Method: cloudasset.analyzeMove
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudAssetCloudPlatform
+ */
+@interface GTLRCloudAssetQuery_V1AnalyzeMove : GTLRCloudAssetQuery
+
+/**
+ *  Required. Name of the GCP Folder or Organization to reparent the target
+ *  resource. The analysis will be performed against hypothetically moving the
+ *  resource to this specified desitination parent. This can only be a Folder
+ *  number (such as "folders/123") or an Organization number (such as
+ *  "organizations/123").
+ */
+@property(nonatomic, copy, nullable) NSString *destinationParent;
+
+/**
+ *  Required. Name of the resource to perform the analysis against. Only GCP
+ *  Project are supported as of today. Hence, this can only be Project ID (such
+ *  as "projects/my-project-id") or a Project Number (such as "projects/12345").
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Analysis view indicating what information should be included in the analysis
+ *  response. If unspecified, the default view is FULL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAssetViewAnalysisViewUnspecified The default/unset
+ *        value. The API will default to the FULL view. (Value:
+ *        "ANALYSIS_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAssetViewFull Full analysis including all level of
+ *        impacts of the specified resource move. (Value: "FULL")
+ *    @arg @c kGTLRCloudAssetViewBasic Basic analysis only including blockers
+ *        which will prevent the specified resource move at runtime. (Value:
+ *        "BASIC")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRCloudAsset_AnalyzeMoveResponse.
+ *
+ *  Analyze moving a resource to a specified destination without kicking off the
+ *  actual move. The analysis is best effort depending on the user's permissions
+ *  of viewing different hierarchical policies and configurations. The policies
+ *  and configuration are subject to change before the actual resource migration
+ *  takes place.
+ *
+ *  @param resource Required. Name of the resource to perform the analysis
+ *    against. Only GCP Project are supported as of today. Hence, this can only
+ *    be Project ID (such as "projects/my-project-id") or a Project Number (such
+ *    as "projects/12345").
+ *
+ *  @return GTLRCloudAssetQuery_V1AnalyzeMove
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Batch gets the update history of assets that overlap a time window. For
  *  IAM_POLICY content, this API outputs history when the asset and its attached
  *  IAM POLICY both exist. This can create gaps in the output history.
@@ -768,6 +857,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @interface GTLRCloudAssetQuery_V1SearchAllIamPolicies : GTLRCloudAssetQuery
 
 /**
+ *  Optional. A list of asset types that the IAM policies are attached to. If
+ *  empty, it will search the IAM policies that are attached to all the
+ *  [searchable asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types).
+ *  Regular expressions are also supported. For example: *
+ *  "compute.googleapis.com.*" snapshots IAM policies attached to asset type
+ *  starts with "compute.googleapis.com". * ".*Instance" snapshots IAM policies
+ *  attached to asset type ends with "Instance". * ".*Instance.*" snapshots IAM
+ *  policies attached to asset type contains "Instance". See
+ *  [RE2](https://github.com/google/re2/wiki/Syntax) for all supported regular
+ *  expression syntax. If the regular expression does not match any supported
+ *  asset type, an INVALID_ARGUMENT error will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
+
+/**
+ *  Optional. A comma-separated list of fields specifying the sorting order of
+ *  the results. The default order is ascending. Add " DESC" after the field
+ *  name to indicate descending order. Redundant space characters are ignored.
+ *  Example: "assetType DESC, resource". Only singular primitive fields in the
+ *  response are sortable: * resource * assetType * project All the other fields
+ *  such as repeated fields (e.g., `folders`) and non-primitive fields (e.g.,
+ *  `policy`) are not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
  *  Optional. The page size for search result pagination. Page size is capped at
  *  500 even if a larger value is given. If set to zero, server will pick an
  *  appropriate default. Returned results may be fewer than requested. When this
@@ -814,7 +930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
  *  in any of the searchable fields (except for the included permissions). *
  *  `resource:(instance1 OR instance2) policy:amy` to find IAM policy bindings
  *  that are set on resources "instance1" or "instance2" and also specify user
- *  "amy".
+ *  "amy". * `roles:roles/compute.admin` to find IAM policy bindings that
+ *  specify the Compute Admin role. * `memberTypes:user` to find IAM policy
+ *  bindings that contain the "user" member type.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -888,14 +1006,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeResource;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assetTypes;
 
 /**
- *  Optional. A comma separated list of fields specifying the sorting order of
+ *  Optional. A comma-separated list of fields specifying the sorting order of
  *  the results. The default order is ascending. Add " DESC" after the field
  *  name to indicate descending order. Redundant space characters are ignored.
- *  Example: "location DESC, name". Only string fields in the response are
- *  sortable, including `name`, `displayName`, `description`, `location`. All
- *  the other fields such as repeated fields (e.g., `networkTags`), map fields
- *  (e.g., `labels`) and struct fields (e.g., `additionalAttributes`) are not
- *  supported.
+ *  Example: "location DESC, name". Only singular primitive fields in the
+ *  response are sortable: * name * assetType * project * displayName *
+ *  description * location * kmsKey * createTime * updateTime * state *
+ *  parentFullResourceName * parentAssetType All the other fields such as
+ *  repeated fields (e.g., `networkTags`), map fields (e.g., `labels`) and
+ *  struct fields (e.g., `additionalAttributes`) are not supported.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 

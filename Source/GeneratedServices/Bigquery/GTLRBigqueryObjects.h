@@ -3274,6 +3274,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /** Additional properties to set if sourceFormat is set to CSV. */
 @property(nonatomic, strong, nullable) GTLRBigquery_CsvOptions *csvOptions;
 
+/**
+ *  [Optional] Defines the list of possible SQL data types to which the source
+ *  decimal values are converted. This list and the precision and the scale
+ *  parameters of the decimal field determine the target type. In the order of
+ *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
+ *  list and if it supports the precision and the scale. STRING supports all
+ *  precision and scale values. If none of the listed types supports the
+ *  precision and the scale, the type supporting the widest range in the
+ *  specified list is picked, and if a value exceeds the supported range when
+ *  reading the data, an error will be thrown. Example: Suppose the value of
+ *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
+ *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
+ *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
+ *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
+ *  This field cannot contain duplicate types. The order of the types in this
+ *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
+ *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
+ *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
+ *  the other file formats.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
+
 /** [Optional] Additional options if sourceFormat is set to GOOGLE_SHEETS. */
 @property(nonatomic, strong, nullable) GTLRBigquery_GoogleSheetsOptions *googleSheetsOptions;
 
@@ -3896,24 +3918,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *createDisposition;
 
 /**
- *  Defines the list of possible SQL data types to which the source decimal
- *  values are converted. This list and the precision and the scale parameters
- *  of the decimal field determine the target type. In the order of NUMERIC,
- *  BIGNUMERIC ([Preview](/products/#product-launch-stages)), and STRING, a type
- *  is picked if it is in the specified list and if it supports the precision
- *  and the scale. STRING supports all precision and scale values. If none of
- *  the listed types supports the precision and the scale, the type supporting
- *  the widest range in the specified list is picked, and if a value exceeds the
- *  supported range when reading the data, an error will be thrown. Example:
- *  Suppose the value of this field is ["NUMERIC", "BIGNUMERIC"]. If
- *  (precision,scale) is: * (38,9) -> NUMERIC; * (39,9) -> BIGNUMERIC (NUMERIC
- *  cannot hold 30 integer digits); * (38,10) -> BIGNUMERIC (NUMERIC cannot hold
- *  10 fractional digits); * (76,38) -> BIGNUMERIC; * (77,38) -> BIGNUMERIC
- *  (error if value exeeds supported range). This field cannot contain duplicate
- *  types. The order of the types in this field is ignored. For example,
- *  ["BIGNUMERIC", "NUMERIC"] is the same as ["NUMERIC", "BIGNUMERIC"] and
- *  NUMERIC always takes precedence over BIGNUMERIC. Defaults to ["NUMERIC",
- *  "STRING"] for ORC and ["NUMERIC"] for the other file formats.
+ *  [Optional] Defines the list of possible SQL data types to which the source
+ *  decimal values are converted. This list and the precision and the scale
+ *  parameters of the decimal field determine the target type. In the order of
+ *  NUMERIC, BIGNUMERIC, and STRING, a type is picked if it is in the specified
+ *  list and if it supports the precision and the scale. STRING supports all
+ *  precision and scale values. If none of the listed types supports the
+ *  precision and the scale, the type supporting the widest range in the
+ *  specified list is picked, and if a value exceeds the supported range when
+ *  reading the data, an error will be thrown. Example: Suppose the value of
+ *  this field is ["NUMERIC", "BIGNUMERIC"]. If (precision,scale) is: (38,9) ->
+ *  NUMERIC; (39,9) -> BIGNUMERIC (NUMERIC cannot hold 30 integer digits);
+ *  (38,10) -> BIGNUMERIC (NUMERIC cannot hold 10 fractional digits); (76,38) ->
+ *  BIGNUMERIC; (77,38) -> BIGNUMERIC (error if value exeeds supported range).
+ *  This field cannot contain duplicate types. The order of the types in this
+ *  field is ignored. For example, ["BIGNUMERIC", "NUMERIC"] is the same as
+ *  ["NUMERIC", "BIGNUMERIC"] and NUMERIC always takes precedence over
+ *  BIGNUMERIC. Defaults to ["NUMERIC", "STRING"] for ORC and ["NUMERIC"] for
+ *  the other file formats.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *decimalTargetTypes;
 
@@ -4576,7 +4598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  [Output-only] [Alpha] Information of the multi-statement transaction if this
  *  job is part of one.
  */
-@property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfoTemplate;
+@property(nonatomic, strong, nullable) GTLRBigquery_TransactionInfo *transactionInfo;
 
 @end
 
@@ -4671,6 +4693,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  and DROP ALL ROW ACCESS POLICIES queries.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *ddlTargetTable;
+
+/**
+ *  [Output-only] Detailed statistics for DML statements Present only for DML
+ *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id dmlStats;
 
 /**
  *  [Output-only] The original estimate of bytes processed for the job.
@@ -5770,6 +5800,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, strong, nullable) NSNumber *cacheHit;
 
 /**
+ *  [Output-only] Detailed statistics for DML statements Present only for DML
+ *  statements INSERT, UPDATE, DELETE or TRUNCATE.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id dmlStats;
+
+/**
  *  [Output-only] The first errors or warnings encountered during the running of
  *  the job. The final message includes the number of errors that caused the
  *  process to stop. Errors here do not necessarily mean that the job has
@@ -6366,12 +6404,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  */
 @interface GTLRBigquery_SnapshotDefinition : GTLRObject
 
-/**
- *  [Required] Reference describing the ID of the table that is snapshotted.
- */
+/** [Required] Reference describing the ID of the table that was snapshot. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTableReference;
 
-/** [Required] The time at which the base table was snapshot. */
+/**
+ *  [Required] The time at which the base table was snapshot. This value is
+ *  reported in the JSON response using RFC3339 format.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *snapshotTime;
 
 @end
@@ -7845,6 +7884,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** [Required] A query that BigQuery executes when the view is referenced. */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  True if the column names are explicitly specified. For example by using the
+ *  'CREATE VIEW v(c1, c2) AS ...' syntax. Can only be set using BigQuery's
+ *  standard SQL: https://cloud.google.com/bigquery/sql-reference/
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useExplicitColumnNames;
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL for this view. The default

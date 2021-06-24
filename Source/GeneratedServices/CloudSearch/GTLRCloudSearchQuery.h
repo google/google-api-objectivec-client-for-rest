@@ -4,8 +4,9 @@
 // API:
 //   Cloud Search API (cloudsearch/v1)
 // Description:
-//   Cloud Search provides cloud-based search capabilities over G Suite data.
-//   The Cloud Search API allows indexing of non-G Suite data into Cloud Search.
+//   Cloud Search provides cloud-based search capabilities over Google Workspace
+//   data. The Cloud Search API allows indexing of non-Google Workspace data
+//   into Cloud Search.
 // Documentation:
 //   https://developers.google.com/cloud-search/docs/guides/
 
@@ -1096,12 +1097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  The Cloud Search Query API provides the search method, which returns the
- *  most relevant results from a user query. The results can come from G Suite
- *  Apps, such as Gmail or Google Drive, or they can come from data that you
- *  have indexed from a third party. **Note:** This API requires a standard end
- *  user account to execute. A service account can't perform Query API requests
- *  directly; to use a service account to perform queries, set up [G Suite
- *  domain-wide delegation of
+ *  most relevant results from a user query. The results can come from Google
+ *  Workspace apps, such as Gmail or Google Drive, or they can come from data
+ *  that you have indexed from a third party. **Note:** This API requires a
+ *  standard end user account to execute. A service account can't perform Query
+ *  API requests directly; to use a service account to perform queries, set up
+ *  [Google Workspace domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.search
@@ -1116,12 +1117,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Fetches a @c GTLRCloudSearch_SearchResponse.
  *
  *  The Cloud Search Query API provides the search method, which returns the
- *  most relevant results from a user query. The results can come from G Suite
- *  Apps, such as Gmail or Google Drive, or they can come from data that you
- *  have indexed from a third party. **Note:** This API requires a standard end
- *  user account to execute. A service account can't perform Query API requests
- *  directly; to use a service account to perform queries, set up [G Suite
- *  domain-wide delegation of
+ *  most relevant results from a user query. The results can come from Google
+ *  Workspace apps, such as Gmail or Google Drive, or they can come from data
+ *  that you have indexed from a third party. **Note:** This API requires a
+ *  standard end user account to execute. A service account can't perform Query
+ *  API requests directly; to use a service account to perform queries, set up
+ *  [Google Workspace domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
@@ -1136,7 +1137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Returns list of sources that user can use for Search and Suggest APIs.
  *  **Note:** This API requires a standard end user account to execute. A
  *  service account can't perform Query API requests directly; to use a service
- *  account to perform queries, set up [G Suite domain-wide delegation of
+ *  account to perform queries, set up [Google Workspace domain-wide delegation
+ *  of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.sources.list
@@ -1192,7 +1194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Returns list of sources that user can use for Search and Suggest APIs.
  *  **Note:** This API requires a standard end user account to execute. A
  *  service account can't perform Query API requests directly; to use a service
- *  account to perform queries, set up [G Suite domain-wide delegation of
+ *  account to perform queries, set up [Google Workspace domain-wide delegation
+ *  of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @return GTLRCloudSearchQuery_QuerySourcesList
@@ -1209,7 +1212,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Provides suggestions for autocompleting the query. **Note:** This API
  *  requires a standard end user account to execute. A service account can't
  *  perform Query API requests directly; to use a service account to perform
- *  queries, set up [G Suite domain-wide delegation of
+ *  queries, set up [Google Workspace domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.suggest
@@ -1226,7 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Provides suggestions for autocompleting the query. **Note:** This API
  *  requires a standard end user account to execute. A service account can't
  *  perform Query API requests directly; to use a service account to perform
- *  queries, set up [G Suite domain-wide delegation of
+ *  queries, set up [Google Workspace domain-wide delegation of
  *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SuggestRequest to include in the query.

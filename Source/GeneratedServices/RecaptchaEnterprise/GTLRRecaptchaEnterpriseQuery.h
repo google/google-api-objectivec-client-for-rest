@@ -288,8 +288,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key
- *  is migrated, it can be used from either product. SiteVerify requests will be
- *  billed as CreateAssessment calls.
+ *  is migrated, it can be used from either product. SiteVerify requests are
+ *  billed as CreateAssessment calls. You must be authenticated as one of the
+ *  current owners of the reCAPTCHA Site Key, and your user must have the
+ *  reCAPTCHA Enterprise Admin IAM role in the destination project.
  *
  *  Method: recaptchaenterprise.projects.keys.migrate
  *
@@ -308,8 +310,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key.
  *
  *  Migrates an existing key from reCAPTCHA to reCAPTCHA Enterprise. Once a key
- *  is migrated, it can be used from either product. SiteVerify requests will be
- *  billed as CreateAssessment calls.
+ *  is migrated, it can be used from either product. SiteVerify requests are
+ *  billed as CreateAssessment calls. You must be authenticated as one of the
+ *  current owners of the reCAPTCHA Site Key, and your user must have the
+ *  reCAPTCHA Enterprise Admin IAM role in the destination project.
  *
  *  @param object The @c
  *    GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1MigrateKeyRequest
@@ -340,7 +344,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The mask to control which field of the key get updated. If the
+ *  Optional. The mask to control which fields of the key get updated. If the
  *  mask is not present, all fields will be updated.
  *
  *  String format is a comma-separated list of fields.

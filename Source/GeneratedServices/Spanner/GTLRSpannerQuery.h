@@ -84,6 +84,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeGoo
 FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUseDatabaseEncryption;
 
 // ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Full representation of the scan is returned in the server response,
+ *  including `data`.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewFull;
+/**
+ *  Server responses only include `name`, `details`, `start_time` and
+ *  `end_time`. The default value. Note, the ListScans method may only use this
+ *  view type, others view types are not supported.
+ *
+ *  Value: "SUMMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewSummary;
+/**
+ *  Not specified, equivalent to SUMMARY.
+ *
+ *  Value: "VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -1174,6 +1199,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  */
 + (instancetype)queryWithObject:(GTLRSpanner_GetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Request a specific scan with Database-specific data for Cloud Key
+ *  Visualizer.
+ *
+ *  Method: spanner.projects.instances.databases.getScans
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans : GTLRSpannerQuery
+
+/** The upper bound for the time range to retrieve Scan data for. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The unique name of the scan containing the requested information,
+ *  specific to the Database service implementing this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  These fields restrict the Database-specific information returned in the
+ *  `Scan.data` field. If a `View` is provided that does not include the
+ *  `Scan.data` field, these are ignored. This range of time must be entirely
+ *  contained within the defined time range of the targeted scan. The lower
+ *  bound for the time range to retrieve Scan data for.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Specifies which parts of the Scan should be returned in the response. Note,
+ *  if left unspecified, the FULL view is assumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerViewViewUnspecified Not specified, equivalent to
+ *        SUMMARY. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerViewSummary Server responses only include `name`,
+ *        `details`, `start_time` and `end_time`. The default value. Note, the
+ *        ListScans method may only use this view type, others view types are
+ *        not supported. (Value: "SUMMARY")
+ *    @arg @c kGTLRSpannerViewFull Full representation of the scan is returned
+ *        in the server response, including `data`. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRSpanner_Scan.
+ *
+ *  Request a specific scan with Database-specific data for Cloud Key
+ *  Visualizer.
+ *
+ *  @param name Required. The unique name of the scan containing the requested
+ *    information, specific to the Database service implementing this interface.
+ *
+ *  @return GTLRSpannerQuery_ProjectsInstancesDatabasesGetScans
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2702,6 +2788,72 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerEncryptionConfigEncryptionTypeUse
  */
 + (instancetype)queryWithObject:(GTLRSpanner_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Return available scans given a Database-specific resource name.
+ *
+ *  Method: spanner.scans.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSpannerCloudPlatform
+ *    @c kGTLRAuthScopeSpannerData
+ */
+@interface GTLRSpannerQuery_ScansList : GTLRSpannerQuery
+
+/**
+ *  A filter expression to restrict the results based on information present in
+ *  the available Scan collection. The filter applies to all fields within the
+ *  Scan message except for `data`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of items to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The next_page_token value returned from a previous List request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the parent resource, specific to the Database
+ *  service implementing this interface.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Specifies which parts of the Scan should be returned in the response. Note,
+ *  only the SUMMARY view (the default) is currently supported for ListScans.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpannerViewViewUnspecified Not specified, equivalent to
+ *        SUMMARY. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRSpannerViewSummary Server responses only include `name`,
+ *        `details`, `start_time` and `end_time`. The default value. Note, the
+ *        ListScans method may only use this view type, others view types are
+ *        not supported. (Value: "SUMMARY")
+ *    @arg @c kGTLRSpannerViewFull Full representation of the scan is returned
+ *        in the server response, including `data`. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRSpanner_ListScansResponse.
+ *
+ *  Return available scans given a Database-specific resource name.
+ *
+ *  @param parent Required. The unique name of the parent resource, specific to
+ *    the Database service implementing this interface.
+ *
+ *  @return GTLRSpannerQuery_ScansList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

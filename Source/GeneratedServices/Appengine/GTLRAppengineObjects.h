@@ -759,6 +759,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_ServingS
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
 
+// ----------------------------------------------------------------------------
+// GTLRAppengine_VpcAccessConnector.egressSetting
+
+/**
+ *  Force the use of VPC Access for all egress traffic from the function.
+ *
+ *  Value: "ALL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic;
+/** Value: "EGRESS_SETTING_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified;
+/**
+ *  Use the VPC Access Connector for private IP space from RFC1918.
+ *
+ *  Value: "PRIVATE_IP_RANGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges;
+
 /**
  *  Google Cloud Endpoints
  *  (https://cloud.google.com/appengine/docs/python/endpoints/) configuration
@@ -3607,6 +3625,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_Version_ServingStatus_Stopped;
  *  VPC access connector specification.
  */
 @interface GTLRAppengine_VpcAccessConnector : GTLRObject
+
+/**
+ *  The egress setting for the connector, controlling what traffic is diverted
+ *  through it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_AllTraffic Force
+ *        the use of VPC Access for all egress traffic from the function.
+ *        (Value: "ALL_TRAFFIC")
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_EgressSettingUnspecified
+ *        Value "EGRESS_SETTING_UNSPECIFIED"
+ *    @arg @c kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
+ *        Use the VPC Access Connector for private IP space from RFC1918.
+ *        (Value: "PRIVATE_IP_RANGES")
+ */
+@property(nonatomic, copy, nullable) NSString *egressSetting;
 
 /**
  *  Full Serverless VPC Access Connector name e.g.

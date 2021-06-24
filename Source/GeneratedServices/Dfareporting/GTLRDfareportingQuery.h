@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Campaign Manager 360 API (dfareporting/v3.4)
+//   Campaign Manager 360 API (dfareporting/v3.5)
 // Description:
 //   Build applications to efficiently manage large or complex trafficking,
 //   reporting, and attribution workflows for Campaign Manager 360.
@@ -36,7 +36,6 @@
 @class GTLRDfareporting_CreativeField;
 @class GTLRDfareporting_CreativeFieldValue;
 @class GTLRDfareporting_CreativeGroup;
-@class GTLRDfareporting_CustomEventsBatchInsertRequest;
 @class GTLRDfareporting_DimensionValueRequest;
 @class GTLRDfareporting_DirectorySite;
 @class GTLRDfareporting_DynamicTargetingKey;
@@ -4269,35 +4268,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @return GTLRDfareportingQuery_CreativesUpdate
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_Creative *)object
-                      profileId:(long long)profileId;
-
-@end
-
-/**
- *  Inserts custom events.
- *
- *  Method: dfareporting.customEvents.batchinsert
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDfareportingDdmconversions
- */
-@interface GTLRDfareportingQuery_CustomEventsBatchinsert : GTLRDfareportingQuery
-
-/** User profile ID associated with this request. */
-@property(nonatomic, assign) long long profileId;
-
-/**
- *  Fetches a @c GTLRDfareporting_CustomEventsBatchInsertResponse.
- *
- *  Inserts custom events.
- *
- *  @param object The @c GTLRDfareporting_CustomEventsBatchInsertRequest to
- *    include in the query.
- *  @param profileId User profile ID associated with this request.
- *
- *  @return GTLRDfareportingQuery_CustomEventsBatchinsert
- */
-+ (instancetype)queryWithObject:(GTLRDfareporting_CustomEventsBatchInsertRequest *)object
                       profileId:(long long)profileId;
 
 @end

@@ -957,7 +957,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
-/** Text translated into the target language. */
+/**
+ *  Text translated into the target language. If an error occurs during
+ *  translation, this field might be excluded from the response.
+ */
 @property(nonatomic, copy, nullable) NSString *translatedText;
 
 @end

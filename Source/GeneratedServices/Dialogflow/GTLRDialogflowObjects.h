@@ -24,6 +24,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Agent;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3AudioInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1AudioInput;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurn;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput_InjectedParameters;
@@ -84,6 +85,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestSentimentAnalysisResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput_InjectedParameters;
@@ -352,6 +354,28 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult.result
+
+/**
+ *  Not specified. Should never be used.
+ *
+ *  Value: "AGGREGATED_TEST_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_AggregatedTestResultUnspecified;
+/**
+ *  At least one test did not pass.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Failed;
+/**
+ *  All the tests passed.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Passed;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3beta1GenericKnowledgeOperationMetadata.state
 
 /**
@@ -598,6 +622,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta
  *  Value: "REPLACE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookResponseFulfillmentResponse_MergeBehavior_Replace;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult.result
+
+/**
+ *  Not specified. Should never be used.
+ *
+ *  Value: "AGGREGATED_TEST_RESULT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_AggregatedTestResultUnspecified;
+/**
+ *  At least one test did not pass.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Failed;
+/**
+ *  All the tests passed.
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Passed;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.responseType
+
+/**
+ *  Final response.
+ *
+ *  Value: "FINAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Final;
+/**
+ *  Partial response. e.g. Aggregated responses in a Fulfillment that enables
+ *  `return_partial_response` can be returned as partial response. WARNING:
+ *  partial response is not eligible for barge-in.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Partial;
+/**
+ *  Not specified. This should never happen.
+ *
+ *  Value: "RESPONSE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_ResponseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3EntityType.autoExpansionMode
@@ -1124,8 +1194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Rest
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings.purgeDataTypes
 
 /**
- *  Dialogflow history. This does not include Stackdriver log, which is owned by
- *  the user not Dialogflow.
+ *  Dialogflow history. This does not include Cloud logging, which is owned by
+ *  the user - not Dialogflow.
  *
  *  Value: "DIALOGFLOW_HISTORY"
  */
@@ -2562,8 +2632,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *avatarUri;
 
 /**
- *  Immutable. The default language of the agent as a language tag. See
- *  [Language
+ *  Required. Immutable. The default language of the agent as a language tag.
+ *  See [Language
  *  Support](https://cloud.google.com/dialogflow/cx/docs/reference/language) for
  *  a list of the currently supported language codes. This field cannot be set
  *  by the Agents.UpdateAgent method.
@@ -2790,6 +2860,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a result from running a test case in an agent environment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult : GTLRObject
+
+/**
+ *  The resource name for the continuous test result. Format:
+ *  `projects//locations//agents//environments//continuousTestResults/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The result of this continuous test run, i.e. whether all the tests in this
+ *  continuous test run pass or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_AggregatedTestResultUnspecified
+ *        Not specified. Should never be used. (Value:
+ *        "AGGREGATED_TEST_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Failed
+ *        At least one test did not pass. (Value: "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult_Result_Passed
+ *        All the tests passed. (Value: "PASSED")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/** Time when the continuous testing run starts. */
+@property(nonatomic, strong, nullable) GTLRDateTime *runTime;
+
+/**
+ *  A list of individual test case results names in this continuous test run.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *testCaseResults;
+
+@end
+
+
+/**
  *  One interaction between a human and virtual agent. The human provides some
  *  input and the virtual agent provides a response.
  */
@@ -2808,6 +2915,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The input from the human user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ConversationTurnUserInput : GTLRObject
+
+/**
+ *  Whether sentiment analysis is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSentimentAnalysis;
 
 /**
  *  Parameters that need to be injected into the conversation during intent
@@ -3208,6 +3322,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ResponseMessage *> *messages;
+
+/**
+ *  Whether Dialogflow should return currently queued fulfillment response
+ *  messages in streaming APIs. If a webhook is specified, it happens before
+ *  Dialogflow invokes webhook. Warning: 1) This flag only affects streaming
+ *  API. Responses are still queued and returned once in non-streaming API. 2)
+ *  The flag can be enabled in any fulfillment but only the first 3 partial
+ *  responses will be returned. You may only want to apply it to fulfillments
+ *  that have slow webhooks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnPartialResponses;
 
 /** Set parameter values before executing the webhook. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1FulfillmentSetParameterAction *> *setParameterActions;
@@ -4191,6 +4318,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Environments.RunContinuousTest long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestMetadata : GTLRObject
+
+/** The test errors. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3beta1TestError *> *errors;
+
+@end
+
+
+/**
+ *  The response message for Environments.RunContinuousTest.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunContinuousTestResponse : GTLRObject
+
+/** The result for a continuous test run. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1ContinuousTestResult *continuousTestResult;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.RunTestCase long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1RunTestCaseMetadata : GTLRObject
@@ -4794,6 +4944,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Represents a result from running a test case in an agent environment.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult : GTLRObject
+
+/**
+ *  The resource name for the continuous test result. Format:
+ *  `projects//locations//agents//environments//continuousTestResults/`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The result of this continuous test run, i.e. whether all the tests in this
+ *  continuous test run pass or not.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_AggregatedTestResultUnspecified
+ *        Not specified. Should never be used. (Value:
+ *        "AGGREGATED_TEST_RESULT_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Failed
+ *        At least one test did not pass. (Value: "FAILED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult_Result_Passed
+ *        All the tests passed. (Value: "PASSED")
+ */
+@property(nonatomic, copy, nullable) NSString *result;
+
+/** Time when the continuous testing run starts. */
+@property(nonatomic, strong, nullable) GTLRDateTime *runTime;
+
+/**
+ *  A list of individual test case results names in this continuous test run.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *testCaseResults;
+
+@end
+
+
+/**
  *  One interaction between a human and virtual agent. The human provides some
  *  input and the virtual agent provides a response.
  */
@@ -4812,6 +4999,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  The input from the human user.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput : GTLRObject
+
+/**
+ *  Whether sentiment analysis is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableSentimentAnalysis;
 
 /**
  *  Parameters that need to be injected into the conversation during intent
@@ -4971,6 +5165,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse : GTLRObject
 
 /**
+ *  Indicates whether the partial response can be cancelled when a later
+ *  response arrives. e.g. if the agent specified some music as partial
+ *  response, it can be cancelled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowCancellation;
+
+/**
  *  The audio data bytes encoded as specified in the request. Note: The output
  *  audio is generated based on the values of default platform text responses
  *  found in the `query_result.response_messages` field. If multiple default
@@ -4996,6 +5199,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  a response in the training example set or for reporting issues.
  */
 @property(nonatomic, copy, nullable) NSString *responseId;
+
+/**
+ *  Response type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Final
+ *        Final response. (Value: "FINAL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Partial
+ *        Partial response. e.g. Aggregated responses in a Fulfillment that
+ *        enables `return_partial_response` can be returned as partial response.
+ *        WARNING: partial response is not eligible for barge-in. (Value:
+ *        "PARTIAL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_ResponseTypeUnspecified
+ *        Not specified. This should never happen. (Value:
+ *        "RESPONSE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *responseType;
 
 @end
 
@@ -5927,6 +6147,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** The list of rich message responses to present to the user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *messages;
 
+/**
+ *  Whether Dialogflow should return currently queued fulfillment response
+ *  messages in streaming APIs. If a webhook is specified, it happens before
+ *  Dialogflow invokes webhook. Warning: 1) This flag only affects streaming
+ *  API. Responses are still queued and returned once in non-streaming API. 2)
+ *  The flag can be enabled in any fulfillment but only the first 3 partial
+ *  responses will be returned. You may only want to apply it to fulfillments
+ *  that have slow webhooks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *returnPartialResponses;
+
 /** Set parameter values before executing the webhook. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3FulfillmentSetParameterAction *> *setParameterActions;
 
@@ -6327,9 +6560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  letters, digits and the symbols '-' and '_'. International characters are
  *  allowed, including letters from unicase alphabets. Keys must start with a
  *  letter. Keys and values can be no longer than 63 characters and no more than
- *  128 bytes. Prefix "sys." is reserved for Dialogflow defined labels.
- *  Currently allowed Dialogflow defined labels include: * sys.head *
- *  sys.contextual The above labels do not require value. "sys.head" means the
+ *  128 bytes. Prefix "sys-" is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys-head *
+ *  sys-contextual The above labels do not require value. "sys-head" means the
  *  intent is a head intent. "sys.contextual" means the intent is a contextual
  *  intent.
  */
@@ -6370,9 +6603,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  letters, digits and the symbols '-' and '_'. International characters are
  *  allowed, including letters from unicase alphabets. Keys must start with a
  *  letter. Keys and values can be no longer than 63 characters and no more than
- *  128 bytes. Prefix "sys." is reserved for Dialogflow defined labels.
- *  Currently allowed Dialogflow defined labels include: * sys.head *
- *  sys.contextual The above labels do not require value. "sys.head" means the
+ *  128 bytes. Prefix "sys-" is reserved for Dialogflow defined labels.
+ *  Currently allowed Dialogflow defined labels include: * sys-head *
+ *  sys-contextual The above labels do not require value. "sys-head" means the
  *  intent is a head intent. "sys.contextual" means the intent is a contextual
  *  intent.
  *
@@ -6551,6 +6784,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Agent *> *agents;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response message for Environments.ListTestCaseResults.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "continuousTestResults" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse : GTLRCollectionObject
+
+/**
+ *  The list of continuous test results.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult *> *continuousTestResults;
 
 /**
  *  Token to retrieve the next page of results, or empty if there are no more
@@ -7441,11 +7701,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  The unique identifier of the page to override the current page in the
- *  session. Format: `projects//locations//agents//pages/`. If `current_page` is
- *  specified, the previous state of the session will be ignored by Dialogflow,
- *  including the previous page and the previous session parameters. In most
- *  cases, current_page and parameters should be configured together to direct a
- *  session to a specific state.
+ *  session. Format: `projects//locations//agents//flows//pages/`. If
+ *  `current_page` is specified, the previous state of the session will be
+ *  ignored by Dialogflow, including the previous page and the previous session
+ *  parameters. In most cases, current_page and parameters should be configured
+ *  together to direct a session to a specific state.
  */
 @property(nonatomic, copy, nullable) NSString *currentPage;
 
@@ -7462,14 +7722,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Additional parameters to be put into session parameters. To remove a
  *  parameter from the session, clients should explicitly set the parameter
- *  value to null. Depending on your protocol or client library language, this
- *  is a map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs: - MapKey type: string
- *  - MapKey value: parameter name - MapValue type: - If parameter's entity type
- *  is a composite entity: map - Else: depending on parameter value type, could
- *  be one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  value to null. You can reference the session parameters in the agent with
+ *  the following format: $session.params.parameter-id. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: depending on parameter value type, could be one of string,
+ *  number, boolean, null, list or map - MapValue value: - If parameter's entity
+ *  type is a composite entity: map from composite entity property names to
+ *  property values - Else: parameter value
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters_Parameters *parameters;
 
@@ -7514,14 +7776,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /**
  *  Additional parameters to be put into session parameters. To remove a
  *  parameter from the session, clients should explicitly set the parameter
- *  value to null. Depending on your protocol or client library language, this
- *  is a map, associative array, symbol table, dictionary, or JSON object
- *  composed of a collection of (MapKey, MapValue) pairs: - MapKey type: string
- *  - MapKey value: parameter name - MapValue type: - If parameter's entity type
- *  is a composite entity: map - Else: depending on parameter value type, could
- *  be one of string, number, boolean, null, list or map - MapValue value: - If
- *  parameter's entity type is a composite entity: map from composite entity
- *  property names to property values - Else: parameter value
+ *  value to null. You can reference the session parameters in the agent with
+ *  the following format: $session.params.parameter-id. Depending on your
+ *  protocol or client library language, this is a map, associative array,
+ *  symbol table, dictionary, or JSON object composed of a collection of
+ *  (MapKey, MapValue) pairs: - MapKey type: string - MapKey value: parameter
+ *  name - MapValue type: - If parameter's entity type is a composite entity:
+ *  map - Else: depending on parameter value type, could be one of string,
+ *  number, boolean, null, list or map - MapValue value: - If parameter's entity
+ *  type is a composite entity: map from composite entity property names to
+ *  property values - Else: parameter value
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8050,6 +8314,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Metadata returned for the Environments.RunContinuousTest long running
+ *  operation.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestMetadata : GTLRObject
+
+/** The test errors. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TestError *> *errors;
+
+@end
+
+
+/**
+ *  The request message for Environments.RunContinuousTest.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest : GTLRObject
+@end
+
+
+/**
+ *  The response message for Environments.RunContinuousTest.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestResponse : GTLRObject
+
+/** The result for a continuous test run. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult *continuousTestResult;
+
+@end
+
+
+/**
  *  Metadata returned for the TestCases.RunTestCase long running operation.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3RunTestCaseMetadata : GTLRObject
@@ -8095,11 +8389,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  DLP inspect template name. Use this template to define inspect base
- *  settings. If empty, we use the default DLP inspect config. The template name
- *  will have one of the following formats:
- *  `projects/PROJECT_ID/inspectTemplates/TEMPLATE_ID` OR
- *  `organizations/ORGANIZATION_ID/inspectTemplates/TEMPLATE_ID`
+ *  [DLP](https://cloud.google.com/dlp/docs) inspect template name. Use this
+ *  template to define inspect base settings. If empty, we use the default DLP
+ *  inspect config. The template name will have one of the following formats:
+ *  `projects//inspectTemplates/` OR `projects//locations//inspectTemplates/` OR
+ *  `organizations//inspectTemplates/`
  */
 @property(nonatomic, copy, nullable) NSString *inspectTemplate;
 
@@ -8113,8 +8407,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<NSString *> *purgeDataTypes;
 
 /**
- *  Defines on what data we apply redaction. Note that we don't redact data to
- *  which we don't have access, e.g., Stackdriver logs.
+ *  Defines the data for which Dialogflow applies redaction. Dialogflow does not
+ *  redact data that it does not have access to – for example, Cloud logging.
  *
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_RedactionScope_RedactDiskStorage
@@ -8139,10 +8433,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *redactionStrategy;
 
 /**
- *  Retains the data for the specified number of days. User must Set a value
- *  lower than Dialogflow's default 30d TTL. Setting a value higher than that
- *  has no effect. A missing value or setting to 0 also means we use
- *  Dialogflow's default TTL.
+ *  Retains data in interaction logging for the specified number of days. This
+ *  does not apply to Cloud logging, which is owned by the user - not
+ *  Dialogflow. User must Set a value lower than Dialogflow's default 30d TTL.
+ *  Setting a value higher than that has no effect. A missing value or setting
+ *  to 0 also means we use Dialogflow's default TTL. Note: Interaction logging
+ *  is a limited access feature. Talk to your Google representative to check
+ *  availability for you.
  *
  *  Uses NSNumber of intValue.
  */
@@ -11552,6 +11849,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSNumber *allRequiredParamsPresent;
 
 /**
+ *  Indicates whether the conversational query triggers a cancellation for slot
+ *  filling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelsSlotFilling;
+
+/**
  *  Free-form diagnostic information for the associated detect intent request.
  *  The fields of this data can change without notice, so you should not write
  *  code that depends on its structure. The data may contain: - webhook call
@@ -13620,6 +13925,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allRequiredParamsPresent;
+
+/**
+ *  Indicates whether the conversational query triggers a cancellation for slot
+ *  filling.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelsSlotFilling;
 
 /**
  *  Free-form diagnostic information for the associated detect intent request.

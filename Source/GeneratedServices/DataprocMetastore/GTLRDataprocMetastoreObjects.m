@@ -469,7 +469,8 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_MetadataImport
-@dynamic createTime, databaseDump, descriptionProperty, name, state, updateTime;
+@dynamic createTime, databaseDump, descriptionProperty, endTime, name, state,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

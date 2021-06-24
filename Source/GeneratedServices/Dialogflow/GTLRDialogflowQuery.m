@@ -199,6 +199,25 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
 
 @end
 
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/continuousTestResults";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsContinuousTestResultsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleCloudDialogflowCxV3ListContinuousTestResultsResponse class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.continuousTestResults.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsCreate
 
 @dynamic parent;
@@ -489,6 +508,33 @@ NSString * const kGTLRDialogflowViewTestCaseViewUnspecified = @"TEST_CASE_VIEW_U
   query.name = name;
   query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
   query.loggingName = @"dialogflow.projects.locations.agents.environments.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest
+
+@dynamic environment;
+
++ (instancetype)queryWithObject:(GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestRequest *)object
+                    environment:(NSString *)environment {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v3/{+environment}:runContinuousTest";
+  GTLRDialogflowQuery_ProjectsLocationsAgentsEnvironmentsRunContinuousTest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRDialogflow_GoogleLongrunningOperation class];
+  query.loggingName = @"dialogflow.projects.locations.agents.environments.runContinuousTest";
   return query;
 }
 

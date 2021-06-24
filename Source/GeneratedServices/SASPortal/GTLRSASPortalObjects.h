@@ -358,6 +358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
 /** The deployment's display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Output only. The FRNs copied from its direct parent. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *frns;
+
 /** Output only. Resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1123,6 +1126,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  Request message for `SetPolicy` method.
  */
 @interface GTLRSASPortal_SetPolicyRequest : GTLRObject
+
+/**
+ *  Optional. Set the field as true when we would like to disable the onboarding
+ *  notification.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableNotification;
 
 /** Required. The policy to be applied to the `resource`. */
 @property(nonatomic, strong, nullable) GTLRSASPortal_Policy *policy;

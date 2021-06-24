@@ -386,6 +386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_St
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Environment_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1EnvironmentGroup.state
@@ -414,6 +420,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGro
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Instance.peeringCidrRange
@@ -488,6 +500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1NatAddress.state
@@ -630,6 +648,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_S
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Organization_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Organization.subscriptionType
@@ -2821,7 +2845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GTLRApigee_GoogleCloudApigeeV1DeploymentConfig
+ *  NEXT ID: 9
  */
 @interface GTLRApigee_GoogleCloudApigeeV1DeploymentConfig : GTLRObject
 
@@ -2843,6 +2867,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Unique ID of the API proxy revision. */
 @property(nonatomic, copy, nullable) NSString *proxyUid;
+
+/**
+ *  The service account identity associated with this deployment. If non-empty,
+ *  will be in the following format:
+ *  `projects/-/serviceAccounts/{account_email}`
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Unique ID. The ID will only change if the deployment is deleted and
@@ -3211,6 +3242,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_StateUnspecified
  *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Environment_State_Updating The
+ *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3353,6 +3386,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_StateUnspecified
  *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EnvironmentGroup_State_Updating The
+ *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3596,21 +3631,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GraphQLOperation represents the pairing of graphQL operation types and the
- *  graphQL operation name.
+ *  Represents the pairing of GraphQL operation types and the GraphQL operation
+ *  name.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1GraphQLOperation : GTLRObject
 
 /**
- *  GraphQL operation name, along with operation type which will be used to
- *  associate quotas with. If no name is specified, the quota will be applied to
- *  all graphQL operations irrespective of their operation names in the payload.
+ *  GraphQL operation name. The name and operation type will be used to apply
+ *  quotas. If no name is specified, the quota will be applied to all GraphQL
+ *  operations irrespective of their operation names in the payload.
  */
 @property(nonatomic, copy, nullable) NSString *operation;
 
 /**
- *  Required. `query`, `mutation` and `subscription` are the three operation
- *  types offered by graphQL. Currently we support only `query` and `mutation`.
+ *  Required. GraphQL operation types. Valid values include `query` or
+ *  `mutation`. **Note**: Apigee does not currently support `subscription`
+ *  types.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationTypes;
 
@@ -3618,14 +3654,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  GraphQLOperationConfig binds the resources in a proxy or remote service with
- *  the graphQL operation and its associated quota enforcement.
+ *  Binds the resources in a proxy or remote service with the GraphQL operation
+ *  and its associated quota enforcement.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig : GTLRObject
 
 /**
- *  Required. API proxy endpoint or remote service name with which the graphQL
- *  operation, and quota are associated.
+ *  Required. Name of the API proxy endpoint or remote service with which the
+ *  GraphQL operation and quota are associated.
  */
 @property(nonatomic, copy, nullable) NSString *apiSource;
 
@@ -3633,17 +3669,16 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
 
 /**
- *  Required. List of graphQL name/Operation type pairs for the proxy/remote
- *  service, upon which quota will applied. If GraphQLOperation operation has
- *  only the operation type(s), that would imply that quota will be applied on
- *  all graphQL requests irrespective of the graphQL name. **Note**: Currently,
- *  we can specify only a single GraphQLOperation. Specifying more than one will
- *  result in failure of the operation.
+ *  Required. List of GraphQL name/operation type pairs for the proxy or remote
+ *  service to which quota will be applied. If only operation types are
+ *  specified, the quota will be applied to all GraphQL requests irrespective of
+ *  the GraphQL name. **Note**: Currently, you can specify only a single
+ *  GraphQLOperation. Specifying more than one will cause the operation to fail.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1GraphQLOperation *> *operations;
 
 /**
- *  Quota parameters to be enforced for the resources, methods, api_source
+ *  Quota parameters to be enforced for the resources, methods, and API source
  *  combination. If none are specified, quota enforcement will not be done.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
@@ -3665,8 +3700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1GraphQLOperationConfig *> *operationConfigs;
 
 /**
- *  Flag that specifes whether the configuration is for Apigee API proxy or a
- *  remote service. Valid values are `proxy` or `remoteservice`. Defaults to
+ *  Flag that specifies whether the configuration is for Apigee API proxy or a
+ *  remote service. Valid values include `proxy` or `remoteservice`. Defaults to
  *  `proxy`. Set to `proxy` when Apigee API proxies are associated with the API
  *  product. Set to `remoteservice` when non-Apigee proxies like Istio-Envoy are
  *  associated with the API product.
@@ -3801,6 +3836,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified
  *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating The
+ *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -4493,8 +4530,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Operation represents the pairing of REST resource path and the actions
- *  (verbs) allowed on the resource path.
+ *  Represents the pairing of REST resource path and the actions (verbs) allowed
+ *  on the resource path.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Operation : GTLRObject
 
@@ -4506,8 +4543,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
 
 /**
- *  Required. resource represents REST resource path associated with the
- *  proxy/remote service.
+ *  Required. REST resource path associated with the API proxy or remote
+ *  service.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -4515,13 +4552,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  OperationConfig binds the resources in a proxy or remote service with the
- *  allowed REST methods and its associated quota enforcement.
+ *  Binds the resources in an API proxy or remote service with the allowed REST
+ *  methods and associated quota enforcement.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1OperationConfig : GTLRObject
 
 /**
- *  Required. API proxy or remote service name with which the resources,
+ *  Required. Name of the API proxy or remote service with which the resources,
  *  methods, and quota are associated.
  */
 @property(nonatomic, copy, nullable) NSString *apiSource;
@@ -4530,15 +4567,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
 
 /**
- *  List of resource/method pairs for the proxy/remote service, upon which quota
- *  will applied. **Note**: Currently, you can specify only a single
+ *  List of resource/method pairs for the API proxy or remote service to which
+ *  quota will applied. **Note**: Currently, you can specify only a single
  *  resource/method pair. The call will fail if more than one resource/method
  *  pair is provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Operation *> *operations;
 
 /**
- *  Quota parameters to be enforced for the resources, methods, api_source
+ *  Quota parameters to be enforced for the resources, methods, and API source
  *  combination. If none are specified, quota enforcement will not be done.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1Quota *quota;
@@ -4561,7 +4598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Flag that specifes whether the configuration is for Apigee API proxy or a
- *  remote service. Valid values are `proxy` or `remoteservice`. Defaults to
+ *  remote service. Valid values include `proxy` or `remoteservice`. Defaults to
  *  `proxy`. Set to `proxy` when Apigee API proxies are associated with the API
  *  product. Set to `remoteservice` when non-Apigee proxies like Istio-Envoy are
  *  associated with the API product.
@@ -4884,6 +4921,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        resource is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_StateUnspecified
  *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Organization_State_Updating The
+ *        resource is being updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5222,10 +5261,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  Quota contains the essential parameters needed that can be applied on a
- *  proxy/remote service, resources and methods combination associated with this
- *  API product. While setting of Quota is optional, setting it prevents
- *  requests from exceeding the provisioned parameters.
+ *  Quota contains the essential parameters needed that can be applied on the
+ *  resources, methods, API source combination associated with this API product.
+ *  While Quota is optional, setting it prevents requests from exceeding the
+ *  provisioned parameters.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1Quota : GTLRObject
 
@@ -5754,7 +5793,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Errors reported when attempting to load this revision. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1UpdateError *> *errors;
 
-/** The json content of the resource revision. */
+/**
+ *  The json content of the resource revision. Large specs should be sent
+ *  individually via the spec field to avoid hitting request size limits.
+ */
 @property(nonatomic, copy, nullable) NSString *jsonSpec;
 
 /**
@@ -5813,6 +5855,36 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  unless the GetDeployedIngressConfig API is called with view=FULL.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Runtime configuration for the organization. Response for GetRuntimeConfig.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1RuntimeConfig : GTLRObject
+
+/** Cloud Storage bucket used for uploading Analytics records. */
+@property(nonatomic, copy, nullable) NSString *analyticsBucket;
+
+/**
+ *  Name of the resource in the following format:
+ *  `organizations/{org}/runtimeConfig`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Tenant project ID associated with the Apigee organization. The
+ *  tenant project is used to host Google-managed resources that are dedicated
+ *  to this Apigee organization. Clients have limited access to resources within
+ *  the tenant project used to support Apigee runtime instances. Access to the
+ *  tenant project is managed using SetSyncAuthorization. It can be empty if the
+ *  tenant project hasn't been created yet.
+ */
+@property(nonatomic, copy, nullable) NSString *tenantProjectId;
+
+/** Cloud Storage bucket used for uploading Trace records. */
+@property(nonatomic, copy, nullable) NSString *traceBucket;
 
 @end
 

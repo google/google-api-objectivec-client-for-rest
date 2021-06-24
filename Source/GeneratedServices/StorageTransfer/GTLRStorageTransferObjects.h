@@ -374,10 +374,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_AwsS3Data : GTLRObject
 
 /**
- *  Required. Input only. AWS access key used to sign the API requests to the
- *  AWS S3 bucket. Permissions on the bucket must be granted to the access ID of
- *  the AWS access key. For information on our data retention policy for user
- *  credentials, see [User
+ *  Input only. AWS access key used to sign the API requests to the AWS S3
+ *  bucket. Permissions on the bucket must be granted to the access ID of the
+ *  AWS access key. This field is required. For information on our data
+ *  retention policy for user credentials, see [User
  *  credentials](/storage-transfer/docs/data-retention#user-credentials).
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_AwsAccessKey *awsAccessKey;
@@ -663,16 +663,16 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_GcsData : GTLRObject
 
 /**
- *  Required. Cloud Storage bucket name (see [Bucket Name
- *  Requirements](https://cloud.google.com/storage/docs/naming#requirements)).
+ *  Required. Cloud Storage bucket name. Must meet [Bucket Name
+ *  Requirements](/storage/docs/naming#requirements).
  */
 @property(nonatomic, copy, nullable) NSString *bucketName;
 
 /**
  *  Root path to transfer objects. Must be an empty string or full path name
  *  that ends with a '/'. This field is treated as an object prefix. As such, it
- *  should generally not begin with a '/'. (must meet Object Name
- *  Requirements](https://cloud.google.com/storage/docs/naming#objectnames)).
+ *  should generally not begin with a '/'. The root path value must meet [Object
+ *  Name Requirements](/storage/docs/naming#objectnames).
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
@@ -709,11 +709,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  computed from the transferred bytes, the object transfer will fail. * Ensure
  *  that each URL you specify is publicly accessible. For example, in Cloud
  *  Storage you can [share an object publicly]
- *  (https://cloud.google.com/storage/docs/cloud-console#_sharingdata) and get a
- *  link to it. * Storage Transfer Service obeys `robots.txt` rules and requires
- *  the source HTTP server to support `Range` requests and to return a
- *  `Content-Length` header in each response. * ObjectConditions have no effect
- *  when filtering objects to transfer.
+ *  (/storage/docs/cloud-console#_sharingdata) and get a link to it. * Storage
+ *  Transfer Service obeys `robots.txt` rules and requires the source HTTP
+ *  server to support `Range` requests and to return a `Content-Length` header
+ *  in each response. * ObjectConditions have no effect when filtering objects
+ *  to transfer.
  */
 @interface GTLRStorageTransfer_HttpData : GTLRObject
 
@@ -1519,7 +1519,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Required. The job to update. `transferJob` is expected to specify only four
  *  fields: description, transfer_spec, notification_config, and status. An
  *  `UpdateTransferJobRequest` that specifies other fields are rejected with the
- *  error INVALID_ARGUMENT. Updating a job satus to DELETED requires
+ *  error INVALID_ARGUMENT. Updating a job status to DELETED requires
  *  `storagetransfer.jobs.delete` permissions.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_TransferJob *transferJob;

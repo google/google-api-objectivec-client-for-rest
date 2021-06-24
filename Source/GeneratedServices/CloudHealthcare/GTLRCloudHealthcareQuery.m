@@ -21,6 +21,7 @@ NSString * const kGTLRCloudHealthcareViewFull                  = @"FULL";
 NSString * const kGTLRCloudHealthcareViewMessageViewUnspecified = @"MESSAGE_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudHealthcareViewParsedOnly            = @"PARSED_ONLY";
 NSString * const kGTLRCloudHealthcareViewRawOnly               = @"RAW_ONLY";
+NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_ONLY";
 
 // ----------------------------------------------------------------------------
 // Query Classes

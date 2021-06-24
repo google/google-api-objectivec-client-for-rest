@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Genomics API (genomics/v1)
+//   Genomics API (genomics/v2alpha1)
 // Description:
 //   Uploads, processes, queries, and searches Genomics data in the cloud.
 // Documentation:
@@ -119,6 +119,85 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_CancelOperationRequest
+//
+
+@implementation GTLRGenomics_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_CheckInRequest
+//
+
+@implementation GTLRGenomics_CheckInRequest
+@dynamic deadlineExpired, event, events, result, sosReport, workerStatus;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRGenomics_TimestampedEvent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_CheckInRequest_Event
+//
+
+@implementation GTLRGenomics_CheckInRequest_Event
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_CheckInResponse
+//
+
+@implementation GTLRGenomics_CheckInResponse
+@dynamic deadline, features, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_CheckInResponse_Features
+//
+
+@implementation GTLRGenomics_CheckInResponse_Features
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_CheckInResponse_Metadata
+//
+
+@implementation GTLRGenomics_CheckInResponse_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_ContainerKilledEvent
 //
 
@@ -191,6 +270,25 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_DiskStatus
+//
+
+@implementation GTLRGenomics_DiskStatus
+@dynamic freeSpaceBytes, totalSpaceBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Empty
+//
+
+@implementation GTLRGenomics_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_Event
 //
 
@@ -235,6 +333,28 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 @implementation GTLRGenomics_FailedEvent
 @dynamic cause, code;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_ListOperationsResponse
+//
+
+@implementation GTLRGenomics_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRGenomics_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
 @end
 
 
@@ -297,6 +417,44 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 @implementation GTLRGenomics_NFSMount
 @dynamic target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Operation
+//
+
+@implementation GTLRGenomics_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Operation_Metadata
+//
+
+@implementation GTLRGenomics_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Operation_Response
+//
+
+@implementation GTLRGenomics_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -383,6 +541,30 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_RunPipelineRequest
+//
+
+@implementation GTLRGenomics_RunPipelineRequest
+@dynamic labels, pipeline, pubSubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_RunPipelineRequest_Labels
+//
+
+@implementation GTLRGenomics_RunPipelineRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_RunPipelineResponse
 //
 
@@ -420,6 +602,62 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGenomics_Status
+//
+
+@implementation GTLRGenomics_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRGenomics_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_Status_Details_Item
+//
+
+@implementation GTLRGenomics_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_TimestampedEvent
+//
+
+@implementation GTLRGenomics_TimestampedEvent
+@dynamic data, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_TimestampedEvent_Data
+//
+
+@implementation GTLRGenomics_TimestampedEvent_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGenomics_UnexpectedExitStatusEvent
 //
 
@@ -436,7 +674,8 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 @implementation GTLRGenomics_VirtualMachine
 @dynamic accelerators, bootDiskSizeGb, bootImage, cpuPlatform, disks,
          dockerCacheImages, enableStackdriverMonitoring, labels, machineType,
-         network, nvidiaDriverVersion, preemptible, serviceAccount, volumes;
+         network, nvidiaDriverVersion, preemptible, reservation, serviceAccount,
+         volumes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -500,6 +739,30 @@ NSString * const kGTLRGenomics_FailedEvent_Code_Unknown        = @"UNKNOWN";
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_WorkerStatus
+//
+
+@implementation GTLRGenomics_WorkerStatus
+@dynamic attachedDisks, bootDisk, freeRamBytes, totalRamBytes, uptimeSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGenomics_WorkerStatus_AttachedDisks
+//
+
+@implementation GTLRGenomics_WorkerStatus_AttachedDisks
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGenomics_DiskStatus class];
 }
 
 @end

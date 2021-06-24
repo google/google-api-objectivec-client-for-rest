@@ -700,6 +700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 /**
  *  The maximum number of links to return in the response, used for pagination.
+ *  The minimum allowed value is 5 results per page. If provided value is lower
+ *  than 5, it will be automatically increased to 5.
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
@@ -4699,6 +4701,56 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Updates an existing product in your Merchant Center account. Only updates
+ *  attributes provided in the request.
+ *
+ *  Method: content.products.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ProductsUpdate : GTLRShoppingContentQuery
+
+/**
+ *  The ID of the account that contains the product. This account cannot be a
+ *  multi-client account.
+ */
+@property(nonatomic, assign) unsigned long long merchantId;
+
+/** The REST ID of the product for which to update. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The comma-separated list of product attributes to be updated. Example:
+ *  `"title,salePrice"`. Attributes specified in the update mask without a value
+ *  specified in the body will be deleted from the product. Only top-level
+ *  product attributes can be updated. If not defined, product attributes with
+ *  set values will be updated and other attributes will stay unchanged.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_Product.
+ *
+ *  Updates an existing product in your Merchant Center account. Only updates
+ *  attributes provided in the request.
+ *
+ *  @param object The @c GTLRShoppingContent_Product to include in the query.
+ *  @param merchantId The ID of the account that contains the product. This
+ *    account cannot be a multi-client account.
+ *  @param productId The REST ID of the product for which to update.
+ *
+ *  @return GTLRShoppingContentQuery_ProductsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_Product *)object
+                     merchantId:(unsigned long long)merchantId
+                      productId:(NSString *)productId;
+
+@end
+
+/**
  *  Retrieves a Merchant Center account's pubsub notification settings.
  *
  *  Method: content.pubsubnotificationsettings.get
@@ -4986,7 +5038,8 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @property(nonatomic, copy, nullable) NSString *regionId;
 
 /**
- *  Optional. The field mask indicating the fields to update.
+ *  Optional. The comma-separated field mask indicating the fields to update.
+ *  Example: `"displayName,postalCodeArea.regionCode"`.
  *
  *  String format is a comma-separated list of fields.
  */

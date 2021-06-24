@@ -982,8 +982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_Project_State_State
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  A possibly paginated list of TagBindings for the specified TagValue or
- *  resource.
+ *  A possibly paginated list of TagBindings for the specified resource.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

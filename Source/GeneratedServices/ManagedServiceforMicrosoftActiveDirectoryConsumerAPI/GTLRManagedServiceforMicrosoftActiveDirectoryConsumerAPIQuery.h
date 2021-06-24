@@ -26,6 +26,7 @@
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_CancelOperationRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_DetachTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain;
+@class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ReconfigureTrustRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ResetAdminPasswordRequest;
 @class GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SetIamPolicyRequest;
@@ -303,6 +304,37 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the domain ldaps settings.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.getLdapssettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. The domain resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings.
+ *
+ *  Gets the domain ldaps settings.
+ *
+ *  @param name Required. The domain resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain_name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsGetLdapssettings
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists domains in a project.
  *
  *  Method: managedidentities.projects.locations.global.domains.list
@@ -383,7 +415,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. Mask of fields to update. At least one path must be supplied in
  *  this field. The elements of the repeated paths field may only include fields
- *  from Domain: * `labels` * `locations` * `authorized_networks`
+ *  from Domain: * `labels` * `locations` * `authorized_networks` *
+ *  `audit_logs_enabled`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -520,6 +553,99 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets details of a single sqlIntegration.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.sqlIntegrations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Required. SQLIntegration resource name using the form:
+ *  `projects/{project_id}/locations/global/domains/{domain}/sqlIntegrations/{name}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.
+ *
+ *  Gets details of a single sqlIntegration.
+ *
+ *  @param name Required. SQLIntegration resource name using the form:
+ *    `projects/{project_id}/locations/global/domains/{domain}/sqlIntegrations/{name}`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SqlIntegrations in a given domain.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.sqlIntegrations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  Optional. Filter specifying constraints of a list operation. For example,
+ *  `SqlIntegration.name="sql"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specifies the ordering of results following syntax at
+ *  https://cloud.google.com/apis/design/design_patterns#sorting_order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response'ANIZATIONs next_page_token to determine if there are more
+ *  instances left to be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the SqlIntegrations using the form:
+ *  `projects/{project_id}/locations/global/domains/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListSqlIntegrationsResponse.
+ *
+ *  Lists SqlIntegrations in a given domain.
+ *
+ *  @param parent Required. The resource name of the SqlIntegrations using the
+ *    form: `projects/{project_id}/locations/global/domains/ *`
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsSqlIntegrationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
@@ -560,6 +686,50 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Patches a single ldaps settings.
+ *
+ *  Method: managedidentities.projects.locations.global.domains.updateLdapssettings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeManagedServiceforMicrosoftActiveDirectoryConsumerAPICloudPlatform
+ */
+@interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings : GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery
+
+/**
+ *  The resource name of the LDAPS settings. Uses the form:
+ *  `projects/{project}/locations/{location}/domains/{domain}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Mask of fields to update. At least one path must be supplied in
+ *  this field. For the `FieldMask` definition, see
+ *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation.
+ *
+ *  Patches a single ldaps settings.
+ *
+ *  @param object The @c
+ *    GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings to
+ *    include in the query.
+ *  @param name The resource name of the LDAPS settings. Uses the form:
+ *    `projects/{project}/locations/{location}/domains/{domain}`.
+ *
+ *  @return GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPIQuery_ProjectsLocationsGlobalDomainsUpdateLdapssettings
+ */
++ (instancetype)queryWithObject:(GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_LDAPSSettings *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -787,8 +957,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The maximum number of results to return. If not set, the service will select
- *  a default.
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

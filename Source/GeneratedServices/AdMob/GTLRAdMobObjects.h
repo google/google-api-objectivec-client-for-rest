@@ -87,6 +87,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AdU
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -114,12 +124,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
+ *  incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_GmaSdkVersion;
+/**
  *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
  *  and "AdMob (default)" as label value).
  *
  *  Value: "MEDIATION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MediationGroup;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
+ *  dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MobileOsVersion;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
@@ -133,6 +161,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Mon
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -246,6 +280,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -273,12 +317,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
+ *  incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_GmaSdkVersion;
+/**
  *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
  *  and "AdMob (default)" as label value).
  *
  *  Value: "MEDIATION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
+ *  dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MobileOsVersion;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
@@ -292,6 +354,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -332,6 +400,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString. **Warning:** The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -359,12 +437,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
+ *  incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_GmaSdkVersion;
+/**
  *  The unique ID of the mediation group (for example, "ca-app-pub-1234:mg:1234"
  *  and "AdMob (default)" as label value).
  *
  *  Value: "MEDIATION_GROUP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
+ *  dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *  [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics.
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MobileOsVersion;
 /**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
@@ -378,6 +474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -509,6 +611,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AdUni
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -536,6 +646,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Dimen
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0".
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_GmaSdkVersion;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_MobileOsVersion;
+/**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
  *
@@ -548,6 +670,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Month
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -661,6 +789,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -688,6 +824,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0".
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_GmaSdkVersion;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_MobileOsVersion;
+/**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
  *
@@ -700,6 +848,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -736,6 +890,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App;
 /**
+ *  For Android, the app version name can be found in versionName in
+ *  PackageInfo. For iOS, the app version name can be found in
+ *  CFBundleShortVersionString.
+ *
+ *  Value: "APP_VERSION_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AppVersionName;
+/**
  *  CLDR country code of the place where the ad views/clicks occur (for example,
  *  "US" or "FR"). This is a geography dimension.
  *
@@ -763,6 +925,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format;
 /**
+ *  GMA SDK version, e.g. "iOS 7.62.0".
+ *
+ *  Value: "GMA_SDK_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_GmaSdkVersion;
+/**
+ *  Mobile operating system version, e.g. "iOS 13.5.1".
+ *
+ *  Value: "MOBILE_OS_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_MobileOsVersion;
+/**
  *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *  at most one time dimension.
  *
@@ -775,6 +949,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  *  Value: "PLATFORM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform;
+/**
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *
+ *  Value: "SERVING_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_ServingRestriction;
 /**
  *  The date of the first day of a week in the YYYY-MM-DD format (for example,
  *  "2018-12-21"). Requests can specify at most one time dimension.
@@ -1399,6 +1579,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_App The
  *        unique ID of the mobile application (for example,
  *        "ca-app-pub-1234~1234"). (Value: "APP")
+ *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_AppVersionName
+ *        For Android, the app version name can be found in versionName in
+ *        PackageInfo. For iOS, the app version name can be found in
+ *        CFBundleShortVersionString. **Warning:** The dimension is incompatible
+ *        with [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country
  *        CLDR country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1412,16 +1599,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
  *        delivery dimension. (Value: "FORMAT")
+ *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_GmaSdkVersion
+ *        GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
+ *        incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "GMA_SDK_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
  *        (Value: "MEDIATION_GROUP")
+ *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MobileOsVersion
+ *        Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
+ *        dimension is incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
+ *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction
+ *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week The
  *        date of the first day of a week in the YYYY-MM-DD format (for example,
  *        "2018-12-21"). Requests can specify at most one time dimension.
@@ -1462,6 +1664,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_App The
  *        unique ID of the mobile application (for example,
  *        "ca-app-pub-1234~1234"). (Value: "APP")
+ *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_AppVersionName
+ *        For Android, the app version name can be found in versionName in
+ *        PackageInfo. For iOS, the app version name can be found in
+ *        CFBundleShortVersionString. **Warning:** The dimension is incompatible
+ *        with [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country CLDR
  *        country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1475,16 +1684,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
  *        delivery dimension. (Value: "FORMAT")
+ *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_GmaSdkVersion
+ *        GMA SDK version, e.g. "iOS 7.62.0". **Warning:** The dimension is
+ *        incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "GMA_SDK_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MediationGroup
  *        The unique ID of the mediation group (for example,
  *        "ca-app-pub-1234:mg:1234" and "AdMob (default)" as label value).
  *        (Value: "MEDIATION_GROUP")
+ *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MobileOsVersion
+ *        Mobile operating system version, e.g. "iOS 13.5.1". **Warning:** The
+ *        dimension is incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS),
+ *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
+ *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
+ *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction
+ *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week The
  *        date of the first day of a week in the YYYY-MM-DD format (for example,
  *        "2018-12-21"). Requests can specify at most one time dimension.
@@ -1646,6 +1870,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_App The
  *        unique ID of the mobile application (for example,
  *        "ca-app-pub-1234~1234"). (Value: "APP")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_AppVersionName
+ *        For Android, the app version name can be found in versionName in
+ *        PackageInfo. For iOS, the app version name can be found in
+ *        CFBundleShortVersionString. (Value: "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Country CLDR
  *        country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1659,12 +1887,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Format
  *        Format of the ad unit (for example, "banner", "native"), an ad
  *        delivery dimension. (Value: "FORMAT")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_GmaSdkVersion
+ *        GMA SDK version, e.g. "iOS 7.62.0". (Value: "GMA_SDK_VERSION")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_MobileOsVersion
+ *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
+ *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month A
  *        month in the YYYY-MM format (for example, "2018-12"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_ServingRestriction
+ *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week The
  *        date of the first day of a week in the YYYY-MM-DD format (for example,
  *        "2018-12-21"). Requests can specify at most one time dimension.
@@ -1704,6 +1940,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_App The unique
  *        ID of the mobile application (for example, "ca-app-pub-1234~1234").
  *        (Value: "APP")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_AppVersionName
+ *        For Android, the app version name can be found in versionName in
+ *        PackageInfo. For iOS, the app version name can be found in
+ *        CFBundleShortVersionString. (Value: "APP_VERSION_NAME")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country CLDR
  *        country code of the place where the ad views/clicks occur (for
  *        example, "US" or "FR"). This is a geography dimension. (Value:
@@ -1717,12 +1957,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Format Format
  *        of the ad unit (for example, "banner", "native"), an ad delivery
  *        dimension. (Value: "FORMAT")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_GmaSdkVersion
+ *        GMA SDK version, e.g. "iOS 7.62.0". (Value: "GMA_SDK_VERSION")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_MobileOsVersion
+ *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
+ *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month A month
  *        in the YYYY-MM format (for example, "2018-12"). Requests can specify
  *        at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
+ *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_ServingRestriction
+ *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week The date
  *        of the first day of a week in the YYYY-MM-DD format (for example,
  *        "2018-12-21"). Requests can specify at most one time dimension.

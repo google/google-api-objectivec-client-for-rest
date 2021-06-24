@@ -1002,11 +1002,13 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_ExternalDataConfiguration
 @dynamic autodetect, bigtableOptions, compression, connectionId, csvOptions,
-         googleSheetsOptions, hivePartitioningOptions, ignoreUnknownValues,
-         maxBadRecords, parquetOptions, schema, sourceFormat, sourceUris;
+         decimalTargetTypes, googleSheetsOptions, hivePartitioningOptions,
+         ignoreUnknownValues, maxBadRecords, parquetOptions, schema,
+         sourceFormat, sourceUris;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"decimalTargetTypes" : [NSString class],
     @"sourceUris" : [NSString class]
   };
   return map;
@@ -1373,7 +1375,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
          parentJobId, query, quotaDeferments, reservationId, reservationUsage,
          rowLevelSecurityStatistics, scriptStatistics, sessionInfoTemplate,
-         startTime, totalBytesProcessed, totalSlotMs, transactionInfoTemplate;
+         startTime, totalBytesProcessed, totalSlotMs, transactionInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"reservationId" : @"reservation_id" };
@@ -1408,7 +1410,7 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_JobStatistics2
 @dynamic billingTier, cacheHit, ddlAffectedRowAccessPolicyCount,
          ddlDestinationTable, ddlOperationPerformed, ddlTargetDataset,
-         ddlTargetRoutine, ddlTargetRowAccessPolicy, ddlTargetTable,
+         ddlTargetRoutine, ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
          estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
          referencedRoutines, referencedTables, reservationUsage, schema,
@@ -1907,9 +1909,9 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_QueryResponse
-@dynamic cacheHit, errors, jobComplete, jobReference, kind, numDmlAffectedRows,
-         pageToken, rows, schema, sessionInfoTemplate, totalBytesProcessed,
-         totalRows;
+@dynamic cacheHit, dmlStats, errors, jobComplete, jobReference, kind,
+         numDmlAffectedRows, pageToken, rows, schema, sessionInfoTemplate,
+         totalBytesProcessed, totalRows;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2637,7 +2639,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_ViewDefinition
-@dynamic query, useLegacySql, userDefinedFunctionResources;
+@dynamic query, useExplicitColumnNames, useLegacySql,
+         userDefinedFunctionResources;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

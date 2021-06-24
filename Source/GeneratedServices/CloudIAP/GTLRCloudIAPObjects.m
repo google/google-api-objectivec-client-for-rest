@@ -16,7 +16,7 @@
 //
 
 @implementation GTLRCloudIAP_AccessDeniedPageSettings
-@dynamic accessDeniedPageUri;
+@dynamic accessDeniedPageUri, generateTroubleshootingUri;
 @end
 
 

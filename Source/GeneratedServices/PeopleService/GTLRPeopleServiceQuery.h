@@ -88,13 +88,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSortOrderLastNameAscending;
 // sources
 
 /**
- *  G Suite domain shared contact.
+ *  Google Workspace domain shared contact.
  *
  *  Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact;
 /**
- *  G Suite domain profile.
+ *  Google Workspace domain profile.
  *
  *  Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE"
  */
@@ -173,7 +173,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  */
 @property(nonatomic, assign) NSInteger maxMembers;
 
-/** Required. The resource names of the contact groups to get. */
+/**
+ *  Required. The resource names of the contact groups to get. There is a
+ *  maximum of 200 resource names.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
 /**
@@ -189,7 +192,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 @end
 
 /**
- *  Create a new contact group owned by the authenticated user.
+ *  Create a new contact group owned by the authenticated user. Created contact
+ *  group names must be unique to the users contact groups. Attempting to create
+ *  a group with a duplicate name will return a HTTP 409 error.
  *
  *  Method: people.contactGroups.create
  *
@@ -201,7 +206,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Fetches a @c GTLRPeopleService_ContactGroup.
  *
- *  Create a new contact group owned by the authenticated user.
+ *  Create a new contact group owned by the authenticated user. Created contact
+ *  group names must be unique to the users contact groups. Attempting to create
+ *  a group with a duplicate name will return a HTTP 409 error.
  *
  *  @param object The @c GTLRPeopleService_CreateContactGroupRequest to include
  *    in the query.
@@ -386,7 +393,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Update the name of an existing contact group owned by the authenticated
- *  user.
+ *  user. Updated contact group names must be unique to the users contact
+ *  groups. Attempting to create a group with a duplicate name will return a
+ *  HTTP 409 error.
  *
  *  Method: people.contactGroups.update
  *
@@ -405,7 +414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Fetches a @c GTLRPeopleService_ContactGroup.
  *
  *  Update the name of an existing contact group owned by the authenticated
- *  user.
+ *  user. Updated contact group names must be unique to the users contact
+ *  groups. Attempting to create a group with a duplicate name will return a
+ *  HTTP 409 error.
  *
  *  @param object The @c GTLRPeopleService_UpdateContactGroupRequest to include
  *    in the query.
@@ -481,7 +492,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
- *  values are: * emailAddresses * names * phoneNumbers
+ *  values are: * emailAddresses * metadata * names * phoneNumbers * photos
  *
  *  String format is a comma-separated list of fields.
  */
@@ -499,8 +510,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Optional. A sync token, received from a previous `ListOtherContacts` call.
  *  Provide this to retrieve only the resources changed since the last request.
  *  Sync requests that specify `sync_token` have an additional rate limit. When
- *  syncing, all other parameters provided to `ListOtherContacts` must match the
- *  call that provided the sync token.
+ *  the `syncToken` is specified, resources deleted since the last sync will be
+ *  returned as a person with
+ *  [`PersonMetadata.deleted`](/people/api/rest/v1/people#Person.PersonMetadata.FIELDS.deleted)
+ *  set to true. When the `syncToken` is specified, all other parameters
+ *  provided to `ListOtherContacts` must match the call that provided the sync
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
@@ -524,7 +539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Provides a list of contacts in the authenticated user's other contacts that
  *  matches the search query. The query matches on a contact's `names`,
  *  `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT
- *  source.
+ *  source. **IMPORTANT**: Before searching, clients should send a warmup
+ *  request with an empty query to update the cache. See
+ *  https://developers.google.com/people/v1/other-contacts#search_the_users_other_contacts
  *
  *  Method: people.otherContacts.search
  *
@@ -535,7 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The number of results to return. Defaults to 10 if field is not
- *  set, or set to 0. Values greater than 10 will be capped to 10.
+ *  set, or set to 0. Values greater than 30 will be capped to 30.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -550,7 +567,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
  *  Multiple fields can be specified by separating them with commas. Valid
- *  values are: * emailAddresses * names * phoneNumbers
+ *  values are: * emailAddresses * metadata * names * phoneNumbers
  *
  *  String format is a comma-separated list of fields.
  */
@@ -562,7 +579,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Provides a list of contacts in the authenticated user's other contacts that
  *  matches the search query. The query matches on a contact's `names`,
  *  `emailAddresses`, and `phoneNumbers` fields that are from the OTHER_CONTACT
- *  source.
+ *  source. **IMPORTANT**: Before searching, clients should send a warmup
+ *  request with an empty query to update the cache. See
+ *  https://developers.google.com/people/v1/other-contacts#search_the_users_other_contacts
  *
  *  @return GTLRPeopleServiceQuery_OtherContactsSearch
  */
@@ -758,10 +777,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 /**
  *  Optional. A sync token, received from a previous `ListConnections` call.
  *  Provide this to retrieve only the resources changed since the last request.
- *  When syncing, all other parameters provided to `ListConnections` except
- *  `page_size` and `page_token` must match the initial call that provided the
- *  sync token. Sync tokens expire after seven days, after which a full sync
- *  request without a `sync_token` should be made.
+ *  When the `syncToken` is specified, resources deleted since the last sync
+ *  will be returned as a person with
+ *  [`PersonMetadata.deleted`](/people/api/rest/v1/people#Person.PersonMetadata.FIELDS.deleted)
+ *  set to true. When the `syncToken` is specified, all other parameters
+ *  provided to `ListConnections` except `page_size` and `page_token` must match
+ *  the initial call that provided the sync token. Sync tokens expire after
+ *  seven days, after which a full sync request without a `sync_token` should be
+ *  made.
  */
 @property(nonatomic, copy, nullable) NSString *syncToken;
 
@@ -1077,7 +1100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  google account, specify `people/{account_id}`. - To get information about a
  *  contact, specify the resource name that identifies the contact as returned
  *  by [`people.connections.list`](/people/api/rest/v1/people.connections/list).
- *  You can include up to 50 resource names in one request.
+ *  There is a maximum of 200 resource names.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
 
@@ -1176,10 +1199,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified
  *        Unspecified. (Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact G Suite
- *        domain shared contact. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile G Suite
- *        domain profile. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact Google
+ *        Workspace domain shared contact. (Value:
+ *        "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile Google
+ *        Workspace domain profile. (Value:
+ *        "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1211,7 +1236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Provides a list of contacts in the authenticated user's grouped contacts
  *  that matches the search query. The query matches on a contact's `names`,
  *  `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields
- *  that are from the CONTACT" source.
+ *  that are from the CONTACT" source. **IMPORTANT**: Before searching, clients
+ *  should send a warmup request with an empty query to update the cache. See
+ *  https://developers.google.com/people/v1/contacts#search_the_users_contacts
  *
  *  Method: people.people.searchContacts
  *
@@ -1223,7 +1250,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Optional. The number of results to return. Defaults to 10 if field is not
- *  set, or set to 0. Values greater than 10 will be capped to 10.
+ *  set, or set to 0. Values greater than 30 will be capped to 30.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1272,7 +1299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Provides a list of contacts in the authenticated user's grouped contacts
  *  that matches the search query. The query matches on a contact's `names`,
  *  `nickNames`, `emailAddresses`, `phoneNumbers`, and `organizations` fields
- *  that are from the CONTACT" source.
+ *  that are from the CONTACT" source. **IMPORTANT**: Before searching, clients
+ *  should send a warmup request with an empty query to update the cache. See
+ *  https://developers.google.com/people/v1/contacts#search_the_users_contacts
  *
  *  @return GTLRPeopleServiceQuery_PeopleSearchContacts
  */
@@ -1344,10 +1373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
  *  Likely values:
  *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeUnspecified
  *        Unspecified. (Value: "DIRECTORY_SOURCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact G Suite
- *        domain shared contact. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
- *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile G Suite
- *        domain profile. (Value: "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainContact Google
+ *        Workspace domain shared contact. (Value:
+ *        "DIRECTORY_SOURCE_TYPE_DOMAIN_CONTACT")
+ *    @arg @c kGTLRPeopleServiceSourcesDirectorySourceTypeDomainProfile Google
+ *        Workspace domain profile. (Value:
+ *        "DIRECTORY_SOURCE_TYPE_DOMAIN_PROFILE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 

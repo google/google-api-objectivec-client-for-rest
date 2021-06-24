@@ -16,6 +16,194 @@
 
 @end
 
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate
+
+@dynamic featureId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Feature *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/features";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.features.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.features.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Feature class];
+  query.loggingName = @"gkehub.projects.locations.features.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_Policy class];
+  query.loggingName = @"gkehub.projects.locations.features.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/features";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRGKEHub_ListFeaturesResponse class];
+  query.loggingName = @"gkehub.projects.locations.features.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_Feature *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRGKEHub_Operation class];
+  query.loggingName = @"gkehub.projects.locations.features.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_Policy class];
+  query.loggingName = @"gkehub.projects.locations.features.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRGKEHubQuery_ProjectsLocationsFeaturesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRGKEHub_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRGKEHubQuery_ProjectsLocationsFeaturesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRGKEHub_TestIamPermissionsResponse class];
+  query.loggingName = @"gkehub.projects.locations.features.testIamPermissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRGKEHubQuery_ProjectsLocationsGet
 
 @dynamic name;

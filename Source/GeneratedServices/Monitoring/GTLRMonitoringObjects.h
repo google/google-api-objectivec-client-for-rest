@@ -93,8 +93,10 @@
 @class GTLRMonitoring_RequestBasedSli;
 @class GTLRMonitoring_ResourceGroup;
 @class GTLRMonitoring_Service;
+@class GTLRMonitoring_Service_UserLabels;
 @class GTLRMonitoring_ServiceLevelIndicator;
 @class GTLRMonitoring_ServiceLevelObjective;
+@class GTLRMonitoring_ServiceLevelObjective_UserLabels;
 @class GTLRMonitoring_SourceContext;
 @class GTLRMonitoring_Status;
 @class GTLRMonitoring_Status_Details_Item;
@@ -1224,6 +1226,40 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor
  *  Value: "UNIMPLEMENTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_NotificationChannelDescriptor_LaunchStage_Unimplemented;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_OperationMetadata.state
+
+/**
+ *  The batch processing was cancelled.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Cancelled;
+/**
+ *  Request has been received.
+ *
+ *  Value: "CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Created;
+/**
+ *  The batch processing is done.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Done;
+/**
+ *  Request is actively being processed.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Running;
+/**
+ *  Invalid.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_ResourceGroup.resourceType
@@ -4683,6 +4719,38 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
+ *  Contains metadata for longrunning operation for the edit Metrics Scope
+ *  endpoints.
+ */
+@interface GTLRMonitoring_OperationMetadata : GTLRObject
+
+/** The time when the batch request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Current state of the batch operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Cancelled The batch
+ *        processing was cancelled. (Value: "CANCELLED")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Created Request has been
+ *        received. (Value: "CREATED")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Done The batch processing
+ *        is done. (Value: "DONE")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_Running Request is
+ *        actively being processed. (Value: "RUNNING")
+ *    @arg @c kGTLRMonitoring_OperationMetadata_State_StateUnspecified Invalid.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** The time when the operation result was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  A protocol buffer option, which can be attached to a message, field,
  *  enumeration, etc.
  */
@@ -4998,6 +5066,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 /** Configuration for how to query telemetry on a Service. */
 @property(nonatomic, strong, nullable) GTLRMonitoring_Telemetry *telemetry;
 
+/**
+ *  Labels which have been used to annotate the service. Label keys must start
+ *  with a letter. Label keys and values may contain lowercase letters, numbers,
+ *  underscores, and dashes. Label keys and values have a maximum length of 63
+ *  characters, and must be less than 128 bytes in size. Up to 64 label entries
+ *  may be stored. For labels which do not have a semantic value, the empty
+ *  string may be supplied for the label value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Service_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Labels which have been used to annotate the service. Label keys must start
+ *  with a letter. Label keys and values may contain lowercase letters, numbers,
+ *  underscores, and dashes. Label keys and values have a maximum length of 63
+ *  characters, and must be less than 128 bytes in size. Up to 64 label entries
+ *  may be stored. For labels which do not have a semantic value, the empty
+ *  string may be supplied for the label value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_Service_UserLabels : GTLRObject
 @end
 
 
@@ -5100,6 +5195,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_ServiceLevelIndicator *serviceLevelIndicator;
 
+/**
+ *  Labels which have been used to annotate the service-level objective. Label
+ *  keys must start with a letter. Label keys and values may contain lowercase
+ *  letters, numbers, underscores, and dashes. Label keys and values have a
+ *  maximum length of 63 characters, and must be less than 128 bytes in size. Up
+ *  to 64 label entries may be stored. For labels which do not have a semantic
+ *  value, the empty string may be supplied for the label value.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_ServiceLevelObjective_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  Labels which have been used to annotate the service-level objective. Label
+ *  keys must start with a letter. Label keys and values may contain lowercase
+ *  letters, numbers, underscores, and dashes. Label keys and values have a
+ *  maximum length of 63 characters, and must be less than 128 bytes in size. Up
+ *  to 64 label entries may be stored. For labels which do not have a semantic
+ *  value, the empty string may be supplied for the label value.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_ServiceLevelObjective_UserLabels : GTLRObject
 @end
 
 

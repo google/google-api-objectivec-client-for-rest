@@ -1216,7 +1216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  represents a Google-managed entity such as a Google user or a Google Group.
  *  If specified, the `EntityKey` represents an external-identity-mapped group.
  *  The namespace must correspond to an identity source created in Admin Console
- *  and must be in the form of `identitysources/{identity_source_id}.
+ *  and must be in the form of `identitysources/{identity_source_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *groupKeyNamespace;
 
@@ -1558,7 +1558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  represents a Google-managed entity such as a Google user or a Google Group.
  *  If specified, the `EntityKey` represents an external-identity-mapped group.
  *  The namespace must correspond to an identity source created in Admin Console
- *  and must be in the form of `identitysources/{identity_source_id}.
+ *  and must be in the form of `identitysources/{identity_source_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *memberKeyNamespace;
 
@@ -1773,7 +1773,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 
 /**
  *  Required. The fully-qualified names of fields to update. May only contain
- *  the following fields: `display_name`, `description`.
+ *  the following fields: `display_name`, `description`, `labels`.
  *
  *  String format is a comma-separated list of fields.
  */

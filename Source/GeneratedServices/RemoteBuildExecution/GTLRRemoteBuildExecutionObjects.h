@@ -50,6 +50,7 @@
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2SymlinkNode;
 @class GTLRRemoteBuildExecution_BuildBazelRemoteExecutionV2ToolDetails;
 @class GTLRRemoteBuildExecution_BuildBazelSemverSemVer;
+@class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAcceleratorConfig;
 @class GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildexecutionAdminV1alphaAutoscale;
@@ -462,6 +463,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *  Value: "DOCKER_LOGIN_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError;
+/**
+ *  Docker cannot find the container specified in the command. This error is
+ *  likely to only occur if an asynchronous container is not running when the
+ *  command is run.
+ *
+ *  Value: "DOCKER_MISSING_CONTAINER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerMissingContainer;
 /**
  *  Docker failed to run containers with hcsshim::PrepareLayer error.
  *
@@ -2451,6 +2460,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
  *        The docker ulimit is not valid. (Value: "DOCKER_INVALID_ULIMIT")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerLoginError
  *        The bot failed to login to docker. (Value: "DOCKER_LOGIN_ERROR")
+ *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerMissingContainer
+ *        Docker cannot find the container specified in the command. This error
+ *        is likely to only occur if an asynchronous container is not running
+ *        when the command is run. (Value: "DOCKER_MISSING_CONTAINER")
  *    @arg @c kGTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotCommandStatus_Code_DockerPreparelayerError
  *        Docker failed to run containers with hcsshim::PrepareLayer error.
  *        (Value: "DOCKER_PREPARELAYER_ERROR")
@@ -2542,6 +2555,57 @@ FOUNDATION_EXTERN NSString * const kGTLRRemoteBuildExecution_GoogleDevtoolsRemot
 
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat *diskUsage;
 @property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageStat *memoryUsage;
+@property(nonatomic, strong, nullable) GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats *totalDiskIoStats;
+
+@end
+
+
+/**
+ *  GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats
+ */
+@interface GTLRRemoteBuildExecution_GoogleDevtoolsRemotebuildbotResourceUsageIOStats : GTLRObject
+
+/**
+ *  readBytesCount
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readBytesCount;
+
+/**
+ *  readCount
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readCount;
+
+/**
+ *  readTimeMs
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readTimeMs;
+
+/**
+ *  writeBytesCount
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeBytesCount;
+
+/**
+ *  writeCount
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeCount;
+
+/**
+ *  writeTimeMs
+ *
+ *  Uses NSNumber of unsignedLongLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeTimeMs;
 
 @end
 
