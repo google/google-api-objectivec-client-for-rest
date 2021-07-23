@@ -65,15 +65,18 @@
 #endif
 
 #ifndef GTLR_ASSERT_CURRENT_QUEUE_DEBUG
-  #define GTLR_ASSERT_CURRENT_QUEUE_DEBUG(targetQueue)                  \
-      GTLR_DEBUG_ASSERT(0 == strcmp(GTLR_QUEUE_NAME(targetQueue),       \
-                        GTLR_QUEUE_NAME(DISPATCH_CURRENT_QUEUE_LABEL)), \
-          @"Current queue is %s (expected %s)",                         \
-          GTLR_QUEUE_NAME(DISPATCH_CURRENT_QUEUE_LABEL),                \
-          GTLR_QUEUE_NAME(targetQueue))
-
-  #define GTLR_QUEUE_NAME(queue) \
-      (strlen(dispatch_queue_get_label(queue)) > 0 ? dispatch_queue_get_label(queue) : "unnamed")
+  #if DEBUG && !defined(NS_BLOCK_ASSERTIONS)
+    static __inline__ __attribute__((always_inline))
+    void GTLR_ASSERT_CURRENT_QUEUE_DEBUG_IMPL(dispatch_queue_t targetQueue) {
+      if (@available(iOS 10, *)) {
+        dispatch_assert_queue(targetQueue);
+      }
+    }
+    #define GTLR_ASSERT_CURRENT_QUEUE_DEBUG(targetQueue) \
+        GTLR_ASSERT_CURRENT_QUEUE_DEBUG_IMPL(targetQueue)
+  #else
+    #define GTLR_ASSERT_CURRENT_QUEUE_DEBUG(targetQueue) do { } while (0)
+  #endif  // DEBUG && !defined(NS_BLOCK_ASSERTIONS)
 #endif  // GTLR_ASSERT_CURRENT_QUEUE_DEBUG
 
 NSString *const kGTLRServiceErrorDomain = @"com.google.GTLRServiceDomain";
