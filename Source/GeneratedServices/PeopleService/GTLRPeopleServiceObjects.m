@@ -490,7 +490,7 @@ NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_Sources_ReadSource
 //
 
 @implementation GTLRPeopleService_FieldMetadata
-@dynamic primary, source, verified;
+@dynamic primary, source, sourcePrimary, verified;
 @end
 
 

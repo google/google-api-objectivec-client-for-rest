@@ -382,7 +382,7 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 @implementation GTLRCloudAssetQuery_V1SearchAllResources
 
-@dynamic assetTypes, orderBy, pageSize, pageToken, query, scope;
+@dynamic assetTypes, orderBy, pageSize, pageToken, query, readMask, scope;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

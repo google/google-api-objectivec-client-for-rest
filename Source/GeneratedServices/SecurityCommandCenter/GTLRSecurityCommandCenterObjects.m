@@ -25,6 +25,13 @@ NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataRead = @"
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRSecurityCommandCenter_Finding.findingClass
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation = @"OBSERVATION";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat = @"THREAT";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability = @"VULNERABILITY";
+
 // GTLRSecurityCommandCenter_Finding.severity
 NSString * const kGTLRSecurityCommandCenter_Finding_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRSecurityCommandCenter_Finding_Severity_High = @"HIGH";
@@ -213,8 +220,9 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic canonicalName, category, createTime, eventTime, externalUri, name,
-         parent, resourceName, securityMarks, severity, sourceProperties, state;
+@dynamic canonicalName, category, createTime, eventTime, externalUri,
+         findingClass, indicator, name, parent, resourceName, securityMarks,
+         severity, sourceProperties, state;
 @end
 
 
@@ -502,6 +510,25 @@ NSString * const kGTLRSecurityCommandCenter_SetFindingStateRequest_State_StateUn
 
 @implementation GTLRSecurityCommandCenter_IamPolicy
 @dynamic policyBlob;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Indicator
+//
+
+@implementation GTLRSecurityCommandCenter_Indicator
+@dynamic domains, ipAddresses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class],
+    @"ipAddresses" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

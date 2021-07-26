@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -14,6 +14,11 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// bodyType
+NSString * const kGTLRSQLAdminBodyTypeBuiltIn                = @"BUILT_IN";
+NSString * const kGTLRSQLAdminBodyTypeCloudIamServiceAccount = @"CLOUD_IAM_SERVICE_ACCOUNT";
+NSString * const kGTLRSQLAdminBodyTypeCloudIamUser           = @"CLOUD_IAM_USER";
 
 // syncMode
 NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
@@ -44,7 +49,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"id", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/backupRuns/{id}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/backupRuns/{id}";
   GTLRSQLAdminQuery_BackupRunsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -73,7 +78,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"id", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/backupRuns/{id}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/backupRuns/{id}";
   GTLRSQLAdminQuery_BackupRunsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -104,7 +109,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/backupRuns";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/backupRuns";
   GTLRSQLAdminQuery_BackupRunsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -128,7 +133,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/backupRuns";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/backupRuns";
   GTLRSQLAdminQuery_BackupRunsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -137,6 +142,60 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_BackupRunsListResponse class];
   query.loggingName = @"sql.backupRuns.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_ConnectGenerateEphemeralCert
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_GenerateEphemeralCertRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}:generateEphemeralCert";
+  GTLRSQLAdminQuery_ConnectGenerateEphemeralCert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_GenerateEphemeralCertResponse class];
+  query.loggingName = @"sql.connect.generateEphemeral";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_ConnectGet
+
+@dynamic instance, project, readTime;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/connectSettings";
+  GTLRSQLAdminQuery_ConnectGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_ConnectSettings class];
+  query.loggingName = @"sql.connect.get";
   return query;
 }
 
@@ -152,7 +211,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"database", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases/{database}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases/{database}";
   GTLRSQLAdminQuery_DatabasesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -177,7 +236,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"database", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases/{database}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases/{database}";
   GTLRSQLAdminQuery_DatabasesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -208,7 +267,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases";
   GTLRSQLAdminQuery_DatabasesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -232,7 +291,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases";
   GTLRSQLAdminQuery_DatabasesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -263,7 +322,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"database", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases/{database}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases/{database}";
   GTLRSQLAdminQuery_DatabasesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -296,7 +355,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"database", @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/databases/{database}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/databases/{database}";
   GTLRSQLAdminQuery_DatabasesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -317,7 +376,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 @dynamic databaseVersion;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"sql/v1beta4/flags";
+  NSString *pathURITemplate = @"v1/flags";
   GTLRSQLAdminQuery_FlagsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -338,7 +397,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/addServerCa";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/addServerCa";
   GTLRSQLAdminQuery_InstancesAddServerCa *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -368,7 +427,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/clone";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/clone";
   GTLRSQLAdminQuery_InstancesClone *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -392,7 +451,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}";
   GTLRSQLAdminQuery_InstancesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -422,7 +481,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/demoteMaster";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/demoteMaster";
   GTLRSQLAdminQuery_InstancesDemoteMaster *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -453,7 +512,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/export";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/export";
   GTLRSQLAdminQuery_InstancesExport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -484,7 +543,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/failover";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/failover";
   GTLRSQLAdminQuery_InstancesFailover *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -508,7 +567,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}";
   GTLRSQLAdminQuery_InstancesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -538,7 +597,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/import";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/import";
   GTLRSQLAdminQuery_InstancesImport *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -566,7 +625,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
     return nil;
   }
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances";
   GTLRSQLAdminQuery_InstancesInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -586,7 +645,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances";
   GTLRSQLAdminQuery_InstancesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -608,7 +667,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/listServerCas";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/listServerCas";
   GTLRSQLAdminQuery_InstancesListServerCas *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -638,7 +697,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}";
   GTLRSQLAdminQuery_InstancesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -662,7 +721,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/promoteReplica";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/promoteReplica";
   GTLRSQLAdminQuery_InstancesPromoteReplica *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -685,7 +744,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/resetSslConfig";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/resetSslConfig";
   GTLRSQLAdminQuery_InstancesResetSslConfig *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -708,7 +767,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/restart";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/restart";
   GTLRSQLAdminQuery_InstancesRestart *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -738,7 +797,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/restoreBackup";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/restoreBackup";
   GTLRSQLAdminQuery_InstancesRestoreBackup *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -769,7 +828,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/rotateServerCa";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/rotateServerCa";
   GTLRSQLAdminQuery_InstancesRotateServerCa *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -793,7 +852,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/startReplica";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/startReplica";
   GTLRSQLAdminQuery_InstancesStartReplica *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -816,7 +875,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/stopReplica";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/stopReplica";
   GTLRSQLAdminQuery_InstancesStopReplica *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -846,7 +905,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/truncateLog";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/truncateLog";
   GTLRSQLAdminQuery_InstancesTruncateLog *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -877,7 +936,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}";
   GTLRSQLAdminQuery_InstancesUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"
@@ -901,7 +960,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"operation", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/operations/{operation}";
+  NSString *pathURITemplate = @"v1/projects/{project}/operations/{operation}";
   GTLRSQLAdminQuery_OperationsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -921,7 +980,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/operations";
+  NSString *pathURITemplate = @"v1/projects/{project}/operations";
   GTLRSQLAdminQuery_OperationsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -950,7 +1009,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/rescheduleMaintenance";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/rescheduleMaintenance";
   GTLRSQLAdminQuery_ProjectsInstancesRescheduleMaintenance *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -974,7 +1033,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/startExternalSync";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/startExternalSync";
   GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -997,7 +1056,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/verifyExternalSyncSettings";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/verifyExternalSyncSettings";
   GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1027,7 +1086,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/createEphemeral";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/createEphemeral";
   GTLRSQLAdminQuery_SslCertsCreateEphemeral *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1052,7 +1111,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project", @"sha1Fingerprint"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}";
   GTLRSQLAdminQuery_SslCertsDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1077,7 +1136,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project", @"sha1Fingerprint"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/sslCerts/{sha1Fingerprint}";
   GTLRSQLAdminQuery_SslCertsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1108,7 +1167,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/sslCerts";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/sslCerts";
   GTLRSQLAdminQuery_SslCertsInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1132,7 +1191,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/sslCerts";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/sslCerts";
   GTLRSQLAdminQuery_SslCertsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1152,7 +1211,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSArray *pathParams = @[ @"project" ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/tiers";
+  NSString *pathURITemplate = @"v1/projects/{project}/tiers";
   GTLRSQLAdminQuery_TiersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1174,7 +1233,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/users";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/users";
   GTLRSQLAdminQuery_UsersDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -1204,7 +1263,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/users";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/users";
   GTLRSQLAdminQuery_UsersInsert *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -1221,14 +1280,39 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 @implementation GTLRSQLAdminQuery_UsersList
 
-@dynamic instance, project;
+@dynamic bodyEtag, bodyHost, bodyInstance, bodyKind, bodyName, bodyPassword,
+         bodyProject, bodySqlserverUserDetailsDisabled,
+         bodySqlserverUserDetailsServerRoles, bodyType, instance, project;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"bodyEtag" : @"body.etag",
+    @"bodyHost" : @"body.host",
+    @"bodyInstance" : @"body.instance",
+    @"bodyKind" : @"body.kind",
+    @"bodyName" : @"body.name",
+    @"bodyPassword" : @"body.password",
+    @"bodyProject" : @"body.project",
+    @"bodySqlserverUserDetailsDisabled" : @"body.sqlserverUserDetails.disabled",
+    @"bodySqlserverUserDetailsServerRoles" : @"body.sqlserverUserDetails.serverRoles",
+    @"bodyType" : @"body.type"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"body.sqlserverUserDetails.serverRoles" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/users";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/users";
   GTLRSQLAdminQuery_UsersList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -1258,7 +1342,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
-  NSString *pathURITemplate = @"sql/v1beta4/projects/{project}/instances/{instance}/users";
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/users";
   GTLRSQLAdminQuery_UsersUpdate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PUT"

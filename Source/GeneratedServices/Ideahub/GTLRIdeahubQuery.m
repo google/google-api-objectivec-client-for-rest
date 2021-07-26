@@ -54,6 +54,33 @@ NSString * const kGTLRIdeahubCreatorPlatformUnknown = @"UNKNOWN";
 
 @end
 
+@implementation GTLRIdeahubQuery_PlatformsPropertiesIdeaActivitiesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha/{+parent}/ideaActivities";
+  GTLRIdeahubQuery_PlatformsPropertiesIdeaActivitiesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity class];
+  query.loggingName = @"ideahub.platforms.properties.ideaActivities.create";
+  return query;
+}
+
+@end
+
 @implementation GTLRIdeahubQuery_PlatformsPropertiesIdeasList
 
 @dynamic creatorPlatform, creatorPlatformId, filter, orderBy, pageSize,

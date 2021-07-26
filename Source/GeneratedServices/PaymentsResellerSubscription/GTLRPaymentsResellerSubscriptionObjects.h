@@ -114,6 +114,28 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.processingState
+
+/**
+ *  The subscription is being cancelled.
+ *
+ *  Value: "PROCESSING_STATE_CANCELLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateCancelling;
+/**
+ *  The subscription is recurring.
+ *
+ *  Value: "PROCESSING_STATE_RECURRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateRecurring;
+/**
+ *  The processing state is unspecified.
+ *
+ *  Value: "PROCESSING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.state
 
 /**
@@ -586,6 +608,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, copy, nullable) NSString *partnerUserToken;
 
 /**
+ *  Output only. Describes the processing state of the subscription. See more
+ *  details at [the lifecycle of a
+ *  subscription](/payments/reseller/subscription/reference/index/Receive.Notifications#payments-subscription-lifecycle).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateCancelling
+ *        The subscription is being cancelled. (Value:
+ *        "PROCESSING_STATE_CANCELLING")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateRecurring
+ *        The subscription is recurring. (Value: "PROCESSING_STATE_RECURRING")
+ *    @arg @c kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateUnspecified
+ *        The processing state is unspecified. (Value:
+ *        "PROCESSING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *processingState;
+
+/**
  *  Required. Resource name that identifies one or more subscription products.
  *  The format will be 'partners/{partner_id}/products/{product_id}'.
  */
@@ -613,7 +652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Location *serviceLocation;
 
 /**
- *  Output only. Descibes the state of the subscription. See more details at
+ *  Output only. Describes the state of the subscription. See more details at
  *  [the lifecycle of a
  *  subscription](/payments/reseller/subscription/reference/index/Receive.Notifications#payments-subscription-lifecycle).
  *
@@ -653,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_GoogleCloud
 
 
 /**
- *  Describes the details of a cancelled subscription.
+ *  Describes the details of a cancelled or cancelling subscription.
  */
 @interface GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1SubscriptionCancellationDetails : GTLRObject
 

@@ -1371,6 +1371,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_RepairClusterRequest
+//
+
+@implementation GTLRDataproc_RepairClusterRequest
+@dynamic clusterUuid, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ReservationAffinity
 //
 

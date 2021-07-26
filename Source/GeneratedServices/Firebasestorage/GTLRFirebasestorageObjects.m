@@ -12,6 +12,35 @@
 #import "GTLRFirebasestorageObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata.state
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket = @"CREATING_DESTINATION_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket = @"CREATING_TEMP_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket = @"DELETING_SOURCE_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket = @"DELETING_TEMP_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Pending = @"PENDING";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RollingBack = @"ROLLING_BACK";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToDestination = @"TRANSFERRING_TO_DESTINATION";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToTemp = @"TRANSFERRING_TO_TEMP";
+
+// GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata.state
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket = @"CREATING_DESTINATION_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket = @"CREATING_TEMP_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket = @"DELETING_SOURCE_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket = @"DELETING_TEMP_BUCKET";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Failed = @"FAILED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Pending = @"PENDING";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RollingBack = @"ROLLING_BACK";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToDestination = @"TRANSFERRING_TO_DESTINATION";
+NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToTemp = @"TRANSFERRING_TO_TEMP";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRFirebasestorage_AddFirebaseRequest
 //
@@ -26,7 +55,7 @@
 //
 
 @implementation GTLRFirebasestorage_Bucket
-@dynamic name, reconciling;
+@dynamic location, name, reconciling;
 @end
 
 
@@ -36,6 +65,26 @@
 //
 
 @implementation GTLRFirebasestorage_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata
+//
+
+@implementation GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata
+@dynamic createTime, lastUpdateTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata
+//
+
+@implementation GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata
+@dynamic createTime, lastUpdateTime, state;
 @end
 
 

@@ -139,6 +139,9 @@
 @class GTLRDocs_Request;
 @class GTLRDocs_Response;
 @class GTLRDocs_RgbColor;
+@class GTLRDocs_RichLink;
+@class GTLRDocs_RichLink_SuggestedTextStyleChanges;
+@class GTLRDocs_RichLinkProperties;
 @class GTLRDocs_SectionBreak;
 @class GTLRDocs_SectionColumnProperties;
 @class GTLRDocs_SectionStyle;
@@ -4029,6 +4032,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @property(nonatomic, strong, nullable) GTLRDocs_Person *person;
 
 /**
+ *  A paragraph element that links to a Google resource (such as a file in
+ *  Drive, a Youtube video, a Calendar event, etc.)
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLink *richLink;
+
+/**
  *  The zero-based start index of this paragraph element, in UTF-16 code units.
  *
  *  Uses NSNumber of intValue.
@@ -4943,6 +4952,83 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *red;
+
+@end
+
+
+/**
+ *  A link to a Google resource (e.g., a file in Drive, a YouTube video, a
+ *  Calendar event, etc.).
+ */
+@interface GTLRDocs_RichLink : GTLRObject
+
+/** Output only. The ID of this link. */
+@property(nonatomic, copy, nullable) NSString *richLinkId;
+
+/**
+ *  Output only. The properties of this RichLink. This field is always present.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLinkProperties *richLinkProperties;
+
+/**
+ *  IDs for suggestions that remove this link from the document. A RichLink
+ *  might have multiple deletion IDs if, for example, multiple users suggest to
+ *  delete it. If empty, then this person link isn't suggested for deletion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedDeletionIds;
+
+/**
+ *  IDs for suggestions that insert this link into the document. A RichLink
+ *  might have multiple insertion IDs if it is a nested suggested change (a
+ *  suggestion within a suggestion made by a different user, for example). If
+ *  empty, then this person link isn't a suggested insertion.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *suggestedInsertionIds;
+
+/**
+ *  The suggested text style changes to this RichLink, keyed by suggestion ID.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLink_SuggestedTextStyleChanges *suggestedTextStyleChanges;
+
+/** The text style of this RichLink. */
+@property(nonatomic, strong, nullable) GTLRDocs_TextStyle *textStyle;
+
+@end
+
+
+/**
+ *  The suggested text style changes to this RichLink, keyed by suggestion ID.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocs_SuggestedTextStyle. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocs_RichLink_SuggestedTextStyleChanges : GTLRObject
+@end
+
+
+/**
+ *  Properties specific to a RichLink.
+ */
+@interface GTLRDocs_RichLinkProperties : GTLRObject
+
+/**
+ *  Output only. The [MIME
+ *  type](https://developers.google.com/drive/api/v3/mime-types) of the
+ *  RichLink, if there is one (i.e., when it is a file in Drive).
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Output only. The title of the RichLink as displayed in the link. This title
+ *  matches the title of the linked resource at the time of the insertion or
+ *  last update of the link. This field is always present.
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** Output only. The URI to the RichLink. This is always present. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

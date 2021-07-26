@@ -41,11 +41,39 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig
+@dynamic name, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAttestationTokenResponse
 @dynamic attestationToken, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -78,6 +106,24 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class]
   };
   return map;
 }
@@ -137,7 +183,7 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaDeviceCheckConfig
-@dynamic keyId, name, privateKey, privateKeySet;
+@dynamic keyId, name, privateKey, privateKeySet, tokenTtl;
 @end
 
 
@@ -308,7 +354,17 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaService_Enfor
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig
-@dynamic name, siteSecret, siteSecretSet;
+@dynamic name, siteSecret, siteSecretSet, tokenTtl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig
+//
+
+@implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig
+@dynamic name, tokenTtl;
 @end
 
 

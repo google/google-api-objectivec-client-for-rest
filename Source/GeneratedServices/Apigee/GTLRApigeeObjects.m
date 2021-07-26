@@ -81,6 +81,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash1
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash18 = @"SLASH_18";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash19 = @"SLASH_19";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20 = @"SLASH_20";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash22 = @"SLASH_22";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23 = @"SLASH_23";
 
 // GTLRApigee_GoogleCloudApigeeV1Instance.state

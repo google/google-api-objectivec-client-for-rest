@@ -1621,11 +1621,22 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudSearch_QueryInterpretationConfig
+//
+
+@implementation GTLRCloudSearch_QueryInterpretationConfig
+@dynamic forceDisableSupplementalResults, forceVerbatimMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudSearch_QueryInterpretationOptions
 //
 
 @implementation GTLRCloudSearch_QueryInterpretationOptions
-@dynamic disableNlInterpretation, enableVerbatimMode;
+@dynamic disableNlInterpretation, disableSupplementalResults,
+         enableVerbatimMode;
 @end
 
 
@@ -1857,8 +1868,8 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_SearchApplication
 @dynamic dataSourceRestrictions, defaultFacetOptions, defaultSortOptions,
-         displayName, enableAuditLog, name, operationIds, scoringConfig,
-         sourceConfig;
+         displayName, enableAuditLog, name, operationIds,
+         queryInterpretationConfig, scoringConfig, sourceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1805,8 +1805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *serviceRootUrl;
 
 /**
- *  A short summary of what the service does. Can only be provided by plain
- *  text.
+ *  A short description of what the service does. The summary must be plain
+ *  text. It becomes the overview of the service displayed in Google Cloud
+ *  Console. NOTE: This field is equivalent to the standard field `description`.
  */
 @property(nonatomic, copy, nullable) NSString *summary;
 
@@ -1825,19 +1826,21 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
 /**
- *  Description of the selected API(s).
+ *  The description is the comment in front of the selected proto element, such
+ *  as a message, a method, a 'service' definition, or a field.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  The selector is a comma-separated list of patterns. Each pattern is a
- *  qualified name of the element which may end in "*", indicating a wildcard.
- *  Wildcards are only allowed at the end and for a whole component of the
- *  qualified name, i.e. "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A
- *  wildcard will match one or more components. To specify a default for all
- *  applicable elements, the whole pattern "*" is used.
+ *  The selector is a comma-separated list of patterns for any element such as a
+ *  method, a field, an enum value. Each pattern is a qualified name of the
+ *  element which may end in "*", indicating a wildcard. Wildcards are only
+ *  allowed at the end and for a whole component of the qualified name, i.e.
+ *  "foo.*" is ok, but not "foo.b*" or "foo.*.bar". A wildcard will match one or
+ *  more components. To specify a default for all applicable elements, the whole
+ *  pattern "*" is used.
  */
 @property(nonatomic, copy, nullable) NSString *selector;
 
@@ -3514,7 +3517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  The Markdown content of the page. You can use (== include {path} ==) to
- *  include content from a Markdown file.
+ *  include content from a Markdown file. The content can be used to produce the
+ *  documentation page such as HTML format page.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3938,8 +3942,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  A list of all enum types included in this API service. Enums referenced
  *  directly or indirectly by the `apis` are automatically included. Enums which
- *  are not referenced but shall be included should be listed here by name.
- *  Example: enums: - name: google.someapi.v1.SomeEnum
+ *  are not referenced but shall be included should be listed here by name by
+ *  the configuration author. Example: enums: - name: google.someapi.v1.SomeEnum
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Enum *> *enums;
 
@@ -4005,15 +4009,18 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Type *> *systemTypes;
 
-/** The product title for this service. */
+/**
+ *  The product title for this service, it is the name displayed in Google Cloud
+ *  Console.
+ */
 @property(nonatomic, copy, nullable) NSString *title;
 
 /**
  *  A list of all proto message types included in this API service. Types
  *  referenced directly or indirectly by the `apis` are automatically included.
  *  Messages which are not referenced but shall be included, such as types used
- *  by the `google.protobuf.Any` type, should be listed here by name. Example:
- *  types: - name: google.protobuf.Int32
+ *  by the `google.protobuf.Any` type, should be listed here by name by the
+ *  configuration author. Example: types: - name: google.protobuf.Int32
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Type *> *types;
 

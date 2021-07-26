@@ -74,6 +74,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesJudge;
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorLowerBody;
 /** Value: "legislatorUpperBody" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesLegislatorUpperBody;
+/** Value: "otherRole" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesOtherRole;
 /** Value: "schoolBoard" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSchoolBoard;
 /** Value: "specialPurposeOfficer" */
@@ -251,6 +253,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
+ *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 
@@ -323,6 +326,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer;
  *    @arg @c kGTLRCivicInfoRolesSchoolBoard Value "schoolBoard"
  *    @arg @c kGTLRCivicInfoRolesSpecialPurposeOfficer Value
  *        "specialPurposeOfficer"
+ *    @arg @c kGTLRCivicInfoRolesOtherRole Value "otherRole"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *roles;
 

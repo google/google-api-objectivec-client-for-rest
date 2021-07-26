@@ -194,8 +194,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Deleting;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterStatus_State_Error;
 /**
- *  The cluster has encountered an error while being updated. Jobs can still be
- *  submitted to the cluster, but it can no longer be updated.
+ *  The cluster has encountered an error while being updated. Jobs can be
+ *  submitted to the cluster, but the cluster cannot be updated.
  *
  *  Value: "ERROR_DUE_TO_UPDATE"
  */
@@ -812,7 +812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDuration *cooldownPeriod;
 
-/** Required. YARN autoscaling configuration. */
+/** Optional. YARN autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRDataproc_BasicYarnAutoscalingConfig *yarnConfig;
 
 @end
@@ -1369,8 +1369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Error The cluster encountered an
  *        error. It is not ready for use. (Value: "ERROR")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_ErrorDueToUpdate The cluster has
- *        encountered an error while being updated. Jobs can still be submitted
- *        to the cluster, but it can no longer be updated. (Value:
+ *        encountered an error while being updated. Jobs can be submitted to the
+ *        cluster, but the cluster cannot be updated. (Value:
  *        "ERROR_DUE_TO_UPDATE")
  *    @arg @c kGTLRDataproc_ClusterStatus_State_Running The cluster is currently
  *        running and healthy. It is ready for use. (Value: "RUNNING")
@@ -3428,6 +3428,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  A request to repair a cluster.
+ */
+@interface GTLRDataproc_RepairClusterRequest : GTLRObject
+
+/**
+ *  Optional. Specifying the cluster_uuid means the RPC will fail (with error
+ *  NOT_FOUND) if a cluster with the specified UUID does not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two RepairClusterRequests with the same ID, the second request is ignored,
+ *  and the first google.longrunning.Operation created and stored in the backend
+ *  is returned.Recommendation: Set this value to a UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
+ *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
+ *  (-). The maximum length is 40 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  Reservation Affinity for consuming Zonal reservation.
  */
 @interface GTLRDataproc_ReservationAffinity : GTLRObject
@@ -3775,13 +3800,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
+ *  Optional. A unique ID used to identify the request. If the server receives
  *  two StartClusterRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StartClusterRequest)s
  *  with the same id, then the second request will be ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.Recommendation: Set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
  */
@@ -3847,13 +3872,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
+ *  Optional. A unique ID used to identify the request. If the server receives
  *  two StopClusterRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.StopClusterRequest)s
  *  with the same id, then the second request will be ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.Recommendation: Set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
  */

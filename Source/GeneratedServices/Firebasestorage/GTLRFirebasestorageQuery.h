@@ -54,8 +54,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
- *  Google Cloud Storage bucket. Because bucket resource names are unique across
- *  projects, you may omit the project number, `projects/-/buckets/{bucket_id}`.
+ *  Google Cloud Storage bucket,
+ *  `projects/{project_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
@@ -67,9 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirebasestorage_AddFirebaseRequest to include in
  *    the query.
  *  @param bucket Required. Resource name of the bucket, mirrors the ID of the
- *    underlying Google Cloud Storage bucket. Because bucket resource names are
- *    unique across projects, you may omit the project number,
- *    `projects/-/buckets/{bucket_id}`.
+ *    underlying Google Cloud Storage bucket,
+ *    `projects/{project_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsAddFirebase
  */
@@ -91,8 +90,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
- *  Google Cloud Storage bucket. Because bucket resource names are unique across
- *  projects, you may omit the project number, `projects/-/buckets/{bucket_id}`.
+ *  Google Cloud Storage bucket,
+ *  `projects/{project_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -102,9 +101,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a single linked storage bucket.
  *
  *  @param name Required. Resource name of the bucket, mirrors the ID of the
- *    underlying Google Cloud Storage bucket. Because bucket resource names are
- *    unique across projects, you may omit the project number,
- *    `projects/-/buckets/{bucket_id}`.
+ *    underlying Google Cloud Storage bucket,
+ *    `projects/{project_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsGet
  */
@@ -173,8 +171,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the bucket, mirrors the ID of the underlying
- *  Google Cloud Storage bucket. Because bucket resource names are unique across
- *  projects, you may omit the project number, `projects/-/buckets/{bucket_id}`.
+ *  Google Cloud Storage bucket,
+ *  `projects/{project_number}/buckets/{bucket_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
@@ -186,9 +184,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRFirebasestorage_RemoveFirebaseRequest to include in
  *    the query.
  *  @param bucket Required. Resource name of the bucket, mirrors the ID of the
- *    underlying Google Cloud Storage bucket. Because bucket resource names are
- *    unique across projects, you may omit the project number,
- *    `projects/-/buckets/{bucket_id}`.
+ *    underlying Google Cloud Storage bucket,
+ *    `projects/{project_number}/buckets/{bucket_id}`.
  *
  *  @return GTLRFirebasestorageQuery_ProjectsBucketsRemoveFirebase
  */

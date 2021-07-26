@@ -227,6 +227,24 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_AttachedResource
+//
+
+@implementation GTLRCloudAsset_AttachedResource
+@dynamic assetType, versionedResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"versionedResources" : [GTLRCloudAsset_VersionedResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_AuditConfig
 //
 
@@ -1368,10 +1386,10 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_ResourceSearchResult
-@dynamic additionalAttributes, assetType, createTime, descriptionProperty,
-         displayName, folders, kmsKey, labels, location, name, networkTags,
-         organization, parentAssetType, parentFullResourceName, project, state,
-         updateTime;
+@dynamic additionalAttributes, assetType, attachedResources, createTime,
+         descriptionProperty, displayName, folders, kmsKey, labels, location,
+         name, networkTags, organization, parentAssetType,
+         parentFullResourceName, project, state, updateTime, versionedResources;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1379,8 +1397,10 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"attachedResources" : [GTLRCloudAsset_AttachedResource class],
     @"folders" : [NSString class],
-    @"networkTags" : [NSString class]
+    @"networkTags" : [NSString class],
+    @"versionedResources" : [GTLRCloudAsset_VersionedResource class]
   };
   return map;
 }
@@ -1550,6 +1570,30 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_VersionedPackage
 @dynamic architecture, packageName, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_VersionedResource
+//
+
+@implementation GTLRCloudAsset_VersionedResource
+@dynamic resource, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_VersionedResource_Resource
+//
+
+@implementation GTLRCloudAsset_VersionedResource_Resource
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

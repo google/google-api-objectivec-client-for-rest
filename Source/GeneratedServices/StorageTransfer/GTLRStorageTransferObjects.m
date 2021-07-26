@@ -75,7 +75,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_AwsS3Data
-@dynamic awsAccessKey, bucketName, path;
+@dynamic awsAccessKey, bucketName, path, roleArn;
 @end
 
 
@@ -179,7 +179,7 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 //
 
 @implementation GTLRStorageTransfer_GoogleServiceAccount
-@dynamic accountEmail;
+@dynamic accountEmail, subjectId;
 @end
 
 

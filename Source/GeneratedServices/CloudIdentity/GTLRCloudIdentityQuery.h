@@ -1772,8 +1772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. The fully-qualified names of fields to update. May only contain
- *  the following fields: `display_name`, `description`, `labels`.
+ *  Required. The names of fields to update. May only contain the following
+ *  fields: `display_name`, `description`, `labels`.
  *
  *  String format is a comma-separated list of fields.
  */

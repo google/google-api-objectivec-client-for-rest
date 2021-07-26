@@ -5,7 +5,7 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on incoming requets. The Cloud Run Admin API follows the Knative
+//   based on incoming requests. The Cloud Run Admin API follows the Knative
 //   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
@@ -770,8 +770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_ResourceRecord *> *resourceRecords;
 
 /**
- *  Cloud Run fully managed: not supported Cloud Run on GKE: supported Holds the
- *  URL that will serve the traffic of the DomainMapping. +optional
+ *  Optional. Cloud Run fully managed: not supported Cloud Run on GKE: supported
+ *  Holds the URL that will serve the traffic of the DomainMapping.
  */
 @property(nonatomic, copy, nullable) NSString *url;
 
@@ -1875,7 +1875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @interface GTLRCloudRun_RevisionSpec : GTLRObject
 
 /**
- *  (Optional) ContainerConcurrency specifies the maximum allowed in-flight
+ *  Optional. ContainerConcurrency specifies the maximum allowed in-flight
  *  (concurrent) requests per container instance of the Revision. Cloud Run
  *  fully managed: supported, defaults to 80 Cloud Run for Anthos: supported,
  *  defaults to 0, which means concurrency to the application is not limited,
@@ -1944,8 +1944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *imageDigest;
 
 /**
- *  Specifies the generated logging url for this particular revision based on
- *  the revision url template specified in the controller's config. +optional
+ *  Optional. Specifies the generated logging url for this particular revision
+ *  based on the revision url template specified in the controller's config.
  */
 @property(nonatomic, copy, nullable) NSString *logUrl;
 
@@ -2595,10 +2595,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *configurationName;
 
 /**
- *  LatestRevision may be optionally provided to indicate that the latest ready
+ *  Optional. LatestRevision may be provided to indicate that the latest ready
  *  Revision of the Configuration should be used for this traffic target. When
  *  provided LatestRevision must be true if RevisionName is empty; it must be
- *  false when RevisionName is non-empty. +optional
+ *  false when RevisionName is non-empty.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2621,8 +2621,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 @property(nonatomic, copy, nullable) NSString *revisionName;
 
 /**
- *  Tag is optionally used to expose a dedicated url for referencing this target
- *  exclusively. +optional
+ *  Optional. Tag is used to expose a dedicated url for referencing this target
+ *  exclusively.
  */
 @property(nonatomic, copy, nullable) NSString *tag;
 

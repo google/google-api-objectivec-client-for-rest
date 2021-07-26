@@ -5,7 +5,7 @@
 //   Cloud Run Admin API (run/v1)
 // Description:
 //   Deploy and manage user provided container images that scale automatically
-//   based on incoming requets. The Cloud Run Admin API follows the Knative
+//   based on incoming requests. The Cloud Run Admin API follows the Knative
 //   Serving API specification.
 // Documentation:
 //   https://cloud.google.com/run/
@@ -122,7 +122,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_NamespacesConfigurationsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -144,7 +144,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -310,7 +310,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_NamespacesDomainmappingsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -332,7 +332,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -459,7 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_NamespacesRevisionsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -481,7 +481,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -558,7 +558,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_NamespacesRoutesList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -580,7 +580,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -748,7 +748,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_NamespacesServicesList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -770,7 +770,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -965,7 +965,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsConfigurationsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -987,7 +987,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1153,7 +1153,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsDomainmappingsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1175,7 +1175,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1351,7 +1351,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsRevisionsList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1373,7 +1373,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1450,7 +1450,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsRoutesList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1472,7 +1472,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**
@@ -1684,7 +1684,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesList : GTLRCloudRunQuery
 
 /**
- *  Optional encoded string to continue paging.
+ *  Optional. Encoded string to continue paging.
  *
  *  Remapped to 'continueProperty' to avoid language reserved word 'continue'.
  */
@@ -1706,7 +1706,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *labelSelector;
 
-/** The maximum number of records that should be returned. */
+/** Optional. The maximum number of records that should be returned. */
 @property(nonatomic, assign) NSInteger limit;
 
 /**

@@ -5,12 +5,12 @@
 //   G Suite Vault API (vault/v1)
 // Description:
 //   Retention and eDiscovery for Google Workspace. To work with Vault
-//   resources, the account must have the [required Vault privileges]
-//   (https://support.google.com/vault/answer/2799699) and access to the matter.
-//   To access a matter, the account must have created the matter, have the
-//   matter shared with them, or have the **View All Matters** privilege. For
-//   example, to download an export, an account needs the **Manage Exports**
-//   privilege and the matter shared with them.
+//   resources, the account must have the [required Vault
+//   privileges](https://support.google.com/vault/answer/2799699) and access to
+//   the matter. To access a matter, the account must have created the matter,
+//   have the matter shared with them, or have the **View All Matters**
+//   privilege. For example, to download an export, an account needs the
+//   **Manage Exports** privilege and the matter shared with them.
 // Documentation:
 //   https://developers.google.com/vault
 
@@ -55,19 +55,19 @@ NS_ASSUME_NONNULL_BEGIN
 // state
 
 /**
- *  This matter is closed.
+ *  The matter is closed.
  *
  *  Value: "CLOSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultStateClosed;
 /**
- *  This matter is deleted.
+ *  The matter is deleted.
  *
  *  Value: "DELETED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultStateDeleted;
 /**
- *  This matter is open.
+ *  The matter is open.
  *
  *  Value: "OPEN"
  */
@@ -83,40 +83,39 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultStateStateUnspecified;
 // view
 
 /**
- *  Response includes the matter_id, name, description, and state. Default
- *  choice.
+ *  Returns the matter ID, name, description, and state. Default choice.
  *
  *  Value: "BASIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasic;
 /**
- *  Response includes the id, name, update time, corpus, and query.
+ *  Returns the hold ID, name, update time, service, and query.
  *
  *  Value: "BASIC_HOLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewBasicHold;
 /**
- *  Full representation of matter is returned. Everything above and including
- *  MatterPermissions list.
+ *  Returns the basic details and a list of matter owners and collaborators (see
+ *  [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
  *
  *  Value: "FULL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewFull;
 /**
- *  Full representation of a Hold. Response includes all fields of 'BASIC' and
- *  the entities the Hold applies to, such as accounts, or OU.
+ *  Returns all details of **BASIC_HOLD** and the entities the hold applies to,
+ *  such as accounts or organizational unit.
  *
  *  Value: "FULL_HOLD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewFullHold;
 /**
- *  There is no specified view. Defaults to FULL_HOLD.
+ *  Not specified. Defaults to **FULL_HOLD**.
  *
  *  Value: "HOLD_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVaultViewHoldViewUnspecified;
 /**
- *  There is no specified view.
+ *  The amount of detail is unspecified. Same as **BASIC**.
  *
  *  Value: "VIEW_UNSPECIFIED"
  */
@@ -166,7 +165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Closes the specified matter. Returns matter with updated state.
+ *  Closes the specified matter. Returns the matter with updated state.
  *
  *  Method: vault.matters.close
  *
@@ -181,7 +180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_CloseMatterResponse.
  *
- *  Closes the specified matter. Returns matter with updated state.
+ *  Closes the specified matter. Returns the matter with updated state.
  *
  *  @param object The @c GTLRVault_CloseMatterRequest to include in the query.
  *  @param matterId The matter ID.
@@ -194,8 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Counts the artifacts within the context of a matter and returns a detailed
- *  breakdown of metrics.
+ *  Counts the accounts processed by the specified query.
  *
  *  Method: vault.matters.count
  *
@@ -210,8 +208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Operation.
  *
- *  Counts the artifacts within the context of a matter and returns a detailed
- *  breakdown of metrics.
+ *  Counts the accounts processed by the specified query.
  *
  *  @param object The @c GTLRVault_CountArtifactsRequest to include in the
  *    query.
@@ -225,8 +222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Creates a new matter with the given name and description. The initial state
- *  is open, and the owner is the method caller. Returns the created matter with
+ *  Creates a matter with the given name and description. The initial state is
+ *  open, and the owner is the method caller. Returns the created matter with
  *  default view.
  *
  *  Method: vault.matters.create
@@ -239,8 +236,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Matter.
  *
- *  Creates a new matter with the given name and description. The initial state
- *  is open, and the owner is the method caller. Returns the created matter with
+ *  Creates a matter with the given name and description. The initial state is
+ *  open, and the owner is the method caller. Returns the created matter with
  *  default view.
  *
  *  @param object The @c GTLRVault_Matter to include in the query.
@@ -252,7 +249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Deletes the specified matter. Returns matter with updated state.
+ *  Deletes the specified matter. Returns the matter with updated state.
  *
  *  Method: vault.matters.delete
  *
@@ -267,7 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Matter.
  *
- *  Deletes the specified matter. Returns matter with updated state.
+ *  Deletes the specified matter. Returns the matter with updated state.
  *
  *  @param matterId The matter ID
  *
@@ -278,7 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Creates an Export.
+ *  Creates an export.
  *
  *  Method: vault.matters.exports.create
  *
@@ -293,7 +290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Export.
  *
- *  Creates an Export.
+ *  Creates an export.
  *
  *  @param object The @c GTLRVault_Export to include in the query.
  *  @param matterId The matter ID.
@@ -306,7 +303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Deletes an Export.
+ *  Deletes an export.
  *
  *  Method: vault.matters.exports.delete
  *
@@ -324,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Empty.
  *
- *  Deletes an Export.
+ *  Deletes an export.
  *
  *  @param matterId The matter ID.
  *  @param exportId The export ID.
@@ -337,7 +334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Gets an Export.
+ *  Gets an export.
  *
  *  Method: vault.matters.exports.get
  *
@@ -356,7 +353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Export.
  *
- *  Gets an Export.
+ *  Gets an export.
  *
  *  @param matterId The matter ID.
  *  @param exportId The export ID.
@@ -369,7 +366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Lists Exports.
+ *  Lists details about the exports in the specified matter.
  *
  *  Method: vault.matters.exports.list
  *
@@ -391,7 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_ListExportsResponse.
  *
- *  Lists Exports.
+ *  Lists details about the exports in the specified matter.
  *
  *  @param matterId The matter ID.
  *
@@ -420,15 +417,17 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /**
- *  Specifies which parts of the Matter to return in the response.
+ *  Specifies how much information about the matter to return in the response.
  *
  *  Likely values:
- *    @arg @c kGTLRVaultViewViewUnspecified There is no specified view. (Value:
- *        "VIEW_UNSPECIFIED")
- *    @arg @c kGTLRVaultViewBasic Response includes the matter_id, name,
- *        description, and state. Default choice. (Value: "BASIC")
- *    @arg @c kGTLRVaultViewFull Full representation of matter is returned.
- *        Everything above and including MatterPermissions list. (Value: "FULL")
+ *    @arg @c kGTLRVaultViewViewUnspecified The amount of detail is unspecified.
+ *        Same as **BASIC**. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVaultViewBasic Returns the matter ID, name, description, and
+ *        state. Default choice. (Value: "BASIC")
+ *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
+ *        owners and collaborators (see
+ *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -446,9 +445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Adds a HeldAccount to a hold. Accounts can only be added to a hold that has
- *  no held_org_unit set. Attempting to add an account to an OU-based hold will
- *  result in an error.
+ *  Adds an account to a hold. Accounts can be added only to a hold that does
+ *  not have an organizational unit set. If you try to add an account to an
+ *  organizational unit-based hold, an error is returned.
  *
  *  Method: vault.matters.holds.accounts.create
  *
@@ -466,9 +465,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_HeldAccount.
  *
- *  Adds a HeldAccount to a hold. Accounts can only be added to a hold that has
- *  no held_org_unit set. Attempting to add an account to an OU-based hold will
- *  result in an error.
+ *  Adds an account to a hold. Accounts can be added only to a hold that does
+ *  not have an organizational unit set. If you try to add an account to an
+ *  organizational unit-based hold, an error is returned.
  *
  *  @param object The @c GTLRVault_HeldAccount to include in the query.
  *  @param matterId The matter ID.
@@ -483,8 +482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Removes a HeldAccount from a hold. If this request leaves the hold with no
- *  held accounts, the hold will not apply to any accounts.
+ *  Removes an account from a hold.
  *
  *  Method: vault.matters.holds.accounts.delete
  *
@@ -505,8 +503,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Empty.
  *
- *  Removes a HeldAccount from a hold. If this request leaves the hold with no
- *  held accounts, the hold will not apply to any accounts.
+ *  Removes an account from a hold.
  *
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
@@ -521,9 +518,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Lists HeldAccounts for a hold. This will only list individually specified
- *  held accounts. If the hold is on an OU, then use Admin SDK to enumerate its
- *  members.
+ *  Lists the accounts covered by a hold. This can list only
+ *  individually-specified accounts covered by the hold. If the hold covers an
+ *  organizational unit, use the [Admin
+ *  SDK](https://developers.google.com/admin-sdk/). to list the members of the
+ *  organizational unit on hold.
  *
  *  Method: vault.matters.holds.accounts.list
  *
@@ -542,9 +541,11 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_ListHeldAccountsResponse.
  *
- *  Lists HeldAccounts for a hold. This will only list individually specified
- *  held accounts. If the hold is on an OU, then use Admin SDK to enumerate its
- *  members.
+ *  Lists the accounts covered by a hold. This can list only
+ *  individually-specified accounts covered by the hold. If the hold covers an
+ *  organizational unit, use the [Admin
+ *  SDK](https://developers.google.com/admin-sdk/). to list the members of the
+ *  organizational unit on hold.
  *
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
@@ -557,8 +558,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Adds HeldAccounts to a hold. Returns a list of accounts that have been
- *  successfully added. Accounts can only be added to an existing account-based
+ *  Adds accounts to a hold. Returns a list of accounts that have been
+ *  successfully added. Accounts can be added only to an existing account-based
  *  hold.
  *
  *  Method: vault.matters.holds.addHeldAccounts
@@ -577,8 +578,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_AddHeldAccountsResponse.
  *
- *  Adds HeldAccounts to a hold. Returns a list of accounts that have been
- *  successfully added. Accounts can only be added to an existing account-based
+ *  Adds accounts to a hold. Returns a list of accounts that have been
+ *  successfully added. Accounts can be added only to an existing account-based
  *  hold.
  *
  *  @param object The @c GTLRVault_AddHeldAccountsRequest to include in the
@@ -595,7 +596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Creates a hold in the given matter.
+ *  Creates a hold in the specified matter.
  *
  *  Method: vault.matters.holds.create
  *
@@ -610,7 +611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Hold.
  *
- *  Creates a hold in the given matter.
+ *  Creates a hold in the specified matter.
  *
  *  @param object The @c GTLRVault_Hold to include in the query.
  *  @param matterId The matter ID.
@@ -623,7 +624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Removes a hold by ID. This will release any HeldAccounts on this Hold.
+ *  Removes the specified hold and releases the accounts or organizational unit
+ *  covered by the hold. If the data is not preserved by another hold or
+ *  retention rule, it might be purged.
  *
  *  Method: vault.matters.holds.delete
  *
@@ -641,7 +644,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Empty.
  *
- *  Removes a hold by ID. This will release any HeldAccounts on this Hold.
+ *  Removes the specified hold and releases the accounts or organizational unit
+ *  covered by the hold. If the data is not preserved by another hold or
+ *  retention rule, it might be purged.
  *
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
@@ -654,7 +659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Gets a hold by ID.
+ *  Gets the specified hold.
  *
  *  Method: vault.matters.holds.get
  *
@@ -671,23 +676,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /**
- *  Specifies which parts of the Hold to return.
+ *  The amount of detail to return for a hold.
  *
  *  Likely values:
- *    @arg @c kGTLRVaultViewHoldViewUnspecified There is no specified view.
- *        Defaults to FULL_HOLD. (Value: "HOLD_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRVaultViewBasicHold Response includes the id, name, update
- *        time, corpus, and query. (Value: "BASIC_HOLD")
- *    @arg @c kGTLRVaultViewFullHold Full representation of a Hold. Response
- *        includes all fields of 'BASIC' and the entities the Hold applies to,
- *        such as accounts, or OU. (Value: "FULL_HOLD")
+ *    @arg @c kGTLRVaultViewHoldViewUnspecified Not specified. Defaults to
+ *        **FULL_HOLD**. (Value: "HOLD_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVaultViewBasicHold Returns the hold ID, name, update time,
+ *        service, and query. (Value: "BASIC_HOLD")
+ *    @arg @c kGTLRVaultViewFullHold Returns all details of **BASIC_HOLD** and
+ *        the entities the hold applies to, such as accounts or organizational
+ *        unit. (Value: "FULL_HOLD")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRVault_Hold.
  *
- *  Gets a hold by ID.
+ *  Gets the specified hold.
  *
  *  @param matterId The matter ID.
  *  @param holdId The hold ID.
@@ -700,8 +705,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Lists holds within a matter. An empty page token in ListHoldsResponse
- *  denotes no more holds to list.
+ *  Lists the holds in a matter.
  *
  *  Method: vault.matters.holds.list
  *
@@ -716,7 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 
 /**
  *  The number of holds to return in the response, between 0 and 100 inclusive.
- *  Leaving this empty, or as 0, is the same as page_size = 100.
+ *  Leaving this empty, or as 0, is the same as **page_size** = 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -727,24 +731,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specifies which parts of the Hold to return.
+ *  The amount of detail to return for a hold.
  *
  *  Likely values:
- *    @arg @c kGTLRVaultViewHoldViewUnspecified There is no specified view.
- *        Defaults to FULL_HOLD. (Value: "HOLD_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRVaultViewBasicHold Response includes the id, name, update
- *        time, corpus, and query. (Value: "BASIC_HOLD")
- *    @arg @c kGTLRVaultViewFullHold Full representation of a Hold. Response
- *        includes all fields of 'BASIC' and the entities the Hold applies to,
- *        such as accounts, or OU. (Value: "FULL_HOLD")
+ *    @arg @c kGTLRVaultViewHoldViewUnspecified Not specified. Defaults to
+ *        **FULL_HOLD**. (Value: "HOLD_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVaultViewBasicHold Returns the hold ID, name, update time,
+ *        service, and query. (Value: "BASIC_HOLD")
+ *    @arg @c kGTLRVaultViewFullHold Returns all details of **BASIC_HOLD** and
+ *        the entities the hold applies to, such as accounts or organizational
+ *        unit. (Value: "FULL_HOLD")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRVault_ListHoldsResponse.
  *
- *  Lists holds within a matter. An empty page token in ListHoldsResponse
- *  denotes no more holds to list.
+ *  Lists the holds in a matter.
  *
  *  @param matterId The matter ID.
  *
@@ -759,9 +762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Removes HeldAccounts from a hold. Returns a list of statuses in the same
- *  order as the request. If this request leaves the hold with no held accounts,
- *  the hold will not apply to any accounts.
+ *  Removes the specified accounts from a hold. Returns a list of statuses in
+ *  the same order as the request.
  *
  *  Method: vault.matters.holds.removeHeldAccounts
  *
@@ -779,9 +781,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_RemoveHeldAccountsResponse.
  *
- *  Removes HeldAccounts from a hold. Returns a list of statuses in the same
- *  order as the request. If this request leaves the hold with no held accounts,
- *  the hold will not apply to any accounts.
+ *  Removes the specified accounts from a hold. Returns a list of statuses in
+ *  the same order as the request.
  *
  *  @param object The @c GTLRVault_RemoveHeldAccountsRequest to include in the
  *    query.
@@ -797,9 +798,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Updates the OU and/or query parameters of a hold. You cannot add accounts to
- *  a hold that covers an OU, nor can you add OUs to a hold that covers
- *  individual accounts. Accounts listed in the hold will be ignored.
+ *  Updates the scope (organizational unit or accounts) and query parameters of
+ *  a hold. You cannot add accounts to a hold that covers an organizational
+ *  unit, nor can you add organizational units to a hold that covers individual
+ *  accounts. If you try, the unsupported values are ignored.
  *
  *  Method: vault.matters.holds.update
  *
@@ -817,9 +819,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Hold.
  *
- *  Updates the OU and/or query parameters of a hold. You cannot add accounts to
- *  a hold that covers an OU, nor can you add OUs to a hold that covers
- *  individual accounts. Accounts listed in the hold will be ignored.
+ *  Updates the scope (organizational unit or accounts) and query parameters of
+ *  a hold. You cannot add accounts to a hold that covers an organizational
+ *  unit, nor can you add organizational units to a hold that covers individual
+ *  accounts. If you try, the unsupported values are ignored.
  *
  *  @param object The @c GTLRVault_Hold to include in the query.
  *  @param matterId The matter ID.
@@ -834,7 +837,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Lists matters the user has access to.
+ *  Lists matters the requestor has access to.
  *
  *  Method: vault.matters.list
  *
@@ -854,35 +857,37 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  If set, list only matters with that specific state. The default is listing
+ *  If set, lists only matters with the specified state. The default lists
  *  matters of all states.
  *
  *  Likely values:
  *    @arg @c kGTLRVaultStateStateUnspecified The matter has no specified state.
  *        (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRVaultStateOpen This matter is open. (Value: "OPEN")
- *    @arg @c kGTLRVaultStateClosed This matter is closed. (Value: "CLOSED")
- *    @arg @c kGTLRVaultStateDeleted This matter is deleted. (Value: "DELETED")
+ *    @arg @c kGTLRVaultStateOpen The matter is open. (Value: "OPEN")
+ *    @arg @c kGTLRVaultStateClosed The matter is closed. (Value: "CLOSED")
+ *    @arg @c kGTLRVaultStateDeleted The matter is deleted. (Value: "DELETED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
- *  Specifies which parts of the matter to return in response.
+ *  Specifies how much information about the matter to return in response.
  *
  *  Likely values:
- *    @arg @c kGTLRVaultViewViewUnspecified There is no specified view. (Value:
- *        "VIEW_UNSPECIFIED")
- *    @arg @c kGTLRVaultViewBasic Response includes the matter_id, name,
- *        description, and state. Default choice. (Value: "BASIC")
- *    @arg @c kGTLRVaultViewFull Full representation of matter is returned.
- *        Everything above and including MatterPermissions list. (Value: "FULL")
+ *    @arg @c kGTLRVaultViewViewUnspecified The amount of detail is unspecified.
+ *        Same as **BASIC**. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRVaultViewBasic Returns the matter ID, name, description, and
+ *        state. Default choice. (Value: "BASIC")
+ *    @arg @c kGTLRVaultViewFull Returns the basic details and a list of matter
+ *        owners and collaborators (see
+ *        [MatterPermissions](https://developers.google.com/vault/reference/rest/v1/matters#matterpermission)).
+ *        (Value: "FULL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRVault_ListMattersResponse.
  *
- *  Lists matters the user has access to.
+ *  Lists matters the requestor has access to.
  *
  *  @return GTLRVaultQuery_MattersList
  *
@@ -924,7 +929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Reopens the specified matter. Returns matter with updated state.
+ *  Reopens the specified matter. Returns the matter with updated state.
  *
  *  Method: vault.matters.reopen
  *
@@ -939,7 +944,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_ReopenMatterResponse.
  *
- *  Reopens the specified matter. Returns matter with updated state.
+ *  Reopens the specified matter. Returns the matter with updated state.
  *
  *  @param object The @c GTLRVault_ReopenMatterRequest to include in the query.
  *  @param matterId The matter ID.
@@ -961,10 +966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  */
 @interface GTLRVaultQuery_MattersSavedQueriesCreate : GTLRVaultQuery
 
-/**
- *  The matter ID of the parent matter for which the saved query is to be
- *  created.
- */
+/** The ID of the matter to create the saved query in. */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /**
@@ -973,8 +975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  *  Creates a saved query.
  *
  *  @param object The @c GTLRVault_SavedQuery to include in the query.
- *  @param matterId The matter ID of the parent matter for which the saved query
- *    is to be created.
+ *  @param matterId The ID of the matter to create the saved query in.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesCreate
  */
@@ -984,7 +985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Deletes a saved query by Id.
+ *  Deletes the specified saved query.
  *
  *  Method: vault.matters.savedQueries.delete
  *
@@ -993,23 +994,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  */
 @interface GTLRVaultQuery_MattersSavedQueriesDelete : GTLRVaultQuery
 
-/**
- *  The matter ID of the parent matter for which the saved query is to be
- *  deleted.
- */
+/** The ID of the matter to delete the saved query from. */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/** ID of the saved query to be deleted. */
+/** ID of the saved query to delete. */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
 /**
  *  Fetches a @c GTLRVault_Empty.
  *
- *  Deletes a saved query by Id.
+ *  Deletes the specified saved query.
  *
- *  @param matterId The matter ID of the parent matter for which the saved query
- *    is to be deleted.
- *  @param savedQueryId ID of the saved query to be deleted.
+ *  @param matterId The ID of the matter to delete the saved query from.
+ *  @param savedQueryId ID of the saved query to delete.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesDelete
  */
@@ -1019,7 +1016,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Retrieves a saved query by Id.
+ *  Retrieves the specified saved query.
  *
  *  Method: vault.matters.savedQueries.get
  *
@@ -1029,23 +1026,19 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  */
 @interface GTLRVaultQuery_MattersSavedQueriesGet : GTLRVaultQuery
 
-/**
- *  The matter ID of the parent matter for which the saved query is to be
- *  retrieved.
- */
+/** The ID of the matter to get the saved query from. */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
-/** ID of the saved query to be retrieved. */
+/** ID of the saved query to retrieve. */
 @property(nonatomic, copy, nullable) NSString *savedQueryId;
 
 /**
  *  Fetches a @c GTLRVault_SavedQuery.
  *
- *  Retrieves a saved query by Id.
+ *  Retrieves the specified saved query.
  *
- *  @param matterId The matter ID of the parent matter for which the saved query
- *    is to be retrieved.
- *  @param savedQueryId ID of the saved query to be retrieved.
+ *  @param matterId The ID of the matter to get the saved query from.
+ *  @param savedQueryId ID of the saved query to retrieve.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesGet
  */
@@ -1055,8 +1048,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Lists saved queries within a matter. An empty page token in
- *  ListSavedQueriesResponse denotes no more saved queries to list.
+ *  Lists the saved queries in a matter.
  *
  *  Method: vault.matters.savedQueries.list
  *
@@ -1066,10 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
  */
 @interface GTLRVaultQuery_MattersSavedQueriesList : GTLRVaultQuery
 
-/**
- *  The matter ID of the parent matter for which the saved queries are to be
- *  retrieved.
- */
+/** The ID of the matter to get the saved queries for. */
 @property(nonatomic, copy, nullable) NSString *matterId;
 
 /** The maximum number of saved queries to return. */
@@ -1084,11 +1073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_ListSavedQueriesResponse.
  *
- *  Lists saved queries within a matter. An empty page token in
- *  ListSavedQueriesResponse denotes no more saved queries to list.
+ *  Lists the saved queries in a matter.
  *
- *  @param matterId The matter ID of the parent matter for which the saved
- *    queries are to be retrieved.
+ *  @param matterId The ID of the matter to get the saved queries for.
  *
  *  @return GTLRVaultQuery_MattersSavedQueriesList
  *
@@ -1101,7 +1088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 @end
 
 /**
- *  Undeletes the specified matter. Returns matter with updated state.
+ *  Undeletes the specified matter. Returns the matter with updated state.
  *
  *  Method: vault.matters.undelete
  *
@@ -1116,7 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVaultViewViewUnspecified;
 /**
  *  Fetches a @c GTLRVault_Matter.
  *
- *  Undeletes the specified matter. Returns matter with updated state.
+ *  Undeletes the specified matter. Returns the matter with updated state.
  *
  *  @param object The @c GTLRVault_UndeleteMatterRequest to include in the
  *    query.

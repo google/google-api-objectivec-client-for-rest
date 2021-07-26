@@ -421,6 +421,34 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_BiEngineReason
+//
+
+@implementation GTLRBigquery_BiEngineReason
+@dynamic code, message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_BiEngineStatistics
+//
+
+@implementation GTLRBigquery_BiEngineStatistics
+@dynamic biEngineMode, biEngineReasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"biEngineReasons" : [GTLRBigquery_BiEngineReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_BigtableColumn
 //
 
@@ -878,6 +906,16 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigquery_DmlStatistics
+//
+
+@implementation GTLRBigquery_DmlStatistics
+@dynamic deletedRowCount, insertedRowCount, updatedRowCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigquery_EncryptionConfiguration
 //
 
@@ -967,16 +1005,6 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
   return NO;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_Explanation
-//
-
-@implementation GTLRBigquery_Explanation
-@dynamic attribution, featureName;
 @end
 
 
@@ -1079,24 +1107,6 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 
 @implementation GTLRBigquery_GetServiceAccountResponse
 @dynamic email, kind;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRBigquery_GlobalExplanation
-//
-
-@implementation GTLRBigquery_GlobalExplanation
-@dynamic classLabel, explanations;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"explanations" : [GTLRBigquery_Explanation class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1374,8 +1384,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_JobStatistics
 @dynamic completionRatio, creationTime, endTime, extract, load, numChildJobs,
          parentJobId, query, quotaDeferments, reservationId, reservationUsage,
-         rowLevelSecurityStatistics, scriptStatistics, sessionInfoTemplate,
-         startTime, totalBytesProcessed, totalSlotMs, transactionInfo;
+         rowLevelSecurityStatistics, scriptStatistics, sessionInfo, startTime,
+         totalBytesProcessed, totalSlotMs, transactionInfo;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"reservationId" : @"reservation_id" };
@@ -1408,9 +1418,10 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_JobStatistics2
-@dynamic billingTier, cacheHit, ddlAffectedRowAccessPolicyCount,
-         ddlDestinationTable, ddlOperationPerformed, ddlTargetDataset,
-         ddlTargetRoutine, ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
+@dynamic biEngineStatistics, billingTier, cacheHit,
+         ddlAffectedRowAccessPolicyCount, ddlDestinationTable,
+         ddlOperationPerformed, ddlTargetDataset, ddlTargetRoutine,
+         ddlTargetRowAccessPolicy, ddlTargetTable, dmlStats,
          estimatedBytesProcessed, modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows, queryPlan,
          referencedRoutines, referencedTables, reservationUsage, schema,
@@ -2599,12 +2610,11 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TrainingRun
-@dynamic dataSplitResult, evaluationMetrics, globalExplanations, results,
-         startTime, trainingOptions;
+@dynamic dataSplitResult, evaluationMetrics, results, startTime,
+         trainingOptions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"globalExplanations" : [GTLRBigquery_GlobalExplanation class],
     @"results" : [GTLRBigquery_IterationResult class]
   };
   return map;

@@ -24,14 +24,18 @@
 @class GTLRDataCatalog_Binding;
 @class GTLRDataCatalog_Expr;
 @class GTLRDataCatalog_GetPolicyOptions;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryRoutineSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ColumnSchema;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1CrossRegionalSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1EntryGroup;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldType;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FieldTypeEnumType;
@@ -73,6 +77,22 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec.connectionType
+
+/**
+ *  Cloud SQL connection.
+ *
+ *  Value: "CLOUD_SQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_CloudSql;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "CONNECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_ConnectionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec.tableSourceType
 
 /**
@@ -99,6 +119,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQ
  *  Value: "TABLE_SOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec.type
+
+/**
+ *  Unspecified database type.
+ *
+ *  Value: "DATABASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_DatabaseTypeUnspecified;
+/**
+ *  Cloud SQL for MySQL.
+ *
+ *  Value: "MYSQL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Mysql;
+/**
+ *  Cloud SQL for PostgreSQL.
+ *
+ *  Value: "POSTGRES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
@@ -188,6 +230,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database;
 /**
+ *  Output only. Connection to a data source. For example, a BigQuery
+ *  connection.
+ *
+ *  Value: "DATA_SOURCE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection;
+/**
  *  An entry type for streaming entries. For example, a Pub/Sub topic.
  *
  *  Value: "DATA_STREAM"
@@ -255,6 +304,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Fiel
  *  Value: "PRIMITIVE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified;
+/**
+ *  A Richtext description.
+ *
+ *  Value: "RICHTEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext;
 /**
  *  An UTF-8 string.
  *
@@ -561,6 +616,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Specification for the BigQuery connection.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec : GTLRObject
+
+/** Specification for the BigQuery connection to a Cloud SQL instance. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec *cloudSql;
+
+/**
+ *  The type of the BigQuery connection.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_CloudSql
+ *        Cloud SQL connection. (Value: "CLOUD_SQL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_ConnectionTypeUnspecified
+ *        Unspecified type. (Value: "CONNECTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectionType;
+
+/**
+ *  True if there are credentials attached to the BigQuery connection; false
+ *  otherwise.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasCredential;
+
+@end
+
+
+/**
  *  Specification for a group of BigQuery tables with the `[prefix]YYYYMMDD`
  *  name pattern. For more information, see [Introduction to partitioned tables]
  *  (https://cloud.google.com/bigquery/docs/partitioned-tables#partitioning_versus_sharding).
@@ -633,6 +718,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  `BIGQUERY_VIEW`.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1ViewSpec *viewSpec;
+
+@end
+
+
+/**
+ *  Specification for the BigQuery connection to a Cloud SQL instance.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec : GTLRObject
+
+/** Database name. */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/** Cloud SQL instance ID in the format of `project:location:instance`. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+/**
+ *  Type of the Cloud SQL database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_DatabaseTypeUnspecified
+ *        Unspecified database type. (Value: "DATABASE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Mysql
+ *        Cloud SQL for MySQL. (Value: "MYSQL")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres
+ *        Cloud SQL for PostgreSQL. (Value: "POSTGRES")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -739,6 +851,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 
 /**
+ *  Specification that applies to a data source connection. Valid only for
+ *  entries with the `DATA_SOURCE_CONNECTION` type.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec : GTLRObject
+
+/** Fields specific to BigQuery connections. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec *bigqueryConnectionSpec;
+
+@end
+
+
+/**
  *  Entry metadata. A Data Catalog entry represents another resource in Google
  *  Cloud Platform (such as a BigQuery dataset or a Pub/Sub topic) or outside of
  *  it. You can use the `linked_resource` field in the entry resource to refer
@@ -769,6 +893,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 
 /** Output only. Physical location of the entry. */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataSource *dataSource;
+
+/**
+ *  Specification that applies to a data source connection. Valid only for
+ *  entries with the `DATA_SOURCE_CONNECTION` type.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec *dataSourceConnectionSpec;
 
 /**
  *  Entry description that can consist of several sentences or paragraphs that
@@ -825,6 +955,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, copy, nullable) NSString *integratedSystem;
 
 /**
+ *  Cloud labels attached to the entry. In Data Catalog, you can create and
+ *  modify labels attached only to custom entries. Synced entries have
+ *  unmodifiable labels that come from the source system.
+ */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels *labels;
+
+/**
  *  The resource this metadata entry refers to. For Google Cloud Platform
  *  resources, `linked_resource` is the [Full Resource Name]
  *  (https://cloud.google.com/apis/design/resource_names#full_resource_name).
@@ -873,6 +1010,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *        (Value: "CLUSTER")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database A
  *        database. (Value: "DATABASE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection
+ *        Output only. Connection to a data source. For example, a BigQuery
+ *        connection. (Value: "DATA_SOURCE_CONNECTION")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream An
  *        entry type for streaming entries. For example, a Pub/Sub topic.
  *        (Value: "DATA_STREAM")
@@ -920,6 +1060,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  */
 @property(nonatomic, copy, nullable) NSString *userSpecifiedType;
 
+@end
+
+
+/**
+ *  Cloud labels attached to the entry. In Data Catalog, you can create and
+ *  modify labels attached only to custom entries. Synced entries have
+ *  unmodifiable labels that come from the source system.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels : GTLRObject
 @end
 
 
@@ -986,6 +1140,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified
  *        The default invalid value for a type. (Value:
  *        "PRIMITIVE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext
+ *        A Richtext description. (Value: "RICHTEXT")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String
  *        An UTF-8 string. (Value: "STRING")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp
@@ -1518,6 +1674,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includeProjectIds;
 
 /**
+ *  Optional. If `true`, include public tag templates in the search results. By
+ *  default, they are included only if you have explicit permissions on them to
+ *  view them. For example, if you are the owner. Other scope fields, for
+ *  example, ``include_org_ids``, still restrict the returned public tag
+ *  templates and at least one of them is required.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includePublicTagTemplates;
+
+/**
  *  Optional. The list of locations to search within. If empty, all locations
  *  are searched. Returns an error if any location in the list isn't one of the
  *  [Supported
@@ -1849,6 +2016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
 @property(nonatomic, strong, nullable) NSNumber *order;
 
 /**
+ *  The value of a tag field with a rich text type. The maximum length is 10 MiB
+ *  as this value holds HTML descriptions including encoded images. The maximum
+ *  length of the text without images is 100 KiB.
+ */
+@property(nonatomic, copy, nullable) NSString *richtextValue;
+
+/**
  *  The value of a tag field with a string type. The maximum length is 2000
  *  UTF-8 characters.
  */
@@ -1901,6 +2075,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  letter or underscore.
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate_Fields *fields;
+
+/**
+ *  Indicates whether this is a public tag template. Every user has view access
+ *  to a *public* tag template by default. This means that: * Every user can use
+ *  this tag template to tag an entry. * If an entry is tagged using the tag
+ *  template, the tag is always shown in the response to ``ListTags`` called on
+ *  the entry. * To get the template using the GetTagTemplate method, you need
+ *  view access either on the project or the organization the tag template
+ *  resides in but no other permission is needed. * Operations on the tag
+ *  template other than viewing (for example, editing IAM policies) follow
+ *  standard IAM structures. Tags created with a public tag template are
+ *  referred to as public tags. You can search for a public tag by value with a
+ *  simple search query instead of using a ``tag:`` predicate. Public tag
+ *  templates may not appear in search results depending on scope, see:
+ *  include_public_tag_templates
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPubliclyReadable;
 
 /**
  *  The resource name of the tag template in URL format. Note: The tag template

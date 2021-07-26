@@ -296,6 +296,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDe
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits;
 /** Value: "sdkVersion" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_SdkVersion;
+/** Value: "serverPageLocationHostname" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationHostname;
+/** Value: "serverPageLocationPath" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationPath;
+/** Value: "serverPageLocationUrl" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationUrl;
 /** Value: "videoCurrentTime" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime;
 /** Value: "videoDuration" */
@@ -852,6 +858,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ScrollDepthUnits Value
  *        "scrollDepthUnits"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_SdkVersion Value "sdkVersion"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationHostname
+ *        Value "serverPageLocationHostname"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationPath Value
+ *        "serverPageLocationPath"
+ *    @arg @c kGTLRTagManager_BuiltInVariable_Type_ServerPageLocationUrl Value
+ *        "serverPageLocationUrl"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoCurrentTime Value
  *        "videoCurrentTime"
  *    @arg @c kGTLRTagManager_BuiltInVariable_Type_VideoDuration Value

@@ -591,7 +591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  This method implements the google.longrunning.Operation, which allows you to
  *  track the operation status. We recommend intervals of at least 2 seconds
  *  with exponential backoff retry to poll the operation result. The metadata
- *  contains the request to help callers to map responses to requests.
+ *  contains the metadata for the long-running operation.
  *
  *  Method: cloudasset.analyzeIamPolicyLongrunning
  *
@@ -623,7 +623,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  This method implements the google.longrunning.Operation, which allows you to
  *  track the operation status. We recommend intervals of at least 2 seconds
  *  with exponential backoff retry to poll the operation result. The metadata
- *  contains the request to help callers to map responses to requests.
+ *  contains the metadata for the long-running operation.
  *
  *  @param object The @c GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest to
  *    include in the query.
@@ -1051,7 +1051,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  to find Cloud resources that have a label "env". * `kmsKey:key` to find
  *  Cloud resources encrypted with a customer-managed encryption key whose name
  *  contains the word "key". * `state:ACTIVE` to find Cloud resources whose
- *  state contains "ACTIVE" as a word. * `NOT state:ACTIVE` to find {{gcp_name}}
+ *  state contains "ACTIVE" as a word. * `NOT state:ACTIVE` to find Cloud
  *  resources whose state doesn't contain "ACTIVE" as a word. *
  *  `createTime<1609459200` to find Cloud resources that were created before
  *  "2021-01-01 00:00:00 UTC". 1609459200 is the epoch timestamp of "2021-01-01
@@ -1066,6 +1066,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  or the "global" location.
  */
 @property(nonatomic, copy, nullable) NSString *query;
+
+/**
+ *  Optional. A comma-separated list of fields specifying which fields to be
+ *  returned in ResourceSearchResult. Only '*' or combination of top level
+ *  fields can be specified. Field names of both snake_case and camelCase are
+ *  supported. Examples: `"*"`, `"name,location"`, `"name,versionedResources"`.
+ *  The read_mask paths must be valid field paths listed but not limited to
+ *  (both snake_case and camelCase are supported): * name * assetType * project
+ *  * displayName * description * location * labels * networkTags * kmsKey *
+ *  createTime * updateTime * state * additionalAttributes * versionedResources
+ *  If read_mask is not specified, all fields except versionedResources will be
+ *  returned. If only '*' is specified, all fields including versionedResources
+ *  will be returned. Any invalid field path will trigger INVALID_ARGUMENT
+ *  error.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *readMask;
 
 /**
  *  Required. A scope can be a project, a folder, or an organization. The search

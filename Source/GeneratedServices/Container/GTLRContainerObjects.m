@@ -410,7 +410,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ClusterUpdate
-@dynamic desiredAddonsConfig, desiredAutopilot, desiredBinaryAuthorization,
+@dynamic desiredAddonsConfig, desiredAuthenticatorGroupsConfig,
+         desiredAutopilot, desiredBinaryAuthorization,
          desiredClusterAutoscaling, desiredDatabaseEncryption,
          desiredDatapathProvider, desiredDefaultSnatStatus, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,

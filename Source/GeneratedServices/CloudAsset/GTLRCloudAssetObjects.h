@@ -22,6 +22,7 @@
 
 @class GTLRCloudAsset_AccessSelector;
 @class GTLRCloudAsset_Asset;
+@class GTLRCloudAsset_AttachedResource;
 @class GTLRCloudAsset_AuditConfig;
 @class GTLRCloudAsset_AuditLogConfig;
 @class GTLRCloudAsset_BigQueryDestination;
@@ -104,6 +105,8 @@
 @class GTLRCloudAsset_TemporalAsset;
 @class GTLRCloudAsset_TimeWindow;
 @class GTLRCloudAsset_VersionedPackage;
+@class GTLRCloudAsset_VersionedResource;
+@class GTLRCloudAsset_VersionedResource_Resource;
 @class GTLRCloudAsset_WindowsQuickFixEngineeringPackage;
 @class GTLRCloudAsset_WindowsUpdateCategory;
 @class GTLRCloudAsset_WindowsUpdatePackage;
@@ -933,6 +936,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  create/update/delete operation is performed.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Attached resource representation, which is defined by the corresponding
+ *  service provider. It represents an attached resource's payload.
+ */
+@interface GTLRCloudAsset_AttachedResource : GTLRObject
+
+/**
+ *  The type of this attached resource. Example:
+ *  `osconfig.googleapis.com/Inventory` You can find the supported attached
+ *  asset types of each resource in this table:
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+/**
+ *  Versioned resource representations of this attached resource. This is
+ *  repeated because there could be multiple versions of the attached resource
+ *  representations during version migration.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_VersionedResource *> *versionedResources;
 
 @end
 
@@ -3877,6 +3904,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
+ *  Attached resources of this resource. For example, an OSConfig Inventory is
+ *  an attached resource of a Compute Instance. This field is repeated because a
+ *  resource could have multiple attached resources. This `attached_resources`
+ *  field is not searchable. Some attributes of the attached resources are
+ *  exposed in `additional_attributes` field, so as to allow users to search on
+ *  them.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AttachedResource *> *attachedResources;
+
+/**
  *  The create timestamp of this resource, at which the resource was created.
  *  The granularity is in seconds. Timestamp.nanos will always be 0. This field
  *  is available only when the resource's proto contains it. To search against
@@ -4027,6 +4064,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  quoted). Example: `updateTime < "2021-01-01T00:00:00"`
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Versioned resource representations of this resource. This is repeated
+ *  because there could be multiple versions of resource representations during
+ *  version migration. This `versioned_resources` field is not searchable. Some
+ *  attributes of the resource representations are exposed in
+ *  `additional_attributes` field, so as to allow users to search on them.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_VersionedResource *> *versionedResources;
 
 @end
 
@@ -4353,6 +4399,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /** The version of the package. */
 @property(nonatomic, copy, nullable) NSString *version;
 
+@end
+
+
+/**
+ *  Resource representation as defined by the corresponding service providing
+ *  the resource for a given API version.
+ */
+@interface GTLRCloudAsset_VersionedResource : GTLRObject
+
+/**
+ *  JSON representation of the resource as defined by the corresponding service
+ *  providing this resource. Example: If the resource is an instance provided by
+ *  Compute Engine, this field will contain the JSON representation of the
+ *  instance as defined by Compute Engine:
+ *  `https://cloud.google.com/compute/docs/reference/rest/v1/instances`. You can
+ *  find the resource definition for each supported resource type in this table:
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_VersionedResource_Resource *resource;
+
+/**
+ *  API version of the resource. Example: If the resource is an instance
+ *  provided by Compute Engine v1 API as defined in
+ *  `https://cloud.google.com/compute/docs/reference/rest/v1/instances`, version
+ *  will be "v1".
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  JSON representation of the resource as defined by the corresponding service
+ *  providing this resource. Example: If the resource is an instance provided by
+ *  Compute Engine, this field will contain the JSON representation of the
+ *  instance as defined by Compute Engine:
+ *  `https://cloud.google.com/compute/docs/reference/rest/v1/instances`. You can
+ *  find the resource definition for each supported resource type in this table:
+ *  `https://cloud.google.com/asset-inventory/docs/supported-asset-types#searchable_asset_types`
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudAsset_VersionedResource_Resource : GTLRObject
 @end
 
 

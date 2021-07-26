@@ -31,6 +31,11 @@ NSString * const kGTLRTesting_AndroidModel_FormFactor_Phone    = @"PHONE";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet   = @"TABLET";
 NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable = @"WEARABLE";
 
+// GTLRTesting_AndroidRoboTest.roboMode
+NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified = @"ROBO_MODE_UNSPECIFIED";
+NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1 = @"ROBO_VERSION_1";
+NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 = @"ROBO_VERSION_2";
+
 // GTLRTesting_CancelTestMatrixResponse.testState
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Cancelled = @"CANCELLED";
 NSString * const kGTLRTesting_CancelTestMatrixResponse_TestState_Error = @"ERROR";
@@ -262,7 +267,7 @@ NSString * const kGTLRTesting_TestMatrix_State_Validating      = @"VALIDATING";
 
 @implementation GTLRTesting_AndroidRoboTest
 @dynamic appApk, appBundle, appInitialActivity, appPackageId, maxDepth,
-         maxSteps, roboDirectives, roboScript, startingIntents;
+         maxSteps, roboDirectives, roboMode, roboScript, startingIntents;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

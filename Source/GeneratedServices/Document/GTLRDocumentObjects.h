@@ -1262,6 +1262,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 
 
 /**
+ *  Metadata message associated with the ExportProcessorVersion operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionMetadata : GTLRObject
+
+/** The common metadata about the operation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMetadata *commonMetadata;
+
+@end
+
+
+/**
+ *  Response message associated with the ExportProcessorVersion operation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ExportProcessorVersionResponse : GTLRObject
+
+/** The Cloud Storage URI containing the output artifacts. */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+@end
+
+
+/**
  *  The long running operation metadata for set default processor version
  *  method.
  */

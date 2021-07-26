@@ -458,7 +458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_WeeklyMaintenanceWindow_Day_W
 
 
 /**
- *  A Google Cloud Redis instance.
+ *  A Google Cloud Redis instance. next id = 30
  */
 @interface GTLRCloudRedis_Instance : GTLRObject
 

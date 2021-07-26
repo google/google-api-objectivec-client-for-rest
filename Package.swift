@@ -452,6 +452,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_FactCheckTools"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Fcmdata",
+            targets: ["GoogleAPIClientForREST_Fcmdata"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Firebaseappcheck",
             targets: ["GoogleAPIClientForREST_Firebaseappcheck"]
         ),
@@ -608,6 +612,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_MyBusinessLodging"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_MyBusinessNotificationSettings",
+            targets: ["GoogleAPIClientForREST_MyBusinessNotificationSettings"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
             targets: ["GoogleAPIClientForREST_MyBusinessPlaceActions"]
         ),
@@ -618,6 +626,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_NetworkManagement",
             targets: ["GoogleAPIClientForREST_NetworkManagement"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_NetworkSecurity",
+            targets: ["GoogleAPIClientForREST_NetworkSecurity"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Oauth2",
@@ -1598,6 +1610,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Fcmdata",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Fcmdata",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Firebaseappcheck",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Firebaseappcheck",
@@ -1832,6 +1850,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_MyBusinessNotificationSettings",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/MyBusinessNotificationSettings",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_MyBusinessPlaceActions",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/MyBusinessPlaceActions",
@@ -1847,6 +1871,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_NetworkManagement",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/NetworkManagement",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_NetworkSecurity",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/NetworkSecurity",
             publicHeadersPath: "."
         ),
         .target(

@@ -60,6 +60,16 @@ NSString * const kGTLRGameServices_Condition_Sys_Service = @"SERVICE";
 NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogFailClosed = @"LOG_FAIL_CLOSED";
 NSString * const kGTLRGameServices_DataAccessOptions_LogMode_LogModeUnspecified = @"LOG_MODE_UNSPECIFIED";
 
+// GTLRGameServices_KubernetesClusterState.installationState
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionSupported = @"AGONES_KUBERNETES_VERSION_SUPPORTED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesKubernetesVersionUnsupported = @"AGONES_KUBERNETES_VERSION_UNSUPPORTED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesNotInstalled = @"AGONES_NOT_INSTALLED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnrecognized = @"AGONES_VERSION_UNRECOGNIZED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_AgonesVersionUnsupported = @"AGONES_VERSION_UNSUPPORTED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_InstallationStateUnspecified = @"INSTALLATION_STATE_UNSPECIFIED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_KubernetesVersionUnrecognized = @"KUBERNETES_VERSION_UNRECOGNIZED";
+NSString * const kGTLRGameServices_KubernetesClusterState_InstallationState_VersionVerificationFailed = @"VERSION_VERIFICATION_FAILED";
+
 // GTLRGameServices_OperationStatus.errorCode
 NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ClusterConnection = @"CLUSTER_CONNECTION";
 NSString * const kGTLRGameServices_OperationStatus_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
@@ -340,8 +350,8 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRGameServices_GameServerCluster
-@dynamic connectionInfo, createTime, descriptionProperty, ETag, labels, name,
-         updateTime;
+@dynamic clusterState, connectionInfo, createTime, descriptionProperty, ETag,
+         labels, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -494,6 +504,17 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 
 @implementation GTLRGameServices_GkeClusterReference
 @dynamic cluster;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGameServices_KubernetesClusterState
+//
+
+@implementation GTLRGameServices_KubernetesClusterState
+@dynamic agonesVersionInstalled, agonesVersionTargeted, installationState,
+         kubernetesVersionInstalled, provider, versionInstalledErrorMessage;
 @end
 
 
@@ -816,7 +837,7 @@ NSString * const kGTLRGameServices_Rule_Action_NoAction     = @"NO_ACTION";
 //
 
 @implementation GTLRGameServices_PreviewCreateGameServerClusterResponse
-@dynamic ETag, targetState;
+@dynamic clusterState, ETag, targetState;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

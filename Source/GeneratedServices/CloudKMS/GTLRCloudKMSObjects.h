@@ -187,6 +187,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -381,6 +388,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -570,6 +584,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
  *  Value: "EC_SIGN_P384_SHA384"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384;
+/**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256;
 /**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
@@ -789,6 +810,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP256S
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384;
 /**
+ *  ECDSA on the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *  protection level.
+ *
+ *  Value: "EC_SIGN_SECP256K1_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256;
+/**
  *  Algorithm representing symmetric encryption by an external key manager.
  *
  *  Value: "EXTERNAL_SYMMETRIC_ENCRYPTION"
@@ -927,8 +955,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  computation of the CRC32C checksum. Note: This field is defined as int64 for
  *  reasons of compatibility across different languages. However, it is a
  *  non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -961,7 +988,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  defined as int64 for reasons of compatibility across different languages.
  *  However, it is a non-negative integer, which will never exceed 2^32-1, and
  *  can be safely downconverted to uint32 in languages that support this type.
- *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -991,8 +1017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  AsymmetricDecryptRequest.ciphertext_crc32c was left unset or that it was not
  *  delivered to KeyManagementService. If you've set
  *  AsymmetricDecryptRequest.ciphertext_crc32c but this field is still false,
- *  discard the response and perform a limited number of retries. NOTE: This
- *  field is in Beta.
+ *  discard the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1024,7 +1049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1040,8 +1065,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
 
 /**
  *  The resource name of the CryptoKeyVersion used for signing. Check this field
- *  to verify that the intended resource was used for signing. NOTE: This field
- *  is in Beta.
+ *  to verify that the intended resource was used for signing.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1080,7 +1104,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  defined as int64 for reasons of compatibility across different languages.
  *  However, it is a non-negative integer, which will never exceed 2^32-1, and
  *  can be safely downconverted to uint32 in languages that support this type.
- *  NOTE: This field is in Beta.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1093,8 +1116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  field indicates either that AsymmetricSignRequest.digest_crc32c was left
  *  unset or that it was not delivered to KeyManagementService. If you've set
  *  AsymmetricSignRequest.digest_crc32c but this field is still false, discard
- *  the response and perform a limited number of retries. NOTE: This field is in
- *  Beta.
+ *  the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1359,6 +1381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignP384Sha384 ECDSA on
  *        the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -1541,6 +1566,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignP384Sha384
  *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -1633,8 +1661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  your computation of the CRC32C checksum. Note: This field is defined as
  *  int64 for reasons of compatibility across different languages. However, it
  *  is a non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1661,7 +1688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1695,7 +1722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  ciphertext. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1797,8 +1824,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  your computation of the CRC32C checksum. Note: This field is defined as
  *  int64 for reasons of compatibility across different languages. However, it
  *  is a non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1828,7 +1854,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  the CRC32C checksum. Note: This field is defined as int64 for reasons of
  *  compatibility across different languages. However, it is a non-negative
  *  integer, which will never exceed 2^32-1, and can be safely downconverted to
- *  uint32 in languages that support this type. NOTE: This field is in Beta.
+ *  uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1860,8 +1886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  computation of the CRC32C checksum. Note: This field is defined as int64 for
  *  reasons of compatibility across different languages. However, it is a
  *  non-negative integer, which will never exceed 2^32-1, and can be safely
- *  downconverted to uint32 in languages that support this type. NOTE: This
- *  field is in Beta.
+ *  downconverted to uint32 in languages that support this type.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1897,8 +1922,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  EncryptRequest.additional_authenticated_data_crc32c was left unset or that
  *  it was not delivered to KeyManagementService. If you've set
  *  EncryptRequest.additional_authenticated_data_crc32c but this field is still
- *  false, discard the response and perform a limited number of retries. NOTE:
- *  This field is in Beta.
+ *  false, discard the response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1911,8 +1935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *  field indicates either that EncryptRequest.plaintext_crc32c was left unset
  *  or that it was not delivered to KeyManagementService. If you've set
  *  EncryptRequest.plaintext_crc32c but this field is still false, discard the
- *  response and perform a limited number of retries. NOTE: This field is in
- *  Beta.
+ *  response and perform a limited number of retries.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2001,6 +2024,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignP384Sha384
  *        ECDSA on the NIST P-384 curve with a SHA384 digest. (Value:
  *        "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_EcSignSecp256k1Sha256
+ *        ECDSA on the non-NIST secp256k1 curve. This curve is only supported
+ *        for HSM protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")
@@ -2593,6 +2619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Softw
  *        NIST P-256 curve with a SHA256 digest. (Value: "EC_SIGN_P256_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignP384Sha384 ECDSA on the
  *        NIST P-384 curve with a SHA384 digest. (Value: "EC_SIGN_P384_SHA384")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_EcSignSecp256k1Sha256 ECDSA on
+ *        the non-NIST secp256k1 curve. This curve is only supported for HSM
+ *        protection level. (Value: "EC_SIGN_SECP256K1_SHA256")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_ExternalSymmetricEncryption
  *        Algorithm representing symmetric encryption by an external key
  *        manager. (Value: "EXTERNAL_SYMMETRIC_ENCRYPTION")

@@ -68,10 +68,29 @@ NSString * const kGTLRCloudBuild_BuildStep_Status_Success      = @"SUCCESS";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout      = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Working      = @"WORKING";
 
+// GTLRCloudBuild_FailureInfo.type
+NSString * const kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified = @"FAILURE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed = @"FETCH_SOURCE_FAILED";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_LoggingFailure = @"LOGGING_FAILURE";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_PushFailed   = @"PUSH_FAILED";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_PushImageNotFound = @"PUSH_IMAGE_NOT_FOUND";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized = @"PUSH_NOT_AUTHORIZED";
+NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
+
+// GTLRCloudBuild_GitRepoSource.repoType
+NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
+NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github = @"GITHUB";
+NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown = @"UNKNOWN";
+
 // GTLRCloudBuild_Hash.type
 NSString * const kGTLRCloudBuild_Hash_Type_Md5    = @"MD5";
 NSString * const kGTLRCloudBuild_Hash_Type_None   = @"NONE";
 NSString * const kGTLRCloudBuild_Hash_Type_Sha256 = @"SHA256";
+
+// GTLRCloudBuild_NetworkConfig.egressOption
+NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_EgressOptionUnspecified = @"EGRESS_OPTION_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_NoPublicEgress = @"NO_PUBLIC_EGRESS";
+NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_PublicEgress = @"PUBLIC_EGRESS";
 
 // GTLRCloudBuild_PubsubConfig.state
 NSString * const kGTLRCloudBuild_PubsubConfig_State_Ok         = @"OK";
@@ -95,6 +114,13 @@ NSString * const kGTLRCloudBuild_Warning_Priority_Warning      = @"WARNING";
 NSString * const kGTLRCloudBuild_WebhookConfig_State_Ok        = @"OK";
 NSString * const kGTLRCloudBuild_WebhookConfig_State_SecretDeleted = @"SECRET_DELETED";
 NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudBuild_WorkerPool.state
+NSString * const kGTLRCloudBuild_WorkerPool_State_Creating     = @"CREATING";
+NSString * const kGTLRCloudBuild_WorkerPool_State_Deleted      = @"DELETED";
+NSString * const kGTLRCloudBuild_WorkerPool_State_Deleting     = @"DELETING";
+NSString * const kGTLRCloudBuild_WorkerPool_State_Running      = @"RUNNING";
+NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -156,11 +182,11 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 //
 
 @implementation GTLRCloudBuild_Build
-@dynamic artifacts, availableSecrets, buildTriggerId, createTime, finishTime,
-         identifier, images, logsBucket, logUrl, name, options, projectId,
-         queueTtl, results, secrets, serviceAccount, source, sourceProvenance,
-         startTime, status, statusDetail, steps, substitutions, tags, timeout,
-         timing, warnings;
+@dynamic artifacts, availableSecrets, buildTriggerId, createTime, failureInfo,
+         finishTime, identifier, images, logsBucket, logUrl, name, options,
+         projectId, queueTtl, results, secrets, serviceAccount, source,
+         sourceProvenance, startTime, status, statusDetail, steps,
+         substitutions, tags, timeout, timing, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -225,8 +251,8 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 
 @implementation GTLRCloudBuild_BuildOptions
 @dynamic diskSizeGb, dynamicSubstitutions, env, logging, logStreamingOption,
-         machineType, requestedVerifyOption, secretEnv, sourceProvenanceHash,
-         substitutionOption, volumes, workerPool;
+         machineType, pool, requestedVerifyOption, secretEnv,
+         sourceProvenanceHash, substitutionOption, volumes, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -274,9 +300,10 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 //
 
 @implementation GTLRCloudBuild_BuildTrigger
-@dynamic build, createTime, descriptionProperty, disabled, filename, filter,
-         github, identifier, ignoredFiles, includedFiles, name, pubsubConfig,
-         resourceName, substitutions, tags, triggerTemplate, webhookConfig;
+@dynamic autodetect, build, createTime, descriptionProperty, disabled, filename,
+         filter, github, identifier, ignoredFiles, includedFiles, name,
+         pubsubConfig, resourceName, sourceToBuild, substitutions, tags,
+         triggerTemplate, webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -348,10 +375,40 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CreateWorkerPoolOperationMetadata
+//
+
+@implementation GTLRCloudBuild_CreateWorkerPoolOperationMetadata
+@dynamic completeTime, createTime, workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_DeleteWorkerPoolOperationMetadata
+//
+
+@implementation GTLRCloudBuild_DeleteWorkerPoolOperationMetadata
+@dynamic completeTime, createTime, workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Empty
 //
 
 @implementation GTLRCloudBuild_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_FailureInfo
+//
+
+@implementation GTLRCloudBuild_FailureInfo
+@dynamic detail, type;
 @end
 
 
@@ -380,6 +437,27 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 
 @implementation GTLRCloudBuild_GitHubEventsConfig
 @dynamic installationId, name, owner, pullRequest, push;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitRepoSource
+//
+
+@implementation GTLRCloudBuild_GitRepoSource
+@dynamic ref, repoType, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
+//
+
+@implementation GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
 @end
 
 
@@ -500,6 +578,38 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
   return @"triggers";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListWorkerPoolsResponse
+//
+
+@implementation GTLRCloudBuild_ListWorkerPoolsResponse
+@dynamic nextPageToken, workerPools;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workerPools" : [GTLRCloudBuild_WorkerPool class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"workerPools";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_NetworkConfig
+//
+
+@implementation GTLRCloudBuild_NetworkConfig
+@dynamic egressOption, peeredNetwork;
 @end
 
 
@@ -627,6 +737,37 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_OperationMetadata
+//
+
+@implementation GTLRCloudBuild_OperationMetadata
+@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
+         verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_PoolOption
+//
+
+@implementation GTLRCloudBuild_PoolOption
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_PrivatePoolV1Config
+//
+
+@implementation GTLRCloudBuild_PrivatePoolV1Config
+@dynamic networkConfig, workerConfig;
 @end
 
 
@@ -924,6 +1065,16 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_UpdateWorkerPoolOperationMetadata
+//
+
+@implementation GTLRCloudBuild_UpdateWorkerPoolOperationMetadata
+@dynamic completeTime, createTime, workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_Volume
 //
 
@@ -949,4 +1100,44 @@ NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified = @"STATE_
 
 @implementation GTLRCloudBuild_WebhookConfig
 @dynamic secret, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkerConfig
+//
+
+@implementation GTLRCloudBuild_WorkerConfig
+@dynamic diskSizeGb, machineType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkerPool
+//
+
+@implementation GTLRCloudBuild_WorkerPool
+@dynamic annotations, createTime, deleteTime, displayName, ETag, name,
+         privatePoolV1Config, state, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_WorkerPool_Annotations
+//
+
+@implementation GTLRCloudBuild_WorkerPool_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end

@@ -25,6 +25,7 @@
 
 @class GTLRLogging_BigQueryOptions;
 @class GTLRLogging_BucketOptions;
+@class GTLRLogging_CopyLogEntriesRequest;
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
 @class GTLRLogging_HttpRequest;
@@ -54,8 +55,13 @@
 @class GTLRLogging_MonitoredResourceMetadata;
 @class GTLRLogging_MonitoredResourceMetadata_SystemLabels;
 @class GTLRLogging_MonitoredResourceMetadata_UserLabels;
+@class GTLRLogging_Operation;
+@class GTLRLogging_Operation_Metadata;
+@class GTLRLogging_Operation_Response;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
+@class GTLRLogging_Status;
+@class GTLRLogging_Status_Details_Item;
 @class GTLRLogging_SuppressionInfo;
 @class GTLRLogging_WriteLogEntriesRequest_Labels;
 
@@ -68,6 +74,52 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_CopyLogEntriesMetadata.state
+
+/**
+ *  The operation was cancelled by the user.
+ *
+ *  Value: "OPERATION_STATE_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled;
+/**
+ *  The operation failed.
+ *
+ *  Value: "OPERATION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed;
+/**
+ *  The operation is running.
+ *
+ *  Value: "OPERATION_STATE_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning;
+/**
+ *  The operation is scheduled.
+ *
+ *  Value: "OPERATION_STATE_SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled;
+/**
+ *  The operation was completed successfully.
+ *
+ *  Value: "OPERATION_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded;
+/**
+ *  Should not be used.
+ *
+ *  Value: "OPERATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified;
+/**
+ *  Waiting for necessary permissions.
+ *
+ *  Value: "OPERATION_STATE_WAITING_FOR_PERMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_LabelDescriptor.valueType
@@ -652,6 +704,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRLogging_CancelOperationRequest : GTLRObject
+@end
+
+
+/**
  *  Describes the customer-managed encryption key (CMEK) settings associated
  *  with a project, folder, organization, billing account, or flexible
  *  resource.Note: CMEK for the Logs Router can currently only be configured for
@@ -696,6 +755,107 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  information.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+@end
+
+
+/**
+ *  Metadata for CopyLogEntries long running operations.
+ */
+@interface GTLRLogging_CopyLogEntriesMetadata : GTLRObject
+
+/**
+ *  Identifies whether the user has requested cancellation of the operation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancellationRequested;
+
+/** The end time of an operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Estimated progress of the operation (0 - 100%).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *progress;
+
+/** CopyLogEntries RPC request. */
+@property(nonatomic, strong, nullable) GTLRLogging_CopyLogEntriesRequest *request;
+
+/** The create time of an operation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  State of an operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled
+ *        The operation was cancelled by the user. (Value:
+ *        "OPERATION_STATE_CANCELLED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed The
+ *        operation failed. (Value: "OPERATION_STATE_FAILED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning
+ *        The operation is running. (Value: "OPERATION_STATE_RUNNING")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled
+ *        The operation is scheduled. (Value: "OPERATION_STATE_SCHEDULED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded
+ *        The operation was completed successfully. (Value:
+ *        "OPERATION_STATE_SUCCEEDED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified
+ *        Should not be used. (Value: "OPERATION_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions
+ *        Waiting for necessary permissions. (Value:
+ *        "OPERATION_STATE_WAITING_FOR_PERMISSIONS")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The IAM identity of a service account that must be granted access to the
+ *  destination. If the service account is not granted permission to the
+ *  destination within an hour, the operation will be cancelled. Example:
+ *  "serviceAccount:foo\@bar.com"
+ */
+@property(nonatomic, copy, nullable) NSString *writerIdentity;
+
+@end
+
+
+/**
+ *  The parameters to CopyLogEntries.
+ */
+@interface GTLRLogging_CopyLogEntriesRequest : GTLRObject
+
+/** Required. Destination to which to copy logs. */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Optional. A filter specifying which log entries to copy. The filter must be
+ *  no more than 20k characters. An empty filter matches all log entries.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Bucket from which to copy logs. e.g.
+ *  "projects/my-project/locations/my-location/buckets/my-source-bucket
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response type for CopyLogEntries long running operations.
+ */
+@interface GTLRLogging_CopyLogEntriesResponse : GTLRObject
+
+/**
+ *  Number of log entries copied.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logEntriesCopiedCount;
 
 @end
 
@@ -1195,6 +1355,30 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_MonitoredResourceDescriptor *> *resourceDescriptors;
+
+@end
+
+
+/**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRLogging_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_Operation *> *operations;
 
 @end
 
@@ -2570,6 +2754,85 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRLogging_Operation : GTLRObject
+
+/**
+ *  If the value is false, it means the operation is still in progress. If true,
+ *  the operation is completed, and either error or response is available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRLogging_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the name should
+ *  be a resource name ending with operations/{unique_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal response of the operation in case of success. If the original
+ *  method returns no data on success, such as Delete, the response is
+ *  google.protobuf.Empty. If the original method is standard Get/Create/Update,
+ *  the response should be the resource. For other methods, the response should
+ *  have the type XxxResponse, where Xxx is the original method name. For
+ *  example, if the original method name is TakeSnapshot(), the inferred
+ *  response type is TakeSnapshotResponse.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Operation_Response : GTLRObject
+@end
+
+
+/**
  *  Complete log information about a single HTTP request to an App Engine
  *  application.
  */
@@ -2790,6 +3053,51 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  The Status type defines a logical error model that is suitable for different
+ *  programming environments, including REST APIs and RPC APIs. It is used by
+ *  gRPC (https://github.com/grpc). Each Status message contains three pieces of
+ *  data: error code, error message, and error details.You can find out more
+ *  about this error model and how to work with it in the API Design Guide
+ *  (https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRLogging_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRLogging_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_Status_Details_Item : GTLRObject
+@end
+
+
+/**
  *  Information about entries that were omitted from the session.
  */
 @interface GTLRLogging_SuppressionInfo : GTLRObject
@@ -2915,14 +3223,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  among the log entries that did not supply their own values, the entries
  *  earlier in the list will sort before the entries later in the list. See the
  *  entries.list method.Log entries with timestamps that are more than the logs
- *  retention period (https://cloud.google.com/logging/quota-policy) in the past
- *  or more than 24 hours in the future will not be available when calling
+ *  retention period (https://cloud.google.com/logging/quotas) in the past or
+ *  more than 24 hours in the future will not be available when calling
  *  entries.list. However, those log entries can still be exported with LogSinks
  *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).To improve
  *  throughput and to avoid exceeding the quota limit
- *  (https://cloud.google.com/logging/quota-policy) for calls to entries.write,
- *  you should try to include several log entries in this list, rather than
- *  calling this method for each individual log entry.
+ *  (https://cloud.google.com/logging/quotas) for calls to entries.write, you
+ *  should try to include several log entries in this list, rather than calling
+ *  this method for each individual log entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 

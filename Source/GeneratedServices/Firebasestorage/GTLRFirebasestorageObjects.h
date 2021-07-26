@@ -30,6 +30,163 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata.state
+
+/**
+ *  The source bucket is being recreated in the new location.
+ *
+ *  Value: "CREATING_DESTINATION_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket;
+/**
+ *  Generating a unique bucket name, storing the source -> temp mapping in
+ *  Spanner, and actually creating the temporary bucket via Bigstore.
+ *
+ *  Value: "CREATING_TEMP_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket;
+/**
+ *  The source bucket is being emptied and deleted.
+ *
+ *  Value: "DELETING_SOURCE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket;
+/**
+ *  The temp bucket is being emptied and deleted.
+ *
+ *  Value: "DELETING_TEMP_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket;
+/**
+ *  The migration failed at some stage and it is not possible to continue
+ *  retrying that stage. Manual recovery may be needed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Failed;
+/**
+ *  The MigrateLocationDestructively request has passed precondition checks and
+ *  the bucket migration will begin soon.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Pending;
+/**
+ *  The migration has encountered a permanent failure and is now being rolled
+ *  back so that the source bucket is restored to its original state.
+ *
+ *  Value: "ROLLING_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RollingBack;
+/**
+ *  Unspecified state. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_StateUnspecified;
+/**
+ *  All stages of the migration have completed and the operation has been marked
+ *  done and updated with a response.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Succeeded;
+/**
+ *  The second STS transfer to move all objects from the temp bucket to the
+ *  final bucket is underway.
+ *
+ *  Value: "TRANSFERRING_TO_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToDestination;
+/**
+ *  The first STS transfer to move all objects from the source bucket to the
+ *  temp bucket is underway.
+ *
+ *  Value: "TRANSFERRING_TO_TEMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToTemp;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata.state
+
+/**
+ *  The source bucket is being recreated in the new location.
+ *
+ *  Value: "CREATING_DESTINATION_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket;
+/**
+ *  Generating a unique bucket name, storing the source -> temp mapping in
+ *  Spanner, and actually creating the temporary bucket via Bigstore.
+ *
+ *  Value: "CREATING_TEMP_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket;
+/**
+ *  The source bucket is being emptied and deleted.
+ *
+ *  Value: "DELETING_SOURCE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket;
+/**
+ *  The temp bucket is being emptied and deleted.
+ *
+ *  Value: "DELETING_TEMP_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket;
+/**
+ *  The migration failed at some stage and it is not possible to continue
+ *  retrying that stage. Manual recovery may be needed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Failed;
+/**
+ *  The MigrateLocationDestructively request has passed precondition checks and
+ *  the bucket migration will begin soon.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Pending;
+/**
+ *  The migration has encountered a permanent failure and is now being rolled
+ *  back so that the source bucket is restored to its original state.
+ *
+ *  Value: "ROLLING_BACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RollingBack;
+/**
+ *  Unspecified state. Should not be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_StateUnspecified;
+/**
+ *  All stages of the migration have completed and the operation has been marked
+ *  done and updated with a response.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Succeeded;
+/**
+ *  The second STS transfer to move all objects from the temp bucket to the
+ *  final bucket is underway.
+ *
+ *  Value: "TRANSFERRING_TO_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToDestination;
+/**
+ *  The first STS transfer to move all objects from the source bucket to the
+ *  temp bucket is underway.
+ *
+ *  Value: "TRANSFERRING_TO_TEMP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToTemp;
+
 /**
  *  The request used to link a Google Cloud Storage bucket to a Firebase
  *  project.
@@ -42,6 +199,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  A storage bucket and its relation to a parent Firebase project.
  */
 @interface GTLRFirebasestorage_Bucket : GTLRObject
+
+/** Output only. Location of the storage bucket. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Resource name of the bucket. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -65,6 +225,116 @@ NS_ASSUME_NONNULL_BEGIN
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRFirebasestorage_Empty : GTLRObject
+@end
+
+
+/**
+ *  Metadata for MigrateLocationDestructively LRO.
+ */
+@interface GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata : GTLRObject
+
+/** The time the LRO was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the LRO was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  The current state of the migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket
+ *        The source bucket is being recreated in the new location. (Value:
+ *        "CREATING_DESTINATION_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket
+ *        Generating a unique bucket name, storing the source -> temp mapping in
+ *        Spanner, and actually creating the temporary bucket via Bigstore.
+ *        (Value: "CREATING_TEMP_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket
+ *        The source bucket is being emptied and deleted. (Value:
+ *        "DELETING_SOURCE_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket
+ *        The temp bucket is being emptied and deleted. (Value:
+ *        "DELETING_TEMP_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Failed
+ *        The migration failed at some stage and it is not possible to continue
+ *        retrying that stage. Manual recovery may be needed. (Value: "FAILED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Pending
+ *        The MigrateLocationDestructively request has passed precondition
+ *        checks and the bucket migration will begin soon. (Value: "PENDING")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_RollingBack
+ *        The migration has encountered a permanent failure and is now being
+ *        rolled back so that the source bucket is restored to its original
+ *        state. (Value: "ROLLING_BACK")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_StateUnspecified
+ *        Unspecified state. Should not be used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_Succeeded
+ *        All stages of the migration have completed and the operation has been
+ *        marked done and updated with a response. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToDestination
+ *        The second STS transfer to move all objects from the temp bucket to
+ *        the final bucket is underway. (Value: "TRANSFERRING_TO_DESTINATION")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1alphaMigrateLocationDestructivelyMetadata_State_TransferringToTemp
+ *        The first STS transfer to move all objects from the source bucket to
+ *        the temp bucket is underway. (Value: "TRANSFERRING_TO_TEMP")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Metadata for MigrateLocationDestructively LRO.
+ */
+@interface GTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata : GTLRObject
+
+/** The time the LRO was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time the LRO was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
+
+/**
+ *  The current state of the migration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingDestinationBucket
+ *        The source bucket is being recreated in the new location. (Value:
+ *        "CREATING_DESTINATION_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_CreatingTempBucket
+ *        Generating a unique bucket name, storing the source -> temp mapping in
+ *        Spanner, and actually creating the temporary bucket via Bigstore.
+ *        (Value: "CREATING_TEMP_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingSourceBucket
+ *        The source bucket is being emptied and deleted. (Value:
+ *        "DELETING_SOURCE_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_DeletingTempBucket
+ *        The temp bucket is being emptied and deleted. (Value:
+ *        "DELETING_TEMP_BUCKET")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Failed
+ *        The migration failed at some stage and it is not possible to continue
+ *        retrying that stage. Manual recovery may be needed. (Value: "FAILED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Pending
+ *        The MigrateLocationDestructively request has passed precondition
+ *        checks and the bucket migration will begin soon. (Value: "PENDING")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_RollingBack
+ *        The migration has encountered a permanent failure and is now being
+ *        rolled back so that the source bucket is restored to its original
+ *        state. (Value: "ROLLING_BACK")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_StateUnspecified
+ *        Unspecified state. Should not be used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_Succeeded
+ *        All stages of the migration have completed and the operation has been
+ *        marked done and updated with a response. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToDestination
+ *        The second STS transfer to move all objects from the temp bucket to
+ *        the final bucket is underway. (Value: "TRANSFERRING_TO_DESTINATION")
+ *    @arg @c kGTLRFirebasestorage_GoogleFirebaseStorageControlplaneV1betaMigrateLocationDestructivelyMetadata_State_TransferringToTemp
+ *        The first STS transfer to move all objects from the source bucket to
+ *        the temp bucket is underway. (Value: "TRANSFERRING_TO_TEMP")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

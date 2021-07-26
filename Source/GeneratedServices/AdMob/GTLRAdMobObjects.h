@@ -104,7 +104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_App
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -149,7 +149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Med
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -168,8 +168,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Pla
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -297,7 +297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -342,7 +342,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -361,8 +361,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -417,7 +417,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -462,7 +462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -481,8 +481,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -626,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_AppVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -658,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_GmaSd
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -677,8 +677,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_Platf
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpec_Dimensions_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -804,7 +804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -836,7 +836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -855,8 +855,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -905,7 +905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Country;
 /**
- *  A date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
+ *  A date in the YYYYMMDD format (for example, "20210701"). Requests can
  *  specify at most one time dimension.
  *
  *  Value: "DATE"
@@ -937,7 +937,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_MobileOsVersion;
 /**
- *  A month in the YYYY-MM format (for example, "2018-12"). Requests can specify
+ *  A month in the YYYYMM format (for example, "202107"). Requests can specify
  *  at most one time dimension.
  *
  *  Value: "MONTH"
@@ -956,8 +956,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dim
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_ServingRestriction;
 /**
- *  The date of the first day of a week in the YYYY-MM-DD format (for example,
- *  "2018-12-21"). Requests can specify at most one time dimension.
+ *  The date of the first day of a week in the YYYYMMDD format (for example,
+ *  "20210701"). Requests can specify at most one time dimension.
  *
  *  Value: "WEEK"
  */
@@ -1492,15 +1492,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  The specification for generating an AdMob Mediation report. For example, the
  *  specification to get observed ECPM sliced by ad source and app for the 'US'
  *  and 'CN' countries can look like the following example: { "date_range": {
- *  "start_date": {"year": 2018, "month": 9, "day": 1}, "end_date": {"year":
- *  2018, "month": 9, "day": 30} }, "dimensions": ["AD_SOURCE", "APP",
+ *  "start_date": {"year": 2021, "month": 9, "day": 1}, "end_date": {"year":
+ *  2021, "month": 9, "day": 30} }, "dimensions": ["AD_SOURCE", "APP",
  *  "COUNTRY"], "metrics": ["OBSERVED_ECPM"], "dimension_filters": [ {
  *  "dimension": "COUNTRY", "matches_any": {"values": [{"value": "US", "value":
  *  "CN"}]} } ], "sort_conditions": [ {"dimension":"APP", order: "ASCENDING"} ],
  *  "localization_settings": { "currency_code": "USD", "language_code": "en-US"
  *  } } For a better understanding, you can treat the preceding specification
  *  like the following pseudo SQL: SELECT AD_SOURCE, APP, COUNTRY, OBSERVED_ECPM
- *  FROM MEDIATION_REPORT WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30'
+ *  FROM MEDIATION_REPORT WHERE DATE >= '2021-09-01' AND DATE <= '2021-09-30'
  *  AND COUNTRY IN ('US', 'CN') GROUP BY AD_SOURCE, APP, COUNTRY ORDER BY APP
  *  ASC;
  */
@@ -1591,8 +1591,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        example, "US" or "FR"). This is a geography dimension. (Value:
  *        "COUNTRY")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Date A
- *        date in the YYYY-MM-DD format (for example, "2018-12-21"). Requests
- *        can specify at most one time dimension. (Value: "DATE")
+ *        date in the YYYYMMDD format (for example, "20210701"). Requests can
+ *        specify at most one time dimension. (Value: "DATE")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_DimensionUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "DIMENSION_UNSPECIFIED")
@@ -1616,7 +1616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Month A
- *        month in the YYYY-MM format (for example, "2018-12"). Requests can
+ *        month in the YYYYMM format (for example, "202107"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
@@ -1625,9 +1625,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format (for example,
- *        "2018-12-21"). Requests can specify at most one time dimension.
- *        (Value: "WEEK")
+ *        date of the first day of a week in the YYYYMMDD format (for example,
+ *        "20210701"). Requests can specify at most one time dimension. (Value:
+ *        "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1676,8 +1676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        example, "US" or "FR"). This is a geography dimension. (Value:
  *        "COUNTRY")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Date A date
- *        in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
- *        specify at most one time dimension. (Value: "DATE")
+ *        in the YYYYMMDD format (for example, "20210701"). Requests can specify
+ *        at most one time dimension. (Value: "DATE")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_DimensionUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "DIMENSION_UNSPECIFIED")
@@ -1701,7 +1701,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        [OBSERVED_ECPM](#Metric.ENUM_VALUES.OBSERVED_ECPM) metrics. (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Month A
- *        month in the YYYY-MM format (for example, "2018-12"). Requests can
+ *        month in the YYYYMM format (for example, "202107"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
@@ -1710,9 +1710,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format (for example,
- *        "2018-12-21"). Requests can specify at most one time dimension.
- *        (Value: "WEEK")
+ *        date of the first day of a week in the YYYYMMDD format (for example,
+ *        "20210701"). Requests can specify at most one time dimension. (Value:
+ *        "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1783,8 +1783,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  The specification for generating an AdMob Network report. For example, the
  *  specification to get clicks and estimated earnings for only the 'US' and
  *  'CN' countries can look like the following example: { 'date_range': {
- *  'start_date': {'year': 2018, 'month': 9, 'day': 1}, 'end_date': {'year':
- *  2018, 'month': 9, 'day': 30} }, 'dimensions': ['DATE', 'APP', 'COUNTRY'],
+ *  'start_date': {'year': 2021, 'month': 9, 'day': 1}, 'end_date': {'year':
+ *  2021, 'month': 9, 'day': 30} }, 'dimensions': ['DATE', 'APP', 'COUNTRY'],
  *  'metrics': ['CLICKS', 'ESTIMATED_EARNINGS'], 'dimension_filters': [ {
  *  'dimension': 'COUNTRY', 'matches_any': {'values': [{'value': 'US', 'value':
  *  'CN'}]} } ], 'sort_conditions': [ {'dimension':'APP', order: 'ASCENDING'},
@@ -1792,7 +1792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *  'currency_code': 'USD', 'language_code': 'en-US' } } For a better
  *  understanding, you can treat the preceding specification like the following
  *  pseudo SQL: SELECT DATE, APP, COUNTRY, CLICKS, ESTIMATED_EARNINGS FROM
- *  NETWORK_REPORT WHERE DATE >= '2018-09-01' AND DATE <= '2018-09-30' AND
+ *  NETWORK_REPORT WHERE DATE >= '2021-09-01' AND DATE <= '2021-09-30' AND
  *  COUNTRY IN ('US', 'CN') GROUP BY DATE, APP, COUNTRY ORDER BY APP ASC, CLICKS
  *  DESC;
  */
@@ -1879,8 +1879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        example, "US" or "FR"). This is a geography dimension. (Value:
  *        "COUNTRY")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Date A date
- *        in the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
- *        specify at most one time dimension. (Value: "DATE")
+ *        in the YYYYMMDD format (for example, "20210701"). Requests can specify
+ *        at most one time dimension. (Value: "DATE")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_DimensionUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "DIMENSION_UNSPECIFIED")
@@ -1893,7 +1893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Month A
- *        month in the YYYY-MM format (for example, "2018-12"). Requests can
+ *        month in the YYYYMM format (for example, "202107"). Requests can
  *        specify at most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
@@ -1902,9 +1902,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecDimensionFilter_Dimension_Week The
- *        date of the first day of a week in the YYYY-MM-DD format (for example,
- *        "2018-12-21"). Requests can specify at most one time dimension.
- *        (Value: "WEEK")
+ *        date of the first day of a week in the YYYYMMDD format (for example,
+ *        "20210701"). Requests can specify at most one time dimension. (Value:
+ *        "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 
@@ -1949,8 +1949,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        example, "US" or "FR"). This is a geography dimension. (Value:
  *        "COUNTRY")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Date A date in
- *        the YYYY-MM-DD format (for example, "2018-12-21"). Requests can
- *        specify at most one time dimension. (Value: "DATE")
+ *        the YYYYMMDD format (for example, "20210701"). Requests can specify at
+ *        most one time dimension. (Value: "DATE")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_DimensionUnspecified
  *        Default value for an unset field. Do not use. (Value:
  *        "DIMENSION_UNSPECIFIED")
@@ -1963,8 +1963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Mobile operating system version, e.g. "iOS 13.5.1". (Value:
  *        "MOBILE_OS_VERSION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Month A month
- *        in the YYYY-MM format (for example, "2018-12"). Requests can specify
- *        at most one time dimension. (Value: "MONTH")
+ *        in the YYYYMM format (for example, "202107"). Requests can specify at
+ *        most one time dimension. (Value: "MONTH")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Platform
  *        Mobile OS platform of the app (for example, "Android" or "iOS").
  *        (Value: "PLATFORM")
@@ -1972,9 +1972,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_NetworkReportSpecSortCondition_Dimension_Week The date
- *        of the first day of a week in the YYYY-MM-DD format (for example,
- *        "2018-12-21"). Requests can specify at most one time dimension.
- *        (Value: "WEEK")
+ *        of the first day of a week in the YYYYMMDD format (for example,
+ *        "20210701"). Requests can specify at most one time dimension. (Value:
+ *        "WEEK")
  */
 @property(nonatomic, copy, nullable) NSString *dimension;
 

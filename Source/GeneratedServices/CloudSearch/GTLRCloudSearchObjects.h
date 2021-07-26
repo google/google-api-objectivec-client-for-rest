@@ -100,6 +100,7 @@
 @class GTLRCloudSearch_PushItem;
 @class GTLRCloudSearch_QueryCountByStatus;
 @class GTLRCloudSearch_QueryInterpretation;
+@class GTLRCloudSearch_QueryInterpretationConfig;
 @class GTLRCloudSearch_QueryInterpretationOptions;
 @class GTLRCloudSearch_QueryOperator;
 @class GTLRCloudSearch_QuerySource;
@@ -3561,6 +3562,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
+ *  Default options to interpret user query.
+ */
+@interface GTLRCloudSearch_QueryInterpretationConfig : GTLRObject
+
+/**
+ *  Set this flag to disable supplemental results retrieval, setting a flag here
+ *  will not retrieve supplemental results for queries associated with a given
+ *  search application. If this flag is set to True, it will take precedence
+ *  over the option set at Query level. For the default value of False, query
+ *  level flag will set the correct interpretation for supplemental results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceDisableSupplementalResults;
+
+/**
+ *  Enable this flag to turn off all internal optimizations like natural
+ *  language (NL) interpretation of queries, supplemental results retrieval, and
+ *  usage of synonyms including custom ones. If this flag is set to True, it
+ *  will take precedence over the option set at Query level. For the default
+ *  value of False, query level flag will set the correct interpretation for
+ *  verbatim mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *forceVerbatimMode;
+
+@end
+
+
+/**
  *  Options to interpret user query.
  */
 @interface GTLRCloudSearch_QueryInterpretationOptions : GTLRObject
@@ -3573,6 +3605,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableNlInterpretation;
+
+/**
+ *  Use this flag to disable supplemental results for a query. Supplemental
+ *  results setting chosen at SearchApplication level will take precedence if
+ *  set to True.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSupplementalResults;
 
 /**
  *  Enable this flag to turn off all internal optimizations like natural
@@ -4043,6 +4084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  this schema. Output only field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *operationIds;
+
+/** The default options for query interpretation */
+@property(nonatomic, strong, nullable) GTLRCloudSearch_QueryInterpretationConfig *queryInterpretationConfig;
 
 /** Configuration for ranking results. */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_ScoringConfig *scoringConfig;

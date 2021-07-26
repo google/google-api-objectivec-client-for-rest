@@ -62,7 +62,22 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCE
 //
 
 @implementation GTLRCloudComposer_CheckUpgradeResponse
-@dynamic buildLogUri, containsPypiModulesConflict, pypiConflictBuildLogExtract;
+@dynamic buildLogUri, containsPypiModulesConflict, imageVersion,
+         pypiConflictBuildLogExtract, pypiDependencies;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies
+//
+
+@implementation GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

@@ -55,6 +55,20 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_Go
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsEnabled = @"GOOGLE_SIGNALS_ENABLED";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified = @"GOOGLE_SIGNALS_STATE_UNSPECIFIED";
 
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalInitiatingProduct
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics = @"GOOGLE_ANALYTICS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct = @"LINKED_PRODUCT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified = @"LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalState
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics = @"AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct = @"AWAITING_REVIEW_FROM_LINKED_PRODUCT";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined = @"DECLINED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired = @"EXPIRED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified = @"LINK_PROPOSAL_STATE_UNSPECIFIED";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete = @"OBSOLETE";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn = @"WITHDRAWN";
+
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_ArtsAndEntertainment = @"ARTS_AND_ENTERTAINMENT";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Automotive = @"AUTOMOTIVE";
@@ -83,6 +97,11 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Shop
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Sports = @"SPORTS";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Technology = @"TECHNOLOGY";
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel = @"TRAVEL";
+
+// GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360 = @"GOOGLE_ANALYTICS_360";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard = @"GOOGLE_ANALYTICS_STANDARD";
+NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified = @"SERVICE_LEVEL_UNSPECIFIED";
 
 // GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
 NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest_Action_ActionTypeUnspecified = @"ACTION_TYPE_UNSPECIFIED";
@@ -149,6 +168,25 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream
 @dynamic createTime, displayName, firebaseAppId, name, packageName, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse
+@dynamic displayVideo360AdvertiserLink;
 @end
 
 
@@ -331,6 +369,15 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange
 //
 
@@ -346,8 +393,10 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChangeChangeHistoryResource
 @dynamic account, androidAppDataStream, conversionEvent, customDimension,
-         customMetric, firebaseLink, googleAdsLink, googleSignalsSettings,
-         iosAppDataStream, measurementProtocolSecret, property, webDataStream;
+         customMetric, displayVideo360AdvertiserLink,
+         displayVideo360AdvertiserLinkProposal, firebaseLink, googleAdsLink,
+         googleSignalsSettings, iosAppDataStream, measurementProtocolSecret,
+         property, webDataStream;
 @end
 
 
@@ -451,6 +500,29 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink
+@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
+         campaignDataSharingEnabled, costDataSharingEnabled, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal
+@dynamic adsPersonalizationEnabled, advertiserDisplayName, advertiserId,
+         campaignDataSharingEnabled, costDataSharingEnabled,
+         linkProposalStatusDetails, name, validationEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings
 //
 
@@ -510,6 +582,16 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream
 @dynamic bundleId, createTime, displayName, firebaseAppId, name, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails
+@dynamic linkProposalInitiatingProduct, linkProposalState, requestorEmail;
 @end
 
 
@@ -640,6 +722,50 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 + (NSString *)collectionItemsKey {
   return @"customMetrics";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse
+@dynamic displayVideo360AdvertiserLinkProposals, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"displayVideo360AdvertiserLinkProposals" : [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"displayVideo360AdvertiserLinkProposals";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse
+//
+
+@implementation GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse
+@dynamic displayVideo360AdvertiserLinks, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"displayVideo360AdvertiserLinks" : [GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"displayVideo360AdvertiserLinks";
 }
 
 @end
@@ -816,7 +942,7 @@ NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsReque
 
 @implementation GTLRGoogleAnalyticsAdmin_V1alphaProperty
 @dynamic createTime, currencyCode, deleteTime, displayName, expireTime,
-         industryCategory, name, parent, timeZone, updateTime;
+         industryCategory, name, parent, serviceLevel, timeZone, updateTime;
 @end
 
 

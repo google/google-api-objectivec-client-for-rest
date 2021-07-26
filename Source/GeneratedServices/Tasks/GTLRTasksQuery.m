@@ -5,6 +5,8 @@
 //   Tasks API (tasks/v1)
 // Description:
 //   The Google Tasks API lets you manage your tasks and task lists.
+// Documentation:
+//   https://developers.google.com/tasks/
 
 #import "GTLRTasksQuery.h"
 

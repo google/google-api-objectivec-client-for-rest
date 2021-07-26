@@ -110,10 +110,10 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Reasons_IncorrectPassword;
 /**
- *  Indicates that the user was served a 2FA challenge. Sufficiently old
- *  assessments with this reason that have not been overwritten with
- *  PASSED_TWO_FACTOR will be treated as an abandoned 2FA flow, equivalent to
- *  FAILED_TWO_FACTOR.
+ *  Indicates that the user was served a 2FA challenge. An old assessment with
+ *  `ENUM_VALUES.INITIATED_TWO_FACTOR` reason that has not been overwritten with
+ *  `PASSED_TWO_FACTOR` is treated as an abandoned 2FA flow. This is equivalent
+ *  to `FAILED_TWO_FACTOR`.
  *
  *  Value: "INITIATED_TWO_FACTOR"
  */
@@ -185,12 +185,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions.testingChallenge
 
 /**
- *  Challenge requests for this key will always return an unsolvable challenge.
- *
- *  Value: "CHALLENGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_Challenge;
-/**
  *  Challenge requests for this key will always return a nocaptcha, which does
  *  not require a solution.
  *
@@ -204,6 +198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "TESTING_CHALLENGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_TestingChallengeUnspecified;
+/**
+ *  Challenge requests for this key will always return an unsolvable challenge.
+ *
+ *  Value: "UNSOLVABLE_CHALLENGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_UnsolvableChallenge;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties.invalidReason
@@ -687,9 +687,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  if CHALLENGE.
  *
  *  Likely values:
- *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_Challenge
- *        Challenge requests for this key will always return an unsolvable
- *        challenge. (Value: "CHALLENGE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_Nocaptcha
  *        Challenge requests for this key will always return a nocaptcha, which
  *        does not require a solution. (Value: "NOCAPTCHA")
@@ -697,6 +694,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        Perform the normal risk analysis and return either nocaptcha or a
  *        challenge depending on risk and trust factors. (Value:
  *        "TESTING_CHALLENGE_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions_TestingChallenge_UnsolvableChallenge
+ *        Challenge requests for this key will always return an unsolvable
+ *        challenge. (Value: "UNSOLVABLE_CHALLENGE")
  */
 @property(nonatomic, copy, nullable) NSString *testingChallenge;
 

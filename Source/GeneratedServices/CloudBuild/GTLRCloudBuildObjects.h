@@ -30,13 +30,16 @@
 @class GTLRCloudBuild_BuildTrigger;
 @class GTLRCloudBuild_BuildTrigger_Substitutions;
 @class GTLRCloudBuild_BuiltImage;
+@class GTLRCloudBuild_FailureInfo;
 @class GTLRCloudBuild_FileHashes;
 @class GTLRCloudBuild_GitHubEventsConfig;
+@class GTLRCloudBuild_GitRepoSource;
 @class GTLRCloudBuild_Hash;
 @class GTLRCloudBuild_HttpBody_Extensions_Item;
 @class GTLRCloudBuild_HTTPDelivery;
 @class GTLRCloudBuild_InlineSecret;
 @class GTLRCloudBuild_InlineSecret_EnvMap;
+@class GTLRCloudBuild_NetworkConfig;
 @class GTLRCloudBuild_Notification;
 @class GTLRCloudBuild_Notification_StructDelivery;
 @class GTLRCloudBuild_NotifierMetadata;
@@ -45,6 +48,8 @@
 @class GTLRCloudBuild_NotifierSpec;
 @class GTLRCloudBuild_Operation_Metadata;
 @class GTLRCloudBuild_Operation_Response;
+@class GTLRCloudBuild_PoolOption;
+@class GTLRCloudBuild_PrivatePoolV1Config;
 @class GTLRCloudBuild_PubsubConfig;
 @class GTLRCloudBuild_PullRequestFilter;
 @class GTLRCloudBuild_PushFilter;
@@ -68,6 +73,9 @@
 @class GTLRCloudBuild_Volume;
 @class GTLRCloudBuild_Warning;
 @class GTLRCloudBuild_WebhookConfig;
+@class GTLRCloudBuild_WorkerConfig;
+@class GTLRCloudBuild_WorkerPool;
+@class GTLRCloudBuild_WorkerPool_Annotations;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -351,6 +359,75 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Timeout;
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_BuildStep_Status_Working;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudBuild_FailureInfo.type
+
+/**
+ *  Type unspecified
+ *
+ *  Value: "FAILURE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified;
+/**
+ *  The source fetching has failed.
+ *
+ *  Value: "FETCH_SOURCE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed;
+/**
+ *  Backend logging failures. Should retry.
+ *
+ *  Value: "LOGGING_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_LoggingFailure;
+/**
+ *  Unable to push the image to the repository.
+ *
+ *  Value: "PUSH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_PushFailed;
+/**
+ *  Final image not found.
+ *
+ *  Value: "PUSH_IMAGE_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_PushImageNotFound;
+/**
+ *  Unauthorized push of the final image.
+ *
+ *  Value: "PUSH_NOT_AUTHORIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized;
+/**
+ *  A build step has failed.
+ *
+ *  Value: "USER_BUILD_STEP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_GitRepoSource.repoType
+
+/**
+ *  A Google Cloud Source Repositories-hosted repo.
+ *
+ *  Value: "CLOUD_SOURCE_REPOSITORIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories;
+/**
+ *  A GitHub-hosted repo not necessarily on "github.com" (i.e. GitHub
+ *  Enterprise).
+ *
+ *  Value: "GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Github;
+/**
+ *  The default, unknown repo type.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_Unknown;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudBuild_Hash.type
 
 /**
@@ -371,6 +448,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_None;
  *  Value: "SHA256"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_Hash_Type_Sha256;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_NetworkConfig.egressOption
+
+/**
+ *  If set, defaults to PUBLIC_EGRESS.
+ *
+ *  Value: "EGRESS_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_EgressOptionUnspecified;
+/**
+ *  If set, workers are created without any public address, which prevents
+ *  network egress to public IPs unless a network proxy is configured.
+ *
+ *  Value: "NO_PUBLIC_EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_NoPublicEgress;
+/**
+ *  If set, workers are created with a public address which allows for public
+ *  internet egress.
+ *
+ *  Value: "PUBLIC_EGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_NetworkConfig_EgressOption_PublicEgress;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudBuild_PubsubConfig.state
@@ -480,6 +581,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_SecretDel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCloudBuild_WorkerPool.state
+
+/**
+ *  `WorkerPool` is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Creating;
+/**
+ *  `WorkerPool` is deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Deleted;
+/**
+ *  `WorkerPool` is being deleted: cancelling builds and draining workers.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Deleting;
+/**
+ *  `WorkerPool` is running.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_Running;
+/**
+ *  State of the `WorkerPool` is unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified;
+
 /**
  *  Files in the workspace to upload to Cloud Storage upon successful completion
  *  of all build steps.
@@ -588,6 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  *  Output only. Time at which the request to create the build was received.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Contains information about the build when status=FAILURE. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_FailureInfo *failureInfo;
 
 /**
  *  Output only. Time at which execution of the build was finished. The
@@ -862,6 +1000,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 @property(nonatomic, copy, nullable) NSString *machineType;
 
 /**
+ *  Optional. Specification for execution on a `WorkerPool`. See [running builds
+ *  in a private
+ *  pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool)
+ *  for more information.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PoolOption *pool;
+
+/**
  *  Requested verifiability options.
  *
  *  Likely values:
@@ -908,11 +1054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_Volume *> *volumes;
 
-/**
- *  Option to specify a `WorkerPool` for the build. Format:
- *  projects/{project}/locations/{location}/workerPools/{workerPool} This field
- *  is in beta and is available only to restricted users.
- */
+/** This field deprecated; please use `pool.name` instead. */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
 @end
@@ -1057,6 +1199,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  */
 @interface GTLRCloudBuild_BuildTrigger : GTLRObject
 
+/**
+ *  Autodetect build configuration. The following precedence is used (case
+ *  insensitive): 1. cloudbuild.yaml 2. cloudbuild.yml 3. cloudbuild.json 4.
+ *  Dockerfile Currently only available for GitHub App Triggers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autodetect;
+
 /** Contents of the build template. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_Build *build;
 
@@ -1141,6 +1292,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  *  {trigger} is a unique identifier generated by the service.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  The repo and ref of the repository from which to build. This field is used
+ *  only for those triggers that do not respond to SCM events. Triggers that
+ *  respond to such events build source at whatever commit caused the event.
+ *  This field is currently only used by Webhook, Pub/Sub, Manual, and Cron
+ *  triggers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_GitRepoSource *sourceToBuild;
 
 /**
  *  Substitutions for Build resource. The keys must match the following regular
@@ -1233,6 +1393,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 
 /**
+ *  Metadata for the `CreateWorkerPool` operation.
+ */
+@interface GTLRCloudBuild_CreateWorkerPoolOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the `WorkerPool` to create. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
+ *  Metadata for the `DeleteWorkerPool` operation.
+ */
+@interface GTLRCloudBuild_DeleteWorkerPoolOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the `WorkerPool` being deleted. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1240,6 +1440,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLRCloudBuild_Empty : GTLRObject
+@end
+
+
+/**
+ *  A fatal problem encountered during the execution of the build.
+ */
+@interface GTLRCloudBuild_FailureInfo : GTLRObject
+
+/** Explains the failure issue in more detail using hard-coded text. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  The name of the failure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_FailureTypeUnspecified Type
+ *        unspecified (Value: "FAILURE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_FetchSourceFailed The source
+ *        fetching has failed. (Value: "FETCH_SOURCE_FAILED")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_LoggingFailure Backend logging
+ *        failures. Should retry. (Value: "LOGGING_FAILURE")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_PushFailed Unable to push the
+ *        image to the repository. (Value: "PUSH_FAILED")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_PushImageNotFound Final image not
+ *        found. (Value: "PUSH_IMAGE_NOT_FOUND")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized Unauthorized
+ *        push of the final image. (Value: "PUSH_NOT_AUTHORIZED")
+ *    @arg @c kGTLRCloudBuild_FailureInfo_Type_UserBuildStep A build step has
+ *        failed. (Value: "USER_BUILD_STEP")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 
@@ -1286,6 +1518,73 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 /** filter to match changes in refs like branches, tags. */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_PushFilter *push;
+
+@end
+
+
+/**
+ *  GitRepoSource describes a repo and ref of a code repository.
+ */
+@interface GTLRCloudBuild_GitRepoSource : GTLRObject
+
+/** The branch or tag to use. Must start with "refs/" (required). */
+@property(nonatomic, copy, nullable) NSString *ref;
+
+/**
+ *  See RepoType below.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories A
+ *        Google Cloud Source Repositories-hosted repo. (Value:
+ *        "CLOUD_SOURCE_REPOSITORIES")
+ *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Github A GitHub-hosted repo
+ *        not necessarily on "github.com" (i.e. GitHub Enterprise). (Value:
+ *        "GITHUB")
+ *    @arg @c kGTLRCloudBuild_GitRepoSource_RepoType_Unknown The default,
+ *        unknown repo type. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *repoType;
+
+/** The URI of the repo (required). */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCloudBuild_GoogleDevtoolsCloudbuildV2OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
 
 @end
 
@@ -1469,6 +1768,70 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_BuildTrigger *> *triggers;
+
+@end
+
+
+/**
+ *  Response containing existing `WorkerPools`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "workerPools" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudBuild_ListWorkerPoolsResponse : GTLRCollectionObject
+
+/**
+ *  Continuation token used to page through large result sets. Provide this
+ *  value in a subsequent ListWorkerPoolsRequest to return the next page of
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  `WorkerPools` for the specified project.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudBuild_WorkerPool *> *workerPools;
+
+@end
+
+
+/**
+ *  Defines the network configuration for the pool.
+ */
+@interface GTLRCloudBuild_NetworkConfig : GTLRObject
+
+/**
+ *  Option to configure network egress for the workers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_NetworkConfig_EgressOption_EgressOptionUnspecified
+ *        If set, defaults to PUBLIC_EGRESS. (Value:
+ *        "EGRESS_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRCloudBuild_NetworkConfig_EgressOption_NoPublicEgress If set,
+ *        workers are created without any public address, which prevents network
+ *        egress to public IPs unless a network proxy is configured. (Value:
+ *        "NO_PUBLIC_EGRESS")
+ *    @arg @c kGTLRCloudBuild_NetworkConfig_EgressOption_PublicEgress If set,
+ *        workers are created with a public address which allows for public
+ *        internet egress. (Value: "PUBLIC_EGRESS")
+ */
+@property(nonatomic, copy, nullable) NSString *egressOption;
+
+/**
+ *  Required. Immutable. The network definition that the workers are peered to.
+ *  If this section is left empty, the workers will be peered to
+ *  `WorkerPool.project_id` on the service producer network. Must be in the
+ *  format `projects/{project}/global/networks/{network}`, where `{project}` is
+ *  a project number, such as `12345`, and `{network}` is the name of a VPC
+ *  network in the project. See [Understanding network configuration
+ *  options](https://cloud.google.com/build/docs/private-pools/set-up-private-pool-environment)
+ */
+@property(nonatomic, copy, nullable) NSString *peeredNetwork;
 
 @end
 
@@ -1684,6 +2047,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudBuild_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRCloudBuild_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusDetail;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Details about how a build should be executed on a `WorkerPool`. See [running
+ *  builds in a private
+ *  pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool)
+ *  for more information.
+ */
+@interface GTLRCloudBuild_PoolOption : GTLRObject
+
+/**
+ *  The `WorkerPool` resource to execute the build on. You must have
+ *  `cloudbuild.workerpools.use` on the project hosting the WorkerPool. Format
+ *  projects/{project}/locations/{location}/workerPools/{workerPoolId}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Configuration for a V1 `PrivatePool`.
+ */
+@interface GTLRCloudBuild_PrivatePoolV1Config : GTLRObject
+
+/** Network configuration for the pool. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_NetworkConfig *networkConfig;
+
+/** Machine configuration for the workers in the pool. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_WorkerConfig *workerConfig;
+
 @end
 
 
@@ -2105,7 +2538,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 /**
  *  If provided, get the source from this manifest in Google Cloud Storage. This
- *  feature is in Preview.
+ *  feature is in Preview; see description
+ *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
  */
 @property(nonatomic, strong, nullable) GTLRCloudBuild_StorageSourceManifest *storageSourceManifest;
 
@@ -2234,7 +2668,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 /**
  *  Google Cloud Storage object containing the source. This object must be a
- *  gzipped archive file (`.tar.gz`) containing source to build.
+ *  zipped (`.zip`) or gzipped archive file (`.tar.gz`) containing source to
+ *  build.
  */
 @property(nonatomic, copy, nullable) NSString *object;
 
@@ -2243,7 +2678,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 /**
  *  Location of the source manifest in Google Cloud Storage. This feature is in
- *  Preview.
+ *  Preview; see description
+ *  [here](https://github.com/GoogleCloudPlatform/cloud-builders/tree/master/gcs-fetcher).
  */
 @interface GTLRCloudBuild_StorageSourceManifest : GTLRObject
 
@@ -2280,6 +2716,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
 
 /** Start of time span. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Metadata for the `UpdateWorkerPool` operation.
+ */
+@interface GTLRCloudBuild_UpdateWorkerPoolOperationMetadata : GTLRObject
+
+/** Time the operation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The resource name of the `WorkerPool` being updated. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
 
 @end
 
@@ -2356,6 +2812,129 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBuild_WebhookConfig_State_StateUnsp
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+@end
+
+
+/**
+ *  Defines the configuration to be used for creating workers in the pool.
+ */
+@interface GTLRCloudBuild_WorkerConfig : GTLRObject
+
+/**
+ *  Size of the disk attached to the worker, in GB. See [Worker pool config
+ *  file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema).
+ *  Specify a value of up to 1000. If `0` is specified, Cloud Build will use a
+ *  standard disk size.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Machine type of a worker, such as `e2-medium`. See [Worker pool config
+ *  file](https://cloud.google.com/build/docs/private-pools/worker-pool-config-file-schema).
+ *  If left blank, Cloud Build will use a sensible default.
+ */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
+@end
+
+
+/**
+ *  Configuration for a `WorkerPool`. Cloud Build owns and maintains a pool of
+ *  workers for general use and have no access to a project's private network.
+ *  By default, builds submitted to Cloud Build will use a worker from this
+ *  pool. If your build needs access to resources on a private network, create
+ *  and use a `WorkerPool` to run your builds. Private `WorkerPool`s give your
+ *  builds access to any single VPC network that you administer, including any
+ *  on-prem resources connected to that VPC network. For an overview of private
+ *  pools, see [Private pools
+ *  overview](https://cloud.google.com/build/docs/private-pools/private-pools-overview).
+ */
+@interface GTLRCloudBuild_WorkerPool : GTLRObject
+
+/**
+ *  User specified annotations. See https://google.aip.dev/128#annotations for
+ *  more details such as format and size limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_WorkerPool_Annotations *annotations;
+
+/**
+ *  Output only. Time at which the request to create the `WorkerPool` was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. Time at which the request to delete the `WorkerPool` was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  A user-specified, human-readable name for the `WorkerPool`. If provided,
+ *  this value must be 1-63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Checksum computed by the server. May be sent on update and
+ *  delete requests to ensure that the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The resource name of the `WorkerPool`, with format
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The
+ *  value of `{worker_pool}` is provided by `worker_pool_id` in
+ *  `CreateWorkerPool` request and the value of `{location}` is determined by
+ *  the endpoint accessed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Private Pool using a v1 configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudBuild_PrivatePoolV1Config *privatePoolV1Config;
+
+/**
+ *  Output only. `WorkerPool` state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_Creating `WorkerPool` is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_Deleted `WorkerPool` is deleted.
+ *        (Value: "DELETED")
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_Deleting `WorkerPool` is being
+ *        deleted: cancelling builds and draining workers. (Value: "DELETING")
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_Running `WorkerPool` is running.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRCloudBuild_WorkerPool_State_StateUnspecified State of the
+ *        `WorkerPool` is unknown. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. A unique identifier for the `WorkerPool`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. Time at which the request to update the `WorkerPool` was
+ *  received.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  User specified annotations. See https://google.aip.dev/128#annotations for
+ *  more details such as format and size limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudBuild_WorkerPool_Annotations : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

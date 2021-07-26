@@ -140,6 +140,7 @@
 @class GTLRSlides_UpdatePagePropertiesRequest;
 @class GTLRSlides_UpdateParagraphStyleRequest;
 @class GTLRSlides_UpdateShapePropertiesRequest;
+@class GTLRSlides_UpdateSlidePropertiesRequest;
 @class GTLRSlides_UpdateSlidesPositionRequest;
 @class GTLRSlides_UpdateTableBorderPropertiesRequest;
 @class GTLRSlides_UpdateTableCellPropertiesRequest;
@@ -4953,7 +4954,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
-/** The ID of the Google Sheets spreadsheet that contains the chart. */
+/**
+ *  The ID of the Google Sheets spreadsheet that contains the chart. You might
+ *  need to add a resource key to the HTTP header for a subset of old files. For
+ *  more information, see [Access link-shared files using resource
+ *  keys](https://developers.google.com/drive/api/v3/resource-keys).
+ */
 @property(nonatomic, copy, nullable) NSString *spreadsheetId;
 
 @end
@@ -5099,7 +5105,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  https://www.youtube.com/watch?v=7U3axjORYZ0, the ID is 7U3axjORYZ0. For a
  *  Google Drive video
  *  https://drive.google.com/file/d/1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q the ID is
- *  1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q.
+ *  1xCgQLFTJi5_Xl8DgW_lcUYq5e-q6Hi5Q. To access a Google Drive video file, you
+ *  might need to add a resource key to the HTTP header for a subset of old
+ *  files. For more information, see [Access link-shared files using resource
+ *  keys](https://developers.google.com/drive/api/v3/resource-keys).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5216,7 +5225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The object ID of the page or page element to delete. If after a delete
  *  operation a group contains only 1 or no page elements, the group is also
  *  deleted. If a placeholder is deleted on a layout, any empty inheriting
- *  shapes are also deleted.
+ *  placeholders are also deleted.
  */
 @property(nonatomic, copy, nullable) NSString *objectId;
 
@@ -5441,7 +5450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  The object IDs of the objects to group. Only page elements can be grouped.
  *  There should be at least two page elements on the same page that are not
  *  already in another group. Some page elements, such as videos, tables and
- *  placeholder shapes cannot be grouped.
+ *  placeholders cannot be grouped.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *childrenObjectIds;
 
@@ -7251,6 +7260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 /** Updates the properties of a Shape. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateShapePropertiesRequest *updateShapeProperties;
 
+/** Updates the properties of a Slide */
+@property(nonatomic, strong, nullable) GTLRSlides_UpdateSlidePropertiesRequest *updateSlideProperties;
+
 /** Updates the position of a set of slides in the presentation. */
 @property(nonatomic, strong, nullable) GTLRSlides_UpdateSlidesPositionRequest *updateSlidesPosition;
 
@@ -7481,8 +7493,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 @interface GTLRSlides_Shape : GTLRObject
 
 /**
- *  Placeholders are shapes that are inherit from corresponding placeholders on
- *  layouts and masters. If set, the shape is a placeholder shape and any
+ *  Placeholders are page elements that inherit from corresponding placeholders
+ *  on layouts and masters. If set, the shape is a placeholder shape and any
  *  inherited properties can be resolved by looking at the parent placeholder
  *  identified by the Placeholder.parent_object_id field.
  */
@@ -8042,6 +8054,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
  *  SLIDE.
  */
 @interface GTLRSlides_SlideProperties : GTLRObject
+
+/**
+ *  Whether the slide is skipped in the presentation mode. Defaults to false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isSkipped;
 
 /**
  *  The object ID of the layout that this slide is based on. This property is
@@ -9108,6 +9127,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSlides_Video_Source_Youtube;
 
 /** The shape properties to update. */
 @property(nonatomic, strong, nullable) GTLRSlides_ShapeProperties *shapeProperties;
+
+@end
+
+
+/**
+ *  Updates the properties of a Slide.
+ */
+@interface GTLRSlides_UpdateSlidePropertiesRequest : GTLRObject
+
+/**
+ *  The fields that should be updated. At least one field must be specified. The
+ *  root 'slideProperties' is implied and should not be specified. A single
+ *  `"*"` can be used as short-hand for listing every field. For example to
+ *  update whether a slide is skipped, set `fields` to `"isSkipped"`. To reset a
+ *  property to its default value, include its field name in the field mask but
+ *  leave the field itself unset.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The object ID of the slide the update is applied to. */
+@property(nonatomic, copy, nullable) NSString *objectId;
+
+/** The slide properties to update. */
+@property(nonatomic, strong, nullable) GTLRSlides_SlideProperties *slideProperties;
 
 @end
 

@@ -18,7 +18,7 @@
 @implementation GTLRGroupsSettings_Groups
 @dynamic allowExternalMembers, allowGoogleCommunication, allowWebPosting,
          archiveOnly, customFooterText, customReplyTo,
-         customRolesEnabledForSettingsToBeMerged,
+         customRolesEnabledForSettingsToBeMerged, defaultSender,
          defaultMessageDenyNotificationText, descriptionProperty, email,
          enableCollaborativeInbox, favoriteRepliesOnTop, includeCustomFooter,
          includeInGlobalAddressList, isArchived, kind, maxMessageBytes,
@@ -40,7 +40,11 @@
          whoCanViewGroup, whoCanViewMembership;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"defaultSender" : @"default_sender",
+    @"descriptionProperty" : @"description"
+  };
+  return map;
 }
 
 @end

@@ -40,6 +40,9 @@
 @class GTLRCloudFunctions_OperationMetadataV1_Request;
 @class GTLRCloudFunctions_Policy;
 @class GTLRCloudFunctions_Retry;
+@class GTLRCloudFunctions_SecretEnvVar;
+@class GTLRCloudFunctions_SecretVersion;
+@class GTLRCloudFunctions_SecretVolume;
 @class GTLRCloudFunctions_SourceRepository;
 @class GTLRCloudFunctions_Status;
 @class GTLRCloudFunctions_Status_Details_Item;
@@ -388,6 +391,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
 /**
  *  Describes a Cloud Function that contains user computation executed in
  *  response to an event. It encapsulate function and triggers configurations.
+ *  Next tag: 35
  */
 @interface GTLRCloudFunctions_CloudFunction : GTLRObject
 
@@ -512,6 +516,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  reference](/sdk/gcloud/reference/functions/deploy#--runtime).
  */
 @property(nonatomic, copy, nullable) NSString *runtime;
+
+/** Secret environment variables configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretEnvVar *> *secretEnvironmentVariables;
+
+/** Secret volumes configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVolume *> *secretVolumes;
 
 /**
  *  The email of the function's service account. If empty, defaults to
@@ -1224,6 +1234,101 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_OperationMetadataV1_Type_
  *  Retried execution is charged as any other execution.
  */
 @interface GTLRCloudFunctions_Retry : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a secret environment variable. It has the information
+ *  necessary to fetch the secret value from secret manager and expose it as an
+ *  environment variable. Secret value is not a part of the configuration.
+ *  Secret values are only fetched when a new clone starts.
+ */
+@interface GTLRCloudFunctions_SecretEnvVar : GTLRObject
+
+/** Name of the environment variable. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Project identifier (preferrably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it will be
+ *  populated with the function's project assuming that the secret exists in the
+ *  same project as of the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  recommended to use a numeric version for secret environment variables as any
+ *  updates to the secret value is not reflected until new clones start.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a single version.
+ */
+@interface GTLRCloudFunctions_SecretVersion : GTLRObject
+
+/**
+ *  Relative path of the file under the mount path where the secret value for
+ *  this version will be fetched and made available. For example, setting the
+ *  mount_path as '/etc/secrets' and path as `/secret_foo` would mount the
+ *  secret value file at `/etc/secrets/secret_foo`.
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Version of the secret (version number or the string 'latest'). It is
+ *  preferrable to use `latest` version with secret volumes as secret value
+ *  changes are reflected immediately.
+ */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Configuration for a secret volume. It has the information necessary to fetch
+ *  the secret value from secret manager and make it available as files mounted
+ *  at the requested paths within the application container. Secret value is not
+ *  a part of the configuration. Every filesystem read operation performs a
+ *  lookup in secret manager to retrieve the secret value.
+ */
+@interface GTLRCloudFunctions_SecretVolume : GTLRObject
+
+/**
+ *  The path within the container to mount the secret volume. For example,
+ *  setting the mount_path as `/etc/secrets` would mount the secret value files
+ *  under the `/etc/secrets` directory. This directory will also be completely
+ *  shadowed and unavailable to mount any other secrets. Recommended mount
+ *  paths: /etc/secrets Restricted mount paths: /cloudsql, /dev/log, /pod,
+ *  /proc, /var/log
+ */
+@property(nonatomic, copy, nullable) NSString *mountPath;
+
+/**
+ *  Project identifier (preferrably project number but can also be the project
+ *  ID) of the project that contains the secret. If not set, it will be
+ *  populated with the function's project assuming that the secret exists in the
+ *  same project as of the function.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Name of the secret in secret manager (not the full resource name). */
+@property(nonatomic, copy, nullable) NSString *secret;
+
+/**
+ *  List of secret versions to mount for this secret. If empty, the `latest`
+ *  version of the secret will be made available in a file named after the
+ *  secret under the mount point.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_SecretVersion *> *versions;
+
 @end
 
 

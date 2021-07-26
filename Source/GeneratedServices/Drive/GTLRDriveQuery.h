@@ -776,7 +776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_DrivesList : GTLRDriveQuery
 
 /**
- *  Maximum number of shared drives to return.
+ *  Maximum number of shared drives to return per page.
  *
  *  @note If not set, the documented server-side default will be 10 (from the
  *        range 1..100).
@@ -1663,7 +1663,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
  *  current owner to a writer. This parameter is required as an acknowledgement
- *  of the side effect.
+ *  of the side effect. File owners can only transfer ownership of files
+ *  existing on My Drive. Files existing in a shared drive are owned by the
+ *  organization that owns that shared drive. Ownership transfers are not
+ *  supported for files and folders in shared drives. Organizers of a shared
+ *  drive can move items from that shared drive into their My Drive which
+ *  transfers the ownership to them.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -1936,7 +1941,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
  *  current owner to a writer. This parameter is required as an acknowledgement
- *  of the side effect.
+ *  of the side effect. File owners can only transfer ownership of files
+ *  existing on My Drive. Files existing in a shared drive are owned by the
+ *  organization that owns that shared drive. Ownership transfers are not
+ *  supported for files and folders in shared drives. Organizers of a shared
+ *  drive can move items from that shared drive into their My Drive which
+ *  transfers the ownership to them.
  *
  *  @note If not set, the documented server-side default will be false.
  */

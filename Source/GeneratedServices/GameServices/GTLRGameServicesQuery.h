@@ -37,6 +37,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Include basic information of a GameServerCluster resource and omit
+ *  `cluster_state`. This is the default value (for ListGameServerClusters,
+ *  GetGameServerCluster and PreviewCreateGameServerCluster).
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewBasic;
+/**
+ *  Include everything.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGameServicesViewGameServerClusterViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Game Services query classes.
  */
@@ -1120,6 +1151,26 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. View for the returned GameServerCluster objects. When `FULL` is
+ *  specified, the `cluster_state` field is also returned in the
+ *  GameServerCluster object, which includes the state of the referenced
+ *  Kubernetes cluster such as versions and provider info. The default/unset
+ *  value is GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, same as BASIC, which does not
+ *  return the `cluster_state` field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
+ *        / unset value. The API will default to the BASIC view. (Value:
+ *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
+ *        GameServerCluster resource and omit `cluster_state`. This is the
+ *        default value (for ListGameServerClusters, GetGameServerCluster and
+ *        PreviewCreateGameServerCluster). (Value: "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRGameServices_GameServerCluster.
  *
  *  Gets details of a single game server cluster.
@@ -1172,6 +1223,26 @@ NS_ASSUME_NONNULL_BEGIN
  *  "projects/{project}/locations/{location}/realms/{realm}".
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. View for the returned GameServerCluster objects. When `FULL` is
+ *  specified, the `cluster_state` field is also returned in the
+ *  GameServerCluster object, which includes the state of the referenced
+ *  Kubernetes cluster such as versions and provider info. The default/unset
+ *  value is GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED, same as BASIC, which does not
+ *  return the `cluster_state` field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
+ *        / unset value. The API will default to the BASIC view. (Value:
+ *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
+ *        GameServerCluster resource and omit `cluster_state`. This is the
+ *        default value (for ListGameServerClusters, GetGameServerCluster and
+ *        PreviewCreateGameServerCluster). (Value: "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRGameServices_ListGameServerClustersResponse.
@@ -1261,6 +1332,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Optional. The target timestamp to compute the preview. */
 @property(nonatomic, strong, nullable) GTLRDateTime *previewTime;
+
+/**
+ *  Optional. This field is deprecated, preview will always return
+ *  KubernetesClusterState.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGameServicesViewGameServerClusterViewUnspecified The default
+ *        / unset value. The API will default to the BASIC view. (Value:
+ *        "GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRGameServicesViewBasic Include basic information of a
+ *        GameServerCluster resource and omit `cluster_state`. This is the
+ *        default value (for ListGameServerClusters, GetGameServerCluster and
+ *        PreviewCreateGameServerCluster). (Value: "BASIC")
+ *    @arg @c kGTLRGameServicesViewFull Include everything. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRGameServices_PreviewCreateGameServerClusterResponse.

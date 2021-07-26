@@ -1804,10 +1804,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *time;
 
-/**
- *  A short and friendly name for the worker pool this event refers to,
- *  populated from the value of PoolStageRelation::user_pool_name.
- */
+/** A short and friendly name for the worker pool this event refers to. */
 @property(nonatomic, copy, nullable) NSString *workerPool;
 
 @end
@@ -2959,6 +2956,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, strong, nullable) GTLRDataflow_FlexTemplateRuntimeEnvironment_AdditionalUserLabels *additionalUserLabels;
 
 /**
+ *  Worker disk size, in gigabytes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
  *  Whether to enable Streaming Engine for the job.
  *
  *  Uses NSNumber of boolValue.
@@ -3004,6 +3008,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  *  if not specified.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
+
+/**
+ *  The maximum number of workers to cap scaling at.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNumWorkers;
 
 /**
  *  The maximum number of Google Compute Engine instances to be made available

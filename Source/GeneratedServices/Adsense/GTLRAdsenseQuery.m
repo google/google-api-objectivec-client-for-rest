@@ -29,6 +29,8 @@ NSString * const kGTLRAdsenseDateRangeYesterday                = @"YESTERDAY";
 // dimensions
 NSString * const kGTLRAdsenseDimensionsAccountName           = @"ACCOUNT_NAME";
 NSString * const kGTLRAdsenseDimensionsAdClientId            = @"AD_CLIENT_ID";
+NSString * const kGTLRAdsenseDimensionsAdFormatCode          = @"AD_FORMAT_CODE";
+NSString * const kGTLRAdsenseDimensionsAdFormatName          = @"AD_FORMAT_NAME";
 NSString * const kGTLRAdsenseDimensionsAdPlacementCode       = @"AD_PLACEMENT_CODE";
 NSString * const kGTLRAdsenseDimensionsAdPlacementName       = @"AD_PLACEMENT_NAME";
 NSString * const kGTLRAdsenseDimensionsAdUnitId              = @"AD_UNIT_ID";

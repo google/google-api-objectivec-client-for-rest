@@ -467,6 +467,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_Peeri
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20;
 /**
+ *  `/22` CIDR range. Supported for evaluation only.
+ *
+ *  Value: "SLASH_22"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash22;
+/**
  *  `/23` CIDR range. Supported for evaluation only.
  *
  *  Value: "SLASH_23"
@@ -3815,6 +3821,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        `/19` CIDR range. (Value: "SLASH_19")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash20
  *        `/20` CIDR range. (Value: "SLASH_20")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash22
+ *        `/22` CIDR range. Supported for evaluation only. (Value: "SLASH_22")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1Instance_PeeringCidrRange_Slash23
  *        `/23` CIDR range. Supported for evaluation only. (Value: "SLASH_23")
  */

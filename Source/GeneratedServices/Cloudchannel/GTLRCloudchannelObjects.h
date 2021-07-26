@@ -2087,14 +2087,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
 /**
  *  The customer account's contact email. Required for entitlements that create
  *  admin.google.com accounts, and serves as the customer's username for those
- *  accounts.
+ *  accounts. Use this email to invite Team customers.
  */
 @property(nonatomic, copy, nullable) NSString *email;
 
-/** The customer account contact's first name. */
+/** The customer account contact's first name. Optional for Team customers. */
 @property(nonatomic, copy, nullable) NSString *firstName;
 
-/** The customer account contact's last name. */
+/** The customer account contact's last name. Optional for Team customers. */
 @property(nonatomic, copy, nullable) NSString *lastName;
 
 /** The customer account's contact phone number. */
@@ -2138,7 +2138,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *  Secondary contact email. You need to provide an alternate email to create
  *  different domains if a primary contact email already exists. Users will
  *  receive a notification with credentials when you create an admin.google.com
- *  account. Secondary emails are also recovery email addresses.
+ *  account. Secondary emails are also recovery email addresses. Alternate
+ *  emails are optional when you create Team customers.
  */
 @property(nonatomic, copy, nullable) NSString *alternateEmail;
 

@@ -327,8 +327,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Database
-@dynamic createTime, earliestVersionTime, encryptionConfig, encryptionInfo,
-         name, restoreInfo, state, versionRetentionPeriod;
+@dynamic createTime, defaultLeader, earliestVersionTime, encryptionConfig,
+         encryptionInfo, name, restoreInfo, state, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -624,10 +624,11 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_InstanceConfig
-@dynamic displayName, name, replicas;
+@dynamic displayName, leaderOptions, name, replicas;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"leaderOptions" : [NSString class],
     @"replicas" : [GTLRSpanner_ReplicaInfo class]
   };
   return map;
@@ -664,7 +665,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_KeyRangeInfo
 @dynamic contextValues, endKeyIndex, info, keysCount, metric, startKeyIndex,
-         unit, value;
+         timeOffset, unit, value;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

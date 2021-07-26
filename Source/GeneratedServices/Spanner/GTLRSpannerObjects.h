@@ -1107,6 +1107,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The read-write region which contains the database's leader
+ *  replicas. This is the same as the value of default_leader database option
+ *  set using DatabaseAdmin.CreateDatabase or DatabaseAdmin.UpdateDatabaseDdl.
+ *  If not explicitly set, this is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultLeader;
+
+/**
  *  Output only. Earliest timestamp at which older versions of the data can be
  *  read. This value is continuously updated by Cloud Spanner and becomes stale
  *  the moment it is queried. If you are using this value to recover data, make
@@ -1847,6 +1855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Allowed values of the “default_leader” schema option for databases in
+ *  instances that use this instance configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *leaderOptions;
+
+/**
  *  A unique identifier for the instance configuration. Values are of the form
  *  `projects//instanceConfigs/a-z*`
  */
@@ -1968,6 +1982,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *startKeyIndex;
+
+/** The time offset. This is the time since the start of the time interval. */
+@property(nonatomic, strong, nullable) GTLRDuration *timeOffset;
 
 /**
  *  The unit of the metric. This is an unstructured field and will be mapped as
@@ -3417,7 +3434,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  requests where it's not applicable (e.g. CommitRequest). Legal characters
  *  for `request_tag` values are all printable characters (ASCII 32 - 126) and
  *  the length of a request_tag is limited to 50 characters. Values that exceed
- *  this limit are truncated.
+ *  this limit are truncated. Any leading underscore (_) characters will be
+ *  removed from the string.
  */
 @property(nonatomic, copy, nullable) NSString *requestTag;
 
@@ -3429,7 +3447,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  belong to any transaction, transaction_tag will be ignored. Legal characters
  *  for `transaction_tag` values are all printable characters (ASCII 32 - 126)
  *  and the length of a transaction_tag is limited to 50 characters. Values that
- *  exceed this limit are truncated.
+ *  exceed this limit are truncated. Any leading underscore (_) characters will
+ *  be removed from the string.
  */
 @property(nonatomic, copy, nullable) NSString *transactionTag;
 
@@ -4054,67 +4073,67 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  # Transactions Each session can have at most one active transaction at a
- *  time (note that standalone reads and queries use a transaction internally
- *  and do count towards the one transaction limit). After the active
- *  transaction is completed, the session can immediately be re-used for the
- *  next transaction. It is not necessary to create a new session for each
- *  transaction. # Transaction Modes Cloud Spanner supports three transaction
- *  modes: 1. Locking read-write. This type of transaction is the only way to
- *  write data into Cloud Spanner. These transactions rely on pessimistic
- *  locking and, if necessary, two-phase commit. Locking read-write transactions
- *  may abort, requiring the application to retry. 2. Snapshot read-only. This
- *  transaction type provides guaranteed consistency across several reads, but
- *  does not allow writes. Snapshot read-only transactions can be configured to
- *  read at timestamps in the past. Snapshot read-only transactions do not need
- *  to be committed. 3. Partitioned DML. This type of transaction is used to
- *  execute a single Partitioned DML statement. Partitioned DML partitions the
- *  key space and runs the DML statement over each partition in parallel using
- *  separate, internal transactions that commit independently. Partitioned DML
+ *  Transactions: Each session can have at most one active transaction at a time
+ *  (note that standalone reads and queries use a transaction internally and do
+ *  count towards the one transaction limit). After the active transaction is
+ *  completed, the session can immediately be re-used for the next transaction.
+ *  It is not necessary to create a new session for each transaction.
+ *  Transaction Modes: Cloud Spanner supports three transaction modes: 1.
+ *  Locking read-write. This type of transaction is the only way to write data
+ *  into Cloud Spanner. These transactions rely on pessimistic locking and, if
+ *  necessary, two-phase commit. Locking read-write transactions may abort,
+ *  requiring the application to retry. 2. Snapshot read-only. This transaction
+ *  type provides guaranteed consistency across several reads, but does not
+ *  allow writes. Snapshot read-only transactions can be configured to read at
+ *  timestamps in the past. Snapshot read-only transactions do not need to be
+ *  committed. 3. Partitioned DML. This type of transaction is used to execute a
+ *  single Partitioned DML statement. Partitioned DML partitions the key space
+ *  and runs the DML statement over each partition in parallel using separate,
+ *  internal transactions that commit independently. Partitioned DML
  *  transactions do not need to be committed. For transactions that only read,
  *  snapshot read-only transactions provide simpler semantics and are almost
  *  always faster. In particular, read-only transactions do not take locks, so
  *  they do not conflict with read-write transactions. As a consequence of not
  *  taking locks, they also do not abort, so retry loops are not needed.
  *  Transactions may only read/write data in a single database. They may,
- *  however, read/write data in different tables within that database. ##
- *  Locking Read-Write Transactions Locking transactions may be used to
- *  atomically read-modify-write data anywhere in a database. This type of
- *  transaction is externally consistent. Clients should attempt to minimize the
- *  amount of time a transaction is active. Faster transactions commit with
- *  higher probability and cause less contention. Cloud Spanner attempts to keep
- *  read locks active as long as the transaction continues to do reads, and the
- *  transaction has not been terminated by Commit or Rollback. Long periods of
- *  inactivity at the client may cause Cloud Spanner to release a transaction's
- *  locks and abort it. Conceptually, a read-write transaction consists of zero
- *  or more reads or SQL statements followed by Commit. At any time before
- *  Commit, the client can send a Rollback request to abort the transaction. ##
- *  Semantics Cloud Spanner can commit the transaction if all read locks it
- *  acquired are still valid at commit time, and it is able to acquire write
- *  locks for all writes. Cloud Spanner can abort the transaction for any
- *  reason. If a commit attempt returns `ABORTED`, Cloud Spanner guarantees that
- *  the transaction has not modified any user data in Cloud Spanner. Unless the
- *  transaction commits, Cloud Spanner makes no guarantees about how long the
- *  transaction's locks were held for. It is an error to use Cloud Spanner locks
- *  for any sort of mutual exclusion other than between Cloud Spanner
- *  transactions themselves. ## Retrying Aborted Transactions When a transaction
- *  aborts, the application can choose to retry the whole transaction again. To
- *  maximize the chances of successfully committing the retry, the client should
- *  execute the retry in the same session as the original attempt. The original
- *  session's lock priority increases with each consecutive abort, meaning that
- *  each attempt has a slightly better chance of success than the previous.
- *  Under some circumstances (e.g., many transactions attempting to modify the
- *  same row(s)), a transaction can abort many times in a short period before
+ *  however, read/write data in different tables within that database. Locking
+ *  Read-Write Transactions: Locking transactions may be used to atomically
+ *  read-modify-write data anywhere in a database. This type of transaction is
+ *  externally consistent. Clients should attempt to minimize the amount of time
+ *  a transaction is active. Faster transactions commit with higher probability
+ *  and cause less contention. Cloud Spanner attempts to keep read locks active
+ *  as long as the transaction continues to do reads, and the transaction has
+ *  not been terminated by Commit or Rollback. Long periods of inactivity at the
+ *  client may cause Cloud Spanner to release a transaction's locks and abort
+ *  it. Conceptually, a read-write transaction consists of zero or more reads or
+ *  SQL statements followed by Commit. At any time before Commit, the client can
+ *  send a Rollback request to abort the transaction. Semantics: Cloud Spanner
+ *  can commit the transaction if all read locks it acquired are still valid at
+ *  commit time, and it is able to acquire write locks for all writes. Cloud
+ *  Spanner can abort the transaction for any reason. If a commit attempt
+ *  returns `ABORTED`, Cloud Spanner guarantees that the transaction has not
+ *  modified any user data in Cloud Spanner. Unless the transaction commits,
+ *  Cloud Spanner makes no guarantees about how long the transaction's locks
+ *  were held for. It is an error to use Cloud Spanner locks for any sort of
+ *  mutual exclusion other than between Cloud Spanner transactions themselves.
+ *  Retrying Aborted Transactions: When a transaction aborts, the application
+ *  can choose to retry the whole transaction again. To maximize the chances of
+ *  successfully committing the retry, the client should execute the retry in
+ *  the same session as the original attempt. The original session's lock
+ *  priority increases with each consecutive abort, meaning that each attempt
+ *  has a slightly better chance of success than the previous. Under some
+ *  circumstances (e.g., many transactions attempting to modify the same
+ *  row(s)), a transaction can abort many times in a short period before
  *  successfully committing. Thus, it is not a good idea to cap the number of
  *  retries a transaction can attempt; instead, it is better to limit the total
- *  amount of wall time spent retrying. ## Idle Transactions A transaction is
+ *  amount of wall time spent retrying. Idle Transactions: A transaction is
  *  considered idle if it has no outstanding reads or SQL queries and has not
  *  started a read or SQL query within the last 10 seconds. Idle transactions
  *  can be aborted by Cloud Spanner so that they don't hold on to locks
  *  indefinitely. In that case, the commit will fail with error `ABORTED`. If
  *  this behavior is undesirable, periodically executing a simple SQL query in
  *  the transaction (e.g., `SELECT 1`) prevents the transaction from becoming
- *  idle. ## Snapshot Read-Only Transactions Snapshot read-only transactions
+ *  idle. Snapshot Read-Only Transactions: Snapshot read-only transactions
  *  provides a simpler method than locking read-write transactions for doing
  *  several consistent reads. However, this type of transaction does not support
  *  writes. Snapshot transactions do not take locks. Instead, they work by
@@ -4132,7 +4151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Spanner database to be read is geographically distributed, stale read-only
  *  transactions can execute more quickly than strong or read-write transaction,
  *  because they are able to execute far from the leader replica. Each type of
- *  timestamp bound is discussed in detail below. ## Strong Strong reads are
+ *  timestamp bound is discussed in detail below. Strong: Strong reads are
  *  guaranteed to see the effects of all transactions that have committed before
  *  the start of the read. Furthermore, all rows yielded by a single read are
  *  consistent with each other -- if any part of the read observes a
@@ -4140,8 +4159,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  repeatable: two consecutive strong read-only transactions might return
  *  inconsistent results if there are concurrent writes. If consistency across
  *  reads is required, the reads should be executed within a transaction or at
- *  an exact read timestamp. See TransactionOptions.ReadOnly.strong. ## Exact
- *  Staleness These timestamp bounds execute reads at a user-specified
+ *  an exact read timestamp. See TransactionOptions.ReadOnly.strong. Exact
+ *  Staleness: These timestamp bounds execute reads at a user-specified
  *  timestamp. Reads at a timestamp are guaranteed to see a consistent prefix of
  *  the global transaction history: they observe modifications done by all
  *  transactions with a commit timestamp <= the read timestamp, and observe none
@@ -4154,7 +4173,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  faster than the equivalent boundedly stale concurrency modes. On the other
  *  hand, boundedly stale reads usually return fresher results. See
  *  TransactionOptions.ReadOnly.read_timestamp and
- *  TransactionOptions.ReadOnly.exact_staleness. ## Bounded Staleness Bounded
+ *  TransactionOptions.ReadOnly.exact_staleness. Bounded Staleness: Bounded
  *  staleness modes allow Cloud Spanner to pick the read timestamp, subject to a
  *  user-provided staleness bound. Cloud Spanner chooses the newest timestamp
  *  within the staleness bound that allows execution of the reads at the closest
@@ -4172,15 +4191,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Because the timestamp negotiation requires up-front knowledge of which rows
  *  will be read, it can only be used with single-use read-only transactions.
  *  See TransactionOptions.ReadOnly.max_staleness and
- *  TransactionOptions.ReadOnly.min_read_timestamp. ## Old Read Timestamps and
- *  Garbage Collection Cloud Spanner continuously garbage collects deleted and
+ *  TransactionOptions.ReadOnly.min_read_timestamp. Old Read Timestamps and
+ *  Garbage Collection: Cloud Spanner continuously garbage collects deleted and
  *  overwritten data in the background to reclaim storage space. This process is
  *  known as "version GC". By default, version GC reclaims versions after they
  *  are one hour old. Because of this, Cloud Spanner cannot perform reads at
  *  read timestamps more than one hour in the past. This restriction also
  *  applies to in-progress reads and/or SQL queries whose timestamp become too
  *  old while executing. Reads and SQL queries with too-old read timestamps fail
- *  with the error `FAILED_PRECONDITION`. ## Partitioned DML Transactions
+ *  with the error `FAILED_PRECONDITION`. Partitioned DML Transactions:
  *  Partitioned DML transactions are used to execute DML statements with a
  *  different execution strategy that provides different, and often better,
  *  scalability properties for large, table-wide operations than DML in a

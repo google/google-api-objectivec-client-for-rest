@@ -43,15 +43,13 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
- *  This feature is not generally available yet. Includes name and
- *  enterprise_display_name fields.
+ *  Includes name and enterprise_display_name fields.
  *
  *  Value: "BASIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementViewBasic;
 /**
- *  This feature is not generally available yet. The API will default to the
- *  BASIC view for the List method.
+ *  The API will default to the BASIC view for the List method.
  *
  *  Value: "ENTERPRISE_VIEW_UNSPECIFIED"
  */
@@ -141,12 +139,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesCreate : GTLRAndroidManagementQuery
 
 /**
- *  This feature is not generally available yet. Whether the managed Google Play
- *  Agreement is presented and agreed.
+ *  Whether the enterprise admin has seen and agreed to the managed Google Play
+ *  Agreement (https://www.android.com/enterprise/terms/). Always set this to
+ *  true when creating an EMM-managed enterprise. Do not create the enterprise
+ *  until the admin has viewed and accepted the agreement.
  */
 @property(nonatomic, assign) BOOL agreementAccepted;
 
-/** The enterprise token appended to the callback URL. */
+/**
+ *  The enterprise token appended to the callback URL. Only set this when
+ *  creating a customer-managed enterprise.
+ */
 @property(nonatomic, copy, nullable) NSString *enterpriseToken;
 
 /**
@@ -154,7 +157,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
-/** The name of the SignupUrl used to sign up for the enterprise. */
+/**
+ *  The name of the SignupUrl used to sign up for the enterprise. Only set this
+ *  when creating a customer-managed enterprise.
+ */
 @property(nonatomic, copy, nullable) NSString *signupUrlName;
 
 /**
@@ -172,7 +178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  This feature is not generally available yet. Deletes an enterprise.
+ *  Deletes an enterprise. Only available for EMM-managed enterprises.
  *
  *  Method: androidmanagement.enterprises.delete
  *
@@ -181,19 +187,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  */
 @interface GTLRAndroidManagementQuery_EnterprisesDelete : GTLRAndroidManagementQuery
 
-/**
- *  This feature is not generally available yet. The name of the enterprise in
- *  the form enterprises/{enterpriseId}.
- */
+/** The name of the enterprise in the form enterprises/{enterpriseId}. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_Empty.
  *
- *  This feature is not generally available yet. Deletes an enterprise.
+ *  Deletes an enterprise. Only available for EMM-managed enterprises.
  *
- *  @param name This feature is not generally available yet. The name of the
- *    enterprise in the form enterprises/{enterpriseId}.
+ *  @param name The name of the enterprise in the form
+ *    enterprises/{enterpriseId}.
  *
  *  @return GTLRAndroidManagementQuery_EnterprisesDelete
  */
@@ -648,8 +651,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @end
 
 /**
- *  This feature is not generally available yet. Lists enterprises that are
- *  managed by an EMM. Only partial views are returned.
+ *  Lists EMM-managed enterprises. Only BASIC fields are returned.
  *
  *  Method: androidmanagement.enterprises.list
  *
@@ -659,42 +661,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
 @interface GTLRAndroidManagementQuery_EnterprisesList : GTLRAndroidManagementQuery
 
 /**
- *  This feature is not generally available yet. The requested page size. The
- *  actual page size may be fixed to a min or max value.
+ *  The requested page size. The actual page size may be fixed to a min or max
+ *  value.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/**
- *  This feature is not generally available yet. A token identifying a page of
- *  results returned by the server.
- */
+/** A token identifying a page of results returned by the server. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/**
- *  Required. This feature is not generally available yet. The ID of the Cloud
- *  project of the EMM the enterprises belongs to.
- */
+/** Required. The Cloud project ID of the EMM managing the enterprises. */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
- *  This feature is not generally available yet. View that specify that partial
- *  response should be returned.
+ *  Specifies which Enterprise fields to return. This method only supports
+ *  BASIC.
  *
  *  Likely values:
- *    @arg @c kGTLRAndroidManagementViewEnterpriseViewUnspecified This feature
- *        is not generally available yet. The API will default to the BASIC view
- *        for the List method. (Value: "ENTERPRISE_VIEW_UNSPECIFIED")
- *    @arg @c kGTLRAndroidManagementViewBasic This feature is not generally
- *        available yet. Includes name and enterprise_display_name fields.
- *        (Value: "BASIC")
+ *    @arg @c kGTLRAndroidManagementViewEnterpriseViewUnspecified The API will
+ *        default to the BASIC view for the List method. (Value:
+ *        "ENTERPRISE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagementViewBasic Includes name and
+ *        enterprise_display_name fields. (Value: "BASIC")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRAndroidManagement_ListEnterprisesResponse.
  *
- *  This feature is not generally available yet. Lists enterprises that are
- *  managed by an EMM. Only partial views are returned.
+ *  Lists EMM-managed enterprises. Only BASIC fields are returned.
  *
  *  @return GTLRAndroidManagementQuery_EnterprisesList
  *

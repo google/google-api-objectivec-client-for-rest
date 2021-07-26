@@ -999,6 +999,13 @@ NSString * const kGTLRCompute_ForwardingRule_LoadBalancingScheme_Invalid = @"INV
 NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Premium = @"PREMIUM";
 NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Standard = @"STANDARD";
 
+// GTLRCompute_ForwardingRule.pscConnectionStatus
+NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Accepted = @"ACCEPTED";
+NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Closed = @"CLOSED";
+NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Pending = @"PENDING";
+NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Rejected = @"REJECTED";
+NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRCompute_ForwardingRuleAggregatedList_Warning.code
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_CleanupFailed = @"CLEANUP_FAILED";
 NSString * const kGTLRCompute_ForwardingRuleAggregatedList_Warning_Code_DeprecatedResourceUsed = @"DEPRECATED_RESOURCE_USED";
@@ -3159,6 +3166,7 @@ NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4Gpus = @"PREEMPTIB
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4VwsGpus = @"PREEMPTIBLE_NVIDIA_T4_VWS_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus = @"PREEMPTIBLE_NVIDIA_V100_GPUS";
 NSString * const kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork = @"PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK";
+NSString * const kGTLRCompute_Quota_Metric_PscInternalLbForwardingRules = @"PSC_INTERNAL_LB_FORWARDING_RULES";
 NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes = @"PUBLIC_ADVERTISED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes = @"PUBLIC_DELEGATED_PREFIXES";
 NSString * const kGTLRCompute_Quota_Metric_RegionalAutoscalers = @"REGIONAL_AUTOSCALERS";
@@ -3172,6 +3180,7 @@ NSString * const kGTLRCompute_Quota_Metric_SecurityPoliciesPerRegion = @"SECURIT
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCevalRules = @"SECURITY_POLICY_CEVAL_RULES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules = @"SECURITY_POLICY_RULES";
 NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRulesPerRegion = @"SECURITY_POLICY_RULES_PER_REGION";
+NSString * const kGTLRCompute_Quota_Metric_ServiceAttachments  = @"SERVICE_ATTACHMENTS";
 NSString * const kGTLRCompute_Quota_Metric_Snapshots           = @"SNAPSHOTS";
 NSString * const kGTLRCompute_Quota_Metric_SsdTotalGb          = @"SSD_TOTAL_GB";
 NSString * const kGTLRCompute_Quota_Metric_SslCertificates     = @"SSL_CERTIFICATES";
@@ -7930,9 +7939,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
          descriptionProperty, fingerprint, identifier, IPAddress, IPProtocol,
          ipVersion, isMirroringCollector, kind, labelFingerprint, labels,
          loadBalancingScheme, metadataFilters, name, network, networkTier,
-         portRange, ports, pscConnectionId, region, selfLink,
-         serviceDirectoryRegistrations, serviceLabel, serviceName, subnetwork,
-         target;
+         portRange, ports, pscConnectionId, pscConnectionStatus, region,
+         selfLink, serviceDirectoryRegistrations, serviceLabel, serviceName,
+         subnetwork, target;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -12113,7 +12122,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_NetworkInterface
 @dynamic accessConfigs, aliasIpRanges, fingerprint, ipv6AccessConfigs,
          ipv6AccessType, ipv6Address, kind, name, network, networkIP, nicType,
-         stackType, subnetwork;
+         queueCount, stackType, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

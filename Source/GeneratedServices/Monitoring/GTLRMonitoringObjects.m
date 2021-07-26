@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 
@@ -284,9 +284,9 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_AlertPolicy
-@dynamic combiner, conditions, creationRecord, displayName, documentation,
-         enabled, mutationRecord, name, notificationChannels, userLabels,
-         validity;
+@dynamic alertStrategy, combiner, conditions, creationRecord, displayName,
+         documentation, enabled, mutationRecord, name, notificationChannels,
+         userLabels, validity;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -310,6 +310,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_AlertStrategy
+//
+
+@implementation GTLRMonitoring_AlertStrategy
+@dynamic notificationRateLimit;
 @end
 
 
@@ -469,8 +479,8 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_Condition
-@dynamic conditionAbsent, conditionMonitoringQueryLanguage, conditionThreshold,
-         displayName, name;
+@dynamic conditionAbsent, conditionMatchedLog, conditionMonitoringQueryLanguage,
+         conditionThreshold, displayName, name;
 @end
 
 
@@ -1126,6 +1136,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_LogMatch
+//
+
+@implementation GTLRMonitoring_LogMatch
+@dynamic filter, labelExtractors;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LogMatch_LabelExtractors
+//
+
+@implementation GTLRMonitoring_LogMatch_LabelExtractors
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_MeshIstio
 //
 
@@ -1404,6 +1438,16 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_NotificationRateLimit
+//
+
+@implementation GTLRMonitoring_NotificationRateLimit
+@dynamic period;
 @end
 
 

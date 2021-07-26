@@ -2740,7 +2740,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  updated in the following format:
+ *  updated. Use the following structure in your request:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2761,7 +2761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Attributes to include in
  *    the query.
  *  @param parent Required. Email address of the developer for which attributes
- *    are being updated in the following format:
+ *    are being updated. Use the following structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributes
@@ -2847,7 +2847,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Required. Email address of the developer for which attributes are being
- *  listed in the following format:
+ *  listed. Use the following structure in your request:
  *  `organizations/{org}/developers/{developer_email}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2858,7 +2858,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Returns a list of all developer attributes.
  *
  *  @param parent Required. Email address of the developer for which attributes
- *    are being listed in the following format:
+ *    are being listed. Use the following structure in your request:
  *    `organizations/{org}/developers/{developer_email}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersAttributesList
@@ -3107,13 +3107,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Sets the status of a developer. Valid values are `active` or `inactive`. A
- *  developer is `active` by default. If you set a developer's status to
- *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers can
- *  still sign in to the developer portal and create apps; however, any new API
- *  keys generated during app creation won't work. If successful, the API call
- *  returns the following HTTP status code: `204 No Content`
+ *  Sets the status of a developer. A developer is `active` by default. If you
+ *  set a developer's status to `inactive`, the API keys assigned to the
+ *  developer apps are no longer valid even though the API keys are set to
+ *  `approved`. Inactive developers can still sign in to the developer portal
+ *  and create apps; however, any new API keys generated during app creation
+ *  won't work. To set the status of a developer, set the `action` query
+ *  parameter to `active` or `inactive`, and the `Content-Type` header to
+ *  `application/octet-stream`. If successful, the API call returns the
+ *  following HTTP status code: `204 No Content`
  *
  *  Method: apigee.organizations.developers.setDeveloperStatus
  *
@@ -3126,25 +3128,26 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Required. Email address of the developer. Use the following structure in
- *  your request: `organizations/{org}/developers/{developer_email}`
+ *  Required. Name of the developer. Use the following structure in your
+ *  request: `organizations/{org}/developers/{developer_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
- *  Sets the status of a developer. Valid values are `active` or `inactive`. A
- *  developer is `active` by default. If you set a developer's status to
- *  `inactive`, the API keys assigned to the developer apps are no longer valid
- *  even though the API keys are set to `approved`. Inactive developers can
- *  still sign in to the developer portal and create apps; however, any new API
- *  keys generated during app creation won't work. If successful, the API call
- *  returns the following HTTP status code: `204 No Content`
+ *  Sets the status of a developer. A developer is `active` by default. If you
+ *  set a developer's status to `inactive`, the API keys assigned to the
+ *  developer apps are no longer valid even though the API keys are set to
+ *  `approved`. Inactive developers can still sign in to the developer portal
+ *  and create apps; however, any new API keys generated during app creation
+ *  won't work. To set the status of a developer, set the `action` query
+ *  parameter to `active` or `inactive`, and the `Content-Type` header to
+ *  `application/octet-stream`. If successful, the API call returns the
+ *  following HTTP status code: `204 No Content`
  *
- *  @param name Required. Email address of the developer. Use the following
- *    structure in your request:
- *    `organizations/{org}/developers/{developer_email}`
+ *  @param name Required. Name of the developer. Use the following structure in
+ *    your request: `organizations/{org}/developers/{developer_id}`
  *
  *  @return GTLRApigeeQuery_OrganizationsDevelopersSetDeveloperStatus
  */

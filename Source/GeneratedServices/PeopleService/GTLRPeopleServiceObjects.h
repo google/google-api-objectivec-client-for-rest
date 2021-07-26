@@ -1287,8 +1287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @interface GTLRPeopleService_FieldMetadata : GTLRObject
 
 /**
- *  True if the field is the primary field; false if the field is a secondary
- *  field.
+ *  True if the field is the primary field for the person.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1296,6 +1295,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /** The source of the field. */
 @property(nonatomic, strong, nullable) GTLRPeopleService_Source *source;
+
+/**
+ *  True if the field is the primary field for the source.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sourcePrimary;
 
 /**
  *  Output only. True if the field is verified; false if the field is
@@ -1990,13 +1996,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_CoverPhoto *> *coverPhotos;
 
 /**
- *  The person's email addresses. For
- *  [`connections.list`](/people/api/rest/v1/people.connections/list),
- *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list), and
- *  [`people.listDirectoryPeople`](/people/api/rest/v1/people/listDirectoryPeople)
- *  the number of email addresses is limited to 100. If a Person has more email
- *  addresses the entire set can be obtained by calling
- *  ['people.get'](/people/api/rest/v1/people/get).
+ *  The person's email addresses. For `people.connections.list` and
+ *  `otherContacts.list` the number of email addresses is limited to 100. If a
+ *  Person has more email addresses the entire set can be obtained by calling
+ *  GetPeople.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_EmailAddress *> *emailAddresses;
 
@@ -2052,13 +2055,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_Organization *> *organizations;
 
 /**
- *  The person's phone numbers. For
- *  [`connections.list`](/people/api/rest/v1/people.connections/list),
- *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list), and
- *  [`people.listDirectoryPeople`](/people/api/rest/v1/people/listDirectoryPeople)
- *  the number of phone numbers is limited to 100. If a Person has more phone
- *  numbers the entire set can be obtained by calling
- *  ['people.get'](/people/api/rest/v1/people/get).
+ *  The person's phone numbers. For `people.connections.list` and
+ *  `otherContacts.list` the number of phone numbers is limited to 100. If a
+ *  Person has more phone numbers the entire set can be obtained by calling
+ *  GetPeople.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPeopleService_PhoneNumber *> *phoneNumbers;
 
@@ -2119,9 +2119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Output only. True if the person resource has been deleted. Populated only
- *  for [`connections.list`](/people/api/rest/v1/people.connections/list) and
- *  [`otherContacts.list`](/people/api/rest/v1/otherContacts/list) requests that
- *  include a sync token.
+ *  for `people.connections.list` and `otherContacts.list` sync requests.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2148,10 +2146,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleService_UpdateContactPhotoRequest_
 
 /**
  *  Output only. Any former resource names this person has had. Populated only
- *  for [`connections.list`](/people/api/rest/v1/people.connections/list)
- *  requests that include a sync token. The resource name may change when adding
- *  or removing fields that link a contact and profile such as a verified email,
- *  verified phone number, or profile URL.
+ *  for `people.connections.list` requests that include a sync token. The
+ *  resource name may change when adding or removing fields that link a contact
+ *  and profile such as a verified email, verified phone number, or profile URL.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *previousResourceNames;
 

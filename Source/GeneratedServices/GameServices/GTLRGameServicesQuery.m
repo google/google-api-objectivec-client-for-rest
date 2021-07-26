@@ -12,6 +12,18 @@
 
 #import "GTLRGameServicesObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRGameServicesViewBasic                    = @"BASIC";
+NSString * const kGTLRGameServicesViewFull                     = @"FULL";
+NSString * const kGTLRGameServicesViewGameServerClusterViewUnspecified = @"GAME_SERVER_CLUSTER_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRGameServicesQuery
 
 @dynamic fields;
@@ -606,7 +618,7 @@
 
 @implementation GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -625,7 +637,7 @@
 
 @implementation GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -671,7 +683,7 @@
 
 @implementation GTLRGameServicesQuery_ProjectsLocationsRealmsGameServerClustersPreviewCreate
 
-@dynamic gameServerClusterId, parent, previewTime;
+@dynamic gameServerClusterId, parent, previewTime, view;
 
 + (instancetype)queryWithObject:(GTLRGameServices_GameServerCluster *)object
                          parent:(NSString *)parent {

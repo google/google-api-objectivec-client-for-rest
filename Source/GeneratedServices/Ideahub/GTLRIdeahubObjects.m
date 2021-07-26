@@ -9,6 +9,15 @@
 #import "GTLRIdeahubObjects.h"
 
 // ----------------------------------------------------------------------------
+// Constants
+
+// GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity.type
+NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDeleted = @"POST_DELETED";
+NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDrafted = @"POST_DRAFTED";
+NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostPublished = @"POST_PUBLISHED";
+NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
 //
 //   GTLRIdeahub_GoogleSearchIdeahubV1alphaAvailableLocale
 //
@@ -29,6 +38,25 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"topics" : [GTLRIdeahub_GoogleSearchIdeahubV1alphaTopic class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity
+//
+
+@implementation GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity
+@dynamic ideaIds, name, topicIds, type, uri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ideaIds" : [NSString class],
+    @"topicIds" : [NSString class]
   };
   return map;
 }

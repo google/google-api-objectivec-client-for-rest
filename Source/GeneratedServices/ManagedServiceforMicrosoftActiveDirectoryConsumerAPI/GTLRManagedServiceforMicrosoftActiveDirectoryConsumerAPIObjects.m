@@ -187,8 +187,9 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Domain
-@dynamic admin, authorizedNetworks, createTime, fqdn, labels, locations, name,
-         reservedIpRange, state, statusMessage, trusts, updateTime;
+@dynamic admin, auditLogsEnabled, authorizedNetworks, createTime, fqdn, labels,
+         locations, name, reservedIpRange, state, statusMessage, trusts,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

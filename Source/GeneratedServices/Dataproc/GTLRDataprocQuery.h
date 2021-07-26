@@ -28,6 +28,7 @@
 @class GTLRDataproc_InjectCredentialsRequest;
 @class GTLRDataproc_InstantiateWorkflowTemplateRequest;
 @class GTLRDataproc_Job;
+@class GTLRDataproc_RepairClusterRequest;
 @class GTLRDataproc_SetIamPolicyRequest;
 @class GTLRDataproc_StartClusterRequest;
 @class GTLRDataproc_StopClusterRequest;
@@ -1289,13 +1290,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
+ *  Optional. A unique ID used to identify the request. If the server receives
  *  two CreateClusterRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateClusterRequest)s
  *  with the same id, then the second request will be ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.It is recommended to always set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
  */
@@ -1352,13 +1353,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
+ *  Optional. A unique ID used to identify the request. If the server receives
  *  two DeleteClusterRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.DeleteClusterRequest)s
  *  with the same id, then the second request will be ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.It is recommended to always set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
  */
@@ -1625,6 +1626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Updates a cluster in a project. The returned Operation.metadata will be
  *  ClusterOperationMetadata
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  The cluster must be in a RUNNING state or an error is returned.
  *
  *  Method: dataproc.projects.regions.clusters.patch
  *
@@ -1658,13 +1660,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
- *  Optional. A unique id used to identify the request. If the server receives
+ *  Optional. A unique ID used to identify the request. If the server receives
  *  two UpdateClusterRequest
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.UpdateClusterRequest)s
  *  with the same id, then the second request will be ignored and the first
  *  google.longrunning.Operation created and stored in the backend is
  *  returned.It is recommended to always set this value to a UUID
- *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The id must
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The ID must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
  */
@@ -1697,6 +1699,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  Updates a cluster in a project. The returned Operation.metadata will be
  *  ClusterOperationMetadata
  *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#clusteroperationmetadata).
+ *  The cluster must be in a RUNNING state or an error is returned.
  *
  *  @param object The @c GTLRDataproc_Cluster to include in the query.
  *  @param projectId Required. The ID of the Google Cloud Platform project the
@@ -1707,6 +1710,49 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocJobStateMatcherNonActive;
  *  @return GTLRDataprocQuery_ProjectsRegionsClustersPatch
  */
 + (instancetype)queryWithObject:(GTLRDataproc_Cluster *)object
+                      projectId:(NSString *)projectId
+                         region:(NSString *)region
+                    clusterName:(NSString *)clusterName;
+
+@end
+
+/**
+ *  Repairs a cluster.
+ *
+ *  Method: dataproc.projects.regions.clusters.repair
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocCloudPlatform
+ */
+@interface GTLRDataprocQuery_ProjectsRegionsClustersRepair : GTLRDataprocQuery
+
+/** Required. The cluster name. */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Required. The ID of the Google Cloud Platform project the cluster belongs
+ *  to.
+ */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/** Required. The Dataproc region in which to handle the request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRDataproc_Operation.
+ *
+ *  Repairs a cluster.
+ *
+ *  @param object The @c GTLRDataproc_RepairClusterRequest to include in the
+ *    query.
+ *  @param projectId Required. The ID of the Google Cloud Platform project the
+ *    cluster belongs to.
+ *  @param region Required. The Dataproc region in which to handle the request.
+ *  @param clusterName Required. The cluster name.
+ *
+ *  @return GTLRDataprocQuery_ProjectsRegionsClustersRepair
+ */
++ (instancetype)queryWithObject:(GTLRDataproc_RepairClusterRequest *)object
                       projectId:(NSString *)projectId
                          region:(NSString *)region
                     clusterName:(NSString *)clusterName;

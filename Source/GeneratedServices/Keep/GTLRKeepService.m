@@ -7,14 +7,15 @@
 //   This API is an enterprise-only API used to create and manage the Keep notes
 //   within your domain, including resolving issues identified by CASB software.
 // Documentation:
-//   https://support.google.com/keep
+//   https://developers.google.com/keep/api
 
 #import "GTLRKeep.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeKeep = @"https://www.googleapis.com/auth/keep";
+NSString * const kGTLRAuthScopeKeep         = @"https://www.googleapis.com/auth/keep";
+NSString * const kGTLRAuthScopeKeepReadonly = @"https://www.googleapis.com/auth/keep.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRKeepService

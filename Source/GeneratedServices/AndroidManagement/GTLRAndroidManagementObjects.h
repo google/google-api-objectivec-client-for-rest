@@ -3619,10 +3619,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  */
 @property(nonatomic, strong, nullable) NSNumber *appAutoApprovalEnabled;
 
-/**
- *  This feature is not generally available yet. The enterprise contact info of
- *  an EMM owned enterprise
- */
+/** The enterprise contact info of an EMM-managed enterprise. */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ContactInfo *contactInfo;
 
 /** The types of Google Pub/Sub notifications enabled for the enterprise. */
@@ -4067,8 +4064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 
 
 /**
- *  This feature is not generally available yet. Response to a request to list
- *  enterprises.
+ *  Response to a request to list enterprises.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "enterprises" property. If returned as the result of a query, it
@@ -4078,17 +4074,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @interface GTLRAndroidManagement_ListEnterprisesResponse : GTLRCollectionObject
 
 /**
- *  This feature is not generally available yet. The list of enterprises.
+ *  The list of enterprises.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_Enterprise *> *enterprises;
 
-/**
- *  This feature is not generally available yet. If there are more results, a
- *  token to retrieve next page of results.
- */
+/** If there are more results, a token to retrieve next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end

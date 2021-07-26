@@ -4,8 +4,8 @@
 // API:
 //   Bare Metal Solution API (baremetalsolution/v1)
 // Description:
-//   Bare Metal Solution provides hardware to run specialized workloads with low
-//   latency on Google Cloud.
+//   Provides ways to manage Bare Metal Solution hardware installed in a
+//   regional extension located near a Google Cloud data center.
 // Documentation:
 //   https://cloud.google.com/bare-metal
 
@@ -46,8 +46,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeBareMetalSolutionCloudPlatform;
 /**
  *  Service for executing Bare Metal Solution API queries.
  *
- *  Bare Metal Solution provides hardware to run specialized workloads with low
- *  latency on Google Cloud.
+ *  Provides ways to manage Bare Metal Solution hardware installed in a regional
+ *  extension located near a Google Cloud data center.
  */
 @interface GTLRBareMetalSolutionService : GTLRService
 

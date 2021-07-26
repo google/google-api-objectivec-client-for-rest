@@ -149,7 +149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Hiding;
  */
 FOUNDATION_EXTERN NSString * const kGTLRTPU_Node_State_Preempted;
 /**
- *  TPU node has been created and is fully usable.
+ *  TPU node has been created.
  *
  *  Value: "READY"
  */
@@ -617,8 +617,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  *        "HIDING")
  *    @arg @c kGTLRTPU_Node_State_Preempted TPU node has been preempted. Only
  *        applies to Preemptible TPU Nodes. (Value: "PREEMPTED")
- *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created and is fully
- *        usable. (Value: "READY")
+ *    @arg @c kGTLRTPU_Node_State_Ready TPU node has been created. (Value:
+ *        "READY")
  *    @arg @c kGTLRTPU_Node_State_Reimaging TPU node is undergoing reimaging.
  *        (Value: "REIMAGING")
  *    @arg @c kGTLRTPU_Node_State_Repairing TPU node is being repaired and may
@@ -759,11 +759,11 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @interface GTLRTPU_OperationMetadata : GTLRObject
 
-/** [Output only] API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation of the
+ *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
@@ -772,21 +772,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTPU_Symptom_SymptomType_SymptomTypeUnspe
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** [Output only] The time the operation was created. */
+/** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** [Output only] The time the operation finished running. */
+/** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** [Output only] Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /**
- *  [Output only] Server-defined resource path for the target of the operation.
+ *  Output only. Server-defined resource path for the target of the operation.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** [Output only] Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end

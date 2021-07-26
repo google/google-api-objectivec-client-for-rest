@@ -269,6 +269,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthThreshold;
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeScrollDepthUnits;
 /** Value: "sdkVersion" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeSdkVersion;
+/** Value: "serverPageLocationHostname" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeServerPageLocationHostname;
+/** Value: "serverPageLocationPath" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeServerPageLocationPath;
+/** Value: "serverPageLocationUrl" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeServerPageLocationUrl;
 /** Value: "videoCurrentTime" */
 FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoCurrentTime;
 /** Value: "videoDuration" */
@@ -1143,6 +1149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
  *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
  *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationUrl Value
+ *        "serverPageLocationUrl"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationPath Value
+ *        "serverPageLocationPath"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
+ *        "serverPageLocationHostname"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1327,6 +1339,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
  *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
  *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationUrl Value
+ *        "serverPageLocationUrl"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationPath Value
+ *        "serverPageLocationPath"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
+ *        "serverPageLocationHostname"
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -1550,6 +1568,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVideoVisible;
  *    @arg @c kGTLRTagManagerTypeRequestMethod Value "requestMethod"
  *    @arg @c kGTLRTagManagerTypeClientName Value "clientName"
  *    @arg @c kGTLRTagManagerTypeQueryString Value "queryString"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationUrl Value
+ *        "serverPageLocationUrl"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationPath Value
+ *        "serverPageLocationPath"
+ *    @arg @c kGTLRTagManagerTypeServerPageLocationHostname Value
+ *        "serverPageLocationHostname"
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

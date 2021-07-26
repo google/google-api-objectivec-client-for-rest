@@ -38,6 +38,34 @@ NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStag
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ProgramParticipationStageUnspecified = @"PROGRAM_PARTICIPATION_STAGE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_BuyOnGoogleProgramStatus_ParticipationStage_ReviewDisapproved = @"REVIEW_DISAPPROVED";
 
+// GTLRShoppingContent_FreeListingsProgramStatus.state
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_NotOnboarded = @"NOT_ONBOARDED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_Onboarded = @"ONBOARDED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatus_State_ProgramStateUnspecified = @"PROGRAM_STATE_UNSPECIFIED";
+
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.eligibilityStatus
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Approved = @"APPROVED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Onboarding = @"ONBOARDING";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_UnderReview = @"UNDER_REVIEW";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EligibilityStatus_Warning = @"WARNING";
+
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.enhancedEligibilityStatus
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Approved = @"APPROVED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Onboarding = @"ONBOARDING";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_UnderReview = @"UNDER_REVIEW";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_EnhancedEligibilityStatus_Warning = @"WARNING";
+
+// GTLRShoppingContent_FreeListingsProgramStatusRegionStatus.reviewEligibilityStatus
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible = @"ELIGIBLE";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible = @"INELIGIBLE";
+NSString * const kGTLRShoppingContent_FreeListingsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified = @"REVIEW_ELIGIBILITY_UNSPECIFIED";
+
 // GTLRShoppingContent_InapplicabilityDetails.inapplicableReason
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_AlreadyWinningBuybox = @"ALREADY_WINNING_BUYBOX";
 NSString * const kGTLRShoppingContent_InapplicabilityDetails_InapplicableReason_CannotBeatBuyboxWinner = @"CANNOT_BEAT_BUYBOX_WINNER";
@@ -74,6 +102,11 @@ NSString * const kGTLRShoppingContent_RepricingRuleEligibleOfferMatcher_MatcherO
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_RepricingRuleTypeUnspecified = @"REPRICING_RULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeCogsBased = @"TYPE_COGS_BASED";
 NSString * const kGTLRShoppingContent_RepricingRuleReport_Type_TypeStatsBased = @"TYPE_STATS_BASED";
+
+// GTLRShoppingContent_RequestPhoneVerificationRequest.phoneVerificationMethod
+NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneCall = @"PHONE_CALL";
+NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified = @"PHONE_VERIFICATION_METHOD_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_RequestPhoneVerificationRequest_PhoneVerificationMethod_Sms = @"SMS";
 
 // GTLRShoppingContent_ReturnPolicyOnline.itemConditions
 NSString * const kGTLRShoppingContent_ReturnPolicyOnline_ItemConditions_ItemConditionUnspecified = @"ITEM_CONDITION_UNSPECIFIED";
@@ -115,15 +148,39 @@ NSString * const kGTLRShoppingContent_Segments_Program_FreeProductListing = @"FR
 NSString * const kGTLRShoppingContent_Segments_Program_ProgramUnspecified = @"PROGRAM_UNSPECIFIED";
 NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_ADS";
 
+// GTLRShoppingContent_ShoppingAdsProgramStatus.state
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_NotOnboarded = @"NOT_ONBOARDED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_Onboarded = @"ONBOARDED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatus_State_ProgramStateUnspecified = @"PROGRAM_STATE_UNSPECIFIED";
+
+// GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.eligibilityStatus
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Approved = @"APPROVED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Disapproved = @"DISAPPROVED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Onboarding = @"ONBOARDING";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_PendingReview = @"PENDING_REVIEW";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_UnderReview = @"UNDER_REVIEW";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_EligibilityStatus_Warning = @"WARNING";
+
+// GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus.reviewEligibilityStatus
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Eligible = @"ELIGIBLE";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_Ineligible = @"INELIGIBLE";
+NSString * const kGTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus_ReviewEligibilityStatus_ReviewEligibilityUnspecified = @"REVIEW_ELIGIBILITY_UNSPECIFIED";
+
+// GTLRShoppingContent_VerifyPhoneNumberRequest.phoneVerificationMethod
+NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneCall = @"PHONE_CALL";
+NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_PhoneVerificationMethodUnspecified = @"PHONE_VERIFICATION_METHOD_UNSPECIFIED";
+NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest_PhoneVerificationMethod_Sms = @"SMS";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRShoppingContent_Account
 //
 
 @implementation GTLRShoppingContent_Account
-@dynamic adsLinks, adultContent, automaticLabelIds, businessInformation, cssId,
-         googleMyBusinessLink, identifier, kind, labelIds, name, sellerId,
-         users, websiteUrl, youtubeChannelLinks;
+@dynamic accountManagement, adsLinks, adultContent, automaticLabelIds,
+         businessInformation, cssId, googleMyBusinessLink, identifier, kind,
+         labelIds, name, sellerId, users, websiteUrl, youtubeChannelLinks;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -480,7 +537,8 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 //
 
 @implementation GTLRShoppingContent_AccountStatus
-@dynamic accountId, accountLevelIssues, kind, products, websiteClaimed;
+@dynamic accountId, accountLevelIssues, accountManagement, kind, products,
+         websiteClaimed;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1451,6 +1509,45 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errors" : [GTLRShoppingContent_Error class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_FreeListingsProgramStatus
+//
+
+@implementation GTLRShoppingContent_FreeListingsProgramStatus
+@dynamic regionStatuses, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionStatuses" : [GTLRShoppingContent_FreeListingsProgramStatusRegionStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_FreeListingsProgramStatusRegionStatus
+//
+
+@implementation GTLRShoppingContent_FreeListingsProgramStatusRegionStatus
+@dynamic disapprovalDate, eligibilityStatus, enhancedEligibilityStatus,
+         ineligibilityReason, regionCodes, reviewEligibilityStatus,
+         reviewIssues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCodes" : [NSString class],
+    @"reviewIssues" : [NSString class]
   };
   return map;
 }
@@ -4896,10 +4993,50 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_RequestPhoneVerificationRequest
+//
+
+@implementation GTLRShoppingContent_RequestPhoneVerificationRequest
+@dynamic languageCode, phoneNumber, phoneRegionCode, phoneVerificationMethod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RequestPhoneVerificationResponse
+//
+
+@implementation GTLRShoppingContent_RequestPhoneVerificationResponse
+@dynamic verificationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
 //
 
 @implementation GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RequestReviewFreeListingsRequest
+//
+
+@implementation GTLRShoppingContent_RequestReviewFreeListingsRequest
+@dynamic regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_RequestReviewShoppingAdsRequest
+//
+
+@implementation GTLRShoppingContent_RequestReviewShoppingAdsRequest
+@dynamic regionCode;
 @end
 
 
@@ -5749,6 +5886,44 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRShoppingContent_ShoppingAdsProgramStatus
+//
+
+@implementation GTLRShoppingContent_ShoppingAdsProgramStatus
+@dynamic regionStatuses, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionStatuses" : [GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus
+//
+
+@implementation GTLRShoppingContent_ShoppingAdsProgramStatusRegionStatus
+@dynamic disapprovalDate, eligibilityStatus, ineligibilityReason, regionCodes,
+         reviewEligibilityStatus, reviewIssues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCodes" : [NSString class],
+    @"reviewIssues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRShoppingContent_Table
 //
 
@@ -5990,6 +6165,26 @@ NSString * const kGTLRShoppingContent_Segments_Program_ShoppingAds = @"SHOPPING_
 
 @implementation GTLRShoppingContent_Value
 @dynamic carrierRateName, flatRate, noShipping, pricePercentage, subtableName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_VerifyPhoneNumberRequest
+//
+
+@implementation GTLRShoppingContent_VerifyPhoneNumberRequest
+@dynamic phoneVerificationMethod, verificationCode, verificationId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRShoppingContent_VerifyPhoneNumberResponse
+//
+
+@implementation GTLRShoppingContent_VerifyPhoneNumberResponse
+@dynamic verifiedPhoneNumber;
 @end
 
 
