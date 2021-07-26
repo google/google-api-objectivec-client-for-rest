@@ -52,6 +52,7 @@ NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnerability = @"VULNERA
 
 // GTLROnDemandScanning_PackageData.packageType
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go = @"GO";
+NSString * const kGTLROnDemandScanning_PackageData_PackageType_GoStdlib = @"GO_STDLIB";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven = @"MAVEN";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_Os = @"OS";
 NSString * const kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";

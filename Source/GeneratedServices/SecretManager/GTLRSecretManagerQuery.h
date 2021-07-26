@@ -318,6 +318,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSecretManagerQuery_ProjectsSecretsList : GTLRSecretManagerQuery
 
 /**
+ *  Optional. Filter string, adhering to the rules in [List-operation
+ *  filtering](https://cloud.google.com/secret-manager/docs/filtering). List
+ *  only secrets matching the filter. If filter is empty, all secrets are
+ *  listed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
  *  Optional. The maximum number of results to be returned in a single page. If
  *  set to 0, the server decides the number of results to return. If the number
  *  is greater than 25000, it is capped at 25000.
@@ -653,6 +661,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeSecretManagerCloudPlatform
  */
 @interface GTLRSecretManagerQuery_ProjectsSecretsVersionsList : GTLRSecretManagerQuery
+
+/**
+ *  Optional. Filter string, adhering to the rules in [List-operation
+ *  filtering](https://cloud.google.com/secret-manager/docs/filtering). List
+ *  only secret versions matching the filter. If filter is empty, all secret
+ *  versions are listed.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of results to be returned in a single page. If

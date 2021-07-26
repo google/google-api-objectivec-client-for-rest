@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -23,6 +23,7 @@
 @class GTLRSQLAdmin_BackupRun;
 @class GTLRSQLAdmin_Database;
 @class GTLRSQLAdmin_DatabaseInstance;
+@class GTLRSQLAdmin_GenerateEphemeralCertRequest;
 @class GTLRSQLAdmin_InstancesCloneRequest;
 @class GTLRSQLAdmin_InstancesDemoteMasterRequest;
 @class GTLRSQLAdmin_InstancesExportRequest;
@@ -45,6 +46,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// bodyType
+
+/**
+ *  The database's built-in user type.
+ *
+ *  Value: "BUILT_IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeBuiltIn;
+/**
+ *  Cloud IAM service account.
+ *
+ *  Value: "CLOUD_IAM_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeCloudIamServiceAccount;
+/**
+ *  Cloud IAM user.
+ *
+ *  Value: "CLOUD_IAM_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeCloudIamUser;
 
 // ----------------------------------------------------------------------------
 // syncMode
@@ -96,7 +119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @interface GTLRSQLAdminQuery_BackupRunsDelete : GTLRSQLAdminQuery
 
 /**
- *  The ID of the Backup Run to delete. To find a Backup Run ID, use the list
+ *  The ID of the backup run to delete. To find a backup run ID, use the list
  *  method.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -116,7 +139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
- *  @param identifier The ID of the Backup Run to delete. To find a Backup Run
+ *  @param identifier The ID of the backup run to delete. To find a backup run
  *    ID, use the list method.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsDelete
@@ -139,7 +162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @interface GTLRSQLAdminQuery_BackupRunsGet : GTLRSQLAdminQuery
 
 /**
- *  The ID of this Backup Run.
+ *  The ID of this backup run.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -158,7 +181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
- *  @param identifier The ID of this Backup Run.
+ *  @param identifier The ID of this backup run.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsGet
  */
@@ -169,8 +192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Creates a new backup run on demand. This method is applicable only to Second
- *  Generation instances.
+ *  Creates a new backup run on demand.
  *
  *  Method: sql.backupRuns.insert
  *
@@ -189,8 +211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Creates a new backup run on demand. This method is applicable only to Second
- *  Generation instances.
+ *  Creates a new backup run on demand.
  *
  *  @param object The @c GTLRSQLAdmin_BackupRun to include in the query.
  *  @param project Project ID of the project that contains the instance.
@@ -205,8 +226,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Lists all backup runs associated with a given instance and configuration in
- *  the reverse chronological order of the backup initiation time.
+ *  Lists all backup runs associated with the project or a given instance and
+ *  configuration in the reverse chronological order of the backup initiation
+ *  time.
  *
  *  Method: sql.backupRuns.list
  *
@@ -216,7 +238,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  */
 @interface GTLRSQLAdminQuery_BackupRunsList : GTLRSQLAdminQuery
 
-/** Cloud SQL instance ID. This does not include the project ID. */
+/**
+ *  Cloud SQL instance ID, or "-" for all instances. This does not include the
+ *  project ID.
+ */
 @property(nonatomic, copy, nullable) NSString *instance;
 
 /** Maximum number of backup runs per response. */
@@ -234,17 +259,98 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_BackupRunsListResponse.
  *
- *  Lists all backup runs associated with a given instance and configuration in
- *  the reverse chronological order of the backup initiation time.
+ *  Lists all backup runs associated with the project or a given instance and
+ *  configuration in the reverse chronological order of the backup initiation
+ *  time.
  *
  *  @param project Project ID of the project that contains the instance.
- *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *  @param instance Cloud SQL instance ID, or "-" for all instances. This does
+ *    not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_BackupRunsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Generates a short-lived X509 certificate containing the provided public key
+ *  and signed by a private key specific to the target instance. Users may use
+ *  the certificate to authenticate as themselves when connecting to the
+ *  database.
+ *
+ *  Method: sql.connect.generateEphemeral
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ConnectGenerateEphemeralCert : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_GenerateEphemeralCertResponse.
+ *
+ *  Generates a short-lived X509 certificate containing the provided public key
+ *  and signed by a private key specific to the target instance. Users may use
+ *  the certificate to authenticate as themselves when connecting to the
+ *  database.
+ *
+ *  @param object The @c GTLRSQLAdmin_GenerateEphemeralCertRequest to include in
+ *    the query.
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ConnectGenerateEphemeralCert
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_GenerateEphemeralCertRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Retrieves connect settings about a Cloud SQL instance.
+ *
+ *  Method: sql.connect.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_ConnectGet : GTLRSQLAdminQuery
+
+/** Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Optional. Optional snapshot read timestamp to trade freshness for
+ *  performance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_ConnectSettings.
+ *
+ *  Retrieves connect settings about a Cloud SQL instance.
+ *
+ *  @param project Project ID of the project that contains the instance.
+ *  @param instance Cloud SQL instance ID. This does not include the project ID.
+ *
+ *  @return GTLRSQLAdminQuery_ConnectGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance;
@@ -478,7 +584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  List all available database flags for Cloud SQL instances.
+ *  Lists all available database flags for Cloud SQL instances.
  *
  *  Method: sql.flags.list
  *
@@ -497,7 +603,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_FlagsListResponse.
  *
- *  List all available database flags for Cloud SQL instances.
+ *  Lists all available database flags for Cloud SQL instances.
  *
  *  @return GTLRSQLAdminQuery_FlagsList
  */
@@ -506,7 +612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Add a new trusted Certificate Authority (CA) version for the specified
+ *  Adds a new trusted Certificate Authority (CA) version for the specified
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
@@ -529,7 +635,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Add a new trusted Certificate Authority (CA) version for the specified
+ *  Adds a new trusted Certificate Authority (CA) version for the specified
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
  *  operation replaces that version. There cannot be more than one CA version
@@ -695,8 +801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @end
 
 /**
- *  Failover the instance to its failover replica instance. Using this operation
- *  might cause your instance to restart.
+ *  Initiates a manual failover of a high availability (HA) primary instance to
+ *  a standby instance, which becomes the primary instance. Users are then
+ *  rerouted to the new primary. For more information, see the Overview of high
+ *  availability page in the Cloud SQL documentation. If using Legacy HA (MySQL
+ *  only), this causes the instance to failover to its failover replica
+ *  instance.
  *
  *  Method: sql.instances.failover
  *
@@ -715,8 +825,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
- *  Failover the instance to its failover replica instance. Using this operation
- *  might cause your instance to restart.
+ *  Initiates a manual failover of a high availability (HA) primary instance to
+ *  a standby instance, which becomes the primary instance. Users are then
+ *  rerouted to the new primary. For more information, see the Overview of high
+ *  availability page in the Cloud SQL documentation. If using Legacy HA (MySQL
+ *  only), this causes the instance to failover to its failover replica
+ *  instance.
  *
  *  @param object The @c GTLRSQLAdmin_InstancesFailoverRequest to include in the
  *    query.
@@ -1677,7 +1791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 
 /**
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-custom-1-3840. For related information, see Pricing.
+ *  db-custom-1-3840. For more information, see
+ *  https://cloud.google.com/sql/pricing.
  *
  *  Method: sql.tiers.list
  *
@@ -1694,7 +1809,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *  Fetches a @c GTLRSQLAdmin_TiersListResponse.
  *
  *  Lists all available machine types (tiers) for Cloud SQL, for example,
- *  db-custom-1-3840. For related information, see Pricing.
+ *  db-custom-1-3840. For more information, see
+ *  https://cloud.google.com/sql/pricing.
  *
  *  @param project Project ID of the project for which to list tiers.
  *
@@ -1786,6 +1902,64 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersList : GTLRSQLAdminQuery
+
+/**
+ *  This field is deprecated and will be removed from a future version of the
+ *  API.
+ */
+@property(nonatomic, copy, nullable) NSString *bodyEtag;
+
+/**
+ *  The host name from which the user can connect. For *insert* operations, host
+ *  defaults to an empty string. For *update* operations, host is specified as
+ *  part of the request URL. The host name cannot be updated after insertion.
+ */
+@property(nonatomic, copy, nullable) NSString *bodyHost;
+
+/**
+ *  The name of the Cloud SQL instance. This does not include the project ID.
+ *  Can be omitted for *update* since it is already specified on the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *bodyInstance;
+
+/** This is always *sql#user*. */
+@property(nonatomic, copy, nullable) NSString *bodyKind;
+
+/**
+ *  The name of the user in the Cloud SQL instance. Can be omitted for *update*
+ *  since it is already specified in the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *bodyName;
+
+/** The password for the user. */
+@property(nonatomic, copy, nullable) NSString *bodyPassword;
+
+/**
+ *  The project ID of the project containing the Cloud SQL database. The Google
+ *  apps domain is prefixed if applicable. Can be omitted for *update* since it
+ *  is already specified on the URL.
+ */
+@property(nonatomic, copy, nullable) NSString *bodyProject;
+
+/** If the user has been disabled */
+@property(nonatomic, assign) BOOL bodySqlserverUserDetailsDisabled;
+
+/** The server roles for this user */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *bodySqlserverUserDetailsServerRoles;
+
+/**
+ *  The user type. It determines the method to authenticate the user during
+ *  login. The default is the database's built-in user type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminBodyTypeBuiltIn The database's built-in user type.
+ *        (Value: "BUILT_IN")
+ *    @arg @c kGTLRSQLAdminBodyTypeCloudIamUser Cloud IAM user. (Value:
+ *        "CLOUD_IAM_USER")
+ *    @arg @c kGTLRSQLAdminBodyTypeCloudIamServiceAccount Cloud IAM service
+ *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *bodyType;
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;

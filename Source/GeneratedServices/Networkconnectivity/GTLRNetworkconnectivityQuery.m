@@ -4,8 +4,8 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1alpha1)
 // Description:
-//   The Network Connectivity API will be home to various services which provide
-//   information pertaining to network connectivity.
+//   The Network Connectivity API provides access to Network Connectivity
+//   Center.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs
 

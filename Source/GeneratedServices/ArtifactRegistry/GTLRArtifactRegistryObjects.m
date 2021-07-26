@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRArtifactRegistry_AptArtifact.packageType
+NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Binary = @"BINARY";
+NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Source = @"SOURCE";
+
 // GTLRArtifactRegistry_Repository.format
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
@@ -21,6 +26,21 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi  = @"PYPI";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
+
+// GTLRArtifactRegistry_YumArtifact.packageType
+NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Binary = @"BINARY";
+NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_PackageTypeUnspecified = @"PACKAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_AptArtifact
+//
+
+@implementation GTLRArtifactRegistry_AptArtifact
+@dynamic architecture, component, controlFile, name, packageName, packageType;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -55,6 +75,100 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
 //
 
 @implementation GTLRArtifactRegistry_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportAptArtifactsErrorInfo
+//
+
+@implementation GTLRArtifactRegistry_ImportAptArtifactsErrorInfo
+@dynamic error, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportAptArtifactsGcsSource
+//
+
+@implementation GTLRArtifactRegistry_ImportAptArtifactsGcsSource
+@dynamic uris, useWildcards;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportAptArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_ImportAptArtifactsResponse
+@dynamic aptArtifacts, errors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aptArtifacts" : [GTLRArtifactRegistry_AptArtifact class],
+    @"errors" : [GTLRArtifactRegistry_ImportAptArtifactsErrorInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportYumArtifactsErrorInfo
+//
+
+@implementation GTLRArtifactRegistry_ImportYumArtifactsErrorInfo
+@dynamic error, gcsSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportYumArtifactsGcsSource
+//
+
+@implementation GTLRArtifactRegistry_ImportYumArtifactsGcsSource
+@dynamic uris, useWildcards;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImportYumArtifactsResponse
+//
+
+@implementation GTLRArtifactRegistry_ImportYumArtifactsResponse
+@dynamic errors, yumArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRArtifactRegistry_ImportYumArtifactsErrorInfo class],
+    @"yumArtifacts" : [GTLRArtifactRegistry_YumArtifact class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -221,4 +335,70 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadAptArtifactMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadAptArtifactMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadAptArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadAptArtifactResponse
+@dynamic aptArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aptArtifacts" : [GTLRArtifactRegistry_AptArtifact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadYumArtifactMediaResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadYumArtifactMediaResponse
+@dynamic operation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_UploadYumArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_UploadYumArtifactResponse
+@dynamic yumArtifacts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"yumArtifacts" : [GTLRArtifactRegistry_YumArtifact class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_YumArtifact
+//
+
+@implementation GTLRArtifactRegistry_YumArtifact
+@dynamic architecture, name, packageName, packageType;
 @end

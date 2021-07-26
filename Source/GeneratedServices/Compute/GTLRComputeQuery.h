@@ -5643,7 +5643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
 
 /**
  *  Sets the labels on the specified resource. To learn more about labels, read
- *  the Labeling Resources documentation.
+ *  the Labeling resources documentation.
  *
  *  Method: compute.globalForwardingRules.setLabels
  *
@@ -5663,7 +5663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Sets the labels on the specified resource. To learn more about labels, read
- *  the Labeling Resources documentation.
+ *  the Labeling resources documentation.
  *
  *  @param object The @c GTLRCompute_GlobalSetLabelsRequest to include in the
  *    query.
@@ -11835,6 +11835,48 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRestar
  *  @param instance Name of the instance scoping this request.
  *
  *  @return GTLRComputeQuery_InstancesReset
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Sends diagnostic interrupt to the instance.
+ *
+ *  Method: compute.instances.sendDiagnosticInterrupt
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesSendDiagnosticInterrupt : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Sends diagnostic interrupt to the instance.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesSendDiagnosticInterrupt
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty

@@ -1416,9 +1416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
 @property(nonatomic, copy, nullable) NSString *importToken;
 
 /**
- *  Timestamp of when ACM last successfully synced the repo The time format is
- *  specified in https://golang.org/pkg/time/#Time.String This field is being
- *  deprecated. Use last_sync_time instead. (b/154053616)
+ *  Deprecated: use last_sync_time instead. Timestamp of when ACM last
+ *  successfully synced the repo The time format is specified in
+ *  https://golang.org/pkg/time/#Time.String
  */
 @property(nonatomic, copy, nullable) NSString *lastSync;
 
@@ -1527,7 +1527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Optional. Membership-specific configuration for this Feature. If this
  *  Feature does not support any per-Membership configuration, this field may be
  *  unused. The keys indicate which Membership the configuration is for, in the
- *  form: projects/{p}/locations/{l}/memberships/{m} Where {p} is the project,
+ *  form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project,
  *  {l} is a valid location and {m} is a valid Membership in this project at
  *  that location. {p} WILL match the Feature's project. {p} will always be
  *  returned as the project number, but the project ID is also accepted during
@@ -1542,9 +1542,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Output only. Membership-specific Feature status. If this Feature does report
  *  any per-Membership status, this field may be unused. The keys indicate which
  *  Membership the state is for, in the form:
- *  projects/{p}/locations/{l}/memberships/{m} Where {p} is the project number,
- *  {l} is a valid location and {m} is a valid Membership in this project at
- *  that location. {p} MUST match the Feature's project number.
+ *  `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project
+ *  number, {l} is a valid location and {m} is a valid Membership in this
+ *  project at that location. {p} MUST match the Feature's project number.
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_Feature_MembershipStates *membershipStates;
 
@@ -1588,7 +1588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Optional. Membership-specific configuration for this Feature. If this
  *  Feature does not support any per-Membership configuration, this field may be
  *  unused. The keys indicate which Membership the configuration is for, in the
- *  form: projects/{p}/locations/{l}/memberships/{m} Where {p} is the project,
+ *  form: `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project,
  *  {l} is a valid location and {m} is a valid Membership in this project at
  *  that location. {p} WILL match the Feature's project. {p} will always be
  *  returned as the project number, but the project ID is also accepted during
@@ -1610,9 +1610,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  Output only. Membership-specific Feature status. If this Feature does report
  *  any per-Membership status, this field may be unused. The keys indicate which
  *  Membership the state is for, in the form:
- *  projects/{p}/locations/{l}/memberships/{m} Where {p} is the project number,
- *  {l} is a valid location and {m} is a valid Membership in this project at
- *  that location. {p} MUST match the Feature's project number.
+ *  `projects/{p}/locations/{l}/memberships/{m}` Where {p} is the project
+ *  number, {l} is a valid location and {m} is a valid Membership in this
+ *  project at that location. {p} MUST match the Feature's project number.
  *
  *  @note This class is documented as having more properties of
  *        GTLRGKEHub_MembershipFeatureState. Use @c -additionalJSONKeys and @c
@@ -1718,6 +1718,14 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_MembershipState_Code_Updating;
  *  GkeCluster contains information specific to GKE clusters.
  */
 @interface GTLRGKEHub_GkeCluster : GTLRObject
+
+/**
+ *  Output only. If cluster_missing is set then it denotes that the GKE cluster
+ *  no longer exists in the GKE Control Plane.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clusterMissing;
 
 /**
  *  Immutable. Self-link of the GCP resource for the GKE cluster. For example:

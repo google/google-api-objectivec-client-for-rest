@@ -88,6 +88,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatU
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful;
 
 // ----------------------------------------------------------------------------
+// GTLRAlertCenter_AppsOutage.status
+
+/**
+ *  The incident has just been reported.
+ *
+ *  Value: "NEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_New;
+/**
+ *  The incidnet is ongoing.
+ *
+ *  Value: "ONGOING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_Ongoing;
+/**
+ *  The incident has been resolved.
+ *
+ *  Value: "RESOLVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_Resolved;
+/**
+ *  Status is unspecified.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAlertCenter_CloudPubsubTopic.payloadFormat
 
 /**
@@ -545,6 +573,45 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 
 /**
+ *  An outage incident reported by Google for a Google Workspace (formerly G
+ *  Suite) application.
+ */
+@interface GTLRAlertCenter_AppsOutage : GTLRObject
+
+/** Link to the outage event in Google Workspace Status Dashboard */
+@property(nonatomic, copy, nullable) NSString *dashboardUri;
+
+/** Timestamp by which the next update shall be provided. */
+@property(nonatomic, strong, nullable) GTLRDateTime *nextUpdateTime;
+
+/** List of products impacted by the outage. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *products;
+
+/**
+ *  Timestamp of the outage expected or confirmed resolution. (Used only when
+ *  known).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *resolutionTime;
+
+/**
+ *  Current outage status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_New The incident has just been
+ *        reported. (Value: "NEW")
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Ongoing The incidnet is
+ *        ongoing. (Value: "ONGOING")
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_Resolved The incident has been
+ *        resolved. (Value: "RESOLVED")
+ *    @arg @c kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified Status is
+ *        unspecified. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
  *  Attachment with application-specific information about an alert.
  */
 @interface GTLRAlertCenter_Attachment : GTLRObject
@@ -831,7 +898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 /** The `SHA256` hash of email's attachment and all MIME parts. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *attachmentsSha256Hash;
 
-/** The date the malicious email was sent. */
+/** The date of the event related to this email. */
 @property(nonatomic, strong, nullable) GTLRDateTime *date;
 
 /** The hash of the message body text. */
@@ -1039,27 +1106,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
 
 /** A Google Cloud Pub/sub topic destination. */
 @property(nonatomic, strong, nullable) GTLRAlertCenter_CloudPubsubTopic *cloudPubsubTopic;
-
-@end
-
-
-/**
- *  An alert that gets triggered when a user enables autoforwarding to an email
- *  which is outside of its domain
- */
-@interface GTLRAlertCenter_OutOfDomainForwarding : GTLRObject
-
-/** Email of the actor who triggered the alert. */
-@property(nonatomic, copy, nullable) NSString *actorEmail;
-
-/** The time the email forwarding was enabled */
-@property(nonatomic, strong, nullable) GTLRDateTime *enableTime;
-
-/** Email to which emails are being forwarded */
-@property(nonatomic, copy, nullable) NSString *forwardeeEmail;
-
-/** IP address of the user while enabling forwarding */
-@property(nonatomic, copy, nullable) NSString *ipAddress;
 
 @end
 

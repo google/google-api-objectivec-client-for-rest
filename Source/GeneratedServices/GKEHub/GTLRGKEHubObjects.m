@@ -597,7 +597,7 @@ NSString * const kGTLRGKEHub_MembershipState_Code_Updating     = @"UPDATING";
 //
 
 @implementation GTLRGKEHub_GkeCluster
-@dynamic resourceLink;
+@dynamic clusterMissing, resourceLink;
 @end
 
 

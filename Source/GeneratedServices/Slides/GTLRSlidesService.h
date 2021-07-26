@@ -51,26 +51,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesDriveFile;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesDriveReadonly;
 /**
- *  Authorization scope: View and manage your Google Slides presentations
+ *  Authorization scope: See, edit, create, and delete all your Google Slides
+ *  presentations
  *
  *  Value "https://www.googleapis.com/auth/presentations"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesPresentations;
 /**
- *  Authorization scope: View your Google Slides presentations
+ *  Authorization scope: See all your Google Slides presentations
  *
  *  Value "https://www.googleapis.com/auth/presentations.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesPresentationsReadonly;
 /**
- *  Authorization scope: See, edit, create, and delete your spreadsheets in
- *  Google Drive
+ *  Authorization scope: See, edit, create, and delete all your Google Sheets
+ *  spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSlidesSpreadsheets;
 /**
- *  Authorization scope: View your Google Spreadsheets
+ *  Authorization scope: See all your Google Sheets spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */

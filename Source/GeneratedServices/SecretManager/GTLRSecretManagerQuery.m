@@ -178,7 +178,7 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -397,7 +397,7 @@
 
 @implementation GTLRSecretManagerQuery_ProjectsSecretsVersionsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

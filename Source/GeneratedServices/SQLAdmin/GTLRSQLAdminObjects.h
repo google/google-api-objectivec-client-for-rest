@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -230,6 +230,146 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand;
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ConnectSettings.backendType
+
+/**
+ *  On premises instance.
+ *
+ *  Value: "EXTERNAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External;
+/**
+ *  V1 speckle instance.
+ *
+ *  Value: "FIRST_GEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen;
+/**
+ *  V2 speckle instance.
+ *
+ *  Value: "SECOND_GEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SecondGen;
+/**
+ *  This is an unknown backend type for instance.
+ *
+ *  Value: "SQL_BACKEND_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SqlBackendTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_ConnectSettings.databaseVersion
+
+/**
+ *  The database version is MySQL 5.1.
+ *
+ *  Value: "MYSQL_5_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51;
+/**
+ *  The database version is MySQL 5.5.
+ *
+ *  Value: "MYSQL_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55;
+/**
+ *  The database version is MySQL 5.6.
+ *
+ *  Value: "MYSQL_5_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56;
+/**
+ *  The database version is MySQL 5.7.
+ *
+ *  Value: "MYSQL_5_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57;
+/**
+ *  The database version is PostgreSQL 10.
+ *
+ *  Value: "POSTGRES_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10;
+/**
+ *  The database version is PostgreSQL 11.
+ *
+ *  Value: "POSTGRES_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11;
+/**
+ *  The database version is PostgreSQL 12.
+ *
+ *  Value: "POSTGRES_12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12;
+/**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 9.6.
+ *
+ *  Value: "POSTGRES_9_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96;
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "SQL_DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified;
+/**
+ *  The database version is SQL Server 2017 Enterprise.
+ *
+ *  Value: "SQLSERVER_2017_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise;
+/**
+ *  The database version is SQL Server 2017 Express.
+ *
+ *  Value: "SQLSERVER_2017_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Express;
+/**
+ *  The database version is SQL Server 2017 Standard.
+ *
+ *  Value: "SQLSERVER_2017_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Standard;
+/**
+ *  The database version is SQL Server 2017 Web.
+ *
+ *  Value: "SQLSERVER_2017_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.backendType
 
 /**
@@ -284,12 +424,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "MYSQL_5_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57;
-/**
- *  The database version is MySQL 8.
- *
- *  Value: "MYSQL_8_0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -539,12 +673,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56;
  *  Value: "MYSQL_5_7"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57;
-/**
- *  The database version is MySQL 8.
- *
- *  Value: "MYSQL_8_0"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80;
 /**
  *  The database version is PostgreSQL 10.
  *
@@ -1328,12 +1456,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_AclEntry : GTLRObject
 
 /**
- *  The time when this access control entry expires in RFC 3339 format, for
- *  example *2012-11-15T16:19:00.094Z*.
+ *  The time when this access control entry expires in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
-/** This is always *sql#aclEntry*. */
+/** This is always **sql#aclEntry**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Optional. A label to identify this entry. */
@@ -1395,14 +1524,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
-/** This is always *sql#backupConfiguration*. */
+/** This is always **sql#backupConfiguration**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Location of the backup */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Reserved for future use.
+ *  (Postgres only) Whether point in time recovery is enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1417,7 +1546,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Start time for the daily backup configuration in UTC timezone in the 24 hour
- *  format - *HH:MM*.
+ *  format - **HH:MM**.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
 
@@ -1444,7 +1573,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *backupId;
 
-/** This is always *sql#backupContext*. */
+/** This is always **sql#backupContext**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
@@ -1506,16 +1635,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/**
- *  Encryption configuration specific to a backup. Applies only to Second
- *  Generation instances.
- */
+/** Encryption configuration specific to a backup. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionConfiguration *diskEncryptionConfiguration;
 
-/**
- *  Encryption status specific to a backup. Applies only to Second Generation
- *  instances.
- */
+/** Encryption status specific to a backup. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionStatus *diskEncryptionStatus;
 
 /**
@@ -1694,8 +1817,102 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *pitrTimestampMs;
 
-/** Reserved for future use. */
+/**
+ *  Timestamp, if specified, identifies the time to which the source instance is
+ *  cloned.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
+
+@end
+
+
+/**
+ *  Connect settings retrieval response.
+ */
+@interface GTLRSQLAdmin_ConnectSettings : GTLRObject
+
+/**
+ *  **SECOND_GEN**: Cloud SQL database instance. **EXTERNAL**: A database server
+ *  that is not managed by Google. This property is read-only; use the **tier**
+ *  property in the **settings** object to determine the database type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_BackendType_External On premises
+ *        instance. (Value: "EXTERNAL")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen V1 speckle
+ *        instance. (Value: "FIRST_GEN")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_BackendType_SecondGen V2 speckle
+ *        instance. (Value: "SECOND_GEN")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_BackendType_SqlBackendTypeUnspecified
+ *        This is an unknown backend type for instance. (Value:
+ *        "SQL_BACKEND_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *backendType;
+
+/**
+ *  The database engine type and version. The **databaseVersion** field cannot
+ *  be changed after instance creation. MySQL instances: **MYSQL_8_0**,
+ *  **MYSQL_5_7** (default), or **MYSQL_5_6**. PostgreSQL instances:
+ *  **POSTGRES_9_6**, **POSTGRES_10**, **POSTGRES_11** or **POSTGRES_12**
+ *  (default). SQL Server instances: **SQLSERVER_2017_STANDARD** (default),
+ *  **SQLSERVER_2017_ENTERPRISE**, **SQLSERVER_2017_EXPRESS**, or
+ *  **SQLSERVER_2017_WEB**.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51 The database
+ *        version is MySQL 5.1. (Value: "MYSQL_5_1")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 The database
+ *        version is MySQL 5.5. (Value: "MYSQL_5_5")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56 The database
+ *        version is MySQL 5.6. (Value: "MYSQL_5_6")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 The database
+ *        version is MySQL 5.7. (Value: "MYSQL_5_7")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
+ *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
+ *        database version is PostgreSQL 11. (Value: "POSTGRES_11")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 The
+ *        database version is PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 The
+ *        database version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
+ *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "SQL_DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise
+ *        The database version is SQL Server 2017 Enterprise. (Value:
+ *        "SQLSERVER_2017_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Express
+ *        The database version is SQL Server 2017 Express. (Value:
+ *        "SQLSERVER_2017_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Standard
+ *        The database version is SQL Server 2017 Standard. (Value:
+ *        "SQLSERVER_2017_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Web The
+ *        database version is SQL Server 2017 Web. (Value: "SQLSERVER_2017_WEB")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Enterprise
+ *        The database version is SQL Server 2019 Enterprise. (Value:
+ *        "SQLSERVER_2019_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Express
+ *        The database version is SQL Server 2019 Express. (Value:
+ *        "SQLSERVER_2019_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Standard
+ *        The database version is SQL Server 2019 Standard. (Value:
+ *        "SQLSERVER_2019_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web The
+ *        database version is SQL Server 2019 Web. (Value: "SQLSERVER_2019_WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/** The assigned IP addresses for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_IpMapping *> *ipAddresses;
+
+/** This is always `sql#connectSettings`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** SSL configuration. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *serverCaCert;
 
 @end
 
@@ -1722,7 +1939,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always *sql#database*. */
+/** This is always **sql#database**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -1752,14 +1969,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The name of the flag. These flags are passed at instance startup, so include
- *  both server options and system variables for MySQL. Flags are specified with
- *  underscores, not hyphens. For more information, see Configuring Database
- *  Flags in the Cloud SQL documentation.
+ *  both server options and system variables. Flags are specified with
+ *  underscores, not hyphens. For more information, see [Configuring Database
+ *  Flags](https://cloud.google.com/sql/docs/mysql/flags) in the Cloud SQL
+ *  documentation.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The value of the flag. Booleans are set to *on* for true and *off* for
+ *  The value of the flag. Booleans are set to **on** for true and **off** for
  *  false. This field must be omitted if the flag doesn't take a value.
  */
 @property(nonatomic, copy, nullable) NSString *value;
@@ -1807,9 +2025,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  The database engine type and version. The *databaseVersion* field cannot be
  *  changed after instance creation. MySQL instances: *MYSQL_8_0*, *MYSQL_5_7*
  *  (default), or *MYSQL_5_6*. PostgreSQL instances: *POSTGRES_9_6*,
- *  *POSTGRES_10*, *POSTGRES_11*, *POSTGRES_12*, or *POSTGRES_13* (default). SQL
- *  Server instances: *SQLSERVER_2017_STANDARD* (default),
- *  *SQLSERVER_2017_ENTERPRISE*, *SQLSERVER_2017_EXPRESS*, or
+ *  *POSTGRES_10*, *POSTGRES_11*, *POSTGRES_12*, *POSTGRES_13* (default). SQL
+ *  Server instances: *SQLSERVER_2019_STANDARD*, *SQLSERVER_2019_ENTERPRISE*,
+ *  *SQLSERVER_2019_EXPRESS*, or *SQLSERVER_2019_WEB*, *SQLSERVER_2017_STANDARD*
+ *  (default), *SQLSERVER_2017_ENTERPRISE*, *SQLSERVER_2017_EXPRESS*, or
  *  *SQLSERVER_2017_WEB*.
  *
  *  Likely values:
@@ -1821,8 +2040,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is MySQL 5.6. (Value: "MYSQL_5_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 The
  *        database version is MySQL 5.7. (Value: "MYSQL_5_7")
- *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 The
- *        database version is MySQL 8. (Value: "MYSQL_8_0")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -1863,16 +2080,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
-/**
- *  Disk encryption configuration specific to an instance. Applies only to
- *  Second Generation instances.
- */
+/** Disk encryption configuration specific to an instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionConfiguration *diskEncryptionConfiguration;
 
-/**
- *  Disk encryption status specific to an instance. Applies only to Second
- *  Generation instances.
- */
+/** Disk encryption status specific to an instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DiskEncryptionStatus *diskEncryptionStatus;
 
 /**
@@ -1881,10 +2092,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/**
- *  The name and status of the failover replica. This property is applicable
- *  only to Second Generation instances.
- */
+/** The name and status of the failover replica. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance_FailoverReplica *failoverReplica;
 
 /**
@@ -1948,7 +2156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  This field represents the report generated by the proactive database
  *  wellness job for OutOfDisk issues. Writers: -- the proactive database
- *  wellness job for OOD. Readers: -- the proactive database wellness job
+ *  wellness job for OOD. Readers: -- the Pantheon frontend -- the proactive
+ *  database wellness job
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlOutOfDiskReport *outOfDiskReport;
 
@@ -2045,8 +2254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  The name and status of the failover replica. This property is applicable
- *  only to Second Generation instances.
+ *  The name and status of the failover replica.
  */
 @interface GTLRSQLAdmin_DatabaseInstance_FailoverReplica : GTLRObject
 
@@ -2062,7 +2270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The name of the failover replica. If specified at instance creation, a
  *  failover replica is created for the instance. The name doesn't include the
- *  project ID. This property is applicable only to Second Generation instances.
+ *  project ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2097,7 +2305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_DemoteMasterConfiguration : GTLRObject
 
-/** This is always *sql#demoteMasterConfiguration*. */
+/** This is always **sql#demoteMasterConfiguration**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2105,8 +2313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  primary instance. Replication configuration information such as the
  *  username, password, certificates, and keys are not stored in the instance
  *  metadata. The configuration information is used only to set up the
- *  replication connection and is stored by MySQL in a file named *master.info*
- *  in the data directory.
+ *  replication connection and is stored by MySQL in a file named
+ *  **master.info** in the data directory.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterMySqlReplicaConfiguration *mysqlReplicaConfiguration;
 
@@ -2134,13 +2342,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DemoteMasterConfiguration *replicaConfiguration;
 
 /**
- *  Verify GTID consistency for demote operation. Default value: *True*. Second
- *  Generation instances only. Setting this flag to false enables you to bypass
- *  GTID consistency check between on-premises primary instance and Cloud SQL
- *  instance during the demotion operation but also exposes you to the risk of
- *  future replication failures. Change the value only if you know the reason
- *  for the GTID divergence and are confident that doing so will not cause any
- *  replication issues.
+ *  Verify GTID consistency for demote operation. Default value: *True*. Setting
+ *  this flag to false enables you to bypass GTID consistency check between
+ *  on-premises primary instance and Cloud SQL instance during the demotion
+ *  operation but also exposes you to the risk of future replication failures.
+ *  Change the value value only if you know the reason for the GTID divergence
+ *  and are confident that doing so will not cause any replication issues.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2167,7 +2374,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *clientKey;
 
-/** This is always *sql#demoteMasterMysqlReplicaConfiguration*. */
+/** This is always **sql#demoteMasterMysqlReplicaConfiguration**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The password for the replication connection. */
@@ -2180,15 +2387,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Deny Maintenance Periods. This specifies a date range during when all CSA
+ *  Deny maintenance Periods. This specifies a date range during when all CSA
  *  rollout will be denied.
  */
 @interface GTLRSQLAdmin_DenyMaintenancePeriod : GTLRObject
 
 /**
  *  "deny maintenance period" end date. If the year of the end date is empty,
- *  the year of the start date also must be empty. In this case, it means the
- *  deny maintenance period recurs every year. The date is in format yyyy-mm-dd
+ *  the year of the start date also must be empty. In this case, it means the no
+ *  maintenance interval recurs every year. The date is in format yyyy-mm-dd
  *  i.e., 2020-11-01, or mm-dd, i.e., 11-01
  */
 @property(nonatomic, copy, nullable) NSString *endDate;
@@ -2196,7 +2403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  "deny maintenance period" start date. If the year of the start date is
  *  empty, the year of the end date also must be empty. In this case, it means
- *  the deny maintenance period recurs every year. The date is in format
+ *  the no maintenance interval recurs every year. The date is in format
  *  yyyy-mm-dd i.e., 2020-11-01, or mm-dd, i.e., 11-01
  */
 @property(nonatomic, copy, nullable) NSString *startDate;
@@ -2215,7 +2422,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_DiskEncryptionConfiguration : GTLRObject
 
-/** This is always *sql#diskEncryptionConfiguration*. */
+/** This is always **sql#diskEncryptionConfiguration**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Resource name of KMS key for disk encryption */
@@ -2229,7 +2436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_DiskEncryptionStatus : GTLRObject
 
-/** This is always *sql#diskEncryptionStatus*. */
+/** This is always **sql#diskEncryptionStatus**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** KMS key version used to encrypt the Cloud SQL instance resource */
@@ -2244,26 +2451,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_ExportContext : GTLRObject
 
 /**
- *  Options for exporting data as CSV. *MySQL* and *PostgreSQL* instances only.
+ *  Options for exporting data as CSV. **MySQL** and **PostgreSQL** instances
+ *  only.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ExportContext_CsvExportOptions *csvExportOptions;
 
 /**
- *  Databases to be exported. *MySQL instances:* If *fileType* is *SQL* and no
- *  database is specified, all databases are exported, except for the *mysql*
- *  system database. If *fileType* is *CSV*, you can specify one database,
- *  either by using this property or by using the *csvExportOptions.selectQuery*
- *  property, which takes precedence over this property. *PostgreSQL instances:*
- *  You must specify one database to be exported. If *fileType* is *CSV*, this
- *  database must match the one specified in the *csvExportOptions.selectQuery*
- *  property. *SQL Server instances:* You must specify one database to be
- *  exported, and the *fileType* must be *BAK*.
+ *  Databases to be exported. **MySQL instances:** If **fileType** is **SQL**
+ *  and no database is specified, all databases are exported, except for the
+ *  **mysql** system database. If **fileType** is **CSV**, you can specify one
+ *  database, either by using this property or by using the
+ *  **csvExportOptions.selectQuery** property, which takes precedence over this
+ *  property. **PostgreSQL instances:** You must specify one database to be
+ *  exported. If **fileType** is **CSV**, this database must match the one
+ *  specified in the **csvExportOptions.selectQuery** property. **SQL Server
+ *  instances:** You must specify one database to be exported, and the
+ *  **fileType** must be **BAK**.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databases;
 
 /**
- *  The file type for the specified uri. *SQL*: The file contains SQL
- *  statements. *CSV*: The file contains CSV data. *BAK*: The file contains
+ *  The file type for the specified uri. **SQL**: The file contains SQL
+ *  statements. **CSV**: The file contains CSV data. **BAK**: The file contains
  *  backup data for a SQL Server instance.
  *
  *  Likely values:
@@ -2277,7 +2486,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *fileType;
 
-/** This is always *sql#exportContext*. */
+/** This is always **sql#exportContext**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2292,9 +2501,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The path to the file in Google Cloud Storage where the export will be
- *  stored. The URI is in the form *gs://bucketName/fileName*. If the file
- *  already exists, the request succeeds, but the operation fails. If *fileType*
- *  is *SQL* and the filename ends with .gz, the contents are compressed.
+ *  stored. The URI is in the form **gs://bucketName/fileName**. If the file
+ *  already exists, the request succeeds, but the operation fails. If
+ *  **fileType** is **SQL** and the filename ends with .gz, the contents are
+ *  compressed.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2302,7 +2512,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Options for exporting data as CSV. *MySQL* and *PostgreSQL* instances only.
+ *  Options for exporting data as CSV. **MySQL** and **PostgreSQL** instances
+ *  only.
  */
 @interface GTLRSQLAdmin_ExportContext_CsvExportOptions : GTLRObject
 
@@ -2344,10 +2555,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Option to include SQL statement required to set up replication. If set to
- *  *1*, the dump file includes a CHANGE MASTER TO statement with the binary log
- *  coordinates, and --set-gtid-purged is set to ON. If set to *2*, the CHANGE
- *  MASTER TO statement is written as a SQL comment and has no effect. If set to
- *  any value other than *1*, --set-gtid-purged is set to OFF.
+ *  **1**, the dump file includes a CHANGE MASTER TO statement with the binary
+ *  log coordinates, and --set-gtid-purged is set to ON. If set to **2**, the
+ *  CHANGE MASTER TO statement is written as a SQL comment and has no effect. If
+ *  set to any value other than **1**, --set-gtid-purged is set to OFF.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2388,12 +2599,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *allowedIntValues;
 
-/** For *STRING* flags, a list of strings that the value can be set to. */
+/** For **STRING** flags, a list of strings that the value can be set to. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedStringValues;
 
 /**
- *  The database version this flag applies to. Can be *MYSQL_8_0*, *MYSQL_5_6*,
- *  or *MYSQL_5_7*.
+ *  The database version this flag applies to. Can be **MYSQL_8_0**,
+ *  **MYSQL_5_6**, or **MYSQL_5_7**.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *appliesTo;
 
@@ -2404,18 +2615,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *inBeta;
 
-/** This is always *sql#flag*. */
+/** This is always **sql#flag**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  For *INTEGER* flags, the maximum allowed value.
+ *  For **INTEGER** flags, the maximum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxValue;
 
 /**
- *  For *INTEGER* flags, the minimum allowed value.
+ *  For **INTEGER** flags, the minimum allowed value.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2423,7 +2634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  This is the name of the flag. Flag names always use underscores, not
- *  hyphens, for example: *max_allowed_packet*
+ *  hyphens, for example: **max_allowed_packet**
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2436,9 +2647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *requiresRestart;
 
 /**
- *  The type of the flag. Flags are typed to being *BOOLEAN*, *STRING*,
- *  *INTEGER* or *NONE*. *NONE* is used for flags which do not take a value,
- *  such as *skip_grant_tables*.
+ *  The type of the flag. Flags are typed to being **BOOLEAN**, **STRING**,
+ *  **INTEGER** or **NONE**. **NONE** is used for flags which do not take a
+ *  value, such as **skip_grant_tables**.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Flag_Type_Boolean Boolean type flag. (Value:
@@ -2478,8 +2689,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Flag *> *items;
 
-/** This is always *sql#flagsList*. */
+/** This is always **sql#flagsList**. */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
+ *  Ephemeral certificate creation request.
+ */
+@interface GTLRSQLAdmin_GenerateEphemeralCertRequest : GTLRObject
+
+/** Optional. Access token to include in the signed certificate. */
+@property(nonatomic, copy, nullable) NSString *accessToken;
+
+/** PEM encoded public key to include in the signed certificate. */
+@property(nonatomic, copy, nullable) NSString *publicKey;
+
+/**
+ *  Optional. Optional snapshot read timestamp to trade freshness for
+ *  performance.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+@end
+
+
+/**
+ *  Ephemeral certificate creation request.
+ */
+@interface GTLRSQLAdmin_GenerateEphemeralCertResponse : GTLRObject
+
+/** Generated cert */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SslCert *ephemeralCert;
 
 @end
 
@@ -2496,16 +2738,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext_CsvImportOptions *csvImportOptions;
 
 /**
- *  The target database for the import. If *fileType* is *SQL*, this field is
- *  required only if the import file does not specify a database, and is
- *  overridden by any database specification in the import file. If *fileType*
- *  is *CSV*, one database must be specified.
+ *  The target database for the import. If **fileType** is **SQL**, this field
+ *  is required only if the import file does not specify a database, and is
+ *  overridden by any database specification in the import file. If **fileType**
+ *  is **CSV**, one database must be specified.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
- *  The file type for the specified uri. *SQL*: The file contains SQL
- *  statements. *CSV*: The file contains CSV data.
+ *  The file type for the specified uri. **SQL**: The file contains SQL
+ *  statements. **CSV**: The file contains CSV data.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ImportContext_FileType_Bak Value "BAK"
@@ -2523,14 +2765,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *importUser;
 
-/** This is always *sql#importContext*. */
+/** This is always **sql#importContext**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  Path to the import file in Cloud Storage, in the form
- *  *gs://bucketName/fileName*. Compressed gzip files (.gz) are supported when
- *  *fileType* is *SQL*. The instance must have write permissions to the bucket
- *  and read access to the file.
+ *  **gs://bucketName/fileName**. Compressed gzip files (.gz) are supported when
+ *  **fileType** is **SQL**. The instance must have write permissions to the
+ *  bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -2571,8 +2813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Path to the Certificate (.cer) in Cloud Storage, in the form
- *  *gs://bucketName/fileName*. The instance must have write permissions to the
- *  bucket and read access to the file.
+ *  **gs://bucketName/fileName**. The instance must have write permissions to
+ *  the bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *certPath;
 
@@ -2581,8 +2823,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Path to the Certificate Private Key (.pvk) in Cloud Storage, in the form
- *  *gs://bucketName/fileName*. The instance must have write permissions to the
- *  bucket and read access to the file.
+ *  **gs://bucketName/fileName**. The instance must have write permissions to
+ *  the bucket and read access to the file.
  */
 @property(nonatomic, copy, nullable) NSString *pvkPath;
 
@@ -2603,8 +2845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *queryInsightsEnabled;
 
 /**
- *  Number of query plans generated by Insights per minute. Default is 5.
- *  Changing this will restart the database.
+ *  Number of query execution plans captured by Insights per minute for all
+ *  queries combined. Default is 5.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2753,7 +2995,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Rotate Server CA request.
+ *  Rotate server CA request.
  */
 @interface GTLRSQLAdmin_InstancesRotateServerCaRequest : GTLRObject
 
@@ -2782,7 +3024,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The list of external networks that are allowed to connect to the instance
  *  using the IP. In 'CIDR' notation, also known as 'slash' notation (for
- *  example: *192.168.100.0/24*).
+ *  example: **192.168.100.0/24**).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_AclEntry *> *authorizedNetworks;
 
@@ -2795,8 +3037,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The resource link for the VPC network from which the Cloud SQL instance is
- *  accessible for private IP. For example, *
- *  /projects/myProject/global/networks/default*. This setting can be updated,
+ *  accessible for private IP. For example, **
+ *  /projects/myProject/global/networks/default**. This setting can be updated,
  *  but it cannot be removed after it is set.
  */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;
@@ -2820,16 +3062,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *ipAddress;
 
 /**
- *  The due time for this IP to be retired in RFC 3339 format, for example
- *  *2012-11-15T16:19:00.094Z*. This field is only available when the IP is
+ *  The due time for this IP to be retired in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**. This field is only available when the IP is
  *  scheduled to be retired.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timeToRetire;
 
 /**
- *  The type of this IP address. A *PRIMARY* address is a public address that
- *  can accept incoming connections. A *PRIVATE* address is a private address
- *  that can accept incoming connections. An *OUTGOING* address is the source
+ *  The type of this IP address. A **PRIMARY** address is a public address that
+ *  can accept incoming connections. A **PRIVATE** address is a private address
+ *  that can accept incoming connections. An **OUTGOING** address is the source
  *  address of connections originating from the instance, if supported.
  *
  *  Likely values:
@@ -2856,11 +3099,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Preferred location. This specifies where a Cloud SQL instance is located,
- *  either in a specific Compute Engine zone, or co-located with an App Engine
- *  application. Note that if the preferred location is not available, the
- *  instance will be located as close as possible within the region. Only one
- *  location may be specified.
+ *  Preferred location. This specifies where a Cloud SQL instance is located.
+ *  Note that if the preferred location is not available, the instance will be
+ *  located as close as possible within the region. Only one location may be
+ *  specified.
  */
 @interface GTLRSQLAdmin_LocationPreference : GTLRObject
 
@@ -2870,7 +3112,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *followGaeApplication;
 
-/** This is always *sql#locationPreference*. */
+/** This is always **sql#locationPreference**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -2910,12 +3152,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *hour;
 
-/** This is always *sql#maintenanceWindow*. */
+/** This is always **sql#maintenanceWindow**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Maintenance timing setting: *canary* (Earlier) or *stable* (Later). Learn
- *  more.
+ *  Maintenance timing setting: **canary** (Earlier) or **stable** (Later).
+ *  [Learn more]
+ *  (https://cloud.google.com/sql/docs/mysql/instance-settings#maintenance-timing-2ndgen).
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_MaintenanceWindow_UpdateTrack_Canary For instance
@@ -2968,7 +3211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *dumpFilePath;
 
-/** This is always *sql#mysqlReplicaConfiguration*. */
+/** This is always **sql#mysqlReplicaConfiguration**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3044,8 +3287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_BackupContext *backupContext;
 
 /**
- *  The time this operation finished in UTC timezone in RFC 3339 format, for
- *  example *2012-11-15T16:19:00.094Z*.
+ *  The time this operation finished in UTC timezone in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -3062,12 +3306,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_ImportContext *importContext;
 
 /**
- *  The time this operation was enqueued in UTC timezone in RFC 3339 format, for
- *  example *2012-11-15T16:19:00.094Z*.
+ *  The time this operation was enqueued in UTC timezone in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *insertTime;
 
-/** This is always *sql#operation*. */
+/** This is always **sql#operation**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
@@ -3078,9 +3323,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The type of the operation. Valid values are: *CREATE* *DELETE* *UPDATE*
- *  *RESTART* *IMPORT* *EXPORT* *BACKUP_VOLUME* *RESTORE_VOLUME* *CREATE_USER*
- *  *DELETE_USER* *CREATE_DATABASE* *DELETE_DATABASE*
+ *  The type of the operation. Valid values are: **CREATE** **DELETE**
+ *  **UPDATE** **RESTART** **IMPORT** **EXPORT** **BACKUP_VOLUME**
+ *  **RESTORE_VOLUME** **CREATE_USER** **DELETE_USER** **CREATE_DATABASE**
+ *  **DELETE_DATABASE**
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_Backup Value "BACKUP"
@@ -3165,14 +3411,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  The time this operation actually started in UTC timezone in RFC 3339 format,
- *  for example *2012-11-15T16:19:00.094Z*.
+ *  The time this operation actually started in UTC timezone in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  The status of an operation. Valid values are: *PENDING* *RUNNING* *DONE*
- *  *SQL_OPERATION_STATUS_UNSPECIFIED*
+ *  The status of an operation. Valid values are: **PENDING** **RUNNING**
+ *  **DONE** **SQL_OPERATION_STATUS_UNSPECIFIED**
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Operation_Status_Done The operation completed.
@@ -3209,7 +3456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** Identifies the specific error that occurred. */
 @property(nonatomic, copy, nullable) NSString *code;
 
-/** This is always *sql#operationError*. */
+/** This is always **sql#operationError**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** Additional information about the error encountered. */
@@ -3226,14 +3473,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /** The list of errors encountered while processing this operation. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_OperationError *> *errors;
 
-/** This is always *sql#operationErrors*. */
+/** This is always **sql#operationErrors**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
 
 /**
- *  Database instance list operations response.
+ *  Operations list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -3285,7 +3532,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  MySQL specific configuration when replicating from a MySQL on-premises
  *  primary instance. Replication configuration information such as the
  *  username, password, certificates, and keys are not stored in the instance
- *  metadata. The configuration information is used only to set up the
+ *  metadata.The configuration information is used only to set up the
  *  replication connection and is stored by MySQL in a file named *master.info*
  *  in the data directory.
  */
@@ -3374,10 +3621,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The activation policy specifies when the instance is activated; it is
- *  applicable only when the instance state is RUNNABLE. Valid values: *ALWAYS*:
- *  The instance is on, and remains so even in the absence of connection
- *  requests. *NEVER*: The instance is off; it is not activated, even if a
- *  connection request arrives.
+ *  applicable only when the instance state is RUNNABLE. Valid values:
+ *  **ALWAYS**: The instance is on, and remains so even in the absence of
+ *  connection requests. **NEVER**: The instance is off; it is not activated,
+ *  even if a connection request arrives.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_ActivationPolicy_Always The instance is
@@ -3403,11 +3650,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications;
 
 /**
- *  Availability type. Potential values: *ZONAL*: The instance serves data from
- *  only one zone. Outages in that zone affect data accessibility. *REGIONAL*:
- *  The instance can serve data from more than one zone in a region (it is
- *  highly available). For more information, see Overview of the High
- *  Availability Configuration.
+ *  Availability type. Potential values: **ZONAL**: The instance serves data
+ *  from only one zone. Outages in that zone affect data accessibility.
+ *  **REGIONAL**: The instance can serve data from more than one zone in a
+ *  region (it is highly available). For more information, see [Overview of the
+ *  High Availability
+ *  Configuration](https://cloud.google.com/sql/docs/mysql/high-availability).
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_AvailabilityType_Regional Regional
@@ -3454,8 +3702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *dataDiskSizeGb;
 
 /**
- *  The type of data disk: PD_SSD (default) or PD_HDD. Not used for First
- *  Generation instances.
+ *  The type of data disk: **PD_SSD** (default) or **PD_HDD**.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd This field is
@@ -3484,14 +3731,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_IpConfiguration *ipConfiguration;
 
-/** This is always *sql#settings*. */
+/** This is always **sql#settings**. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The location preference settings. This allows the instance to be located as
- *  near as possible to either an App Engine app or Compute Engine zone for
- *  better performance. App Engine co-location was only applicable to First
- *  Generation instances.
+ *  near as possible to Compute Engine zone for better performance.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_LocationPreference *locationPreference;
 
@@ -3502,8 +3747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_MaintenanceWindow *maintenanceWindow;
 
 /**
- *  The pricing plan for this instance. This can be either *PER_USE* or
- *  *PACKAGE*. Only *PER_USE* is supported for Second Generation instances.
+ *  The pricing plan for this instance. This can be either **PER_USE** or
+ *  **PACKAGE**. Only **PER_USE** is supported for Second Generation instances.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_Settings_PricingPlan_Package The instance is billed
@@ -3518,7 +3763,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The type of replication this instance uses. This can be either
- *  *ASYNCHRONOUS* or *SYNCHRONOUS*. (Deprecated_ This property was only
+ *  **ASYNCHRONOUS** or **SYNCHRONOUS**. (Deprecated) This property was only
  *  applicable to First Generation instances.
  *
  *  Likely values:
@@ -3563,8 +3808,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *storageAutoResizeLimit;
 
 /**
- *  The tier (or machine type) for this instance, for example *db-custom-1-3840*
- *  .
+ *  The tier (or machine type) for this instance, for example
+ *  **db-custom-1-3840**.
  */
 @property(nonatomic, copy, nullable) NSString *tier;
 
@@ -3605,7 +3850,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  External primary instance migration setting error/warning.
+ *  External primary instance migration setting error.
  */
 @interface GTLRSQLAdmin_SqlExternalSyncSettingError : GTLRObject
 
@@ -3729,6 +3974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  The minimum recommended increase size in GigaBytes This field is consumed by
  *  the frontend Writers: -- the proactive database wellness job for OOD.
+ *  Readers: -- the Pantheon frontend
  *
  *  Uses NSNumber of intValue.
  */
@@ -3737,7 +3983,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 /**
  *  This field represents the state generated by the proactive database wellness
  *  job for OutOfDisk issues. Writers: -- the proactive database wellness job
- *  for OOD. Readers: -- the proactive database wellness job
+ *  for OOD. Readers: -- the Pantheon frontend -- the proactive database
+ *  wellness job
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal The
@@ -3771,6 +4018,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *canReschedule;
+
+/** Maintenance cannot be rescheduled to start beyond this deadline. */
+@property(nonatomic, strong, nullable) GTLRDateTime *scheduleDeadlineTime;
 
 /** The start time of any upcoming scheduled maintenance for this instance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
@@ -3829,21 +4079,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *commonName;
 
 /**
- *  The time when the certificate was created in RFC 3339 format, for example
- *  *2012-11-15T16:19:00.094Z*
+ *  The time when the certificate was created in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The time when the certificate expires in RFC 3339 format, for example
- *  *2012-11-15T16:19:00.094Z*.
+ *  The time when the certificate expires in [RFC
+ *  3339](https://tools.ietf.org/html/rfc3339) format, for example
+ *  **2012-11-15T16:19:00.094Z**.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *expirationTime;
 
 /** Name of the database instance. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** This is always *sql#sslCert*. */
+/** This is always sql#sslCert. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /** The URI of this resource. */

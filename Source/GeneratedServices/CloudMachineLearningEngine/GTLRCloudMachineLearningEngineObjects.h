@@ -2878,6 +2878,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1Au
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxWaitTime;
 
+/**
+ *  Optional. Job scheduling will be based on this priority, which in the range
+ *  [0, 1000]. The bigger the number, the higher the priority. Default to 0 if
+ *  not set. If there are multiple jobs requesting same type of accelerators,
+ *  the high priority job will be scheduled prior to ones with low priority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
 @end
 
 

@@ -225,6 +225,7 @@ NSString * const kGTLRSASPortal_InstallationParams_HeightType_HeightTypeUnspecif
 //
 
 @implementation GTLRSASPortal_DeviceMetadata
+@dynamic antennaModel;
 @end
 
 

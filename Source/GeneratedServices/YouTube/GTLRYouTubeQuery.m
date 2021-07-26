@@ -812,39 +812,6 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @end
 
-@implementation GTLRYouTubeQuery_CommentThreadsUpdate
-
-@dynamic part;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"part" : [NSString class]
-  };
-  return map;
-}
-
-+ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
-                           part:(NSArray<NSString *> *)part {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"youtube/v3/commentThreads";
-  GTLRYouTubeQuery_CommentThreadsUpdate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.part = part;
-  query.expectedObjectClass = [GTLRYouTube_CommentThread class];
-  query.loggingName = @"youtube.commentThreads.update";
-  return query;
-}
-
-@end
-
 @implementation GTLRYouTubeQuery_I18nLanguagesList
 
 @dynamic hl, part;
@@ -2304,6 +2271,37 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
                        pathParameterNames:nil];
   query.channelId = channelId;
   query.loggingName = @"youtube.watermarks.unset";
+  return query;
+}
+
+@end
+
+@implementation GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads
+
+@dynamic part;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"youtube/v3/commentThreads";
+  GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRYouTube_CommentThread class];
+  query.loggingName = @"youtube.youtube.v3.updateCommentThreads";
   return query;
 }
 

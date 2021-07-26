@@ -1011,6 +1011,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
 /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
+/**
+ *  If present, this will override eligibility for the node coming from instance
+ *  or exclusions for specified SLIs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
 @end
 
 
@@ -1758,11 +1764,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @interface GTLRCloudFilestore_OperationMetadata : GTLRObject
 
-/** [Output only] API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation of the
+ *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
@@ -1771,21 +1777,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Upda
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** [Output only] The time the operation was created. */
+/** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** [Output only] The time the operation finished running. */
+/** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** [Output only] Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /**
- *  [Output only] Server-defined resource path for the target of the operation.
+ *  Output only. Server-defined resource path for the target of the operation.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** [Output only] Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end

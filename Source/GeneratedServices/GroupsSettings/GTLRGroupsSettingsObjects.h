@@ -99,6 +99,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *customRolesEnabledForSettingsToBeMerged;
 
 /**
+ *  Default sender for members who can post messages as the group. Possible
+ *  values are: - `DEFAULT_SELF`: By default messages will be sent from the user
+ *  - `GROUP`: By default messages will be sent from the group
+ */
+@property(nonatomic, copy, nullable) NSString *defaultSender;
+
+/**
  *  When a message is rejected, this is text for the rejection notification sent
  *  to the message's author. By default, this property is empty and has no value
  *  in the API's response body. The maximum notification text size is 10,000

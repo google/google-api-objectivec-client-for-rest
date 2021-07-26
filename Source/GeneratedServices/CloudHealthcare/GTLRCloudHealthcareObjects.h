@@ -237,7 +237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Consent_State_Rejected;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Consent_State_Revoked;
 /**
- *  No state specified.
+ *  No state specified. Treated as ACTIVE only at the time of resource creation.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
@@ -277,7 +277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ConsentEvaluation_Evalua
 /**
  *  The Consent is not applicable to the requested access determination. For
  *  example, the Consent does not apply to the user for which the access
- *  determination is requested, or it has a `state` of `REVOKED`.
+ *  determination is requested, or it has a `state` of `REVOKED`, or it has
+ *  expired.
  *
  *  Value: "NOT_APPLICABLE"
  */
@@ -999,7 +1000,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *        not considered when evaluating a user's consent on resources. (Value:
  *        "REVOKED")
  *    @arg @c kGTLRCloudHealthcare_Consent_State_StateUnspecified No state
- *        specified. (Value: "STATE_UNSPECIFIED")
+ *        specified. Treated as ACTIVE only at the time of resource creation.
+ *        (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1116,8 +1118,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *    @arg @c kGTLRCloudHealthcare_ConsentEvaluation_EvaluationResult_NotApplicable
  *        The Consent is not applicable to the requested access determination.
  *        For example, the Consent does not apply to the user for which the
- *        access determination is requested, or it has a `state` of `REVOKED`.
- *        (Value: "NOT_APPLICABLE")
+ *        access determination is requested, or it has a `state` of `REVOKED`,
+ *        or it has expired. (Value: "NOT_APPLICABLE")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationResult;
 
@@ -1681,7 +1683,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  The BigQuery output destination. The Cloud Healthcare Service Agent requires
  *  two IAM roles on the BigQuery location: `roles/bigquery.dataEditor` and
  *  `roles/bigquery.jobUser`. The output is one BigQuery table per resource
- *  type.
+ *  type. Unlike when setting `BigQueryDestination` for `StreamConfig`,
+ *  `ExportResources` does not create BigQuery views.
  */
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirBigQueryDestination *bigqueryDestination;
 

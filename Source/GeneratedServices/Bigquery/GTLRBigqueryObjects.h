@@ -31,6 +31,8 @@
 @class GTLRBigquery_ArimaSingleModelForecastingMetrics;
 @class GTLRBigquery_AuditConfig;
 @class GTLRBigquery_AuditLogConfig;
+@class GTLRBigquery_BiEngineReason;
+@class GTLRBigquery_BiEngineStatistics;
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
@@ -59,18 +61,17 @@
 @class GTLRBigquery_DataSplitResult;
 @class GTLRBigquery_DestinationTableProperties;
 @class GTLRBigquery_DestinationTableProperties_Labels;
+@class GTLRBigquery_DmlStatistics;
 @class GTLRBigquery_EncryptionConfiguration;
 @class GTLRBigquery_Entry;
 @class GTLRBigquery_ErrorProto;
 @class GTLRBigquery_EvaluationMetrics;
 @class GTLRBigquery_ExplainQueryStage;
 @class GTLRBigquery_ExplainQueryStep;
-@class GTLRBigquery_Explanation;
 @class GTLRBigquery_Expr;
 @class GTLRBigquery_ExternalDataConfiguration;
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_GetPolicyOptions;
-@class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_IterationResult;
@@ -1748,6 +1749,47 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_BiEngineReason
+ */
+@interface GTLRBigquery_BiEngineReason : GTLRObject
+
+/**
+ *  [Output-only] High-level BI Engine reason for partial or disabled
+ *  acceleration.
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  [Output-only] Free form human-readable reason for partial or disabled
+ *  acceleration.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRBigquery_BiEngineStatistics
+ */
+@interface GTLRBigquery_BiEngineStatistics : GTLRObject
+
+/**
+ *  [Output-only] Specifies which mode of BI Engine acceleration was performed
+ *  (if any).
+ */
+@property(nonatomic, copy, nullable) NSString *biEngineMode;
+
+/**
+ *  In case of DISABLED or PARTIAL bi_engine_mode, these contain the explanatory
+ *  reasons as to why BI Engine could not accelerate. In case the full query was
+ *  accelerated, this field is not populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_BiEngineReason *> *biEngineReasons;
+
+@end
+
+
+/**
  *  GTLRBigquery_BigtableColumn
  */
 @interface GTLRBigquery_BigtableColumn : GTLRObject
@@ -2860,6 +2902,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 
 /**
+ *  GTLRBigquery_DmlStatistics
+ */
+@interface GTLRBigquery_DmlStatistics : GTLRObject
+
+/**
+ *  Number of deleted Rows. populated by DML DELETE, MERGE and TRUNCATE
+ *  statements.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deletedRowCount;
+
+/**
+ *  Number of inserted Rows. Populated by DML INSERT and MERGE statements.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *insertedRowCount;
+
+/**
+ *  Number of updated Rows. Populated by DML UPDATE and MERGE statements.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *updatedRowCount;
+
+@end
+
+
+/**
  *  GTLRBigquery_EncryptionConfiguration
  */
 @interface GTLRBigquery_EncryptionConfiguration : GTLRObject
@@ -3170,28 +3242,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** Human-readable stage descriptions. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *substeps;
-
-@end
-
-
-/**
- *  Explanation for a single feature.
- */
-@interface GTLRBigquery_Explanation : GTLRObject
-
-/**
- *  Attribution of feature.
- *
- *  Uses NSNumber of doubleValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *attribution;
-
-/**
- *  Full name of the feature. For non-numerical features, will be formatted like
- *  .. Overall size of feature name will always be truncated to first 120
- *  characters.
- */
-@property(nonatomic, copy, nullable) NSString *featureName;
 
 @end
 
@@ -3516,28 +3566,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 
 /** The resource type of the response. */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-@end
-
-
-/**
- *  Global explanations containing the top most important features after
- *  training.
- */
-@interface GTLRBigquery_GlobalExplanation : GTLRObject
-
-/**
- *  Class label for this set of global explanations. Will be empty/null for
- *  binary logistic and linear regression models. Sorted alphabetically in
- *  descending order.
- */
-@property(nonatomic, copy, nullable) NSString *classLabel;
-
-/**
- *  A list of the top global explanations. Sorted by absolute value of
- *  attribution in descending order.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Explanation *> *explanations;
 
 @end
 
@@ -4568,7 +4596,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  [Output-only] [Preview] Information of the session if this job is part of
  *  one.
  */
-@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfoTemplate;
+@property(nonatomic, strong, nullable) GTLRBigquery_SessionInfo *sessionInfo;
 
 /**
  *  [Output-only] Start time of this job, in milliseconds since the epoch. This
@@ -4628,6 +4656,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  GTLRBigquery_JobStatistics2
  */
 @interface GTLRBigquery_JobStatistics2 : GTLRObject
+
+/**
+ *  BI Engine specific Statistics. [Output-only] BI Engine specific Statistics.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_BiEngineStatistics *biEngineStatistics;
 
 /**
  *  [Output-only] Billing tier for the job.
@@ -4697,10 +4730,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Output-only] Detailed statistics for DML statements Present only for DML
  *  statements INSERT, UPDATE, DELETE or TRUNCATE.
- *
- *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id dmlStats;
+@property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
 
 /**
  *  [Output-only] The original estimate of bytes processed for the job.
@@ -5802,10 +5833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 /**
  *  [Output-only] Detailed statistics for DML statements Present only for DML
  *  statements INSERT, UPDATE, DELETE or TRUNCATE.
- *
- *  Can be any valid JSON type.
  */
-@property(nonatomic, strong, nullable) id dmlStats;
+@property(nonatomic, strong, nullable) GTLRBigquery_DmlStatistics *dmlStats;
 
 /**
  *  [Output-only] The first errors or warnings encountered during the running of
@@ -7818,13 +7847,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  of training.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_EvaluationMetrics *evaluationMetrics;
-
-/**
- *  Global explanations for important features of the model. For multi-class
- *  models, there is one entry for each label class. For other models, there is
- *  only one entry in the list.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GlobalExplanation *> *globalExplanations;
 
 /** Output of each iteration run, results.size() <= max_iterations. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IterationResult *> *results;

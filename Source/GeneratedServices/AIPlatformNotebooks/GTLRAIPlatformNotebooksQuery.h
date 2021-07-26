@@ -4,10 +4,9 @@
 // API:
 //   Notebooks API (notebooks/v1)
 // Description:
-//   AI Platform Notebooks API is used to manage notebook resources in Google
-//   Cloud.
+//   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:
-//   https://cloud.google.com/ai-platform/notebooks/docs/
+//   https://cloud.google.com/notebooks/docs/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -27,6 +26,7 @@
 @class GTLRAIPlatformNotebooks_Instance;
 @class GTLRAIPlatformNotebooks_RegisterInstanceRequest;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest;
+@class GTLRAIPlatformNotebooks_ReportRuntimeEventRequest;
 @class GTLRAIPlatformNotebooks_ResetInstanceRequest;
 @class GTLRAIPlatformNotebooks_ResetRuntimeRequest;
 @class GTLRAIPlatformNotebooks_RollbackInstanceRequest;
@@ -1468,6 +1468,39 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Report and process a runtime event.
+ *
+ *  Method: notebooks.projects.locations.runtimes.reportEvent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAIPlatformNotebooksCloudPlatform
+ */
+@interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesReportEvent : GTLRAIPlatformNotebooksQuery
+
+/**
+ *  Required. Format:
+ *  `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAIPlatformNotebooks_Operation.
+ *
+ *  Report and process a runtime event.
+ *
+ *  @param object The @c GTLRAIPlatformNotebooks_ReportRuntimeEventRequest to
+ *    include in the query.
+ *  @param name Required. Format:
+ *    `projects/{project_id}/locations/{location}/runtimes/{runtime_id}`
+ *
+ *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsRuntimesReportEvent
+ */
++ (instancetype)queryWithObject:(GTLRAIPlatformNotebooks_ReportRuntimeEventRequest *)object
+                           name:(NSString *)name;
 
 @end
 

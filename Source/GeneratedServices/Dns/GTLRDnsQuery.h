@@ -1005,13 +1005,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Creates a new ResourceRecordSet.
  *
- *  Method: dns.projects.managedZones.rrsets.create
+ *  Method: dns.resourceRecordSets.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDnsCloudPlatform
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
-@interface GTLRDnsQuery_ProjectsManagedZonesRrsetsCreate : GTLRDnsQuery
+@interface GTLRDnsQuery_ResourceRecordSetsCreate : GTLRDnsQuery
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1039,7 +1039,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param managedZone Identifies the managed zone addressed by this request.
  *    Can be the managed zone name or ID.
  *
- *  @return GTLRDnsQuery_ProjectsManagedZonesRrsetsCreate
+ *  @return GTLRDnsQuery_ResourceRecordSetsCreate
  */
 + (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
                         project:(NSString *)project
@@ -1050,13 +1050,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Deletes a previously created ResourceRecordSet.
  *
- *  Method: dns.projects.managedZones.rrsets.delete
+ *  Method: dns.resourceRecordSets.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDnsCloudPlatform
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
-@interface GTLRDnsQuery_ProjectsManagedZonesRrsetsDelete : GTLRDnsQuery
+@interface GTLRDnsQuery_ResourceRecordSetsDelete : GTLRDnsQuery
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1091,7 +1091,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param name Fully qualified domain name.
  *  @param type RRSet type.
  *
- *  @return GTLRDnsQuery_ProjectsManagedZonesRrsetsDelete
+ *  @return GTLRDnsQuery_ResourceRecordSetsDelete
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone
@@ -1103,7 +1103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 /**
  *  Fetches the representation of an existing ResourceRecordSet.
  *
- *  Method: dns.projects.managedZones.rrsets.get
+ *  Method: dns.resourceRecordSets.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDnsCloudPlatform
@@ -1111,7 +1111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadonly
  *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
  */
-@interface GTLRDnsQuery_ProjectsManagedZonesRrsetsGet : GTLRDnsQuery
+@interface GTLRDnsQuery_ResourceRecordSetsGet : GTLRDnsQuery
 
 /**
  *  For mutating operation requests only. An optional identifier specified by
@@ -1146,67 +1146,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  *  @param name Fully qualified domain name.
  *  @param type RRSet type.
  *
- *  @return GTLRDnsQuery_ProjectsManagedZonesRrsetsGet
+ *  @return GTLRDnsQuery_ResourceRecordSetsGet
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone
                             name:(NSString *)name
                             type:(NSString *)type;
-
-@end
-
-/**
- *  Applies a partial update to an existing ResourceRecordSet.
- *
- *  Method: dns.projects.managedZones.rrsets.patch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDnsCloudPlatform
- *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
- */
-@interface GTLRDnsQuery_ProjectsManagedZonesRrsetsPatch : GTLRDnsQuery
-
-/**
- *  For mutating operation requests only. An optional identifier specified by
- *  the client. Must be unique for operation resources in the Operations
- *  collection.
- */
-@property(nonatomic, copy, nullable) NSString *clientOperationId;
-
-/**
- *  Identifies the managed zone addressed by this request. Can be the managed
- *  zone name or ID.
- */
-@property(nonatomic, copy, nullable) NSString *managedZone;
-
-/** Fully qualified domain name. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Identifies the project addressed by this request. */
-@property(nonatomic, copy, nullable) NSString *project;
-
-/** RRSet type. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/**
- *  Fetches a @c GTLRDns_ResourceRecordSet.
- *
- *  Applies a partial update to an existing ResourceRecordSet.
- *
- *  @param object The @c GTLRDns_ResourceRecordSet to include in the query.
- *  @param project Identifies the project addressed by this request.
- *  @param managedZone Identifies the managed zone addressed by this request.
- *    Can be the managed zone name or ID.
- *  @param name Fully qualified domain name.
- *  @param type RRSet type.
- *
- *  @return GTLRDnsQuery_ProjectsManagedZonesRrsetsPatch
- */
-+ (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
-                        project:(NSString *)project
-                    managedZone:(NSString *)managedZone
-                           name:(NSString *)name
-                           type:(NSString *)type;
 
 @end
 
@@ -1273,6 +1218,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
  */
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone;
+
+@end
+
+/**
+ *  Applies a partial update to an existing ResourceRecordSet.
+ *
+ *  Method: dns.resourceRecordSets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDnsCloudPlatform
+ *    @c kGTLRAuthScopeDnsNdevClouddnsReadwrite
+ */
+@interface GTLRDnsQuery_ResourceRecordSetsPatch : GTLRDnsQuery
+
+/**
+ *  For mutating operation requests only. An optional identifier specified by
+ *  the client. Must be unique for operation resources in the Operations
+ *  collection.
+ */
+@property(nonatomic, copy, nullable) NSString *clientOperationId;
+
+/**
+ *  Identifies the managed zone addressed by this request. Can be the managed
+ *  zone name or ID.
+ */
+@property(nonatomic, copy, nullable) NSString *managedZone;
+
+/** Fully qualified domain name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Identifies the project addressed by this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** RRSet type. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Fetches a @c GTLRDns_ResourceRecordSet.
+ *
+ *  Applies a partial update to an existing ResourceRecordSet.
+ *
+ *  @param object The @c GTLRDns_ResourceRecordSet to include in the query.
+ *  @param project Identifies the project addressed by this request.
+ *  @param managedZone Identifies the managed zone addressed by this request.
+ *    Can be the managed zone name or ID.
+ *  @param name Fully qualified domain name.
+ *  @param type RRSet type.
+ *
+ *  @return GTLRDnsQuery_ResourceRecordSetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDns_ResourceRecordSet *)object
+                        project:(NSString *)project
+                    managedZone:(NSString *)managedZone
+                           name:(NSString *)name
+                           type:(NSString *)type;
 
 @end
 

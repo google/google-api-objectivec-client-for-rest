@@ -14,11 +14,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec.connectionType
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_CloudSql = @"CLOUD_SQL";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec_ConnectionType_ConnectionTypeUnspecified = @"CONNECTION_TYPE_UNSPECIFIED";
+
 // GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec.tableSourceType
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryMaterializedView = @"BIGQUERY_MATERIALIZED_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryTable = @"BIGQUERY_TABLE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_BigqueryView = @"BIGQUERY_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec_TableSourceType_TableSourceTypeUnspecified = @"TABLE_SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec.type
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Mysql = @"MYSQL";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec_Type_Postgres = @"POSTGRES";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1DatabaseTableSpec_Type_External = @"EXTERNAL";
@@ -39,6 +48,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_IntegratedSystem
 // GTLRDataCatalog_GoogleCloudDatacatalogV1Entry.type
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Cluster = @"CLUSTER";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Database = @"DATABASE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataSourceConnection = @"DATA_SOURCE_CONNECTION";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_DataStream = @"DATA_STREAM";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_EntryTypeUnspecified = @"ENTRY_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset = @"FILESET";
@@ -51,6 +61,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Table = @"T
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Bool = @"BOOL";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Double = @"DOUBLE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_PrimitiveTypeUnspecified = @"PRIMITIVE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext = @"RICHTEXT";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String = @"STRING";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp = @"TIMESTAMP";
 
@@ -149,6 +160,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryConnectionSpec
+@dynamic cloudSql, connectionType, hasCredential;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryDateShardedSpec
 //
 
@@ -182,6 +203,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1BigQueryTableSpec
 @dynamic tableSourceType, tableSpec, viewSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1CloudSqlBigQueryConnectionSpec
+@dynamic database, instanceId, type;
 @end
 
 
@@ -239,18 +270,42 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1DataSourceConnectionSpec
+@dynamic bigqueryConnectionSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataCatalog_GoogleCloudDatacatalogV1Entry
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Entry
 @dynamic bigqueryDateShardedSpec, bigqueryTableSpec, databaseTableSpec,
-         dataSource, descriptionProperty, displayName, fullyQualifiedName,
-         gcsFilesetSpec, integratedSystem, linkedResource, name, routineSpec,
-         schema, sourceSystemTimestamps, type, usageSignal, userSpecifiedSystem,
-         userSpecifiedType;
+         dataSource, dataSourceConnectionSpec, descriptionProperty, displayName,
+         fullyQualifiedName, gcsFilesetSpec, integratedSystem, labels,
+         linkedResource, name, routineSpec, schema, sourceSystemTimestamps,
+         type, usageSignal, userSpecifiedSystem, userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -629,7 +684,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SearchCatalogRequestScope
 @dynamic includeGcpPublicDatasets, includeOrgIds, includeProjectIds,
-         restrictedLocations;
+         includePublicTagTemplates, restrictedLocations;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -778,8 +833,8 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TagField
-@dynamic boolValue, displayName, doubleValue, enumValue, order, stringValue,
-         timestampValue;
+@dynamic boolValue, displayName, doubleValue, enumValue, order, richtextValue,
+         stringValue, timestampValue;
 @end
 
 
@@ -799,7 +854,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxonomy_ActivatedPoli
 //
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1TagTemplate
-@dynamic displayName, fields, name;
+@dynamic displayName, fields, isPubliclyReadable, name;
 @end
 
 

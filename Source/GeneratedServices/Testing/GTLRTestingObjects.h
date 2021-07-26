@@ -183,6 +183,29 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Tablet;
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidModel_FormFactor_Wearable;
 
 // ----------------------------------------------------------------------------
+// GTLRTesting_AndroidRoboTest.roboMode
+
+/**
+ *  LINT.IfChange This means that the server should choose the mode.
+ *  Recommended.
+ *
+ *  Value: "ROBO_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified;
+/**
+ *  Runs Robo in UIAutomator-only mode without app resigning
+ *
+ *  Value: "ROBO_VERSION_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1;
+/**
+ *  Runs Robo in standard Espresso with UIAutomator fallback
+ *
+ *  Value: "ROBO_VERSION_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2;
+
+// ----------------------------------------------------------------------------
 // GTLRTesting_CancelTestMatrixResponse.testState
 
 /**
@@ -1126,6 +1149,21 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *  account can be provided.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_RoboDirective *> *roboDirectives;
+
+/**
+ *  The mode in which Robo should run. Most clients should allow the server to
+ *  populate this field automatically.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboModeUnspecified
+ *        LINT.IfChange This means that the server should choose the mode.
+ *        Recommended. (Value: "ROBO_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1 Runs Robo in
+ *        UIAutomator-only mode without app resigning (Value: "ROBO_VERSION_1")
+ *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 Runs Robo in
+ *        standard Espresso with UIAutomator fallback (Value: "ROBO_VERSION_2")
+ */
+@property(nonatomic, copy, nullable) NSString *roboMode;
 
 /**
  *  A JSON file with a sequence of actions Robo should perform as a prologue for
@@ -2700,10 +2738,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *networkProfile;
 
 /**
- *  Systrace configuration for the run. If set a systrace will be taken,
- *  starting on test start and lasting for the configured duration. The systrace
- *  file thus obtained is put in the results bucket together with the other
- *  artifacts from the run.
+ *  Deprecated: Systrace uses Python 2 which has been sunset 2020-01-01. Support
+ *  of Systrace may stop at any time, at which point no Systrace file will be
+ *  provided in the results. Systrace configuration for the run. If set a
+ *  systrace will be taken, starting on test start and lasting for the
+ *  configured duration. The systrace file thus obtained is put in the results
+ *  bucket together with the other artifacts from the run.
  */
 @property(nonatomic, strong, nullable) GTLRTesting_SystraceSetup *systrace;
 

@@ -31,14 +31,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: See, create, and edit all Google Docs documents you
- *  have access to
+ *  Authorization scope: See, edit, create, and delete all your Google Docs
+ *  documents
  *
  *  Value "https://www.googleapis.com/auth/documents"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDocsDocuments;
 /**
- *  Authorization scope: View your Google Docs documents
+ *  Authorization scope: See all your Google Docs documents
  *
  *  Value "https://www.googleapis.com/auth/documents.readonly"
  */

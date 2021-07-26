@@ -279,19 +279,19 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 // GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration.state
 
 /**
- *  The sqlIntegration is being created.
+ *  The SQL integration is being created.
  *
  *  Value: "CREATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating;
 /**
- *  The sqlIntegration is being deleted.
+ *  The SQL integration is being deleted.
  *
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting;
 /**
- *  The sqlIntegration is ready.
+ *  The SQL integration is ready.
  *
  *  Value: "READY"
  */
@@ -622,6 +622,14 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  *  Directory operations. If not specified, `setupadmin` will be used.
  */
 @property(nonatomic, copy, nullable) NSString *admin;
+
+/**
+ *  Optional. Configuration for audit logs. True if audit logs are enabled, else
+ *  false. Default is audit logs disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *auditLogsEnabled;
 
 /**
  *  Optional. The full names of the Google Compute Engine
@@ -1392,7 +1400,7 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 @property(nonatomic, strong, nullable) GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Certificate *certificate;
 
-/** Input only. The password used to encrypt the uploaded pfx certificate. */
+/** Input only. The password used to encrypt the uploaded PFX certificate. */
 @property(nonatomic, copy, nullable) NSString *certificatePassword;
 
 /**
@@ -1783,11 +1791,11 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_OperationMetadata : GTLRObject
 
-/** [Output only] API version used to start the operation. */
+/** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
 /**
- *  [Output only] Identifies whether the user has requested cancellation of the
+ *  Output only. Identifies whether the user has requested cancellation of the
  *  operation. Operations that have successfully been cancelled have
  *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
  *  `Code.CANCELLED`.
@@ -1796,21 +1804,21 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
  */
 @property(nonatomic, strong, nullable) NSNumber *cancelRequested;
 
-/** [Output only] The time the operation was created. */
+/** Output only. The time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** [Output only] The time the operation finished running. */
+/** Output only. The time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
-/** [Output only] Human-readable status of the operation, if any. */
+/** Output only. Human-readable status of the operation, if any. */
 @property(nonatomic, copy, nullable) NSString *statusDetail;
 
 /**
- *  [Output only] Server-defined resource path for the target of the operation.
+ *  Output only. Server-defined resource path for the target of the operation.
  */
 @property(nonatomic, copy, nullable) NSString *target;
 
-/** [Output only] Name of the verb executed by the operation. */
+/** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
 @end
@@ -1989,44 +1997,38 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedServiceforMicrosoftActiveDirector
 
 
 /**
- *  Represents the Sql instance integrated with AD.
+ *  Represents the SQL instance integrated with Managed AD.
  */
 @interface GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration : GTLRObject
 
-/**
- *  Output only. The time sql integration was created. Synthetic field is
- *  populated automatically by CCFE.
- */
+/** Output only. The time the SQL integration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The unique name of the sql integration in the form of
+ *  The unique name of the SQL integration in the form of
  *  `projects/{project_id}/locations/global/domains/{domain_name}/sqlIntegrations/{sql_integration}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The full resource name of an integrated sql instance */
+/** The full resource name of an integrated SQL instance */
 @property(nonatomic, copy, nullable) NSString *sqlInstance;
 
 /**
- *  Output only. The current state of the sql integration.
+ *  Output only. The current state of the SQL integration.
  *
  *  Likely values:
  *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Creating
- *        The sqlIntegration is being created. (Value: "CREATING")
+ *        The SQL integration is being created. (Value: "CREATING")
  *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Deleting
- *        The sqlIntegration is being deleted. (Value: "DELETING")
+ *        The SQL integration is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_Ready
- *        The sqlIntegration is ready. (Value: "READY")
+ *        The SQL integration is ready. (Value: "READY")
  *    @arg @c kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_SqlIntegration_State_StateUnspecified
  *        Not Set (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/**
- *  Output only. The time sql integration was updated. Synthetic field is
- *  populated automatically by CCFE.
- */
+/** Output only. The time the SQL integration was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end

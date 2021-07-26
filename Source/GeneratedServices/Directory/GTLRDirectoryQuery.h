@@ -8,7 +8,7 @@
 //   resources like user, groups etc. It also provides audit and usage reports
 //   of domain.
 // Documentation:
-//   http://developers.google.com/admin-sdk/
+//   https://developers.google.com/admin-sdk/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -264,7 +264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Delete an ASP issued by a user.
+ *  Deletes an ASP issued by a user.
  *
  *  Method: directory.asps.delete
  *
@@ -286,7 +286,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete an ASP issued by a user.
+ *  Deletes an ASP issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -300,7 +300,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Get information about an ASP issued by a user.
+ *  Gets information about an ASP issued by a user.
  *
  *  Method: directory.asps.get
  *
@@ -321,7 +321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Asp.
  *
- *  Get information about an ASP issued by a user.
+ *  Gets information about an ASP issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -335,7 +335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  List the ASPs issued by a user.
+ *  Lists the ASPs issued by a user.
  *
  *  Method: directory.asps.list
  *
@@ -353,7 +353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Asps.
  *
- *  List the ASPs issued by a user.
+ *  Lists the ASPs issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -365,7 +365,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Stop watching resources through this channel.
+ *  Stops watching resources through this channel.
  *
  *  Method: admin.channels.stop
  *
@@ -382,7 +382,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stop watching resources through this channel.
+ *  Stops watching resources through this channel.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *
@@ -634,8 +634,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Move or insert multiple Chrome OS devices to an organizational unit. You can
- *  move up to 50 devices at once.
+ *  Moves or inserts multiple Chrome OS devices to an organizational unit. You
+ *  can move up to 50 devices at once.
  *
  *  Method: directory.chromeosdevices.moveDevicesToOu
  *
@@ -654,8 +654,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Move or insert multiple Chrome OS devices to an organizational unit. You can
- *  move up to 50 devices at once.
+ *  Moves or inserts multiple Chrome OS devices to an organizational unit. You
+ *  can move up to 50 devices at once.
  *
  *  @param object The @c GTLRDirectory_ChromeOsMoveDevicesToOu to include in the
  *    query.
@@ -1207,7 +1207,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patch Customers via Apiary Patch Orchestration
+ *  Patches a customer.
  *
  *  Method: directory.customers.patch
  *
@@ -1222,7 +1222,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Customer.
  *
- *  Patch Customers via Apiary Patch Orchestration
+ *  Patches a customer.
  *
  *  @param object The @c GTLRDirectory_Customer to include in the query.
  *  @param customerKey Id of the customer to be updated
@@ -1688,7 +1688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve all groups of a domain or of a user given a userKey (paginated)
+ *  Retrieves all groups of a domain or of a user given a userKey (paginated).
  *
  *  Method: directory.groups.list
  *
@@ -1761,7 +1761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Groups.
  *
- *  Retrieve all groups of a domain or of a user given a userKey (paginated)
+ *  Retrieves all groups of a domain or of a user given a userKey (paginated).
  *
  *  @return GTLRDirectoryQuery_GroupsList
  *
@@ -2856,7 +2856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patches a building via Apiary Patch Orchestration.
+ *  Patches a building.
  *
  *  Method: directory.resources.buildings.patch
  *
@@ -2898,7 +2898,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Building.
  *
- *  Patches a building via Apiary Patch Orchestration.
+ *  Patches a building.
  *
  *  @param object The @c GTLRDirectory_Building to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -3155,7 +3155,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patches a calendar resource via Apiary Patch Orchestration.
+ *  Patches a calendar resource.
  *
  *  Method: directory.resources.calendars.patch
  *
@@ -3177,7 +3177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_CalendarResource.
  *
- *  Patches a calendar resource via Apiary Patch Orchestration.
+ *  Patches a calendar resource.
  *
  *  @param object The @c GTLRDirectory_CalendarResource to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -3394,7 +3394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patches a feature via Apiary Patch Orchestration.
+ *  Patches a feature.
  *
  *  Method: directory.resources.features.patch
  *
@@ -3416,7 +3416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Feature.
  *
- *  Patches a feature via Apiary Patch Orchestration.
+ *  Patches a feature.
  *
  *  @param object The @c GTLRDirectory_Feature to include in the query.
  *  @param customer The unique ID for the customer's Google Workspace account.
@@ -3544,7 +3544,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve a role assignment.
+ *  Retrieves a role assignment.
  *
  *  Method: directory.roleAssignments.get
  *
@@ -3563,7 +3563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_RoleAssignment.
  *
- *  Retrieve a role assignment.
+ *  Retrieves a role assignment.
  *
  *  @param customer Immutable ID of the Google Workspace account.
  *  @param roleAssignmentId Immutable ID of the role assignment.
@@ -3790,7 +3790,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patch role via Apiary Patch Orchestration
+ *  Patches a role.
  *
  *  Method: directory.roles.patch
  *
@@ -3808,7 +3808,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Role.
  *
- *  Patch role via Apiary Patch Orchestration
+ *  Patches a role.
  *
  *  @param object The @c GTLRDirectory_Role to include in the query.
  *  @param customer Immutable ID of the Google Workspace account.
@@ -3856,7 +3856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Delete schema
+ *  Deletes a schema.
  *
  *  Method: directory.schemas.delete
  *
@@ -3875,7 +3875,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete schema
+ *  Deletes a schema.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
@@ -3888,7 +3888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve schema
+ *  Retrieves a schema.
  *
  *  Method: directory.schemas.get
  *
@@ -3907,7 +3907,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Retrieve schema
+ *  Retrieves a schema.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *  @param schemaKey Name or immutable ID of the schema.
@@ -3920,7 +3920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Create schema.
+ *  Creates a schema.
  *
  *  Method: directory.schemas.insert
  *
@@ -3935,7 +3935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Create schema.
+ *  Creates a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -3948,7 +3948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Retrieve all schemas for a customer
+ *  Retrieves all schemas for a customer.
  *
  *  Method: directory.schemas.list
  *
@@ -3964,7 +3964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schemas.
  *
- *  Retrieve all schemas for a customer
+ *  Retrieves all schemas for a customer.
  *
  *  @param customerId Immutable ID of the Google Workspace account.
  *
@@ -3975,7 +3975,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Patch Schema via Apiary Patch Orchestration
+ *  Patches a schema.
  *
  *  Method: directory.schemas.patch
  *
@@ -3993,7 +3993,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Patch Schema via Apiary Patch Orchestration
+ *  Patches a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -4008,7 +4008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Update schema
+ *  Updates a schema.
  *
  *  Method: directory.schemas.update
  *
@@ -4026,7 +4026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Schema.
  *
- *  Update schema
+ *  Updates a schema.
  *
  *  @param object The @c GTLRDirectory_Schema to include in the query.
  *  @param customerId Immutable ID of the Google Workspace account.
@@ -4041,7 +4041,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Delete all access tokens issued by a user for an application.
+ *  Deletes all access tokens issued by a user for an application.
  *
  *  Method: directory.tokens.delete
  *
@@ -4063,7 +4063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Delete all access tokens issued by a user for an application.
+ *  Deletes all access tokens issued by a user for an application.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -4077,7 +4077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Get information about an access token issued by a user.
+ *  Gets information about an access token issued by a user.
  *
  *  Method: directory.tokens.get
  *
@@ -4098,7 +4098,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Token.
  *
- *  Get information about an access token issued by a user.
+ *  Gets information about an access token issued by a user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -4144,7 +4144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Turn off 2-Step Verification for user.
+ *  Turns off 2-Step Verification for user.
  *
  *  Method: directory.twoStepVerification.turnOff
  *
@@ -4163,7 +4163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Turn off 2-Step Verification for user.
+ *  Turns off 2-Step Verification for user.
  *
  *  @param userKey Identifies the user in the API request. The value can be the
  *    user's primary email address, alias email address, or unique user ID.
@@ -4287,7 +4287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Watch for changes in users list.
+ *  Watches for changes in users list.
  *
  *  Method: directory.users.aliases.watch
  *
@@ -4314,7 +4314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in users list.
+ *  Watches for changes in users list.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *  @param userKey Email or immutable ID of the user
@@ -4797,7 +4797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Sign a user out of all web and device sessions and reset their sign-in
+ *  Signs a user out of all web and device sessions and reset their sign-in
  *  cookies. User will have to sign in by authenticating again.
  *
  *  Method: directory.users.signOut
@@ -4817,7 +4817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Sign a user out of all web and device sessions and reset their sign-in
+ *  Signs a user out of all web and device sessions and reset their sign-in
  *  cookies. User will have to sign in by authenticating again.
  *
  *  @param userKey Identifies the target user in the API request. The value can
@@ -4896,7 +4896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Watch for changes in users list
+ *  Watches for changes in users list.
  *
  *  Method: directory.users.watch
  *
@@ -5019,7 +5019,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 /**
  *  Fetches a @c GTLRDirectory_Channel.
  *
- *  Watch for changes in users list
+ *  Watches for changes in users list.
  *
  *  @param object The @c GTLRDirectory_Channel to include in the query.
  *
@@ -5030,7 +5030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Generate new backup verification codes for the user.
+ *  Generates new backup verification codes for the user.
  *
  *  Method: directory.verificationCodes.generate
  *
@@ -5046,7 +5046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Generate new backup verification codes for the user.
+ *  Generates new backup verification codes for the user.
  *
  *  @param userKey Email or immutable ID of the user
  *
@@ -5057,7 +5057,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
 @end
 
 /**
- *  Invalidate the current backup verification codes for the user.
+ *  Invalidates the current backup verification codes for the user.
  *
  *  Method: directory.verificationCodes.invalidate
  *
@@ -5073,7 +5073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectoryViewTypeDomainPublic;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Invalidate the current backup verification codes for the user.
+ *  Invalidates the current backup verification codes for the user.
  *
  *  @param userKey Email or immutable ID of the user
  *

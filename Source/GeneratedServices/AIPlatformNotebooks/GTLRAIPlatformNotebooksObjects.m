@@ -4,10 +4,9 @@
 // API:
 //   Notebooks API (notebooks/v1)
 // Description:
-//   AI Platform Notebooks API is used to manage notebook resources in Google
-//   Cloud.
+//   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:
-//   https://cloud.google.com/ai-platform/notebooks/docs/
+//   https://cloud.google.com/notebooks/docs/
 
 #import "GTLRAIPlatformNotebooksObjects.h"
 
@@ -28,11 +27,16 @@ NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaV100
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV2 = @"TPU_V2";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3 = @"TPU_V3";
 
+// GTLRAIPlatformNotebooks_Event.type
+NSString * const kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_Event_Type_Idle      = @"IDLE";
+
 // GTLRAIPlatformNotebooks_Execution.state
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Cancelling = @"CANCELLING";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Expired = @"EXPIRED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Failed = @"FAILED";
+NSString * const kGTLRAIPlatformNotebooks_Execution_State_Initializing = @"INITIALIZING";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Preparing = @"PREPARING";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Queued = @"QUEUED";
 NSString * const kGTLRAIPlatformNotebooks_Execution_State_Running = @"RUNNING";
@@ -95,6 +99,12 @@ NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdB
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdSsd = @"PD_SSD";
 NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard = @"PD_STANDARD";
 
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_AnyReservation = @"ANY_RESERVATION";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_NoReservation = @"NO_RESERVATION";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_SpecificReservation = @"SPECIFIC_RESERVATION";
+NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAIPlatformNotebooks_Runtime.healthState
 NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_HealthStateUnspecified = @"HEALTH_STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Runtime_HealthState_Healthy = @"HEALTHY";
@@ -130,8 +140,10 @@ NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_Runtime
 NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_AccessType_SingleUser = @"SINGLE_USER";
 
 // GTLRAIPlatformNotebooks_Schedule.state
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Deleting = @"DELETING";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disabled = @"DISABLED";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Enabled = @"ENABLED";
+NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Initializing = @"INITIALIZING";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Paused = @"PAUSED";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_Schedule_State_UpdateFailed = @"UPDATE_FAILED";
@@ -286,12 +298,22 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAIPlatformNotebooks_Event
+//
+
+@implementation GTLRAIPlatformNotebooks_Event
+@dynamic reportTime, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAIPlatformNotebooks_Execution
 //
 
 @implementation GTLRAIPlatformNotebooks_Execution
-@dynamic createTime, descriptionProperty, displayName, executionTemplate, name,
-         outputNotebookFile, state, updateTime;
+@dynamic createTime, descriptionProperty, displayName, executionTemplate,
+         jobUri, name, outputNotebookFile, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -386,8 +408,9 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
          diskEncryption, disks, installGpuDriver, instanceOwners, kmsKey,
          labels, machineType, metadata, name, network, nicType, noProxyAccess,
          noPublicIp, noRemoveDataDisk, postStartupScript, proxyUri,
-         serviceAccount, serviceAccountScopes, shieldedInstanceConfig, state,
-         subnet, tags, updateTime, upgradeHistory, vmImage;
+         reservationAffinity, serviceAccount, serviceAccountScopes,
+         shieldedInstanceConfig, state, subnet, tags, updateTime,
+         upgradeHistory, vmImage;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -803,6 +826,34 @@ NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig_NicType_VirtioNet
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ReportRuntimeEventRequest
+//
+
+@implementation GTLRAIPlatformNotebooks_ReportRuntimeEventRequest
+@dynamic event, vmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAIPlatformNotebooks_ReservationAffinity
+//
+
+@implementation GTLRAIPlatformNotebooks_ReservationAffinity
+@dynamic consumeReservationType, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
 }
 
 @end

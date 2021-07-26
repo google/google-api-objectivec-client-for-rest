@@ -92,6 +92,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_Judge;
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorLowerBody;
 /** Value: "legislatorUpperBody" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_LegislatorUpperBody;
+/** Value: "otherRole" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_OtherRole;
 /** Value: "schoolBoard" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Contest_Roles_SchoolBoard;
 /** Value: "specialPurposeOfficer" */
@@ -172,6 +174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_Judge;
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_LegislatorLowerBody;
 /** Value: "legislatorUpperBody" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_LegislatorUpperBody;
+/** Value: "otherRole" */
+FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_OtherRole;
 /** Value: "schoolBoard" */
 FOUNDATION_EXTERN NSString * const kGTLRCivicInfo_Office_Roles_SchoolBoard;
 /** Value: "specialPurposeOfficer" */

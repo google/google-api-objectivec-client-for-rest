@@ -155,7 +155,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo.resourceType
 
 /**
- *  Consumer project.
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerFolder;
+/**
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -183,7 +190,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings.resourceType
 
 /**
- *  Consumer project.
+ *  Consumer Folder.
+ *
+ *  Value: "CONSUMER_FOLDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerFolder;
+/**
+ *  Deprecated. Existing workloads will continue to support this, but new
+ *  CreateWorkloadRequests should not specify this as an input value.
  *
  *  Value: "CONSUMER_PROJECT"
  */
@@ -424,13 +438,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload : GTLRObject
 
 /**
- *  Required. Input only. The billing account used for the resources which are
- *  direct children of workload. This billing account is initially associated
- *  with the resources created as part of Workload creation. After the initial
- *  creation of these resources, the customer can change the assigned billing
- *  account. The resource name has the form
- *  `billingAccounts/{billing_account_id}`. For example,
- *  `billingAccounts/012345-567890-ABCDEF`.
+ *  Input only. The billing account used for the resources which are direct
+ *  children of workload. This billing account is initially associated with the
+ *  resources created as part of Workload creation. After the initial creation
+ *  of these resources, the customer can change the assigned billing account.
+ *  The resource name has the form `billingAccounts/{billing_account_id}`. For
+ *  example, `billingAccounts/012345-567890-ABCDEF`.
  */
 @property(nonatomic, copy, nullable) NSString *billingAccount;
 
@@ -645,8 +658,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Indicates the type of resource.
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_ConsumerProject
- *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceInfo_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")
@@ -683,8 +700,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  ENCRYPTION_KEYS_PROJECT)
  *
  *  Likely values:
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerFolder
+ *        Consumer Folder. (Value: "CONSUMER_FOLDER")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_ConsumerProject
- *        Consumer project. (Value: "CONSUMER_PROJECT")
+ *        Deprecated. Existing workloads will continue to support this, but new
+ *        CreateWorkloadRequests should not specify this as an input value.
+ *        (Value: "CONSUMER_PROJECT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1WorkloadResourceSettings_ResourceType_EncryptionKeysProject
  *        Consumer project containing encryption keys. (Value:
  *        "ENCRYPTION_KEYS_PROJECT")

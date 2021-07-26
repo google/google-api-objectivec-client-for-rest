@@ -4,8 +4,8 @@
 // API:
 //   Network Connectivity API (networkconnectivity/v1alpha1)
 // Description:
-//   The Network Connectivity API will be home to various services which provide
-//   information pertaining to network connectivity.
+//   The Network Connectivity API provides access to Network Connectivity
+//   Center.
 // Documentation:
 //   https://cloud.google.com/network-connectivity/docs
 
@@ -26,75 +26,11 @@ NSString * const kGTLRNetworkconnectivity_Hub_State_Creating   = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_Hub_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRNetworkconnectivity_LogEntry.severity
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Alert = @"ALERT";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Critical = @"CRITICAL";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Debug = @"DEBUG";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Default = @"DEFAULT";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Emergency = @"EMERGENCY";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Error = @"ERROR";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Info = @"INFO";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Notice = @"NOTICE";
-NSString * const kGTLRNetworkconnectivity_LogEntry_Severity_Warning = @"WARNING";
-
-// GTLRNetworkconnectivity_Operation.importance
-NSString * const kGTLRNetworkconnectivity_Operation_Importance_Debug = @"DEBUG";
-NSString * const kGTLRNetworkconnectivity_Operation_Importance_High = @"HIGH";
-NSString * const kGTLRNetworkconnectivity_Operation_Importance_Low = @"LOW";
-
-// GTLRNetworkconnectivity_QuotaProperties.quotaMode
-NSString * const kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_Acquire = @"ACQUIRE";
-NSString * const kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_AcquireBestEffort = @"ACQUIRE_BEST_EFFORT";
-NSString * const kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_Check = @"CHECK";
-NSString * const kGTLRNetworkconnectivity_QuotaProperties_QuotaMode_Release = @"RELEASE";
-
 // GTLRNetworkconnectivity_Spoke.state
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Active   = @"ACTIVE";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkconnectivity_Spoke_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRNetworkconnectivity_TraceSpan.spanKind
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_Client = @"CLIENT";
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_Consumer = @"CONSUMER";
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_Internal = @"INTERNAL";
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_Producer = @"PRODUCER";
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_Server = @"SERVER";
-NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified = @"SPAN_KIND_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Attributes
-//
-
-@implementation GTLRNetworkconnectivity_Attributes
-@dynamic attributeMap, droppedAttributesCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Attributes_AttributeMap
-//
-
-@implementation GTLRNetworkconnectivity_Attributes_AttributeMap
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRNetworkconnectivity_AttributeValue class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_AttributeValue
-//
-
-@implementation GTLRNetworkconnectivity_AttributeValue
-@dynamic boolValue, intValue, stringValue;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -134,24 +70,6 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkconnectivity_BillingView
-//
-
-@implementation GTLRNetworkconnectivity_BillingView
-@dynamic reportRequests;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"reportRequests" : [GTLRNetworkconnectivity_ReportRequest class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkconnectivity_Binding
 //
 
@@ -170,90 +88,10 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkconnectivity_Distribution
-//
-
-@implementation GTLRNetworkconnectivity_Distribution
-@dynamic bucketCounts, count, exemplars, explicitBuckets, exponentialBuckets,
-         linearBuckets, maximum, mean, minimum, sumOfSquaredDeviation;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bucketCounts" : [NSNumber class],
-    @"exemplars" : [GTLRNetworkconnectivity_Exemplar class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkconnectivity_Empty
 //
 
 @implementation GTLRNetworkconnectivity_Empty
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Exemplar
-//
-
-@implementation GTLRNetworkconnectivity_Exemplar
-@dynamic attachments, timestamp, value;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"attachments" : [GTLRNetworkconnectivity_Exemplar_Attachments_Item class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Exemplar_Attachments_Item
-//
-
-@implementation GTLRNetworkconnectivity_Exemplar_Attachments_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_ExplicitBuckets
-//
-
-@implementation GTLRNetworkconnectivity_ExplicitBuckets
-@dynamic bounds;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"bounds" : [NSNumber class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_ExponentialBuckets
-//
-
-@implementation GTLRNetworkconnectivity_ExponentialBuckets
-@dynamic growthFactor, numFiniteBuckets, scale;
 @end
 
 
@@ -375,18 +213,6 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkconnectivity_HttpRequest
-//
-
-@implementation GTLRNetworkconnectivity_HttpRequest
-@dynamic cacheFillBytes, cacheHit, cacheLookup, cacheValidatedWithOriginServer,
-         latency, protocol, referer, remoteIp, requestMethod, requestSize,
-         requestUrl, responseSize, serverIp, status, userAgent;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkconnectivity_Hub
 //
 
@@ -419,16 +245,6 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
   return [NSString class];
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LinearBuckets
-//
-
-@implementation GTLRNetworkconnectivity_LinearBuckets
-@dynamic numFiniteBuckets, offset, width;
 @end
 
 
@@ -540,203 +356,6 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkconnectivity_LogEntry
-//
-
-@implementation GTLRNetworkconnectivity_LogEntry
-@dynamic httpRequest, insertId, labels, name, operation, protoPayload, severity,
-         sourceLocation, structPayload, textPayload, timestamp, trace;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LogEntry_Labels
-//
-
-@implementation GTLRNetworkconnectivity_LogEntry_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LogEntry_ProtoPayload
-//
-
-@implementation GTLRNetworkconnectivity_LogEntry_ProtoPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LogEntry_StructPayload
-//
-
-@implementation GTLRNetworkconnectivity_LogEntry_StructPayload
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LogEntryOperation
-//
-
-@implementation GTLRNetworkconnectivity_LogEntryOperation
-@dynamic first, identifier, last, producer;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_LogEntrySourceLocation
-//
-
-@implementation GTLRNetworkconnectivity_LogEntrySourceLocation
-@dynamic file, function, line;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_MetricValue
-//
-
-@implementation GTLRNetworkconnectivity_MetricValue
-@dynamic boolValue, distributionValue, doubleValue, endTime, int64Value, labels,
-         moneyValue, startTime, stringValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_MetricValue_Labels
-//
-
-@implementation GTLRNetworkconnectivity_MetricValue_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_MetricValueSet
-//
-
-@implementation GTLRNetworkconnectivity_MetricValueSet
-@dynamic metricName, metricValues;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"metricValues" : [GTLRNetworkconnectivity_MetricValue class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Money
-//
-
-@implementation GTLRNetworkconnectivity_Money
-@dynamic currencyCode, nanos, units;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Operation
-//
-
-@implementation GTLRNetworkconnectivity_Operation
-@dynamic consumerId, endTime, extensions, importance, labels, logEntries,
-         metricValueSets, operationId, operationName, quotaProperties,
-         resources, startTime, traceSpans, userLabels;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extensions" : [GTLRNetworkconnectivity_Operation_Extensions_Item class],
-    @"logEntries" : [GTLRNetworkconnectivity_LogEntry class],
-    @"metricValueSets" : [GTLRNetworkconnectivity_MetricValueSet class],
-    @"resources" : [GTLRNetworkconnectivity_ResourceInfo class],
-    @"traceSpans" : [GTLRNetworkconnectivity_TraceSpan class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Operation_Extensions_Item
-//
-
-@implementation GTLRNetworkconnectivity_Operation_Extensions_Item
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Operation_Labels
-//
-
-@implementation GTLRNetworkconnectivity_Operation_Labels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_Operation_UserLabels
-//
-
-@implementation GTLRNetworkconnectivity_Operation_UserLabels
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkconnectivity_OperationMetadata
 //
 
@@ -766,44 +385,6 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_QuotaProperties
-//
-
-@implementation GTLRNetworkconnectivity_QuotaProperties
-@dynamic quotaMode;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_ReportRequest
-//
-
-@implementation GTLRNetworkconnectivity_ReportRequest
-@dynamic operations, serviceConfigId, serviceName;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRNetworkconnectivity_Operation class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_ResourceInfo
-//
-
-@implementation GTLRNetworkconnectivity_ResourceInfo
-@dynamic resourceContainer, resourceLocation, resourceName;
 @end
 
 
@@ -900,25 +481,4 @@ NSString * const kGTLRNetworkconnectivity_TraceSpan_SpanKind_SpanKindUnspecified
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_TraceSpan
-//
-
-@implementation GTLRNetworkconnectivity_TraceSpan
-@dynamic attributes, childSpanCount, displayName, endTime, name, parentSpanId,
-         sameProcessAsParentSpan, spanId, spanKind, startTime, status;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkconnectivity_TruncatableString
-//
-
-@implementation GTLRNetworkconnectivity_TruncatableString
-@dynamic truncatedByteCount, value;
 @end

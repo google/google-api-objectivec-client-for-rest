@@ -25,6 +25,10 @@ NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatus
 NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusStale = @"TERMS_STATUS_STALE";
 NSString * const kGTLRAndroidProvisioningPartner_Company_TermsStatus_TermsStatusUnspecified = @"TERMS_STATUS_UNSPECIFIED";
 
+// GTLRAndroidProvisioningPartner_DeviceClaim.additionalService
+NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_AdditionalServiceUnspecified = @"ADDITIONAL_SERVICE_UNSPECIFIED";
+NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_DeviceProtection = @"DEVICE_PROTECTION";
+
 // GTLRAndroidProvisioningPartner_DeviceClaim.sectionType
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeSimLock = @"SECTION_TYPE_SIM_LOCK";
 NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_SectionType_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
@@ -110,7 +114,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_Company
-@dynamic adminEmails, companyId, companyName, name, ownerEmails, termsStatus;
+@dynamic adminEmails, companyId, companyName, languageCode, name, ownerEmails,
+         skipWelcomeEmail, termsStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -280,8 +285,8 @@ NSString * const kGTLRAndroidProvisioningPartner_UnclaimDeviceRequest_SectionTyp
 //
 
 @implementation GTLRAndroidProvisioningPartner_DeviceClaim
-@dynamic ownerCompanyId, resellerId, sectionType, vacationModeExpireTime,
-         vacationModeStartTime;
+@dynamic additionalService, ownerCompanyId, resellerId, sectionType,
+         vacationModeExpireTime, vacationModeStartTime;
 @end
 
 

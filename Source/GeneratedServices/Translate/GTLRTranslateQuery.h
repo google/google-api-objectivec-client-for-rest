@@ -113,9 +113,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  Returns languages supported by the specified model. If missing, we get
- *  supported languages of Google general base (PBMT) model.
+ *  supported languages of Google general NMT model.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 
@@ -295,9 +294,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/{project-number-or-id}/locations/{location-id}/models/{model-id}`
  *  - General (built-in) models:
  *  `projects/{project-number-or-id}/locations/{location-id}/models/general/nmt`,
- *  `projects/{project-number-or-id}/locations/{location-id}/models/general/base`
  *  Returns languages supported by the specified model. If missing, we get
- *  supported languages of Google general base (PBMT) model.
+ *  supported languages of Google general NMT model.
  */
 @property(nonatomic, copy, nullable) NSString *model;
 

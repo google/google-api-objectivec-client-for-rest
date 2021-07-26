@@ -48,6 +48,78 @@
 
 @end
 
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/appAttestConfig:batchGet";
+  GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetAppAttestConfigsResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsAppAttestConfigPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaAppAttestConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.appAttestConfig.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensCreate
 
 @dynamic parent;
@@ -514,6 +586,78 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaRecaptchaConfig class];
   query.loggingName = @"firebaseappcheck.projects.apps.recaptchaConfig.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet
+
+@dynamic names, parent;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"names" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta/{+parent}/apps/-/safetyNetConfig:batchGet";
+  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigBatchGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaBatchGetSafetyNetConfigsResponse class];
+  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.batchGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta/{+name}";
+  GTLRFirebaseappcheckQuery_ProjectsAppsSafetyNetConfigPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1betaSafetyNetConfig class];
+  query.loggingName = @"firebaseappcheck.projects.apps.safetyNetConfig.patch";
   return query;
 }
 

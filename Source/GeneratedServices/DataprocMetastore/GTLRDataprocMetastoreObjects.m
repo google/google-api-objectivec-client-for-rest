@@ -25,6 +25,7 @@ NSString * const kGTLRDataprocMetastore_Backup_State_Active    = @"ACTIVE";
 NSString * const kGTLRDataprocMetastore_Backup_State_Creating  = @"CREATING";
 NSString * const kGTLRDataprocMetastore_Backup_State_Deleting  = @"DELETING";
 NSString * const kGTLRDataprocMetastore_Backup_State_Failed    = @"FAILED";
+NSString * const kGTLRDataprocMetastore_Backup_State_Restoring = @"RESTORING";
 NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDataprocMetastore_DatabaseDump.databaseType
@@ -202,6 +203,16 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_EncryptionConfig
+//
+
+@implementation GTLRDataprocMetastore_EncryptionConfig
+@dynamic kmsKey;
 @end
 
 
@@ -616,10 +627,10 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_Service
-@dynamic artifactGcsUri, createTime, endpointUri, hiveMetastoreConfig, labels,
-         maintenanceWindow, metadataIntegration, metadataManagementActivity,
-         name, network, port, releaseChannel, state, stateMessage, tier, uid,
-         updateTime;
+@dynamic artifactGcsUri, createTime, encryptionConfig, endpointUri,
+         hiveMetastoreConfig, labels, maintenanceWindow, metadataIntegration,
+         metadataManagementActivity, name, network, port, releaseChannel, state,
+         stateMessage, tier, uid, updateTime;
 @end
 
 

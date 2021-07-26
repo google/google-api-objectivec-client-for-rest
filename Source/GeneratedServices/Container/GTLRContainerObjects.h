@@ -1794,6 +1794,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configurations for the various addons available to run in the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_AddonsConfig *desiredAddonsConfig;
 
+/** The desired authenticator groups config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_AuthenticatorGroupsConfig *desiredAuthenticatorGroupsConfig;
+
 /** The desired Autopilot configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_Autopilot *desiredAutopilot;
 
@@ -3402,7 +3405,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Maximum number of nodes in the NodePool. Must be >= min_node_count. There
- *  has to enough quota to scale up the cluster.
+ *  has to be enough quota to scale up the cluster.
  *
  *  Uses NSNumber of intValue.
  */

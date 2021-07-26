@@ -21,6 +21,25 @@ NSString * const kGTLRHangoutsChat_ActionResponse_Type_RequestConfig = @"REQUEST
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_ActionResponse_Type_UpdateMessage = @"UPDATE_MESSAGE";
 
+// GTLRHangoutsChat_ActionStatus.statusCode
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Aborted = @"ABORTED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_AlreadyExists = @"ALREADY_EXISTS";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Cancelled = @"CANCELLED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_DataLoss = @"DATA_LOSS";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_FailedPrecondition = @"FAILED_PRECONDITION";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Internal = @"INTERNAL";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_InvalidArgument = @"INVALID_ARGUMENT";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_NotFound = @"NOT_FOUND";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Ok  = @"OK";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_OutOfRange = @"OUT_OF_RANGE";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_ResourceExhausted = @"RESOURCE_EXHAUSTED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unauthenticated = @"UNAUTHENTICATED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unavailable = @"UNAVAILABLE";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unimplemented = @"UNIMPLEMENTED";
+NSString * const kGTLRHangoutsChat_ActionStatus_StatusCode_Unknown = @"UNKNOWN";
+
 // GTLRHangoutsChat_Annotation.type
 NSString * const kGTLRHangoutsChat_Annotation_Type_AnnotationTypeUnspecified = @"ANNOTATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Annotation_Type_SlashCommand = @"SLASH_COMMAND";
@@ -225,7 +244,17 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_ActionResponse
-@dynamic type, url;
+@dynamic dialogAction, type, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ActionStatus
+//
+
+@implementation GTLRHangoutsChat_ActionStatus
+@dynamic statusCode, userFacingMessage;
 @end
 
 
@@ -311,16 +340,6 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRHangoutsChat_CardWithId
-//
-
-@implementation GTLRHangoutsChat_CardWithId
-@dynamic card, cardId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRHangoutsChat_Color
 //
 
@@ -337,6 +356,26 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 @implementation GTLRHangoutsChat_DeprecatedEvent
 @dynamic action, configCompleteRedirectUrl, eventTime, message, space,
          threadKey, token, type, user;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_Dialog
+//
+
+@implementation GTLRHangoutsChat_Dialog
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_DialogAction
+//
+
+@implementation GTLRHangoutsChat_DialogAction
+@dynamic actionStatus, dialog;
 @end
 
 
@@ -833,7 +872,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
 //
 
 @implementation GTLRHangoutsChat_Message
-@dynamic actionResponse, annotations, argumentText, attachment, cards, cardsV2,
+@dynamic actionResponse, annotations, argumentText, attachment, cards,
          createTime, fallbackText, name, previewText, sender, slashCommand,
          space, text, thread;
 
@@ -841,8 +880,7 @@ NSString * const kGTLRHangoutsChat_UserMentionMetadata_Type_TypeUnspecified = @"
   NSDictionary<NSString *, Class> *map = @{
     @"annotations" : [GTLRHangoutsChat_Annotation class],
     @"attachment" : [GTLRHangoutsChat_Attachment class],
-    @"cards" : [GTLRHangoutsChat_Card class],
-    @"cardsV2" : [GTLRHangoutsChat_CardWithId class]
+    @"cards" : [GTLRHangoutsChat_Card class]
   };
   return map;
 }

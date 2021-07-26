@@ -313,8 +313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @interface GTLRAndroidPublisherQuery_EditsBundlesUpload : GTLRAndroidPublisherQuery
 
 /**
- *  Must be set to true if the bundle installation may trigger a warning on user
- *  devices (for example, if installation size may be over a threshold,
+ *  Must be set to true if the app bundle installation may trigger a warning on
+ *  user devices (for example, if installation size may be over a threshold,
  *  typically 100 MB).
  */
 @property(nonatomic, assign) BOOL ackBundleInstallationWarning;

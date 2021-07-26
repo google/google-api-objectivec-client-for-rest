@@ -151,9 +151,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Used by partners to cancel a subscription service by the end of the current
- *  billing cycle for their customers. It should be called directly by the
- *  partner using service accounts.
+ *  Used by partners to cancel a subscription service either immediately or by
+ *  the end of the current billing cycle for their customers. It should be
+ *  called directly by the partner using service accounts.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.cancel
  */
@@ -169,9 +169,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionResponse.
  *
- *  Used by partners to cancel a subscription service by the end of the current
- *  billing cycle for their customers. It should be called directly by the
- *  partner using service accounts.
+ *  Used by partners to cancel a subscription service either immediately or by
+ *  the end of the current billing cycle for their customers. It should be
+ *  called directly by the partner using service accounts.
  *
  *  @param object The @c
  *    GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1CancelSubscriptionRequest

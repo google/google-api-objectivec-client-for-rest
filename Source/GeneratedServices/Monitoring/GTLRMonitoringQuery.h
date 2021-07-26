@@ -9,7 +9,7 @@
 //   individual method pages. The table entries below are presented in
 //   alphabetical order, not in order of common use. For explanations of the
 //   concepts found in the table entries, read the Cloud Monitoring
-//   documentation.
+//   documentation (https://cloud.google.com/monitoring/docs).
 // Documentation:
 //   https://cloud.google.com/monitoring/api/
 

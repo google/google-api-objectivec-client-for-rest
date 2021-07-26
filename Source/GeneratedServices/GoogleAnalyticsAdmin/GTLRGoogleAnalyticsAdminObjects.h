@@ -30,10 +30,13 @@
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
 @class GTLRGoogleAnalyticsAdmin_V1alphaDeleteUserLinkRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaIosAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails;
 @class GTLRGoogleAnalyticsAdmin_V1alphaMeasurementProtocolSecret;
 @class GTLRGoogleAnalyticsAdmin_V1alphaProperty;
 @class GTLRGoogleAnalyticsAdmin_V1alphaPropertySummary;
@@ -262,6 +265,82 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignal
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaGoogleSignalsSettings_State_GoogleSignalsStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalInitiatingProduct
+
+/**
+ *  This proposal was created by a user from Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics;
+/**
+ *  This proposal was created by a user from a linked product (not Google
+ *  Analytics).
+ *
+ *  Value: "LINKED_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct;
+/**
+ *  Unspecified product.
+ *
+ *  Value: "LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails.linkProposalState
+
+/**
+ *  This proposal is awaiting review from a Google Analytics user. This proposal
+ *  will automatically expire after some time.
+ *
+ *  Value: "AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics;
+/**
+ *  This proposal is awaiting review from a user of a linked product. This
+ *  proposal will automatically expire after some time.
+ *
+ *  Value: "AWAITING_REVIEW_FROM_LINKED_PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct;
+/**
+ *  This proposal has been declined by an admin on the receiving product. This
+ *  proposal will be automatically deleted after some time.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined;
+/**
+ *  This proposal expired due to lack of response from an admin on the receiving
+ *  product. This proposal will be automatically deleted after some time.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired;
+/**
+ *  Unspecified state
+ *
+ *  Value: "LINK_PROPOSAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified;
+/**
+ *  This proposal has become obsolete because a link was directly created to the
+ *  same external product resource that this proposal specifies. This proposal
+ *  will be automatically deleted after some time.
+ *
+ *  Value: "OBSOLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete;
+/**
+ *  This proposal has been withdrawn by an admin on the initiating product. This
+ *  proposal will be automatically deleted after some time.
+ *
+ *  Value: "WITHDRAWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn;
+
+// ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaProperty.industryCategory
 
 /**
@@ -426,6 +505,28 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_Ind
  *  Value: "TRAVEL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_IndustryCategory_Travel;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleAnalyticsAdmin_V1alphaProperty.serviceLevel
+
+/**
+ *  The paid, premium version of Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360;
+/**
+ *  The standard version of Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard;
+/**
+ *  Service level not specified or invalid.
+ *
+ *  Value: "SERVICE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleAnalyticsAdmin_V1alphaSearchChangeHistoryEventsRequest.action
@@ -649,6 +750,27 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Request message for ApproveDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for ApproveDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse : GTLRObject
+
+/**
+ *  The DisplayVideo360AdvertiserLink created as a result of approving the
+ *  proposal.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *displayVideo360AdvertiserLink;
+
+@end
+
+
+/**
  *  Request message for ArchiveCustomDimension RPC.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest : GTLRObject
@@ -828,6 +950,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Request message for CancelDisplayVideo360AdvertiserLinkProposal RPC.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest : GTLRObject
+@end
+
+
+/**
  *  A description of a change to a single Google Analytics resource.
  */
 @interface GTLRGoogleAnalyticsAdmin_V1alphaChangeHistoryChange : GTLRObject
@@ -888,6 +1017,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** A snapshot of a CustomMetric resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *customMetric;
+
+/**
+ *  A snapshot of a DisplayVideo360AdvertiserLink resource in change history.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *displayVideo360AdvertiserLink;
+
+/**
+ *  A snapshot of a DisplayVideo360AdvertiserLinkProposal resource in change
+ *  history.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *displayVideo360AdvertiserLinkProposal;
 
 /** A snapshot of a FirebaseLink resource in change history. */
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink *firebaseLink;
@@ -1128,7 +1268,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Immutable. The type for the custom metric's value.
+ *  Required. The type for the custom metric's value.
  *
  *  Likely values:
  *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaCustomMetric_MeasurementUnit_Currency
@@ -1246,6 +1386,123 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 /** Required. Example format: accounts/1234/userLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A link between a GA4 property and a Display & Video 360 advertiser.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink : GTLRObject
+
+/**
+ *  Enables personalized advertising features with this integration. If this
+ *  field is not set on create/update, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adsPersonalizationEnabled;
+
+/** Output only. The display name of the Display & Video 360 Advertiser. */
+@property(nonatomic, copy, nullable) NSString *advertiserDisplayName;
+
+/** Immutable. The Display & Video 360 Advertiser's advertiser ID. */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  Immutable. Enables the import of campaign data from Display & Video 360 into
+ *  the GA4 property. After link creation, this can only be updated from the
+ *  Display & Video 360 product. If this field is not set on create, it will be
+ *  defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignDataSharingEnabled;
+
+/**
+ *  Immutable. Enables the import of cost data from Display & Video 360 into the
+ *  GA4 property. This can only be enabled if campaign_data_import_enabled is
+ *  enabled. After link creation, this can only be updated from the Display &
+ *  Video 360 product. If this field is not set on create, it will be defaulted
+ *  to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costDataSharingEnabled;
+
+/**
+ *  Output only. The resource name for this DisplayVideo360AdvertiserLink
+ *  resource. Format:
+ *  properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note: linkId
+ *  is not the Display & Video 360 Advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A proposal for a link between an GA4 property and a Display & Video 360
+ *  advertiser. A proposal is converted to a DisplayVideo360AdvertiserLink once
+ *  approved. Google Analytics admins approve inbound proposals while Display &
+ *  Video 360 admins approve outbound proposals.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal : GTLRObject
+
+/**
+ *  Immutable. Enables personalized advertising features with this integration.
+ *  If this field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adsPersonalizationEnabled;
+
+/**
+ *  Output only. The display name of the Display & Video Advertiser. Only
+ *  populated for proposals that originated from Display & Video 360.
+ */
+@property(nonatomic, copy, nullable) NSString *advertiserDisplayName;
+
+/** Immutable. The Display & Video 360 Advertiser's advertiser ID. */
+@property(nonatomic, copy, nullable) NSString *advertiserId;
+
+/**
+ *  Immutable. Enables the import of campaign data from Display & Video 360. If
+ *  this field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *campaignDataSharingEnabled;
+
+/**
+ *  Immutable. Enables the import of cost data from Display & Video 360. This
+ *  can only be enabled if campaign_data_import_enabled is enabled. If this
+ *  field is not set on create, it will be defaulted to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costDataSharingEnabled;
+
+/** Output only. The status information for this link proposal. */
+@property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails *linkProposalStatusDetails;
+
+/**
+ *  Output only. The resource name for this
+ *  DisplayVideo360AdvertiserLinkProposal resource. Format:
+ *  properties/{propertyId}/displayVideo360AdvertiserLinkProposals/{proposalId}
+ *  Note: proposalId is not the Display & Video 360 Advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Input only. On a proposal being sent to Display & Video 360, this field must
+ *  be set to the email address of an admin on the target advertiser. This is
+ *  used to verify that the Google Analytics admin is aware of at least one
+ *  admin on the Display & Video 360 Advertiser. This does not restrict approval
+ *  of the proposal to a single user. Any admin on the Display & Video 360
+ *  Advertiser may approve the proposal.
+ */
+@property(nonatomic, copy, nullable) NSString *validationEmail;
 
 @end
 
@@ -1527,6 +1784,67 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
 
 
 /**
+ *  Status information for a link proposal.
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails : GTLRObject
+
+/**
+ *  Output only. The source of this proposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_GoogleAnalytics
+ *        This proposal was created by a user from Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkedProduct
+ *        This proposal was created by a user from a linked product (not Google
+ *        Analytics). (Value: "LINKED_PRODUCT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalInitiatingProduct_LinkProposalInitiatingProductUnspecified
+ *        Unspecified product. (Value:
+ *        "LINK_PROPOSAL_INITIATING_PRODUCT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *linkProposalInitiatingProduct;
+
+/**
+ *  Output only. The state of this proposal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromGoogleAnalytics
+ *        This proposal is awaiting review from a Google Analytics user. This
+ *        proposal will automatically expire after some time. (Value:
+ *        "AWAITING_REVIEW_FROM_GOOGLE_ANALYTICS")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_AwaitingReviewFromLinkedProduct
+ *        This proposal is awaiting review from a user of a linked product. This
+ *        proposal will automatically expire after some time. (Value:
+ *        "AWAITING_REVIEW_FROM_LINKED_PRODUCT")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Declined
+ *        This proposal has been declined by an admin on the receiving product.
+ *        This proposal will be automatically deleted after some time. (Value:
+ *        "DECLINED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Expired
+ *        This proposal expired due to lack of response from an admin on the
+ *        receiving product. This proposal will be automatically deleted after
+ *        some time. (Value: "EXPIRED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_LinkProposalStateUnspecified
+ *        Unspecified state (Value: "LINK_PROPOSAL_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Obsolete
+ *        This proposal has become obsolete because a link was directly created
+ *        to the same external product resource that this proposal specifies.
+ *        This proposal will be automatically deleted after some time. (Value:
+ *        "OBSOLETE")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaLinkProposalStatusDetails_LinkProposalState_Withdrawn
+ *        This proposal has been withdrawn by an admin on the initiating
+ *        product. This proposal will be automatically deleted after some time.
+ *        (Value: "WITHDRAWN")
+ */
+@property(nonatomic, copy, nullable) NSString *linkProposalState;
+
+/** Output only. The email address of the user that proposed this linkage. */
+@property(nonatomic, copy, nullable) NSString *requestorEmail;
+
+@end
+
+
+/**
  *  Request message for ListAccounts RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1678,6 +1996,60 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric *> *customMetrics;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListDisplayVideo360AdvertiserLinkProposals RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "displayVideo360AdvertiserLinkProposals" property. If returned as
+ *        the result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse : GTLRCollectionObject
+
+/**
+ *  List of DisplayVideo360AdvertiserLinkProposals.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *> *displayVideo360AdvertiserLinkProposals;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for ListDisplayVideo360AdvertiserLinks RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "displayVideo360AdvertiserLinks" property. If returned as the
+ *        result of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse : GTLRCollectionObject
+
+/**
+ *  List of DisplayVideo360AdvertiserLinks.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *> *displayVideo360AdvertiserLinks;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -2011,6 +2383,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1alphaSearchChange
  *  accounts/{account} Example: "accounts/100"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Output only. The Google Analytics service level that applies to this
+ *  property.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalytics360
+ *        The paid, premium version of Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS_360")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_GoogleAnalyticsStandard
+ *        The standard version of Google Analytics. (Value:
+ *        "GOOGLE_ANALYTICS_STANDARD")
+ *    @arg @c kGTLRGoogleAnalyticsAdmin_V1alphaProperty_ServiceLevel_ServiceLevelUnspecified
+ *        Service level not specified or invalid. (Value:
+ *        "SERVICE_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLevel;
 
 /**
  *  Required. Reporting Time Zone, used as the day boundary for reports,

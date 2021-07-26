@@ -26,6 +26,11 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_Month = @"MONTH";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Duration_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.processingState
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateCancelling = @"PROCESSING_STATE_CANCELLING";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateRecurring = @"PROCESSING_STATE_RECURRING";
+NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_ProcessingState_ProcessingStateUnspecified = @"PROCESSING_STATE_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription.state
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateActive = @"STATE_ACTIVE";
 NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription_State_StateCancelAtEndOfCycle = @"STATE_CANCEL_AT_END_OF_CYCLE";
@@ -229,8 +234,8 @@ NSString * const kGTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSu
 
 @implementation GTLRPaymentsResellerSubscription_GoogleCloudPaymentsResellerSubscriptionV1Subscription
 @dynamic cancellationDetails, createTime, cycleEndTime, endUserEntitled,
-         freeTrialEndTime, name, partnerUserToken, products, promotions,
-         redirectUri, serviceLocation, state, updateTime,
+         freeTrialEndTime, name, partnerUserToken, processingState, products,
+         promotions, redirectUri, serviceLocation, state, updateTime,
          upgradeDowngradeDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

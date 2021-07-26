@@ -791,11 +791,11 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_FlexTemplateRuntimeEnvironment
-@dynamic additionalExperiments, additionalUserLabels, enableStreamingEngine,
-         flexrsGoal, ipConfiguration, kmsKeyName, machineType, maxWorkers,
-         network, numWorkers, sdkContainerImage, serviceAccountEmail,
-         stagingLocation, subnetwork, tempLocation, workerRegion, workerZone,
-         zoneProperty;
+@dynamic additionalExperiments, additionalUserLabels, diskSizeGb,
+         enableStreamingEngine, flexrsGoal, ipConfiguration, kmsKeyName,
+         machineType, maxNumWorkers, maxWorkers, network, numWorkers,
+         sdkContainerImage, serviceAccountEmail, stagingLocation, subnetwork,
+         tempLocation, workerRegion, workerZone, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

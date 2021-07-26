@@ -6217,6 +6217,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Premi
 FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_NetworkTier_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRCompute_ForwardingRule.pscConnectionStatus
+
+/**
+ *  The connection has been accepted by the producer.
+ *
+ *  Value: "ACCEPTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Accepted;
+/**
+ *  The connection has been closed by the producer and will not serve traffic
+ *  going forward.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Closed;
+/**
+ *  The connection is pending acceptance by the producer.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Pending;
+/**
+ *  The connection has been rejected by the producer.
+ *
+ *  Value: "REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_Rejected;
+/** Value: "STATUS_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_ForwardingRule_PscConnectionStatus_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCompute_ForwardingRuleAggregatedList_Warning.code
 
 /**
@@ -17995,6 +18026,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaT4
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PreemptibleNvidiaV100Gpus;
 /** Value: "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork;
+/** Value: "PSC_INTERNAL_LB_FORWARDING_RULES" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PscInternalLbForwardingRules;
 /** Value: "PUBLIC_ADVERTISED_PREFIXES" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes;
 /** Value: "PUBLIC_DELEGATED_PREFIXES" */
@@ -18021,6 +18054,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyCeval
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRules;
 /** Value: "SECURITY_POLICY_RULES_PER_REGION" */
 FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_SecurityPolicyRulesPerRegion;
+/** Value: "SERVICE_ATTACHMENTS" */
+FOUNDATION_EXTERN NSString * const kGTLRCompute_Quota_Metric_ServiceAttachments;
 /**
  *  The total number of snapshots allowed for a single project.
  *
@@ -30112,7 +30147,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  IP addresses automatically reserved for Cloud NAT. - `IPSEC_INTERCONNECT`
  *  for addresses created from a private IP range that are reserved for a VLAN
  *  attachment in an *IPsec-encrypted Cloud Interconnect* configuration. These
- *  addresses are regional resources. Not currently available publicly.
+ *  addresses are regional resources. Not currently available publicly. -
+ *  `SHARED_LOADBALANCER_VIP` for an internal IP address that is assigned to
+ *  multiple internal forwarding rules. - `PRIVATE_SERVICE_CONNECT` for a
+ *  private network address that is used to configure Private Service Connect.
+ *  Only global internal addresses can use this purpose.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_Address_Purpose_DnsResolver DNS resolver address in
@@ -37210,11 +37249,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  List of interfaces for this external VPN gateway. If your peer-side gateway
- *  is an on-premises gateway and non-AWS cloud providers' gateway, at most two
- *  interfaces can be provided for an external VPN gateway. If your peer side is
- *  an AWS virtual private gateway, four interfaces should be provided for an
- *  external VPN gateway.
+ *  A list of interfaces for this external VPN gateway. If your peer-side
+ *  gateway is an on-premises gateway and non-AWS cloud providers' gateway, at
+ *  most two interfaces can be provided for an external VPN gateway. If your
+ *  peer side is an AWS virtual private gateway, four interfaces should be
+ *  provided for an external VPN gateway.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ExternalVpnGatewayInterface *> *interfaces;
 
@@ -38008,14 +38047,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Depreacted, please use short name instead. User-provided name of the
+ *  Deprecated, please use short name instead. User-provided name of the
  *  Organization firewall plicy. The name should be unique in the organization
- *  in which the firewall policy is created. The name must be 1-63 characters
- *  long, and comply with RFC1035. Specifically, the name must be 1-63
- *  characters long and match the regular expression
- *  `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a
- *  lowercase letter, and all following characters must be a dash, lowercase
- *  letter, or digit, except the last character, which cannot be a dash.
+ *  in which the firewall policy is created. This name must be set on creation
+ *  and cannot be changed. The name must be 1-63 characters long, and comply
+ *  with RFC1035. Specifically, the name must be 1-63 characters long and match
+ *  the regular expression `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first
+ *  character must be a lowercase letter, and all following characters must be a
+ *  dash, lowercase letter, or digit, except the last character, which cannot be
+ *  a dash.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -38084,9 +38124,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 /**
  *  User-provided name of the Organization firewall plicy. The name should be
- *  unique in the organization in which the firewall policy is created. The name
- *  must be 1-63 characters long, and comply with RFC1035. Specifically, the
- *  name must be 1-63 characters long and match the regular expression
+ *  unique in the organization in which the firewall policy is created. This
+ *  name must be set on creation and cannot be changed. The name must be 1-63
+ *  characters long, and comply with RFC1035. Specifically, the name must be
+ *  1-63 characters long and match the regular expression
  *  `[a-z]([-a-z0-9]*[a-z0-9])?` which means the first character must be a
  *  lowercase letter, and all following characters must be a dash, lowercase
  *  letter, or digit, except the last character, which cannot be a dash.
@@ -38470,13 +38511,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 
 
 /**
- *  Represents a Forwarding Rule resource. Forwarding rule resources in GCP can
- *  be either regional or global in scope: *
- *  [Global](/compute/docs/reference/rest/v1/globalForwardingRules) *
- *  [Regional](/compute/docs/reference/rest/v1/forwardingRules) A forwarding
- *  rule and its corresponding IP address represent the frontend configuration
- *  of a Google Cloud Platform load balancer. Forwarding rules can also
- *  reference target instances and Cloud VPN Classic gateways
+ *  Represents a Forwarding Rule resource. Forwarding rule resources in Google
+ *  Cloud can be either regional or global in scope: *
+ *  [Global](https://cloud.google.com/compute/docs/reference/rest/v1/globalForwardingRules)
+ *  *
+ *  [Regional](https://cloud.google.com/compute/docs/reference/rest/v1/forwardingRules)
+ *  A forwarding rule and its corresponding IP address represent the frontend
+ *  configuration of a Google Cloud Platform load balancer. Forwarding rules can
+ *  also reference target instances and Cloud VPN Classic gateways
  *  (targetVpnGateway). For more information, read Forwarding rule concepts and
  *  Using protocol forwarding.
  */
@@ -38557,8 +38599,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  regions/region/addresses/address-name - global/addresses/address-name -
  *  address-name The loadBalancingScheme and the forwarding rule's target
  *  determine the type of IP address that you can use. For detailed information,
- *  refer to [IP address
- *  specifications](/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
+ *  see [IP address
+ *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#ip_address_specifications).
  *  Must be set to `0.0.0.0` when the target is targetGrpcProxy that has
  *  validateForProxyless field set to true. For Private Service Connect
  *  forwarding rules that forward traffic to Google APIs, IP address must be
@@ -38569,15 +38611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  The IP protocol to which this rule applies. For protocol forwarding, valid
  *  options are TCP, UDP, ESP, AH, SCTP, ICMP and L3_DEFAULT. The valid IP
- *  protocols are different for different load balancing products: - Internal
- *  TCP/UDP Load Balancing: The load balancing scheme is INTERNAL, and one of
- *  TCP, UDP or L3_DEFAULT is valid. - Traffic Director: The load balancing
- *  scheme is INTERNAL_SELF_MANAGED, and only TCP is valid. - Internal HTTP(S)
- *  Load Balancing: The load balancing scheme is INTERNAL_MANAGED, and only TCP
- *  is valid. - HTTP(S), SSL Proxy, and TCP Proxy Load Balancing: The load
- *  balancing scheme is EXTERNAL and only TCP is valid. - Network Load
- *  Balancing: The load balancing scheme is EXTERNAL, and one of TCP, UDP or
- *  L3_DEFAULT is valid.
+ *  protocols are different for different load balancing products as described
+ *  in [Load balancing
+ *  features](https://cloud.google.com/load-balancing/docs/features#protocols_from_the_load_balancer_to_the_backends).
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_IPProtocol_Ah Value "AH"
@@ -38641,13 +38677,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, strong, nullable) GTLRCompute_ForwardingRule_Labels *labels;
 
 /**
- *  Specifies the forwarding rule type. - EXTERNAL is used for: - Classic Cloud
- *  VPN gateways - Protocol forwarding to VMs from an external IP address -
- *  HTTP(S), SSL Proxy, TCP Proxy, and Network Load Balancing - INTERNAL is used
- *  for: - Protocol forwarding to VMs from an internal IP address - Internal
- *  TCP/UDP Load Balancing - INTERNAL_MANAGED is used for: - Internal HTTP(S)
- *  Load Balancing - INTERNAL_SELF_MANAGED is used for: - Traffic Director For
- *  more information about forwarding rules, refer to Forwarding rule concepts.
+ *  Specifies the forwarding rule type. For more information about forwarding
+ *  rules, refer to Forwarding rule concepts.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_ForwardingRule_LoadBalancingScheme_External Value
@@ -38664,21 +38695,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
- *  Opaque filter criteria used by Loadbalancer to restrict routing
+ *  Opaque filter criteria used by load balancer to restrict routing
  *  configuration to a limited set of xDS compliant clients. In their xDS
- *  requests to Loadbalancer, xDS clients present node metadata. When there is a
- *  match, the relevant configuration is made available to those proxies.
+ *  requests to load balancer, xDS clients present node metadata. When there is
+ *  a match, the relevant configuration is made available to those proxies.
  *  Otherwise, all the resources (e.g. TargetHttpProxy, UrlMap) referenced by
- *  the ForwardingRule will not be visible to those proxies. For each
- *  metadataFilter in this list, if its filterMatchCriteria is set to MATCH_ANY,
- *  at least one of the filterLabels must match the corresponding label provided
- *  in the metadata. If its filterMatchCriteria is set to MATCH_ALL, then all of
- *  its filterLabels must match with corresponding labels provided in the
- *  metadata. If multiple metadataFilters are specified, all of them need to be
- *  satisfied in order to be considered a match. metadataFilters specified here
- *  will be applifed before those specified in the UrlMap that this
- *  ForwardingRule references. metadataFilters only applies to Loadbalancers
- *  that have their loadBalancingScheme set to INTERNAL_SELF_MANAGED.
+ *  the ForwardingRule are not visible to those proxies. For each metadataFilter
+ *  in this list, if its filterMatchCriteria is set to MATCH_ANY, at least one
+ *  of the filterLabels must match the corresponding label provided in the
+ *  metadata. If its filterMatchCriteria is set to MATCH_ALL, then all of its
+ *  filterLabels must match with corresponding labels provided in the metadata.
+ *  If multiple metadataFilters are specified, all of them need to be satisfied
+ *  in order to be considered a match. metadataFilters specified here will be
+ *  applifed before those specified in the UrlMap that this ForwardingRule
+ *  references. metadataFilters only applies to Loadbalancers that have their
+ *  loadBalancingScheme set to INTERNAL_SELF_MANAGED.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_MetadataFilter *> *metadataFilters;
 
@@ -38729,26 +38760,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  to target or backend_service. You can only use one of ports, port_range, or
  *  allPorts. The three are mutually exclusive. Forwarding rules with the same
  *  [IPAddress, IPProtocol] pair must have disjoint ports. Some types of
- *  forwarding target have constraints on the acceptable ports: -
- *  TargetHttpProxy: 80, 8080 - TargetHttpsProxy: 443 - TargetGrpcProxy: no
- *  constraints - TargetTcpProxy: 25, 43, 110, 143, 195, 443, 465, 587, 700,
- *  993, 995, 1688, 1883, 5222 - TargetSslProxy: 25, 43, 110, 143, 195, 443,
- *  465, 587, 700, 993, 995, 1688, 1883, 5222 - TargetVpnGateway: 500, 4500
+ *  forwarding target have constraints on the acceptable ports. For more
+ *  information, see [Port
+ *  specifications](https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#port_specifications).
  *  \@pattern: \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, copy, nullable) NSString *portRange;
 
 /**
  *  The ports field is only supported when the forwarding rule references a
- *  backend_service directly. Supported load balancing products are Internal
- *  TCP/UDP Load Balancing and Network Load Balancing. Only packets addressed to
- *  the specified list of ports are forwarded to backends. You can only use one
- *  of ports and port_range, or allPorts. The three are mutually exclusive. You
- *  can specify a list of up to five ports, which can be non-contiguous.
- *  Forwarding rules with the same [IPAddress, IPProtocol] pair must have
- *  disjoint ports. For more information, see [Port
- *  specifications](/load-balancing/docs/forwarding-rule-concepts#port_specifications).
- *  \@pattern: \\\\d+(?:-\\\\d+)?
+ *  backend_service directly. Only packets addressed to the [specified list of
+ *  ports]((https://cloud.google.com/load-balancing/docs/forwarding-rule-concepts#port_specifications))
+ *  are forwarded to backends. You can only use one of ports and port_range, or
+ *  allPorts. The three are mutually exclusive. You can specify a list of up to
+ *  five ports, which can be non-contiguous. Forwarding rules with the same
+ *  [IPAddress, IPProtocol] pair must have disjoint ports. \@pattern:
+ *  \\\\d+(?:-\\\\d+)?
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ports;
 
@@ -38758,6 +38785,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *  Uses NSNumber of unsignedLongLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pscConnectionId;
+
+/**
+ *  pscConnectionStatus
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Accepted The
+ *        connection has been accepted by the producer. (Value: "ACCEPTED")
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Closed The
+ *        connection has been closed by the producer and will not serve traffic
+ *        going forward. (Value: "CLOSED")
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Pending The
+ *        connection is pending acceptance by the producer. (Value: "PENDING")
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_Rejected The
+ *        connection has been rejected by the producer. (Value: "REJECTED")
+ *    @arg @c kGTLRCompute_ForwardingRule_PscConnectionStatus_StatusUnspecified
+ *        Value "STATUS_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *pscConnectionStatus;
 
 /**
  *  [Output Only] URL of the region where the regional forwarding rule resides.
@@ -38773,8 +38818,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Service Directory resources to register this forwarding rule with.
  *  Currently, only supports a single Service Directory resource. It is only
- *  supported for Internal TCP/UDP Load Balancing and Internal HTTP(S) Load
- *  Balancing.
+ *  supported for internal load balancing.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCompute_ForwardingRuleServiceDirectoryRegistration *> *serviceDirectoryRegistrations;
 
@@ -38797,11 +38841,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *serviceName;
 
 /**
- *  This field is only used for internal load balancing. For internal load
- *  balancing, this field identifies the subnetwork that the load balanced IP
- *  should belong to for this Forwarding Rule. If the network specified is in
- *  auto subnet mode, this field is optional. However, if the network is in
- *  custom subnet mode, a subnetwork must be specified.
+ *  This field identifies the subnetwork that the load balanced IP should belong
+ *  to for this Forwarding Rule, used in internal load balancing and network
+ *  load balancing with IPv6. If the network specified is in auto subnet mode,
+ *  this field is optional. However, a subnetwork must be specified if the
+ *  network is in custom subnet mode or when creating external forwarding rule
+ *  with IPv6.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -40171,7 +40216,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
- *  List of URLs to the HealthCheck resources. Must have at least one
+ *  A list of URLs to the HealthCheck resources. Must have at least one
  *  HealthCheck, and not more than 10. HealthCheck resources must have
  *  portSpecification=USE_SERVING_PORT or portSpecification=USE_FIXED_PORT. For
  *  regional HealthCheckService, the HealthCheck must be regional and in the
@@ -40229,15 +40274,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  List of URLs to the NetworkEndpointGroup resources. Must not have more than
- *  100. For regional HealthCheckService, NEGs must be in zones in the region of
- *  the HealthCheckService.
+ *  A list of URLs to the NetworkEndpointGroup resources. Must not have more
+ *  than 100. For regional HealthCheckService, NEGs must be in zones in the
+ *  region of the HealthCheckService.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *networkEndpointGroups;
 
 /**
- *  List of URLs to the NotificationEndpoint resources. Must not have more than
- *  10. A list of endpoints for receiving notifications of change in health
+ *  A list of URLs to the NotificationEndpoint resources. Must not have more
+ *  than 10. A list of endpoints for receiving notifications of change in health
  *  status. For regional HealthCheckService, NotificationEndpoint must be
  *  regional and in the same region. For global HealthCheckService,
  *  NotificationEndpoint must be global.
@@ -47021,7 +47066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 @property(nonatomic, copy, nullable) NSString *interconnect;
 
 /**
- *  List of URL of addresses that have been reserved for the VLAN attachment.
+ *  A list of URLs of addresses that have been reserved for the VLAN attachment.
  *  Used only for the VLAN attachment that has the encryption option as IPSEC.
  *  The addresses must be regional internal IP address ranges. When creating an
  *  HA VPN gateway over the VLAN attachment, if the attachment is configured to
@@ -50379,7 +50424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
 /**
  *  Type of network endpoints in this network endpoint group. Can be one of
  *  GCE_VM_IP_PORT, NON_GCP_PRIVATE_IP_PORT, INTERNET_FQDN_PORT,
- *  INTERNET_IP_PORT, or SERVERLESS.
+ *  INTERNET_IP_PORT, SERVERLESS, PRIVATE_SERVICE_CONNECT.
  *
  *  Likely values:
  *    @arg @c kGTLRCompute_NetworkEndpointGroup_NetworkEndpointType_GceVmIp The
@@ -51375,6 +51420,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "VIRTIO_NET")
  */
 @property(nonatomic, copy, nullable) NSString *nicType;
+
+/**
+ *  The networking queue count that's specified by users for the network
+ *  interface. Both Rx and Tx queues will be set to this number. It'll be empty
+ *  if not specified by the users.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *queueCount;
 
 /**
  *  The stack type for this network interface to identify whether the IPv6
@@ -57640,6 +57694,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "PREEMPTIBLE_NVIDIA_V100_GPUS"
  *    @arg @c kGTLRCompute_Quota_Metric_PscIlbConsumerForwardingRulesPerProducerNetwork
  *        Value "PSC_ILB_CONSUMER_FORWARDING_RULES_PER_PRODUCER_NETWORK"
+ *    @arg @c kGTLRCompute_Quota_Metric_PscInternalLbForwardingRules Value
+ *        "PSC_INTERNAL_LB_FORWARDING_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_PublicAdvertisedPrefixes Value
  *        "PUBLIC_ADVERTISED_PREFIXES"
  *    @arg @c kGTLRCompute_Quota_Metric_PublicDelegatedPrefixes Value
@@ -57663,6 +57719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachabl
  *        "SECURITY_POLICY_RULES"
  *    @arg @c kGTLRCompute_Quota_Metric_SecurityPolicyRulesPerRegion Value
  *        "SECURITY_POLICY_RULES_PER_REGION"
+ *    @arg @c kGTLRCompute_Quota_Metric_ServiceAttachments Value
+ *        "SERVICE_ATTACHMENTS"
  *    @arg @c kGTLRCompute_Quota_Metric_Snapshots The total number of snapshots
  *        allowed for a single project. (Value: "SNAPSHOTS")
  *    @arg @c kGTLRCompute_Quota_Metric_SsdTotalGb Value "SSD_TOTAL_GB"

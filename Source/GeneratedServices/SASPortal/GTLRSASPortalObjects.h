@@ -602,6 +602,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSASPortal_InstallationParams_HeightType_
  *  Device data overridable by both SAS Portal and registration requests.
  */
 @interface GTLRSASPortal_DeviceMetadata : GTLRObject
+
+/**
+ *  If populated, the Antenna Model Pattern to use. Format is:
+ *  RecordCreatorId:PatternId
+ */
+@property(nonatomic, copy, nullable) NSString *antennaModel;
+
 @end
 
 

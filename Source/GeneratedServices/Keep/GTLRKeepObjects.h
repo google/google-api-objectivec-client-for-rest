@@ -7,7 +7,7 @@
 //   This API is an enterprise-only API used to create and manage the Keep notes
 //   within your domain, including resolving issues identified by CASB software.
 // Documentation:
-//   https://support.google.com/keep
+//   https://developers.google.com/keep/api
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

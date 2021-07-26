@@ -16,6 +16,15 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRLogging_CopyLogEntriesMetadata.state
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateCancelled = @"OPERATION_STATE_CANCELLED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateFailed = @"OPERATION_STATE_FAILED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateRunning = @"OPERATION_STATE_RUNNING";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateScheduled = @"OPERATION_STATE_SCHEDULED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateSucceeded = @"OPERATION_STATE_SUCCEEDED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateUnspecified = @"OPERATION_STATE_UNSPECIFIED";
+NSString * const kGTLRLogging_CopyLogEntriesMetadata_State_OperationStateWaitingForPermissions = @"OPERATION_STATE_WAITING_FOR_PERMISSIONS";
+
 // GTLRLogging_LabelDescriptor.valueType
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Bool   = @"BOOL";
 NSString * const kGTLRLogging_LabelDescriptor_ValueType_Int64  = @"INT64";
@@ -129,11 +138,51 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_CancelOperationRequest
+//
+
+@implementation GTLRLogging_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_CmekSettings
 //
 
 @implementation GTLRLogging_CmekSettings
 @dynamic kmsKeyName, name, serviceAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_CopyLogEntriesMetadata
+//
+
+@implementation GTLRLogging_CopyLogEntriesMetadata
+@dynamic cancellationRequested, endTime, progress, request, startTime, state,
+         writerIdentity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_CopyLogEntriesRequest
+//
+
+@implementation GTLRLogging_CopyLogEntriesRequest
+@dynamic destination, filter, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_CopyLogEntriesResponse
+//
+
+@implementation GTLRLogging_CopyLogEntriesResponse
+@dynamic logEntriesCopiedCount;
 @end
 
 
@@ -375,6 +424,28 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSString *)collectionItemsKey {
   return @"resourceDescriptors";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_ListOperationsResponse
+//
+
+@implementation GTLRLogging_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRLogging_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
 }
 
 @end
@@ -779,6 +850,44 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_Operation
+//
+
+@implementation GTLRLogging_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Operation_Metadata
+//
+
+@implementation GTLRLogging_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Operation_Response
+//
+
+@implementation GTLRLogging_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_RequestLog
 //
 
@@ -818,6 +927,38 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_SourceReference
 @dynamic repository, revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Status
+//
+
+@implementation GTLRLogging_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRLogging_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_Status_Details_Item
+//
+
+@implementation GTLRLogging_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

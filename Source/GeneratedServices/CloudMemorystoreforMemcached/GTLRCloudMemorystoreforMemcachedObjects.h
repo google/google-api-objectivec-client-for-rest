@@ -826,6 +826,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_UpdatePolic
 /** The id of the node. This should be equal to SaasInstanceNode.node_id. */
 @property(nonatomic, copy, nullable) NSString *nodeId;
 
+/**
+ *  If present, this will override eligibility for the node coming from instance
+ *  or exclusions for specified SLIs.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GoogleCloudSaasacceleratorManagementProvidersV1PerSliSloEligibility *perSliEligibility;
+
 @end
 
 

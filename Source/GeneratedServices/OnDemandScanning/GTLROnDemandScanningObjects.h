@@ -262,9 +262,23 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Vulnera
 // ----------------------------------------------------------------------------
 // GTLROnDemandScanning_PackageData.packageType
 
-/** Value: "GO" */
+/**
+ *  Go third-party packages.
+ *
+ *  Value: "GO"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Go;
-/** Value: "MAVEN" */
+/**
+ *  Go toolchain + standard library packages.
+ *
+ *  Value: "GO_STDLIB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_GoStdlib;
+/**
+ *  Java packages from Maven.
+ *
+ *  Value: "MAVEN"
+ */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_PackageData_PackageType_Maven;
 /**
  *  Operating System
@@ -1320,8 +1334,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  The type of package: os, maven, go, etc.
  *
  *  Likely values:
- *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Go Value "GO"
- *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Maven Value "MAVEN"
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Go Go third-party
+ *        packages. (Value: "GO")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_GoStdlib Go
+ *        toolchain + standard library packages. (Value: "GO_STDLIB")
+ *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Maven Java packages
+ *        from Maven. (Value: "MAVEN")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_Os Operating System
  *        (Value: "OS")
  *    @arg @c kGTLROnDemandScanning_PackageData_PackageType_PackageTypeUnspecified

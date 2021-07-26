@@ -19,6 +19,12 @@ NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_SomewhatUseful = @"SOMEWHAT_USEFUL";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_VeryUseful = @"VERY_USEFUL";
 
+// GTLRAlertCenter_AppsOutage.status
+NSString * const kGTLRAlertCenter_AppsOutage_Status_New        = @"NEW";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Ongoing    = @"ONGOING";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_Resolved   = @"RESOLVED";
+NSString * const kGTLRAlertCenter_AppsOutage_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRAlertCenter_CloudPubsubTopic.payloadFormat
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_Json = @"JSON";
 NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified = @"PAYLOAD_FORMAT_UNSPECIFIED";
@@ -177,6 +183,24 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_AppSettingsChanged
 @dynamic alertDetails, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AppsOutage
+//
+
+@implementation GTLRAlertCenter_AppsOutage
+@dynamic dashboardUri, nextUpdateTime, products, resolutionTime, status;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -559,16 +583,6 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDea
 
 @implementation GTLRAlertCenter_Notification
 @dynamic cloudPubsubTopic;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAlertCenter_OutOfDomainForwarding
-//
-
-@implementation GTLRAlertCenter_OutOfDomainForwarding
-@dynamic actorEmail, enableTime, forwardeeEmail, ipAddress;
 @end
 
 

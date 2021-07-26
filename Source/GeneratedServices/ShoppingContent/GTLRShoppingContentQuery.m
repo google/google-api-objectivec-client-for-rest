@@ -362,7 +362,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @implementation GTLRShoppingContentQuery_AccountsList
 
-@dynamic label, maxResults, merchantId, pageToken, view;
+@dynamic label, maxResults, merchantId, name, pageToken, view;
 
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId {
   NSArray *pathParams = @[ @"merchantId" ];
@@ -397,6 +397,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.accountId = accountId;
   query.expectedObjectClass = [GTLRShoppingContent_AccountsListLinksResponse class];
   query.loggingName = @"content.accounts.listlinks";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsRequestphoneverification
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestPhoneVerificationRequest *)object
+                     merchantId:(long long)merchantId
+                      accountId:(long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/requestphoneverification";
+  GTLRShoppingContentQuery_AccountsRequestphoneverification *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_RequestPhoneVerificationResponse class];
+  query.loggingName = @"content.accounts.requestphoneverification";
   return query;
 }
 
@@ -555,7 +586,7 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
 
 @implementation GTLRShoppingContentQuery_AccountstatusesList
 
-@dynamic destinations, maxResults, merchantId, pageToken;
+@dynamic destinations, maxResults, merchantId, name, pageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -636,6 +667,37 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.accountId = accountId;
   query.expectedObjectClass = [GTLRShoppingContent_AccountsUpdateLabelsResponse class];
   query.loggingName = @"content.accounts.updatelabels";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_AccountsVerifyphonenumber
+
+@dynamic accountId, merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_VerifyPhoneNumberRequest *)object
+                     merchantId:(long long)merchantId
+                      accountId:(long long)accountId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"accountId", @"merchantId"
+  ];
+  NSString *pathURITemplate = @"{merchantId}/accounts/{accountId}/verifyphonenumber";
+  GTLRShoppingContentQuery_AccountsVerifyphonenumber *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.accountId = accountId;
+  query.expectedObjectClass = [GTLRShoppingContent_VerifyPhoneNumberResponse class];
+  query.loggingName = @"content.accounts.verifyphonenumber";
   return query;
 }
 
@@ -1311,6 +1373,51 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.datafeedId = datafeedId;
   query.expectedObjectClass = [GTLRShoppingContent_Datafeed class];
   query.loggingName = @"content.datafeeds.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_FreelistingsprogramGet
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/freelistingsprogram";
+  GTLRShoppingContentQuery_FreelistingsprogramGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_FreeListingsProgramStatus class];
+  query.loggingName = @"content.freelistingsprogram.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_FreelistingsprogramRequestreview
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewFreeListingsRequest *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/freelistingsprogram/requestreview";
+  GTLRShoppingContentQuery_FreelistingsprogramRequestreview *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.loggingName = @"content.freelistingsprogram.requestreview";
   return query;
 }
 
@@ -3920,6 +4027,51 @@ NSString * const kGTLRShoppingContentViewMerchant = @"MERCHANT";
   query.accountId = accountId;
   query.expectedObjectClass = [GTLRShoppingContent_ShippingSettings class];
   query.loggingName = @"content.shippingsettings.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShoppingadsprogramGet
+
+@dynamic merchantId;
+
++ (instancetype)queryWithMerchantId:(long long)merchantId {
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/shoppingadsprogram";
+  GTLRShoppingContentQuery_ShoppingadsprogramGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.merchantId = merchantId;
+  query.expectedObjectClass = [GTLRShoppingContent_ShoppingAdsProgramStatus class];
+  query.loggingName = @"content.shoppingadsprogram.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRShoppingContentQuery_ShoppingadsprogramRequestreview
+
+@dynamic merchantId;
+
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewShoppingAdsRequest *)object
+                     merchantId:(long long)merchantId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"merchantId" ];
+  NSString *pathURITemplate = @"{merchantId}/shoppingadsprogram/requestreview";
+  GTLRShoppingContentQuery_ShoppingadsprogramRequestreview *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.merchantId = merchantId;
+  query.loggingName = @"content.shoppingadsprogram.requestreview";
   return query;
 }
 

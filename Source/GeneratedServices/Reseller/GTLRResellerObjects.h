@@ -51,13 +51,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified;
 /**
- *  Domained or domain owning customers
+ *  Domained or domain-owning customers
  *
  *  Value: "DOMAIN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Domain;
 /**
- *  Domainless customers
+ *  Domainless or email-verified customers
  *
  *  Value: "TEAM"
  */
@@ -175,7 +175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
  *  Like the "Customer email" in the reseller tools, this email is the secondary
  *  contact used if something happens to the customer's service such as service
  *  outage or a security issue. This property is required when creating a new
- *  customer and should not use the same domain as `customerDomain`.
+ *  "domain" customer and should not use the same domain as `customerDomain`.
+ *  The `alternateEmail` field is not necessary to create a "team" customer.
  */
 @property(nonatomic, copy, nullable) NSString *alternateEmail;
 
@@ -201,15 +202,18 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  The type of the customer (DOMAIN or TEAM), default is DOMAIN.
+ *  Identifies the type of the customer. Acceptable values include: * `domain`:
+ *  Implies a domain-verified customer (default). * `team`: Implies an
+ *  email-verified customer. For more information, see [managed
+ *  teams](https://support.google.com/a/users/answer/9939479).
  *
  *  Likely values:
  *    @arg @c kGTLRReseller_Customer_CustomerType_CustomerTypeUnspecified
  *        Customer type not known (Value: "CUSTOMER_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRReseller_Customer_CustomerType_Domain Domained or domain
- *        owning customers (Value: "DOMAIN")
- *    @arg @c kGTLRReseller_Customer_CustomerType_Team Domainless customers
- *        (Value: "TEAM")
+ *    @arg @c kGTLRReseller_Customer_CustomerType_Domain Domained or
+ *        domain-owning customers (Value: "DOMAIN")
+ *    @arg @c kGTLRReseller_Customer_CustomerType_Team Domainless or
+ *        email-verified customers (Value: "TEAM")
  */
 @property(nonatomic, copy, nullable) NSString *customerType;
 
@@ -275,8 +279,11 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
 @interface GTLRReseller_PrimaryAdmin : GTLRObject
 
 /**
- *  Primary admin's domained email This email's domain will be used to create
- *  TEAM customer
+ *  The business email of the primary administrator of the customer. The email
+ *  verification link is sent to this email address at the time of customer
+ *  creation. Primary administrators have access to the customer's Admin
+ *  Console, including the ability to invite and evict users and manage the
+ *  administrative needs of the customer.
  */
 @property(nonatomic, copy, nullable) NSString *primaryEmail;
 
@@ -539,9 +546,10 @@ FOUNDATION_EXTERN NSString * const kGTLRReseller_Customer_CustomerType_Team;
 @interface GTLRReseller_Subscription_TransferInfo : GTLRObject
 
 /**
- *  Sku id of the current resold subscription. This is populated only when
- *  customer has subscription with legacy sku and the subscription resource is
- *  populated with recommeded sku for transfer in.
+ *  The `skuId` of the current resold subscription. This is populated only when
+ *  the customer has a subscription with a legacy SKU and the subscription
+ *  resource is populated with the `skuId` of the SKU recommended for the
+ *  transfer.
  */
 @property(nonatomic, copy, nullable) NSString *currentLegacySkuId;
 

@@ -486,6 +486,16 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsData_MinuteRange
+//
+
+@implementation GTLRAnalyticsData_MinuteRange
+@dynamic endMinutesAgo, name, startMinutesAgo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsData_NumericFilter
 //
 
@@ -707,13 +717,14 @@ NSString * const kGTLRAnalyticsData_StringFilter_MatchType_PartialRegexp = @"PAR
 
 @implementation GTLRAnalyticsData_RunRealtimeReportRequest
 @dynamic dimensionFilter, dimensions, limit, metricAggregations, metricFilter,
-         metrics, orderBys, returnPropertyQuota;
+         metrics, minuteRanges, orderBys, returnPropertyQuota;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dimensions" : [GTLRAnalyticsData_Dimension class],
     @"metricAggregations" : [NSString class],
     @"metrics" : [GTLRAnalyticsData_Metric class],
+    @"minuteRanges" : [GTLRAnalyticsData_MinuteRange class],
     @"orderBys" : [GTLRAnalyticsData_OrderBy class]
   };
   return map;

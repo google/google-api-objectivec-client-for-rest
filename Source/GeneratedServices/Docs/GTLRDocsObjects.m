@@ -1543,8 +1543,8 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_ParagraphElement
 @dynamic autoText, columnBreak, endIndex, equation, footnoteReference,
-         horizontalRule, inlineObjectElement, pageBreak, person, startIndex,
-         textRun;
+         horizontalRule, inlineObjectElement, pageBreak, person, richLink,
+         startIndex, textRun;
 @end
 
 
@@ -1790,6 +1790,50 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_RgbColor
 @dynamic blue, green, red;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_RichLink
+//
+
+@implementation GTLRDocs_RichLink
+@dynamic richLinkId, richLinkProperties, suggestedDeletionIds,
+         suggestedInsertionIds, suggestedTextStyleChanges, textStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedDeletionIds" : [NSString class],
+    @"suggestedInsertionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_RichLink_SuggestedTextStyleChanges
+//
+
+@implementation GTLRDocs_RichLink_SuggestedTextStyleChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedTextStyle class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_RichLinkProperties
+//
+
+@implementation GTLRDocs_RichLinkProperties
+@dynamic mimeType, title, uri;
 @end
 
 

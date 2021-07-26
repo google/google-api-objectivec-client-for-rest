@@ -5484,6 +5484,34 @@ NSString * const kGTLRComputeMostDisruptiveAllowedActionRestart = @"RESTART";
 
 @end
 
+@implementation GTLRComputeQuery_InstancesSendDiagnosticInterrupt
+
+@dynamic instance, project, zoneProperty;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"zoneProperty" : @"zone" };
+}
+
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project", @"zone"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/zones/{zone}/instances/{instance}/sendDiagnosticInterrupt";
+  GTLRComputeQuery_InstancesSendDiagnosticInterrupt *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.zoneProperty = zoneProperty;
+  query.instance = instance;
+  query.loggingName = @"compute.instances.sendDiagnosticInterrupt";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_InstancesSetDeletionProtection
 
 @dynamic deletionProtection, project, requestId, resource, zoneProperty;

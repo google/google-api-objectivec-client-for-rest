@@ -29,6 +29,37 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity.type
+
+/**
+ *  An idea activity type indicating a post has been deleted.
+ *
+ *  Value: "POST_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDeleted;
+/**
+ *  An idea activity type indicating a post has been drafted.
+ *
+ *  Value: "POST_DRAFTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDrafted;
+/**
+ *  An idea activity type indicating a post has been published.
+ *
+ *  Value: "POST_PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostPublished;
+/**
+ *  An unspecified, unknown type of idea activity.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_TypeUnspecified;
+
 /**
  *  Represents locales that are available for a web property.
  */
@@ -60,6 +91,48 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The Topics that match the idea. */
 @property(nonatomic, strong, nullable) NSArray<GTLRIdeahub_GoogleSearchIdeahubV1alphaTopic *> *topics;
+
+@end
+
+
+/**
+ *  An idea activity entry.
+ */
+@interface GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity : GTLRObject
+
+/** The Idea IDs for this entry. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ideaIds;
+
+/**
+ *  Unique identifier for the idea activity. Format:
+ *  platforms/{platform}/properties/{property}/ideaActivities/{idea_activity}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The Topic IDs for this entry. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
+
+/**
+ *  The type of activity performed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDeleted
+ *        An idea activity type indicating a post has been deleted. (Value:
+ *        "POST_DELETED")
+ *    @arg @c kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostDrafted
+ *        An idea activity type indicating a post has been drafted. (Value:
+ *        "POST_DRAFTED")
+ *    @arg @c kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_PostPublished
+ *        An idea activity type indicating a post has been published. (Value:
+ *        "POST_PUBLISHED")
+ *    @arg @c kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_TypeUnspecified
+ *        An unspecified, unknown type of idea activity. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** The uri the activity relates to. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 

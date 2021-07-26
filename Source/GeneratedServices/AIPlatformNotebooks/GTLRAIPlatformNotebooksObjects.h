@@ -4,10 +4,9 @@
 // API:
 //   Notebooks API (notebooks/v1)
 // Description:
-//   AI Platform Notebooks API is used to manage notebook resources in Google
-//   Cloud.
+//   Notebooks API is used to manage notebook resources in Google Cloud.
 // Documentation:
-//   https://cloud.google.com/ai-platform/notebooks/docs/
+//   https://cloud.google.com/notebooks/docs/
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;
@@ -27,6 +26,7 @@
 @class GTLRAIPlatformNotebooks_Disk;
 @class GTLRAIPlatformNotebooks_EncryptionConfig;
 @class GTLRAIPlatformNotebooks_Environment;
+@class GTLRAIPlatformNotebooks_Event;
 @class GTLRAIPlatformNotebooks_Execution;
 @class GTLRAIPlatformNotebooks_ExecutionTemplate;
 @class GTLRAIPlatformNotebooks_ExecutionTemplate_Labels;
@@ -48,6 +48,7 @@
 @class GTLRAIPlatformNotebooks_Operation_Response;
 @class GTLRAIPlatformNotebooks_Policy;
 @class GTLRAIPlatformNotebooks_ReportInstanceInfoRequest_Metadata;
+@class GTLRAIPlatformNotebooks_ReservationAffinity;
 @class GTLRAIPlatformNotebooks_Runtime;
 @class GTLRAIPlatformNotebooks_RuntimeAcceleratorConfig;
 @class GTLRAIPlatformNotebooks_RuntimeAccessConfig;
@@ -157,6 +158,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_TpuV3;
 
 // ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_Event.type
+
+/**
+ *  Event is not specified.
+ *
+ *  Value: "EVENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified;
+/**
+ *  The instance / runtime is idle
+ *
+ *  Value: "IDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Event_Type_Idle;
+
+// ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Execution.state
 
 /**
@@ -186,6 +203,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Expi
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Failed;
+/**
+ *  The Execution is being created.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Execution_State_Initializing;
 /**
  *  The service is preparing to execution the job.
  *
@@ -510,6 +533,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeP
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_LocalDiskInitializeParams_DiskType_PdStandard;
 
 // ----------------------------------------------------------------------------
+// GTLRAIPlatformNotebooks_ReservationAffinity.consumeReservationType
+
+/**
+ *  Consume any reservation available.
+ *
+ *  Value: "ANY_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_AnyReservation;
+/**
+ *  Do not consume from any allocated capacity.
+ *
+ *  Value: "NO_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_NoReservation;
+/**
+ *  Must consume from a specific reservation. Must specify key value fields for
+ *  specifying the reservations.
+ *
+ *  Value: "SPECIFIC_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_SpecificReservation;
+/**
+ *  Default type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAIPlatformNotebooks_Runtime.healthState
 
 /**
@@ -688,6 +740,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_RuntimeAccessConfig_
 // GTLRAIPlatformNotebooks_Schedule.state
 
 /**
+ *  The schedule resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Deleting;
+/**
  *  The job is disabled by the system due to error. The user cannot directly set
  *  a job to be disabled.
  *
@@ -700,6 +758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Disab
  *  Value: "ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Enabled;
+/**
+ *  The schedule resource is being created.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_Schedule_State_Initializing;
 /**
  *  The job is paused by the user. It will not execute. A user can intentionally
  *  pause the job using PauseJobRequest.
@@ -1226,6 +1290,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  The definition of an Event for a managed / semi-managed notebook instance.
+ */
+@interface GTLRAIPlatformNotebooks_Event : GTLRObject
+
+/** Event report time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *reportTime;
+
+/**
+ *  Event type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_EventTypeUnspecified Event is
+ *        not specified. (Value: "EVENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Event_Type_Idle The instance / runtime is
+ *        idle (Value: "IDLE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  The definition of a single executed notebook.
  */
 @interface GTLRAIPlatformNotebooks_Execution : GTLRObject
@@ -1248,6 +1334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /** execute metadata including name, hardware spec, region, labels, etc. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ExecutionTemplate *executionTemplate;
+
+/** Output only. The URI of the external job used to execute the notebook. */
+@property(nonatomic, copy, nullable) NSString *jobUri;
 
 /**
  *  Output only. The resource name of the execute. Format:
@@ -1275,6 +1364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Failed The job failed.
  *        `error_message` should contain the details of the failure. (Value:
  *        "FAILED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Initializing The
+ *        Execution is being created. (Value: "INITIALIZING")
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Preparing The service is
  *        preparing to execution the job. (Value: "PREPARING")
  *    @arg @c kGTLRAIPlatformNotebooks_Execution_State_Queued The job has been
@@ -1367,7 +1458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, copy, nullable) NSString *paramsYamlFile;
 
 /**
- *  Required. Scale tier of the hardware used for notebook execution.
+ *  Required. Scale tier of the hardware used for notebook execution. DEPRECATED
+ *  Will be discontinued. As right now only CUSTOM is supported.
  *
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_ExecutionTemplate_ScaleTier_Basic A
@@ -1740,6 +1832,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  Output only. The proxy endpoint that is used to access the Jupyter notebook.
  */
 @property(nonatomic, copy, nullable) NSString *proxyUri;
+
+/**
+ *  Optional. The optional reservation affinity. Setting this field will apply
+ *  the specified [Zonal Compute
+ *  Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
+ *  to this notebook instance.
+ */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_ReservationAffinity *reservationAffinity;
 
 /**
  *  The service account on this instance, giving access to other Google Cloud
@@ -2117,29 +2217,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @interface GTLRAIPlatformNotebooks_LocalDisk : GTLRObject
 
 /**
- *  Output only. Specifies whether the disk will be auto-deleted when the
- *  instance is deleted (but not when the disk is detached from the instance).
+ *  Optional. Output only. Specifies whether the disk will be auto-deleted when
+ *  the instance is deleted (but not when the disk is detached from the
+ *  instance).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autoDelete;
 
 /**
- *  Output only. Indicates that this is a boot disk. The virtual machine will
- *  use the first partition of the disk for its root filesystem.
+ *  Optional. Output only. Indicates that this is a boot disk. The virtual
+ *  machine will use the first partition of the disk for its root filesystem.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *boot;
 
 /**
- *  Output only. Specifies a unique device name of your choice that is reflected
- *  into the /dev/disk/by-id/google-* tree of a Linux operating system running
- *  within the instance. This name can be used to reference the device for
- *  mounting, resizing, and so on, from within the instance. If not specified,
- *  the server chooses a default device name to apply to this disk, in the form
- *  persistent-disk-x, where x is a number assigned by Google Compute Engine.
- *  This field is only applicable for persistent disks.
+ *  Optional. Output only. Specifies a unique device name of your choice that is
+ *  reflected into the /dev/disk/by-id/google-* tree of a Linux operating system
+ *  running within the instance. This name can be used to reference the device
+ *  for mounting, resizing, and so on, from within the instance. If not
+ *  specified, the server chooses a default device name to apply to this disk,
+ *  in the form persistent-disk-x, where x is a number assigned by Google
+ *  Compute Engine. This field is only applicable for persistent disks.
  */
 @property(nonatomic, copy, nullable) NSString *deviceName;
 
@@ -2151,20 +2252,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_RuntimeGuestOsFeature *> *guestOsFeatures;
 
 /**
- *  Output only. [Output Only] A zero-based index to this disk, where 0 is
- *  reserved for the boot disk. If you have many disks attached to an instance,
- *  each disk would have a unique index number.
+ *  Output only. A zero-based index to this disk, where 0 is reserved for the
+ *  boot disk. If you have many disks attached to an instance, each disk would
+ *  have a unique index number.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *index;
 
 /**
- *  Input only. [Input Only] Specifies the parameters for a new disk that will
- *  be created alongside the new instance. Use initialization parameters to
- *  create boot disks or local SSDs attached to the new instance. This property
- *  is mutually exclusive with the source property; you can only define one or
- *  the other, but not both.
+ *  Input only. Specifies the parameters for a new disk that will be created
+ *  alongside the new instance. Use initialization parameters to create boot
+ *  disks or local SSDs attached to the new instance. This property is mutually
+ *  exclusive with the source property; you can only define one or the other,
+ *  but not both.
  */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_LocalDiskInitializeParams *initializeParams;
 
@@ -2184,7 +2285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. [Output Only] Any valid publicly visible licenses. */
+/** Output only. Any valid publicly visible licenses. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *licenses;
 
 /**
@@ -2210,7 +2311,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  [Input Only] Specifies the parameters for a new disk that will be created
+ *  Input only. Specifies the parameters for a new disk that will be created
  *  alongside the new instance. Use initialization parameters to create boot
  *  disks or local SSDs attached to the new runtime. This property is mutually
  *  exclusive with the source property; you can only define one or the other,
@@ -2590,6 +2691,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
+ *  Request for reporting a Managed Notebook Event.
+ */
+@interface GTLRAIPlatformNotebooks_ReportRuntimeEventRequest : GTLRObject
+
+/** Required. The Event to be reported. */
+@property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Event *event;
+
+/**
+ *  Required. The VM hardware token for authenticating the VM.
+ *  https://cloud.google.com/compute/docs/instances/verifying-instance-identity
+ */
+@property(nonatomic, copy, nullable) NSString *vmId;
+
+@end
+
+
+/**
+ *  Reservation Affinity for consuming Zonal reservation.
+ */
+@interface GTLRAIPlatformNotebooks_ReservationAffinity : GTLRObject
+
+/**
+ *  Optional. Type of reservation to consume
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_AnyReservation
+ *        Consume any reservation available. (Value: "ANY_RESERVATION")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_NoReservation
+ *        Do not consume from any allocated capacity. (Value: "NO_RESERVATION")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_SpecificReservation
+ *        Must consume from a specific reservation. Must specify key value
+ *        fields for specifying the reservations. (Value:
+ *        "SPECIFIC_RESERVATION")
+ *    @arg @c kGTLRAIPlatformNotebooks_ReservationAffinity_ConsumeReservationType_TypeUnspecified
+ *        Default type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *consumeReservationType;
+
+/** Optional. Corresponds to the label key of reservation resource. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. Corresponds to the label values of reservation resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *values;
+
+@end
+
+
+/**
  *  Request for reseting a notebook instance
  */
 @interface GTLRAIPlatformNotebooks_ResetInstanceRequest : GTLRObject
@@ -2651,7 +2800,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  Output only. The resource name of the runtime. Format:
- *  `projects/{project}/locations/{location}/runtimes/{runtime}`
+ *  `projects/{project}/locations/{location}/runtimes/{runtimeId}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2778,16 +2927,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  A list of features to enable on the guest operating system. Applicable only
- *  for bootable images. Read Enabling guest operating system features to see a
- *  list of available options. Guest OS features for boot disk.
+ *  Optional. A list of features to enable on the guest operating system.
+ *  Applicable only for bootable images. Read [Enabling guest operating system
+ *  features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features)
+ *  to see a list of available options. Guest OS features for boot disk.
  */
 @interface GTLRAIPlatformNotebooks_RuntimeGuestOsFeature : GTLRObject
 
 /**
- *  The ID of a supported feature. Read Enabling guest operating system features
- *  to see a list of available options. Valid values: FEATURE_TYPE_UNSPECIFIED
- *  MULTI_IP_SUBNET SECURE_BOOT UEFI_COMPATIBLE VIRTIO_SCSI_MULTIQUEUE WINDOWS
+ *  The ID of a supported feature. Read [Enabling guest operating system
+ *  features](https://cloud.google.com/compute/docs/images/create-delete-deprecate-private-images#guest-os-features)
+ *  to see a list of available options. Valid values: * FEATURE_TYPE_UNSPECIFIED
+ *  * MULTI_IP_SUBNET * SECURE_BOOT * UEFI_COMPATIBLE * VIRTIO_SCSI_MULTIQUEUE *
+ *  WINDOWS
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2819,7 +2971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 /**
  *  A set of Shielded Instance options. Check [Images using supported Shielded
- *  VM features] Not all combinations are valid.
+ *  VM
+ *  features](https://cloud.google.com/compute/docs/instances/modifying-shielded-vm).
+ *  Not all combinations are valid.
  */
 @interface GTLRAIPlatformNotebooks_RuntimeShieldedInstanceConfig : GTLRObject
 
@@ -2855,11 +3009,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 
 
 /**
- *  Specifies the selection and config of software inside the runtime. / The
- *  properties to set on runtime. Properties keys are specified in `key:value`
- *  format, for example: * idle_shutdown: idle_shutdown=true *
- *  idle_shutdown_timeout: idle_shutdown_timeout=180 * report-system-health:
- *  report-system-health=true
+ *  Specifies the selection and configuration of software inside the runtime.
+ *  The properties to set on runtime. Properties keys are specified in
+ *  `key:value` format, for example: * `idle_shutdown: true` *
+ *  `idle_shutdown_timeout: 180` * `report-system-health: true`
  */
 @interface GTLRAIPlatformNotebooks_RuntimeSoftwareConfig : GTLRObject
 
@@ -2877,14 +3030,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
 @property(nonatomic, strong, nullable) NSNumber *enableHealthMonitoring;
 
 /**
- *  Runtime will automatically shutdown after idle_shutdown_time. Default: False
+ *  Runtime will automatically shutdown after idle_shutdown_time. Default: True
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *idleShutdown;
 
 /**
- *  Time in minutes to wait before shuting down runtime. Default: 90 minutes
+ *  Time in minutes to wait before shuting down runtime. Default: 180 minutes
  *
  *  Uses NSNumber of intValue.
  */
@@ -2960,11 +3113,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_VirtualMachineConfig
  *  state
  *
  *  Likely values:
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Deleting The schedule
+ *        resource is being deleted. (Value: "DELETING")
  *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Disabled The job is
  *        disabled by the system due to error. The user cannot directly set a
  *        job to be disabled. (Value: "DISABLED")
  *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Enabled The job is
  *        executing normally. (Value: "ENABLED")
+ *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Initializing The schedule
+ *        resource is being created. (Value: "INITIALIZING")
  *    @arg @c kGTLRAIPlatformNotebooks_Schedule_State_Paused The job is paused
  *        by the user. It will not execute. A user can intentionally pause the
  *        job using PauseJobRequest. (Value: "PAUSED")

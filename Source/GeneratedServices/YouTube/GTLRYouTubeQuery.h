@@ -1929,42 +1929,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @end
 
 /**
- *  Updates an existing resource.
- *
- *  Method: youtube.commentThreads.update
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeYouTubeForceSsl
- */
-@interface GTLRYouTubeQuery_CommentThreadsUpdate : GTLRYouTubeQuery
-
-/**
- *  The *part* parameter specifies a comma-separated list of commentThread
- *  resource properties that the API response will include. You must at least
- *  include the snippet part in the parameter value since that part contains all
- *  of the properties that the API request can update.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  Fetches a @c GTLRYouTube_CommentThread.
- *
- *  Updates an existing resource.
- *
- *  @param object The @c GTLRYouTube_CommentThread to include in the query.
- *  @param part The *part* parameter specifies a comma-separated list of
- *    commentThread resource properties that the API response will include. You
- *    must at least include the snippet part in the parameter value since that
- *    part contains all of the properties that the API request can update.
- *
- *  @return GTLRYouTubeQuery_CommentThreadsUpdate
- */
-+ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object
-                           part:(NSArray<NSString *> *)part;
-
-@end
-
-/**
  *  Retrieves a list of resources, possibly filtered.
  *
  *  Method: youtube.i18nLanguages.list
@@ -4064,9 +4028,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 /**
  *  Restrict results to a particular set of resource types from One Platform.
- *
- *  @note If not set, the documented server-side default will be
- *        video,channel,playlist.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
@@ -5384,6 +5345,34 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  @return GTLRYouTubeQuery_WatermarksUnset
  */
 + (instancetype)queryWithChannelId:(NSString *)channelId;
+
+@end
+
+/**
+ *  Updates an existing resource.
+ *
+ *  Method: youtube.youtube.v3.updateCommentThreads
+ */
+@interface GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads : GTLRYouTubeQuery
+
+/**
+ *  The *part* parameter specifies a comma-separated list of commentThread
+ *  resource properties that the API response will include. You must at least
+ *  include the snippet part in the parameter value since that part contains all
+ *  of the properties that the API request can update.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
+
+/**
+ *  Fetches a @c GTLRYouTube_CommentThread.
+ *
+ *  Updates an existing resource.
+ *
+ *  @param object The @c GTLRYouTube_CommentThread to include in the query.
+ *
+ *  @return GTLRYouTubeQuery_YoutubeV3UpdateCommentThreads
+ */
++ (instancetype)queryWithObject:(GTLRYouTube_CommentThread *)object;
 
 @end
 

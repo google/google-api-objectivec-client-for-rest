@@ -87,6 +87,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3EntityType_Kind_KindUn
 // GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Done = @"DONE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Draft = @"DRAFT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_RolloutFailed = @"ROLLOUT_FAILED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_Running = @"RUNNING";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Experiment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 

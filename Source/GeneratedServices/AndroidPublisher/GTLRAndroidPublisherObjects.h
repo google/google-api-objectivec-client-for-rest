@@ -284,7 +284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
- *  Information about a bundle. The resource for BundlesService.
+ *  Information about an app bundle. The resource for BundlesService.
  */
 @interface GTLRAndroidPublisher_Bundle : GTLRObject
 
@@ -312,11 +312,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_TrackRelease_Status_Sta
 
 
 /**
- *  Response listing all bundles.
+ *  Response listing all app bundles.
  */
 @interface GTLRAndroidPublisher_BundlesListResponse : GTLRObject
 
-/** All bundles. */
+/** All app bundles. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_Bundle *> *bundles;
 
 /** The kind of this response ("androidpublisher#bundlesListResponse"). */

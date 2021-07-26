@@ -64,8 +64,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeployments;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptDeploymentsReadonly;
 /**
- *  Authorization scope: See, create, and edit all Google Docs documents you
- *  have access to
+ *  Authorization scope: See, edit, create, and delete all your Google Docs
+ *  documents
  *
  *  Value "https://www.googleapis.com/auth/documents"
  */
@@ -135,8 +135,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjects;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeScriptProjectsReadonly;
 /**
- *  Authorization scope: See, edit, create, and delete your spreadsheets in
- *  Google Drive
+ *  Authorization scope: See, edit, create, and delete all your Google Sheets
+ *  spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */

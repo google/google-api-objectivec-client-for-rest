@@ -27,6 +27,7 @@
 @class GTLRDataprocMetastore_Binding;
 @class GTLRDataprocMetastore_DatabaseDump;
 @class GTLRDataprocMetastore_DataCatalogConfig;
+@class GTLRDataprocMetastore_EncryptionConfig;
 @class GTLRDataprocMetastore_Expr;
 @class GTLRDataprocMetastore_HiveMetastoreConfig;
 @class GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides;
@@ -116,6 +117,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Deleting;
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Failed;
+/**
+ *  The backup is being restored.
+ *
+ *  Value: "RESTORING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Backup_State_Restoring;
 /**
  *  The state of the backup is unknown.
  *
@@ -612,6 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRDataprocMetastore_Backup_State_Failed The backup failed.
  *        (Value: "FAILED")
+ *    @arg @c kGTLRDataprocMetastore_Backup_State_Restoring The backup is being
+ *        restored. (Value: "RESTORING")
  *    @arg @c kGTLRDataprocMetastore_Backup_State_StateUnspecified The state of
  *        the backup is unknown. (Value: "STATE_UNSPECIFIED")
  */
@@ -744,6 +753,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  *  representation for Empty is empty JSON object {}.
  */
 @interface GTLRDataprocMetastore_Empty : GTLRObject
+@end
+
+
+/**
+ *  Encryption settings for the service.
+ */
+@interface GTLRDataprocMetastore_EncryptionConfig : GTLRObject
+
+/**
+ *  The fully qualified customer provided Cloud KMS key name to use for customer
+ *  data encryption, in the following
+ *  form:projects/{project_number}/locations/{location_id}/keyRings/{key_ring_id}/cryptoKeys/{crypto_key_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
 @end
 
 
@@ -1633,6 +1657,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
 
 /** Output only. The time when the metastore service was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Immutable. Information used to configure the Dataproc Metastore service to
+ *  encrypt customer data at rest. Cannot be updated.
+ */
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_EncryptionConfig *encryptionConfig;
 
 /**
  *  Output only. The URI of the endpoint used to access the metastore service.

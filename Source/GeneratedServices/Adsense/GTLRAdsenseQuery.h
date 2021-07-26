@@ -104,6 +104,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsAccountName;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsAdClientId;
 /**
+ *  Ad format code indicating the way an ad is shown to the users on your site
+ *  (e.g. "ON_PAGE", "ANCHOR", "INTERSTITIAL").
+ *
+ *  Value: "AD_FORMAT_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsAdFormatCode;
+/**
+ *  Localized ad format name indicating the way an ad is shown to the users on
+ *  your site (e.g. "In-page", "Anchor", "Vignette").
+ *
+ *  Value: "AD_FORMAT_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsAdFormatName;
+/**
  *  Ad placement code (e.g. "AD_UNIT", "ca-pub-123456:78910", "OTHER").
  *
  *  Value: "AD_PLACEMENT_CODE"
@@ -1423,6 +1437,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "SERVED_AD_TYPE_NAME")
  *    @arg @c kGTLRAdsenseDimensionsServedAdTypeCode Served ad type code (e.g.
  *        "IMAGE", "RADLINK", "OTHER"). (Value: "SERVED_AD_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsAdFormatName Localized ad format name
+ *        indicating the way an ad is shown to the users on your site (e.g.
+ *        "In-page", "Anchor", "Vignette"). (Value: "AD_FORMAT_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsAdFormatCode Ad format code indicating the
+ *        way an ad is shown to the users on your site (e.g. "ON_PAGE",
+ *        "ANCHOR", "INTERSTITIAL"). (Value: "AD_FORMAT_CODE")
  *    @arg @c kGTLRAdsenseDimensionsCustomSearchStyleName Custom search style
  *        name. (Value: "CUSTOM_SEARCH_STYLE_NAME")
  *    @arg @c kGTLRAdsenseDimensionsCustomSearchStyleId Custom search style id.
@@ -1799,6 +1819,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "SERVED_AD_TYPE_NAME")
  *    @arg @c kGTLRAdsenseDimensionsServedAdTypeCode Served ad type code (e.g.
  *        "IMAGE", "RADLINK", "OTHER"). (Value: "SERVED_AD_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsAdFormatName Localized ad format name
+ *        indicating the way an ad is shown to the users on your site (e.g.
+ *        "In-page", "Anchor", "Vignette"). (Value: "AD_FORMAT_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsAdFormatCode Ad format code indicating the
+ *        way an ad is shown to the users on your site (e.g. "ON_PAGE",
+ *        "ANCHOR", "INTERSTITIAL"). (Value: "AD_FORMAT_CODE")
  *    @arg @c kGTLRAdsenseDimensionsCustomSearchStyleName Custom search style
  *        name. (Value: "CUSTOM_SEARCH_STYLE_NAME")
  *    @arg @c kGTLRAdsenseDimensionsCustomSearchStyleId Custom search style id.

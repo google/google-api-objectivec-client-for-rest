@@ -228,7 +228,14 @@ NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspecified = @"READ_SOU
 
 @implementation GTLRPeopleServiceQuery_OtherContactsList
 
-@dynamic pageSize, pageToken, readMask, requestSyncToken, syncToken;
+@dynamic pageSize, pageToken, readMask, requestSyncToken, sources, syncToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/otherContacts";

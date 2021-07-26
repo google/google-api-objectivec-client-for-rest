@@ -20,15 +20,19 @@
 
 @class GTLRGoogleAnalyticsAdmin_V1alphaAccount;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAndroidAppDataStream;
+@class GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomDimensionRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaArchiveCustomMetricRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaAuditUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchCreateUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchDeleteUserLinksRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaBatchUpdateUserLinksRequest;
+@class GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest;
 @class GTLRGoogleAnalyticsAdmin_V1alphaConversionEvent;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomDimension;
 @class GTLRGoogleAnalyticsAdmin_V1alphaCustomMetric;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink;
+@class GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal;
 @class GTLRGoogleAnalyticsAdmin_V1alphaEnhancedMeasurementSettings;
 @class GTLRGoogleAnalyticsAdmin_V1alphaFirebaseLink;
 @class GTLRGoogleAnalyticsAdmin_V1alphaGoogleAdsLink;
@@ -1680,6 +1684,427 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Approves a DisplayVideo360AdvertiserLinkProposal. The
+ *  DisplayVideo360AdvertiserLinkProposal will be deleted and a new
+ *  DisplayVideo360AdvertiserLink will be created.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to approve.
+ *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalResponse.
+ *
+ *  Approves a DisplayVideo360AdvertiserLinkProposal. The
+ *  DisplayVideo360AdvertiserLinkProposal will be deleted and a new
+ *  DisplayVideo360AdvertiserLink will be created.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest
+ *    to include in the query.
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
+ *    to approve. Example format:
+ *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsApprove
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaApproveDisplayVideo360AdvertiserLinkProposalRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either:
+ *  - Declining a proposal initiated from Display & Video 360 - Withdrawing a
+ *  proposal initiated from Google Analytics After being cancelled, a proposal
+ *  will eventually be deleted automatically.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to cancel.
+ *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
+ *
+ *  Cancels a DisplayVideo360AdvertiserLinkProposal. Cancelling can mean either:
+ *  - Declining a proposal initiated from Display & Video 360 - Withdrawing a
+ *  proposal initiated from Google Analytics After being cancelled, a proposal
+ *  will eventually be deleted automatically.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest
+ *    to include in the query.
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
+ *    to cancel. Example format:
+ *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCancel
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaCancelDisplayVideo360AdvertiserLinkProposalRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a DisplayVideo360AdvertiserLinkProposal.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
+ *
+ *  Creates a DisplayVideo360AdvertiserLinkProposal.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal to
+ *    include in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only
+ *  be used on cancelled proposals.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to delete.
+ *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a DisplayVideo360AdvertiserLinkProposal on a property. This can only
+ *  be used on cancelled proposals.
+ *
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
+ *    to delete. Example format:
+ *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lookup for a single DisplayVideo360AdvertiserLinkProposal.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLinkProposal to get.
+ *  Example format: properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLinkProposal.
+ *
+ *  Lookup for a single DisplayVideo360AdvertiserLinkProposal.
+ *
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLinkProposal
+ *    to get. Example format:
+ *    properties/1234/displayVideo360AdvertiserLinkProposals/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DisplayVideo360AdvertiserLinkProposals on a property.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinkProposals.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  `ListDisplayVideo360AdvertiserLinkProposals` call. Provide this to retrieve
+ *  the subsequent page. When paginating, all other parameters provided to
+ *  `ListDisplayVideo360AdvertiserLinkProposals` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinkProposalsResponse.
+ *
+ *  Lists DisplayVideo360AdvertiserLinkProposals on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinkProposalsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users
+ *  who have proper authorization both on the Google Analytics property and on
+ *  the Display & Video 360 advertiser. Users who do not have access to the
+ *  Display & Video 360 advertiser should instead seek to create a
+ *  DisplayVideo360LinkProposal.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate : GTLRGoogleAnalyticsAdminQuery
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
+ *
+ *  Creates a DisplayVideo360AdvertiserLink. This can only be utilized by users
+ *  who have proper authorization both on the Google Analytics property and on
+ *  the Display & Video 360 advertiser. Users who do not have access to the
+ *  Display & Video 360 advertiser should instead seek to create a
+ *  DisplayVideo360LinkProposal.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink to include
+ *    in the query.
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DisplayVideo360AdvertiserLink on a property.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLink to delete. Example
+ *  format: properties/1234/displayVideo360AdvertiserLinks/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_GoogleProtobufEmpty.
+ *
+ *  Deletes a DisplayVideo360AdvertiserLink on a property.
+ *
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLink to
+ *    delete. Example format:
+ *    properties/1234/displayVideo360AdvertiserLinks/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Look up a single DisplayVideo360AdvertiserLink
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Required. The name of the DisplayVideo360AdvertiserLink to get. Example
+ *  format: properties/1234/displayVideo360AdvertiserLink/5678
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
+ *
+ *  Look up a single DisplayVideo360AdvertiserLink
+ *
+ *  @param name Required. The name of the DisplayVideo360AdvertiserLink to get.
+ *    Example format: properties/1234/displayVideo360AdvertiserLink/5678
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all DisplayVideo360AdvertiserLinks on a property.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsReadonly
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  The maximum number of resources to return. If unspecified, at most 50
+ *  resources will be returned. The maximum value is 200 (higher values will be
+ *  coerced to the maximum).
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListDisplayVideo360AdvertiserLinks`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListDisplayVideo360AdvertiserLinks` must match
+ *  the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Example format: properties/1234 */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleAnalyticsAdmin_V1alphaListDisplayVideo360AdvertiserLinksResponse.
+ *
+ *  Lists all DisplayVideo360AdvertiserLinks on a property.
+ *
+ *  @param parent Required. Example format: properties/1234
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DisplayVideo360AdvertiserLink on a property.
+ *
+ *  Method: analyticsadmin.properties.displayVideo360AdvertiserLinks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleAnalyticsAdminAnalyticsEdit
+ */
+@interface GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch : GTLRGoogleAnalyticsAdminQuery
+
+/**
+ *  Output only. The resource name for this DisplayVideo360AdvertiserLink
+ *  resource. Format:
+ *  properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note: linkId
+ *  is not the Display & Video 360 Advertiser ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to be updated. Omitted fields will not be
+ *  updated. To replace the entire entity, use one path with the string "*" to
+ *  match all fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink.
+ *
+ *  Updates a DisplayVideo360AdvertiserLink on a property.
+ *
+ *  @param object The @c
+ *    GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink to include
+ *    in the query.
+ *  @param name Output only. The resource name for this
+ *    DisplayVideo360AdvertiserLink resource. Format:
+ *    properties/{propertyId}/displayVideo360AdvertiserLinks/{linkId} Note:
+ *    linkId is not the Display & Video 360 Advertiser ID
+ *
+ *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesDisplayVideo360AdvertiserLinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRGoogleAnalyticsAdmin_V1alphaDisplayVideo360AdvertiserLink *)object
+                           name:(NSString *)name;
 
 @end
 

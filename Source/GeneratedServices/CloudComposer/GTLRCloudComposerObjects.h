@@ -21,6 +21,7 @@
 #endif
 
 @class GTLRCloudComposer_AllowedIpRange;
+@class GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_Date;
 @class GTLRCloudComposer_EncryptionConfig;
@@ -235,12 +236,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
  */
 @property(nonatomic, copy, nullable) NSString *containsPypiModulesConflict;
 
+/** Composer image for which the build was happening. */
+@property(nonatomic, copy, nullable) NSString *imageVersion;
+
 /**
  *  Output only. Extract from a docker image build log containing information
  *  about pypi modules conflicts.
  */
 @property(nonatomic, copy, nullable) NSString *pypiConflictBuildLogExtract;
 
+/**
+ *  Pypi dependencies specified in the environment configuration, at the time
+ *  when the build was triggered.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies *pypiDependencies;
+
+@end
+
+
+/**
+ *  Pypi dependencies specified in the environment configuration, at the time
+ *  when the build was triggered.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudComposer_CheckUpgradeResponse_PypiDependencies : GTLRObject
 @end
 
 

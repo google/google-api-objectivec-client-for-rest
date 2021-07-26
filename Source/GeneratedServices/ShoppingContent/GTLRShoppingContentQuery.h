@@ -76,7 +76,10 @@
 @class GTLRShoppingContent_RegionalInventory;
 @class GTLRShoppingContent_RegionalinventoryCustomBatchRequest;
 @class GTLRShoppingContent_RepricingRule;
+@class GTLRShoppingContent_RequestPhoneVerificationRequest;
 @class GTLRShoppingContent_RequestReviewBuyOnGoogleProgramRequest;
+@class GTLRShoppingContent_RequestReviewFreeListingsRequest;
+@class GTLRShoppingContent_RequestReviewShoppingAdsRequest;
 @class GTLRShoppingContent_ReturnAddress;
 @class GTLRShoppingContent_ReturnaddressCustomBatchRequest;
 @class GTLRShoppingContent_ReturnPolicy;
@@ -86,6 +89,7 @@
 @class GTLRShoppingContent_SearchRequest;
 @class GTLRShoppingContent_ShippingSettings;
 @class GTLRShoppingContent_ShippingsettingsCustomBatchRequest;
+@class GTLRShoppingContent_VerifyPhoneNumberRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -100,93 +104,224 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // orderBy
 
-/** Value: "RETURN_CREATION_TIME_ASC" */
+/**
+ *  Return results in ascending order.
+ *
+ *  Value: "RETURN_CREATION_TIME_ASC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeAsc;
-/** Value: "RETURN_CREATION_TIME_DESC" */
+/**
+ *  Return results in descending order.
+ *
+ *  Value: "RETURN_CREATION_TIME_DESC"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentOrderByReturnCreationTimeDesc;
 
 // ----------------------------------------------------------------------------
 // shipmentStates
 
-/** Value: "COMPLETED" */
+/**
+ *  Return shipments with `completed` state only.
+ *
+ *  Value: "COMPLETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesCompleted;
-/** Value: "NEW" */
+/**
+ *  Return shipments with `new` state only.
+ *
+ *  Value: "NEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesNew;
-/** Value: "PENDING" */
+/**
+ *  Return shipments with `pending` state only.
+ *
+ *  Value: "PENDING"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesPending;
-/** Value: "SHIPPED" */
+/**
+ *  Return shipments with `shipped` state only.
+ *
+ *  Value: "SHIPPED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesShipped;
-/** Value: "UNDELIVERABLE" */
+/**
+ *  Return shipments with `undeliverable` state only.
+ *
+ *  Value: "UNDELIVERABLE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatesUndeliverable;
 
 // ----------------------------------------------------------------------------
 // shipmentStatus
 
-/** Value: "IN_PROGRESS" */
+/**
+ *  Return shipments with `inProgress` status only.
+ *
+ *  Value: "IN_PROGRESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusInProgress;
-/** Value: "NEW" */
+/**
+ *  Return shipments with `new` status only.
+ *
+ *  Value: "NEW"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusNew;
-/** Value: "PROCESSED" */
+/**
+ *  Return shipments with `processed` status only.
+ *
+ *  Value: "PROCESSED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentStatusProcessed;
 
 // ----------------------------------------------------------------------------
 // shipmentTypes
 
-/** Value: "BY_MAIL" */
+/**
+ *  Return shipments with type `byMail` only.
+ *
+ *  Value: "BY_MAIL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesByMail;
-/** Value: "CONTACT_CUSTOMER_SUPPORT" */
+/**
+ *  Return shipments with type `contactCustomerSupport` only.
+ *
+ *  Value: "CONTACT_CUSTOMER_SUPPORT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesContactCustomerSupport;
-/** Value: "RETURNLESS" */
+/**
+ *  Return shipments with type `returnless` only.
+ *
+ *  Value: "RETURNLESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentShipmentTypesReturnless;
 
 // ----------------------------------------------------------------------------
 // statuses
 
-/** Value: "ACTIVE" */
+/**
+ *  Return orders with status `active`. The `active` status includes
+ *  `pendingShipment` and `partiallyShipped` orders.
+ *
+ *  Value: "ACTIVE"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesActive;
-/** Value: "CANCELED" */
+/**
+ *  Return orders with status `canceled`.
+ *
+ *  Value: "CANCELED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCanceled;
-/** Value: "COMPLETED" */
+/**
+ *  Return orders with status `completed`. The `completed` status includes
+ *  `shipped`, `partiallyDelivered`, `delivered`, `partiallyReturned`,
+ *  `returned`, and `canceled` orders.
+ *
+ *  Value: "COMPLETED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesCompleted;
-/** Value: "DELIVERED" */
+/**
+ *  Return orders with status `delivered`.
+ *
+ *  Value: "DELIVERED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesDelivered;
-/** Value: "IN_PROGRESS" */
+/**
+ *  Return orders with status `inProgress`.
+ *
+ *  Value: "IN_PROGRESS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesInProgress;
-/** Value: "PARTIALLY_DELIVERED" */
+/**
+ *  Return orders with status `partiallyDelivered`.
+ *
+ *  Value: "PARTIALLY_DELIVERED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyDelivered;
-/** Value: "PARTIALLY_RETURNED" */
+/**
+ *  Return orders with status `partiallyReturned`.
+ *
+ *  Value: "PARTIALLY_RETURNED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyReturned;
-/** Value: "PARTIALLY_SHIPPED" */
+/**
+ *  Return orders with status `partiallyShipped`.
+ *
+ *  Value: "PARTIALLY_SHIPPED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPartiallyShipped;
-/** Value: "PENDING_SHIPMENT" */
+/**
+ *  Return orders with status `pendingShipment`.
+ *
+ *  Value: "PENDING_SHIPMENT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesPendingShipment;
-/** Value: "RETURNED" */
+/**
+ *  Return orders with status `returned`.
+ *
+ *  Value: "RETURNED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesReturned;
-/** Value: "SHIPPED" */
+/**
+ *  Return orders with status `shipped`.
+ *
+ *  Value: "SHIPPED"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentStatusesShipped;
 
 // ----------------------------------------------------------------------------
 // templateName
 
-/** Value: "TEMPLATE1" */
+/**
+ *  Get `template1`.
+ *
+ *  Value: "TEMPLATE1"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1;
-/** Value: "TEMPLATE1A" */
+/**
+ *  Get `template1A`.
+ *
+ *  Value: "TEMPLATE1A"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1a;
-/** Value: "TEMPLATE1B" */
+/**
+ *  Get `template1B`.
+ *
+ *  Value: "TEMPLATE1B"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate1b;
-/** Value: "TEMPLATE2" */
+/**
+ *  Get `template2`.
+ *
+ *  Value: "TEMPLATE2"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate2;
-/** Value: "TEMPLATE3" */
+/**
+ *  Get `template3`.
+ *
+ *  Value: "TEMPLATE3"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate3;
-/** Value: "TEMPLATE4" */
+/**
+ *  Get `template4`.
+ *
+ *  Value: "TEMPLATE4"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentTemplateNameTemplate4;
 
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "CSS" */
+/**
+ *  View is populated with Comparison Shopping Services fields.
+ *
+ *  Value: "CSS"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewCss;
-/** Value: "MERCHANT" */
+/**
+ *  Default. View is populated with Merchant Center fields.
+ *
+ *  Value: "MERCHANT"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 
 // ----------------------------------------------------------------------------
@@ -397,8 +532,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  and "css". The default value is "merchant".
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentViewMerchant Value "MERCHANT"
- *    @arg @c kGTLRShoppingContentViewCss Value "CSS"
+ *    @arg @c kGTLRShoppingContentViewMerchant Default. View is populated with
+ *        Merchant Center fields. (Value: "MERCHANT")
+ *    @arg @c kGTLRShoppingContentViewCss View is populated with Comparison
+ *        Shopping Services fields. (Value: "CSS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -654,6 +791,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /** The ID of the managing account. This must be a multi-client account. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
+/**
+ *  If set, only the accounts with the given name (case sensitive) will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** The token returned by the previous request. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -662,8 +805,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  and "css". The default value is "merchant".
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentViewMerchant Value "MERCHANT"
- *    @arg @c kGTLRShoppingContentViewCss Value "CSS"
+ *    @arg @c kGTLRShoppingContentViewMerchant Default. View is populated with
+ *        Merchant Center fields. (Value: "MERCHANT")
+ *    @arg @c kGTLRShoppingContentViewCss View is populated with Comparison
+ *        Shopping Services fields. (Value: "CSS")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -733,6 +878,47 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 + (instancetype)queryWithMerchantId:(unsigned long long)merchantId
                           accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Request verification code to start phone verification.
+ *
+ *  Method: content.accounts.requestphoneverification
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsRequestphoneverification : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. The ID of the managing account. If this parameter is not the same
+ *  as accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_RequestPhoneVerificationResponse.
+ *
+ *  Request verification code to start phone verification.
+ *
+ *  @param object The @c GTLRShoppingContent_RequestPhoneVerificationRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the managing account. If this
+ *    parameter is not the same as accountId, then this account must be a
+ *    multi-client account and accountId must be the ID of a sub-account of this
+ *    account.
+ *  @param accountId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsRequestphoneverification
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestPhoneVerificationRequest *)object
+                     merchantId:(long long)merchantId
+                      accountId:(long long)accountId;
 
 @end
 
@@ -975,6 +1161,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 /** The ID of the managing account. This must be a multi-client account. */
 @property(nonatomic, assign) unsigned long long merchantId;
 
+/**
+ *  If set, only the accounts with the given name (case sensitive) will be
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** The token returned by the previous request. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1068,6 +1260,47 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_AccountsUpdateLabelsRequest *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Validates verification code to verify phone number for the account.
+ *
+ *  Method: content.accounts.verifyphonenumber
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_AccountsVerifyphonenumber : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long accountId;
+
+/**
+ *  Required. The ID of the managing account. If this parameter is not the same
+ *  as accountId, then this account must be a multi-client account and accountId
+ *  must be the ID of a sub-account of this account.
+ */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_VerifyPhoneNumberResponse.
+ *
+ *  Validates verification code to verify phone number for the account.
+ *
+ *  @param object The @c GTLRShoppingContent_VerifyPhoneNumberRequest to include
+ *    in the query.
+ *  @param merchantId Required. The ID of the managing account. If this
+ *    parameter is not the same as accountId, then this account must be a
+ *    multi-client account and accountId must be the ID of a sub-account of this
+ *    account.
+ *  @param accountId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_AccountsVerifyphonenumber
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_VerifyPhoneNumberRequest *)object
+                     merchantId:(long long)merchantId
+                      accountId:(long long)accountId;
 
 @end
 
@@ -2169,6 +2402,64 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 @end
 
 /**
+ *  Retrieves the status and review eligibility for the free listing program.
+ *
+ *  Method: content.freelistingsprogram.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_FreelistingsprogramGet : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_FreeListingsProgramStatus.
+ *
+ *  Retrieves the status and review eligibility for the free listing program.
+ *
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_FreelistingsprogramGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Requests a review for Free Listings program in the provided region.
+ *  Important: This method is only whitelisted for selected merchants.
+ *
+ *  Method: content.freelistingsprogram.requestreview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_FreelistingsprogramRequestreview : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Requests a review for Free Listings program in the provided region.
+ *  Important: This method is only whitelisted for selected merchants.
+ *
+ *  @param object The @c GTLRShoppingContent_RequestReviewFreeListingsRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_FreelistingsprogramRequestreview
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewFreeListingsRequest *)object
+                     merchantId:(long long)merchantId;
+
+@end
+
+/**
  *  Retrieves and/or updates the LIA settings of multiple accounts in a single
  *  request.
  *
@@ -3058,10 +3349,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  Return the results in the specified order.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeDesc Value
- *        "RETURN_CREATION_TIME_DESC"
- *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeAsc Value
- *        "RETURN_CREATION_TIME_ASC"
+ *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeDesc Return results
+ *        in descending order. (Value: "RETURN_CREATION_TIME_DESC")
+ *    @arg @c kGTLRShoppingContentOrderByReturnCreationTimeAsc Return results in
+ *        ascending order. (Value: "RETURN_CREATION_TIME_ASC")
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -3074,12 +3365,16 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment states.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentStatesNew Value "NEW"
- *    @arg @c kGTLRShoppingContentShipmentStatesShipped Value "SHIPPED"
- *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Value "COMPLETED"
- *    @arg @c kGTLRShoppingContentShipmentStatesUndeliverable Value
- *        "UNDELIVERABLE"
- *    @arg @c kGTLRShoppingContentShipmentStatesPending Value "PENDING"
+ *    @arg @c kGTLRShoppingContentShipmentStatesNew Return shipments with `new`
+ *        state only. (Value: "NEW")
+ *    @arg @c kGTLRShoppingContentShipmentStatesShipped Return shipments with
+ *        `shipped` state only. (Value: "SHIPPED")
+ *    @arg @c kGTLRShoppingContentShipmentStatesCompleted Return shipments with
+ *        `completed` state only. (Value: "COMPLETED")
+ *    @arg @c kGTLRShoppingContentShipmentStatesUndeliverable Return shipments
+ *        with `undeliverable` state only. (Value: "UNDELIVERABLE")
+ *    @arg @c kGTLRShoppingContentShipmentStatesPending Return shipments with
+ *        `pending` state only. (Value: "PENDING")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStates;
 
@@ -3089,9 +3384,12 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment statuses.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentStatusNew Value "NEW"
- *    @arg @c kGTLRShoppingContentShipmentStatusInProgress Value "IN_PROGRESS"
- *    @arg @c kGTLRShoppingContentShipmentStatusProcessed Value "PROCESSED"
+ *    @arg @c kGTLRShoppingContentShipmentStatusNew Return shipments with `new`
+ *        status only. (Value: "NEW")
+ *    @arg @c kGTLRShoppingContentShipmentStatusInProgress Return shipments with
+ *        `inProgress` status only. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRShoppingContentShipmentStatusProcessed Return shipments with
+ *        `processed` status only. (Value: "PROCESSED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentStatus;
 
@@ -3111,10 +3409,13 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  regardless of their shipment types.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentShipmentTypesByMail Value "BY_MAIL"
- *    @arg @c kGTLRShoppingContentShipmentTypesReturnless Value "RETURNLESS"
- *    @arg @c kGTLRShoppingContentShipmentTypesContactCustomerSupport Value
- *        "CONTACT_CUSTOMER_SUPPORT"
+ *    @arg @c kGTLRShoppingContentShipmentTypesByMail Return shipments with type
+ *        `byMail` only. (Value: "BY_MAIL")
+ *    @arg @c kGTLRShoppingContentShipmentTypesReturnless Return shipments with
+ *        type `returnless` only. (Value: "RETURNLESS")
+ *    @arg @c kGTLRShoppingContentShipmentTypesContactCustomerSupport Return
+ *        shipments with type `contactCustomerSupport` only. (Value:
+ *        "CONTACT_CUSTOMER_SUPPORT")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *shipmentTypes;
 
@@ -3529,12 +3830,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  The name of the template to retrieve.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "TEMPLATE1"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "TEMPLATE2"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "TEMPLATE1A"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "TEMPLATE1B"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "TEMPLATE3"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "TEMPLATE4"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Get `template1`. (Value:
+ *        "TEMPLATE1")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Get `template2`. (Value:
+ *        "TEMPLATE2")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Get `template1A`.
+ *        (Value: "TEMPLATE1A")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Get `template1B`.
+ *        (Value: "TEMPLATE1B")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Get `template3`. (Value:
+ *        "TEMPLATE3")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Get `template4`. (Value:
+ *        "TEMPLATE4")
  */
 @property(nonatomic, copy, nullable) NSString *templateName;
 
@@ -3549,12 +3856,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  @param templateName The name of the template to retrieve.
  *
  *  Likely values for @c templateName:
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Value "TEMPLATE1"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Value "TEMPLATE2"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Value "TEMPLATE1A"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Value "TEMPLATE1B"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Value "TEMPLATE3"
- *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Value "TEMPLATE4"
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1 Get `template1`. (Value:
+ *        "TEMPLATE1")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate2 Get `template2`. (Value:
+ *        "TEMPLATE2")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1a Get `template1A`.
+ *        (Value: "TEMPLATE1A")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate1b Get `template1B`.
+ *        (Value: "TEMPLATE1B")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate3 Get `template3`. (Value:
+ *        "TEMPLATE3")
+ *    @arg @c kGTLRShoppingContentTemplateNameTemplate4 Get `template4`. (Value:
+ *        "TEMPLATE4")
  *
  *  @return GTLRShoppingContentQuery_OrdersGettestordertemplate
  */
@@ -3673,21 +3986,31 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  *  `partiallyReturned`, `returned`, and `canceled`.
  *
  *  Likely values:
- *    @arg @c kGTLRShoppingContentStatusesActive Value "ACTIVE"
- *    @arg @c kGTLRShoppingContentStatusesCompleted Value "COMPLETED"
- *    @arg @c kGTLRShoppingContentStatusesCanceled Value "CANCELED"
- *    @arg @c kGTLRShoppingContentStatusesInProgress Value "IN_PROGRESS"
- *    @arg @c kGTLRShoppingContentStatusesPendingShipment Value
- *        "PENDING_SHIPMENT"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyShipped Value
- *        "PARTIALLY_SHIPPED"
- *    @arg @c kGTLRShoppingContentStatusesShipped Value "SHIPPED"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyDelivered Value
- *        "PARTIALLY_DELIVERED"
- *    @arg @c kGTLRShoppingContentStatusesDelivered Value "DELIVERED"
- *    @arg @c kGTLRShoppingContentStatusesPartiallyReturned Value
- *        "PARTIALLY_RETURNED"
- *    @arg @c kGTLRShoppingContentStatusesReturned Value "RETURNED"
+ *    @arg @c kGTLRShoppingContentStatusesActive Return orders with status
+ *        `active`. The `active` status includes `pendingShipment` and
+ *        `partiallyShipped` orders. (Value: "ACTIVE")
+ *    @arg @c kGTLRShoppingContentStatusesCompleted Return orders with status
+ *        `completed`. The `completed` status includes `shipped`,
+ *        `partiallyDelivered`, `delivered`, `partiallyReturned`, `returned`,
+ *        and `canceled` orders. (Value: "COMPLETED")
+ *    @arg @c kGTLRShoppingContentStatusesCanceled Return orders with status
+ *        `canceled`. (Value: "CANCELED")
+ *    @arg @c kGTLRShoppingContentStatusesInProgress Return orders with status
+ *        `inProgress`. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRShoppingContentStatusesPendingShipment Return orders with
+ *        status `pendingShipment`. (Value: "PENDING_SHIPMENT")
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyShipped Return orders with
+ *        status `partiallyShipped`. (Value: "PARTIALLY_SHIPPED")
+ *    @arg @c kGTLRShoppingContentStatusesShipped Return orders with status
+ *        `shipped`. (Value: "SHIPPED")
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyDelivered Return orders with
+ *        status `partiallyDelivered`. (Value: "PARTIALLY_DELIVERED")
+ *    @arg @c kGTLRShoppingContentStatusesDelivered Return orders with status
+ *        `delivered`. (Value: "DELIVERED")
+ *    @arg @c kGTLRShoppingContentStatusesPartiallyReturned Return orders with
+ *        status `partiallyReturned`. (Value: "PARTIALLY_RETURNED")
+ *    @arg @c kGTLRShoppingContentStatusesReturned Return orders with status
+ *        `returned`. (Value: "RETURNED")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statuses;
 
@@ -4364,7 +4687,11 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_ProductsDelete : GTLRShoppingContentQuery
 
-/** The Content API Supplemental Feed ID. */
+/**
+ *  The Content API Supplemental Feed ID. If present then product deletion
+ *  applies to the data in a supplemental feed. If absent, entire product will
+ *  be deleted.
+ */
 @property(nonatomic, assign) unsigned long long feedId;
 
 /**
@@ -4440,7 +4767,10 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
  */
 @interface GTLRShoppingContentQuery_ProductsInsert : GTLRShoppingContentQuery
 
-/** The Content API Supplemental Feed ID. */
+/**
+ *  The Content API Supplemental Feed ID. If present then product insertion
+ *  applies to the data in a supplemental feed.
+ */
 @property(nonatomic, assign) unsigned long long feedId;
 
 /**
@@ -6206,6 +6536,62 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContentViewMerchant;
 + (instancetype)queryWithObject:(GTLRShoppingContent_ShippingSettings *)object
                      merchantId:(unsigned long long)merchantId
                       accountId:(unsigned long long)accountId;
+
+@end
+
+/**
+ *  Retrieves the status and review eligibility for the Shopping Ads program.
+ *
+ *  Method: content.shoppingadsprogram.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShoppingadsprogramGet : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Fetches a @c GTLRShoppingContent_ShoppingAdsProgramStatus.
+ *
+ *  Retrieves the status and review eligibility for the Shopping Ads program.
+ *
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_ShoppingadsprogramGet
+ */
++ (instancetype)queryWithMerchantId:(long long)merchantId;
+
+@end
+
+/**
+ *  Requests a review for Shopping Ads program in the provided country.
+ *
+ *  Method: content.shoppingadsprogram.requestreview
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeShoppingContent
+ */
+@interface GTLRShoppingContentQuery_ShoppingadsprogramRequestreview : GTLRShoppingContentQuery
+
+/** Required. The ID of the account. */
+@property(nonatomic, assign) long long merchantId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Requests a review for Shopping Ads program in the provided country.
+ *
+ *  @param object The @c GTLRShoppingContent_RequestReviewShoppingAdsRequest to
+ *    include in the query.
+ *  @param merchantId Required. The ID of the account.
+ *
+ *  @return GTLRShoppingContentQuery_ShoppingadsprogramRequestreview
+ */
++ (instancetype)queryWithObject:(GTLRShoppingContent_RequestReviewShoppingAdsRequest *)object
+                     merchantId:(long long)merchantId;
 
 @end
 

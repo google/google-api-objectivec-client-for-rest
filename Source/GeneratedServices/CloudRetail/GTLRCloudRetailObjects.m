@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest.reconciliationMode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Full = @"FULL";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_ReconciliationModeUnspecified = @"RECONCILIATION_MODE_UNSPECIFIED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2Product.availability
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Availability_Backorder = @"BACKORDER";
@@ -32,6 +37,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_Variant = @"VA
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_JoinedEvents = @"JOINED_EVENTS";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UnjoinedEvents = @"UNJOINED_EVENTS";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UserEventRejoinScopeUnspecified = @"USER_EVENT_REJOIN_SCOPE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec.mode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_Enabled = @"ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec.condition
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
 
 // ----------------------------------------------------------------------------
 //
@@ -156,6 +171,60 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest
+@dynamic addTime, allowMissing, placeIds, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaAddFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaExportErrorsConfig
 //
 
@@ -212,6 +281,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaImportCompletionDataResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaImportCompletionDataResponse
+@dynamic errorSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaImportErrorsConfig
 //
 
@@ -226,7 +313,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaImportMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, notificationPubsubTopic, requestId,
+         successCount, updateTime;
 @end
 
 
@@ -306,11 +394,84 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaRemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2alphaSetInventoryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2alphaUserEventImportSummary
 @dynamic joinedEventsCount, unjoinedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2Audience
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Audience
+@dynamic ageGroups, genders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ageGroups" : [NSString class],
+    @"genders" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaAddFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaAddFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaAddFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaAddFulfillmentPlacesResponse
 @end
 
 
@@ -372,6 +533,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaImportCompletionDataResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaImportCompletionDataResponse
+@dynamic errorSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaImportErrorsConfig
 //
 
@@ -386,7 +565,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2betaImportMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, notificationPubsubTopic, requestId,
+         successCount, updateTime;
 @end
 
 
@@ -466,6 +646,42 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaRemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2betaSetInventoryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2betaUserEventImportSummary
 //
 
@@ -480,7 +696,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource
-@dynamic dataSchema, datasetId, gcsStagingDir, projectId, tableId;
+@dynamic dataSchema, datasetId, gcsStagingDir, partitionDate, projectId,
+         tableId;
 @end
 
 
@@ -496,16 +713,126 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ColorInfo
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ColorInfo
+@dynamic colorFamilies, colors;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"colorFamilies" : [NSString class],
+    @"colors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse
+@dynamic attributionToken, completionResults, recentSearchResults;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"completionResults" : [GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult class],
+    @"recentSearchResults" : [GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult
+@dynamic attributes, suggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult_Attributes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseRecentSearchResult
+@dynamic recentSearch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig
+@dynamic bigQuerySource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2CompletionDetail
+@dynamic completionAttributionToken, selectedPosition, selectedSuggestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute
-@dynamic numbers, text;
+@dynamic indexable, numbers, searchable, text;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"numbers" : [NSNumber class],
     @"text" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo
+@dynamic placeIds, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeIds" : [NSString class]
   };
   return map;
 }
@@ -533,11 +860,49 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2GetDefaultBranchResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2GetDefaultBranchResponse
+@dynamic branch, note, setTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2Image
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Image
 @dynamic height, uri, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest
+@dynamic inputConfig, notificationPubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataResponse
+@dynamic errorSamples;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSamples" : [GTLRCloudRetail_GoogleRpcStatus class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -557,7 +922,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2ImportMetadata
-@dynamic createTime, failureCount, successCount, updateTime;
+@dynamic createTime, failureCount, notificationPubsubTopic, requestId,
+         successCount, updateTime;
 @end
 
 
@@ -567,7 +933,8 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest
-@dynamic errorsConfig, inputConfig, updateMask;
+@dynamic errorsConfig, inputConfig, notificationPubsubTopic, reconciliationMode,
+         requestId, updateMask;
 @end
 
 
@@ -619,6 +986,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2Interval
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Interval
+@dynamic exclusiveMaximum, exclusiveMinimum, maximum, minimum;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2ListCatalogsResponse
 //
 
@@ -634,6 +1011,28 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 + (NSString *)collectionItemsKey {
   return @"catalogs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ListProductsResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ListProductsResponse
+@dynamic nextPageToken, products;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"products" : [GTLRCloudRetail_GoogleCloudRetailV2Product class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"products";
 }
 
 @end
@@ -731,7 +1130,18 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2PriceInfo
-@dynamic cost, currencyCode, originalPrice, price;
+@dynamic cost, currencyCode, originalPrice, price, priceEffectiveTime,
+         priceExpireTime, priceRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2PriceInfoPriceRange
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2PriceInfoPriceRange
+@dynamic originalPrice, price;
 @end
 
 
@@ -741,9 +1151,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2Product
-@dynamic attributes, availability, availableQuantity, availableTime, categories,
-         descriptionProperty, identifier, images, name, priceInfo,
-         primaryProductId, tags, title, type, uri;
+@dynamic attributes, audience, availability, availableQuantity, availableTime,
+         brands, categories, collectionMemberIds, colorInfo, conditions,
+         descriptionProperty, expireTime, fulfillmentInfo, gtin, identifier,
+         images, languageCode, materials, name, patterns, priceInfo,
+         primaryProductId, promotions, publishTime, rating, retrievableFields,
+         sizes, tags, title, ttl, type, uri, variants;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -755,9 +1168,18 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"brands" : [NSString class],
     @"categories" : [NSString class],
+    @"collectionMemberIds" : [NSString class],
+    @"conditions" : [NSString class],
+    @"fulfillmentInfo" : [GTLRCloudRetail_GoogleCloudRetailV2FulfillmentInfo class],
     @"images" : [GTLRCloudRetail_GoogleCloudRetailV2Image class],
-    @"tags" : [NSString class]
+    @"materials" : [NSString class],
+    @"patterns" : [NSString class],
+    @"promotions" : [GTLRCloudRetail_GoogleCloudRetailV2Promotion class],
+    @"sizes" : [NSString class],
+    @"tags" : [NSString class],
+    @"variants" : [GTLRCloudRetail_GoogleCloudRetailV2Product class]
   };
   return map;
 }
@@ -829,6 +1251,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2Promotion
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Promotion
+@dynamic promotionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2PurchaseTransaction
 //
 
@@ -873,6 +1305,24 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2Rating
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2Rating
+@dynamic averageRating, ratingCount, ratingHistogram;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ratingHistogram" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsMetadata
 //
 
@@ -902,14 +1352,299 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest
+@dynamic allowMissing, placeIds, removeTime, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"placeIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequest
+@dynamic boostSpec, branch, canonicalFilter, dynamicFacetSpec, facetSpecs,
+         filter, offset, orderBy, pageCategories, pageSize, pageToken, query,
+         queryExpansionSpec, userInfo, variantRollupKeys, visitorId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facetSpecs" : [GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec class],
+    @"pageCategories" : [NSString class],
+    @"variantRollupKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec
+@dynamic conditionBoostSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"conditionBoostSpecs" : [GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpecConditionBoostSpec
+@dynamic boost, condition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec
+@dynamic mode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpec
+@dynamic enableDynamicPosition, excludedFilterKeys, facetKey, limit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedFilterKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestFacetSpecFacetKey
+@dynamic contains, intervals, key, orderBy, prefixes, query, restrictedValues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contains" : [NSString class],
+    @"intervals" : [GTLRCloudRetail_GoogleCloudRetailV2Interval class],
+    @"prefixes" : [NSString class],
+    @"restrictedValues" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec
+@dynamic condition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponse
+@dynamic attributionToken, correctedQuery, facets, nextPageToken,
+         queryExpansionInfo, redirectUri, results, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"facets" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet class],
+    @"results" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacet
+@dynamic dynamicFacet, key, values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseFacetFacetValue
+@dynamic count, interval, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo
+@dynamic expandedQuery;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult
+@dynamic identifier, matchingVariantCount, matchingVariantFields, product,
+         variantRollupValues;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_MatchingVariantFields
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest
+@dynamic branchId, note;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SetInventoryMetadata
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SetInventoryMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
+@dynamic allowMissing, inventory, setMask, setTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SetInventoryResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SetInventoryResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2UserEvent
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2UserEvent
-@dynamic attributes, attributionToken, cartId, eventTime, eventType,
-         experimentIds, pageCategories, pageViewId, productDetails,
-         purchaseTransaction, referrerUri, searchQuery, uri, userInfo,
-         visitorId;
+@dynamic attributes, attributionToken, cartId, completionDetail, eventTime,
+         eventType, experimentIds, filter, offset, orderBy, pageCategories,
+         pageViewId, productDetails, purchaseTransaction, referrerUri,
+         searchQuery, sessionId, uri, userInfo, visitorId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1083,4 +1818,14 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_Use
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleTypeDate
+//
+
+@implementation GTLRCloudRetail_GoogleTypeDate
+@dynamic day, month, year;
 @end

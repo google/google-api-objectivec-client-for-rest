@@ -472,6 +472,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/FactCheckTools/*.{h,m}'
   end
+  s.subspec 'Fcmdata' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Fcmdata/*.{h,m}'
+  end
   s.subspec 'Firebaseappcheck' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Firebaseappcheck/*.{h,m}'
@@ -628,6 +632,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessLodging/*.{h,m}'
   end
+  s.subspec 'MyBusinessNotificationSettings' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/MyBusinessNotificationSettings/*.{h,m}'
+  end
   s.subspec 'MyBusinessPlaceActions' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/MyBusinessPlaceActions/*.{h,m}'
@@ -639,6 +647,10 @@ Pod::Spec.new do |s|
   s.subspec 'NetworkManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/NetworkManagement/*.{h,m}'
+  end
+  s.subspec 'NetworkSecurity' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/NetworkSecurity/*.{h,m}'
   end
   s.subspec 'Oauth2' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

@@ -283,13 +283,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_NotificationConfig_Paylo
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Deleted;
 /**
- *  New transfers will not be scheduled.
+ *  New transfers are not scheduled.
  *
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferJob_Status_Disabled;
 /**
- *  New transfers will be performed based on the schedule.
+ *  New transfers are performed based on the schedule.
  *
  *  Value: "ENABLED"
  */
@@ -395,6 +395,17 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
+/**
+ *  Input only. The Amazon Resource Name (ARN) of the role to support temporary
+ *  credentials via `AssumeRoleWithWebIdentity`. For more information about
+ *  ARNs, see [IAM
+ *  ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns).
+ *  When a role ARN is provided, Transfer Service fetches temporary credentials
+ *  for the session using a `AssumeRoleWithWebIdentity` call for the provided
+ *  role using the GoogleServiceAccount for this project.
+ */
+@property(nonatomic, copy, nullable) NSString *roleArn;
+
 @end
 
 
@@ -441,9 +452,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @interface GTLRStorageTransfer_AzureCredentials : GTLRObject
 
 /**
- *  Required. Azure shared access signature. (see [Grant limited access to Azure
- *  Storage resources using shared access signatures
- *  (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview)).
+ *  Required. Azure shared access signature (SAS). *Note:*Copying data from
+ *  Azure Data Lake Storage (ADLS) Gen 2 is in
+ *  [Preview](/products/#product-launch-stages). During Preview, if you are
+ *  copying data from ADLS Gen 2, you must use an account SAS. For more
+ *  information about SAS, see [Grant limited access to Azure Storage resources
+ *  using shared access signatures
+ *  (SAS)](https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview).
  */
 @property(nonatomic, copy, nullable) NSString *sasToken;
 
@@ -646,8 +661,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *errorCount;
 
 /**
- *  Error samples. At most 5 error log entries will be recorded for a given
- *  error code for a single transfer operation.
+ *  Error samples. At most 5 error log entries are recorded for a given error
+ *  code for a single transfer operation.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageTransfer_ErrorLogEntry *> *errorLogEntries;
 
@@ -687,6 +702,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /** Email address of the service account. */
 @property(nonatomic, copy, nullable) NSString *accountEmail;
 
+/** Unique identifier for the service account. */
+@property(nonatomic, copy, nullable) NSString *subjectId;
+
 @end
 
 
@@ -705,15 +723,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  object located at `http(s)://hostname:port/` is transferred to a data sink,
  *  the name of the object at the data sink is `/`. * If the specified size of
  *  an object does not match the actual size of the object fetched, the object
- *  will not be transferred. * If the specified MD5 does not match the MD5
- *  computed from the transferred bytes, the object transfer will fail. * Ensure
- *  that each URL you specify is publicly accessible. For example, in Cloud
- *  Storage you can [share an object publicly]
- *  (/storage/docs/cloud-console#_sharingdata) and get a link to it. * Storage
- *  Transfer Service obeys `robots.txt` rules and requires the source HTTP
- *  server to support `Range` requests and to return a `Content-Length` header
- *  in each response. * ObjectConditions have no effect when filtering objects
- *  to transfer.
+ *  is not transferred. * If the specified MD5 does not match the MD5 computed
+ *  from the transferred bytes, the object transfer fails. * Ensure that each
+ *  URL you specify is publicly accessible. For example, in Cloud Storage you
+ *  can [share an object publicly] (/storage/docs/cloud-console#_sharingdata)
+ *  and get a link to it. * Storage Transfer Service obeys `robots.txt` rules
+ *  and requires the source HTTP server to support `Range` requests and to
+ *  return a `Content-Length` header in each response. * ObjectConditions have
+ *  no effect when filtering objects to transfer.
  */
 @interface GTLRStorageTransfer_HttpData : GTLRObject
 
@@ -776,13 +793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Specification to configure notifications published to Cloud Pub/Sub.
- *  Notifications will be published to the customer-provided topic using the
- *  following `PubsubMessage.attributes`: * `"eventType"`: one of the EventType
- *  values * `"payloadFormat"`: one of the PayloadFormat values * `"projectId"`:
- *  the project_id of the `TransferOperation` * `"transferJobName"`: the
+ *  Specification to configure notifications published to Pub/Sub. Notifications
+ *  are published to the customer-provided topic using the following
+ *  `PubsubMessage.attributes`: * `"eventType"`: one of the EventType values *
+ *  `"payloadFormat"`: one of the PayloadFormat values * `"projectId"`: the
+ *  project_id of the `TransferOperation` * `"transferJobName"`: the
  *  transfer_job_name of the `TransferOperation` * `"transferOperationName"`:
- *  the name of the `TransferOperation` The `PubsubMessage.data` will contain a
+ *  the name of the `TransferOperation` The `PubsubMessage.data` contains a
  *  TransferOperation resource formatted according to the specified
  *  `PayloadFormat`.
  */
@@ -811,9 +828,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, copy, nullable) NSString *payloadFormat;
 
 /**
- *  Required. The `Topic.name` of the Cloud Pub/Sub topic to which to publish
+ *  Required. The `Topic.name` of the Pub/Sub topic to which to publish
  *  notifications. Must be of the format: `projects/{project}/topics/{topic}`.
- *  Not matching this format will result in an INVALID_ARGUMENT error.
+ *  Not matching this format results in an INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *pubsubTopic;
 
@@ -821,12 +838,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
- *  Conditions that determine which objects will be transferred. Applies only to
+ *  Conditions that determine which objects are transferred. Applies only to
  *  Cloud Data Sources such as S3, Azure, and Cloud Storage. The "last
  *  modification time" refers to the time of the last change to the object's
  *  content or metadata — specifically, this is the `updated` property of Cloud
  *  Storage objects, the `LastModified` field of S3 objects, and the
- *  `Last-Modified` header of Azure blobs.
+ *  `Last-Modified` header of Azure blobs. This is not supported for transfers
+ *  involving PosixFilesystem.
  */
 @interface GTLRStorageTransfer_ObjectConditions : GTLRObject
 
@@ -875,7 +893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  If specified, only objects with a "last modification time" before this
- *  timestamp and objects that don't have a "last modification time" will be
+ *  timestamp and objects that don't have a "last modification time" are
  *  transferred.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedBefore;
@@ -1042,12 +1060,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  The last day a transfer runs. Date boundaries are determined relative to UTC
- *  time. A job will run once per 24 hours within the following guidelines: * If
+ *  time. A job runs once per 24 hours within the following guidelines: * If
  *  `schedule_end_date` and schedule_start_date are the same and in the future
  *  relative to UTC, the transfer is executed only one time. * If
  *  `schedule_end_date` is later than `schedule_start_date` and
- *  `schedule_end_date` is in the future relative to UTC, the job will run each
- *  day at start_time_of_day through `schedule_end_date`.
+ *  `schedule_end_date` is in the future relative to UTC, the job runs each day
+ *  at start_time_of_day through `schedule_end_date`.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleEndDate;
 
@@ -1056,12 +1074,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  relative to UTC time. If `schedule_start_date` and start_time_of_day are in
  *  the past relative to the job's creation time, the transfer starts the day
  *  after you schedule the transfer request. **Note:** When starting jobs at or
- *  near midnight UTC it is possible that a job will start later than expected.
- *  For example, if you send an outbound request on June 1 one millisecond prior
- *  to midnight UTC and the Storage Transfer Service server receives the request
- *  on June 2, then it will create a TransferJob with `schedule_start_date` set
- *  to June 2 and a `start_time_of_day` set to midnight UTC. The first scheduled
- *  TransferOperation will take place on June 3 at midnight UTC.
+ *  near midnight UTC it is possible that a job starts later than expected. For
+ *  example, if you send an outbound request on June 1 one millisecond prior to
+ *  midnight UTC and the Storage Transfer Service server receives the request on
+ *  June 2, then it creates a TransferJob with `schedule_start_date` set to June
+ *  2 and a `start_time_of_day` set to midnight UTC. The first scheduled
+ *  TransferOperation takes place on June 3 at midnight UTC.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Date *scheduleStartDate;
 
@@ -1323,18 +1341,26 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  A unique name (within the transfer project) assigned when the job is
  *  created. If this field is empty in a CreateTransferJobRequest, Storage
- *  Transfer Service will assign a unique name. Otherwise, the specified name is
+ *  Transfer Service assigns a unique name. Otherwise, the specified name is
  *  used as the unique name for this job. If the specified name is in use by a
  *  job, the creation request fails with an ALREADY_EXISTS error. This name must
  *  start with `"transferJobs/"` prefix and end with a letter or a number, and
- *  should be no more than 128 characters. This name must not start with
- *  'transferJobs/OPI'. 'transferJobs/OPI' is a reserved prefix. Example:
- *  `"transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$"` Invalid job names will
- *  fail with an INVALID_ARGUMENT error.
+ *  should be no more than 128 characters. For transfers involving
+ *  PosixFilesystem, this name must start with 'transferJobs/OPI' specifically.
+ *  For all other transfer types, this name must not start with
+ *  'transferJobs/OPI'. 'transferJobs/OPI' is a reserved prefix for
+ *  PosixFilesystem transfers. Non-PosixFilesystem example:
+ *  `"transferJobs/^(?!OPI)[A-Za-z0-9-._~]*[A-Za-z0-9]$"` PosixFilesystem
+ *  example: `"transferJobs/OPI^[A-Za-z0-9-._~]*[A-Za-z0-9]$"` Applications must
+ *  not rely on the enforcement of naming requirements involving OPI. Invalid
+ *  job names fail with an INVALID_ARGUMENT error.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Notification configuration. */
+/**
+ *  Notification configuration. This is not supported for transfers involving
+ *  PosixFilesystem.
+ */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_NotificationConfig *notificationConfig;
 
 /** The ID of the Google Cloud Platform Project that owns the job. */
@@ -1342,7 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 /**
  *  Specifies schedule for the transfer job. This is an optional field. When the
- *  field is not set, the job will never execute a transfer, unless you invoke
+ *  field is not set, the job never executes a transfer, unless you invoke
  *  RunTransferJob or update the job to have a non-empty schedule.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_Schedule *schedule;
@@ -1360,10 +1386,10 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *        all the transfer executions are subject to garbage collection.
  *        Transfer jobs become eligible for garbage collection 30 days after
  *        their status is set to `DELETED`. (Value: "DELETED")
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled New transfers
- *        will not be scheduled. (Value: "DISABLED")
- *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled New transfers will
- *        be performed based on the schedule. (Value: "ENABLED")
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Disabled New transfers are
+ *        not scheduled. (Value: "DISABLED")
+ *    @arg @c kGTLRStorageTransfer_TransferJob_Status_Enabled New transfers are
+ *        performed based on the schedule. (Value: "ENABLED")
  *    @arg @c kGTLRStorageTransfer_TransferJob_Status_StatusUnspecified Zero is
  *        an illegal value. (Value: "STATUS_UNSPECIFIED")
  */
@@ -1457,8 +1483,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 /**
  *  When to overwrite objects that already exist in the sink. The default is
  *  that only objects that are different from the source are ovewritten. If
- *  true, all objects in the sink whose name matches an object in the source
- *  will be overwritten with the source object.
+ *  true, all objects in the sink whose name matches an object in the source are
+ *  overwritten with the source object.
  *
  *  Uses NSNumber of boolValue.
  */

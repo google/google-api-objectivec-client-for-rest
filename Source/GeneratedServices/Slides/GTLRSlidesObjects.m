@@ -1600,9 +1600,10 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
          updateLineProperties, updatePageElementAltText,
          updatePageElementsZOrder, updatePageElementTransform,
          updatePageProperties, updateParagraphStyle, updateShapeProperties,
-         updateSlidesPosition, updateTableBorderProperties,
-         updateTableCellProperties, updateTableColumnProperties,
-         updateTableRowProperties, updateTextStyle, updateVideoProperties;
+         updateSlideProperties, updateSlidesPosition,
+         updateTableBorderProperties, updateTableCellProperties,
+         updateTableColumnProperties, updateTableRowProperties, updateTextStyle,
+         updateVideoProperties;
 @end
 
 
@@ -1716,7 +1717,7 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 //
 
 @implementation GTLRSlides_SlideProperties
-@dynamic layoutObjectId, masterObjectId, notesPage;
+@dynamic isSkipped, layoutObjectId, masterObjectId, notesPage;
 @end
 
 
@@ -2120,6 +2121,16 @@ NSString * const kGTLRSlides_Video_Source_Youtube           = @"YOUTUBE";
 
 @implementation GTLRSlides_UpdateShapePropertiesRequest
 @dynamic fields, objectId, shapeProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSlides_UpdateSlidePropertiesRequest
+//
+
+@implementation GTLRSlides_UpdateSlidePropertiesRequest
+@dynamic fields, objectId, slideProperties;
 @end
 
 

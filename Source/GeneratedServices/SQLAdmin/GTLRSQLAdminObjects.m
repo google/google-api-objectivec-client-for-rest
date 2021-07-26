@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Cloud SQL Admin API (sqladmin/v1beta4)
+//   Cloud SQL Admin API (sqladmin/v1)
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
@@ -43,6 +43,32 @@ NSString * const kGTLRSQLAdmin_BackupRun_Type_Automated        = @"AUTOMATED";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_OnDemand         = @"ON_DEMAND";
 NSString * const kGTLRSQLAdmin_BackupRun_Type_SqlBackupRunTypeUnspecified = @"SQL_BACKUP_RUN_TYPE_UNSPECIFIED";
 
+// GTLRSQLAdmin_ConnectSettings.backendType
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_External = @"EXTERNAL";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_FirstGen = @"FIRST_GEN";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SecondGen = @"SECOND_GEN";
+NSString * const kGTLRSQLAdmin_ConnectSettings_BackendType_SqlBackendTypeUnspecified = @"SQL_BACKEND_TYPE_UNSPECIFIED";
+
+// GTLRSQLAdmin_ConnectSettings.databaseVersion
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql51 = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+
 // GTLRSQLAdmin_DatabaseInstance.backendType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_External = @"EXTERNAL";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_BackendType_FirstGen = @"FIRST_GEN";
@@ -54,7 +80,6 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql51 = @"MYSQ
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql55 = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql56 = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql57 = @"MYSQL_5_7";
-NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql80 = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -103,7 +128,6 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql51          = @"MYSQL_5_1";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql55          = @"MYSQL_5_5";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql56          = @"MYSQL_5_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql57          = @"MYSQL_5_7";
-NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql80          = @"MYSQL_8_0";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -409,6 +433,30 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_CloneContext
 @dynamic binLogCoordinates, destinationInstanceName, kind, pitrTimestampMs,
          pointInTime;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ConnectSettings
+//
+
+@implementation GTLRSQLAdmin_ConnectSettings
+@dynamic backendType, databaseVersion, ipAddresses, kind, serverCaCert;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -745,6 +793,35 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_GenerateEphemeralCertRequest
+//
+
+@implementation GTLRSQLAdmin_GenerateEphemeralCertRequest
+@dynamic accessToken, publicKey, readTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"accessToken" : @"access_token",
+    @"publicKey" : @"public_key"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_GenerateEphemeralCertResponse
+//
+
+@implementation GTLRSQLAdmin_GenerateEphemeralCertResponse
+@dynamic ephemeralCert;
 @end
 
 
@@ -1323,7 +1400,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlScheduledMaintenance
-@dynamic canDefer, canReschedule, startTime;
+@dynamic canDefer, canReschedule, scheduleDeadlineTime, startTime;
 @end
 
 

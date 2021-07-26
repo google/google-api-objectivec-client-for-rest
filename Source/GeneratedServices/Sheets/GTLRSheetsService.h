@@ -51,14 +51,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsDriveFile;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsDriveReadonly;
 /**
- *  Authorization scope: See, edit, create, and delete your spreadsheets in
- *  Google Drive
+ *  Authorization scope: See, edit, create, and delete all your Google Sheets
+ *  spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSheetsSpreadsheets;
 /**
- *  Authorization scope: View your Google Spreadsheets
+ *  Authorization scope: See all your Google Sheets spreadsheets
  *
  *  Value "https://www.googleapis.com/auth/spreadsheets.readonly"
  */

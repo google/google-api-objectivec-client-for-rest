@@ -42,6 +42,7 @@
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
 @class GTLRSecurityCommandCenter_IamPolicy;
+@class GTLRSecurityCommandCenter_Indicator;
 @class GTLRSecurityCommandCenter_ListAssetsResult;
 @class GTLRSecurityCommandCenter_ListFindingsResult;
 @class GTLRSecurityCommandCenter_NotificationConfig;
@@ -120,6 +121,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_Log
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_Finding.findingClass
+
+/**
+ *  Unspecified finding class.
+ *
+ *  Value: "FINDING_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified;
+/**
+ *  Describes a potential weakness in cloud resource/asset configuration that
+ *  increases risk.
+ *
+ *  Value: "MISCONFIGURATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration;
+/**
+ *  Describes a security observation that is for informational purposes.
+ *
+ *  Value: "OBSERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation;
+/**
+ *  Describes unwanted or malicious activity.
+ *
+ *  Value: "THREAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Threat;
+/**
+ *  Describes a potential weakness in software that increases risk to
+ *  Confidentiality & Integrity & Availability.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_Finding.severity
@@ -773,6 +810,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  field is guaranteed to be either empty or a well formed URL.
  */
 @property(nonatomic, copy, nullable) NSString *externalUri;
+
+/**
+ *  The class of the finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified
+ *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration
+ *        Describes a potential weakness in cloud resource/asset configuration
+ *        that increases risk. (Value: "MISCONFIGURATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Observation
+ *        Describes a security observation that is for informational purposes.
+ *        (Value: "OBSERVATION")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Threat Describes
+ *        unwanted or malicious activity. (Value: "THREAT")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Vulnerability
+ *        Describes a potential weakness in software that increases risk to
+ *        Confidentiality & Integrity & Availability. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *findingClass;
+
+/**
+ *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  computer forensics. This is an artifact observed on a network or in an
+ *  operating system that, with high confidence, indicates a computer intrusion.
+ *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Indicator *indicator;
 
 /**
  *  The relative resource name of this finding. See:
@@ -1675,6 +1740,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SetFindingStateReq
  *  https://cloud.google.com/iam/reference/rest/v1/Policy for format details.
  */
 @property(nonatomic, copy, nullable) NSString *policyBlob;
+
+@end
+
+
+/**
+ *  Represents what's commonly known as an Indicator of compromise (IoC) in
+ *  computer forensics. This is an artifact observed on a network or in an
+ *  operating system that, with high confidence, indicates a computer intrusion.
+ *  Reference: https://en.wikipedia.org/wiki/Indicator_of_compromise
+ */
+@interface GTLRSecurityCommandCenter_Indicator : GTLRObject
+
+/** List of domains associated to the Finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/** List of ip addresses associated to the Finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ipAddresses;
 
 @end
 

@@ -37,6 +37,7 @@ NSString * const kGTLRCivicInfoRolesHighestCourtJudge      = @"highestCourtJudge
 NSString * const kGTLRCivicInfoRolesJudge                  = @"judge";
 NSString * const kGTLRCivicInfoRolesLegislatorLowerBody    = @"legislatorLowerBody";
 NSString * const kGTLRCivicInfoRolesLegislatorUpperBody    = @"legislatorUpperBody";
+NSString * const kGTLRCivicInfoRolesOtherRole              = @"otherRole";
 NSString * const kGTLRCivicInfoRolesSchoolBoard            = @"schoolBoard";
 NSString * const kGTLRCivicInfoRolesSpecialPurposeOfficer  = @"specialPurposeOfficer";
 

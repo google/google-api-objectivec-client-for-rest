@@ -28,6 +28,7 @@
 @class GTLRCloudBuild_RepoSource;
 @class GTLRCloudBuild_RetryBuildRequest;
 @class GTLRCloudBuild_RunBuildTriggerRequest;
+@class GTLRCloudBuild_WorkerPool;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -934,6 +935,226 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudBuildQuery_ProjectsLocationsTriggersWebhook
  */
 + (instancetype)queryWithObject:(GTLRCloudBuild_HttpBody *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a `WorkerPool`.
+ *
+ *  Method: cloudbuild.projects.locations.workerPools.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate : GTLRCloudBuildQuery
+
+/**
+ *  Required. The parent resource where this worker pool will be created.
+ *  Format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  If set, validate the request and preview the response, but do not actually
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Required. Immutable. The ID to use for the `WorkerPool`, which will become
+ *  the final component of the resource name. This value should be 1-63
+ *  characters, and valid characters are /a-z-/.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPoolId;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Creates a `WorkerPool`.
+ *
+ *  @param object The @c GTLRCloudBuild_WorkerPool to include in the query.
+ *  @param parent Required. The parent resource where this worker pool will be
+ *    created. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `WorkerPool`.
+ *
+ *  Method: cloudbuild.projects.locations.workerPools.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete : GTLRCloudBuildQuery
+
+/**
+ *  If set to true, and the `WorkerPool` is not found, the request will succeed
+ *  but no action will be taken on the server.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If this is provided, it must match the server's etag on the
+ *  workerpool for the request to be processed.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the `WorkerPool` to delete. Format:
+ *  `projects/{project}/locations/{workerPool}/workerPools/{workerPool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  If set, validate the request and preview the response, but do not actually
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Deletes a `WorkerPool`.
+ *
+ *  @param name Required. The name of the `WorkerPool` to delete. Format:
+ *    `projects/{project}/locations/{workerPool}/workerPools/{workerPool}`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns details of a `WorkerPool`.
+ *
+ *  Method: cloudbuild.projects.locations.workerPools.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet : GTLRCloudBuildQuery
+
+/**
+ *  Required. The name of the `WorkerPool` to retrieve. Format:
+ *  `projects/{project}/locations/{location}/workerPools/{workerPool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_WorkerPool.
+ *
+ *  Returns details of a `WorkerPool`.
+ *
+ *  @param name Required. The name of the `WorkerPool` to retrieve. Format:
+ *    `projects/{project}/locations/{location}/workerPools/{workerPool}`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `WorkerPool`s.
+ *
+ *  Method: cloudbuild.projects.locations.workerPools.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList : GTLRCloudBuildQuery
+
+/**
+ *  The maximum number of `WorkerPool`s to return. The service may return fewer
+ *  than this value. If omitted, the server will use a sensible default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `ListWorkerPools` call. Provide this
+ *  to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent of the collection of `WorkerPools`. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_ListWorkerPoolsResponse.
+ *
+ *  Lists `WorkerPool`s.
+ *
+ *  @param parent Required. The parent of the collection of `WorkerPools`.
+ *    Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a `WorkerPool`.
+ *
+ *  Method: cloudbuild.projects.locations.workerPools.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudBuildCloudPlatform
+ */
+@interface GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch : GTLRCloudBuildQuery
+
+/**
+ *  Output only. The resource name of the `WorkerPool`, with format
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The
+ *  value of `{worker_pool}` is provided by `worker_pool_id` in
+ *  `CreateWorkerPool` request and the value of `{location}` is determined by
+ *  the endpoint accessed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A mask specifying which fields in `worker_pool` to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  If set, validate the request and preview the response, but do not actually
+ *  post it.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudBuild_Operation.
+ *
+ *  Updates a `WorkerPool`.
+ *
+ *  @param object The @c GTLRCloudBuild_WorkerPool to include in the query.
+ *  @param name Output only. The resource name of the `WorkerPool`, with format
+ *    `projects/{project}/locations/{location}/workerPools/{worker_pool}`. The
+ *    value of `{worker_pool}` is provided by `worker_pool_id` in
+ *    `CreateWorkerPool` request and the value of `{location}` is determined by
+ *    the endpoint accessed.
+ *
+ *  @return GTLRCloudBuildQuery_ProjectsLocationsWorkerPoolsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudBuild_WorkerPool *)object
                            name:(NSString *)name;
 
 @end

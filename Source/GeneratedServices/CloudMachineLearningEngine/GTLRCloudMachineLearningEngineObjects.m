@@ -981,7 +981,7 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleCloudMlV1Scheduling
-@dynamic maxRunningTime, maxWaitTime;
+@dynamic maxRunningTime, maxWaitTime, priority;
 @end
 
 
