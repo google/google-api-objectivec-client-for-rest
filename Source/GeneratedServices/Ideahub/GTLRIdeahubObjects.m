@@ -51,12 +51,12 @@ NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_TypeUn
 //
 
 @implementation GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity
-@dynamic ideaIds, name, topicIds, type, uri;
+@dynamic ideas, name, topics, type, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"ideaIds" : [NSString class],
-    @"topicIds" : [NSString class]
+    @"ideas" : [NSString class],
+    @"topics" : [NSString class]
   };
   return map;
 }
@@ -124,7 +124,7 @@ NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity_Type_TypeUn
 //
 
 @implementation GTLRIdeahub_GoogleSearchIdeahubV1alphaTopic
-@dynamic displayName, mid;
+@dynamic displayName, mid, name;
 @end
 
 

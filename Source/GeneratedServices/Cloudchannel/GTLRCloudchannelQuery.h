@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Channel API (cloudchannel/v1)
+// Description:
+//   The Cloud Channel API enables Google Cloud partners to have a single
+//   unified resale platform and APIs across all of Google Cloud including GCP,
+//   Workspace, Maps and Chrome.
 // Documentation:
 //   https://cloud.google.com/channel
 
@@ -27,6 +31,7 @@
 @class GTLRCloudchannel_GoogleCloudChannelV1CheckCloudIdentityAccountsExistRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1CreateEntitlementRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1Customer;
+@class GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ListTransferableOffersRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ListTransferableSkusRequest;
 @class GTLRCloudchannel_GoogleCloudChannelV1ProvisionCloudIdentityRequest;
@@ -282,6 +287,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports a Customer from the Cloud Identity associated with the provided
+ *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
+ *  Customer already exists and overwrite_if_exists is true, it will update that
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
+ *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
+ *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
+ *  conflicting critical fields. Requires an overwrite. Return value: The
+ *  Customer.
+ *
+ *  Method: cloudchannel.accounts.channelPartnerLinks.customers.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersImport : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the reseller's account. Parent takes the
+ *  format: accounts/{account_id} or
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
+ *
+ *  Imports a Customer from the Cloud Identity associated with the provided
+ *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
+ *  Customer already exists and overwrite_if_exists is true, it will update that
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
+ *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
+ *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
+ *  conflicting critical fields. Requires an overwrite. Return value: The
+ *  Customer.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the reseller's account. Parent
+ *    takes the format: accounts/{account_id} or
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -1383,6 +1442,60 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannelViewUnspecified;
  *  @return GTLRCloudchannelQuery_AccountsCustomersGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Imports a Customer from the Cloud Identity associated with the provided
+ *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
+ *  Customer already exists and overwrite_if_exists is true, it will update that
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
+ *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
+ *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
+ *  conflicting critical fields. Requires an overwrite. Return value: The
+ *  Customer.
+ *
+ *  Method: cloudchannel.accounts.customers.import
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudchannelAppsOrder
+ */
+@interface GTLRCloudchannelQuery_AccountsCustomersImport : GTLRCloudchannelQuery
+
+/**
+ *  Required. The resource name of the reseller's account. Parent takes the
+ *  format: accounts/{account_id} or
+ *  accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudchannel_GoogleCloudChannelV1Customer.
+ *
+ *  Imports a Customer from the Cloud Identity associated with the provided
+ *  Cloud Identity ID or domain before a TransferEntitlements call. If a linked
+ *  Customer already exists and overwrite_if_exists is true, it will update that
+ *  Customer's data. Possible error codes: * PERMISSION_DENIED: The reseller
+ *  account making the request is different from the reseller account in the API
+ *  request. * NOT_FOUND: Cloud Identity doesn't exist or was deleted. *
+ *  INVALID_ARGUMENT: Required parameters are missing, or the auth_token is
+ *  expired or invalid. * ALREADY_EXISTS: A customer already exists and has
+ *  conflicting critical fields. Requires an overwrite. Return value: The
+ *  Customer.
+ *
+ *  @param object The @c
+ *    GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest to include in
+ *    the query.
+ *  @param parent Required. The resource name of the reseller's account. Parent
+ *    takes the format: accounts/{account_id} or
+ *    accounts/{account_id}/channelPartnerLinks/{channel_partner_id}
+ *
+ *  @return GTLRCloudchannelQuery_AccountsCustomersImport
+ */
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

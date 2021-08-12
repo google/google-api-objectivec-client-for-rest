@@ -13,6 +13,18 @@
 
 #import "GTLROSConfigObjects.h"
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLROSConfigViewBasic                    = @"BASIC";
+NSString * const kGTLROSConfigViewFull                     = @"FULL";
+NSString * const kGTLROSConfigViewInventoryViewUnspecified = @"INVENTORY_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLROSConfigQuery
 
 @dynamic fields;
@@ -52,6 +64,82 @@
   query.name = name;
   query.expectedObjectClass = [GTLROSConfig_ListOperationsResponse class];
   query.loggingName = @"osconfig.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
+
+@dynamic name, view;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_Inventory class];
+  query.loggingName = @"osconfig.projects.locations.instances.inventories.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/inventories";
+  GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROSConfig_ListInventoriesResponse class];
+  query.loggingName = @"osconfig.projects.locations.instances.inventories.list";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLROSConfig_VulnerabilityReport class];
+  query.loggingName = @"osconfig.projects.locations.instances.vulnerabilityReports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/vulnerabilityReports";
+  GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROSConfig_ListVulnerabilityReportsResponse class];
+  query.loggingName = @"osconfig.projects.locations.instances.vulnerabilityReports.list";
   return query;
 }
 

@@ -91,9 +91,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.addFulfillmentPlaces
  *
@@ -119,9 +119,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  be enqueued and processed downstream. As a consequence, when a response is
  *  returned, the added place IDs are not immediately manifested in the Product
  *  queried by GetProduct or ListProducts. This feature is only available for
- *  users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2AddFulfillmentPlacesRequest to include
@@ -448,9 +448,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  available for users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.removeFulfillmentPlaces
  *
@@ -476,9 +476,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  will be enqueued and processed downstream. As a consequence, when a response
  *  is returned, the removed place IDs are not immediately manifested in the
  *  Product queried by GetProduct or ListProducts. This feature is only
- *  available for users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  available for users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2RemoveFulfillmentPlacesRequest to
@@ -512,9 +512,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  UpdateProductRequest.set_mask, then any existing inventory information will
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
- *  feature is only available for users who have Retail Search enabled. Contact
- *  Retail Support (retail-search-support\@google.com) if you are interested in
- *  using Retail Search.
+ *  feature is only available for users who have Retail Search enabled. Please
+ *  submit a form [here](https://cloud.google.com/contact) to contact cloud
+ *  sales if you are interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.branches.products.setInventory
  *
@@ -549,9 +549,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  UpdateProductRequest.set_mask, then any existing inventory information will
  *  be preserved. Pre-existing inventory information can only be updated with
  *  SetInventory, AddFulfillmentPlaces, and RemoveFulfillmentPlaces. This
- *  feature is only available for users who have Retail Search enabled. Contact
- *  Retail Support (retail-search-support\@google.com) if you are interested in
- *  using Retail Search.
+ *  feature is only available for users who have Retail Search enabled. Please
+ *  submit a form [here](https://cloud.google.com/contact) to contact cloud
+ *  sales if you are interested in using Retail Search.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SetInventoryRequest
  *    to include in the query.
@@ -569,9 +569,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Contact Retail
- *  Support (retail-search-support\@google.com) if you are interested in using
- *  Retail Search.
+ *  only available for users who have Retail Search enabled. Please submit a
+ *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
+ *  are interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.completeQuery
  *
@@ -589,11 +589,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Determines which dataset to use for fetching completion. "user-data" will
- *  use the imported dataset through ImportCompletionData. "cloud-retail" will
- *  use the dataset generated by cloud retail based on user events. If leave
- *  empty, it will use the "user-data". Current supported values: * user-data *
- *  cloud-retail This option is not automatically enabled. Before using
- *  cloud-retail, contact retail-search-support\@google.com first.
+ *  use the imported dataset through CompletionService.ImportCompletionData.
+ *  "cloud-retail" will use the dataset generated by cloud retail based on user
+ *  events. If leave empty, it will use the "user-data". Current supported
+ *  values: * user-data * cloud-retail This option requires additional
+ *  allowlisting. Before using cloud-retail, contact Cloud Retail support team
+ *  first.
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
@@ -615,8 +616,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
 /**
- *  Completion max suggestions. The maximum allowed max suggestions is 20. The
- *  default value is 20.
+ *  Completion max suggestions. If left unset or set to 0, then will fallback to
+ *  the configured value CompletionConfig.max_suggestions. The maximum allowed
+ *  max suggestions is 20. If it is set higher, it will be capped by 20.
  */
 @property(nonatomic, assign) NSInteger maxSuggestions;
 
@@ -640,9 +642,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponse.
  *
  *  Completes the specified prefix with keyword suggestions. This feature is
- *  only available for users who have Retail Search enabled. Contact Retail
- *  Support (retail-search-support\@google.com) if you are interested in using
- *  Retail Search.
+ *  only available for users who have Retail Search enabled. Please submit a
+ *  form [here](https://cloud.google.com/contact) to contact cloud sales if you
+ *  are interested in using Retail Search.
  *
  *  @param catalog Required. Catalog for which the completion is performed. Full
  *    resource name of catalog, such as `projects/ *
@@ -657,9 +659,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Bulk import of processed completion dataset. Request processing may be
  *  synchronous. Partial updating is not supported. This feature is only
- *  available for users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  available for users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.completionData.import
  *
@@ -679,9 +681,9 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Bulk import of processed completion dataset. Request processing may be
  *  synchronous. Partial updating is not supported. This feature is only
- *  available for users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  available for users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2ImportCompletionDataRequest to include
@@ -700,8 +702,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get which branch is currently default branch set by
  *  CatalogService.SetDefaultBranch method under a specified parent catalog.
  *  This feature is only available for users who have Retail Search enabled.
- *  Contact Retail Support (retail-search-support\@google.com) if you are
- *  interested in using Retail Search.
+ *  Please submit a form [here](https://cloud.google.com/contact) to contact
+ *  cloud sales if you are interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.getDefaultBranch
  *
@@ -722,8 +724,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Get which branch is currently default branch set by
  *  CatalogService.SetDefaultBranch method under a specified parent catalog.
  *  This feature is only available for users who have Retail Search enabled.
- *  Contact Retail Support (retail-search-support\@google.com) if you are
- *  interested in using Retail Search.
+ *  Please submit a form [here](https://cloud.google.com/contact) to contact
+ *  cloud sales if you are interested in using Retail Search.
  *
  *  @param catalog The parent catalog resource name, such as `projects/ *
  *    /locations/global/catalogs/default_catalog`.
@@ -958,8 +960,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Contact Retail Support (retail-search-support\@google.com)
- *  if you are interested in using Retail Search.
+ *  Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.placements.search
  *
@@ -982,8 +985,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRetail_GoogleCloudRetailV2SearchResponse.
  *
  *  Performs a search. This feature is only available for users who have Retail
- *  Search enabled. Contact Retail Support (retail-search-support\@google.com)
- *  if you are interested in using Retail Search.
+ *  Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  @param object The @c GTLRCloudRetail_GoogleCloudRetailV2SearchRequest to
  *    include in the query.
@@ -1021,9 +1025,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  SearchService will only return product IDs from branch {newBranch} (if
  *  branch is not explicitly set). * UserEventService will only join events with
  *  products from branch {newBranch}. This feature is only available for users
- *  who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Method: retail.projects.locations.catalogs.setDefaultBranch
  *
@@ -1060,9 +1064,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  SearchService will only return product IDs from branch {newBranch} (if
  *  branch is not explicitly set). * UserEventService will only join events with
  *  products from branch {newBranch}. This feature is only available for users
- *  who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  @param object The @c
  *    GTLRCloudRetail_GoogleCloudRetailV2SetDefaultBranchRequest to include in

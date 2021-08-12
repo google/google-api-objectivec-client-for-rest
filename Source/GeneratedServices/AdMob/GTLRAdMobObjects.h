@@ -162,7 +162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Mon
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpec_Dimensions_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
+ *  The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -355,7 +357,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
+ *  The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -475,7 +479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_D
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Platform;
 /**
- *  Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *  Restriction mode for ads serving (e.g. "Non-personalized ads"). **Warning:**
+ *  The dimension is incompatible with
+ *  [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *
  *  Value: "SERVING_RESTRICTION"
  */
@@ -1623,6 +1629,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_ServingRestriction
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        **Warning:** The dimension is incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecDimensionFilter_Dimension_Week The
  *        date of the first day of a week in the YYYYMMDD format (for example,
@@ -1708,6 +1716,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAdMob_ReportWarning_Type_TypeUnspecified
  *        (Value: "PLATFORM")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_ServingRestriction
  *        Restriction mode for ads serving (e.g. "Non-personalized ads").
+ *        **Warning:** The dimension is incompatible with
+ *        [ESTIMATED_EARNINGS](#Metric.ENUM_VALUES.ESTIMATED_EARNINGS) metric.
  *        (Value: "SERVING_RESTRICTION")
  *    @arg @c kGTLRAdMob_MediationReportSpecSortCondition_Dimension_Week The
  *        date of the first day of a week in the YYYYMMDD format (for example,

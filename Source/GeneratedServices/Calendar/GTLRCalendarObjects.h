@@ -564,15 +564,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Can be used by developers to keep track of conferences, should not be
  *  displayed to users.
  *  The ID value is formed differently for each conference solution type:
- *  - eventHangout: ID is not set.
- *  - eventNamedHangout: ID is the name of the Hangout.
+ *  - eventHangout: ID is not set. (This conference type is deprecated.)
+ *  - eventNamedHangout: ID is the name of the Hangout. (This conference type is
+ *  deprecated.)
  *  - hangoutsMeet: ID is the 10-letter meeting code, for example aaa-bbbb-ccc.
  *  - addOn: ID is defined by the third-party provider. Optional.
  */
 @property(nonatomic, copy, nullable) NSString *conferenceId;
 
 /**
- *  The conference solution, such as Hangouts or Google Meet.
+ *  The conference solution, such as Google Meet.
  *  Unset for a conference with a failed create request.
  *  Either conferenceSolution and at least one entryPoint, or createRequest is
  *  required.
@@ -720,9 +721,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  If a client encounters an unfamiliar or empty type, it should still be able
  *  to display the entry points. However, it should disallow modifications.
  *  The possible values are:
- *  - "eventHangout" for Hangouts for consumers (http://hangouts.google.com)
+ *  - "eventHangout" for Hangouts for consumers (deprecated; existing events may
+ *  show this conference solution type but new conferences cannot be created)
  *  - "eventNamedHangout" for classic Hangouts for Google Workspace users
- *  (deprecated; http://hangouts.google.com)
+ *  (deprecated; existing events may show this conference solution type but new
+ *  conferences cannot be created)
  *  - "hangoutsMeet" for Google Meet (http://meet.google.com)
  *  - "addOn" for 3P conference providers
  */

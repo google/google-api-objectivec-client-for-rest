@@ -196,6 +196,11 @@ NSString * const kGTLRTagManager_Tag_TagFiringOption_OncePerLoad = @"oncePerLoad
 NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiringOptionUnspecified = @"tagFiringOptionUnspecified";
 NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited = @"unlimited";
 
+// GTLRTagManager_TagConsentSetting.consentStatus
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed = @"needed";
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded = @"notNeeded";
+NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet = @"notSet";
+
 // GTLRTagManager_Trigger.type
 NSString * const kGTLRTagManager_Trigger_Type_Always           = @"always";
 NSString * const kGTLRTagManager_Trigger_Type_AmpClick         = @"ampClick";
@@ -986,11 +991,12 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 //
 
 @implementation GTLRTagManager_Tag
-@dynamic accountId, blockingRuleId, blockingTriggerId, containerId, fingerprint,
-         firingRuleId, firingTriggerId, liveOnly, monitoringMetadata,
-         monitoringMetadataTagNameKey, name, notes, parameter, parentFolderId,
-         path, paused, priority, scheduleEndMs, scheduleStartMs, setupTag,
-         tagFiringOption, tagId, tagManagerUrl, teardownTag, type, workspaceId;
+@dynamic accountId, blockingRuleId, blockingTriggerId, consentSettings,
+         containerId, fingerprint, firingRuleId, firingTriggerId, liveOnly,
+         monitoringMetadata, monitoringMetadataTagNameKey, name, notes,
+         parameter, parentFolderId, path, paused, priority, scheduleEndMs,
+         scheduleStartMs, setupTag, tagFiringOption, tagId, tagManagerUrl,
+         teardownTag, type, workspaceId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1005,6 +1011,16 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_TagConsentSetting
+//
+
+@implementation GTLRTagManager_TagConsentSetting
+@dynamic consentStatus, consentType;
 @end
 
 

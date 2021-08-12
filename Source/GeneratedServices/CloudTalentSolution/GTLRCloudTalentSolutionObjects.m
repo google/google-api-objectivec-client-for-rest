@@ -25,8 +25,11 @@ NSString * const kGTLRCloudTalentSolution_BatchOperationMetadata_State_Succeeded
 
 // GTLRCloudTalentSolution_CommuteFilter.commuteMethod
 NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified = @"COMMUTE_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Cycling = @"CYCLING";
 NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving = @"DRIVING";
 NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit = @"TRANSIT";
+NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_TransitAccessible = @"TRANSIT_ACCESSIBLE";
+NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Walking = @"WALKING";
 
 // GTLRCloudTalentSolution_CommuteFilter.roadTraffic
 NSString * const kGTLRCloudTalentSolution_CommuteFilter_RoadTraffic_BusyHour = @"BUSY_HOUR";

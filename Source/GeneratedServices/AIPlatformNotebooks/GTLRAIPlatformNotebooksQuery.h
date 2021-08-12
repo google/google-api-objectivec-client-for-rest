@@ -276,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Format:
- *  `projects/{project_id}/locations/{location}/schedules/{execution_id}`
+ *  `projects/{project_id}/locations/{location}/executions/{execution_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -286,7 +286,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets details of executions
  *
  *  @param name Required. Format:
- *    `projects/{project_id}/locations/{location}/schedules/{execution_id}`
+ *    `projects/{project_id}/locations/{location}/executions/{execution_id}`
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsExecutionsGet
  */

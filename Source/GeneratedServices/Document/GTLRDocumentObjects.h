@@ -2346,8 +2346,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The index of the parent revisions corresponding collection of items (eg.
- *  list of entities, properties within entities, etc.)
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3599,8 +3599,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The index of the parent revisions corresponding collection of items (eg.
- *  list of entities, properties within entities, etc.)
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
  *
  *  Uses NSNumber of intValue.
  */
@@ -5144,8 +5144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1ReviewDo
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  The index of the parent revisions corresponding collection of items (eg.
- *  list of entities, properties within entities, etc.)
+ *  The index of the parent item in the corresponding item list (eg. list of
+ *  entities, properties within entities, etc.) on parent revision.
  *
  *  Uses NSNumber of intValue.
  */

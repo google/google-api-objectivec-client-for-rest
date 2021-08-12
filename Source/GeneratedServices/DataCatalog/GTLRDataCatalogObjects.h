@@ -2089,7 +2089,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Taxo
  *  referred to as public tags. You can search for a public tag by value with a
  *  simple search query instead of using a ``tag:`` predicate. Public tag
  *  templates may not appear in search results depending on scope, see:
- *  include_public_tag_templates
+ *  include_public_tag_templates Note: If an [IAM domain
+ *  restriction](https://cloud.google.com/resource-manager/docs/organization-policy/restricting-domains)
+ *  is configured in the tag template's location, the public access will not be
+ *  enabled but the simple search for tag values will still work.
  *
  *  Uses NSNumber of boolValue.
  */

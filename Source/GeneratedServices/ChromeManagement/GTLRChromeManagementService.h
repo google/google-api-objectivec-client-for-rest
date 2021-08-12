@@ -30,8 +30,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See detailed information about apps installed on Chrome
+ *  browsers and devices managed by your organization
+ *
+ *  Value "https://www.googleapis.com/auth/chrome.management.appdetails.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly;
 /**
  *  Authorization scope: See reports about devices and Chrome browsers managed
  *  within your organization

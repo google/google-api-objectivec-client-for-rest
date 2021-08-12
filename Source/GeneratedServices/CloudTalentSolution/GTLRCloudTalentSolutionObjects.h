@@ -135,6 +135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_BatchOperationMetada
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified;
 /**
+ *  Commute time is calculated based on biking time.
+ *
+ *  Value: "CYCLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Cycling;
+/**
  *  Commute time is calculated based on driving time.
  *
  *  Value: "DRIVING"
@@ -147,6 +153,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_Commut
  *  Value: "TRANSIT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit;
+/**
+ *  Commute time is calculated based on public transit that is wheelchair
+ *  accessible.
+ *
+ *  Value: "TRANSIT_ACCESSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_TransitAccessible;
+/**
+ *  Commute time is calculated based on walking time.
+ *
+ *  Value: "WALKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Walking;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudTalentSolution_CommuteFilter.roadTraffic
@@ -2006,11 +2025,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTalentSolution_SearchJobsRequest_Se
  *  Likely values:
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_CommuteMethodUnspecified
  *        Commute method isn't specified. (Value: "COMMUTE_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Cycling
+ *        Commute time is calculated based on biking time. (Value: "CYCLING")
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Driving
  *        Commute time is calculated based on driving time. (Value: "DRIVING")
  *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Transit
  *        Commute time is calculated based on public transit including bus,
  *        metro, subway, and so on. (Value: "TRANSIT")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_TransitAccessible
+ *        Commute time is calculated based on public transit that is wheelchair
+ *        accessible. (Value: "TRANSIT_ACCESSIBLE")
+ *    @arg @c kGTLRCloudTalentSolution_CommuteFilter_CommuteMethod_Walking
+ *        Commute time is calculated based on walking time. (Value: "WALKING")
  */
 @property(nonatomic, copy, nullable) NSString *commuteMethod;
 

@@ -50,6 +50,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_GoogleUpdate;
 /**
+ *  Indicates whether the location has a loss in voice of merchant status. Call
+ *  GetVoiceOfMerchantState rpc for more details
+ *
+ *  Value: "LOSS_OF_VOICE_OF_MERCHANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_NotificationSetting_NotificationTypes_LossOfVoiceOfMerchant;
+/**
  *  A new answer is added to the location. The notification will provide the
  *  resource name of question and answer.
  *
@@ -116,7 +123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessNotificationSettings_Notificat
 
 /**
  *  Required. The resource name this setting is for. This is of the form
- *  `accounts/{account_id}/notifications/setting`.
+ *  `accounts/{account_id}/notificationSetting`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

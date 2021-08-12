@@ -4105,6 +4105,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, assign) BOOL sequencedRollout;
 
 /**
+ *  Google Cloud IAM service account. The service account represents the
+ *  identity of the deployed proxy, and determines what permissions it has. The
+ *  format must be `{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
  *
  *  Deploys a revision of an API proxy. If another revision of the same API
@@ -5971,6 +5978,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  the environment.
  */
 @property(nonatomic, assign) BOOL override;
+
+/**
+ *  Google Cloud IAM service account. The service account represents the
+ *  identity of the deployed proxy, and determines what permissions it has. The
+ *  format must be `{ACCOUNT_ID}\@{PROJECT}.iam.gserviceaccount.com`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1Deployment.
@@ -7841,6 +7855,50 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Apigee runtime instance. You can update the fields described in
+ *  NodeConfig. No other fields will be updated. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  Method: apigee.organizations.instances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsInstancesPatch : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the instance. Use the following structure in your request:
+ *  `organizations/{org}/instances/{instance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  List of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates an Apigee runtime instance. You can update the fields described in
+ *  NodeConfig. No other fields will be updated. **Note:** Not supported for
+ *  Apigee hybrid.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Instance to include in
+ *    the query.
+ *  @param name Required. Name of the instance. Use the following structure in
+ *    your request: `organizations/{org}/instances/{instance}`.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1Instance *)object
+                           name:(NSString *)name;
 
 @end
 

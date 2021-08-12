@@ -328,6 +328,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Compute"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Contactcenterinsights",
+            targets: ["GoogleAPIClientForREST_Contactcenterinsights"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Container",
             targets: ["GoogleAPIClientForREST_Container"]
         ),
@@ -632,6 +636,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_NetworkSecurity"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_NetworkServices",
+            targets: ["GoogleAPIClientForREST_NetworkServices"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Oauth2",
             targets: ["GoogleAPIClientForREST_Oauth2"]
         ),
@@ -666,6 +674,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Playcustomapp",
             targets: ["GoogleAPIClientForREST_Playcustomapp"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_PolicyAnalyzer",
+            targets: ["GoogleAPIClientForREST_PolicyAnalyzer"]
         ),
         .library(
             name: "GoogleAPIClientForREST_PolicySimulator",
@@ -1424,6 +1436,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_Contactcenterinsights",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/Contactcenterinsights",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Container",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Container",
@@ -1880,6 +1898,12 @@ let package = Package(
             publicHeadersPath: "."
         ),
         .target(
+            name: "GoogleAPIClientForREST_NetworkServices",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/NetworkServices",
+            publicHeadersPath: "."
+        ),
+        .target(
             name: "GoogleAPIClientForREST_Oauth2",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Oauth2",
@@ -1931,6 +1955,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Playcustomapp",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Source/GeneratedServices/Playcustomapp",
+            publicHeadersPath: "."
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_PolicyAnalyzer",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Source/GeneratedServices/PolicyAnalyzer",
             publicHeadersPath: "."
         ),
         .target(

@@ -20,12 +20,14 @@ NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_PackageTypeUnspec
 NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType_Source = @"SOURCE";
 
 // GTLRArtifactRegistry_Repository.format
+NSString * const kGTLRArtifactRegistry_Repository_Format_Apt   = @"APT";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Docker = @"DOCKER";
 NSString * const kGTLRArtifactRegistry_Repository_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi  = @"PYPI";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 // GTLRArtifactRegistry_YumArtifact.packageType
 NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Binary = @"BINARY";

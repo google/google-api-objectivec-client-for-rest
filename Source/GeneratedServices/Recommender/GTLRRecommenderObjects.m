@@ -402,13 +402,27 @@ NSString * const kGTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInf
 //
 
 @implementation GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent
-@dynamic operationGroups;
+@dynamic operationGroups, overview;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"operationGroups" : [GTLRRecommender_GoogleCloudRecommenderV1OperationGroup class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview
+//
+
+@implementation GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

@@ -87,6 +87,114 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  Method: chromemanagement.customers.apps.android.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsAndroidGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. The app for which details are being queried. Examples:
+ *  "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *  for the Save to Google Drive Chrome extension version 2.1.2,
+ *  "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *  Google Drive Android app's latest version.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleChromeManagementV1AppDetails.
+ *
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  @param name Required. The app for which details are being queried. Examples:
+ *    "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *    for the Save to Google Drive Chrome extension version 2.1.2,
+ *    "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *    Google Drive Android app's latest version.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsAndroidGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  Method: chromemanagement.customers.apps.chrome.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsChromeGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. The app for which details are being queried. Examples:
+ *  "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *  for the Save to Google Drive Chrome extension version 2.1.2,
+ *  "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *  Google Drive Android app's latest version.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleChromeManagementV1AppDetails.
+ *
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  @param name Required. The app for which details are being queried. Examples:
+ *    "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *    for the Save to Google Drive Chrome extension version 2.1.2,
+ *    "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *    Google Drive Android app's latest version.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsChromeGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  Method: chromemanagement.customers.apps.web.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementAppdetailsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersAppsWebGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. The app for which details are being queried. Examples:
+ *  "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *  for the Save to Google Drive Chrome extension version 2.1.2,
+ *  "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *  Google Drive Android app's latest version.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleChromeManagementV1AppDetails.
+ *
+ *  Get a specific app for a customer by its resource name.
+ *
+ *  @param name Required. The app for which details are being queried. Examples:
+ *    "customers/my_customer/apps/chrome/gmbmikajjgmnabiglmofipeabaddhgne\@2.1.2"
+ *    for the Save to Google Drive Chrome extension version 2.1.2,
+ *    "customers/my_customer/apps/android/com.google.android.apps.docs" for the
+ *    Google Drive Android app's latest version.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersAppsWebGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Generate report of installed Chrome versions.
  *
  *  Method: chromemanagement.customers.reports.countChromeVersions

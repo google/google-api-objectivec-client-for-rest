@@ -21,6 +21,7 @@ NSString * const kGTLRCloudAssetContentTypeContentTypeUnspecified = @"CONTENT_TY
 NSString * const kGTLRCloudAssetContentTypeIamPolicy           = @"IAM_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOrgPolicy           = @"ORG_POLICY";
 NSString * const kGTLRCloudAssetContentTypeOsInventory         = @"OS_INVENTORY";
+NSString * const kGTLRCloudAssetContentTypeRelationship        = @"RELATIONSHIP";
 NSString * const kGTLRCloudAssetContentTypeResource            = @"RESOURCE";
 
 // view
@@ -40,11 +41,13 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 @implementation GTLRCloudAssetQuery_AssetsList
 
-@dynamic assetTypes, contentType, pageSize, pageToken, parent, readTime;
+@dynamic assetTypes, contentType, pageSize, pageToken, parent, readTime,
+         relationshipTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"assetTypes" : [NSString class]
+    @"assetTypes" : [NSString class],
+    @"relationshipTypes" : [NSString class]
   };
   return map;
 }
@@ -295,7 +298,7 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 @implementation GTLRCloudAssetQuery_V1BatchGetAssetsHistory
 
 @dynamic assetNames, contentType, parent, readTimeWindowEndTime,
-         readTimeWindowStartTime;
+         readTimeWindowStartTime, relationshipTypes;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -307,7 +310,8 @@ NSString * const kGTLRCloudAssetViewFull                    = @"FULL";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"assetNames" : [NSString class]
+    @"assetNames" : [NSString class],
+    @"relationshipTypes" : [NSString class]
   };
   return map;
 }

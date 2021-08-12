@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Channel API (cloudchannel/v1)
+// Description:
+//   The Cloud Channel API enables Google Cloud partners to have a single
+//   unified resale platform and APIs across all of Google Cloud including GCP,
+//   Workspace, Maps and Chrome.
 // Documentation:
 //   https://cloud.google.com/channel
 

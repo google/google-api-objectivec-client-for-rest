@@ -81,7 +81,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name this setting is for. This is of the form
- *  `accounts/{account_id}/notifications/setting`.
+ *  `accounts/{account_id}/notificationSetting`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -106,7 +106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param object The @c GTLRMyBusinessNotificationSettings_NotificationSetting
  *    to include in the query.
  *  @param name Required. The resource name this setting is for. This is of the
- *    form `accounts/{account_id}/notifications/setting`.
+ *    form `accounts/{account_id}/notificationSetting`.
  *
  *  @return GTLRMyBusinessNotificationSettingsQuery_AccountsUpdateNotificationSetting
  */

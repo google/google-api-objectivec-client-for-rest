@@ -120,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_ContentAdsSettings_Type_Display;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsense_ContentAdsSettings_Type_Feed;
 /**
- *  Link ad unit. Note that link ad units are being retired, see
+ *  Link ad unit. Note that link ad units have now been retired, see
  *  https://support.google.com/adsense/answer/9987221.
  *
  *  Value: "LINK"
@@ -432,7 +432,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsense_Site_State_StateUnspecified;
  *    @arg @c kGTLRAdsense_ContentAdsSettings_Type_Feed In-feed ad unit. (Value:
  *        "FEED")
  *    @arg @c kGTLRAdsense_ContentAdsSettings_Type_Link Link ad unit. Note that
- *        link ad units are being retired, see
+ *        link ad units have now been retired, see
  *        https://support.google.com/adsense/answer/9987221. (Value: "LINK")
  *    @arg @c kGTLRAdsense_ContentAdsSettings_Type_MatchedContent Matched
  *        content unit. (Value: "MATCHED_CONTENT")

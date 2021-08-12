@@ -2321,7 +2321,7 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @interface GTLRShoppingContent_BusinessDayConfig : GTLRObject
 
-/** Regular business days. May not be empty. */
+/** Regular business days, such as '"monday"'. May not be empty. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *businessDays;
 
 @end
@@ -9138,12 +9138,18 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
-/** The product to insert. Only required if the method is `insert`. */
+/**
+ *  The product to insert or update. Only required if the method is `insert` or
+ *  `update`. If the `update` method is used with `updateMask` only to delete a
+ *  field, then this isn't required. For example, setting `salePrice` on the
+ *  `updateMask` and not providing a `product` will result in an existing sale
+ *  price on the product specified by `productId` being deleted.
+ */
 @property(nonatomic, strong, nullable) GTLRShoppingContent_Product *product;
 
 /**
- *  The ID of the product to get or delete. Only defined if the method is `get`
- *  or `delete`.
+ *  The ID of the product to mutate. Only defined if the method is `get`,
+ *  `delete`, or `update`. or `delete`.
  */
 @property(nonatomic, copy, nullable) NSString *productId;
 

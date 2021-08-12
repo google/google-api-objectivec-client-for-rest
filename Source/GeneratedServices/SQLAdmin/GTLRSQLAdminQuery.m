@@ -12,23 +12,6 @@
 
 #import "GTLRSQLAdminObjects.h"
 
-// ----------------------------------------------------------------------------
-// Constants
-
-// bodyType
-NSString * const kGTLRSQLAdminBodyTypeBuiltIn                = @"BUILT_IN";
-NSString * const kGTLRSQLAdminBodyTypeCloudIamServiceAccount = @"CLOUD_IAM_SERVICE_ACCOUNT";
-NSString * const kGTLRSQLAdminBodyTypeCloudIamUser           = @"CLOUD_IAM_USER";
-
-// syncMode
-NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
-NSString * const kGTLRSQLAdminSyncModeOffline                  = @"OFFLINE";
-NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
-
 @implementation GTLRSQLAdminQuery
 
 @dynamic fields;
@@ -1026,10 +1009,17 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync
 
-@dynamic instance, project, skipVerification, syncMode;
+@dynamic instance, project;
 
-+ (instancetype)queryWithProject:(NSString *)project
-                        instance:(NSString *)instance {
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
@@ -1038,6 +1028,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.project = project;
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
@@ -1049,10 +1040,17 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 @implementation GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings
 
-@dynamic instance, project, syncMode, verifyConnectionOnly;
+@dynamic instance, project;
 
-+ (instancetype)queryWithProject:(NSString *)project
-                        instance:(NSString *)instance {
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
   NSArray *pathParams = @[
     @"instance", @"project"
   ];
@@ -1061,6 +1059,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
+  query.bodyObject = object;
   query.project = project;
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse class];
@@ -1280,32 +1279,7 @@ NSString * const kGTLRSQLAdminSyncModeOnline                   = @"ONLINE";
 
 @implementation GTLRSQLAdminQuery_UsersList
 
-@dynamic bodyEtag, bodyHost, bodyInstance, bodyKind, bodyName, bodyPassword,
-         bodyProject, bodySqlserverUserDetailsDisabled,
-         bodySqlserverUserDetailsServerRoles, bodyType, instance, project;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"bodyEtag" : @"body.etag",
-    @"bodyHost" : @"body.host",
-    @"bodyInstance" : @"body.instance",
-    @"bodyKind" : @"body.kind",
-    @"bodyName" : @"body.name",
-    @"bodyPassword" : @"body.password",
-    @"bodyProject" : @"body.project",
-    @"bodySqlserverUserDetailsDisabled" : @"body.sqlserverUserDetails.disabled",
-    @"bodySqlserverUserDetailsServerRoles" : @"body.sqlserverUserDetails.serverRoles",
-    @"bodyType" : @"body.type"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"body.sqlserverUserDetails.serverRoles" : [NSString class]
-  };
-  return map;
-}
+@dynamic instance, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

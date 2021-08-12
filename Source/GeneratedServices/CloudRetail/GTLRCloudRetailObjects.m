@@ -1491,7 +1491,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansionSpec
-@dynamic condition;
+@dynamic condition, pinUnexpandedResults;
 @end
 
 
@@ -1549,7 +1549,7 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequestQueryExpansion
 //
 
 @implementation GTLRCloudRetail_GoogleCloudRetailV2SearchResponseQueryExpansionInfo
-@dynamic expandedQuery;
+@dynamic expandedQuery, pinnedResultCount;
 @end
 
 

@@ -431,7 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  built. Users create new Revisions by updating the Configuration's spec. The
  *  "latest created" revision's name is available under status, as is the
  *  "latest ready" revision's name. See also:
- *  https://github.com/knative/serving/blob/master/docs/spec/overview.md#configuration
+ *  https://github.com/knative/serving/blob/main/docs/spec/overview.md#configuration
  */
 @interface GTLRCloudRun_Configuration : GTLRObject
 
@@ -941,7 +941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 /**
  *  type is used to communicate the status of the reconciliation process. See
  *  also:
- *  https://github.com/knative/serving/blob/master/docs/spec/errors.md#error-conditions-and-reporting
+ *  https://github.com/knative/serving/blob/main/docs/spec/errors.md#error-conditions-and-reporting
  *  Types common to all resources include: * "Ready": True when the Resource is
  *  ready.
  */
@@ -1841,7 +1841,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  Revision is an immutable snapshot of code and configuration. A revision
  *  references a container image. Revisions are created by updates to a
  *  Configuration. See also:
- *  https://github.com/knative/serving/blob/master/docs/spec/overview.md#revision
+ *  https://github.com/knative/serving/blob/main/docs/spec/overview.md#revision
  */
 @interface GTLRCloudRun_Revision : GTLRObject
 
@@ -1890,7 +1890,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  this Revision. In the context of a Revision, we disallow a number of fields
  *  on this Container, including: name and lifecycle. In Cloud Run, only a
  *  single container may be provided. The runtime contract is documented here:
- *  https://github.com/knative/serving/blob/master/docs/runtime-contract.md
+ *  https://github.com/knative/serving/blob/main/docs/runtime-contract.md
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_Container *> *containers;
 
@@ -1905,7 +1905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
 /**
  *  TimeoutSeconds holds the max duration the instance is allowed for responding
  *  to a request. Cloud Run fully managed: defaults to 300 seconds (5 minutes).
- *  Maximum allowed value is 900 seconds (15 minutes). Cloud Run for Anthos:
+ *  Maximum allowed value is 3600 seconds (1 hour). Cloud Run for Anthos:
  *  defaults to 300 seconds (5 minutes). Maximum allowed value is configurable
  *  by the cluster operator.
  *
@@ -2002,7 +2002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  the Route is additionally responsible for monitoring the Configuration for
  *  "latest ready" revision changes, and smoothly rolling out latest revisions.
  *  See also:
- *  https://github.com/knative/serving/blob/master/docs/spec/overview.md#route
+ *  https://github.com/knative/serving/blob/main/docs/spec/overview.md#route
  *  Cloud Run currently supports referencing a single Configuration to
  *  automatically deploy the "latest ready" Revision from that Configuration.
  */
@@ -2249,7 +2249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_ResourceRecord_Type_RecordTypeU
  *  orchestrates ReplicaSets). The Service's controller will track the statuses
  *  of its owned Configuration and Route, reflecting their statuses and
  *  conditions as its own. See also:
- *  https://github.com/knative/serving/blob/master/docs/spec/overview.md#service
+ *  https://github.com/knative/serving/blob/main/docs/spec/overview.md#service
  */
 @interface GTLRCloudRun_Service : GTLRObject
 

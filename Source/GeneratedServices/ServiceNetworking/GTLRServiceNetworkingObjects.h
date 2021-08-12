@@ -1829,8 +1829,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
 /**
- *  The description is the comment in front of the selected proto element, such
- *  as a message, a method, a 'service' definition, or a field.
+ *  Description of the selected proto element (e.g. a message, a method, a
+ *  'service' definition, or a field). Defaults to leading & trailing comments
+ *  taken from the proto source definition of the proto element.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3093,7 +3094,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `"cloudsql_database"` represents databases in Google Cloud SQL.
+ *  `"cloudsql_database"` represents databases in Google Cloud SQL. For a list
+ *  of types, see [Monitoring resource
+ *  types](https://cloud.google.com/monitoring/api/resources) and [Logging
+ *  resource types](https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3367,7 +3371,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @interface GTLRServiceNetworking_PeeredDnsDomain : GTLRObject
 
-/** The DNS domain name suffix e.g. `example.com.`. */
+/**
+ *  The DNS domain name suffix e.g. `example.com.`. Cloud DNS requires that a
+ *  DNS suffix ends with a trailing dot.
+ */
 @property(nonatomic, copy, nullable) NSString *dnsSuffix;
 
 /**

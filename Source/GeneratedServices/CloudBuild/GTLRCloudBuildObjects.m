@@ -13,16 +13,29 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudBuild_ApprovalResult.decision
+NSString * const kGTLRCloudBuild_ApprovalResult_Decision_Approved = @"APPROVED";
+NSString * const kGTLRCloudBuild_ApprovalResult_Decision_DecisionUnspecified = @"DECISION_UNSPECIFIED";
+NSString * const kGTLRCloudBuild_ApprovalResult_Decision_Rejected = @"REJECTED";
+
 // GTLRCloudBuild_Build.status
 NSString * const kGTLRCloudBuild_Build_Status_Cancelled     = @"CANCELLED";
 NSString * const kGTLRCloudBuild_Build_Status_Expired       = @"EXPIRED";
 NSString * const kGTLRCloudBuild_Build_Status_Failure       = @"FAILURE";
 NSString * const kGTLRCloudBuild_Build_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRCloudBuild_Build_Status_Pending       = @"PENDING";
 NSString * const kGTLRCloudBuild_Build_Status_Queued        = @"QUEUED";
 NSString * const kGTLRCloudBuild_Build_Status_StatusUnknown = @"STATUS_UNKNOWN";
 NSString * const kGTLRCloudBuild_Build_Status_Success       = @"SUCCESS";
 NSString * const kGTLRCloudBuild_Build_Status_Timeout       = @"TIMEOUT";
 NSString * const kGTLRCloudBuild_Build_Status_Working       = @"WORKING";
+
+// GTLRCloudBuild_BuildApproval.state
+NSString * const kGTLRCloudBuild_BuildApproval_State_Approved  = @"APPROVED";
+NSString * const kGTLRCloudBuild_BuildApproval_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRCloudBuild_BuildApproval_State_Pending   = @"PENDING";
+NSString * const kGTLRCloudBuild_BuildApproval_State_Rejected  = @"REJECTED";
+NSString * const kGTLRCloudBuild_BuildApproval_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudBuild_BuildOptions.logging
 NSString * const kGTLRCloudBuild_BuildOptions_Logging_CloudLoggingOnly = @"CLOUD_LOGGING_ONLY";
@@ -62,6 +75,7 @@ NSString * const kGTLRCloudBuild_BuildStep_Status_Cancelled    = @"CANCELLED";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Expired      = @"EXPIRED";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Failure      = @"FAILURE";
 NSString * const kGTLRCloudBuild_BuildStep_Status_InternalError = @"INTERNAL_ERROR";
+NSString * const kGTLRCloudBuild_BuildStep_Status_Pending      = @"PENDING";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Queued       = @"QUEUED";
 NSString * const kGTLRCloudBuild_BuildStep_Status_StatusUnknown = @"STATUS_UNKNOWN";
 NSString * const kGTLRCloudBuild_BuildStep_Status_Success      = @"SUCCESS";
@@ -76,6 +90,11 @@ NSString * const kGTLRCloudBuild_FailureInfo_Type_PushFailed   = @"PUSH_FAILED";
 NSString * const kGTLRCloudBuild_FailureInfo_Type_PushImageNotFound = @"PUSH_IMAGE_NOT_FOUND";
 NSString * const kGTLRCloudBuild_FailureInfo_Type_PushNotAuthorized = @"PUSH_NOT_AUTHORIZED";
 NSString * const kGTLRCloudBuild_FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
+
+// GTLRCloudBuild_GitFileSource.repoType
+NSString * const kGTLRCloudBuild_GitFileSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
+NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Github = @"GITHUB";
+NSString * const kGTLRCloudBuild_GitFileSource_RepoType_Unknown = @"UNKNOWN";
 
 // GTLRCloudBuild_GitRepoSource.repoType
 NSString * const kGTLRCloudBuild_GitRepoSource_RepoType_CloudSourceRepositories = @"CLOUD_SOURCE_REPOSITORIES";
@@ -121,6 +140,36 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_Deleted      = @"DELETED";
 NSString * const kGTLRCloudBuild_WorkerPool_State_Deleting     = @"DELETING";
 NSString * const kGTLRCloudBuild_WorkerPool_State_Running      = @"RUNNING";
 NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ApprovalConfig
+//
+
+@implementation GTLRCloudBuild_ApprovalConfig
+@dynamic approvalRequired;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ApprovalResult
+//
+
+@implementation GTLRCloudBuild_ApprovalResult
+@dynamic approvalTime, approverAccount, comment, decision, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ApproveBuildRequest
+//
+
+@implementation GTLRCloudBuild_ApproveBuildRequest
+@dynamic approvalResult;
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -182,9 +231,9 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRCloudBuild_Build
-@dynamic artifacts, availableSecrets, buildTriggerId, createTime, failureInfo,
-         finishTime, identifier, images, logsBucket, logUrl, name, options,
-         projectId, queueTtl, results, secrets, serviceAccount, source,
+@dynamic approval, artifacts, availableSecrets, buildTriggerId, createTime,
+         failureInfo, finishTime, identifier, images, logsBucket, logUrl, name,
+         options, projectId, queueTtl, results, secrets, serviceAccount, source,
          sourceProvenance, startTime, status, statusDetail, steps,
          substitutions, tags, timeout, timing, warnings;
 
@@ -236,6 +285,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_BuildApproval
+//
+
+@implementation GTLRCloudBuild_BuildApproval
+@dynamic config, result, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_BuildOperationMetadata
 //
 
@@ -273,8 +332,8 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRCloudBuild_BuildStep
-@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, secretEnv,
-         status, timeout, timing, volumes, waitFor;
+@dynamic args, dir, entrypoint, env, identifier, name, pullTiming, script,
+         secretEnv, status, timeout, timing, volumes, waitFor;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -300,10 +359,11 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 //
 
 @implementation GTLRCloudBuild_BuildTrigger
-@dynamic autodetect, build, createTime, descriptionProperty, disabled, filename,
-         filter, github, identifier, ignoredFiles, includedFiles, name,
-         pubsubConfig, resourceName, sourceToBuild, substitutions, tags,
-         triggerTemplate, webhookConfig;
+@dynamic approvalConfig, autodetect, build, createTime, descriptionProperty,
+         disabled, filename, filter, gitFileSource, github, identifier,
+         ignoredFiles, includedFiles, name, pubsubConfig, resourceName,
+         serviceAccount, sourceToBuild, substitutions, tags, triggerTemplate,
+         webhookConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -375,11 +435,31 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_CreateGitHubEnterpriseConfigOperationMetadata
+@dynamic completeTime, createTime, githubEnterpriseConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_CreateWorkerPoolOperationMetadata
 //
 
 @implementation GTLRCloudBuild_CreateWorkerPoolOperationMetadata
 @dynamic completeTime, createTime, workerPool;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_DeleteGitHubEnterpriseConfigOperationMetadata
+@dynamic completeTime, createTime, githubEnterpriseConfig;
 @end
 
 
@@ -432,11 +512,45 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudBuild_GitFileSource
+//
+
+@implementation GTLRCloudBuild_GitFileSource
+@dynamic path, repoType, revision, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitHubEnterpriseConfig
+//
+
+@implementation GTLRCloudBuild_GitHubEnterpriseConfig
+@dynamic appId, createTime, displayName, hostUrl, name, peeredNetwork, secrets,
+         sslCa, webhookKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_GitHubEnterpriseSecrets
+//
+
+@implementation GTLRCloudBuild_GitHubEnterpriseSecrets
+@dynamic oauthClientIdName, oauthClientIdVersionName, oauthSecretName,
+         oauthSecretVersionName, privateKeyName, privateKeyVersionName,
+         webhookSecretName, webhookSecretVersionName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudBuild_GitHubEventsConfig
 //
 
 @implementation GTLRCloudBuild_GitHubEventsConfig
-@dynamic installationId, name, owner, pullRequest, push;
+@dynamic enterpriseConfigResourceName, installationId, name, owner, pullRequest,
+         push;
 @end
 
 
@@ -576,6 +690,24 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 + (NSString *)collectionItemsKey {
   return @"triggers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ListGithubEnterpriseConfigsResponse
+//
+
+@implementation GTLRCloudBuild_ListGithubEnterpriseConfigsResponse
+@dynamic configs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRCloudBuild_GitHubEnterpriseConfig class]
+  };
+  return map;
 }
 
 @end
@@ -768,6 +900,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRCloudBuild_PrivatePoolV1Config
 @dynamic networkConfig, workerConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_ProcessAppManifestCallbackOperationMetadata
+//
+
+@implementation GTLRCloudBuild_ProcessAppManifestCallbackOperationMetadata
+@dynamic completeTime, createTime, githubEnterpriseConfig;
 @end
 
 
@@ -1060,6 +1202,16 @@ NSString * const kGTLRCloudBuild_WorkerPool_State_StateUnspecified = @"STATE_UNS
 
 @implementation GTLRCloudBuild_TimeSpan
 @dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
+//
+
+@implementation GTLRCloudBuild_UpdateGitHubEnterpriseConfigOperationMetadata
+@dynamic completeTime, createTime, githubEnterpriseConfig;
 @end
 
 

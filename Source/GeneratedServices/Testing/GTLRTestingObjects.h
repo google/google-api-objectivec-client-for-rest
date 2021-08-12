@@ -2126,8 +2126,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 @property(nonatomic, copy, nullable) NSString *androidxOrchestratorVersion;
 
 /**
- *  A string representing the current version of Android Test Orchestrator that
- *  is used in the environment. The package is available at
+ *  Deprecated: Use AndroidX Test Orchestrator going forward. A string
+ *  representing the current version of Android Test Orchestrator that is used
+ *  in the environment. The package is available at
  *  https://maven.google.com/web/index.html#com.android.support.test:orchestrator.
  */
 @property(nonatomic, copy, nullable) NSString *orchestratorVersion;

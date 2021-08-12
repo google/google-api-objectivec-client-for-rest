@@ -1983,6 +1983,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @interface GTLRAndroidPublisherQuery_InappproductsUpdate : GTLRAndroidPublisherQuery
 
 /**
+ *  If set to true, and the in-app product with the given package_name and sku
+ *  doesn't exist, the in-app product will be created.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
  *  If true the prices for all regions targeted by the parent app that don't
  *  have a price specified for this in-app product will be auto converted to the
  *  target currency based on the default price. Defaults to false.
@@ -2093,7 +2099,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
 @end
 
 /**
- *  Refund a user's subscription or in-app purchase order.
+ *  Refunds a user's subscription or in-app purchase order. Orders older than 1
+ *  year cannot be refunded.
  *
  *  Method: androidpublisher.orders.refund
  *
@@ -2126,7 +2133,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Refund a user's subscription or in-app purchase order.
+ *  Refunds a user's subscription or in-app purchase order. Orders older than 1
+ *  year cannot be refunded.
  *
  *  @param packageName The package name of the application for which this
  *    subscription or in-app item was purchased (for example, 'com.some.thing').

@@ -604,6 +604,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspe
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. Services that are restoring from the backup. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restoringServices;
+
 /** Output only. The revision of the service at the time of backup. */
 @property(nonatomic, strong, nullable) GTLRDataprocMetastore_Service *serviceRevision;
 

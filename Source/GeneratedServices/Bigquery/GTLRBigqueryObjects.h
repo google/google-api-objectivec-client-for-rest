@@ -2445,6 +2445,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
 @property(nonatomic, copy, nullable) NSString *fieldDelimiter;
 
 /**
+ *  [Optional] An custom string that will represent a NULL value in CSV import
+ *  data.
+ */
+@property(nonatomic, copy, nullable) NSString *nullMarker;
+
+/**
  *  [Optional] The value that is used to quote data sections in a CSV file.
  *  BigQuery converts the string to ISO-8859-1 encoding, and then uses the first
  *  byte of the encoded string to split the data in its raw, binary state. The
@@ -2561,6 +2567,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  [Optional] Indicates if table names are case insensitive in the dataset.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isCaseInsensitive;
 
 /** [Output-only] The resource type. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -6938,6 +6951,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_OptimizationStr
  *  access control.
  */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableFieldSchema_Categories *categories;
+
+/**
+ *  Optional. Collation specification of the field. It only can be set on string
+ *  type field.
+ */
+@property(nonatomic, copy, nullable) NSString *collationSpec;
 
 /**
  *  [Optional] The field description. The maximum length is 1,024 characters.

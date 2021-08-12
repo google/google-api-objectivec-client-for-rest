@@ -23,15 +23,20 @@
 @class GTLROnDemandScanning_AliasContext;
 @class GTLROnDemandScanning_Artifact;
 @class GTLROnDemandScanning_AttestationOccurrence;
+@class GTLROnDemandScanning_BuilderConfig;
 @class GTLROnDemandScanning_BuildOccurrence;
 @class GTLROnDemandScanning_BuildProvenance;
 @class GTLROnDemandScanning_BuildProvenance_BuildOptions;
 @class GTLROnDemandScanning_Category;
 @class GTLROnDemandScanning_CloudRepoSourceContext;
 @class GTLROnDemandScanning_Command;
+@class GTLROnDemandScanning_Completeness;
 @class GTLROnDemandScanning_ComplianceOccurrence;
 @class GTLROnDemandScanning_DeploymentOccurrence;
 @class GTLROnDemandScanning_DiscoveryOccurrence;
+@class GTLROnDemandScanning_DSSEAttestationOccurrence;
+@class GTLROnDemandScanning_Envelope;
+@class GTLROnDemandScanning_EnvelopeSignature;
 @class GTLROnDemandScanning_FileHashes;
 @class GTLROnDemandScanning_Fingerprint;
 @class GTLROnDemandScanning_GerritSourceContext;
@@ -39,9 +44,12 @@
 @class GTLROnDemandScanning_Hash;
 @class GTLROnDemandScanning_Identity;
 @class GTLROnDemandScanning_ImageOccurrence;
+@class GTLROnDemandScanning_InTotoProvenance;
+@class GTLROnDemandScanning_InTotoStatement;
 @class GTLROnDemandScanning_Jwt;
 @class GTLROnDemandScanning_Layer;
 @class GTLROnDemandScanning_Location;
+@class GTLROnDemandScanning_Metadata;
 @class GTLROnDemandScanning_NonCompliantFile;
 @class GTLROnDemandScanning_Occurrence;
 @class GTLROnDemandScanning_Operation;
@@ -51,6 +59,8 @@
 @class GTLROnDemandScanning_PackageIssue;
 @class GTLROnDemandScanning_PackageOccurrence;
 @class GTLROnDemandScanning_ProjectRepoId;
+@class GTLROnDemandScanning_Recipe;
+@class GTLROnDemandScanning_Recipe_Environment;
 @class GTLROnDemandScanning_RelatedUrl;
 @class GTLROnDemandScanning_RepoId;
 @class GTLROnDemandScanning_Signature;
@@ -60,6 +70,8 @@
 @class GTLROnDemandScanning_SourceContext_Labels;
 @class GTLROnDemandScanning_Status;
 @class GTLROnDemandScanning_Status_Details_Item;
+@class GTLROnDemandScanning_Subject;
+@class GTLROnDemandScanning_Subject_Digest;
 @class GTLROnDemandScanning_UpgradeDistribution;
 @class GTLROnDemandScanning_UpgradeOccurrence;
 @class GTLROnDemandScanning_Version;
@@ -228,6 +240,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Deploym
  *  Value: "DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_Discovery;
+/**
+ *  This represents a DSSE attestation Note
+ *
+ *  Value: "DSSE_ATTESTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_Occurrence_Kind_DsseAttestation;
 /**
  *  This represents an image basis relationship.
  *
@@ -569,9 +587,27 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_BuilderConfig
+ */
+@interface GTLROnDemandScanning_BuilderConfig : GTLRObject
+
+/**
+ *  identifier
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
  *  Details of a build occurrence.
  */
 @interface GTLROnDemandScanning_BuildOccurrence : GTLRObject
+
+/** In-toto Provenance representation as defined in spec. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoProvenance *intotoProvenance;
 
 /** Required. The actual provenance for the build. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_BuildProvenance *provenance;
@@ -736,6 +772,39 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@interface GTLROnDemandScanning_Completeness : GTLRObject
+
+/**
+ *  If true, the builder claims that recipe.arguments is complete, meaning that
+ *  all external inputs are properly captured in the recipe.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *arguments;
+
+/**
+ *  If true, the builder claims that recipe.environment is claimed to be
+ *  complete.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *environment;
+
+/**
+ *  If true, the builder claims that materials are complete, usually through
+ *  some controls to prevent network access. Sometimes called "hermetic".
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *materials;
+
+@end
+
+
+/**
  *  An indication that the compliance checks in the associated ComplianceNote
  *  were not satisfied for particular resources or a specified reason.
  */
@@ -847,6 +916,22 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_DSSEAttestationOccurrence
+ */
+@interface GTLROnDemandScanning_DSSEAttestationOccurrence : GTLRObject
+
+/**
+ *  If doing something security critical, make sure to verify the signatures in
+ *  this metadata.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Envelope *envelope;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoStatement *statement;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -854,6 +939,45 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *  representation for `Empty` is empty JSON object `{}`.
  */
 @interface GTLROnDemandScanning_Empty : GTLRObject
+@end
+
+
+/**
+ *  MUST match
+ *  https://github.com/secure-systems-lab/dsse/blob/master/envelope.proto. An
+ *  authenticated message of arbitrary type.
+ */
+@interface GTLROnDemandScanning_Envelope : GTLRObject
+
+/**
+ *  payload
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *payload;
+
+@property(nonatomic, copy, nullable) NSString *payloadType;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_EnvelopeSignature *> *signatures;
+
+@end
+
+
+/**
+ *  GTLROnDemandScanning_EnvelopeSignature
+ */
+@interface GTLROnDemandScanning_EnvelopeSignature : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *keyid;
+
+/**
+ *  sig
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sig;
+
 @end
 
 
@@ -1003,6 +1127,55 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  GTLROnDemandScanning_InTotoProvenance
+ */
+@interface GTLROnDemandScanning_InTotoProvenance : GTLRObject
+
+/** required */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_BuilderConfig *builderConfig;
+
+/**
+ *  The collection of artifacts that influenced the build including sources,
+ *  dependencies, build tools, base images, and so on. This is considered to be
+ *  incomplete unless metadata.completeness.materials is true. Unset or null is
+ *  equivalent to empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *materials;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Metadata *metadata;
+
+/**
+ *  Identifies the configuration used for the build. When combined with
+ *  materials, this SHOULD fully describe the build, such that re-running this
+ *  recipe results in bit-for-bit identical output (if the build is
+ *  reproducible). required
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Recipe *recipe;
+
+@end
+
+
+/**
+ *  Spec defined at
+ *  https://github.com/in-toto/attestation/tree/main/spec#statement The
+ *  serialized InTotoStatement will be stored as Envelope.payload.
+ *  Envelope.payloadType is always "application/vnd.in-toto+json".
+ */
+@interface GTLROnDemandScanning_InTotoStatement : GTLRObject
+
+/** "https://in-toto.io/Provenance/v0.1" for InTotoProvenance. */
+@property(nonatomic, copy, nullable) NSString *predicateType;
+
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_InTotoProvenance *provenance;
+@property(nonatomic, strong, nullable) NSArray<GTLROnDemandScanning_Subject *> *subject;
+
+/** Always "https://in-toto.io/Statement/v0.1". */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  GTLROnDemandScanning_Jwt
  */
 @interface GTLROnDemandScanning_Jwt : GTLRObject
@@ -1108,6 +1281,41 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Other properties of the build.
+ */
+@interface GTLROnDemandScanning_Metadata : GTLRObject
+
+/** The timestamp of when the build completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildFinishedOn;
+
+/**
+ *  Identifies the particular build invocation, which can be useful for finding
+ *  associated logs or other ad-hoc analysis. The value SHOULD be globally
+ *  unique, per in-toto Provenance spec.
+ */
+@property(nonatomic, copy, nullable) NSString *buildInvocationId;
+
+/** The timestamp of when the build started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildStartedOn;
+
+/**
+ *  Indicates that the builder claims certain fields in this message to be
+ *  complete.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Completeness *completeness;
+
+/**
+ *  If true, the builder claims that running the recipe on materials will
+ *  produce bit-for-bit identical output.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *reproducible;
+
+@end
+
+
+/**
  *  Details about files that caused a compliance check to fail.
  */
 @interface GTLROnDemandScanning_NonCompliantFile : GTLRObject
@@ -1151,6 +1359,12 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** Describes when a resource was discovered. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_DiscoveryOccurrence *discovery;
 
+/** Describes an attestation of an artifact using dsse. */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_DSSEAttestationOccurrence *dsseAttestation;
+
+/** https://github.com/secure-systems-lab/dsse */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Envelope *envelope;
+
 /**
  *  Describes how this resource derives from the basis in the associated note.
  */
@@ -1172,6 +1386,8 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Discovery The note and
  *        occurrence track the initial discovery status of a resource. (Value:
  *        "DISCOVERY")
+ *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_DsseAttestation This
+ *        represents a DSSE attestation Note (Value: "DSSE_ATTESTATION")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_Image This represents an
  *        image basis relationship. (Value: "IMAGE")
  *    @arg @c kGTLROnDemandScanning_Occurrence_Kind_NoteKindUnspecified Default
@@ -1437,6 +1653,70 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 
 /**
+ *  Steps taken to build the artifact. For a TaskRun, typically each container
+ *  corresponds to one step in the recipe.
+ */
+@interface GTLROnDemandScanning_Recipe : GTLRObject
+
+/**
+ *  Collection of all external inputs that influenced the build on top of
+ *  recipe.definedInMaterial and recipe.entryPoint. For example, if the recipe
+ *  type were "make", then this might be the flags passed to make aside from the
+ *  target, which is captured in recipe.entryPoint.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
+
+/**
+ *  Index in materials containing the recipe steps that are not implied by
+ *  recipe.type. For example, if the recipe type were "make", then this would
+ *  point to the source containing the Makefile, not the make program itself.
+ *  Set to -1 if the recipe doesn't come from a material, as zero is default
+ *  unset value for int64.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *definedInMaterial;
+
+/**
+ *  String identifying the entry point into the build. This is often a path to a
+ *  configuration file and/or a target label within that file. The syntax and
+ *  meaning are defined by recipe.type. For example, if the recipe type were
+ *  "make", then this would reference the directory in which to run make as well
+ *  as which target to use.
+ */
+@property(nonatomic, copy, nullable) NSString *entryPoint;
+
+/**
+ *  Any other builder-controlled inputs necessary for correctly evaluating the
+ *  recipe. Usually only needed for reproducing the build but not evaluated as
+ *  part of policy.
+ */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Recipe_Environment *environment;
+
+/**
+ *  URI indicating what type of recipe was performed. It determines the meaning
+ *  of recipe.entryPoint, recipe.arguments, recipe.environment, and materials.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Any other builder-controlled inputs necessary for correctly evaluating the
+ *  recipe. Usually only needed for reproducing the build but not evaluated as
+ *  part of policy.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_Recipe_Environment : GTLRObject
+@end
+
+
+/**
  *  Metadata for any related URL information.
  */
 @interface GTLROnDemandScanning_RelatedUrl : GTLRObject
@@ -1643,6 +1923,31 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLROnDemandScanning_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  GTLROnDemandScanning_Subject
+ */
+@interface GTLROnDemandScanning_Subject : GTLRObject
+
+/** "": "" */
+@property(nonatomic, strong, nullable) GTLROnDemandScanning_Subject_Digest *digest;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  "": ""
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROnDemandScanning_Subject_Digest : GTLRObject
 @end
 
 

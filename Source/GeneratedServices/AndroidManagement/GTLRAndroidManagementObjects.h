@@ -1433,9 +1433,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Complex;
 /**
- *  Password satisfies one of the following:On Android 12 and above: PIN with no
- *  repeating (4444) or ordered (1234, 4321, 2468) sequences, length at least 8
- *  alphabetic, length at least 6 alphanumeric, length at least 6Enforcement
+ *  Define the high password complexity band as:On Android 12 and above: PIN
+ *  with no repeating (4444) or ordered (1234, 4321, 2468) sequences, length at
+ *  least 8 alphabetic, length at least 6 alphanumeric, length at least 6This
+ *  sets the minimum complexity band which the password must meet.Enforcement
  *  varies among different Android versions, management modes and password
  *  scopes. See PasswordQuality for details.
  *
@@ -1443,20 +1444,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh;
 /**
- *  Password satisfies one of the following: pattern PIN with repeating (4444)
- *  or ordered (1234, 4321, 2468) sequencesEnforcement varies among different
- *  Android versions, management modes and password scopes. See PasswordQuality
- *  for details.
+ *  Define the low password complexity band as: pattern PIN with repeating
+ *  (4444) or ordered (1234, 4321, 2468) sequencesThis sets the minimum
+ *  complexity band which the password must meet.Enforcement varies among
+ *  different Android versions, management modes and password scopes. See
+ *  PasswordQuality for details.
  *
  *  Value: "COMPLEXITY_LOW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow;
 /**
- *  Password satisfies one of the following: PIN with no repeating (4444) or
- *  ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic, length
- *  at least 4 alphanumeric, length at least 4Enforcement varies among different
- *  Android versions, management modes and password scopes. See PasswordQuality
- *  for details.
+ *  Define the medium password complexity band as: PIN with no repeating (4444)
+ *  or ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic,
+ *  length at least 4 alphanumeric, length at least 4This sets the minimum
+ *  complexity band which the password must meet.Enforcement varies among
+ *  different Android versions, management modes and password scopes. See
+ *  PasswordQuality for details.
  *
  *  Value: "COMPLEXITY_MEDIUM"
  */
@@ -3226,8 +3229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_MemoryEvent *> *memoryEvents;
 
 /**
- *  Memory information. This information is only available if memoryInfoEnabled
- *  is true in the device's policy.
+ *  Memory information: contains information about device memory and storage.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_MemoryInfo *memoryInfo;
 
@@ -4769,22 +4771,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
  *        etc are not applied. See PasswordQuality for details. (Value:
  *        "COMPLEX")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityHigh
- *        Password satisfies one of the following:On Android 12 and above: PIN
- *        with no repeating (4444) or ordered (1234, 4321, 2468) sequences,
+ *        Define the high password complexity band as:On Android 12 and above:
+ *        PIN with no repeating (4444) or ordered (1234, 4321, 2468) sequences,
  *        length at least 8 alphabetic, length at least 6 alphanumeric, length
- *        at least 6Enforcement varies among different Android versions,
+ *        at least 6This sets the minimum complexity band which the password
+ *        must meet.Enforcement varies among different Android versions,
  *        management modes and password scopes. See PasswordQuality for details.
  *        (Value: "COMPLEXITY_HIGH")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityLow
- *        Password satisfies one of the following: pattern PIN with repeating
- *        (4444) or ordered (1234, 4321, 2468) sequencesEnforcement varies among
+ *        Define the low password complexity band as: pattern PIN with repeating
+ *        (4444) or ordered (1234, 4321, 2468) sequencesThis sets the minimum
+ *        complexity band which the password must meet.Enforcement varies among
  *        different Android versions, management modes and password scopes. See
  *        PasswordQuality for details. (Value: "COMPLEXITY_LOW")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_ComplexityMedium
- *        Password satisfies one of the following: PIN with no repeating (4444)
- *        or ordered (1234, 4321, 2468) sequences, length at least 4 alphabetic,
- *        length at least 4 alphanumeric, length at least 4Enforcement varies
- *        among different Android versions, management modes and password
+ *        Define the medium password complexity band as: PIN with no repeating
+ *        (4444) or ordered (1234, 4321, 2468) sequences, length at least 4
+ *        alphabetic, length at least 4 alphanumeric, length at least 4This sets
+ *        the minimum complexity band which the password must meet.Enforcement
+ *        varies among different Android versions, management modes and password
  *        scopes. See PasswordQuality for details. (Value: "COMPLEXITY_MEDIUM")
  *    @arg @c kGTLRAndroidManagement_PasswordRequirements_PasswordQuality_Numeric
  *        The password must contain numeric characters.This, when applied on
@@ -6079,7 +6084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WebToken_Permissions_W
 @property(nonatomic, strong, nullable) NSNumber *hardwareStatusEnabled;
 
 /**
- *  Whether memory reporting is enabled.
+ *  Whether memory event reporting is enabled.
  *
  *  Uses NSNumber of boolValue.
  */

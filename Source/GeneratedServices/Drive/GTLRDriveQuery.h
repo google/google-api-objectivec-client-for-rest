@@ -1395,7 +1395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  A comma-separated list of spaces to query within the corpus. Supported
- *  values are 'drive', 'appDataFolder' and 'photos'.
+ *  values are 'drive' and 'appDataFolder'.
  *
  *  @note If not set, the documented server-side default will be drive.
  */

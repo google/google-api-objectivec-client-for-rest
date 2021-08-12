@@ -22,11 +22,13 @@
 #endif
 
 @class GTLROSConfig_AptSettings;
+@class GTLROSConfig_CVSSv3;
 @class GTLROSConfig_ExecStep;
 @class GTLROSConfig_ExecStepConfig;
 @class GTLROSConfig_FixedOrPercent;
 @class GTLROSConfig_GcsObject;
 @class GTLROSConfig_GooSettings;
+@class GTLROSConfig_Inventory;
 @class GTLROSConfig_Inventory_Items;
 @class GTLROSConfig_InventoryItem;
 @class GTLROSConfig_InventoryOsInfo;
@@ -55,6 +57,10 @@
 @class GTLROSConfig_Status_Details_Item;
 @class GTLROSConfig_TimeOfDay;
 @class GTLROSConfig_TimeZone;
+@class GTLROSConfig_VulnerabilityReport;
+@class GTLROSConfig_VulnerabilityReportVulnerability;
+@class GTLROSConfig_VulnerabilityReportVulnerabilityDetails;
+@class GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference;
 @class GTLROSConfig_WeekDayOfMonth;
 @class GTLROSConfig_WeeklySchedule;
 @class GTLROSConfig_WindowsUpdateSettings;
@@ -92,6 +98,239 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_AptSettings_Type_TypeUnspecifie
  *  Value: "UPGRADE"
  */
 FOUNDATION_EXTERN NSString * const kGTLROSConfig_AptSettings_Type_Upgrade;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.attackComplexity
+
+/**
+ *  A successful attack depends on conditions beyond the attacker's control.
+ *  That is, a successful attack cannot be accomplished at will, but requires
+ *  the attacker to invest in some measurable amount of effort in preparation or
+ *  execution against the vulnerable component before a successful attack can be
+ *  expected.
+ *
+ *  Value: "ATTACK_COMPLEXITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityHigh;
+/**
+ *  Specialized access conditions or extenuating circumstances do not exist. An
+ *  attacker can expect repeatable success when attacking the vulnerable
+ *  component.
+ *
+ *  Value: "ATTACK_COMPLEXITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityLow;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_COMPLEXITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.attackVector
+
+/**
+ *  The vulnerable component is bound to the network stack, but the attack is
+ *  limited at the protocol level to a logically adjacent topology.
+ *
+ *  Value: "ATTACK_VECTOR_ADJACENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorAdjacent;
+/**
+ *  The vulnerable component is not bound to the network stack and the
+ *  attacker's path is via read/write/execute capabilities.
+ *
+ *  Value: "ATTACK_VECTOR_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorLocal;
+/**
+ *  The vulnerable component is bound to the network stack and the set of
+ *  possible attackers extends beyond the other options listed below, up to and
+ *  including the entire Internet.
+ *
+ *  Value: "ATTACK_VECTOR_NETWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorNetwork;
+/**
+ *  The attack requires the attacker to physically touch or manipulate the
+ *  vulnerable component.
+ *
+ *  Value: "ATTACK_VECTOR_PHYSICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorPhysical;
+/**
+ *  Invalid value.
+ *
+ *  Value: "ATTACK_VECTOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.availabilityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.confidentialityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.integrityImpact
+
+/**
+ *  High impact.
+ *
+ *  Value: "IMPACT_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactHigh;
+/**
+ *  Low impact.
+ *
+ *  Value: "IMPACT_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactLow;
+/**
+ *  No impact.
+ *
+ *  Value: "IMPACT_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "IMPACT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.privilegesRequired
+
+/**
+ *  The attacker requires privileges that provide significant (e.g.,
+ *  administrative) control over the vulnerable component allowing access to
+ *  component-wide settings and files.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredHigh;
+/**
+ *  The attacker requires privileges that provide basic user capabilities that
+ *  could normally affect only settings and files owned by a user.
+ *  Alternatively, an attacker with Low privileges has the ability to access
+ *  only non-sensitive resources.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredLow;
+/**
+ *  The attacker is unauthorized prior to attack, and therefore does not require
+ *  any access to settings or files of the vulnerable system to carry out an
+ *  attack.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredNone;
+/**
+ *  Invalid value.
+ *
+ *  Value: "PRIVILEGES_REQUIRED_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.scope
+
+/**
+ *  An exploited vulnerability can affect resources beyond the security scope
+ *  managed by the security authority of the vulnerable component.
+ *
+ *  Value: "SCOPE_CHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeChanged;
+/**
+ *  An exploited vulnerability can only affect resources managed by the same
+ *  security authority.
+ *
+ *  Value: "SCOPE_UNCHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnchanged;
+/**
+ *  Invalid value.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROSConfig_CVSSv3.userInteraction
+
+/**
+ *  The vulnerable system can be exploited without interaction from any user.
+ *
+ *  Value: "USER_INTERACTION_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionNone;
+/**
+ *  Successful exploitation of this vulnerability requires a user to take some
+ *  action before the vulnerability can be exploited.
+ *
+ *  Value: "USER_INTERACTION_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionRequired;
+/**
+ *  Invalid value.
+ *
+ *  Value: "USER_INTERACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROSConfig_ExecStepConfig.interpreter
@@ -681,6 +920,191 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  Common Vulnerability Scoring System version 3. For details, see
+ *  https://www.first.org/cvss/specification-document
+ */
+@interface GTLROSConfig_CVSSv3 : GTLRObject
+
+/**
+ *  This metric describes the conditions beyond the attacker's control that must
+ *  exist in order to exploit the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityHigh A
+ *        successful attack depends on conditions beyond the attacker's control.
+ *        That is, a successful attack cannot be accomplished at will, but
+ *        requires the attacker to invest in some measurable amount of effort in
+ *        preparation or execution against the vulnerable component before a
+ *        successful attack can be expected. (Value: "ATTACK_COMPLEXITY_HIGH")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityLow
+ *        Specialized access conditions or extenuating circumstances do not
+ *        exist. An attacker can expect repeatable success when attacking the
+ *        vulnerable component. (Value: "ATTACK_COMPLEXITY_LOW")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityUnspecified
+ *        Invalid value. (Value: "ATTACK_COMPLEXITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackComplexity;
+
+/**
+ *  This metric reflects the context by which vulnerability exploitation is
+ *  possible.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackVector_AttackVectorAdjacent The
+ *        vulnerable component is bound to the network stack, but the attack is
+ *        limited at the protocol level to a logically adjacent topology.
+ *        (Value: "ATTACK_VECTOR_ADJACENT")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackVector_AttackVectorLocal The vulnerable
+ *        component is not bound to the network stack and the attacker's path is
+ *        via read/write/execute capabilities. (Value: "ATTACK_VECTOR_LOCAL")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackVector_AttackVectorNetwork The
+ *        vulnerable component is bound to the network stack and the set of
+ *        possible attackers extends beyond the other options listed below, up
+ *        to and including the entire Internet. (Value: "ATTACK_VECTOR_NETWORK")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackVector_AttackVectorPhysical The attack
+ *        requires the attacker to physically touch or manipulate the vulnerable
+ *        component. (Value: "ATTACK_VECTOR_PHYSICAL")
+ *    @arg @c kGTLROSConfig_CVSSv3_AttackVector_AttackVectorUnspecified Invalid
+ *        value. (Value: "ATTACK_VECTOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *attackVector;
+
+/**
+ *  This metric measures the impact to the availability of the impacted
+ *  component resulting from a successfully exploited vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactHigh High impact.
+ *        (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactLow Low impact.
+ *        (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactNone No impact.
+ *        (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactUnspecified Invalid
+ *        value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *availabilityImpact;
+
+/**
+ *  The base score is a function of the base metric scores.
+ *  https://www.first.org/cvss/specification-document#Base-Metrics
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baseScore;
+
+/**
+ *  This metric measures the impact to the confidentiality of the information
+ *  resources managed by a software component due to a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactHigh High impact.
+ *        (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactLow Low impact.
+ *        (Value: "IMPACT_LOW")
+ *    @arg @c kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactNone No impact.
+ *        (Value: "IMPACT_NONE")
+ *    @arg @c kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactUnspecified
+ *        Invalid value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *confidentialityImpact;
+
+/**
+ *  The Exploitability sub-score equation is derived from the Base
+ *  Exploitability metrics.
+ *  https://www.first.org/cvss/specification-document#2-1-Exploitability-Metrics
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *exploitabilityScore;
+
+/**
+ *  The Impact sub-score equation is derived from the Base Impact metrics.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *impactScore;
+
+/**
+ *  This metric measures the impact to integrity of a successfully exploited
+ *  vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactHigh High impact.
+ *        (Value: "IMPACT_HIGH")
+ *    @arg @c kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactLow Low impact. (Value:
+ *        "IMPACT_LOW")
+ *    @arg @c kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactNone No impact. (Value:
+ *        "IMPACT_NONE")
+ *    @arg @c kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactUnspecified Invalid
+ *        value. (Value: "IMPACT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *integrityImpact;
+
+/**
+ *  This metric describes the level of privileges an attacker must possess
+ *  before successfully exploiting the vulnerability.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredHigh The
+ *        attacker requires privileges that provide significant (e.g.,
+ *        administrative) control over the vulnerable component allowing access
+ *        to component-wide settings and files. (Value:
+ *        "PRIVILEGES_REQUIRED_HIGH")
+ *    @arg @c kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredLow The
+ *        attacker requires privileges that provide basic user capabilities that
+ *        could normally affect only settings and files owned by a user.
+ *        Alternatively, an attacker with Low privileges has the ability to
+ *        access only non-sensitive resources. (Value:
+ *        "PRIVILEGES_REQUIRED_LOW")
+ *    @arg @c kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredNone The
+ *        attacker is unauthorized prior to attack, and therefore does not
+ *        require any access to settings or files of the vulnerable system to
+ *        carry out an attack. (Value: "PRIVILEGES_REQUIRED_NONE")
+ *    @arg @c kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredUnspecified
+ *        Invalid value. (Value: "PRIVILEGES_REQUIRED_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *privilegesRequired;
+
+/**
+ *  The Scope metric captures whether a vulnerability in one vulnerable
+ *  component impacts resources in components beyond its security scope.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_Scope_ScopeChanged An exploited vulnerability
+ *        can affect resources beyond the security scope managed by the security
+ *        authority of the vulnerable component. (Value: "SCOPE_CHANGED")
+ *    @arg @c kGTLROSConfig_CVSSv3_Scope_ScopeUnchanged An exploited
+ *        vulnerability can only affect resources managed by the same security
+ *        authority. (Value: "SCOPE_UNCHANGED")
+ *    @arg @c kGTLROSConfig_CVSSv3_Scope_ScopeUnspecified Invalid value. (Value:
+ *        "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  This metric captures the requirement for a human user, other than the
+ *  attacker, to participate in the successful compromise of the vulnerable
+ *  component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionNone The
+ *        vulnerable system can be exploited without interaction from any user.
+ *        (Value: "USER_INTERACTION_NONE")
+ *    @arg @c kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionRequired
+ *        Successful exploitation of this vulnerability requires a user to take
+ *        some action before the vulnerability can be exploited. (Value:
+ *        "USER_INTERACTION_REQUIRED")
+ *    @arg @c kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionUnspecified
+ *        Invalid value. (Value: "USER_INTERACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInteraction;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -848,7 +1272,11 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
- *  The inventory details of a VM.
+ *  This API resource represents the available inventory data for a Compute
+ *  Engine virtual machine (VM) instance at a given point in time. You can use
+ *  this API resource to determine the inventory data of your VM. For more
+ *  information, see [Information provided by OS inventory
+ *  management](https://cloud.google.com/compute/docs/instances/os-inventory-management#data-collected).
  */
 @interface GTLROSConfig_Inventory : GTLRObject
 
@@ -860,8 +1288,17 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  */
 @property(nonatomic, strong, nullable) GTLROSConfig_Inventory_Items *items;
 
+/**
+ *  Output only. The `Inventory` API resource name. Format:
+ *  `projects/{project_number}/locations/{location}/instances/{instance_id}/inventory`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** Base level operating system information for the VM. */
 @property(nonatomic, strong, nullable) GTLROSConfig_InventoryOsInfo *osInfo;
+
+/** Output only. Timestamp of the last reported inventory for the VM. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1164,6 +1601,31 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 
 /**
+ *  A response message for listing inventory data for all VMs in a specified
+ *  location.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "inventories" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROSConfig_ListInventoriesResponse : GTLRCollectionObject
+
+/**
+ *  List of inventory objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_Inventory *> *inventories;
+
+/** The pagination token to retrieve the next page of inventory objects. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1258,6 +1720,34 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROSConfig_PatchJob *> *patchJobs;
+
+@end
+
+
+/**
+ *  A response message for listing vulnerability reports for all VM instances in
+ *  the specified location.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "vulnerabilityReports" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROSConfig_ListVulnerabilityReportsResponse : GTLRCollectionObject
+
+/**
+ *  The pagination token to retrieve the next page of vulnerabilityReports
+ *  object.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of vulnerabilityReport objects.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_VulnerabilityReport *> *vulnerabilityReports;
 
 @end
 
@@ -2132,6 +2622,122 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_WindowsUpdateSettings_Classific
 
 /** Optional. IANA Time Zone Database version number, e.g. "2019a". */
 @property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  This API resource represents the vulnerability report for a specified
+ *  Compute Engine virtual machine (VM) instance at a given point in time. For
+ *  more information, see [Vulnerability
+ *  reports](https://cloud.google.com/compute/docs/instances/os-inventory-management#vulnerability-reports).
+ */
+@interface GTLROSConfig_VulnerabilityReport : GTLRObject
+
+/**
+ *  Output only. The `vulnerabilityReport` API resource name. Format:
+ *  `projects/{project_number}/locations/{location}/instances/{instance_id}/vulnerabilityReport`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The timestamp for when the last vulnerability report was
+ *  generated for the VM.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Output only. List of vulnerabilities affecting the VM. */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_VulnerabilityReportVulnerability *> *vulnerabilities;
+
+@end
+
+
+/**
+ *  A vulnerability affecting the VM instance.
+ */
+@interface GTLROSConfig_VulnerabilityReportVulnerability : GTLRObject
+
+/**
+ *  Corresponds to the `AVAILABLE_PACKAGE` inventory item on the VM. If the
+ *  vulnerability report was not updated after the VM inventory update, these
+ *  values might not display in VM inventory. If there is no available fix, the
+ *  field is empty. The `inventory_item` value specifies the latest
+ *  `SoftwarePackage` available to the VM that fixes the vulnerability.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableInventoryItemIds;
+
+/** The timestamp for when the vulnerability was first detected. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Contains metadata as per the upstream feed of the operating system and NVD.
+ */
+@property(nonatomic, strong, nullable) GTLROSConfig_VulnerabilityReportVulnerabilityDetails *details;
+
+/**
+ *  Corresponds to the `INSTALLED_PACKAGE` inventory item on the VM. This field
+ *  displays the inventory items affected by this vulnerability. If the
+ *  vulnerability report was not updated after the VM inventory update, these
+ *  values might not display in VM inventory. For some distros, this field may
+ *  be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *installedInventoryItemIds;
+
+/** The timestamp for when the vulnerability was last modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Contains metadata information for the vulnerability. This information is
+ *  collected from the upstream feed of the operating system.
+ */
+@interface GTLROSConfig_VulnerabilityReportVulnerabilityDetails : GTLRObject
+
+/**
+ *  The CVE of the vulnerability. CVE cannot be empty and the combination of
+ *  should be unique across vulnerabilities for a VM.
+ */
+@property(nonatomic, copy, nullable) NSString *cve;
+
+/**
+ *  The CVSS V2 score of this vulnerability. CVSS V2 score is on a scale of 0 -
+ *  10 where 0 indicates low severity and 10 indicates high severity.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cvssV2Score;
+
+/** The full description of the CVSSv3 for this vulnerability from NVD. */
+@property(nonatomic, strong, nullable) GTLROSConfig_CVSSv3 *cvssV3;
+
+/**
+ *  The note or description describing the vulnerability from the distro.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Corresponds to the references attached to the `VulnerabilityDetails`. */
+@property(nonatomic, strong, nullable) NSArray<GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference *> *references;
+
+/** Assigned severity/impact ranking from the distro. */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
+ *  A reference for this vulnerability.
+ */
+@interface GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference : GTLRObject
+
+/** The source of the reference e.g. NVD. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/** The url of the reference. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

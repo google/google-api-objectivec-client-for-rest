@@ -273,6 +273,16 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedGtidM
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedMigrationType = @"UNSUPPORTED_MIGRATION_TYPE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition = @"UNSUPPORTED_TABLE_DEFINITION";
 
+// GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncMode
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_ExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Offline = @"OFFLINE";
+NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Online = @"ONLINE";
+
+// GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncMode
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_ExternalSyncModeUnspecified = @"EXTERNAL_SYNC_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Offline = @"OFFLINE";
+NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Online = @"ONLINE";
+
 // GTLRSQLAdmin_SqlOutOfDiskReport.sqlOutOfDiskState
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_Normal = @"NORMAL";
 NSString * const kGTLRSQLAdmin_SqlOutOfDiskReport_SqlOutOfDiskState_SoftShutdown = @"SOFT_SHUTDOWN";
@@ -1027,7 +1037,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_IpConfiguration
-@dynamic authorizedNetworks, ipv4Enabled, privateNetwork, requireSsl;
+@dynamic allocatedIpRange, authorizedNetworks, ipv4Enabled, privateNetwork,
+         requireSsl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1103,6 +1114,15 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_MySqlSyncConfig
+//
+
+@implementation GTLRSQLAdmin_MySqlSyncConfig
 @end
 
 
@@ -1356,6 +1376,26 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody
 @dynamic reschedule;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest
+@dynamic mysqlSyncConfig, skipVerification, syncMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
+//
+
+@implementation GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest
+@dynamic mysqlSyncConfig, syncMode, verifyConnectionOnly;
 @end
 
 

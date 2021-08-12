@@ -1025,44 +1025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 
 
 /**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRTranscoder_OperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *cancelRequested;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusDetail;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
  *  The origin URI.
  */
 @interface GTLRTranscoder_OriginUri : GTLRObject
@@ -1447,8 +1409,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUns
 @property(nonatomic, strong, nullable) NSNumber *bFrameCount;
 
 /**
- *  Required. The video bitrate in bits per second. Must be between 1 and
- *  1,000,000,000.
+ *  Required. The video bitrate in bits per second. The minimum value is 1,000.
+ *  The maximum value for H264/H265 is 800,000,000. The maximum value for VP9 is
+ *  480,000,000.
  *
  *  Uses NSNumber of intValue.
  */
