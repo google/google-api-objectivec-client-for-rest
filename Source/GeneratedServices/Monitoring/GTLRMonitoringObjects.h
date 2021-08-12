@@ -2613,8 +2613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  A DistributionCut defines a TimeSeries and thresholds used for measuring
  *  good service and total service. The TimeSeries must have ValueType =
  *  DISTRIBUTION and MetricKind = DELTA or MetricKind = CUMULATIVE. The computed
- *  good_service will be the count of values x in the Distribution such that
- *  range.min <= x < range.max.
+ *  good_service will be the estimated count of values in the Distribution that
+ *  fall within the specified min and max.
  */
 @interface GTLRMonitoring_DistributionCut : GTLRObject
 
@@ -2973,9 +2973,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 
 /**
- *  Range of numerical values, inclusive of min and exclusive of max. If the
- *  open range "< range.max" is desired, set range.min = -infinity. If the open
- *  range ">= range.min" is desired, set range.max = infinity.
+ *  Range of numerical values within min and max. If the open range "<
+ *  range.max" is desired, set range.min = -infinity. If the open range ">=
+ *  range.min" is desired, set range.max = infinity.
  */
 @interface GTLRMonitoring_GoogleMonitoringV3Range : GTLRObject
 
@@ -4208,7 +4208,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  A MetricRange is used when each window is good when the value x of a single
- *  TimeSeries satisfies range.min <= x < range.max. The provided TimeSeries
+ *  TimeSeries satisfies range.min <= x <= range.max. The provided TimeSeries
  *  must have ValueType = INT64 or ValueType = DOUBLE and MetricKind = GAUGE.
  */
 @interface GTLRMonitoring_MetricRange : GTLRObject
@@ -4485,7 +4485,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  "cloudsql_database" represents databases in Google Cloud SQL.
+ *  "cloudsql_database" represents databases in Google Cloud SQL. For a list of
+ *  types, see Monitoring resource types
+ *  (https://cloud.google.com/monitoring/api/resources) and Logging resource
+ *  types (https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -5786,7 +5789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *  The monitored resource (https://cloud.google.com/monitoring/api/resources)
  *  associated with the configuration. The following monitored resource types
  *  are valid for this field: uptime_url, gce_instance, gae_app,
- *  aws_ec2_instance, aws_elb_load_balancer
+ *  aws_ec2_instance, aws_elb_load_balancer k8s_service
  */
 @property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *monitoredResource;
 

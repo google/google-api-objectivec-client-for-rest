@@ -150,10 +150,18 @@ NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UN
 //
 
 @implementation GTLRDataprocMetastore_Backup
-@dynamic createTime, descriptionProperty, endTime, name, serviceRevision, state;
+@dynamic createTime, descriptionProperty, endTime, name, restoringServices,
+         serviceRevision, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"restoringServices" : [NSString class]
+  };
+  return map;
 }
 
 @end

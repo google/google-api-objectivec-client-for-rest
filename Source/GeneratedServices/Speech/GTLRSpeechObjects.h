@@ -383,6 +383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
 
+/** When available, billed audio seconds for the corresponding request. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalBilledTime;
+
 @end
 
 
@@ -898,6 +901,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpeech_RecognitionMetadata_RecordingDevi
  *  portions of audio.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpeech_RecognitionResult *> *results;
+
+/** When available, billed audio seconds for the corresponding request. */
+@property(nonatomic, strong, nullable) GTLRDuration *totalBilledTime;
 
 @end
 

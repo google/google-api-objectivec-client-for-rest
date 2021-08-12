@@ -239,6 +239,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_LoggingConfig
+//
+
+@implementation GTLRStorageTransfer_LoggingConfig
+@dynamic enableOnpremGcsTransferLogs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_NotificationConfig
 //
 
@@ -325,6 +335,16 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageTransfer_PosixFilesystem
+//
+
+@implementation GTLRStorageTransfer_PosixFilesystem
+@dynamic rootDirectory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageTransfer_ResumeTransferOperationRequest
 //
 
@@ -404,8 +424,9 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 @dynamic bytesCopiedToSink, bytesDeletedFromSink, bytesDeletedFromSource,
          bytesFailedToDeleteFromSink, bytesFoundFromSource,
          bytesFoundOnlyFromSink, bytesFromSourceFailed,
-         bytesFromSourceSkippedBySync, objectsCopiedToSink,
-         objectsDeletedFromSink, objectsDeletedFromSource,
+         bytesFromSourceSkippedBySync, directoriesFailedToListFromSource,
+         directoriesFoundFromSource, directoriesSuccessfullyListedFromSource,
+         objectsCopiedToSink, objectsDeletedFromSink, objectsDeletedFromSource,
          objectsFailedToDeleteFromSink, objectsFoundFromSource,
          objectsFoundOnlyFromSink, objectsFromSourceFailed,
          objectsFromSourceSkippedBySync;
@@ -419,8 +440,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferJob
 @dynamic creationTime, deletionTime, descriptionProperty, lastModificationTime,
-         latestOperationName, name, notificationConfig, projectId, schedule,
-         status, transferSpec;
+         latestOperationName, loggingConfig, name, notificationConfig,
+         projectId, schedule, status, transferSpec;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -466,7 +487,8 @@ NSString * const kGTLRStorageTransfer_TransferOperation_Status_Success = @"SUCCE
 
 @implementation GTLRStorageTransfer_TransferSpec
 @dynamic awsS3DataSource, azureBlobStorageDataSource, gcsDataSink,
-         gcsDataSource, httpDataSource, objectConditions, transferOptions;
+         gcsDataSource, httpDataSource, objectConditions, posixDataSource,
+         transferOptions;
 @end
 
 

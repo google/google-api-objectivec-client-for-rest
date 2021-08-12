@@ -40,6 +40,7 @@
 @class GTLRTagManager_SetupTag;
 @class GTLRTagManager_SyncStatus;
 @class GTLRTagManager_Tag;
+@class GTLRTagManager_TagConsentSetting;
 @class GTLRTagManager_TeardownTag;
 @class GTLRTagManager_Trigger;
 @class GTLRTagManager_UserPermission;
@@ -495,6 +496,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_TagFiring
  *  Value: "unlimited"
  */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_Tag_TagFiringOption_Unlimited;
+
+// ----------------------------------------------------------------------------
+// GTLRTagManager_TagConsentSetting.consentStatus
+
+/**
+ *  Tag requires additional consent settings.
+ *
+ *  Value: "needed"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed;
+/**
+ *  Tag doesn't require any additional consent settings.
+ *
+ *  Value: "notNeeded"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded;
+/**
+ *  Default value where user has not specified any setting on it.
+ *
+ *  Value: "notSet"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet;
 
 // ----------------------------------------------------------------------------
 // GTLRTagManager_Trigger.type
@@ -2234,6 +2257,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *blockingTriggerId;
 
+/**
+ *  Consent settings of a tag. \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.create \@mutable
+ *  tagmanager.accounts.containers.workspaces.tags.update
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_TagConsentSetting *consentSettings;
+
 /** GTM Container ID. */
 @property(nonatomic, copy, nullable) NSString *containerId;
 
@@ -2386,6 +2416,36 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** GTM Workspace ID. */
 @property(nonatomic, copy, nullable) NSString *workspaceId;
+
+@end
+
+
+/**
+ *  GTLRTagManager_TagConsentSetting
+ */
+@interface GTLRTagManager_TagConsentSetting : GTLRObject
+
+/**
+ *  The tag's consent status. If set to NEEDED, the runtime will check that the
+ *  consent types specified by the consent_type field have been granted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_Needed Tag
+ *        requires additional consent settings. (Value: "needed")
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_NotNeeded Tag
+ *        doesn't require any additional consent settings. (Value: "notNeeded")
+ *    @arg @c kGTLRTagManager_TagConsentSetting_ConsentStatus_NotSet Default
+ *        value where user has not specified any setting on it. (Value:
+ *        "notSet")
+ */
+@property(nonatomic, copy, nullable) NSString *consentStatus;
+
+/**
+ *  The type of consents to check for during tag firing if in the consent NEEDED
+ *  state. This parameter must be of type LIST where each list item is of type
+ *  STRING.
+ */
+@property(nonatomic, strong, nullable) GTLRTagManager_Parameter *consentType;
 
 @end
 

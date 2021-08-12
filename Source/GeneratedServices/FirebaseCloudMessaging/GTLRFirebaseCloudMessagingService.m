@@ -12,9 +12,10 @@
 #import "GTLRFirebaseCloudMessaging.h"
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging = @"https://www.googleapis.com/auth/firebase.messaging";
 
 // ----------------------------------------------------------------------------
 //   GTLRFirebaseCloudMessagingService

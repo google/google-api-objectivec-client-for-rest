@@ -101,7 +101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaAc
 @interface GTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaActivity : GTLRObject
 
 /** The Idea IDs for this entry. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ideaIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ideas;
 
 /**
  *  Unique identifier for the idea activity. Format:
@@ -110,7 +110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaAc
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The Topic IDs for this entry. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *topicIds;
+@property(nonatomic, strong, nullable) NSArray<NSString *> *topics;
 
 /**
  *  The type of activity performed.
@@ -228,6 +228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRIdeahub_GoogleSearchIdeahubV1alphaIdeaAc
 
 /** The mID of the topic. */
 @property(nonatomic, copy, nullable) NSString *mid;
+
+/** Unique identifier for the topic. Format: topics/{topic} */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

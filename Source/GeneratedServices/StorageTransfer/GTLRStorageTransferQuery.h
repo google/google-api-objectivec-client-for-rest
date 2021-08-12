@@ -121,7 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRStorageTransferQuery_TransferJobsGet : GTLRStorageTransferQuery
 
-/** Required. " The job to get. */
+/** Required. The job to get. */
 @property(nonatomic, copy, nullable) NSString *jobName;
 
 /**
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets a transfer job.
  *
- *  @param jobName Required. " The job to get.
+ *  @param jobName Required. The job to get.
  *  @param projectId Required. The ID of the Google Cloud Platform Console
  *    project that owns the job.
  *

@@ -93,6 +93,9 @@
 @class GTLRCloudAsset_Permissions;
 @class GTLRCloudAsset_Policy;
 @class GTLRCloudAsset_PubsubDestination;
+@class GTLRCloudAsset_RelatedAsset;
+@class GTLRCloudAsset_RelatedAssets;
+@class GTLRCloudAsset_RelationshipAttributes;
 @class GTLRCloudAsset_Resource;
 @class GTLRCloudAsset_Resource_Data;
 @class GTLRCloudAsset_ResourceSearchResult;
@@ -214,6 +217,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentTy
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OsInventory;
 /**
+ *  The related resources.
+ *
+ *  Value: "RELATIONSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Relationship;
+/**
  *  Resource metadata.
  *
  *  Value: "RESOURCE"
@@ -253,6 +262,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy;
  *  Value: "OS_INVENTORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_OsInventory;
+/**
+ *  The related resources.
+ *
+ *  Value: "RELATIONSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_Feed_ContentType_Relationship;
 /**
  *  Resource metadata.
  *
@@ -778,6 +793,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
+ *  Represents the metadata of the longrunning operation for the
+ *  AnalyzeIamPolicyLongrunning rpc.
+ */
+@interface GTLRCloudAsset_AnalyzeIamPolicyLongrunningMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@end
+
+
+/**
  *  A request message for AssetService.AnalyzeIamPolicyLongrunning.
  */
 @interface GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest : GTLRObject
@@ -921,6 +948,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  for more information.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Inventory *osInventory;
+
+/**
+ *  The related assets of the asset of one relationship type. One asset only
+ *  represents one type of relationship.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_RelatedAssets *relatedAssets;
 
 /** A representation of the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Resource *resource;
@@ -1326,6 +1359,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        Cloud Organization Policy set on an asset. (Value: "ORG_POLICY")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_OsInventory The
  *        runtime OS Inventory information. (Value: "OS_INVENTORY")
+ *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_Relationship The
+ *        related resources. (Value: "RELATIONSHIP")
  *    @arg @c kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource Resource
  *        metadata. (Value: "RESOURCE")
  */
@@ -1345,6 +1380,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  same query may get different results.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  A list of relationship types to export, for example:
+ *  `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if
+ *  content_type=RELATIONSHIP. * If specified: it snapshots specified
+ *  relationships. It returns an error if any of the [relationship_types]
+ *  doesn't belong to the supported relationship types of the [asset_types] or
+ *  if any of the [asset_types] doesn't belong to the source types of the
+ *  [relationship_types]. * Otherwise: it snapshots the supported relationships
+ *  for all [asset_types] or returns an error if any of the [asset_types] has no
+ *  relationship support. An unspecified asset types field means all supported
+ *  asset_types. See [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all
+ *  supported asset types and relationship types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relationshipTypes;
 
 @end
 
@@ -1455,6 +1506,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *        Policy set on an asset. (Value: "ORG_POLICY")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_OsInventory The runtime OS
  *        Inventory information. (Value: "OS_INVENTORY")
+ *    @arg @c kGTLRCloudAsset_Feed_ContentType_Relationship The related
+ *        resources. (Value: "RELATIONSHIP")
  *    @arg @c kGTLRCloudAsset_Feed_ContentType_Resource Resource metadata.
  *        (Value: "RESOURCE")
  */
@@ -1475,6 +1528,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  project/folder/organization.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  A list of relationship types to output, for example:
+ *  `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if
+ *  content_type=RELATIONSHIP. * If specified: it outputs specified relationship
+ *  updates on the [asset_names] or the [asset_types]. It returns an error if
+ *  any of the [relationship_types] doesn't belong to the supported relationship
+ *  types of the [asset_names] or [asset_types], or any of the [asset_names] or
+ *  the [asset_types] doesn't belong to the source types of the
+ *  [relationship_types]. * Otherwise: it outputs the supported relationships of
+ *  the types of [asset_names] and [asset_types] or returns an error if any of
+ *  the [asset_names] or the [asset_types] has no replationship support. See
+ *  [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all
+ *  supported asset types and relationship types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relationshipTypes;
 
 @end
 
@@ -2249,8 +2319,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
- *  of the `short_name` component is 50 characters.
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
+ *  length of the `access_level` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2279,7 +2349,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Output only. Resource name of the `AccessPolicy`. Format:
- *  `accessPolicies/{policy_id}`
+ *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2789,7 +2859,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 /**
  *  Required. Resource name for the ServicePerimeter. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3260,7 +3330,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 
 /**
- *  The inventory details of a VM.
+ *  This API resource represents the available inventory data for a Compute
+ *  Engine virtual machine (VM) instance at a given point in time. You can use
+ *  this API resource to determine the inventory data of your VM. For more
+ *  information, see [Information provided by OS inventory
+ *  management](https://cloud.google.com/compute/docs/instances/os-inventory-management#data-collected).
  */
 @interface GTLRCloudAsset_Inventory : GTLRObject
 
@@ -3272,8 +3346,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_Inventory_Items *items;
 
+/**
+ *  Output only. The `Inventory` API resource name. Format:
+ *  `projects/{project_number}/locations/{location}/instances/{instance_id}/inventory`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 /** Base level operating system information for the VM. */
 @property(nonatomic, strong, nullable) GTLRCloudAsset_OsInfo *osInfo;
+
+/** Output only. Timestamp of the last reported inventory for the VM. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -3799,6 +3882,85 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *  `projects/PROJECT_ID/topics/TOPIC_ID`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
+
+@end
+
+
+/**
+ *  An asset identify in Google Cloud which contains its name, type and
+ *  ancestors. An asset can be any resource in the Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  a resource outside the Google Cloud resource hierarchy (such as Google
+ *  Kubernetes Engine clusters and objects), or a policy (e.g. Cloud IAM
+ *  policy). See [Supported asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@interface GTLRCloudAsset_RelatedAsset : GTLRObject
+
+/**
+ *  The ancestors of an asset in Google Cloud [resource
+ *  hierarchy](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy),
+ *  represented as a list of relative resource names. An ancestry path starts
+ *  with the closest ancestor in the hierarchy and ends at root. Example:
+ *  `["projects/123456789", "folders/5432", "organizations/1234"]`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestors;
+
+/**
+ *  The full name of the asset. Example:
+ *  `//compute.googleapis.com/projects/my_project_123/zones/zone1/instances/instance1`
+ *  See [Resource
+ *  names](https://cloud.google.com/apis/design/resource_names#full_resource_name)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *asset;
+
+/**
+ *  The type of the asset. Example: `compute.googleapis.com/Disk` See [Supported
+ *  asset
+ *  types](https://cloud.google.com/asset-inventory/docs/supported-asset-types)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
+
+@end
+
+
+/**
+ *  The detailed related assets with the `relationship_type`.
+ */
+@interface GTLRCloudAsset_RelatedAssets : GTLRObject
+
+/** The peer resources of the relationship. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_RelatedAsset *> *assets;
+
+/** The detailed relationship attributes. */
+@property(nonatomic, strong, nullable) GTLRCloudAsset_RelationshipAttributes *relationshipAttributes;
+
+@end
+
+
+/**
+ *  The relationship attributes which include `type`, `source_resource_type`,
+ *  `target_resource_type` and `action`.
+ */
+@interface GTLRCloudAsset_RelationshipAttributes : GTLRObject
+
+/** The detail of the relationship, e.g. `contains`, `attaches` */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** The source asset type. Example: `compute.googleapis.com/Instance` */
+@property(nonatomic, copy, nullable) NSString *sourceResourceType;
+
+/** The target asset type. Example: `compute.googleapis.com/Disk` */
+@property(nonatomic, copy, nullable) NSString *targetResourceType;
+
+/**
+ *  The unique identifier of the relationship type. Example:
+ *  `INSTANCE_TO_INSTANCEGROUP`
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

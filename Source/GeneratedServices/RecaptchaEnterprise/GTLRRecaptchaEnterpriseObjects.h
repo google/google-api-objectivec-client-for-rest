@@ -577,6 +577,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1ChallengeMetrics *> *challengeMetrics;
 
 /**
+ *  Output only. The name of the metrics, in the format
+ *  "projects/{project}/keys/{key}/metrics".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
  *  Metrics will be continuous and in order by dates, and in the granularity of
  *  day. All Key types should have score-based data.
  */

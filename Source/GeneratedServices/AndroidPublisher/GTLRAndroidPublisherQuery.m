@@ -1131,7 +1131,7 @@ NSString * const kGTLRAndroidPublisherImageTypeWearScreenshots = @"wearScreensho
 
 @implementation GTLRAndroidPublisherQuery_InappproductsUpdate
 
-@dynamic autoConvertMissingPrices, packageName, sku;
+@dynamic allowMissing, autoConvertMissingPrices, packageName, sku;
 
 + (instancetype)queryWithObject:(GTLRAndroidPublisher_InAppProduct *)object
                     packageName:(NSString *)packageName

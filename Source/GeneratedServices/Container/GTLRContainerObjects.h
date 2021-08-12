@@ -55,6 +55,8 @@
 @class GTLRContainer_LegacyAbac;
 @class GTLRContainer_LinuxNodeConfig;
 @class GTLRContainer_LinuxNodeConfig_Sysctls;
+@class GTLRContainer_LoggingComponentConfig;
+@class GTLRContainer_LoggingConfig;
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
@@ -62,6 +64,8 @@
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
 @class GTLRContainer_MaxPodsConstraint;
 @class GTLRContainer_Metric;
+@class GTLRContainer_MonitoringComponentConfig;
+@class GTLRContainer_MonitoringConfig;
 @class GTLRContainer_NetworkConfig;
 @class GTLRContainer_NetworkPolicy;
 @class GTLRContainer_NetworkPolicyConfig;
@@ -70,6 +74,7 @@
 @class GTLRContainer_NodeConfig_Metadata;
 @class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeManagement;
+@class GTLRContainer_NodeNetworkConfig;
 @class GTLRContainer_NodePool;
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodeTaint;
@@ -184,6 +189,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecifi
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ClusterAutoscaling.autoscalingProfile
+
+/**
+ *  Use default (balanced) autoscaling configuration.
+ *
+ *  Value: "BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced;
+/**
+ *  Prioritize optimizing utilization of resources.
+ *
+ *  Value: "OPTIMIZE_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization;
+/**
+ *  No change to autoscaling configuration.
+ *
+ *  Value: "PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_ClusterUpdate.desiredDatapathProvider
 
 /**
@@ -258,6 +285,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Encry
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_LoggingComponentConfig.enableComponents
+
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "COMPONENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  system components
+ *
+ *  Value: "SYSTEM_COMPONENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents;
+/**
+ *  workloads
+ *
+ *  Value: "WORKLOADS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_MonitoringComponentConfig.enableComponents
+
+/**
+ *  Default value. This shouldn't be used.
+ *
+ *  Value: "COMPONENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified;
+/**
+ *  system components
+ *
+ *  Value: "SYSTEM_COMPONENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_SystemComponents;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_NetworkConfig.datapathProvider
@@ -1546,6 +1611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
+/** Logging configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingConfig *loggingConfig;
+
 /**
  *  The logging service the cluster should use to write logs. Currently
  *  available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging
@@ -1570,6 +1638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The configuration options for master authorized networks feature. */
 @property(nonatomic, strong, nullable) GTLRContainer_MasterAuthorizedNetworksConfig *masterAuthorizedNetworksConfig;
+
+/** Monitoring configuration for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *monitoringConfig;
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
@@ -1769,6 +1840,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_AutoprovisioningNodePoolDefaults *autoprovisioningNodePoolDefaults;
 
 /**
+ *  Defines autoscaling behaviour.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced Use
+ *        default (balanced) autoscaling configuration. (Value: "BALANCED")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization
+ *        Prioritize optimizing utilization of resources. (Value:
+ *        "OPTIMIZE_UTILIZATION")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified
+ *        No change to autoscaling configuration. (Value: "PROFILE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *autoscalingProfile;
+
+/**
  *  Enables automatic node pool creation and deletion.
  *
  *  Uses NSNumber of boolValue.
@@ -1851,6 +1936,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
+/** The desired logging configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingConfig *desiredLoggingConfig;
+
 /**
  *  The logging service the cluster should use to write logs. Currently
  *  available options: * `logging.googleapis.com/kubernetes` - The Cloud Logging
@@ -1877,6 +1965,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  default Kubernetes version
  */
 @property(nonatomic, copy, nullable) NSString *desiredMasterVersion;
+
+/** The desired monitoring configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringConfig *desiredMonitoringConfig;
 
 /**
  *  The monitoring service the cluster should use to write metrics. Currently
@@ -2668,6 +2759,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  LoggingComponentConfig is cluster logging component configuration.
+ */
+@interface GTLRContainer_LoggingComponentConfig : GTLRObject
+
+/**
+ *  Select components to collect logs. An empty set would disable all logging.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enableComponents;
+
+@end
+
+
+/**
+ *  LoggingConfig is cluster logging configuration.
+ */
+@interface GTLRContainer_LoggingConfig : GTLRObject
+
+/** Logging components configuration */
+@property(nonatomic, strong, nullable) GTLRContainer_LoggingComponentConfig *componentConfig;
+
+@end
+
+
+/**
  *  MaintenancePolicy defines the maintenance policy to be used for the cluster.
  */
 @interface GTLRContainer_MaintenancePolicy : GTLRObject
@@ -2844,6 +2959,31 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** For metrics with custom values (ratios, visual progress, etc.). */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
+ *  MonitoringComponentConfig is cluster monitoring component configuration.
+ */
+@interface GTLRContainer_MonitoringComponentConfig : GTLRObject
+
+/**
+ *  Select components to collect metrics. An empty set would disable all
+ *  monitoring.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enableComponents;
+
+@end
+
+
+/**
+ *  MonitoringConfig is cluster monitoring configuration.
+ */
+@interface GTLRContainer_MonitoringConfig : GTLRObject
+
+/** Monitoring components configuration */
+@property(nonatomic, strong, nullable) GTLRContainer_MonitoringComponentConfig *componentConfig;
 
 @end
 
@@ -3270,6 +3410,47 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Parameters for node pool-level network config.
+ */
+@interface GTLRContainer_NodeNetworkConfig : GTLRObject
+
+/**
+ *  Input only. Whether to create a new range for pod IPs in this node pool.
+ *  Defaults are provided for `pod_range` and `pod_ipv4_cidr_block` if they are
+ *  not specified. If neither `create_pod_range` or `pod_range` are specified,
+ *  the cluster-level default (`ip_allocation_policy.cluster_ipv4_cidr_block`)
+ *  is used. Only applicable if `ip_allocation_policy.use_ip_aliases` is true.
+ *  This field cannot be changed after the node pool has been created.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createPodRange;
+
+/**
+ *  The IP address range for pod IPs in this node pool. Only applicable if
+ *  `create_pod_range` is true. Set to blank to have a range chosen with the
+ *  default size. Set to /netmask (e.g. `/14`) to have a range chosen with a
+ *  specific netmask. Set to a
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) to pick a specific range to use. Only
+ *  applicable if `ip_allocation_policy.use_ip_aliases` is true. This field
+ *  cannot be changed after the node pool has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *podIpv4CidrBlock;
+
+/**
+ *  The ID of the secondary range for pod IPs. If `create_pod_range` is true,
+ *  this ID is used for the new range. If `create_pod_range` is false, uses an
+ *  existing secondary range with this ID. Only applicable if
+ *  `ip_allocation_policy.use_ip_aliases` is true. This field cannot be changed
+ *  after the node pool has been created.
+ */
+@property(nonatomic, copy, nullable) NSString *podRange;
+
+@end
+
+
+/**
  *  NodePool contains the name and configuration for a cluster's node pool. Node
  *  pools are a set of nodes (i.e. VM's), with a common configuration and
  *  specification, under the control of the cluster master. They may have a set
@@ -3330,6 +3511,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The name of the node pool. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Networking configuration for this NodePool. If specified, it overrides the
+ *  cluster-level defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *networkConfig;
 
 /**
  *  [Output only] The pod CIDR block size per node in this node pool.

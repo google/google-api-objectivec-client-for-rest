@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Channel API (cloudchannel/v1)
+// Description:
+//   The Cloud Channel API enables Google Cloud partners to have a single
+//   unified resale platform and APIs across all of Google Cloud including GCP,
+//   Workspace, Maps and Chrome.
 // Documentation:
 //   https://cloud.google.com/channel
 
@@ -2428,6 +2432,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudchannel_GoogleCloudChannelV1Transfe
  *        "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
+
+@end
+
+
+/**
+ *  Request message for CloudChannelService.ImportCustomer
+ */
+@interface GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest : GTLRObject
+
+/**
+ *  Optional. The super admin of the resold customer generates this token to
+ *  authorize a reseller to access their Cloud Identity and purchase
+ *  entitlements on their behalf. You can omit this token after authorization.
+ *  See https://support.google.com/a/answer/7643790 for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *authToken;
+
+/**
+ *  Optional. Cloud Identity ID of a channel partner who will be the direct
+ *  reseller for the customer's order. This field is required for 2-tier
+ *  transfer scenarios and can be provided via the request Parent binding as
+ *  well.
+ */
+@property(nonatomic, copy, nullable) NSString *channelPartnerId;
+
+/** Required. Customer's Cloud Identity ID */
+@property(nonatomic, copy, nullable) NSString *cloudIdentityId;
+
+/**
+ *  Optional. Specifies the customer that will receive imported Cloud Identity
+ *  information. Format: accounts/{account_id}/customers/{customer_id}
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/** Required. Customer domain. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Required. Choose to overwrite an existing customer if found. This must be
+ *  set to true if there is an existing customer with a conflicting region code
+ *  or domain.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overwriteIfExists;
 
 @end
 

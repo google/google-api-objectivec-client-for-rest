@@ -620,7 +620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns information about all data transfers in the project.
+ *  Returns information about all transfer configs owned by a project in the
+ *  specified location.
  *
  *  Method: bigquerydatatransfer.projects.locations.transferConfigs.list
  *
@@ -656,7 +657,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferConfigsResponse.
  *
- *  Returns information about all data transfers in the project.
+ *  Returns information about all transfer configs owned by a project in the
+ *  specified location.
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned: `projects/{project_id}` or
@@ -1198,7 +1200,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @end
 
 /**
- *  Returns information about all data transfers in the project.
+ *  Returns information about all transfer configs owned by a project in the
+ *  specified location.
  *
  *  Method: bigquerydatatransfer.projects.transferConfigs.list
  *
@@ -1234,7 +1237,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 /**
  *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferConfigsResponse.
  *
- *  Returns information about all data transfers in the project.
+ *  Returns information about all transfer configs owned by a project in the
+ *  specified location.
  *
  *  @param parent Required. The BigQuery project id for which data sources
  *    should be returned: `projects/{project_id}` or

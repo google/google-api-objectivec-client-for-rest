@@ -153,12 +153,22 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies
+//
+
+@implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies
+@dynamic sourceField, sourceFieldValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription
 //
 
 @implementation GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription
-@dynamic descriptionProperty, field, inputConstraint, knownValueDescriptions,
-         nestedFieldDescriptions;
+@dynamic descriptionProperty, field, fieldDependencies, inputConstraint,
+         knownValueDescriptions, nestedFieldDescriptions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -166,6 +176,7 @@ NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_Type_TypeUint64 = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fieldDependencies" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies class],
     @"knownValueDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription class],
     @"nestedFieldDescriptions" : [GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription class]
   };

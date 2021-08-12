@@ -34,6 +34,33 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_GenerateRandomBytesRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:generateRandomBytes";
+  GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRCloudKMS_GenerateRandomBytesResponse class];
+  query.loggingName = @"cloudkms.projects.locations.generateRandomBytes";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -294,6 +321,60 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudKMS_ListCryptoKeyVersionsResponse class];
   query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacSignRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:macSign";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_MacSignResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macSign";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacVerifyRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:macVerify";
+  GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_MacVerifyResponse class];
+  query.loggingName = @"cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macVerify";
   return query;
 }
 

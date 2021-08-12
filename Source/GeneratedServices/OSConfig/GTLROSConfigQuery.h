@@ -32,6 +32,35 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Returns the basic inventory information that includes `os_info`.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfigViewBasic;
+/**
+ *  Returns all fields.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfigViewFull;
+/**
+ *  The default value. The API defaults to the BASIC view.
+ *
+ *  Value: "INVENTORY_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROSConfigViewInventoryViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other OS Config query classes.
  */
@@ -126,6 +155,211 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get inventory data for the specified VM instance. If the VM has no
+ *  associated inventory, the message `NOT_FOUND` is returned.
+ *
+ *  Method: osconfig.projects.locations.instances.inventories.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet : GTLROSConfigQuery
+
+/**
+ *  Required. API resource name for inventory resource. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}/inventory` For
+ *  `{project}`, either `project-number` or `project-id` can be provided. For
+ *  `{instance}`, either Compute Engine `instance-id` or `instance-name` can be
+ *  provided.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Inventory view indicating what information should be included in the
+ *  inventory resource. If unspecified, the default view is BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfigViewInventoryViewUnspecified The default value. The
+ *        API defaults to the BASIC view. (Value: "INVENTORY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLROSConfigViewBasic Returns the basic inventory information
+ *        that includes `os_info`. (Value: "BASIC")
+ *    @arg @c kGTLROSConfigViewFull Returns all fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLROSConfig_Inventory.
+ *
+ *  Get inventory data for the specified VM instance. If the VM has no
+ *  associated inventory, the message `NOT_FOUND` is returned.
+ *
+ *  @param name Required. API resource name for inventory resource. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}/inventory`
+ *    For `{project}`, either `project-number` or `project-id` can be provided.
+ *    For `{instance}`, either Compute Engine `instance-id` or `instance-name`
+ *    can be provided.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List inventory data for all VM instances in the specified zone.
+ *
+ *  Method: osconfig.projects.locations.instances.inventories.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList : GTLROSConfigQuery
+
+/**
+ *  If provided, this field specifies the criteria that must be met by a
+ *  `Inventory` API resource to be included in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to `ListInventories` that
+ *  indicates where this listing should continue from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  `projects/{project}/locations/{location}/instances/-` For `{project}`,
+ *  either `project-number` or `project-id` can be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Inventory view indicating what information should be included in the
+ *  inventory resource. If unspecified, the default view is BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROSConfigViewInventoryViewUnspecified The default value. The
+ *        API defaults to the BASIC view. (Value: "INVENTORY_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLROSConfigViewBasic Returns the basic inventory information
+ *        that includes `os_info`. (Value: "BASIC")
+ *    @arg @c kGTLROSConfigViewFull Returns all fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLROSConfig_ListInventoriesResponse.
+ *
+ *  List inventory data for all VM instances in the specified zone.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    `projects/{project}/locations/{location}/instances/-` For `{project}`,
+ *    either `project-number` or `project-id` can be provided.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsInstancesInventoriesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the vulnerability report for the specified VM instance. Only VMs with
+ *  inventory data have vulnerability reports associated with them.
+ *
+ *  Method: osconfig.projects.locations.instances.vulnerabilityReports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet : GTLROSConfigQuery
+
+/**
+ *  Required. API resource name for vulnerability resource. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}/vulnerabilityReport`
+ *  For `{project}`, either `project-number` or `project-id` can be provided.
+ *  For `{instance}`, either Compute Engine `instance-id` or `instance-name` can
+ *  be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROSConfig_VulnerabilityReport.
+ *
+ *  Gets the vulnerability report for the specified VM instance. Only VMs with
+ *  inventory data have vulnerability reports associated with them.
+ *
+ *  @param name Required. API resource name for vulnerability resource. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}/vulnerabilityReport`
+ *    For `{project}`, either `project-number` or `project-id` can be provided.
+ *    For `{instance}`, either Compute Engine `instance-id` or `instance-name`
+ *    can be provided.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List vulnerability reports for all VM instances in the specified zone.
+ *
+ *  Method: osconfig.projects.locations.instances.vulnerabilityReports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOSConfigCloudPlatform
+ */
+@interface GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList : GTLROSConfigQuery
+
+/**
+ *  If provided, this field specifies the criteria that must be met by a
+ *  `vulnerabilityReport` API resource to be included in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The maximum number of results to return. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A pagination token returned from a previous call to
+ *  `ListVulnerabilityReports` that indicates where this listing should continue
+ *  from.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  `projects/{project}/locations/{location}/instances/-` For `{project}`,
+ *  either `project-number` or `project-id` can be provided.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROSConfig_ListVulnerabilityReportsResponse.
+ *
+ *  List vulnerability reports for all VM instances in the specified zone.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    `projects/{project}/locations/{location}/instances/-` For `{project}`,
+ *    either `project-number` or `project-id` can be provided.
+ *
+ *  @return GTLROSConfigQuery_ProjectsLocationsInstancesVulnerabilityReportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

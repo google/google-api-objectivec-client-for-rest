@@ -111,7 +111,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_Company_Terms
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_AdditionalServiceUnspecified;
 /**
- *  Device protection service, as known as Android Enterprise Essentials. To
+ *  Device protection service, also known as Android Enterprise Essentials. To
  *  claim a device with the device protection service you must enroll with the
  *  partnership team.
  *
@@ -746,9 +746,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidProvisioningPartner_UnclaimDevice
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_AdditionalServiceUnspecified
  *        No additional service. (Value: "ADDITIONAL_SERVICE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidProvisioningPartner_DeviceClaim_AdditionalService_DeviceProtection
- *        Device protection service, as known as Android Enterprise Essentials.
- *        To claim a device with the device protection service you must enroll
- *        with the partnership team. (Value: "DEVICE_PROTECTION")
+ *        Device protection service, also known as Android Enterprise
+ *        Essentials. To claim a device with the device protection service you
+ *        must enroll with the partnership team. (Value: "DEVICE_PROTECTION")
  */
 @property(nonatomic, copy, nullable) NSString *additionalService;
 

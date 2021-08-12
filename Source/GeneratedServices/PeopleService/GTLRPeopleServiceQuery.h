@@ -503,8 +503,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPeopleServiceSourcesReadSourceTypeUnspec
 
 /**
  *  Required. A field mask to restrict which fields on each person are returned.
- *  Multiple fields can be specified by separating them with commas. Valid
- *  values are: * emailAddresses * metadata * names * phoneNumbers * photos
+ *  Multiple fields can be specified by separating them with commas. What values
+ *  are valid depend on what ReadSourceType is used. If READ_SOURCE_TYPE_CONTACT
+ *  is used, valid values are: * emailAddresses * metadata * names *
+ *  phoneNumbers * photos If READ_SOURCE_TYPE_PROFILE is used, valid values are:
+ *  * addresses * ageRanges * biographies * birthdays * calendarUrls *
+ *  clientData * coverPhotos * emailAddresses * events * externalIds * genders *
+ *  imClients * interests * locales * locations * memberships * metadata *
+ *  miscKeywords * names * nicknames * occupations * organizations *
+ *  phoneNumbers * photos * relations * sipAddresses * skills * urls *
+ *  userDefined
  *
  *  String format is a comma-separated list of fields.
  */

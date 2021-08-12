@@ -47,10 +47,15 @@
 @class GTLRContainerAnalysis_Discovered;
 @class GTLRContainerAnalysis_Discovery;
 @class GTLRContainerAnalysis_Distribution;
+@class GTLRContainerAnalysis_DocumentNote;
+@class GTLRContainerAnalysis_DocumentOccurrence;
 @class GTLRContainerAnalysis_Environment;
 @class GTLRContainerAnalysis_Environment_CustomValues;
 @class GTLRContainerAnalysis_Expr;
+@class GTLRContainerAnalysis_ExternalRef;
 @class GTLRContainerAnalysis_FileHashes;
+@class GTLRContainerAnalysis_FileNote;
+@class GTLRContainerAnalysis_FileOccurrence;
 @class GTLRContainerAnalysis_Fingerprint;
 @class GTLRContainerAnalysis_FixableTotalByDigest;
 @class GTLRContainerAnalysis_GenericSignedAttestation;
@@ -78,10 +83,14 @@
 @class GTLRContainerAnalysis_Occurrence;
 @class GTLRContainerAnalysis_Package;
 @class GTLRContainerAnalysis_PackageIssue;
+@class GTLRContainerAnalysis_PackageNote;
+@class GTLRContainerAnalysis_PackageOccurrence;
 @class GTLRContainerAnalysis_PgpSignedAttestation;
 @class GTLRContainerAnalysis_Policy;
 @class GTLRContainerAnalysis_ProjectRepoId;
 @class GTLRContainerAnalysis_RelatedUrl;
+@class GTLRContainerAnalysis_RelationshipNote;
+@class GTLRContainerAnalysis_RelationshipOccurrence;
 @class GTLRContainerAnalysis_RepoId;
 @class GTLRContainerAnalysis_Resource;
 @class GTLRContainerAnalysis_ScanConfig;
@@ -393,6 +402,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Package;
 /**
+ *  This represents a software bill of materials.
+ *
+ *  Value: "SBOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Sbom;
+/**
+ *  This represents an SPDX File.
+ *
+ *  Value: "SPDX_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxFile;
+/**
+ *  This represents an SPDX Package.
+ *
+ *  Value: "SPDX_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxPackage;
+/**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "VULNERABILITY"
@@ -420,6 +447,121 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architect
  *  Value: "X86"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_ExternalRef.category
+
+/**
+ *  Unspecified
+ *
+ *  Value: "CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_CategoryUnspecified;
+/**
+ *  Other
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Other;
+/**
+ *  Package Manager (e.g. maven-central, npm, nuget, bower, purl)
+ *
+ *  Value: "PACKAGE_MANAGER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PackageManager;
+/**
+ *  Persistent-Id (e.g. swh)
+ *
+ *  Value: "PERSISTENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PersistentId;
+/**
+ *  Security (e.g. cpe22Type, cpe23Type)
+ *
+ *  Value: "SECURITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Security;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_FileNote.fileType
+
+/**
+ *  The file is associated with a specific application type (MIME type of
+ *  application/ *)
+ *
+ *  Value: "APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Application;
+/**
+ *  The file represents an archive (.tar, .jar, etc.)
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Archive;
+/**
+ *  The file is associated with an audio file (MIME type of audio/ * , e.g.
+ *  .mp3)
+ *
+ *  Value: "AUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Audio;
+/**
+ *  The file is a compiled object, target image or binary executable (.o, .a,
+ *  etc.)
+ *
+ *  Value: "BINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Binary;
+/**
+ *  The file serves as documentation
+ *
+ *  Value: "DOCUMENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Documentation;
+/**
+ *  Unspecified
+ *
+ *  Value: "FILE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_FileTypeUnspecified;
+/**
+ *  The file is associated with an picture image file (MIME type of image/ *,
+ *  e.g., .jpg, .gif)
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Image;
+/**
+ *  The file doesn't fit into the above categories (generated artifacts, data
+ *  files, etc.)
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Other;
+/**
+ *  The file is human readable source code (.c, .html, etc.)
+ *
+ *  Value: "SOURCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Source;
+/**
+ *  The file is an SPDX document
+ *
+ *  Value: "SPDX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Spdx;
+/**
+ *  The file is human readable text file (MIME type of text/ *)
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Text;
+/**
+ *  The file is associated with a video file type (MIME type of video/ *)
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_FileNote_FileType_Video;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_FixableTotalByDigest.severity
@@ -740,6 +882,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_NoteKindUnsp
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Package;
 /**
+ *  This represents a software bill of materials.
+ *
+ *  Value: "SBOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_Sbom;
+/**
+ *  This represents an SPDX File.
+ *
+ *  Value: "SPDX_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxFile;
+/**
+ *  This represents an SPDX Package.
+ *
+ *  Value: "SPDX_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxPackage;
+/**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "VULNERABILITY"
@@ -798,6 +958,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_NoteKi
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Package;
 /**
+ *  This represents a software bill of materials.
+ *
+ *  Value: "SBOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Sbom;
+/**
+ *  This represents an SPDX File.
+ *
+ *  Value: "SPDX_FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile;
+/**
+ *  This represents an SPDX Package.
+ *
+ *  Value: "SPDX_PACKAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage;
+/**
  *  The note and occurrence represent a package vulnerability.
  *
  *  Value: "VULNERABILITY"
@@ -822,6 +1000,285 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_C
  *  Value: "SIMPLE_SIGNING_JSON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson;
+
+// ----------------------------------------------------------------------------
+// GTLRContainerAnalysis_RelationshipOccurrence.type
+
+/**
+ *  Is to be used when (current) SPDXRef-DOCUMENT amends the SPDX information in
+ *  SPDXRef-B
+ *
+ *  Value: "AMENDS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Amends;
+/**
+ *  Is to be used when SPDXRef-A is an ancestor (same lineage but pre-dates)
+ *  SPDXRef-B
+ *
+ *  Value: "ANCESTOR_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_AncestorOf;
+/**
+ *  Is to be used when SPDXRef-A is a build dependency of SPDXRef-B
+ *
+ *  Value: "BUILD_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildDependencyOf;
+/**
+ *  Is to be used when SPDXRef-A is used to build SPDXRef-B
+ *
+ *  Value: "BUILD_TOOL_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildToolOf;
+/**
+ *  Is to be used when SPDXRef-A is contained by SPDXRef-B
+ *
+ *  Value: "CONTAINED_BY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ContainedBy;
+/**
+ *  Is to be used when SPDXRef-A contains SPDXRef-B
+ *
+ *  Value: "CONTAINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Contains;
+/**
+ *  Is to be used when SPDXRef-A is an exact copy of SPDXRef-B
+ *
+ *  Value: "COPY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_CopyOf;
+/**
+ *  Is to be used when SPDXRef-A is a data file used in SPDXRef-B
+ *
+ *  Value: "DATA_FILE_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DataFileOf;
+/**
+ *  Is to be used when SPDXRef-A is a manifest file that lists a set of
+ *  dependencies for SPDXRef-B
+ *
+ *  Value: "DEPENDENCY_MANIFEST_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyManifestOf;
+/**
+ *  Is to be used when SPDXRef-A is dependency of SPDXRef-B
+ *
+ *  Value: "DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyOf;
+/**
+ *  Is to be used when SPDXRef-A depends on SPDXRef-B
+ *
+ *  Value: "DEPENDS_ON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependsOn;
+/**
+ *  Is to be used when SPDXRef-A is a descendant of (same lineage but postdates)
+ *  SPDXRef-B
+ *
+ *  Value: "DESCENDANT_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescendantOf;
+/**
+ *  Is to be used when SPDXRef-A is described by SPDXREF-Document
+ *
+ *  Value: "DESCRIBED_BY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescribedBy;
+/**
+ *  Is to be used when SPDXRef-DOCUMENT describes SPDXRef-A
+ *
+ *  Value: "DESCRIBES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Describes;
+/**
+ *  Is to be used when SPDXRef-A is a development dependency of SPDXRef-B
+ *
+ *  Value: "DEV_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevDependencyOf;
+/**
+ *  Is to be used when SPDXRef-A is used as a development tool for SPDXRef-B
+ *
+ *  Value: "DEV_TOOL_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevToolOf;
+/**
+ *  Is to be used when distributing SPDXRef-A requires that SPDXRef-B also be
+ *  distributed
+ *
+ *  Value: "DISTRIBUTION_ARTIFACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DistributionArtifact;
+/**
+ *  Is to be used when SPDXRef-A provides documentation of SPDXRef-B
+ *
+ *  Value: "DOCUMENTATION_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DocumentationOf;
+/**
+ *  Is to be used when SPDXRef-A dynamically links to SPDXRef-B
+ *
+ *  Value: "DYNAMIC_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DynamicLink;
+/**
+ *  Is to be used when SPDXRef-A is an example of SPDXRef-B
+ *
+ *  Value: "EXAMPLE_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExampleOf;
+/**
+ *  Is to be used when SPDXRef-A is expanded from the archive SPDXRef-B
+ *
+ *  Value: "EXPANDED_FROM_ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExpandedFromArchive;
+/**
+ *  Is to be used when SPDXRef-A is a file that was added to SPDXRef-B
+ *
+ *  Value: "FILE_ADDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileAdded;
+/**
+ *  Is to be used when SPDXRef-A is a file that was deleted from SPDXRef-B
+ *
+ *  Value: "FILE_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileDeleted;
+/**
+ *  Is to be used when SPDXRef-A is a file that was modified from SPDXRef-B
+ *
+ *  Value: "FILE_MODIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileModified;
+/**
+ *  Is to be used when SPDXRef-A was generated from SPDXRef-B
+ *
+ *  Value: "GENERATED_FROM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_GeneratedFrom;
+/**
+ *  Is to be used when SPDXRef-A generates SPDXRef-B
+ *
+ *  Value: "GENERATES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Generates;
+/**
+ *  Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B
+ *
+ *  Value: "HAS_PREREQUISITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_HasPrerequisite;
+/**
+ *  Is to be used when SPDXRef-A is a metafile of SPDXRef-B
+ *
+ *  Value: "METAFILE_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_MetafileOf;
+/**
+ *  Is to be used when SPDXRef-A is an optional component of SPDXRef-B
+ *
+ *  Value: "OPTIONAL_COMPONENT_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalComponentOf;
+/**
+ *  Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B
+ *
+ *  Value: "OPTIONAL_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalDependencyOf;
+/**
+ *  Is to be used for a relationship which has not been defined in the formal
+ *  SPDX specification. A description of the relationship should be included in
+ *  the Relationship comments field
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Other;
+/**
+ *  Is to be used when SPDXRef-A is used as a package as part of SPDXRef-B
+ *
+ *  Value: "PACKAGE_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PackageOf;
+/**
+ *  Is to be used when SPDXRef-A is a patch file that has been applied to
+ *  SPDXRef-B
+ *
+ *  Value: "PATCH_APPLIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchApplied;
+/**
+ *  Is to be used when SPDXRef-A is a patch file for (to be applied to)
+ *  SPDXRef-B
+ *
+ *  Value: "PATCH_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchFor;
+/**
+ *  Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B
+ *
+ *  Value: "PREREQUISITE_FOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PrerequisiteFor;
+/**
+ *  Is to be used when SPDXRef-A is a to be provided dependency of SPDXRef-B
+ *
+ *  Value: "PROVIDED_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ProvidedDependencyOf;
+/**
+ *  Is to be used when SPDXRef-A is a dependency required for the execution of
+ *  SPDXRef-B
+ *
+ *  Value: "RUNTIME_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_RuntimeDependencyOf;
+/**
+ *  Is to be used when SPDXRef-A statically links to SPDXRef-B
+ *
+ *  Value: "STATIC_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_StaticLink;
+/**
+ *  Is to be used when SPDXRef-A is a test case used in testing SPDXRef-B
+ *
+ *  Value: "TEST_CASE_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestCaseOf;
+/**
+ *  Is to be used when SPDXRef-A is a test dependency of SPDXRef-B
+ *
+ *  Value: "TEST_DEPENDENCY_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestDependencyOf;
+/**
+ *  Is to be used when SPDXRef-A is used for testing SPDXRef-B
+ *
+ *  Value: "TEST_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestOf;
+/**
+ *  Is to be used when SPDXRef-A is used as a test tool for SPDXRef-B
+ *
+ *  Value: "TEST_TOOL_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestToolOf;
+/**
+ *  Unspecified
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TypeUnspecified;
+/**
+ *  Is to be used when SPDXRef-A is a variant of (same lineage but not clear
+ *  which came first) SPDXRef-B
+ *
+ *  Value: "VARIANT_OF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_VariantOf;
 
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_Version.kind
@@ -1763,6 +2220,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Package This
  *        represents a package installed via a package manager. (Value:
  *        "PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Sbom This represents
+ *        a software bill of materials. (Value: "SBOM")
+ *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxFile This
+ *        represents an SPDX File. (Value: "SPDX_FILE")
+ *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxPackage This
+ *        represents an SPDX Package. (Value: "SPDX_PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Discovery_AnalysisKind_Vulnerability The
  *        note and occurrence represent a package vulnerability. (Value:
  *        "VULNERABILITY")
@@ -1815,6 +2278,93 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** The distribution channel-specific homepage for this package. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  DocumentNote represents an SPDX Document Creation Infromation section:
+ *  https://spdx.github.io/spdx-spec/2-document-creation-information/
+ */
+@interface GTLRContainerAnalysis_DocumentNote : GTLRObject
+
+/**
+ *  Compliance with the SPDX specification includes populating the SPDX fields
+ *  therein with data related to such fields ("SPDX-Metadata")
+ */
+@property(nonatomic, copy, nullable) NSString *dataLicence;
+
+/**
+ *  Provide a reference number that can be used to understand how to parse and
+ *  interpret the rest of the file
+ */
+@property(nonatomic, copy, nullable) NSString *spdxVersion;
+
+@end
+
+
+/**
+ *  DocumentOccurrence represents an SPDX Document Creation Information section:
+ *  https://spdx.github.io/spdx-spec/2-document-creation-information/
+ */
+@interface GTLRContainerAnalysis_DocumentOccurrence : GTLRObject
+
+/**
+ *  Identify when the SPDX file was originally created. The date is to be
+ *  specified according to combined date and time in UTC format as specified in
+ *  ISO 8601 standard
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  A field for creators of the SPDX file to provide general comments about the
+ *  creation of the SPDX file or any other relevant comment not included in the
+ *  other fields
+ */
+@property(nonatomic, copy, nullable) NSString *creatorComment;
+
+/**
+ *  Identify who (or what, in the case of a tool) created the SPDX file. If the
+ *  SPDX file was created by an individual, indicate the person's name
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *creators;
+
+/**
+ *  A field for creators of the SPDX file content to provide comments to the
+ *  consumers of the SPDX document
+ */
+@property(nonatomic, copy, nullable) NSString *documentComment;
+
+/**
+ *  Identify any external SPDX documents referenced within this SPDX document
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *externalDocumentRefs;
+
+/**
+ *  Identify the current SPDX document which may be referenced in relationships
+ *  by other files, packages internally and documents externally
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  A field for creators of the SPDX file to provide the version of the SPDX
+ *  License List used when the SPDX file was created
+ */
+@property(nonatomic, copy, nullable) NSString *licenseListVersion;
+
+/**
+ *  Provide an SPDX document specific namespace as a unique absolute Uniform
+ *  Resource Identifier (URI) as specified in RFC-3986, with the exception of
+ *  the ‘#’ delimiter
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+/** Identify name of this document as designated by creator */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -1903,6 +2453,50 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 
 /**
+ *  An External Reference allows a Package to reference an external source of
+ *  additional information, metadata, enumerations, asset identifiers, or
+ *  downloadable content believed to be relevant to the Package
+ */
+@interface GTLRContainerAnalysis_ExternalRef : GTLRObject
+
+/**
+ *  An External Reference allows a Package to reference an external source of
+ *  additional information, metadata, enumerations, asset identifiers, or
+ *  downloadable content believed to be relevant to the Package
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_CategoryUnspecified
+ *        Unspecified (Value: "CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_Other Other (Value:
+ *        "OTHER")
+ *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_PackageManager Package
+ *        Manager (e.g. maven-central, npm, nuget, bower, purl) (Value:
+ *        "PACKAGE_MANAGER")
+ *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_PersistentId
+ *        Persistent-Id (e.g. swh) (Value: "PERSISTENT_ID")
+ *    @arg @c kGTLRContainerAnalysis_ExternalRef_Category_Security Security
+ *        (e.g. cpe22Type, cpe23Type) (Value: "SECURITY")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Human-readable information about the purpose and target of the reference
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  The unique string with no spaces necessary to access the package-specific
+ *  information, metadata, or content within the target location
+ */
+@property(nonatomic, copy, nullable) NSString *locator;
+
+/** Type of category (e.g. 'npm' for the PACKAGE_MANAGER category) */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Container message for hashes of byte content of files, used in source
  *  messages to verify integrity of source input to the build.
  */
@@ -1910,6 +2504,129 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** Required. Collection of file hashes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_Hash *> *fileHash;
+
+@end
+
+
+/**
+ *  FileNote represents an SPDX File Information section:
+ *  https://spdx.github.io/spdx-spec/4-file-information/
+ */
+@interface GTLRContainerAnalysis_FileNote : GTLRObject
+
+/**
+ *  Provide a unique identifier to match analysis information on each specific
+ *  file in a package
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *checksum;
+
+/**
+ *  This field provides information about the type of file identified
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Application The file is
+ *        associated with a specific application type (MIME type of application/
+ *        *) (Value: "APPLICATION")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Archive The file
+ *        represents an archive (.tar, .jar, etc.) (Value: "ARCHIVE")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Audio The file is
+ *        associated with an audio file (MIME type of audio/ * , e.g. .mp3)
+ *        (Value: "AUDIO")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Binary The file is a
+ *        compiled object, target image or binary executable (.o, .a, etc.)
+ *        (Value: "BINARY")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Documentation The file
+ *        serves as documentation (Value: "DOCUMENTATION")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_FileTypeUnspecified
+ *        Unspecified (Value: "FILE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Image The file is
+ *        associated with an picture image file (MIME type of image/ *, e.g.,
+ *        .jpg, .gif) (Value: "IMAGE")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Other The file doesn't
+ *        fit into the above categories (generated artifacts, data files, etc.)
+ *        (Value: "OTHER")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Source The file is human
+ *        readable source code (.c, .html, etc.) (Value: "SOURCE")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Spdx The file is an SPDX
+ *        document (Value: "SPDX")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Text The file is human
+ *        readable text file (MIME type of text/ *) (Value: "TEXT")
+ *    @arg @c kGTLRContainerAnalysis_FileNote_FileType_Video The file is
+ *        associated with a video file type (MIME type of video/ *) (Value:
+ *        "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *fileType;
+
+/**
+ *  Identify the full path and filename that corresponds to the file information
+ *  in this section
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  FileOccurrence represents an SPDX File Information section:
+ *  https://spdx.github.io/spdx-spec/4-file-information/
+ */
+@interface GTLRContainerAnalysis_FileOccurrence : GTLRObject
+
+/**
+ *  This field provides a place for the SPDX data creator to record, at the file
+ *  level, acknowledgements that may be needed to be communicated in some
+ *  contexts
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attributions;
+
+/**
+ *  This field provides a place for the SPDX file creator to record any general
+ *  comments about the file
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  This field provides a place for the SPDX file creator to record file
+ *  contributors
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *contributors;
+
+/** Identify the copyright holder of the file, as well as any dates present */
+@property(nonatomic, copy, nullable) NSString *copyright;
+
+/**
+ *  This field contains the license information actually found in the file, if
+ *  any
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filesLicenseInfo;
+
+/**
+ *  Uniquely identify any element in an SPDX document which may be referenced by
+ *  other elements
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  This field provides a place for the SPDX file creator to record any relevant
+ *  background references or analysis that went in to arriving at the Concluded
+ *  License for a file
+ */
+@property(nonatomic, copy, nullable) NSString *licenseComments;
+
+/**
+ *  This field contains the license the SPDX file creator has concluded as
+ *  governing the file or alternative values if the governing license cannot be
+ *  determined
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConcluded;
+
+/**
+ *  This field provides a place for the SPDX file creator to record license
+ *  notices or other such related notices found in the file
+ */
+@property(nonatomic, copy, nullable) NSString *notice;
 
 @end
 
@@ -2715,6 +3432,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Package This represents a package
  *        installed via a package manager. (Value: "PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_Sbom This represents a software
+ *        bill of materials. (Value: "SBOM")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_SpdxFile This represents an SPDX
+ *        File. (Value: "SPDX_FILE")
+ *    @arg @c kGTLRContainerAnalysis_Note_Kind_SpdxPackage This represents an
+ *        SPDX Package. (Value: "SPDX_PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Note_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
  */
@@ -2738,8 +3461,20 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 /** URLs associated with this note. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_RelatedUrl *> *relatedUrl;
 
+/** A note describing SPDX Document which represents SBOM. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DocumentNote *sbom;
+
 /** A one sentence description of this note. */
 @property(nonatomic, copy, nullable) NSString *shortDescription;
+
+/** A note describing SPDX File. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_FileNote *spdxFile;
+
+/** A note describing SPDX Package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageNote *spdxPackage;
+
+/** A note describing SPDX Relationship. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RelationshipNote *spdxRelationship;
 
 /**
  *  Output only. The time this note was last updated. This field can be used as
@@ -2806,6 +3541,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *        value. This value is unused. (Value: "NOTE_KIND_UNSPECIFIED")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Package This represents a
  *        package installed via a package manager. (Value: "PACKAGE")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Sbom This represents a
+ *        software bill of materials. (Value: "SBOM")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile This represents an
+ *        SPDX File. (Value: "SPDX_FILE")
+ *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage This represents
+ *        an SPDX Package. (Value: "SPDX_PACKAGE")
  *    @arg @c kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability The note and
  *        occurrence represent a package vulnerability. (Value: "VULNERABILITY")
  */
@@ -2829,6 +3570,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** Required. Immutable. The resource for which the occurrence applies. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_Resource *resource;
+
+/** Describes a specific SPDX Document. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_DocumentOccurrence *sbom;
+
+/** Describes a specific SPDX File. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_FileOccurrence *spdxFile;
+
+/** Describes a specific SPDX Package. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_PackageOccurrence *spdxPackage;
+
+/** Describes a specific SPDX Relationship. */
+@property(nonatomic, strong, nullable) GTLRContainerAnalysis_RelationshipOccurrence *spdxRelationship;
 
 /** Output only. The time this occurrence was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -2872,6 +3625,150 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
  *  distro assigned severity) for this vulnerability.
  */
 @property(nonatomic, copy, nullable) NSString *severityName;
+
+@end
+
+
+/**
+ *  PackageNote represents an SPDX Package Information section:
+ *  https://spdx.github.io/spdx-spec/3-package-information/
+ */
+@interface GTLRContainerAnalysis_PackageNote : GTLRObject
+
+/**
+ *  Indicates whether the file content of this package has been available for or
+ *  subjected to analysis when creating the SPDX document
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *analyzed;
+
+/**
+ *  A place for the SPDX data creator to record, at the package level,
+ *  acknowledgements that may be needed to be communicated in some contexts
+ */
+@property(nonatomic, copy, nullable) NSString *attribution;
+
+/**
+ *  Provide an independently reproducible mechanism that permits unique
+ *  identification of a specific package that correlates to the data in this
+ *  SPDX file
+ */
+@property(nonatomic, copy, nullable) NSString *checksum;
+
+/**
+ *  Identify the copyright holders of the package, as well as any dates present
+ */
+@property(nonatomic, copy, nullable) NSString *copyright;
+
+/** A more detailed description of the package */
+@property(nonatomic, copy, nullable) NSString *detailedDescription;
+
+/**
+ *  This section identifies the download Universal Resource Locator (URL), or a
+ *  specific location within a version control system (VCS) for the package at
+ *  the time that the SPDX file was created
+ */
+@property(nonatomic, copy, nullable) NSString *downloadLocation;
+
+/** ExternalRef */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainerAnalysis_ExternalRef *> *externalRefs;
+
+/**
+ *  Contain the license the SPDX file creator has concluded as governing the
+ *  This field is to contain a list of all licenses found in the package. The
+ *  relationship between licenses (i.e., conjunctive, disjunctive) is not
+ *  specified in this field – it is simply a listing of all licenses found
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *filesLicenseInfo;
+
+/**
+ *  Provide a place for the SPDX file creator to record a web site that serves
+ *  as the package's home page
+ */
+@property(nonatomic, copy, nullable) NSString *homePage;
+
+/** List the licenses that have been declared by the authors of the package */
+@property(nonatomic, copy, nullable) NSString *licenseDeclared;
+
+/**
+ *  If the package identified in the SPDX file originated from a different
+ *  person or organization than identified as Package Supplier, this field
+ *  identifies from where or whom the package originally came
+ */
+@property(nonatomic, copy, nullable) NSString *originator;
+
+/** A short description of the package */
+@property(nonatomic, copy, nullable) NSString *summaryDescription;
+
+/**
+ *  Identify the actual distribution source for the package/directory identified
+ *  in the SPDX file
+ */
+@property(nonatomic, copy, nullable) NSString *supplier;
+
+/**
+ *  Identify the full name of the package as given by the Package Originator
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  This field provides an independently reproducible mechanism identifying
+ *  specific contents of a package based on the actual files (except the SPDX
+ *  file itself, if it is included in the package) that make up each package and
+ *  that correlates to the data in this SPDX file
+ */
+@property(nonatomic, copy, nullable) NSString *verificationCode;
+
+/** Identify the version of the package */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  PackageOccurrence represents an SPDX Package Information section:
+ *  https://spdx.github.io/spdx-spec/3-package-information/
+ */
+@interface GTLRContainerAnalysis_PackageOccurrence : GTLRObject
+
+/**
+ *  A place for the SPDX file creator to record any general comments about the
+ *  package being described
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Provide the actual file name of the package, or path of the directory being
+ *  treated as a package
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  Uniquely identify any element in an SPDX document which may be referenced by
+ *  other elements
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  This field provides a place for the SPDX file creator to record any relevant
+ *  background information or analysis that went in to arriving at the Concluded
+ *  License for a package
+ */
+@property(nonatomic, copy, nullable) NSString *licenseComments;
+
+/**
+ *  package or alternative values, if the governing license cannot be determined
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConcluded;
+
+/**
+ *  Provide a place for the SPDX file creator to record any relevant background
+ *  information or additional comments about the origin of the package
+ */
+@property(nonatomic, copy, nullable) NSString *sourceInfo;
 
 @end
 
@@ -3039,6 +3936,176 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_Vulnerability_Severity
 
 /** Specific URL associated with the resource. */
 @property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
+ *  RelationshipNote represents an SPDX Relationship section:
+ *  https://spdx.github.io/spdx-spec/7-relationships-between-SPDX-elements/
+ */
+@interface GTLRContainerAnalysis_RelationshipNote : GTLRObject
+@end
+
+
+/**
+ *  RelationshipOccurrence represents an SPDX Relationship section:
+ *  https://spdx.github.io/spdx-spec/7-relationships-between-SPDX-elements/
+ */
+@interface GTLRContainerAnalysis_RelationshipOccurrence : GTLRObject
+
+/**
+ *  A place for the SPDX file creator to record any general comments about the
+ *  relationship
+ */
+@property(nonatomic, copy, nullable) NSString *comment;
+
+/**
+ *  Also referred to as SPDXRef-A The source SPDX element (file, package, etc)
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Also referred to as SPDXRef-B The target SPDC element (file, package, etc)
+ *  In cases where there are "known unknowns", the use of the keyword
+ *  NOASSERTION can be used The keywords NONE can be used to indicate that an
+ *  SPDX element (package/file/snippet) has no other elements connected by some
+ *  relationship to it
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/**
+ *  The type of relationship between the source and target SPDX elements
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Amends Is to be
+ *        used when (current) SPDXRef-DOCUMENT amends the SPDX information in
+ *        SPDXRef-B (Value: "AMENDS")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_AncestorOf Is
+ *        to be used when SPDXRef-A is an ancestor (same lineage but pre-dates)
+ *        SPDXRef-B (Value: "ANCESTOR_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildDependencyOf
+ *        Is to be used when SPDXRef-A is a build dependency of SPDXRef-B
+ *        (Value: "BUILD_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildToolOf Is
+ *        to be used when SPDXRef-A is used to build SPDXRef-B (Value:
+ *        "BUILD_TOOL_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ContainedBy Is
+ *        to be used when SPDXRef-A is contained by SPDXRef-B (Value:
+ *        "CONTAINED_BY")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Contains Is to
+ *        be used when SPDXRef-A contains SPDXRef-B (Value: "CONTAINS")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_CopyOf Is to be
+ *        used when SPDXRef-A is an exact copy of SPDXRef-B (Value: "COPY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DataFileOf Is
+ *        to be used when SPDXRef-A is a data file used in SPDXRef-B (Value:
+ *        "DATA_FILE_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyManifestOf
+ *        Is to be used when SPDXRef-A is a manifest file that lists a set of
+ *        dependencies for SPDXRef-B (Value: "DEPENDENCY_MANIFEST_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyOf Is
+ *        to be used when SPDXRef-A is dependency of SPDXRef-B (Value:
+ *        "DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependsOn Is to
+ *        be used when SPDXRef-A depends on SPDXRef-B (Value: "DEPENDS_ON")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescendantOf Is
+ *        to be used when SPDXRef-A is a descendant of (same lineage but
+ *        postdates) SPDXRef-B (Value: "DESCENDANT_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescribedBy Is
+ *        to be used when SPDXRef-A is described by SPDXREF-Document (Value:
+ *        "DESCRIBED_BY")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Describes Is to
+ *        be used when SPDXRef-DOCUMENT describes SPDXRef-A (Value: "DESCRIBES")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevDependencyOf
+ *        Is to be used when SPDXRef-A is a development dependency of SPDXRef-B
+ *        (Value: "DEV_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevToolOf Is to
+ *        be used when SPDXRef-A is used as a development tool for SPDXRef-B
+ *        (Value: "DEV_TOOL_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DistributionArtifact
+ *        Is to be used when distributing SPDXRef-A requires that SPDXRef-B also
+ *        be distributed (Value: "DISTRIBUTION_ARTIFACT")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DocumentationOf
+ *        Is to be used when SPDXRef-A provides documentation of SPDXRef-B
+ *        (Value: "DOCUMENTATION_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_DynamicLink Is
+ *        to be used when SPDXRef-A dynamically links to SPDXRef-B (Value:
+ *        "DYNAMIC_LINK")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExampleOf Is to
+ *        be used when SPDXRef-A is an example of SPDXRef-B (Value:
+ *        "EXAMPLE_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExpandedFromArchive
+ *        Is to be used when SPDXRef-A is expanded from the archive SPDXRef-B
+ *        (Value: "EXPANDED_FROM_ARCHIVE")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileAdded Is to
+ *        be used when SPDXRef-A is a file that was added to SPDXRef-B (Value:
+ *        "FILE_ADDED")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileDeleted Is
+ *        to be used when SPDXRef-A is a file that was deleted from SPDXRef-B
+ *        (Value: "FILE_DELETED")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileModified Is
+ *        to be used when SPDXRef-A is a file that was modified from SPDXRef-B
+ *        (Value: "FILE_MODIFIED")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_GeneratedFrom
+ *        Is to be used when SPDXRef-A was generated from SPDXRef-B (Value:
+ *        "GENERATED_FROM")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Generates Is to
+ *        be used when SPDXRef-A generates SPDXRef-B (Value: "GENERATES")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_HasPrerequisite
+ *        Is to be used when SPDXRef-A has as a prerequisite SPDXRef-B (Value:
+ *        "HAS_PREREQUISITE")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_MetafileOf Is
+ *        to be used when SPDXRef-A is a metafile of SPDXRef-B (Value:
+ *        "METAFILE_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalComponentOf
+ *        Is to be used when SPDXRef-A is an optional component of SPDXRef-B
+ *        (Value: "OPTIONAL_COMPONENT_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalDependencyOf
+ *        Is to be used when SPDXRef-A is an optional dependency of SPDXRef-B
+ *        (Value: "OPTIONAL_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_Other Is to be
+ *        used for a relationship which has not been defined in the formal SPDX
+ *        specification. A description of the relationship should be included in
+ *        the Relationship comments field (Value: "OTHER")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PackageOf Is to
+ *        be used when SPDXRef-A is used as a package as part of SPDXRef-B
+ *        (Value: "PACKAGE_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchApplied Is
+ *        to be used when SPDXRef-A is a patch file that has been applied to
+ *        SPDXRef-B (Value: "PATCH_APPLIED")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchFor Is to
+ *        be used when SPDXRef-A is a patch file for (to be applied to)
+ *        SPDXRef-B (Value: "PATCH_FOR")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_PrerequisiteFor
+ *        Is to be used when SPDXRef-A is a prerequisite for SPDXRef-B (Value:
+ *        "PREREQUISITE_FOR")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_ProvidedDependencyOf
+ *        Is to be used when SPDXRef-A is a to be provided dependency of
+ *        SPDXRef-B (Value: "PROVIDED_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_RuntimeDependencyOf
+ *        Is to be used when SPDXRef-A is a dependency required for the
+ *        execution of SPDXRef-B (Value: "RUNTIME_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_StaticLink Is
+ *        to be used when SPDXRef-A statically links to SPDXRef-B (Value:
+ *        "STATIC_LINK")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestCaseOf Is
+ *        to be used when SPDXRef-A is a test case used in testing SPDXRef-B
+ *        (Value: "TEST_CASE_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestDependencyOf
+ *        Is to be used when SPDXRef-A is a test dependency of SPDXRef-B (Value:
+ *        "TEST_DEPENDENCY_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestOf Is to be
+ *        used when SPDXRef-A is used for testing SPDXRef-B (Value: "TEST_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestToolOf Is
+ *        to be used when SPDXRef-A is used as a test tool for SPDXRef-B (Value:
+ *        "TEST_TOOL_OF")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_TypeUnspecified
+ *        Unspecified (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainerAnalysis_RelationshipOccurrence_Type_VariantOf Is to
+ *        be used when SPDXRef-A is a variant of (same lineage but not clear
+ *        which came first) SPDXRef-B (Value: "VARIANT_OF")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 

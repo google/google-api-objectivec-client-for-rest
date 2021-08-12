@@ -33,6 +33,8 @@
 @class GTLRSQLAdmin_InstancesRotateServerCaRequest;
 @class GTLRSQLAdmin_InstancesTruncateLogRequest;
 @class GTLRSQLAdmin_SqlInstancesRescheduleMaintenanceRequestBody;
+@class GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest;
+@class GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest;
 @class GTLRSQLAdmin_SslCertsCreateEphemeralRequest;
 @class GTLRSQLAdmin_SslCertsInsertRequest;
 @class GTLRSQLAdmin_User;
@@ -43,59 +45,6 @@
 #pragma clang diagnostic ignored "-Wdocumentation"
 
 NS_ASSUME_NONNULL_BEGIN
-
-// ----------------------------------------------------------------------------
-// Constants - For some of the query classes' properties below.
-
-// ----------------------------------------------------------------------------
-// bodyType
-
-/**
- *  The database's built-in user type.
- *
- *  Value: "BUILT_IN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeBuiltIn;
-/**
- *  Cloud IAM service account.
- *
- *  Value: "CLOUD_IAM_SERVICE_ACCOUNT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeCloudIamServiceAccount;
-/**
- *  Cloud IAM user.
- *
- *  Value: "CLOUD_IAM_USER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminBodyTypeCloudIamUser;
-
-// ----------------------------------------------------------------------------
-// syncMode
-
-/**
- *  Unknown external sync mode, will be defaulted to ONLINE mode
- *
- *  Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeExternalSyncModeUnspecified;
-/**
- *  Offline external sync only dumps and loads a one-time snapshot of the
- *  primary instance's data
- *
- *  Value: "OFFLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOffline;
-/**
- *  Online external sync will set up replication after initial data external
- *  sync
- *
- *  Value: "ONLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
-
-// ----------------------------------------------------------------------------
-// Query Classes
-//
 
 /**
  *  Parent class for other SQL Admin query classes.
@@ -1514,36 +1463,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 /** ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
-/** Whether to skip the verification step (VESS). */
-@property(nonatomic, assign) BOOL skipVerification;
-
-/**
- *  External sync mode.
- *
- *  Likely values:
- *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Unknown external
- *        sync mode, will be defaulted to ONLINE mode (Value:
- *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
- *        replication after initial data external sync (Value: "ONLINE")
- *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
- *        loads a one-time snapshot of the primary instance's data (Value:
- *        "OFFLINE")
- */
-@property(nonatomic, copy, nullable) NSString *syncMode;
-
 /**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Start External primary instance migration.
  *
+ *  @param object The @c GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest to
+ *    include in the query.
  *  @param project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_ProjectsInstancesStartExternalSync
  */
-+ (instancetype)queryWithProject:(NSString *)project
-                        instance:(NSString *)instance;
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
 
 @end
 
@@ -1565,35 +1499,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  External sync mode
- *
- *  Likely values:
- *    @arg @c kGTLRSQLAdminSyncModeExternalSyncModeUnspecified Unknown external
- *        sync mode, will be defaulted to ONLINE mode (Value:
- *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdminSyncModeOnline Online external sync will set up
- *        replication after initial data external sync (Value: "ONLINE")
- *    @arg @c kGTLRSQLAdminSyncModeOffline Offline external sync only dumps and
- *        loads a one-time snapshot of the primary instance's data (Value:
- *        "OFFLINE")
- */
-@property(nonatomic, copy, nullable) NSString *syncMode;
-
-/** Flag to enable verifying connection only */
-@property(nonatomic, assign) BOOL verifyConnectionOnly;
-
-/**
  *  Fetches a @c GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsResponse.
  *
  *  Verify External primary instance external sync settings.
  *
+ *  @param object The @c
+ *    GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest to include in
+ *    the query.
  *  @param project Project ID of the project that contains the instance.
  *  @param instance Cloud SQL instance ID. This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_ProjectsInstancesVerifyExternalSyncSettings
  */
-+ (instancetype)queryWithProject:(NSString *)project
-                        instance:(NSString *)instance;
++ (instancetype)queryWithObject:(GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
 
 @end
 
@@ -1902,64 +1822,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminSyncModeOnline;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersList : GTLRSQLAdminQuery
-
-/**
- *  This field is deprecated and will be removed from a future version of the
- *  API.
- */
-@property(nonatomic, copy, nullable) NSString *bodyEtag;
-
-/**
- *  The host name from which the user can connect. For *insert* operations, host
- *  defaults to an empty string. For *update* operations, host is specified as
- *  part of the request URL. The host name cannot be updated after insertion.
- */
-@property(nonatomic, copy, nullable) NSString *bodyHost;
-
-/**
- *  The name of the Cloud SQL instance. This does not include the project ID.
- *  Can be omitted for *update* since it is already specified on the URL.
- */
-@property(nonatomic, copy, nullable) NSString *bodyInstance;
-
-/** This is always *sql#user*. */
-@property(nonatomic, copy, nullable) NSString *bodyKind;
-
-/**
- *  The name of the user in the Cloud SQL instance. Can be omitted for *update*
- *  since it is already specified in the URL.
- */
-@property(nonatomic, copy, nullable) NSString *bodyName;
-
-/** The password for the user. */
-@property(nonatomic, copy, nullable) NSString *bodyPassword;
-
-/**
- *  The project ID of the project containing the Cloud SQL database. The Google
- *  apps domain is prefixed if applicable. Can be omitted for *update* since it
- *  is already specified on the URL.
- */
-@property(nonatomic, copy, nullable) NSString *bodyProject;
-
-/** If the user has been disabled */
-@property(nonatomic, assign) BOOL bodySqlserverUserDetailsDisabled;
-
-/** The server roles for this user */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *bodySqlserverUserDetailsServerRoles;
-
-/**
- *  The user type. It determines the method to authenticate the user during
- *  login. The default is the database's built-in user type.
- *
- *  Likely values:
- *    @arg @c kGTLRSQLAdminBodyTypeBuiltIn The database's built-in user type.
- *        (Value: "BUILT_IN")
- *    @arg @c kGTLRSQLAdminBodyTypeCloudIamUser Cloud IAM user. (Value:
- *        "CLOUD_IAM_USER")
- *    @arg @c kGTLRSQLAdminBodyTypeCloudIamServiceAccount Cloud IAM service
- *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
- */
-@property(nonatomic, copy, nullable) NSString *bodyType;
 
 /** Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;

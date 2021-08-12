@@ -16,6 +16,20 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverAfter
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliverImmediately = @"DELIVER_IMMEDIATELY";
 NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequirementUnspecified = @"DELIVERY_REQUIREMENT_UNSPECIFIED";
 
+// GTLRPubsubLite_SeekSubscriptionRequest.namedTarget
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Head = @"HEAD";
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_NamedTargetUnspecified = @"NAMED_TARGET_UNSPECIFIED";
+NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TAIL";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_CancelOperationRequest
+//
+
+@implementation GTLRPubsubLite_CancelOperationRequest
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRPubsubLite_Capacity
@@ -136,6 +150,28 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_ListOperationsResponse
+//
+
+@implementation GTLRPubsubLite_ListOperationsResponse
+@dynamic nextPageToken, operations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRPubsubLite_Operation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_ListPartitionCursorsResponse
 //
 
@@ -220,6 +256,54 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsubLite_Operation
+//
+
+@implementation GTLRPubsubLite_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Operation_Metadata
+//
+
+@implementation GTLRPubsubLite_Operation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Operation_Response
+//
+
+@implementation GTLRPubsubLite_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_OperationMetadata
+//
+
+@implementation GTLRPubsubLite_OperationMetadata
+@dynamic createTime, endTime, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsubLite_PartitionConfig
 //
 
@@ -245,6 +329,57 @@ NSString * const kGTLRPubsubLite_DeliveryConfig_DeliveryRequirement_DeliveryRequ
 
 @implementation GTLRPubsubLite_RetentionConfig
 @dynamic period, perPartitionBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_SeekSubscriptionRequest
+//
+
+@implementation GTLRPubsubLite_SeekSubscriptionRequest
+@dynamic namedTarget, timeTarget;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_SeekSubscriptionResponse
+//
+
+@implementation GTLRPubsubLite_SeekSubscriptionResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Status
+//
+
+@implementation GTLRPubsubLite_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRPubsubLite_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsubLite_Status_Details_Item
+//
+
+@implementation GTLRPubsubLite_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

@@ -13,6 +13,23 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRAlertCenter_AccountSuspensionDetails.abuseReason
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_AccountSuspensionAbuseReasonUnspecified = @"ACCOUNT_SUSPENSION_ABUSE_REASON_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Fraud = @"FRAUD";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_NumberHarvesting = @"NUMBER_HARVESTING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_PaymentsFraud = @"PAYMENTS_FRAUD";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Phishing = @"PHISHING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Spam = @"SPAM";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TosViolation = @"TOS_VIOLATION";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping = @"TRAFFIC_PUMPING";
+
+// GTLRAlertCenter_AccountSuspensionWarning.state
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AccountSuspensionWarningStateUnspecified = @"ACCOUNT_SUSPENSION_WARNING_STATE_UNSPECIFIED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AppealApproved = @"APPEAL_APPROVED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_AppealSubmitted = @"APPEAL_SUBMITTED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRAlertCenter_AccountSuspensionWarning_State_Warning = @"WARNING";
+
 // GTLRAlertCenter_AlertFeedback.type
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_AlertFeedbackTypeUnspecified = @"ALERT_FEEDBACK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAlertCenter_AlertFeedback_Type_NotUseful = @"NOT_USEFUL";
@@ -57,6 +74,34 @@ NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveBl
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing = @"DRIVE_WARN_ON_EXTERNAL_SHARING";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleActivate = @"RULE_ACTIVATE";
 NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_RuleDeactivate = @"RULE_DEACTIVATE";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AccountSuspensionDetails
+//
+
+@implementation GTLRAlertCenter_AccountSuspensionDetails
+@dynamic abuseReason, productName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAlertCenter_AccountSuspensionWarning
+//
+
+@implementation GTLRAlertCenter_AccountSuspensionWarning
+@dynamic appealWindow, state, suspensionDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suspensionDetails" : [GTLRAlertCenter_AccountSuspensionDetails class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //

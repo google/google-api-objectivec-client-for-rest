@@ -31,6 +31,7 @@ NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_ContentTypeUnsp
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_IamPolicy = @"IAM_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OrgPolicy = @"ORG_POLICY";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_OsInventory = @"OS_INVENTORY";
+NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Relationship = @"RELATIONSHIP";
 NSString * const kGTLRCloudAsset_ExportAssetsRequest_ContentType_Resource = @"RESOURCE";
 
 // GTLRCloudAsset_Feed.contentType
@@ -39,6 +40,7 @@ NSString * const kGTLRCloudAsset_Feed_ContentType_ContentTypeUnspecified = @"CON
 NSString * const kGTLRCloudAsset_Feed_ContentType_IamPolicy    = @"IAM_POLICY";
 NSString * const kGTLRCloudAsset_Feed_ContentType_OrgPolicy    = @"ORG_POLICY";
 NSString * const kGTLRCloudAsset_Feed_ContentType_OsInventory  = @"OS_INVENTORY";
+NSString * const kGTLRCloudAsset_Feed_ContentType_Relationship = @"RELATIONSHIP";
 NSString * const kGTLRCloudAsset_Feed_ContentType_Resource     = @"RESOURCE";
 
 // GTLRCloudAsset_GoogleCloudAssetV1BigQueryDestination.partitionKey
@@ -152,6 +154,16 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAsset_AnalyzeIamPolicyLongrunningMetadata
+//
+
+@implementation GTLRCloudAsset_AnalyzeIamPolicyLongrunningMetadata
+@dynamic createTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAsset_AnalyzeIamPolicyLongrunningRequest
 //
 
@@ -212,7 +224,8 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_Asset
 @dynamic accessLevel, accessPolicy, ancestors, assetType, iamPolicy, name,
-         orgPolicy, osInventory, resource, servicePerimeter, updateTime;
+         orgPolicy, osInventory, relatedAssets, resource, servicePerimeter,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -394,11 +407,12 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_ExportAssetsRequest
-@dynamic assetTypes, contentType, outputConfig, readTime;
+@dynamic assetTypes, contentType, outputConfig, readTime, relationshipTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"assetTypes" : [NSString class]
+    @"assetTypes" : [NSString class],
+    @"relationshipTypes" : [NSString class]
   };
   return map;
 }
@@ -427,12 +441,14 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Feed
-@dynamic assetNames, assetTypes, condition, contentType, feedOutputConfig, name;
+@dynamic assetNames, assetTypes, condition, contentType, feedOutputConfig, name,
+         relationshipTypes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"assetNames" : [NSString class],
-    @"assetTypes" : [NSString class]
+    @"assetTypes" : [NSString class],
+    @"relationshipTypes" : [NSString class]
   };
   return map;
 }
@@ -1111,7 +1127,7 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_Inventory
-@dynamic items, osInfo;
+@dynamic items, name, osInfo, updateTime;
 @end
 
 
@@ -1352,6 +1368,52 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 
 @implementation GTLRCloudAsset_PubsubDestination
 @dynamic topic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelatedAsset
+//
+
+@implementation GTLRCloudAsset_RelatedAsset
+@dynamic ancestors, asset, assetType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ancestors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelatedAssets
+//
+
+@implementation GTLRCloudAsset_RelatedAssets
+@dynamic assets, relationshipAttributes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assets" : [GTLRCloudAsset_RelatedAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAsset_RelationshipAttributes
+//
+
+@implementation GTLRCloudAsset_RelationshipAttributes
+@dynamic action, sourceResourceType, targetResourceType, type;
 @end
 
 

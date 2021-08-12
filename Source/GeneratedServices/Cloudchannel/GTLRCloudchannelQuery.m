@@ -3,6 +3,10 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Cloud Channel API (cloudchannel/v1)
+// Description:
+//   The Cloud Channel API enables Google Cloud partners to have a single
+//   unified resale platform and APIs across all of Google Cloud including GCP,
+//   Workspace, Maps and Chrome.
 // Documentation:
 //   https://cloud.google.com/channel
 
@@ -120,6 +124,33 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
   query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers:import";
+  GTLRCloudchannelQuery_AccountsChannelPartnerLinksCustomersImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
+  query.loggingName = @"cloudchannel.accounts.channelPartnerLinks.customers.import";
   return query;
 }
 
@@ -596,6 +627,33 @@ NSString * const kGTLRCloudchannelViewUnspecified = @"UNSPECIFIED";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
   query.loggingName = @"cloudchannel.accounts.customers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudchannelQuery_AccountsCustomersImport
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudchannel_GoogleCloudChannelV1ImportCustomerRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/customers:import";
+  GTLRCloudchannelQuery_AccountsCustomersImport *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudchannel_GoogleCloudChannelV1Customer class];
+  query.loggingName = @"cloudchannel.accounts.customers.import";
   return query;
 }
 

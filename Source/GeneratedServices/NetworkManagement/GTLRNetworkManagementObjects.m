@@ -123,6 +123,7 @@ NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopInternetGat
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopIp = @"NEXT_HOP_IP";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopNetwork = @"NEXT_HOP_NETWORK";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering = @"NEXT_HOP_PEERING";
+NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance = @"NEXT_HOP_ROUTER_APPLIANCE";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified = @"NEXT_HOP_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway = @"NEXT_HOP_VPN_GATEWAY";
 NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnTunnel = @"NEXT_HOP_VPN_TUNNEL";

@@ -274,8 +274,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  Required. Resource name for the Access Level. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/accessLevels/{short_name}`. The maximum length
- *  of the `short_name` component is 50 characters.
+ *  `accessPolicies/{access_policy}/accessLevels/{access_level}`. The maximum
+ *  length of the `access_level` component is 50 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -304,7 +304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 /**
  *  Output only. Resource name of the `AccessPolicy`. Format:
- *  `accessPolicies/{policy_id}`
+ *  `accessPolicies/{access_policy}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -732,6 +732,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
+ *  Currently, a completed operation means nothing. In the future, this metadata
+ *  and a completed operation may indicate that the binding has taken effect and
+ *  is affecting access decisions for all users.
+ */
+@interface GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata : GTLRObject
+@end
+
+
+/**
  *  Defines the conditions under which an IngressPolicy matches a request.
  *  Conditions are based on information about the source of the request. The
  *  request must satisfy what is defined in `sources` AND identity related
@@ -1088,6 +1097,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 
 
 /**
+ *  Metadata of Access Context Manager's Long Running Operations.
+ */
+@interface GTLRAccessContextManager_OperationMetadata : GTLRObject
+@end
+
+
+/**
  *  A restriction on the OS type and version of devices making requests.
  */
 @interface GTLRAccessContextManager_OsConstraint : GTLRObject
@@ -1232,7 +1248,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_ServicePerimeter_Pe
 /**
  *  Required. Resource name for the ServicePerimeter. The `short_name` component
  *  must begin with a letter and only include alphanumeric and '_'. Format:
- *  `accessPolicies/{policy_id}/servicePerimeters/{short_name}`
+ *  `accessPolicies/{access_policy}/servicePerimeters/{service_perimeter}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

@@ -26,6 +26,7 @@
 @class GTLRChromePolicy_GoogleChromePolicyV1InheritOrgUnitPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1ModifyOrgUnitPolicyRequest;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchema;
+@class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDescription;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldKnownValueDescription;
 @class GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaNoticeDescription;
@@ -317,6 +318,24 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
 
 
 /**
+ *  The field and the value it must have for another field to be allowed to be
+ *  set.
+ */
+@interface GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies : GTLRObject
+
+/** The source field which this field depends on. */
+@property(nonatomic, copy, nullable) NSString *sourceField;
+
+/**
+ *  The value which the source field must have for this field to be allowed to
+ *  be set.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceFieldValue;
+
+@end
+
+
+/**
  *  Provides detailed information for a particular field that is part of a
  *  PolicySchema.
  */
@@ -333,6 +352,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromePolicy_Proto2FieldDescriptorProto_
  *  Output only. The name of the field for associated with this description.
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Output only. Provides a list of fields and the values they must have for
+ *  this field to be allowed to be set.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromePolicy_GoogleChromePolicyV1PolicySchemaFieldDependencies *> *fieldDependencies;
 
 /**
  *  Output only. Any input constraints associated on the values for the field.

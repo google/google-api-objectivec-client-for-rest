@@ -107,12 +107,12 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Calculates diff and replaces the entire product dataset. Existing products
  *  may be deleted if they are not present in the source location. Can only be
- *  while using BigQuerySource. Add the IAM permission “BigQuery Data Viewer”
+ *  while using BigQuerySource. Add the IAM permission "BigQuery Data Viewer"
  *  for cloud-retail-customer-data-access\@system.gserviceaccount.com before
  *  using this feature otherwise an error is thrown. This feature is only
- *  available for users who have Retail Search enabled. Contact Retail Support
- *  (retail-search-support\@google.com) if you are interested in using Retail
- *  Search.
+ *  available for users who have Retail Search enabled. Please submit a form
+ *  [here](https://cloud.google.com/contact) to contact cloud sales if you are
+ *  interested in using Retail Search.
  *
  *  Value: "FULL"
  */
@@ -1332,12 +1332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2CompleteQueryResponseCompletionResult *> *completionResults;
 
 /**
- *  Matched recent searches of this user. This field is a restricted feature.
- *  Contact Retail Support (retail-search-support\@google.com) if you are
- *  interested in enabling it. This feature is only available when
- *  CompleteQueryRequest.visitor_id field is set and UserEvent is imported. The
- *  recent searches satisfy the follow rules: * They are ordered from latest to
- *  oldest. * They are matched with CompleteQueryRequest.query case
+ *  Matched recent searches of this user. The maximum number of recent searches
+ *  is 10. This field is a restricted feature. Contact Retail Search support
+ *  team if you are interested in enabling it. This feature is only available
+ *  when CompleteQueryRequest.visitor_id field is set and UserEvent is imported.
+ *  The recent searches satisfy the follow rules: * They are ordered from latest
+ *  to oldest. * They are matched with CompleteQueryRequest.query case
  *  insensitively. * They are transformed to lower cases. * They are UTF-8 safe.
  *  Recent searches are deduplicated. More recent searches will be reserved when
  *  duplication happens.
@@ -1391,8 +1391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2CompletionDataInputConfig : GTLRObject
 
 /**
- *  Required. BigQuery input source. Add the IAM permission “BigQuery Data
- *  Viewer” for cloud-retail-customer-data-access\@system.gserviceaccount.com
+ *  Required. BigQuery input source. Add the IAM permission "BigQuery Data
+ *  Viewer" for cloud-retail-customer-data-access\@system.gserviceaccount.com
  *  before using this feature otherwise an error is thrown.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2BigQuerySource *bigQuerySource;
@@ -1708,12 +1708,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        Calculates diff and replaces the entire product dataset. Existing
  *        products may be deleted if they are not present in the source
  *        location. Can only be while using BigQuerySource. Add the IAM
- *        permission “BigQuery Data Viewer” for
+ *        permission "BigQuery Data Viewer" for
  *        cloud-retail-customer-data-access\@system.gserviceaccount.com before
  *        using this feature otherwise an error is thrown. This feature is only
- *        available for users who have Retail Search enabled. Contact Retail
- *        Support (retail-search-support\@google.com) if you are interested in
- *        using Retail Search. (Value: "FULL")
+ *        available for users who have Retail Search enabled. Please submit a
+ *        form [here](https://cloud.google.com/contact) to contact cloud sales
+ *        if you are interested in using Retail Search. (Value: "FULL")
  *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental
  *        Inserts new products or updates existing products. (Value:
  *        "INCREMENTAL")
@@ -2218,10 +2218,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
- *  encoded string with a length limit of 128 characters. * Max indexable
- *  entries count: 200 by default; 40 for Type.VARIANT. * Max searchable entries
- *  count: 30. * For indexable attribute, the key must match the pattern:
- *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  encoded string with a length limit of 128 characters. * For indexable
+ *  attribute, the key must match the pattern: a-zA-Z0-9*. For example,
+ *  key0LikeThis or KEY_1_LIKE_THIS.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product_Attributes *attributes;
 
@@ -2396,7 +2395,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 
 /**
  *  The material of the product. For example, "leather", "wooden". A maximum of
- *  5 values are allowed. Each value must be a UTF-8 encoded string with a
+ *  20 values are allowed. Each value must be a UTF-8 encoded string with a
  *  length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error is
  *  returned. Google Merchant Center property
  *  [material](https://support.google.com/merchants/answer/6324410). Schema.org
@@ -2470,8 +2469,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  key of a custom attribute, as specified in attributes. For Type.PRIMARY and
  *  Type.COLLECTION, the following fields are always returned in SearchResponse
  *  by default: * name For Type.VARIANT, the following fields are always
- *  returned in by default: * name * color_info Maximum number of paths is 20.
- *  Otherwise, an INVALID_ARGUMENT error is returned.
+ *  returned in by default: * name * color_info Maximum number of paths is 30.
+ *  Otherwise, an INVALID_ARGUMENT error is returned. Note: Returning more
+ *  fields in SearchResponse may increase response payload size and serving
+ *  latency.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -2584,10 +2585,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "heights_cm": {"numbers":[8.1, 6.4]} }`. This field needs to pass all below
  *  criteria, otherwise an INVALID_ARGUMENT error is returned: * Max entries
  *  count: 200 by default; 100 for Type.VARIANT. * The key must be a UTF-8
- *  encoded string with a length limit of 128 characters. * Max indexable
- *  entries count: 200 by default; 40 for Type.VARIANT. * Max searchable entries
- *  count: 30. * For indexable attribute, the key must match the pattern:
- *  a-zA-Z0-9*. For example, key0LikeThis or KEY_1_LIKE_THIS.
+ *  encoded string with a length limit of 128 characters. * For indexable
+ *  attribute, the key must match the pattern: a-zA-Z0-9*. For example,
+ *  key0LikeThis or KEY_1_LIKE_THIS.
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute. Use @c
@@ -2605,9 +2605,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 @interface GTLRCloudRetail_GoogleCloudRetailV2ProductDetail : GTLRObject
 
 /**
- *  Required. Product information. Only Product.id field is used when ingesting
- *  an event, all other product fields are ignored as we will look them up from
- *  the catalog.
+ *  Required. Product information. Required field(s): * Product.id Optional
+ *  override field(s): * Product.price_info If any supported optional fields are
+ *  provided, we will treat them as a full override when looking up product
+ *  information from the catalog. Thus, it is important to ensure that the
+ *  overriding fields are accurate and complete. All other product fields are
+ *  ignored and instead populated via catalog lookup after event ingestion.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2Product *product;
 
@@ -2993,8 +2996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
 /**
  *  The specification for dynamically generated facets. Notice that only textual
  *  facets can be dynamically generated. This feature requires additional
- *  allowlisting. Contact Retail Support (retail-search-support\@google.com) if
- *  you are interested in using dynamic facet feature.
+ *  allowlisting. Contact Retail Search support team if you are interested in
+ *  using dynamic facet feature.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestDynamicFacetSpec *dynamicFacetSpec;
 
@@ -3080,27 +3083,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  The keys to fetch and rollup the matching variant Products attributes. The
  *  attributes from all the matching variant Products are merged and
  *  de-duplicated. Notice that rollup variant Products attributes will lead to
- *  extra query latency. Maximum number of keys is 10. For
- *  Product.fulfillment_info, a fulfillment type and a fulfillment ID must be
- *  provided in the format of "fulfillmentType.filfillmentId". E.g., in
- *  "pickupInStore.store123", "pickupInStore" is fulfillment type and "store123"
- *  is the store ID. Supported keys are: * colorFamilies * price * originalPrice
- *  * discount * attributes.key, where key is any key in the Product.attributes
- *  map. * pickupInStore.id, where id is any FulfillmentInfo.ids for type
- *  FulfillmentInfo.Type.PICKUP_IN_STORE. * shipToStore.id, where id is any
- *  FulfillmentInfo.ids for type FulfillmentInfo.Type.SHIP_TO_STORE. *
- *  sameDayDelivery.id, where id is any FulfillmentInfo.ids for type
- *  FulfillmentInfo.Type.SAME_DAY_DELIVERY. * nextDayDelivery.id, where id is
- *  any FulfillmentInfo.ids for type FulfillmentInfo.Type.NEXT_DAY_DELIVERY. *
- *  customFulfillment1.id, where id is any FulfillmentInfo.ids for type
- *  FulfillmentInfo.Type.CUSTOM_TYPE_1. * customFulfillment2.id, where id is any
- *  FulfillmentInfo.ids for type FulfillmentInfo.Type.CUSTOM_TYPE_2. *
- *  customFulfillment3.id, where id is any FulfillmentInfo.ids for type
- *  FulfillmentInfo.Type.CUSTOM_TYPE_3. * customFulfillment4.id, where id is any
- *  FulfillmentInfo.ids for type FulfillmentInfo.Type.CUSTOM_TYPE_4. *
- *  customFulfillment5.id, where id is any FulfillmentInfo.ids for type
- *  FulfillmentInfo.Type.CUSTOM_TYPE_5. If this field is set to an invalid value
- *  other than these, an INVALID_ARGUMENT error is returned.
+ *  extra query latency. Maximum number of keys is 10. For FulfillmentInfo, a
+ *  fulfillment type and a fulfillment ID must be provided in the format of
+ *  "fulfillmentType.fulfillmentId". E.g., in "pickupInStore.store123",
+ *  "pickupInStore" is fulfillment type and "store123" is the store ID.
+ *  Supported keys are: * colorFamilies * price * originalPrice * discount *
+ *  attributes.key, where key is any key in the Product.attributes map. *
+ *  pickupInStore.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "pickup-in-store". * shipToStore.id, where id is any
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type "ship-to-store". *
+ *  sameDayDelivery.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "same-day-delivery". * nextDayDelivery.id, where id is
+ *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "next-day-delivery".
+ *  * customFulfillment1.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "custom-type-1". * customFulfillment2.id, where id is
+ *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-2". *
+ *  customFulfillment3.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "custom-type-3". * customFulfillment4.id, where id is
+ *  any FulfillmentInfo.place_ids for FulfillmentInfo.type "custom-type-4". *
+ *  customFulfillment5.id, where id is any FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type "custom-type-5". If this field is set to an invalid
+ *  value other than these, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *variantRollupKeys;
 
@@ -3272,8 +3275,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  Required. Supported textual and numerical facet keys in Product object, over
  *  which the facet values are computed. Facet key is case-sensitive. Allowed
  *  facet keys when FacetKey.query is not specified: * textual_field = *# The
- *  Product.brands. * "brands"; *# The Product.categories. * "categories"; *#
- *  The Audience.genders. * | "genders"; *# The Audience.age_groups. * |
+ *  Product.brands. * | "brands"; *# The Product.categories. * | "categories";
+ *  *# The Audience.genders. * | "genders"; *# The Audience.age_groups. * |
  *  "ageGroups"; *# The Product.availability. Value is one of * *# "IN_STOCK",
  *  "OUT_OF_STOCK", PREORDER", "BACKORDER". * | "availability"; *# The
  *  ColorInfo.color_families. * | "colorFamilies"; *# The ColorInfo.colors. * |
@@ -3281,23 +3284,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  "materials"; *# The Product.patterns. * | "patterns"; *# The
  *  Product.conditions. * | "conditions"; *# The textual custom attribute in
  *  Product object. Key can * *# be any key in the Product.attributes map * *#
- *  if the attribute values are textual. * *# map. * | "attributes.key"; *# The
- *  FulfillmentInfo.ids for type *# FulfillmentInfo.Type.PICKUP_IN_STORE. * |
- *  "pickupInStore"; *# The FulfillmentInfo.ids for type *#
- *  FulfillmentInfo.Type.SHIP_TO_STORE. * | "shipToStore"; *# The
- *  FulfillmentInfo.ids for type *# FulfillmentInfo.Type.SAME_DAY_DELIVERY. * |
- *  "sameDayDelivery"; *# The FulfillmentInfo.ids for type *#
- *  FulfillmentInfo.Type.NEXT_DAY_DELIVERY. * | "nextDayDelivery"; *# The
- *  FulfillmentInfo.ids for type *# FulfillmentInfo.Type.CUSTOM_TYPE_1. * |
- *  "customFulfillment1"; *# The FulfillmentInfo.ids for type *#
- *  FulfillmentInfo.Type.CUSTOM_TYPE_2. * | "customFulfillment2"; *# The
- *  FulfillmentInfo.ids for type *# FulfillmentInfo.Type.CUSTOM_TYPE_3. * |
- *  "customFulfillment3"; *# The FulfillmentInfo.ids for type *#
- *  FulfillmentInfo.Type.CUSTOM_TYPE_4. * | "customFulfillment4"; *# The
- *  FulfillmentInfo.ids for type *# FulfillmentInfo.Type.CUSTOM_TYPE_5. * |
- *  "customFulfillment5"; * numerical_field = *# The PriceInfo.price. * "price";
- *  *# The discount. Computed by (original_price-price)/price * "discount"; *#
- *  The Rating.average_rating. * "rating"; *# The Rating.rating_count. *
+ *  if the attribute values are textual. * | "attributes.key"; *# The
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "pickup-in-store". *
+ *  | "pickupInStore"; *# The FulfillmentInfo.place_ids for FulfillmentInfo.type
+ *  * *# "ship-to-store". * | "shipToStore"; *# The FulfillmentInfo.place_ids
+ *  for FulfillmentInfo.type * *# "same-day-delivery". * | "sameDayDelivery"; *#
+ *  The FulfillmentInfo.place_ids for FulfillmentInfo.type * *#
+ *  "next-day-delivery". * | "nextDayDelivery"; *# The FulfillmentInfo.place_ids
+ *  for FulfillmentInfo.type * *# "custom-type-1". * | "customFulfillment1"; *#
+ *  The FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "custom-type-2".
+ *  * | "customFulfillment2"; *# The FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type * *# "custom-type-3". * | "customFulfillment3"; *# The
+ *  FulfillmentInfo.place_ids for FulfillmentInfo.type * *# "custom-type-4". * |
+ *  "customFulfillment4"; *# The FulfillmentInfo.place_ids for
+ *  FulfillmentInfo.type * *# "custom-type-5". * | "customFulfillment5"; *
+ *  numerical_field = *# The PriceInfo.price. * | "price"; *# The discount.
+ *  Computed by (original_price-price)/price * | "discount"; *# The
+ *  Rating.average_rating. * | "rating"; *# The Rating.rating_count. * |
  *  "ratingCount"; *# The numerical custom attribute in Product object. Key can
  *  * *# be any key in the Product.attributes map * *# if the attribute values
  *  are numerical. * | "attributes.key";
@@ -3311,7 +3314,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  to textual facets. If not set, textual values are sorted in [natural
  *  order](https://en.wikipedia.org/wiki/Natural_sort_order); numerical
  *  intervals are sorted in the order given by FacetSpec.FacetKey.intervals;
- *  FulfillmentInfo.ids are sorted in the order given by
+ *  FulfillmentInfo.place_ids are sorted in the order given by
  *  FacetSpec.FacetKey.restricted_values.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
@@ -3376,6 +3379,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *        SearchResponse.total_size is zero. (Value: "DISABLED")
  */
 @property(nonatomic, copy, nullable) NSString *condition;
+
+/**
+ *  Whether to pin unexpanded results. If this field is set to true, unexpanded
+ *  products are always at the top of the search results, followed by the
+ *  expanded results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pinUnexpandedResults;
 
 @end
 
@@ -3487,6 +3499,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  */
 @property(nonatomic, strong, nullable) NSNumber *expandedQuery;
 
+/**
+ *  Number of pinned results. This field will only be set when expansion happens
+ *  and SearchRequest.query_expansion_spec.pin_unexpanded_results is set to
+ *  true.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pinnedResultCount;
+
 @end
 
 
@@ -3541,10 +3562,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  google.protobuf.ListValue. For example, if there are two variants with
  *  colors "red" and "blue", the rollup values are { key: "colorFamilies" value
  *  { list_value { values { string_value: "red" } values { string_value: "blue"
- *  } } } } For Product.fulfillment_info, the rollup values is a double value
- *  with type google.protobuf.Value. For example, {key: "pickupInStore.store1"
- *  value { number_value: 10 }} means a there are 10 variants in this product
- *  are available in the store "store1".
+ *  } } } } For FulfillmentInfo, the rollup values is a double value with type
+ *  google.protobuf.Value. For example, `{key: "pickupInStore.store1" value {
+ *  number_value: 10 }}` means a there are 10 variants in this product are
+ *  available in the store "store1".
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchResponseSearchResult_VariantRollupValues *variantRollupValues;
 
@@ -3579,10 +3600,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchReq
  *  google.protobuf.ListValue. For example, if there are two variants with
  *  colors "red" and "blue", the rollup values are { key: "colorFamilies" value
  *  { list_value { values { string_value: "red" } values { string_value: "blue"
- *  } } } } For Product.fulfillment_info, the rollup values is a double value
- *  with type google.protobuf.Value. For example, {key: "pickupInStore.store1"
- *  value { number_value: 10 }} means a there are 10 variants in this product
- *  are available in the store "store1".
+ *  } } } } For FulfillmentInfo, the rollup values is a double value with type
+ *  google.protobuf.Value. For example, `{key: "pickupInStore.store1" value {
+ *  number_value: 10 }}` means a there are 10 variants in this product are
+ *  available in the store "store1".
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

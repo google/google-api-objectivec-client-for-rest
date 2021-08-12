@@ -228,6 +228,39 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_EdgeConfigstoreBundleBadBundle
+//
+
+@implementation GTLRApigee_EdgeConfigstoreBundleBadBundle
+@dynamic violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRApigee_EdgeConfigstoreBundleBadBundleViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_EdgeConfigstoreBundleBadBundleViolation
+//
+
+@implementation GTLRApigee_EdgeConfigstoreBundleBadBundleViolation
+@dynamic descriptionProperty, filename;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleApiHttpBody
 //
 
@@ -313,7 +346,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1AddonsConfig
-@dynamic advancedApiOpsConfig, integrationConfig, monetizationConfig;
+@dynamic advancedApiOpsConfig, monetizationConfig;
 @end
 
 
@@ -416,13 +449,27 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1ApiProxy
-@dynamic latestRevisionId, metaData, name, revision;
+@dynamic labels, latestRevisionId, metaData, name, revision;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"revision" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ApiProxy_Labels
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ApiProxy_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -873,7 +920,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1Deployment
 @dynamic apiProxy, deployStartTime, environment, errors, instances, pods,
-         revision, routeConflicts, state;
+         revision, routeConflicts, serviceAccount, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1393,16 +1440,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1InstanceDeploymentStatusDeployedRoute
 @dynamic basepath, envgroup, environment, percentage;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
-//
-
-@implementation GTLRApigee_GoogleCloudApigeeV1IntegrationConfig
-@dynamic enabled;
 @end
 
 

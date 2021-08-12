@@ -461,12 +461,32 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettings
+@dynamic loggingSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3AdvancedSettingsLoggingSettings
+@dynamic enableInteractionLogging, enableStackdriverLogging;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Agent
-@dynamic avatarUri, defaultLanguageCode, descriptionProperty, displayName,
-         enableSpellCorrection, enableStackdriverLogging, name,
+@dynamic advancedSettings, avatarUri, defaultLanguageCode, descriptionProperty,
+         displayName, enableSpellCorrection, enableStackdriverLogging, name,
          securitySettings, speechToTextSettings, startFlow,
          supportedLanguageCodes, timeZone;
 
@@ -1985,8 +2005,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Experiment
 @dynamic createTime, definition, descriptionProperty, displayName, endTime,
-         experimentLength, lastUpdateTime, name, result, startTime, state,
-         variantsHistory;
+         experimentLength, lastUpdateTime, name, result, rolloutConfig,
+         rolloutFailureReason, rolloutState, startTime, state, variantsHistory;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3079,11 +3099,13 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters
-@dynamic analyzeQueryTextSentiment, currentPage, disableWebhook, geoLocation,
-         parameters, payload, sessionEntityTypes, timeZone, webhookHeaders;
+@dynamic analyzeQueryTextSentiment, currentPage, disableWebhook, flowVersions,
+         geoLocation, parameters, payload, sessionEntityTypes, timeZone,
+         webhookHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"flowVersions" : [NSString class],
     @"sessionEntityTypes" : [GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType class]
   };
   return map;
@@ -3379,6 +3401,44 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfig
+@dynamic failureCondition, rolloutCondition, rolloutSteps;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rolloutSteps" : [GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutConfigRolloutStep
+@dynamic displayName, minDuration, trafficPercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3RolloutState
+@dynamic startTime, step, stepIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3RunContinuousTestMetadata
 //
 
@@ -3449,7 +3509,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings
-@dynamic displayName, inspectTemplate, name, purgeDataTypes, redactionScope,
+@dynamic deidentifyTemplate, displayName, insightsExportSettings,
+         inspectTemplate, name, purgeDataTypes, redactionScope,
          redactionStrategy, retentionWindowDays;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -3459,6 +3520,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsInsightsExportSettings
+@dynamic enableInsightsExport;
 @end
 
 
@@ -6391,6 +6462,66 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1GenericKnowledgeOp
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV3alpha1UpdateDocumentOperationMetadata
 @dynamic genericMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudLocationListLocationsResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudLocationListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRDialogflow_GoogleCloudLocationLocation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudLocationLocation
+//
+
+@implementation GTLRDialogflow_GoogleCloudLocationLocation
+@dynamic displayName, labels, locationId, metadata, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudLocationLocation_Labels
+//
+
+@implementation GTLRDialogflow_GoogleCloudLocationLocation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudLocationLocation_Metadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudLocationLocation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

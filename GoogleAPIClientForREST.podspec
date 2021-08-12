@@ -348,6 +348,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Compute/*.{h,m}'
   end
+  s.subspec 'Contactcenterinsights' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/Contactcenterinsights/*.{h,m}'
+  end
   s.subspec 'Container' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Container/*.{h,m}'
@@ -652,6 +656,10 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/NetworkSecurity/*.{h,m}'
   end
+  s.subspec 'NetworkServices' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/NetworkServices/*.{h,m}'
+  end
   s.subspec 'Oauth2' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Oauth2/*.{h,m}'
@@ -687,6 +695,10 @@ Pod::Spec.new do |s|
   s.subspec 'Playcustomapp' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Source/GeneratedServices/Playcustomapp/*.{h,m}'
+  end
+  s.subspec 'PolicyAnalyzer' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Source/GeneratedServices/PolicyAnalyzer/*.{h,m}'
   end
   s.subspec 'PolicySimulator' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

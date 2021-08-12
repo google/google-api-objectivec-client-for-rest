@@ -63,6 +63,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -114,6 +120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "COMPLIANCE_REGIME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_ComplianceRegimeUnspecified;
+/**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_EuRegionsAndSupport;
 /**
  *  FedRAMP High data protection controls
  *
@@ -237,6 +249,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified;
 /**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport;
+/**
  *  FedRAMP High data protection controls
  *
  *  Value: "FEDRAMP_HIGH"
@@ -288,6 +306,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "COMPLIANCE_REGIME_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified;
+/**
+ *  Assured Workloads For EU Regions and Support controls
+ *
+ *  Value: "EU_REGIONS_AND_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport;
 /**
  *  FedRAMP High data protection controls
  *
@@ -396,6 +420,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
@@ -462,6 +489,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1beta1Workload_ComplianceRegime_FedrampModerate
@@ -532,10 +562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
- *  Workload. May be either an organization or a folder. Must be the same or a
- *  child of the Workload parent. If not specified all resources are created
- *  under the Workload parent. Formats: folders/{folder_id}
- *  organizations/{organization_id}
+ *  Workload. May be either empty or a folder resource which is a child of the
+ *  Workload parent. If not specified all resources are created under the parent
+ *  organization. Format: folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *provisionedResourcesParent;
 
@@ -734,6 +763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
@@ -813,6 +845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified
  *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport
+ *        Assured Workloads For EU Regions and Support controls (Value:
+ *        "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh
  *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
@@ -865,10 +900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Input only. The parent resource for the resources managed by this Assured
- *  Workload. May be either an organization or a folder. Must be the same or a
- *  child of the Workload parent. If not specified all resources are created
- *  under the Workload parent. Formats: folders/{folder_id}
- *  organizations/{organization_id}
+ *  Workload. May be either empty or a folder resource which is a child of the
+ *  Workload parent. If not specified all resources are created under the parent
+ *  organization. Format: folders/{folder_id}
  */
 @property(nonatomic, copy, nullable) NSString *provisionedResourcesParent;
 

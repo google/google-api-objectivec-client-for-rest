@@ -19,6 +19,52 @@ NSString * const kGTLROSConfig_AptSettings_Type_Dist           = @"DIST";
 NSString * const kGTLROSConfig_AptSettings_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 NSString * const kGTLROSConfig_AptSettings_Type_Upgrade        = @"UPGRADE";
 
+// GTLROSConfig_CVSSv3.attackComplexity
+NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityHigh = @"ATTACK_COMPLEXITY_HIGH";
+NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityLow = @"ATTACK_COMPLEXITY_LOW";
+NSString * const kGTLROSConfig_CVSSv3_AttackComplexity_AttackComplexityUnspecified = @"ATTACK_COMPLEXITY_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.attackVector
+NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorAdjacent = @"ATTACK_VECTOR_ADJACENT";
+NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorLocal = @"ATTACK_VECTOR_LOCAL";
+NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorNetwork = @"ATTACK_VECTOR_NETWORK";
+NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorPhysical = @"ATTACK_VECTOR_PHYSICAL";
+NSString * const kGTLROSConfig_CVSSv3_AttackVector_AttackVectorUnspecified = @"ATTACK_VECTOR_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.availabilityImpact
+NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROSConfig_CVSSv3_AvailabilityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.confidentialityImpact
+NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROSConfig_CVSSv3_ConfidentialityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.integrityImpact
+NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactHigh = @"IMPACT_HIGH";
+NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactLow = @"IMPACT_LOW";
+NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactNone = @"IMPACT_NONE";
+NSString * const kGTLROSConfig_CVSSv3_IntegrityImpact_ImpactUnspecified = @"IMPACT_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.privilegesRequired
+NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredHigh = @"PRIVILEGES_REQUIRED_HIGH";
+NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredLow = @"PRIVILEGES_REQUIRED_LOW";
+NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredNone = @"PRIVILEGES_REQUIRED_NONE";
+NSString * const kGTLROSConfig_CVSSv3_PrivilegesRequired_PrivilegesRequiredUnspecified = @"PRIVILEGES_REQUIRED_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.scope
+NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeChanged     = @"SCOPE_CHANGED";
+NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnchanged   = @"SCOPE_UNCHANGED";
+NSString * const kGTLROSConfig_CVSSv3_Scope_ScopeUnspecified = @"SCOPE_UNSPECIFIED";
+
+// GTLROSConfig_CVSSv3.userInteraction
+NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionNone = @"USER_INTERACTION_NONE";
+NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionRequired = @"USER_INTERACTION_REQUIRED";
+NSString * const kGTLROSConfig_CVSSv3_UserInteraction_UserInteractionUnspecified = @"USER_INTERACTION_UNSPECIFIED";
+
 // GTLROSConfig_ExecStepConfig.interpreter
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_InterpreterUnspecified = @"INTERPRETER_UNSPECIFIED";
 NSString * const kGTLROSConfig_ExecStepConfig_Interpreter_Powershell = @"POWERSHELL";
@@ -152,6 +198,18 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_CVSSv3
+//
+
+@implementation GTLROSConfig_CVSSv3
+@dynamic attackComplexity, attackVector, availabilityImpact, baseScore,
+         confidentialityImpact, exploitabilityScore, impactScore,
+         integrityImpact, privilegesRequired, scope, userInteraction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_Empty
 //
 
@@ -238,7 +296,7 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 //
 
 @implementation GTLROSConfig_Inventory
-@dynamic items, osInfo;
+@dynamic items, name, osInfo, updateTime;
 @end
 
 
@@ -372,6 +430,28 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_ListInventoriesResponse
+//
+
+@implementation GTLROSConfig_ListInventoriesResponse
+@dynamic inventories, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"inventories" : [GTLROSConfig_Inventory class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"inventories";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_ListOperationsResponse
 //
 
@@ -453,6 +533,28 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
 
 + (NSString *)collectionItemsKey {
   return @"patchJobs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_ListVulnerabilityReportsResponse
+//
+
+@implementation GTLROSConfig_ListVulnerabilityReportsResponse
+@dynamic nextPageToken, vulnerabilityReports;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vulnerabilityReports" : [GTLROSConfig_VulnerabilityReport class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"vulnerabilityReports";
 }
 
 @end
@@ -718,6 +820,76 @@ NSString * const kGTLROSConfig_WindowsUpdateSettings_Classifications_UpdateRollu
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_VulnerabilityReport
+//
+
+@implementation GTLROSConfig_VulnerabilityReport
+@dynamic name, updateTime, vulnerabilities;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"vulnerabilities" : [GTLROSConfig_VulnerabilityReportVulnerability class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_VulnerabilityReportVulnerability
+//
+
+@implementation GTLROSConfig_VulnerabilityReportVulnerability
+@dynamic availableInventoryItemIds, createTime, details,
+         installedInventoryItemIds, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableInventoryItemIds" : [NSString class],
+    @"installedInventoryItemIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_VulnerabilityReportVulnerabilityDetails
+//
+
+@implementation GTLROSConfig_VulnerabilityReportVulnerabilityDetails
+@dynamic cve, cvssV2Score, cvssV3, descriptionProperty, references, severity;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"references" : [GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference
+//
+
+@implementation GTLROSConfig_VulnerabilityReportVulnerabilityDetailsReference
+@dynamic source, url;
 @end
 
 

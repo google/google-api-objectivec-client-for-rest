@@ -649,8 +649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. Whether to use BigQuery's partition tables
  *  (https://cloud.google.com/bigquery/docs/partitioned-tables). By default,
- *  Logging creates dated tables based on the log entries' timestamps, e.g.
- *  syslog_20170523. With partitioned tables the date suffix is no longer
+ *  Cloud Logging creates dated tables based on the log entries' timestamps,
+ *  e.g. syslog_20170523. With partitioned tables the date suffix is no longer
  *  present and special query syntax
  *  (https://cloud.google.com/bigquery/docs/querying-partitioned-tables) has to
  *  be used instead. In both cases, tables are sharded based on UTC timezone.
@@ -661,7 +661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Output only. True if new timestamp column based partitioning is in use,
- *  false if legacy ingestion-time partitioning is in use. All new sinks will
+ *  false if legacy ingestion-time partitioning is in use.All new sinks will
  *  have this field set true and will use timestamp column based partitioning.
  *  If use_partitioned_tables is false, this value has no meaning and will be
  *  false. Legacy sinks using partitioned tables will have this field set to
@@ -723,9 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The resource name for the configured Cloud KMS key.KMS key name format:
- *  "projects/PROJECT_ID/locations/LOCATION/keyRings/KEYRING/cryptoKeys/KEY"For
- *  example:
- *  "projects/my-project-id/locations/my-region/keyRings/key-ring-name/cryptoKeys/key-name"To
+ *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
+ *  For
+ *  example:"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"To
  *  enable CMEK for the Logs Router, set this field to a valid kms_key_name for
  *  which the associated service account has the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key.The
@@ -813,8 +813,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  The IAM identity of a service account that must be granted access to the
- *  destination. If the service account is not granted permission to the
- *  destination within an hour, the operation will be cancelled. Example:
+ *  destination.If the service account is not granted permission to the
+ *  destination within an hour, the operation will be cancelled.For example:
  *  "serviceAccount:foo\@bar.com"
  */
 @property(nonatomic, copy, nullable) NSString *writerIdentity;
@@ -827,7 +827,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  */
 @interface GTLRLogging_CopyLogEntriesRequest : GTLRObject
 
-/** Required. Destination to which to copy logs. */
+/** Required. Destination to which to copy log entries. */
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
@@ -837,8 +837,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Required. Bucket from which to copy logs. e.g.
- *  "projects/my-project/locations/my-location/buckets/my-source-bucket
+ *  Required. Log bucket from which to copy log entries.For
+ *  example:"projects/my-project/locations/global/buckets/my-source-bucket"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1501,7 +1501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes a repository of logs.
+ *  Describes a repository in which log entries are stored.
  */
 @interface GTLRLogging_LogBucket : GTLRObject
 
@@ -1533,29 +1533,29 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *lifecycleState;
 
 /**
- *  Whether the bucket has been locked. The retention period on a locked bucket
- *  may not be changed. Locked buckets may only be deleted if they are empty.
+ *  Whether the bucket is locked.The retention period on a locked bucket cannot
+ *  be changed. Locked buckets may only be deleted if they are empty.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *locked;
 
 /**
- *  Output only. The resource name of the bucket. For example:
- *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id" The
- *  supported locations are: global, us-central1, us-east1, us-west1,
- *  asia-east1, europe-west1.For the location of global it is unspecified where
- *  logs are actually stored. Once a bucket has been created, the location can
- *  not be changed.
+ *  Output only. The resource name of the bucket.For
+ *  example:projects/my-project/locations/global/buckets/my-bucketFor a list of
+ *  supported locations, see Supported Regions
+ *  (https://cloud.google.com/logging/docs/region-support)For the location of
+ *  global it is unspecified where log entries are actually stored.After a
+ *  bucket has been created, the location cannot be changed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Log entry field paths that are denied access in this bucket. The following
+ *  Log entry field paths that are denied access in this bucket.The following
  *  fields and their children are eligible: textPayload, jsonPayload,
- *  protoPayload, httpRequest, labels, sourceLocation. Restricting a repeated
- *  field will restrict all values. Adding a parent will block all child fields
- *  e.g. foo.bar will block foo.bar.baz.
+ *  protoPayload, httpRequest, labels, sourceLocation.Restricting a repeated
+ *  field will restrict all values. Adding a parent will block all child fields.
+ *  (e.g. foo.bar will block foo.bar.baz)
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedFields;
 
@@ -1871,10 +1871,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Specifies a set of log entries that are not to be stored in Logging. If your
- *  GCP resource receives a large volume of logs, you can use exclusions to
- *  reduce your chargeable logs. Exclusions are processed after log sinks, so
- *  you can export log entries before they are excluded. Note that
+ *  Specifies a set of log entries that are not to be stored in Cloud Logging.
+ *  If your GCP resource receives a large volume of log entries, you can use
+ *  exclusions to reduce your chargeable logs. Exclusions are processed after
+ *  log sinks, so you can export log entries before they are excluded. Note that
  *  organization-level and folder-level exclusions don't apply to child
  *  resources, and that you can't exclude audit log entries.
  */
@@ -1907,10 +1907,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  (https://cloud.google.com/logging/docs/view/advanced-queries) that matches
  *  the log entries to be excluded. By using the sample function
  *  (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you
- *  can exclude less than 100% of the matching log entries. For example, the
+ *  can exclude less than 100% of the matching log entries.For example, the
  *  following query matches 99% of low-severity log entries from Google Cloud
- *  Storage buckets:"resource.type=gcs_bucket severity<ERROR sample(insertId,
- *  0.99)"
+ *  Storage buckets:resource.type=gcs_bucket severity<ERROR sample(insertId,
+ *  0.99)
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2130,7 +2130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Describes a sink used to export log entries to one of the following
  *  destinations in any project: a Cloud Storage bucket, a BigQuery dataset, a
- *  Cloud Pub/Sub topic or a Cloud Logging Bucket. A logs filter controls which
+ *  Pub/Sub topic or a Cloud Logging log bucket. A logs filter controls which
  *  log entries are exported. The sink must be created within a project,
  *  organization, billing account, or folder.
  */
@@ -2146,7 +2146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. A description of this sink. The maximum length of the description
+ *  Optional. A description of this sink.The maximum length of the description
  *  is 8000 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -2165,7 +2165,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *destination;
 
 /**
- *  Optional. If set to True, then this sink is disabled and it does not export
+ *  Optional. If set to true, then this sink is disabled and it does not export
  *  any log entries.
  *
  *  Uses NSNumber of boolValue.
@@ -2173,8 +2173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *disabled;
 
 /**
- *  Optional. Log entries that match any of the exclusion filters will not be
- *  exported. If a log entry is matched by both filter and one of
+ *  Optional. Log entries that match any of these exclusion filters will not be
+ *  exported.If a log entry is matched by both filter and one of
  *  exclusion_filters it will not be exported.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogExclusion *> *exclusions;
@@ -2183,8 +2183,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. An advanced logs filter
  *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
  *  exported log entries are those that are in the resource owning the sink and
- *  that match the filter. For example:
- *  logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
+ *  that match the filter.For
+ *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -2192,14 +2192,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. This field applies only to sinks owned by organizations and
  *  folders. If the field is false, the default, only the logs owned by the
  *  sink's parent resource are available for export. If the field is true, then
- *  logs from all the projects, folders, and billing accounts contained in the
- *  sink's parent resource are also available for export. Whether a particular
- *  log entry from the children is exported depends on the sink's filter
- *  expression. For example, if this field is true, then the filter
+ *  log entries from all the projects, folders, and billing accounts contained
+ *  in the sink's parent resource are also available for export. Whether a
+ *  particular log entry from the children is exported depends on the sink's
+ *  filter expression.For example, if this field is true, then the filter
  *  resource.type=gce_instance would export all Compute Engine VM instance log
- *  entries from all projects in the sink's parent. To only export entries from
- *  certain child projects, filter on the project part of the log name:
- *  logName:("projects/test-project1/" OR "projects/test-project2/") AND
+ *  entries from all projects in the sink's parent.To only export entries from
+ *  certain child projects, filter on the project part of the log
+ *  name:logName:("projects/test-project1/" OR "projects/test-project2/") AND
  *  resource.type=gce_instance
  *
  *  Uses NSNumber of boolValue.
@@ -2207,8 +2207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) NSNumber *includeChildren;
 
 /**
- *  Required. The client-assigned sink identifier, unique within the project.
- *  Example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
+ *  Required. The client-assigned sink identifier, unique within the project.For
+ *  example: "my-syslog-errors-to-pubsub". Sink identifiers are limited to 100
  *  characters and can include only the following characters: upper and
  *  lower-case alphanumeric characters, underscores, hyphens, and periods. First
  *  character has to be alphanumeric.
@@ -2236,9 +2236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Output only. An IAM identity—a service account or group—under which Logging
- *  writes the exported log entries to the sink's destination. This field is set
- *  by sinks.create and sinks.update based on the value of
+ *  Output only. An IAM identity—a service account or group—under which Cloud
+ *  Logging writes the exported log entries to the sink's destination. This
+ *  field is set by sinks.create and sinks.update based on the value of
  *  unique_writer_identity in those methods.Until you grant this identity
  *  write-access to the destination, log entry exports from this sink will fail.
  *  For more information, see Granting Access for a Resource
@@ -2252,7 +2252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes a view over logs in a bucket.
+ *  Describes a view over log entries in a bucket.
  */
 @interface GTLRLogging_LogView : GTLRObject
 
@@ -2268,16 +2268,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Filter that restricts which log entries in a bucket are visible in this
- *  view. Filters are restricted to be a logical AND of ==/!= of any of the
+ *  view.Filters are restricted to be a logical AND of ==/!= of any of the
  *  following: originating project/folder/organization/billing account. resource
- *  type log id Example: SOURCE("projects/myproject") AND resource.type =
+ *  type log idFor example:SOURCE("projects/myproject") AND resource.type =
  *  "gce_instance" AND LOG_ID("stdout")
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The resource name of the view. For example
- *  "projects/my-project-id/locations/my-location/buckets/my-bucket-id/views/my-view
+ *  The resource name of the view.For
+ *  example:projects/my-project/locations/global/buckets/my-bucket/views/my-view
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

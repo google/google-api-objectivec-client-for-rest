@@ -72,6 +72,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_AptArtifact_PackageType
 // GTLRArtifactRegistry_Repository.format
 
 /**
+ *  APT package format.
+ *
+ *  Value: "APT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Apt;
+/**
  *  Docker package format.
  *
  *  Value: "DOCKER"
@@ -107,6 +113,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Pypi;
  *  Value: "PYTHON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Python;
+/**
+ *  YUM package format.
+ *
+ *  Value: "YUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Yum;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_YumArtifact.packageType
@@ -520,6 +532,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  The format of packages that are stored in the repository.
  *
  *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Apt APT package format.
+ *        (Value: "APT")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Docker Docker package
  *        format. (Value: "DOCKER")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_FormatUnspecified
@@ -532,6 +546,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        (Value: "PYPI")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Python Python package
  *        format. (Value: "PYTHON")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Yum YUM package format.
+ *        (Value: "YUM")
  */
 @property(nonatomic, copy, nullable) NSString *format;
 

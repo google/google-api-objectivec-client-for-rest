@@ -99,12 +99,36 @@ NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Image = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Intoto = @"INTOTO";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Package = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Sbom = @"SBOM";
+NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxFile = @"SPDX_FILE";
+NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_SpdxPackage = @"SPDX_PACKAGE";
 NSString * const kGTLRContainerAnalysis_Discovery_AnalysisKind_Vulnerability = @"VULNERABILITY";
 
 // GTLRContainerAnalysis_Distribution.architecture
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_ArchitectureUnspecified = @"ARCHITECTURE_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X64 = @"X64";
 NSString * const kGTLRContainerAnalysis_Distribution_Architecture_X86 = @"X86";
+
+// GTLRContainerAnalysis_ExternalRef.category
+NSString * const kGTLRContainerAnalysis_ExternalRef_Category_CategoryUnspecified = @"CATEGORY_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Other = @"OTHER";
+NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PackageManager = @"PACKAGE_MANAGER";
+NSString * const kGTLRContainerAnalysis_ExternalRef_Category_PersistentId = @"PERSISTENT_ID";
+NSString * const kGTLRContainerAnalysis_ExternalRef_Category_Security = @"SECURITY";
+
+// GTLRContainerAnalysis_FileNote.fileType
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Application = @"APPLICATION";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Archive = @"ARCHIVE";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Audio = @"AUDIO";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Binary = @"BINARY";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Documentation = @"DOCUMENTATION";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_FileTypeUnspecified = @"FILE_TYPE_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Image = @"IMAGE";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Other = @"OTHER";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Source = @"SOURCE";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Spdx = @"SPDX";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Text = @"TEXT";
+NSString * const kGTLRContainerAnalysis_FileNote_FileType_Video = @"VIDEO";
 
 // GTLRContainerAnalysis_FixableTotalByDigest.severity
 NSString * const kGTLRContainerAnalysis_FixableTotalByDigest_Severity_Critical = @"CRITICAL";
@@ -167,6 +191,9 @@ NSString * const kGTLRContainerAnalysis_Note_Kind_Image        = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Intoto       = @"INTOTO";
 NSString * const kGTLRContainerAnalysis_Note_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Package      = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_Note_Kind_Sbom         = @"SBOM";
+NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxFile     = @"SPDX_FILE";
+NSString * const kGTLRContainerAnalysis_Note_Kind_SpdxPackage  = @"SPDX_PACKAGE";
 NSString * const kGTLRContainerAnalysis_Note_Kind_Vulnerability = @"VULNERABILITY";
 
 // GTLRContainerAnalysis_Occurrence.kind
@@ -178,11 +205,60 @@ NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Image  = @"IMAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Intoto = @"INTOTO";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_NoteKindUnspecified = @"NOTE_KIND_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Package = @"PACKAGE";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Sbom   = @"SBOM";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxFile = @"SPDX_FILE";
+NSString * const kGTLRContainerAnalysis_Occurrence_Kind_SpdxPackage = @"SPDX_PACKAGE";
 NSString * const kGTLRContainerAnalysis_Occurrence_Kind_Vulnerability = @"VULNERABILITY";
 
 // GTLRContainerAnalysis_PgpSignedAttestation.contentType
 NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_ContentTypeUnspecified = @"CONTENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRContainerAnalysis_PgpSignedAttestation_ContentType_SimpleSigningJson = @"SIMPLE_SIGNING_JSON";
+
+// GTLRContainerAnalysis_RelationshipOccurrence.type
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Amends = @"AMENDS";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_AncestorOf = @"ANCESTOR_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildDependencyOf = @"BUILD_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_BuildToolOf = @"BUILD_TOOL_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ContainedBy = @"CONTAINED_BY";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Contains = @"CONTAINS";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_CopyOf = @"COPY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DataFileOf = @"DATA_FILE_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyManifestOf = @"DEPENDENCY_MANIFEST_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependencyOf = @"DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DependsOn = @"DEPENDS_ON";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescendantOf = @"DESCENDANT_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DescribedBy = @"DESCRIBED_BY";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Describes = @"DESCRIBES";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevDependencyOf = @"DEV_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DevToolOf = @"DEV_TOOL_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DistributionArtifact = @"DISTRIBUTION_ARTIFACT";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DocumentationOf = @"DOCUMENTATION_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_DynamicLink = @"DYNAMIC_LINK";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExampleOf = @"EXAMPLE_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ExpandedFromArchive = @"EXPANDED_FROM_ARCHIVE";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileAdded = @"FILE_ADDED";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileDeleted = @"FILE_DELETED";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_FileModified = @"FILE_MODIFIED";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_GeneratedFrom = @"GENERATED_FROM";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Generates = @"GENERATES";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_HasPrerequisite = @"HAS_PREREQUISITE";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_MetafileOf = @"METAFILE_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalComponentOf = @"OPTIONAL_COMPONENT_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_OptionalDependencyOf = @"OPTIONAL_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_Other = @"OTHER";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PackageOf = @"PACKAGE_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchApplied = @"PATCH_APPLIED";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PatchFor = @"PATCH_FOR";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_PrerequisiteFor = @"PREREQUISITE_FOR";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_ProvidedDependencyOf = @"PROVIDED_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_RuntimeDependencyOf = @"RUNTIME_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_StaticLink = @"STATIC_LINK";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestCaseOf = @"TEST_CASE_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestDependencyOf = @"TEST_DEPENDENCY_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestOf = @"TEST_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TestToolOf = @"TEST_TOOL_OF";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRContainerAnalysis_RelationshipOccurrence_Type_VariantOf = @"VARIANT_OF";
 
 // GTLRContainerAnalysis_Version.kind
 NSString * const kGTLRContainerAnalysis_Version_Kind_Maximum   = @"MAXIMUM";
@@ -641,6 +717,45 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_DocumentNote
+//
+
+@implementation GTLRContainerAnalysis_DocumentNote
+@dynamic dataLicence, spdxVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_DocumentOccurrence
+//
+
+@implementation GTLRContainerAnalysis_DocumentOccurrence
+@dynamic createTime, creatorComment, creators, documentComment,
+         externalDocumentRefs, identifier, licenseListVersion,
+         namespaceProperty, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"namespaceProperty" : @"namespace"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"creators" : [NSString class],
+    @"externalDocumentRefs" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_Empty
 //
 
@@ -689,6 +804,16 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainerAnalysis_ExternalRef
+//
+
+@implementation GTLRContainerAnalysis_ExternalRef
+@dynamic category, comment, locator, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainerAnalysis_FileHashes
 //
 
@@ -698,6 +823,49 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fileHash" : [GTLRContainerAnalysis_Hash class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_FileNote
+//
+
+@implementation GTLRContainerAnalysis_FileNote
+@dynamic checksum, fileType, title;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"checksum" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_FileOccurrence
+//
+
+@implementation GTLRContainerAnalysis_FileOccurrence
+@dynamic attributions, comment, contributors, copyright, filesLicenseInfo,
+         identifier, licenseComments, licenseConcluded, notice;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributions" : [NSString class],
+    @"contributors" : [NSString class],
+    @"filesLicenseInfo" : [NSString class]
   };
   return map;
 }
@@ -1119,8 +1287,8 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 @implementation GTLRContainerAnalysis_Note
 @dynamic attestationAuthority, baseImage, build, createTime, deployable,
          discovery, expirationTime, intoto, kind, longDescription, name,
-         package, relatedNoteNames, relatedUrl, shortDescription, updateTime,
-         vulnerability;
+         package, relatedNoteNames, relatedUrl, sbom, shortDescription,
+         spdxFile, spdxPackage, spdxRelationship, updateTime, vulnerability;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1147,7 +1315,8 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 @implementation GTLRContainerAnalysis_Occurrence
 @dynamic attestation, build, createTime, deployment, derivedImage, discovered,
          installation, intoto, kind, name, noteName, remediation, resource,
-         updateTime, vulnerability;
+         sbom, spdxFile, spdxPackage, spdxRelationship, updateTime,
+         vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -1183,6 +1352,44 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 @implementation GTLRContainerAnalysis_PackageIssue
 @dynamic affectedLocation, fixedLocation, severityName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_PackageNote
+//
+
+@implementation GTLRContainerAnalysis_PackageNote
+@dynamic analyzed, attribution, checksum, copyright, detailedDescription,
+         downloadLocation, externalRefs, filesLicenseInfo, homePage,
+         licenseDeclared, originator, summaryDescription, supplier, title,
+         verificationCode, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalRefs" : [GTLRContainerAnalysis_ExternalRef class],
+    @"filesLicenseInfo" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_PackageOccurrence
+//
+
+@implementation GTLRContainerAnalysis_PackageOccurrence
+@dynamic comment, filename, identifier, licenseComments, licenseConcluded,
+         sourceInfo;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end
 
 
@@ -1235,6 +1442,25 @@ NSString * const kGTLRContainerAnalysis_Vulnerability_Severity_SeverityUnspecifi
 
 @implementation GTLRContainerAnalysis_RelatedUrl
 @dynamic label, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_RelationshipNote
+//
+
+@implementation GTLRContainerAnalysis_RelationshipNote
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainerAnalysis_RelationshipOccurrence
+//
+
+@implementation GTLRContainerAnalysis_RelationshipOccurrence
+@dynamic comment, source, target, type;
 @end
 
 

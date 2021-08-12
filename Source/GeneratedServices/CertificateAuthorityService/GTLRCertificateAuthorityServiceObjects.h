@@ -2972,10 +2972,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @interface GTLRCertificateAuthorityService_SubordinateConfig : GTLRObject
 
 /**
- *  Required. This can refer to a CertificateAuthority in the same project that
- *  was used to create a subordinate CertificateAuthority. This field is used
- *  for information and usability purposes only. The resource name is in the
- *  format `projects/ * /locations/ * /caPools/ * /certificateAuthorities/ *`.
+ *  Required. This can refer to a CertificateAuthority that was used to create a
+ *  subordinate CertificateAuthority. This field is used for information and
+ *  usability purposes only. The resource name is in the format `projects/ *
+ *  /locations/ * /caPools/ * /certificateAuthorities/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *certificateAuthority;
 

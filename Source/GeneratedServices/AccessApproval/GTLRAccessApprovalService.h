@@ -6,7 +6,7 @@
 // Description:
 //   An API for controlling access to data by Google personnel.
 // Documentation:
-//   https://cloud.google.com/access-approval/docs
+//   https://cloud.google.com/cloud-provider-access-management/access-approval/docs
 
 #if SWIFT_PACKAGE || GTLR_USE_MODULAR_IMPORT
   @import GoogleAPIClientForRESTCore;

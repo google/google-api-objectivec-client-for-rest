@@ -448,17 +448,6 @@ NSString * const kGTLRTranscoder_Manifest_Type_ManifestTypeUnspecified = @"MANIF
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRTranscoder_OperationMetadata
-//
-
-@implementation GTLRTranscoder_OperationMetadata
-@dynamic apiVersion, cancelRequested, createTime, endTime, statusDetail, target,
-         verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRTranscoder_OriginUri
 //
 

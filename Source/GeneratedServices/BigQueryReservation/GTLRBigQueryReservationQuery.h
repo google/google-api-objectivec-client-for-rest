@@ -107,6 +107,13 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsDelete : GTLRBigQueryReservationQuery
 
 /**
+ *  Can be used to force delete commitments even if assignments exist. Deleting
+ *  commitments with assignments may cause queries to fail if they no longer
+ *  have access to slots.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
  *  Required. Resource name of the capacity commitment to delete. E.g.,
  *  `projects/myproject/locations/US/capacityCommitments/123`
  */

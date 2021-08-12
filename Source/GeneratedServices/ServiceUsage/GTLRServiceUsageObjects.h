@@ -1569,8 +1569,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *deprecationDescription;
 
 /**
- *  The description is the comment in front of the selected proto element, such
- *  as a message, a method, a 'service' definition, or a field.
+ *  Description of the selected proto element (e.g. a message, a method, a
+ *  'service' definition, or a field). Defaults to leading & trailing comments
+ *  taken from the proto source definition of the proto element.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -3169,7 +3170,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Required. The monitored resource type. For example, the type
- *  `"cloudsql_database"` represents databases in Google Cloud SQL.
+ *  `"cloudsql_database"` represents databases in Google Cloud SQL. For a list
+ *  of types, see [Monitoring resource
+ *  types](https://cloud.google.com/monitoring/api/resources) and [Logging
+ *  resource types](https://cloud.google.com/logging/docs/api/v2/resource-list).
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

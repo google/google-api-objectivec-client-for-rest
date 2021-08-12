@@ -28,6 +28,11 @@ NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
+// GTLRContainer_ClusterAutoscaling.autoscalingProfile
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced = @"BALANCED";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_OptimizeUtilization = @"OPTIMIZE_UTILIZATION";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_ProfileUnspecified = @"PROFILE_UNSPECIFIED";
+
 // GTLRContainer_ClusterUpdate.desiredDatapathProvider
 NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
 NSString * const kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified = @"DATAPATH_PROVIDER_UNSPECIFIED";
@@ -43,6 +48,15 @@ NSString * const kGTLRContainer_ClusterUpdate_DesiredPrivateIpv6GoogleAccess_Pri
 NSString * const kGTLRContainer_DatabaseEncryption_State_Decrypted = @"DECRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Encrypted = @"ENCRYPTED";
 NSString * const kGTLRContainer_DatabaseEncryption_State_Unknown = @"UNKNOWN";
+
+// GTLRContainer_LoggingComponentConfig.enableComponents
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
+NSString * const kGTLRContainer_LoggingComponentConfig_EnableComponents_Workloads = @"WORKLOADS";
+
+// GTLRContainer_MonitoringComponentConfig.enableComponents
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_ComponentUnspecified = @"COMPONENT_UNSPECIFIED";
+NSString * const kGTLRContainer_MonitoringComponentConfig_EnableComponents_SystemComponents = @"SYSTEM_COMPONENTS";
 
 // GTLRContainer_NetworkConfig.datapathProvider
 NSString * const kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath = @"ADVANCED_DATAPATH";
@@ -340,13 +354,14 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          enableKubernetesAlpha, enableTpu, endpoint, expireTime, identifier,
          initialClusterVersion, initialNodeCount, instanceGroupUrls,
          ipAllocationPolicy, labelFingerprint, legacyAbac, location, locations,
-         loggingService, maintenancePolicy, masterAuth,
-         masterAuthorizedNetworksConfig, monitoringService, name, network,
-         networkConfig, networkPolicy, nodeConfig, nodeIpv4CidrSize, nodePools,
-         notificationConfig, privateClusterConfig, releaseChannel,
-         resourceLabels, resourceUsageExportConfig, selfLink, servicesIpv4Cidr,
-         shieldedNodes, status, statusMessage, subnetwork, tpuIpv4CidrBlock,
-         verticalPodAutoscaling, workloadIdentityConfig, zoneProperty;
+         loggingConfig, loggingService, maintenancePolicy, masterAuth,
+         masterAuthorizedNetworksConfig, monitoringConfig, monitoringService,
+         name, network, networkConfig, networkPolicy, nodeConfig,
+         nodeIpv4CidrSize, nodePools, notificationConfig, privateClusterConfig,
+         releaseChannel, resourceLabels, resourceUsageExportConfig, selfLink,
+         servicesIpv4Cidr, shieldedNodes, status, statusMessage, subnetwork,
+         tpuIpv4CidrBlock, verticalPodAutoscaling, workloadIdentityConfig,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -391,7 +406,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_ClusterAutoscaling
 @dynamic autoprovisioningLocations, autoprovisioningNodePoolDefaults,
-         enableNodeAutoprovisioning, resourceLimits;
+         autoscalingProfile, enableNodeAutoprovisioning, resourceLimits;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -415,14 +430,14 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          desiredClusterAutoscaling, desiredDatabaseEncryption,
          desiredDatapathProvider, desiredDefaultSnatStatus, desiredImageType,
          desiredIntraNodeVisibilityConfig, desiredL4ilbSubsettingConfig,
-         desiredLocations, desiredLoggingService,
+         desiredLocations, desiredLoggingConfig, desiredLoggingService,
          desiredMasterAuthorizedNetworksConfig, desiredMasterVersion,
-         desiredMonitoringService, desiredNodePoolAutoscaling,
-         desiredNodePoolId, desiredNodeVersion, desiredNotificationConfig,
-         desiredPrivateClusterConfig, desiredPrivateIpv6GoogleAccess,
-         desiredReleaseChannel, desiredResourceUsageExportConfig,
-         desiredShieldedNodes, desiredVerticalPodAutoscaling,
-         desiredWorkloadIdentityConfig;
+         desiredMonitoringConfig, desiredMonitoringService,
+         desiredNodePoolAutoscaling, desiredNodePoolId, desiredNodeVersion,
+         desiredNotificationConfig, desiredPrivateClusterConfig,
+         desiredPrivateIpv6GoogleAccess, desiredReleaseChannel,
+         desiredResourceUsageExportConfig, desiredShieldedNodes,
+         desiredVerticalPodAutoscaling, desiredWorkloadIdentityConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -819,6 +834,34 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_LoggingComponentConfig
+//
+
+@implementation GTLRContainer_LoggingComponentConfig
+@dynamic enableComponents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableComponents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_LoggingConfig
+//
+
+@implementation GTLRContainer_LoggingConfig
+@dynamic componentConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_MaintenancePolicy
 //
 
@@ -897,6 +940,34 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_Metric
 @dynamic doubleValue, intValue, name, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MonitoringComponentConfig
+//
+
+@implementation GTLRContainer_MonitoringComponentConfig
+@dynamic enableComponents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enableComponents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_MonitoringConfig
+//
+
+@implementation GTLRContainer_MonitoringConfig
+@dynamic componentConfig;
 @end
 
 
@@ -1006,13 +1077,24 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_NodeNetworkConfig
+//
+
+@implementation GTLRContainer_NodeNetworkConfig
+@dynamic createPodRange, podIpv4CidrBlock, podRange;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_NodePool
 //
 
 @implementation GTLRContainer_NodePool
 @dynamic autoscaling, conditions, config, initialNodeCount, instanceGroupUrls,
-         locations, management, maxPodsConstraint, name, podIpv4CidrSize,
-         selfLink, status, statusMessage, upgradeSettings, version;
+         locations, management, maxPodsConstraint, name, networkConfig,
+         podIpv4CidrSize, selfLink, status, statusMessage, upgradeSettings,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

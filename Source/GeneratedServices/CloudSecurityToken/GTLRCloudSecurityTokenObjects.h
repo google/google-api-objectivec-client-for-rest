@@ -35,8 +35,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The full resource name of the identity provider; for example:
- *  `//iam.googleapis.com/projects//workloadIdentityPools//providers/`. Required
- *  when exchanging an external credential for a Google access token.
+ *  `//iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/`.
+ *  Required when exchanging an external credential for a Google access token.
  */
 @property(nonatomic, copy, nullable) NSString *audience;
 
@@ -121,8 +121,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  without an `https:` prefix. To help ensure data integrity, we recommend
  *  including this header in the `SignedHeaders` field of the signed request.
  *  For example:
- *  //iam.googleapis.com/projects//locations//workloadIdentityPools//providers/
- *  https://iam.googleapis.com/projects//locations//workloadIdentityPools//providers/
+ *  //iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/
+ *  https://iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/
  *  If you are using temporary security credentials provided by AWS, you must
  *  also include the header `x-amz-security-token`, with the value set to the
  *  session token. The following example shows a `GetCallerIdentity` token: ```
@@ -130,7 +130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  "Authorization", "value":
  *  "AWS4-HMAC-SHA256+Credential=$credential,+SignedHeaders=host;x-amz-date;x-goog-cloud-target-resource,+Signature=$signature"},
  *  {"key": "x-goog-cloud-target-resource", "value":
- *  "//iam.googleapis.com/projects//locations//workloadIdentityPools//providers/"},
+ *  "//iam.googleapis.com/projects//locations/global/workloadIdentityPools//providers/"},
  *  {"key": "host", "value": "sts.amazonaws.com"} . ], "method": "POST", "url":
  *  "https://sts.amazonaws.com?Action=GetCallerIdentity&Version=2011-06-15" }
  *  ``` You can also use a Google-issued OAuth 2.0 access token with this field
@@ -264,7 +264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  The human-readable identifier for the token principal subject. For example,
  *  if the provided token is associated with a workload identity pool, this
  *  field contains a value in the following format:
- *  `principal://iam.googleapis.com/projects//locations//workloadIdentityPools//subject/`
+ *  `principal://iam.googleapis.com/projects//locations/global/workloadIdentityPools//subject/`
  */
 @property(nonatomic, copy, nullable) NSString *username;
 

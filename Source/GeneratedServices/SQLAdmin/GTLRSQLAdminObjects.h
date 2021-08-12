@@ -54,6 +54,7 @@
 @class GTLRSQLAdmin_LocationPreference;
 @class GTLRSQLAdmin_MaintenanceWindow;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
+@class GTLRSQLAdmin_MySqlSyncConfig;
 @class GTLRSQLAdmin_OnPremisesConfiguration;
 @class GTLRSQLAdmin_Operation;
 @class GTLRSQLAdmin_OperationError;
@@ -1405,6 +1406,54 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "UNSUPPORTED_TABLE_DEFINITION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_UnsupportedTableDefinition;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest.syncMode
+
+/**
+ *  Unknown external sync mode, will be defaulted to ONLINE mode
+ *
+ *  Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_ExternalSyncModeUnspecified;
+/**
+ *  Offline external sync only dumps and loads a one-time snapshot of the
+ *  primary instance's data
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Offline;
+/**
+ *  Online external sync will set up replication after initial data external
+ *  sync
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Online;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest.syncMode
+
+/**
+ *  Unknown external sync mode, will be defaulted to ONLINE mode
+ *
+ *  Value: "EXTERNAL_SYNC_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_ExternalSyncModeUnspecified;
+/**
+ *  Offline external sync only dumps and loads a one-time snapshot of the
+ *  primary instance's data
+ *
+ *  Value: "OFFLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Offline;
+/**
+ *  Online external sync will set up replication after initial data external
+ *  sync
+ *
+ *  Value: "ONLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Online;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlOutOfDiskReport.sqlOutOfDiskState
@@ -3022,6 +3071,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @interface GTLRSQLAdmin_IpConfiguration : GTLRObject
 
 /**
+ *  The name of the allocated ip range for the private ip CloudSQL instance. For
+ *  example: "google-managed-services-default". If set, the instance ip will be
+ *  created in the allocated range. The range name must comply with [RFC
+ *  1035](https://tools.ietf.org/html/rfc1035). Specifically, the name must be
+ *  1-63 characters long and match the regular expression
+ *  [a-z]([-a-z0-9]*[a-z0-9])?. Reserved for future use.
+ */
+@property(nonatomic, copy, nullable) NSString *allocatedIpRange;
+
+/**
  *  The list of external networks that are allowed to connect to the instance
  *  using the IP. In 'CIDR' notation, also known as 'slash' notation (for
  *  example: **192.168.100.0/24**).
@@ -3238,6 +3297,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *verifyServerCertificate;
 
+@end
+
+
+/**
+ *  MySQL-specific external server sync settings.
+ */
+@interface GTLRSQLAdmin_MySqlSyncConfig : GTLRObject
 @end
 
 
@@ -3945,6 +4011,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Required. The type of the reschedule the user wants. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_Reschedule *reschedule;
+
+@end
+
+
+/**
+ *  Instance start external sync request.
+ */
+@interface GTLRSQLAdmin_SqlInstancesStartExternalSyncRequest : GTLRObject
+
+/** MySQL-specific settings for start external sync. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
+
+/**
+ *  Whether to skip the verification step (VESS).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipVerification;
+
+/**
+ *  External sync mode.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_ExternalSyncModeUnspecified
+ *        Unknown external sync mode, will be defaulted to ONLINE mode (Value:
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Offline
+ *        Offline external sync only dumps and loads a one-time snapshot of the
+ *        primary instance's data (Value: "OFFLINE")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesStartExternalSyncRequest_SyncMode_Online
+ *        Online external sync will set up replication after initial data
+ *        external sync (Value: "ONLINE")
+ */
+@property(nonatomic, copy, nullable) NSString *syncMode;
+
+@end
+
+
+/**
+ *  Instance verify external sync settings request.
+ */
+@interface GTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest : GTLRObject
+
+/** Optional. MySQL-specific settings for start external sync. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_MySqlSyncConfig *mysqlSyncConfig;
+
+/**
+ *  External sync mode
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_ExternalSyncModeUnspecified
+ *        Unknown external sync mode, will be defaulted to ONLINE mode (Value:
+ *        "EXTERNAL_SYNC_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Offline
+ *        Offline external sync only dumps and loads a one-time snapshot of the
+ *        primary instance's data (Value: "OFFLINE")
+ *    @arg @c kGTLRSQLAdmin_SqlInstancesVerifyExternalSyncSettingsRequest_SyncMode_Online
+ *        Online external sync will set up replication after initial data
+ *        external sync (Value: "ONLINE")
+ */
+@property(nonatomic, copy, nullable) NSString *syncMode;
+
+/**
+ *  Flag to enable verifying connection only
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifyConnectionOnly;
 
 @end
 

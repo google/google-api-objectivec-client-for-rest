@@ -15,6 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRChromeManagement_GoogleChromeManagementV1AppDetails.type
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Android = @"ANDROID";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_AppItemTypeUnspecified = @"APP_ITEM_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Chrome = @"CHROME";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementV1AppDetails_Type_Web = @"WEB";
+
 // GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion.channel
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Beta = @"BETA";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementV1BrowserVersion_Channel_Canary = @"CANARY";
@@ -56,11 +62,97 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppT
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AndroidAppInfo
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AndroidAppPermission
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1AppDetails
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1AppDetails
+@dynamic androidAppInfo, appId, chromeAppInfo, descriptionProperty, detailUri,
+         displayName, firstPublishTime, homepageUri, iconUri, isPaidApp,
+         latestPublishTime, name, privacyPolicyUri, publisher, reviewNumber,
+         reviewRating, revisionId, serviceError, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1BrowserVersion
 @dynamic channel, count, deviceOsVersion, system, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo
+@dynamic googleOwned, isCwsHosted, isTheme, minUserCount, permissions,
+         siteAccess, supportEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission class],
+    @"siteAccess" : [GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppPermission
+@dynamic accessUserData, documentationUri, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ChromeAppSiteAccess
+@dynamic hostMatch;
 @end
 
 
@@ -159,6 +251,38 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementV1InstalledApp_AppT
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleRpcStatus
+//
+
+@implementation GTLRChromeManagement_GoogleRpcStatus
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRChromeManagement_GoogleRpcStatus_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleRpcStatus_Details_Item
+//
+
+@implementation GTLRChromeManagement_GoogleRpcStatus_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

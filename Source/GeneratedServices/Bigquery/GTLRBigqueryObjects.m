@@ -708,8 +708,13 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_CsvOptions
-@dynamic allowJaggedRows, allowQuotedNewlines, encoding, fieldDelimiter, quote,
-         skipLeadingRows;
+@dynamic allowJaggedRows, allowQuotedNewlines, encoding, fieldDelimiter,
+         nullMarker, quote, skipLeadingRows;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"nullMarker" : @"null_marker" };
+}
+
 @end
 
 
@@ -721,8 +726,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 @implementation GTLRBigquery_Dataset
 @dynamic access, creationTime, datasetReference, defaultEncryptionConfiguration,
          defaultPartitionExpirationMs, defaultTableExpirationMs,
-         descriptionProperty, ETag, friendlyName, identifier, kind, labels,
-         lastModifiedTime, location, satisfiesPZS, selfLink;
+         descriptionProperty, ETag, friendlyName, identifier, isCaseInsensitive,
+         kind, labels, lastModifiedTime, location, satisfiesPZS, selfLink;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2346,8 +2351,8 @@ NSString * const kGTLRBigquery_TrainingOptions_OptimizationStrategy_Optimization
 //
 
 @implementation GTLRBigquery_TableFieldSchema
-@dynamic categories, descriptionProperty, fields, maxLength, mode, name,
-         policyTags, precision, scale, type;
+@dynamic categories, collationSpec, descriptionProperty, fields, maxLength,
+         mode, name, policyTags, precision, scale, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

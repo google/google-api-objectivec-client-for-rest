@@ -199,13 +199,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_PkixPublicKey_Signat
 // GTLRBinaryAuthorization_Policy.globalPolicyEvaluationMode
 
 /**
- *  Disables global policy evaluation.
+ *  Disables system policy evaluation.
  *
  *  Value: "DISABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable;
 /**
- *  Enables global policy evaluation.
+ *  Enables system policy evaluation.
  *
  *  Value: "ENABLE"
  */
@@ -784,9 +784,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBinaryAuthorization_ValidateAttestationO
  *
  *  Likely values:
  *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Disable
- *        Disables global policy evaluation. (Value: "DISABLE")
+ *        Disables system policy evaluation. (Value: "DISABLE")
  *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_Enable
- *        Enables global policy evaluation. (Value: "ENABLE")
+ *        Enables system policy evaluation. (Value: "ENABLE")
  *    @arg @c kGTLRBinaryAuthorization_Policy_GlobalPolicyEvaluationMode_GlobalPolicyEvaluationModeUnspecified
  *        Not specified: DISABLE is assumed. (Value:
  *        "GLOBAL_POLICY_EVALUATION_MODE_UNSPECIFIED")

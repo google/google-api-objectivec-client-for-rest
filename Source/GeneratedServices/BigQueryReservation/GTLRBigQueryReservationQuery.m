@@ -47,7 +47,7 @@
 
 @implementation GTLRBigQueryReservationQuery_ProjectsLocationsCapacityCommitmentsDelete
 
-@dynamic name;
+@dynamic force, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

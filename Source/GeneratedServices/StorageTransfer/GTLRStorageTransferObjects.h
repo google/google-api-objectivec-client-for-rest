@@ -30,11 +30,13 @@
 @class GTLRStorageTransfer_ErrorSummary;
 @class GTLRStorageTransfer_GcsData;
 @class GTLRStorageTransfer_HttpData;
+@class GTLRStorageTransfer_LoggingConfig;
 @class GTLRStorageTransfer_NotificationConfig;
 @class GTLRStorageTransfer_ObjectConditions;
 @class GTLRStorageTransfer_Operation;
 @class GTLRStorageTransfer_Operation_Metadata;
 @class GTLRStorageTransfer_Operation_Response;
+@class GTLRStorageTransfer_PosixFilesystem;
 @class GTLRStorageTransfer_Schedule;
 @class GTLRStorageTransfer_Status;
 @class GTLRStorageTransfer_Status_Details_Item;
@@ -396,9 +398,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
- *  Input only. The Amazon Resource Name (ARN) of the role to support temporary
- *  credentials via `AssumeRoleWithWebIdentity`. For more information about
- *  ARNs, see [IAM
+ *  The Amazon Resource Name (ARN) of the role to support temporary credentials
+ *  via `AssumeRoleWithWebIdentity`. For more information about ARNs, see [IAM
  *  ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns).
  *  When a role ARN is provided, Transfer Service fetches temporary credentials
  *  for the session using a `AssumeRoleWithWebIdentity` call for the provided
@@ -793,6 +794,23 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 
 
 /**
+ *  Logging configure.
+ */
+@interface GTLRStorageTransfer_LoggingConfig : GTLRObject
+
+/**
+ *  Enables the Cloud Storage transfer logs for this transfer. This is only
+ *  supported for transfer jobs with PosixFilesystem sources. The default is
+ *  that logs are not generated for this transfer.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableOnpremGcsTransferLogs;
+
+@end
+
+
+/**
  *  Specification to configure notifications published to Pub/Sub. Notifications
  *  are published to the customer-provided topic using the following
  *  `PubsubMessage.attributes`: * `"eventType"`: one of the EventType values *
@@ -1009,6 +1027,17 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Request passed to PauseTransferOperation.
  */
 @interface GTLRStorageTransfer_PauseTransferOperationRequest : GTLRObject
+@end
+
+
+/**
+ *  A POSIX filesystem data source or sink.
+ */
+@interface GTLRStorageTransfer_PosixFilesystem : GTLRObject
+
+/** Root directory path to the filesystem. */
+@property(nonatomic, copy, nullable) NSString *rootDirectory;
+
 @end
 
 
@@ -1247,6 +1276,34 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
 @property(nonatomic, strong, nullable) NSNumber *bytesFromSourceSkippedBySync;
 
 /**
+ *  For transfers involving PosixFilesystem only. Number of listing failures for
+ *  each directory found at the source. Potential failures when listing a
+ *  directory include permission failure or block failure. If listing a
+ *  directory fails, no files in the directory are transferred.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directoriesFailedToListFromSource;
+
+/**
+ *  For transfers involving PosixFilesystem only. Number of directories found
+ *  while listing. For example, if the root directory of the transfer is `base/`
+ *  and there are two other directories, `a/` and `b/` under this directory, the
+ *  count after listing `base/`, `base/a/` and `base/b/` is 3.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directoriesFoundFromSource;
+
+/**
+ *  For transfers involving PosixFilesystem only. Number of successful listings
+ *  for each directory found at the source.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *directoriesSuccessfullyListedFromSource;
+
+/**
  *  Objects that are copied to the data sink.
  *
  *  Uses NSNumber of longLongValue.
@@ -1337,6 +1394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  Present if a TransferOperation has been created for this JobConfig.
  */
 @property(nonatomic, copy, nullable) NSString *latestOperationName;
+
+/** Logging configuration. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_LoggingConfig *loggingConfig;
 
 /**
  *  A unique name (within the transfer project) assigned when the job is
@@ -1519,6 +1579,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOperation_Status
  *  modification time" do not exclude objects in a data sink.
  */
 @property(nonatomic, strong, nullable) GTLRStorageTransfer_ObjectConditions *objectConditions;
+
+/** A POSIX Filesystem data source. */
+@property(nonatomic, strong, nullable) GTLRStorageTransfer_PosixFilesystem *posixDataSource;
 
 /**
  *  If the option delete_objects_unique_in_sink is `true` and time-based object

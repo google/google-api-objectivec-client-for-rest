@@ -72,8 +72,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBloodPressureWrite;
 /**
- *  Authorization scope: See info about your body measurements and heart rate in
- *  Google Fit
+ *  Authorization scope: See info about your body measurements in Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.read"
  */
@@ -93,8 +92,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureRead;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeFitnessBodyTemperatureWrite;
 /**
- *  Authorization scope: Add info about your body measurements and heart rate to
- *  Google Fit
+ *  Authorization scope: Add info about your body measurements to Google Fit
  *
  *  Value "https://www.googleapis.com/auth/fitness.body.write"
  */

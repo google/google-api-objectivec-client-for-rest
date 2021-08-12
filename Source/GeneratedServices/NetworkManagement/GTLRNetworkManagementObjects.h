@@ -694,6 +694,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering;
 /**
+ *  Next hop is a [router appliance
+ *  instance](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
+ *
+ *  Value: "NEXT_HOP_ROUTER_APPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance;
+/**
  *  Unspecified type. Default value.
  *
  *  Value: "NEXT_HOP_TYPE_UNSPECIFIED"
@@ -2307,6 +2314,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        hop is a VPC network gateway. (Value: "NEXT_HOP_NETWORK")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopPeering Next
  *        hop is a peering VPC. (Value: "NEXT_HOP_PEERING")
+ *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopRouterAppliance
+ *        Next hop is a [router appliance
+ *        instance](https://cloud.google.com/network-connectivity/docs/network-connectivity-center/concepts/ra-overview).
+ *        (Value: "NEXT_HOP_ROUTER_APPLIANCE")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopTypeUnspecified
  *        Unspecified type. Default value. (Value: "NEXT_HOP_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_RouteInfo_NextHopType_NextHopVpnGateway

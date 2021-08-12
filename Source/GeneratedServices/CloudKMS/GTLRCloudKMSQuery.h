@@ -28,9 +28,12 @@
 @class GTLRCloudKMS_DecryptRequest;
 @class GTLRCloudKMS_DestroyCryptoKeyVersionRequest;
 @class GTLRCloudKMS_EncryptRequest;
+@class GTLRCloudKMS_GenerateRandomBytesRequest;
 @class GTLRCloudKMS_ImportCryptoKeyVersionRequest;
 @class GTLRCloudKMS_ImportJob;
 @class GTLRCloudKMS_KeyRing;
+@class GTLRCloudKMS_MacSignRequest;
+@class GTLRCloudKMS_MacVerifyRequest;
 @class GTLRCloudKMS_RestoreCryptoKeyVersionRequest;
 @class GTLRCloudKMS_SetIamPolicyRequest;
 @class GTLRCloudKMS_TestIamPermissionsRequest;
@@ -91,6 +94,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Generate random bytes using the Cloud KMS randomness source in the provided
+ *  location.
+ *
+ *  Method: cloudkms.projects.locations.generateRandomBytes
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes : GTLRCloudKMSQuery
+
+/**
+ *  The project-specific location in which to generate random bytes. For
+ *  example, "projects/my-project/locations/us-central1".
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_GenerateRandomBytesResponse.
+ *
+ *  Generate random bytes using the Cloud KMS randomness source in the provided
+ *  location.
+ *
+ *  @param object The @c GTLRCloudKMS_GenerateRandomBytesRequest to include in
+ *    the query.
+ *  @param location The project-specific location in which to generate random
+ *    bytes. For example, "projects/my-project/locations/us-central1".
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsGenerateRandomBytes
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_GenerateRandomBytesRequest *)object
+                       location:(NSString *)location;
 
 @end
 
@@ -514,6 +553,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a
+ *  tag that can be verified by another source with the same key.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macSign
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign : GTLRCloudKMSQuery
+
+/** Required. The resource name of the CryptoKeyVersion to use for signing. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_MacSignResponse.
+ *
+ *  Signs data using a CryptoKeyVersion with CryptoKey.purpose MAC, producing a
+ *  tag that can be verified by another source with the same key.
+ *
+ *  @param object The @c GTLRCloudKMS_MacSignRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    signing.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacSign
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacSignRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and
+ *  returns a response that indicates whether or not the verification was
+ *  successful.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.macVerify
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the CryptoKeyVersion to use for verification.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_MacVerifyResponse.
+ *
+ *  Verifies MAC tag using a CryptoKeyVersion with CryptoKey.purpose MAC, and
+ *  returns a response that indicates whether or not the verification was
+ *  successful.
+ *
+ *  @param object The @c GTLRCloudKMS_MacVerifyRequest to include in the query.
+ *  @param name Required. The resource name of the CryptoKeyVersion to use for
+ *    verification.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsMacVerify
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_MacVerifyRequest *)object
+                           name:(NSString *)name;
 
 @end
 

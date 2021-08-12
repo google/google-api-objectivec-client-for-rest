@@ -48,6 +48,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeFirebaseCloudMessagingCloudPlatform
+ *    @c kGTLRAuthScopeFirebaseCloudMessagingFirebaseMessaging
  */
 @interface GTLRFirebaseCloudMessagingQuery_ProjectsMessagesSend : GTLRFirebaseCloudMessagingQuery
 

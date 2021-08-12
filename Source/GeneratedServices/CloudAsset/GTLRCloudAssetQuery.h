@@ -69,6 +69,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeOrgPolicy;
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeOsInventory;
 /**
+ *  The related resources.
+ *
+ *  Value: "RELATIONSHIP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAssetContentTypeRelationship;
+/**
  *  Resource metadata.
  *
  *  Value: "RESOURCE"
@@ -157,6 +163,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *        manager Policy set on an asset. (Value: "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAssetContentTypeOsInventory The runtime OS Inventory
  *        information. (Value: "OS_INVENTORY")
+ *    @arg @c kGTLRCloudAssetContentTypeRelationship The related resources.
+ *        (Value: "RELATIONSHIP")
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
@@ -189,6 +197,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *  same query may get different results.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/**
+ *  A list of relationship types to output, for example:
+ *  `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if
+ *  content_type=RELATIONSHIP. * If specified: it snapshots specified
+ *  relationships. It returns an error if any of the [relationship_types]
+ *  doesn't belong to the supported relationship types of the [asset_types] or
+ *  if any of the [asset_types] doesn't belong to the source types of the
+ *  [relationship_types]. * Otherwise: it snapshots the supported relationships
+ *  for all [asset_types] or returns an error if any of the [asset_types] has no
+ *  relationship support. An unspecified asset types field means all supported
+ *  asset_types. See [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all
+ *  supported asset types and relationship types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relationshipTypes;
 
 /**
  *  Fetches a @c GTLRCloudAsset_ListAssetsResponse.
@@ -750,6 +774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
  *        manager Policy set on an asset. (Value: "ACCESS_POLICY")
  *    @arg @c kGTLRCloudAssetContentTypeOsInventory The runtime OS Inventory
  *        information. (Value: "OS_INVENTORY")
+ *    @arg @c kGTLRCloudAssetContentTypeRelationship The related resources.
+ *        (Value: "RELATIONSHIP")
  */
 @property(nonatomic, copy, nullable) NSString *contentType;
 
@@ -768,6 +794,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAssetViewFull;
 
 /** Start time of the time window (exclusive). */
 @property(nonatomic, strong, nullable) GTLRDateTime *readTimeWindowStartTime;
+
+/**
+ *  Optional. A list of relationship types to output, for example:
+ *  `INSTANCE_TO_INSTANCEGROUP`. This field should only be specified if
+ *  content_type=RELATIONSHIP. * If specified: it outputs specified
+ *  relationships' history on the [asset_names]. It returns an error if any of
+ *  the [relationship_types] doesn't belong to the supported relationship types
+ *  of the [asset_names] or if any of the [asset_names]'s types doesn't belong
+ *  to the source types of the [relationship_types]. * Otherwise: it outputs the
+ *  supported relationships' history on the [asset_names] or returns an error if
+ *  any of the [asset_names]'s types has no relationship support. See
+ *  [Introduction to Cloud Asset
+ *  Inventory](https://cloud.google.com/asset-inventory/docs/overview) for all
+ *  supported asset types and relationship types.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *relationshipTypes;
 
 /**
  *  Fetches a @c GTLRCloudAsset_BatchGetAssetsHistoryResponse.

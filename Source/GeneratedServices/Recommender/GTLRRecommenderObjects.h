@@ -35,6 +35,7 @@
 @class GTLRRecommender_GoogleCloudRecommenderV1OperationGroup;
 @class GTLRRecommender_GoogleCloudRecommenderV1Recommendation;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent;
+@class GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationInsightReference;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo;
 @class GTLRRecommender_GoogleCloudRecommenderV1RecommendationStateInfo_StateMetadata;
@@ -916,6 +917,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reco
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1OperationGroup *> *operationGroups;
 
+/** Condensed overview information about the recommendation. */
+@property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview *overview;
+
+@end
+
+
+/**
+ *  Condensed overview information about the recommendation.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRRecommender_GoogleCloudRecommenderV1RecommendationContent_Overview : GTLRObject
 @end
 
 

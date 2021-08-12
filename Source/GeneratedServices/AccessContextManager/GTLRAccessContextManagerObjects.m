@@ -308,6 +308,15 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata
+//
+
+@implementation GTLRAccessContextManager_GcpUserAccessBindingOperationMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_IngressFrom
 //
 
@@ -519,6 +528,15 @@ NSString * const kGTLRAccessContextManager_ServicePerimeter_PerimeterType_Perime
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAccessContextManager_OperationMetadata
+//
+
+@implementation GTLRAccessContextManager_OperationMetadata
 @end
 
 
